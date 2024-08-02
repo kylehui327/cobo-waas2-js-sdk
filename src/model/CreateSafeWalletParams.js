@@ -19,7 +19,6 @@ import WalletType from './WalletType';
 /**
  * The CreateSafeWalletParams model module.
  * @module model/CreateSafeWalletParams
- * @version 1.0.0
  */
 class CreateSafeWalletParams {
     /**

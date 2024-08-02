@@ -15,7 +15,6 @@ import ApiClient from '../ApiClient';
 /**
  * The UtxoFeeBasePrice model module.
  * @module model/UtxoFeeBasePrice
- * @version 1.0.0
  */
 class UtxoFeeBasePrice {
     /**

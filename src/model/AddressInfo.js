@@ -16,7 +16,6 @@ import AddressEncoding from './AddressEncoding';
 /**
  * The AddressInfo model module.
  * @module model/AddressInfo
- * @version 1.0.0
  */
 class AddressInfo {
     /**

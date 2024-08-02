@@ -17,7 +17,6 @@ import TransactionRequestFee from './TransactionRequestFee';
 /**
  * The TransactionRbf model module.
  * @module model/TransactionRbf
- * @version 1.0.0
  */
 class TransactionRbf {
     /**

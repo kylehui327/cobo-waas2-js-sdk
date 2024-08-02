@@ -16,7 +16,6 @@ import TransactionRequestFee from './TransactionRequestFee';
 /**
  * The CreateWithdrawActivity model module.
  * @module model/CreateWithdrawActivity
- * @version 1.0.0
  */
 class CreateWithdrawActivity {
     /**

@@ -16,7 +16,6 @@ import WebhookEvent from './WebhookEvent';
 /**
  * The WebhookEventLog model module.
  * @module model/WebhookEventLog
- * @version 1.0.0
  */
 class WebhookEventLog {
     /**

@@ -18,7 +18,6 @@ import WalletSubtype from './WalletSubtype';
 /**
  * The TransactionRbfSource model module.
  * @module model/TransactionRbfSource
- * @version 1.0.0
  */
 class TransactionRbfSource {
     /**

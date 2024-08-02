@@ -16,7 +16,6 @@ import WalletSubtype from './WalletSubtype';
 /**
  * The CustodialTransferSource model module.
  * @module model/CustodialTransferSource
- * @version 1.0.0
  */
 class CustodialTransferSource {
     /**

@@ -15,7 +15,6 @@ import ApiClient from '../ApiClient';
 /**
  * The TransactionUtxo model module.
  * @module model/TransactionUtxo
- * @version 1.0.0
  */
 class TransactionUtxo {
     /**

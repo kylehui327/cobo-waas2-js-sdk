@@ -17,7 +17,6 @@ import UTXO from './UTXO';
 /**
  * The ListUtxos200Response model module.
  * @module model/ListUtxos200Response
- * @version 1.0.0
  */
 class ListUtxos200Response {
     /**

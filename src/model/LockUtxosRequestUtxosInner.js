@@ -15,7 +15,6 @@ import ApiClient from '../ApiClient';
 /**
  * The LockUtxosRequestUtxosInner model module.
  * @module model/LockUtxosRequestUtxosInner
- * @version 1.0.0
  */
 class LockUtxosRequestUtxosInner {
     /**

@@ -16,7 +16,6 @@ import MPCVaultType from './MPCVaultType';
 /**
  * The CreateMpcVaultRequest model module.
  * @module model/CreateMpcVaultRequest
- * @version 1.0.0
  */
 class CreateMpcVaultRequest {
     /**

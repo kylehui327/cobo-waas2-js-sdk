@@ -19,7 +19,6 @@ import TransactionRequestFee from './TransactionRequestFee';
 /**
  * The Activity model module.
  * @module model/Activity
- * @version 1.0.0
  */
 class Activity {
     /**

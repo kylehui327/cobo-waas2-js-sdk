@@ -21,7 +21,6 @@ import TransactionRequestFee from './TransactionRequestFee';
 /**
  * The EstimateStakeFee model module.
  * @module model/EstimateStakeFee
- * @version 1.0.0
  */
 class EstimateStakeFee {
     /**

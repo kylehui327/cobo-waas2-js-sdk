@@ -16,7 +16,6 @@ import WalletSubtype from './WalletSubtype';
 /**
  * The ExchangeTransferSource model module.
  * @module model/ExchangeTransferSource
- * @version 1.0.0
  */
 class ExchangeTransferSource {
     /**

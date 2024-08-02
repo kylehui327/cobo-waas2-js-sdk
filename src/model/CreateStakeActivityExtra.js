@@ -19,7 +19,6 @@ import StakingPoolType from './StakingPoolType';
 /**
  * The CreateStakeActivityExtra model module.
  * @module model/CreateStakeActivityExtra
- * @version 1.0.0
  */
 class CreateStakeActivityExtra {
     /**

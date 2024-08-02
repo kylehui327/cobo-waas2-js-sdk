@@ -15,7 +15,6 @@ import ApiClient from '../ApiClient';
 /**
  * The SmartContractInitiator model module.
  * @module model/SmartContractInitiator
- * @version 1.0.0
  */
 class SmartContractInitiator {
     /**

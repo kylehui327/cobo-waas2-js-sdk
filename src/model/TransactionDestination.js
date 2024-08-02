@@ -28,7 +28,6 @@ import WalletType from './WalletType';
 /**
  * The TransactionDestination model module.
  * @module model/TransactionDestination
- * @version 1.0.0
  */
 class TransactionDestination {
     /**

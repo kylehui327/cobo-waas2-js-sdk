@@ -38,7 +38,6 @@ import WalletType from '../model/WalletType';
 /**
 * Wallets service.
 * @module api/WalletsApi
-* @version 1.0.0
 */
 export default class WalletsApi {
 
@@ -64,7 +63,7 @@ export default class WalletsApi {
      */
     checkAddressValidityWithHttpInfo(chain_id, address) {
       let postBody = null;
-      if (postBody.toJSON) {
+      if (postBody && postBody.toJSON) {
           postBody = postBody.toJSON()
       }
       // verify the required parameter 'chain_id' is set
@@ -124,7 +123,7 @@ export default class WalletsApi {
     createAddressWithHttpInfo(wallet_id, opts) {
       opts = opts || {};
       let postBody = opts['CreateAddressRequest'];
-      if (postBody.toJSON) {
+      if (postBody && postBody.toJSON) {
           postBody = postBody.toJSON()
       }
       // verify the required parameter 'wallet_id' is set
@@ -179,7 +178,7 @@ export default class WalletsApi {
     createWalletWithHttpInfo(opts) {
       opts = opts || {};
       let postBody = opts['CreateWalletParams'];
-      if (postBody.toJSON) {
+      if (postBody && postBody.toJSON) {
           postBody = postBody.toJSON()
       }
 
@@ -226,7 +225,7 @@ export default class WalletsApi {
      */
     deleteWalletByIdWithHttpInfo(wallet_id) {
       let postBody = null;
-      if (postBody.toJSON) {
+      if (postBody && postBody.toJSON) {
           postBody = postBody.toJSON()
       }
       // verify the required parameter 'wallet_id' is set
@@ -278,7 +277,7 @@ export default class WalletsApi {
      */
     getAddressWithHttpInfo(wallet_id, address) {
       let postBody = null;
-      if (postBody.toJSON) {
+      if (postBody && postBody.toJSON) {
           postBody = postBody.toJSON()
       }
       // verify the required parameter 'wallet_id' is set
@@ -335,7 +334,7 @@ export default class WalletsApi {
      */
     getChainByIdWithHttpInfo(chain_id) {
       let postBody = null;
-      if (postBody.toJSON) {
+      if (postBody && postBody.toJSON) {
           postBody = postBody.toJSON()
       }
       // verify the required parameter 'chain_id' is set
@@ -392,7 +391,7 @@ export default class WalletsApi {
     getMaxTransferableValueWithHttpInfo(wallet_id, token_id, fee_rate, to_address, opts) {
       opts = opts || {};
       let postBody = null;
-      if (postBody.toJSON) {
+      if (postBody && postBody.toJSON) {
           postBody = postBody.toJSON()
       }
       // verify the required parameter 'wallet_id' is set
@@ -464,7 +463,7 @@ export default class WalletsApi {
      */
     getTokenByIdWithHttpInfo(token_id) {
       let postBody = null;
-      if (postBody.toJSON) {
+      if (postBody && postBody.toJSON) {
           postBody = postBody.toJSON()
       }
       // verify the required parameter 'token_id' is set
@@ -515,7 +514,7 @@ export default class WalletsApi {
      */
     getWalletByIdWithHttpInfo(wallet_id) {
       let postBody = null;
-      if (postBody.toJSON) {
+      if (postBody && postBody.toJSON) {
           postBody = postBody.toJSON()
       }
       // verify the required parameter 'wallet_id' is set
@@ -573,7 +572,7 @@ export default class WalletsApi {
     listAddressesWithHttpInfo(wallet_id, opts) {
       opts = opts || {};
       let postBody = null;
-      if (postBody.toJSON) {
+      if (postBody && postBody.toJSON) {
           postBody = postBody.toJSON()
       }
       // verify the required parameter 'wallet_id' is set
@@ -641,7 +640,7 @@ export default class WalletsApi {
     listEnabledChainsWithHttpInfo(opts) {
       opts = opts || {};
       let postBody = null;
-      if (postBody.toJSON) {
+      if (postBody && postBody.toJSON) {
           postBody = postBody.toJSON()
       }
 
@@ -704,7 +703,7 @@ export default class WalletsApi {
     listEnabledTokensWithHttpInfo(opts) {
       opts = opts || {};
       let postBody = null;
-      if (postBody.toJSON) {
+      if (postBody && postBody.toJSON) {
           postBody = postBody.toJSON()
       }
 
@@ -769,7 +768,7 @@ export default class WalletsApi {
     listSupportedChainsWithHttpInfo(opts) {
       opts = opts || {};
       let postBody = null;
-      if (postBody.toJSON) {
+      if (postBody && postBody.toJSON) {
           postBody = postBody.toJSON()
       }
 
@@ -835,7 +834,7 @@ export default class WalletsApi {
     listSupportedTokensWithHttpInfo(opts) {
       opts = opts || {};
       let postBody = null;
-      if (postBody.toJSON) {
+      if (postBody && postBody.toJSON) {
           postBody = postBody.toJSON()
       }
 
@@ -902,7 +901,7 @@ export default class WalletsApi {
     listTokenBalancesForAddressWithHttpInfo(wallet_id, address, opts) {
       opts = opts || {};
       let postBody = null;
-      if (postBody.toJSON) {
+      if (postBody && postBody.toJSON) {
           postBody = postBody.toJSON()
       }
       // verify the required parameter 'wallet_id' is set
@@ -974,7 +973,7 @@ export default class WalletsApi {
     listTokenBalancesForWalletWithHttpInfo(wallet_id, opts) {
       opts = opts || {};
       let postBody = null;
-      if (postBody.toJSON) {
+      if (postBody && postBody.toJSON) {
           postBody = postBody.toJSON()
       }
       // verify the required parameter 'wallet_id' is set
@@ -1041,7 +1040,7 @@ export default class WalletsApi {
     listUtxosWithHttpInfo(wallet_id, token_id, opts) {
       opts = opts || {};
       let postBody = null;
-      if (postBody.toJSON) {
+      if (postBody && postBody.toJSON) {
           postBody = postBody.toJSON()
       }
       // verify the required parameter 'wallet_id' is set
@@ -1115,7 +1114,7 @@ export default class WalletsApi {
     listWalletsWithHttpInfo(opts) {
       opts = opts || {};
       let postBody = null;
-      if (postBody.toJSON) {
+      if (postBody && postBody.toJSON) {
           postBody = postBody.toJSON()
       }
 
@@ -1178,7 +1177,7 @@ export default class WalletsApi {
     lockUtxosWithHttpInfo(wallet_id, opts) {
       opts = opts || {};
       let postBody = opts['LockUtxosRequest'];
-      if (postBody.toJSON) {
+      if (postBody && postBody.toJSON) {
           postBody = postBody.toJSON()
       }
       // verify the required parameter 'wallet_id' is set
@@ -1234,7 +1233,7 @@ export default class WalletsApi {
     unlockUtxosWithHttpInfo(wallet_id, opts) {
       opts = opts || {};
       let postBody = opts['LockUtxosRequest'];
-      if (postBody.toJSON) {
+      if (postBody && postBody.toJSON) {
           postBody = postBody.toJSON()
       }
       // verify the required parameter 'wallet_id' is set
@@ -1290,7 +1289,7 @@ export default class WalletsApi {
     updateWalletByIdWithHttpInfo(wallet_id, opts) {
       opts = opts || {};
       let postBody = opts['UpdateWalletParams'];
-      if (postBody.toJSON) {
+      if (postBody && postBody.toJSON) {
           postBody = postBody.toJSON()
       }
       // verify the required parameter 'wallet_id' is set

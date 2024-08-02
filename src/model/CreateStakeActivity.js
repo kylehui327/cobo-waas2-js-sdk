@@ -18,7 +18,6 @@ import TransactionRequestFee from './TransactionRequestFee';
 /**
  * The CreateStakeActivity model module.
  * @module model/CreateStakeActivity
- * @version 1.0.0
  */
 class CreateStakeActivity {
     /**

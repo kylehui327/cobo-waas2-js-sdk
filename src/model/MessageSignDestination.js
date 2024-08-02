@@ -18,7 +18,6 @@ import MessageSignDestinationType from './MessageSignDestinationType';
 /**
  * The MessageSignDestination model module.
  * @module model/MessageSignDestination
- * @version 1.0.0
  */
 class MessageSignDestination {
     /**

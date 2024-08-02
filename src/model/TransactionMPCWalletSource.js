@@ -17,7 +17,6 @@ import TransactionUtxo from './TransactionUtxo';
 /**
  * The TransactionMPCWalletSource model module.
  * @module model/TransactionMPCWalletSource
- * @version 1.0.0
  */
 class TransactionMPCWalletSource {
     /**

@@ -17,7 +17,6 @@ import ContractCallSourceType from './ContractCallSourceType';
 /**
  * The MpcContractCallSource model module.
  * @module model/MpcContractCallSource
- * @version 1.0.0
  */
 class MpcContractCallSource {
     /**

@@ -18,7 +18,6 @@ import TSSRequestType from './TSSRequestType';
 /**
  * The TSSRequest model module.
  * @module model/TSSRequest
- * @version 1.0.0
  */
 class TSSRequest {
     /**

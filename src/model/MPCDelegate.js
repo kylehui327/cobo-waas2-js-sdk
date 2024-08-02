@@ -16,7 +16,6 @@ import CoboSafeDelegateType from './CoboSafeDelegateType';
 /**
  * The MPCDelegate model module.
  * @module model/MPCDelegate
- * @version 1.0.0
  */
 class MPCDelegate {
     /**

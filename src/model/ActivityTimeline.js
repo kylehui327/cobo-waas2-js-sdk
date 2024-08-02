@@ -16,7 +16,6 @@ import ActivityAction from './ActivityAction';
 /**
  * The ActivityTimeline model module.
  * @module model/ActivityTimeline
- * @version 1.0.0
  */
 class ActivityTimeline {
     /**

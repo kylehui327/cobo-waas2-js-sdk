@@ -16,7 +16,6 @@ import TransactionUtxo from './TransactionUtxo';
 /**
  * The TransactionRawTxInfo model module.
  * @module model/TransactionRawTxInfo
- * @version 1.0.0
  */
 class TransactionRawTxInfo {
     /**

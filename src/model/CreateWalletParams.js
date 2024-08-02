@@ -21,7 +21,6 @@ import WalletType from './WalletType';
 /**
  * The CreateWalletParams model module.
  * @module model/CreateWalletParams
- * @version 1.0.0
  */
 class CreateWalletParams {
     /**

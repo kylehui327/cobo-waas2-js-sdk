@@ -17,7 +17,6 @@ import Pagination from './Pagination';
 /**
  * The ListMpcProjects200Response model module.
  * @module model/ListMpcProjects200Response
- * @version 1.0.0
  */
 class ListMpcProjects200Response {
     /**

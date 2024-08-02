@@ -15,7 +15,6 @@ import ApiClient from '../ApiClient';
 /**
  * The BabylonValidator model module.
  * @module model/BabylonValidator
- * @version 1.0.0
  */
 class BabylonValidator {
     /**

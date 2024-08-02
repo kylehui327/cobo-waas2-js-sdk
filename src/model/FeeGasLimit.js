@@ -15,7 +15,6 @@ import ApiClient from '../ApiClient';
 /**
  * The FeeGasLimit model module.
  * @module model/FeeGasLimit
- * @version 1.0.0
  */
 class FeeGasLimit {
     /**

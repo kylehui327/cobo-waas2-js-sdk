@@ -17,7 +17,6 @@ import Pagination from './Pagination';
 /**
  * The ListAddresses200Response model module.
  * @module model/ListAddresses200Response
- * @version 1.0.0
  */
 class ListAddresses200Response {
     /**

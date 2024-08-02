@@ -16,7 +16,6 @@ import WalletType from './WalletType';
 /**
  * The UpdateCustodialWalletParams model module.
  * @module model/UpdateCustodialWalletParams
- * @version 1.0.0
  */
 class UpdateCustodialWalletParams {
     /**

@@ -17,7 +17,6 @@ import Pagination from './Pagination';
 /**
  * The ListMpcVaults200Response model module.
  * @module model/ListMpcVaults200Response
- * @version 1.0.0
  */
 class ListMpcVaults200Response {
     /**

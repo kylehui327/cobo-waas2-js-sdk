@@ -17,7 +17,6 @@ import Pagination from './Pagination';
 /**
  * The ListKeyShareHolderGroups200Response model module.
  * @module model/ListKeyShareHolderGroups200Response
- * @version 1.0.0
  */
 class ListKeyShareHolderGroups200Response {
     /**

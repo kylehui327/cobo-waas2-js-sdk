@@ -17,7 +17,6 @@ import FeeType from './FeeType';
 /**
  * The EstimatedEvmEip1559Fee model module.
  * @module model/EstimatedEvmEip1559Fee
- * @version 1.0.0
  */
 class EstimatedEvmEip1559Fee {
     /**

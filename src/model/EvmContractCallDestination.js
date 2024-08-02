@@ -16,7 +16,6 @@ import ContractCallDestinationType from './ContractCallDestinationType';
 /**
  * The EvmContractCallDestination model module.
  * @module model/EvmContractCallDestination
- * @version 1.0.0
  */
 class EvmContractCallDestination {
     /**

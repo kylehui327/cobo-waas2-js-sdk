@@ -36,7 +36,6 @@ import UpdateMpcVaultByIdRequest from '../model/UpdateMpcVaultByIdRequest';
 /**
 * WalletsMPCWallets service.
 * @module api/WalletsMPCWalletsApi
-* @version 1.0.0
 */
 export default class WalletsMPCWalletsApi {
 
@@ -62,7 +61,7 @@ export default class WalletsMPCWalletsApi {
      */
     cancelTssRequestByIdWithHttpInfo(vault_id, tss_request_id) {
       let postBody = null;
-      if (postBody.toJSON) {
+      if (postBody && postBody.toJSON) {
           postBody = postBody.toJSON()
       }
       // verify the required parameter 'vault_id' is set
@@ -122,7 +121,7 @@ export default class WalletsMPCWalletsApi {
     createKeyShareHolderGroupWithHttpInfo(vault_id, opts) {
       opts = opts || {};
       let postBody = opts['CreateKeyShareHolderGroupRequest'];
-      if (postBody.toJSON) {
+      if (postBody && postBody.toJSON) {
           postBody = postBody.toJSON()
       }
       // verify the required parameter 'vault_id' is set
@@ -177,7 +176,7 @@ export default class WalletsMPCWalletsApi {
     createMpcProjectWithHttpInfo(opts) {
       opts = opts || {};
       let postBody = opts['CreateMpcProjectRequest'];
-      if (postBody.toJSON) {
+      if (postBody && postBody.toJSON) {
           postBody = postBody.toJSON()
       }
 
@@ -226,7 +225,7 @@ export default class WalletsMPCWalletsApi {
     createMpcVaultWithHttpInfo(opts) {
       opts = opts || {};
       let postBody = opts['CreateMpcVaultRequest'];
-      if (postBody.toJSON) {
+      if (postBody && postBody.toJSON) {
           postBody = postBody.toJSON()
       }
 
@@ -276,7 +275,7 @@ export default class WalletsMPCWalletsApi {
     createTssRequestWithHttpInfo(vault_id, opts) {
       opts = opts || {};
       let postBody = opts['CreateTssRequestRequest'];
-      if (postBody.toJSON) {
+      if (postBody && postBody.toJSON) {
           postBody = postBody.toJSON()
       }
       // verify the required parameter 'vault_id' is set
@@ -330,7 +329,7 @@ export default class WalletsMPCWalletsApi {
      */
     deleteKeyShareHolderGroupByIdWithHttpInfo(vault_id, key_share_holder_group_id) {
       let postBody = null;
-      if (postBody.toJSON) {
+      if (postBody && postBody.toJSON) {
           postBody = postBody.toJSON()
       }
       // verify the required parameter 'vault_id' is set
@@ -388,7 +387,7 @@ export default class WalletsMPCWalletsApi {
      */
     getKeyShareHolderGroupByIdWithHttpInfo(vault_id, key_share_holder_group_id) {
       let postBody = null;
-      if (postBody.toJSON) {
+      if (postBody && postBody.toJSON) {
           postBody = postBody.toJSON()
       }
       // verify the required parameter 'vault_id' is set
@@ -445,7 +444,7 @@ export default class WalletsMPCWalletsApi {
      */
     getMpcProjectByIdWithHttpInfo(project_id) {
       let postBody = null;
-      if (postBody.toJSON) {
+      if (postBody && postBody.toJSON) {
           postBody = postBody.toJSON()
       }
       // verify the required parameter 'project_id' is set
@@ -496,7 +495,7 @@ export default class WalletsMPCWalletsApi {
      */
     getMpcVaultByIdWithHttpInfo(vault_id) {
       let postBody = null;
-      if (postBody.toJSON) {
+      if (postBody && postBody.toJSON) {
           postBody = postBody.toJSON()
       }
       // verify the required parameter 'vault_id' is set
@@ -548,7 +547,7 @@ export default class WalletsMPCWalletsApi {
      */
     getTssRequestByIdWithHttpInfo(vault_id, tss_request_id) {
       let postBody = null;
-      if (postBody.toJSON) {
+      if (postBody && postBody.toJSON) {
           postBody = postBody.toJSON()
       }
       // verify the required parameter 'vault_id' is set
@@ -604,7 +603,7 @@ export default class WalletsMPCWalletsApi {
      */
     listCoboKeyHoldersWithHttpInfo() {
       let postBody = null;
-      if (postBody.toJSON) {
+      if (postBody && postBody.toJSON) {
           postBody = postBody.toJSON()
       }
 
@@ -655,7 +654,7 @@ export default class WalletsMPCWalletsApi {
     listKeyShareHolderGroupsWithHttpInfo(vault_id, opts) {
       opts = opts || {};
       let postBody = null;
-      if (postBody.toJSON) {
+      if (postBody && postBody.toJSON) {
           postBody = postBody.toJSON()
       }
       // verify the required parameter 'vault_id' is set
@@ -719,7 +718,7 @@ export default class WalletsMPCWalletsApi {
     listMpcProjectsWithHttpInfo(opts) {
       opts = opts || {};
       let postBody = null;
-      if (postBody.toJSON) {
+      if (postBody && postBody.toJSON) {
           postBody = postBody.toJSON()
       }
 
@@ -777,7 +776,7 @@ export default class WalletsMPCWalletsApi {
     listMpcVaultsWithHttpInfo(vault_type, opts) {
       opts = opts || {};
       let postBody = null;
-      if (postBody.toJSON) {
+      if (postBody && postBody.toJSON) {
           postBody = postBody.toJSON()
       }
       // verify the required parameter 'vault_type' is set
@@ -843,7 +842,7 @@ export default class WalletsMPCWalletsApi {
     listTssRequestsWithHttpInfo(vault_id, key_share_holder_group_id, opts) {
       opts = opts || {};
       let postBody = null;
-      if (postBody.toJSON) {
+      if (postBody && postBody.toJSON) {
           postBody = postBody.toJSON()
       }
       // verify the required parameter 'vault_id' is set
@@ -911,7 +910,7 @@ export default class WalletsMPCWalletsApi {
     updateKeyShareHolderGroupByIdWithHttpInfo(vault_id, key_share_holder_group_id, opts) {
       opts = opts || {};
       let postBody = opts['UpdateKeyShareHolderGroupByIdRequest'];
-      if (postBody.toJSON) {
+      if (postBody && postBody.toJSON) {
           postBody = postBody.toJSON()
       }
       // verify the required parameter 'vault_id' is set
@@ -973,7 +972,7 @@ export default class WalletsMPCWalletsApi {
     updateMpcProjectByIdWithHttpInfo(project_id, opts) {
       opts = opts || {};
       let postBody = opts['UpdateMpcProjectByIdRequest'];
-      if (postBody.toJSON) {
+      if (postBody && postBody.toJSON) {
           postBody = postBody.toJSON()
       }
       // verify the required parameter 'project_id' is set
@@ -1029,7 +1028,7 @@ export default class WalletsMPCWalletsApi {
     updateMpcVaultByIdWithHttpInfo(vault_id, opts) {
       opts = opts || {};
       let postBody = opts['UpdateMpcVaultByIdRequest'];
-      if (postBody.toJSON) {
+      if (postBody && postBody.toJSON) {
           postBody = postBody.toJSON()
       }
       // verify the required parameter 'vault_id' is set

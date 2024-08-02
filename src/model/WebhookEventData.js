@@ -27,7 +27,6 @@ import TransactionWebhookEventData from './TransactionWebhookEventData';
 /**
  * The WebhookEventData model module.
  * @module model/WebhookEventData
- * @version 1.0.0
  */
 class WebhookEventData {
     /**

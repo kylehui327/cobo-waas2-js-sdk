@@ -18,7 +18,6 @@ import TransferDestinationType from './TransferDestinationType';
 /**
  * The AddressTransferDestination model module.
  * @module model/AddressTransferDestination
- * @version 1.0.0
  */
 class AddressTransferDestination {
     /**

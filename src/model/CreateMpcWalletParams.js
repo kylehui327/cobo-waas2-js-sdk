@@ -18,7 +18,6 @@ import WalletType from './WalletType';
 /**
  * The CreateMpcWalletParams model module.
  * @module model/CreateMpcWalletParams
- * @version 1.0.0
  */
 class CreateMpcWalletParams {
     /**

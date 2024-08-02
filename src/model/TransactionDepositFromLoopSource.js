@@ -16,7 +16,6 @@ import TransactionSourceType from './TransactionSourceType';
 /**
  * The TransactionDepositFromLoopSource model module.
  * @module model/TransactionDepositFromLoopSource
- * @version 1.0.0
  */
 class TransactionDepositFromLoopSource {
     /**

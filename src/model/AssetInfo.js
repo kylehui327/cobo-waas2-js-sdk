@@ -15,7 +15,6 @@ import ApiClient from '../ApiClient';
 /**
  * The AssetInfo model module.
  * @module model/AssetInfo
- * @version 1.0.0
  */
 class AssetInfo {
     /**

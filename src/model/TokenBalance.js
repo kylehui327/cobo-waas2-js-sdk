@@ -16,7 +16,6 @@ import TokenBalanceBalance from './TokenBalanceBalance';
 /**
  * The TokenBalance model module.
  * @module model/TokenBalance
- * @version 1.0.0
  */
 class TokenBalance {
     /**

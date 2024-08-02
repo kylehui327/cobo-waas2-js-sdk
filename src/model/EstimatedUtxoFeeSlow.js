@@ -17,7 +17,6 @@ import UtxoFeeBasePrice from './UtxoFeeBasePrice';
 /**
  * The EstimatedUtxoFeeSlow model module.
  * @module model/EstimatedUtxoFeeSlow
- * @version 1.0.0
  */
 class EstimatedUtxoFeeSlow {
     /**

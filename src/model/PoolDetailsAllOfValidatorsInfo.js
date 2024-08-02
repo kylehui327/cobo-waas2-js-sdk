@@ -17,7 +17,6 @@ import EigenlayerValidator from './EigenlayerValidator';
 /**
  * The PoolDetailsAllOfValidatorsInfo model module.
  * @module model/PoolDetailsAllOfValidatorsInfo
- * @version 1.0.0
  */
 class PoolDetailsAllOfValidatorsInfo {
     /**

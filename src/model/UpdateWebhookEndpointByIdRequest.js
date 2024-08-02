@@ -16,7 +16,6 @@ import WebhookEventType from './WebhookEventType';
 /**
  * The UpdateWebhookEndpointByIdRequest model module.
  * @module model/UpdateWebhookEndpointByIdRequest
- * @version 1.0.0
  */
 class UpdateWebhookEndpointByIdRequest {
     /**

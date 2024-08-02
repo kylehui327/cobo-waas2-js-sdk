@@ -16,7 +16,6 @@ import TransactionDestinationType from './TransactionDestinationType';
 /**
  * The TransactionEvmContractDestination model module.
  * @module model/TransactionEvmContractDestination
- * @version 1.0.0
  */
 class TransactionEvmContractDestination {
     /**

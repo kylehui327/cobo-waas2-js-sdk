@@ -16,7 +16,6 @@ import TransactionDestinationType from './TransactionDestinationType';
 /**
  * The TransactionMessageSignEIP191Destination model module.
  * @module model/TransactionMessageSignEIP191Destination
- * @version 1.0.0
  */
 class TransactionMessageSignEIP191Destination {
     /**

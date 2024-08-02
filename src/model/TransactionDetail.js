@@ -28,7 +28,6 @@ import TransactionType from './TransactionType';
 /**
  * The TransactionDetail model module.
  * @module model/TransactionDetail
- * @version 1.0.0
  */
 class TransactionDetail {
     /**

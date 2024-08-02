@@ -17,7 +17,6 @@ import MaxFeeAmount from './MaxFeeAmount';
 /**
  * The TransactionFixedFee model module.
  * @module model/TransactionFixedFee
- * @version 1.0.0
  */
 class TransactionFixedFee {
     /**

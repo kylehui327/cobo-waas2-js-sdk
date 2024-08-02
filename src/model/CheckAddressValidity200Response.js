@@ -15,7 +15,6 @@ import ApiClient from '../ApiClient';
 /**
  * The CheckAddressValidity200Response model module.
  * @module model/CheckAddressValidity200Response
- * @version 1.0.0
  */
 class CheckAddressValidity200Response {
     /**

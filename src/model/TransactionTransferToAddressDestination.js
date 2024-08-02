@@ -18,7 +18,6 @@ import TransactionTransferToAddressDestinationUtxoOutputsInner from './Transacti
 /**
  * The TransactionTransferToAddressDestination model module.
  * @module model/TransactionTransferToAddressDestination
- * @version 1.0.0
  */
 class TransactionTransferToAddressDestination {
     /**

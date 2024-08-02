@@ -20,7 +20,6 @@ import WalletType from './WalletType';
 /**
  * The PoolDetails model module.
  * @module model/PoolDetails
- * @version 1.0.0
  */
 class PoolDetails {
     /**

@@ -16,7 +16,6 @@ import ReplaceType from './ReplaceType';
 /**
  * The TransactionReplacement model module.
  * @module model/TransactionReplacement
- * @version 1.0.0
  */
 class TransactionReplacement {
     /**

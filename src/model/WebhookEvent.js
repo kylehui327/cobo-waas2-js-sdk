@@ -18,7 +18,6 @@ import WebhookEventType from './WebhookEventType';
 /**
  * The WebhookEvent model module.
  * @module model/WebhookEvent
- * @version 1.0.0
  */
 class WebhookEvent {
     /**

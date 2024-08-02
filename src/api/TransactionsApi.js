@@ -27,7 +27,6 @@ import TransferParams from '../model/TransferParams';
 /**
 * Transactions service.
 * @module api/TransactionsApi
-* @version 1.0.0
 */
 export default class TransactionsApi {
 
@@ -52,7 +51,7 @@ export default class TransactionsApi {
      */
     cancelTransactionByIdWithHttpInfo(transaction_id) {
       let postBody = null;
-      if (postBody.toJSON) {
+      if (postBody && postBody.toJSON) {
           postBody = postBody.toJSON()
       }
       // verify the required parameter 'transaction_id' is set
@@ -105,7 +104,7 @@ export default class TransactionsApi {
     createContractCallTransactionWithHttpInfo(opts) {
       opts = opts || {};
       let postBody = opts['ContractCallParams'];
-      if (postBody.toJSON) {
+      if (postBody && postBody.toJSON) {
           postBody = postBody.toJSON()
       }
 
@@ -154,7 +153,7 @@ export default class TransactionsApi {
     createMessageSignTransactionWithHttpInfo(opts) {
       opts = opts || {};
       let postBody = opts['MessageSignParams'];
-      if (postBody.toJSON) {
+      if (postBody && postBody.toJSON) {
           postBody = postBody.toJSON()
       }
 
@@ -203,7 +202,7 @@ export default class TransactionsApi {
     createTransferTransactionWithHttpInfo(opts) {
       opts = opts || {};
       let postBody = opts['TransferParams'];
-      if (postBody.toJSON) {
+      if (postBody && postBody.toJSON) {
           postBody = postBody.toJSON()
       }
 
@@ -253,7 +252,7 @@ export default class TransactionsApi {
     dropTransactionByIdWithHttpInfo(transaction_id, opts) {
       opts = opts || {};
       let postBody = opts['TransactionRbf'];
-      if (postBody.toJSON) {
+      if (postBody && postBody.toJSON) {
           postBody = postBody.toJSON()
       }
       // verify the required parameter 'transaction_id' is set
@@ -308,7 +307,7 @@ export default class TransactionsApi {
     estimateFeeWithHttpInfo(opts) {
       opts = opts || {};
       let postBody = opts['EstimateFeeParams'];
-      if (postBody.toJSON) {
+      if (postBody && postBody.toJSON) {
           postBody = postBody.toJSON()
       }
 
@@ -355,7 +354,7 @@ export default class TransactionsApi {
      */
     getTransactionByIdWithHttpInfo(transaction_id) {
       let postBody = null;
-      if (postBody.toJSON) {
+      if (postBody && postBody.toJSON) {
           postBody = postBody.toJSON()
       }
       // verify the required parameter 'transaction_id' is set
@@ -424,7 +423,7 @@ export default class TransactionsApi {
     listTransactionsWithHttpInfo(opts) {
       opts = opts || {};
       let postBody = null;
-      if (postBody.toJSON) {
+      if (postBody && postBody.toJSON) {
           postBody = postBody.toJSON()
       }
 
@@ -507,7 +506,7 @@ export default class TransactionsApi {
     resendTransactionByIdWithHttpInfo(transaction_id, opts) {
       opts = opts || {};
       let postBody = opts['TransactionResend'];
-      if (postBody.toJSON) {
+      if (postBody && postBody.toJSON) {
           postBody = postBody.toJSON()
       }
       // verify the required parameter 'transaction_id' is set
@@ -563,7 +562,7 @@ export default class TransactionsApi {
     speedupTransactionByIdWithHttpInfo(transaction_id, opts) {
       opts = opts || {};
       let postBody = opts['TransactionRbf'];
-      if (postBody.toJSON) {
+      if (postBody && postBody.toJSON) {
           postBody = postBody.toJSON()
       }
       // verify the required parameter 'transaction_id' is set

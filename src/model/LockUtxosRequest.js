@@ -16,7 +16,6 @@ import LockUtxosRequestUtxosInner from './LockUtxosRequestUtxosInner';
 /**
  * The LockUtxosRequest model module.
  * @module model/LockUtxosRequest
- * @version 1.0.0
  */
 class LockUtxosRequest {
     /**

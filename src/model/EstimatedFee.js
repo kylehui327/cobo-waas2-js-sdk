@@ -21,7 +21,6 @@ import FeeType from './FeeType';
 /**
  * The EstimatedFee model module.
  * @module model/EstimatedFee
- * @version 1.0.0
  */
 class EstimatedFee {
     /**

@@ -18,7 +18,6 @@ import WalletType from './WalletType';
 /**
  * The TransactionDepositFromWalletSource model module.
  * @module model/TransactionDepositFromWalletSource
- * @version 1.0.0
  */
 class TransactionDepositFromWalletSource {
     /**

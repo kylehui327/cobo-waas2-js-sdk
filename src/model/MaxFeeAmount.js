@@ -15,7 +15,6 @@ import ApiClient from '../ApiClient';
 /**
  * The MaxFeeAmount model module.
  * @module model/MaxFeeAmount
- * @version 1.0.0
  */
 class MaxFeeAmount {
     /**

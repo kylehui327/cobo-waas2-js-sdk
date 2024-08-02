@@ -19,7 +19,6 @@ import TSSGroups from './TSSGroups';
 /**
  * The KeyShareHolderGroup model module.
  * @module model/KeyShareHolderGroup
- * @version 1.0.0
  */
 class KeyShareHolderGroup {
     /**

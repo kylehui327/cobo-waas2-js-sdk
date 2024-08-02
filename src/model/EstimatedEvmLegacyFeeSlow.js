@@ -17,7 +17,6 @@ import FeeGasLimit from './FeeGasLimit';
 /**
  * The EstimatedEvmLegacyFeeSlow model module.
  * @module model/EstimatedEvmLegacyFeeSlow
- * @version 1.0.0
  */
 class EstimatedEvmLegacyFeeSlow {
     /**

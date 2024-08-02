@@ -15,7 +15,6 @@ import ApiClient from '../ApiClient';
 /**
  * The DeleteWalletById201Response model module.
  * @module model/DeleteWalletById201Response
- * @version 1.0.0
  */
 class DeleteWalletById201Response {
     /**

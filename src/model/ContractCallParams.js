@@ -18,7 +18,6 @@ import TransactionRequestFee from './TransactionRequestFee';
 /**
  * The ContractCallParams model module.
  * @module model/ContractCallParams
- * @version 1.0.0
  */
 class ContractCallParams {
     /**

@@ -15,7 +15,6 @@ import ApiClient from '../ApiClient';
 /**
  * The SourceGroup model module.
  * @module model/SourceGroup
- * @version 1.0.0
  */
 class SourceGroup {
     /**

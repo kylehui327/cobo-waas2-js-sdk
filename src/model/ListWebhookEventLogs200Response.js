@@ -17,7 +17,6 @@ import WebhookEventLog from './WebhookEventLog';
 /**
  * The ListWebhookEventLogs200Response model module.
  * @module model/ListWebhookEventLogs200Response
- * @version 1.0.0
  */
 class ListWebhookEventLogs200Response {
     /**

@@ -16,7 +16,6 @@ import TransactionStatus from './TransactionStatus';
 /**
  * The CreateTransferTransaction201Response model module.
  * @module model/CreateTransferTransaction201Response
- * @version 1.0.0
  */
 class CreateTransferTransaction201Response {
     /**

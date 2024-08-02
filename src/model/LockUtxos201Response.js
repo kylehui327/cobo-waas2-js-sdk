@@ -15,7 +15,6 @@ import ApiClient from '../ApiClient';
 /**
  * The LockUtxos201Response model module.
  * @module model/LockUtxos201Response
- * @version 1.0.0
  */
 class LockUtxos201Response {
     /**

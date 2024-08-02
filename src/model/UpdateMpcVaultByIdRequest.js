@@ -15,7 +15,6 @@ import ApiClient from '../ApiClient';
 /**
  * The UpdateMpcVaultByIdRequest model module.
  * @module model/UpdateMpcVaultByIdRequest
- * @version 1.0.0
  */
 class UpdateMpcVaultByIdRequest {
     /**

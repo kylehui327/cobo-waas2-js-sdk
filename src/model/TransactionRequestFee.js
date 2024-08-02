@@ -20,7 +20,6 @@ import TransactionRequestUtxoFee from './TransactionRequestUtxoFee';
 /**
  * The TransactionRequestFee model module.
  * @module model/TransactionRequestFee
- * @version 1.0.0
  */
 class TransactionRequestFee {
     /**

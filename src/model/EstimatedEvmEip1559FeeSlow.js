@@ -17,7 +17,6 @@ import FeeGasLimit from './FeeGasLimit';
 /**
  * The EstimatedEvmEip1559FeeSlow model module.
  * @module model/EstimatedEvmEip1559FeeSlow
- * @version 1.0.0
  */
 class EstimatedEvmEip1559FeeSlow {
     /**

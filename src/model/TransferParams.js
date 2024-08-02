@@ -18,7 +18,6 @@ import TransferSource from './TransferSource';
 /**
  * The TransferParams model module.
  * @module model/TransferParams
- * @version 1.0.0
  */
 class TransferParams {
     /**

@@ -16,7 +16,6 @@ import ContractCallSourceType from './ContractCallSourceType';
 /**
  * The BaseContractCallSource model module.
  * @module model/BaseContractCallSource
- * @version 1.0.0
  */
 class BaseContractCallSource {
     /**

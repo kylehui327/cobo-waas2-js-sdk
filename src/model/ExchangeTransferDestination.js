@@ -16,7 +16,6 @@ import TransferDestinationType from './TransferDestinationType';
 /**
  * The ExchangeTransferDestination model module.
  * @module model/ExchangeTransferDestination
- * @version 1.0.0
  */
 class ExchangeTransferDestination {
     /**

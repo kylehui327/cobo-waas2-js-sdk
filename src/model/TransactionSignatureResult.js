@@ -16,7 +16,6 @@ import TransactionResultType from './TransactionResultType';
 /**
  * The TransactionSignatureResult model module.
  * @module model/TransactionSignatureResult
- * @version 1.0.0
  */
 class TransactionSignatureResult {
     /**

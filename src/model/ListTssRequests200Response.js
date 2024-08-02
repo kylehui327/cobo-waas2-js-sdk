@@ -17,7 +17,6 @@ import TSSRequest from './TSSRequest';
 /**
  * The ListTssRequests200Response model module.
  * @module model/ListTssRequests200Response
- * @version 1.0.0
  */
 class ListTssRequests200Response {
     /**

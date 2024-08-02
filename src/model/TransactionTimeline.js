@@ -16,7 +16,6 @@ import TransactionStatus from './TransactionStatus';
 /**
  * The TransactionTimeline model module.
  * @module model/TransactionTimeline
- * @version 1.0.0
  */
 class TransactionTimeline {
     /**

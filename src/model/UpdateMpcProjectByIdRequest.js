@@ -15,7 +15,6 @@ import ApiClient from '../ApiClient';
 /**
  * The UpdateMpcProjectByIdRequest model module.
  * @module model/UpdateMpcProjectByIdRequest
- * @version 1.0.0
  */
 class UpdateMpcProjectByIdRequest {
     /**

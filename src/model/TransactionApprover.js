@@ -15,7 +15,6 @@ import ApiClient from '../ApiClient';
 /**
  * The TransactionApprover model module.
  * @module model/TransactionApprover
- * @version 1.0.0
  */
 class TransactionApprover {
     /**

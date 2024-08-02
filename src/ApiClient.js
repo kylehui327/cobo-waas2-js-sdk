@@ -18,7 +18,6 @@ import Env from "./Env";
 
 /**
 * @module ApiClient
-* @version 1.0.0
 */
 
 /**
@@ -59,7 +58,7 @@ class ApiClient {
          * @default {}
          */
         this.defaultHeaders = {
-            'User-Agent': 'cobo-waas2-js-sdk/1.0.0'
+            'User-Agent': 'cobo-waas2-js-sdk/1.0.1'
         };
 
         /**

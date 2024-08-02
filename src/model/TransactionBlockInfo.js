@@ -15,7 +15,6 @@ import ApiClient from '../ApiClient';
 /**
  * The TransactionBlockInfo model module.
  * @module model/TransactionBlockInfo
- * @version 1.0.0
  */
 class TransactionBlockInfo {
     /**

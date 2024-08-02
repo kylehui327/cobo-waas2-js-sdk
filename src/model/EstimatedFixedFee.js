@@ -17,7 +17,6 @@ import FeeType from './FeeType';
 /**
  * The EstimatedFixedFee model module.
  * @module model/EstimatedFixedFee
- * @version 1.0.0
  */
 class EstimatedFixedFee {
     /**

@@ -16,7 +16,6 @@ import UpdateGroupAction from './UpdateGroupAction';
 /**
  * The UpdateKeyShareHolderGroupByIdRequest model module.
  * @module model/UpdateKeyShareHolderGroupByIdRequest
- * @version 1.0.0
  */
 class UpdateKeyShareHolderGroupByIdRequest {
     /**

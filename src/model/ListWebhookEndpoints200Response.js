@@ -17,7 +17,6 @@ import WebhookEndpoint from './WebhookEndpoint';
 /**
  * The ListWebhookEndpoints200Response model module.
  * @module model/ListWebhookEndpoints200Response
- * @version 1.0.0
  */
 class ListWebhookEndpoints200Response {
     /**

@@ -18,7 +18,6 @@ import WalletType from './WalletType';
 /**
  * The TransactionDepositToAddressDestination model module.
  * @module model/TransactionDepositToAddressDestination
- * @version 1.0.0
  */
 class TransactionDepositToAddressDestination {
     /**

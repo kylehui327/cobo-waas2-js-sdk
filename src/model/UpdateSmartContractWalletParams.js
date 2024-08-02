@@ -16,7 +16,6 @@ import WalletType from './WalletType';
 /**
  * The UpdateSmartContractWalletParams model module.
  * @module model/UpdateSmartContractWalletParams
- * @version 1.0.0
  */
 class UpdateSmartContractWalletParams {
     /**

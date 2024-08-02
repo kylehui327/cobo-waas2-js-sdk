@@ -29,7 +29,6 @@ import WebhookEventType from '../model/WebhookEventType';
 /**
 * DevelopersWebhooks service.
 * @module api/DevelopersWebhooksApi
-* @version 1.0.0
 */
 export default class DevelopersWebhooksApi {
 
@@ -56,7 +55,7 @@ export default class DevelopersWebhooksApi {
     createWebhookEndpointWithHttpInfo(opts) {
       opts = opts || {};
       let postBody = opts['CreateWebhookEndpointRequest'];
-      if (postBody.toJSON) {
+      if (postBody && postBody.toJSON) {
           postBody = postBody.toJSON()
       }
 
@@ -103,7 +102,7 @@ export default class DevelopersWebhooksApi {
      */
     getWebhookEndpointByIdWithHttpInfo(endpoint_id) {
       let postBody = null;
-      if (postBody.toJSON) {
+      if (postBody && postBody.toJSON) {
           postBody = postBody.toJSON()
       }
       // verify the required parameter 'endpoint_id' is set
@@ -155,7 +154,7 @@ export default class DevelopersWebhooksApi {
      */
     getWebhookEventByIdWithHttpInfo(event_id, endpoint_id) {
       let postBody = null;
-      if (postBody.toJSON) {
+      if (postBody && postBody.toJSON) {
           postBody = postBody.toJSON()
       }
       // verify the required parameter 'event_id' is set
@@ -218,7 +217,7 @@ export default class DevelopersWebhooksApi {
     listWebhookEndpointsWithHttpInfo(opts) {
       opts = opts || {};
       let postBody = null;
-      if (postBody.toJSON) {
+      if (postBody && postBody.toJSON) {
           postBody = postBody.toJSON()
       }
 
@@ -273,7 +272,7 @@ export default class DevelopersWebhooksApi {
      */
     listWebhookEventDefinitionsWithHttpInfo() {
       let postBody = null;
-      if (postBody.toJSON) {
+      if (postBody && postBody.toJSON) {
           postBody = postBody.toJSON()
       }
 
@@ -324,7 +323,7 @@ export default class DevelopersWebhooksApi {
     listWebhookEventLogsWithHttpInfo(event_id, endpoint_id, opts) {
       opts = opts || {};
       let postBody = null;
-      if (postBody.toJSON) {
+      if (postBody && postBody.toJSON) {
           postBody = postBody.toJSON()
       }
       // verify the required parameter 'event_id' is set
@@ -395,7 +394,7 @@ export default class DevelopersWebhooksApi {
     listWebhookEventsWithHttpInfo(endpoint_id, opts) {
       opts = opts || {};
       let postBody = null;
-      if (postBody.toJSON) {
+      if (postBody && postBody.toJSON) {
           postBody = postBody.toJSON()
       }
       // verify the required parameter 'endpoint_id' is set
@@ -458,7 +457,7 @@ export default class DevelopersWebhooksApi {
      */
     retryWebhookEventByIdWithHttpInfo(event_id, endpoint_id) {
       let postBody = null;
-      if (postBody.toJSON) {
+      if (postBody && postBody.toJSON) {
           postBody = postBody.toJSON()
       }
       // verify the required parameter 'event_id' is set
@@ -518,7 +517,7 @@ export default class DevelopersWebhooksApi {
     updateWebhookEndpointByIdWithHttpInfo(endpoint_id, opts) {
       opts = opts || {};
       let postBody = opts['UpdateWebhookEndpointByIdRequest'];
-      if (postBody.toJSON) {
+      if (postBody && postBody.toJSON) {
           postBody = postBody.toJSON()
       }
       // verify the required parameter 'endpoint_id' is set

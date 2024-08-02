@@ -16,7 +16,6 @@ import WalletType from './WalletType';
 /**
  * The UpdateExchangeWalletParams model module.
  * @module model/UpdateExchangeWalletParams
- * @version 1.0.0
  */
 class UpdateExchangeWalletParams {
     /**

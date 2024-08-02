@@ -15,7 +15,6 @@ import ApiClient from '../ApiClient';
 /**
  * The WebhookEventDataType model module.
  * @module model/WebhookEventDataType
- * @version 1.0.0
  */
 class WebhookEventDataType {
     /**

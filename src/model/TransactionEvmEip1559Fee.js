@@ -18,7 +18,6 @@ import FeeType from './FeeType';
 /**
  * The TransactionEvmEip1559Fee model module.
  * @module model/TransactionEvmEip1559Fee
- * @version 1.0.0
  */
 class TransactionEvmEip1559Fee {
     /**

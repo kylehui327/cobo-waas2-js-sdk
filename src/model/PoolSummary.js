@@ -17,7 +17,6 @@ import WalletType from './WalletType';
 /**
  * The PoolSummary model module.
  * @module model/PoolSummary
- * @version 1.0.0
  */
 class PoolSummary {
     /**

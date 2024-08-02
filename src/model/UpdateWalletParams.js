@@ -20,7 +20,6 @@ import WalletType from './WalletType';
 /**
  * The UpdateWalletParams model module.
  * @module model/UpdateWalletParams
- * @version 1.0.0
  */
 class UpdateWalletParams {
     /**
