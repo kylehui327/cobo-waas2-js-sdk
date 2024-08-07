@@ -30,8 +30,8 @@ Name | Type | Description | Notes
 **category** | **[String]** | A custom transaction category for you to identify your transfers more easily. | [optional] 
 **description** | **String** | The description for your transaction. | [optional] 
 **is_loop** | **Boolean** | Whether the transaction is a Loop transfer. For more information about Loop, see [Loop&#39;s website](https://loop.top/).  - &#x60;true&#x60;: The transaction is a Loop transfer. - &#x60;false&#x60;: The transaction is not a Loop transfer.  | [optional] 
-**created_time** | **Number** | The time when the transaction was created, in Unix timestamp format, measured in milliseconds. | 
-**updated_time** | **Number** | The time when the transaction was updated, in Unix timestamp format, measured in milliseconds. | 
+**created_timestamp** | **Number** | The time when the transaction was created, in Unix timestamp format, measured in milliseconds. | [optional] 
+**updated_timestamp** | **Number** | The time when the transaction was updated, in Unix timestamp format, measured in milliseconds. | [optional] 
 **approvers** | [**[TransactionApprover]**](TransactionApprover.md) |  | [optional] 
 **signers** | [**[TransactionSigner]**](TransactionSigner.md) |  | [optional] 
 **nonce** | **Number** | Transaction nonce | [optional] 

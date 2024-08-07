@@ -87,13 +87,14 @@ docs/ExchangeId.md
 docs/ExchangeTransferDestination.md
 docs/ExchangeTransferSource.md
 docs/ExchangeWalletInfo.md
-docs/ExchangeWalletInfoAllOfSubAccounts.md
 docs/ExtendedTokenInfo.md
 docs/FeeAmount.md
 docs/FeeGasLimit.md
 docs/FeeRate.md
 docs/FeeType.md
 docs/FixedFeeRate.md
+docs/GetToken200Response.md
+docs/GetToken4XXResponse.md
 docs/KeyShareHolder.md
 docs/KeyShareHolderGroup.md
 docs/KeyShareHolderGroupStatus.md
@@ -134,10 +135,12 @@ docs/MpcContractCallSource.md
 docs/MpcMessageSignSource.md
 docs/MpcSigningGroup.md
 docs/MpcTransferSource.md
+docs/OAuthApi.md
 docs/Pagination.md
 docs/PoolDetails.md
 docs/PoolDetailsAllOfValidatorsInfo.md
 docs/PoolSummary.md
+docs/RefreshTokenRequest.md
 docs/ReplaceType.md
 docs/RetryWebhookEventById201Response.md
 docs/RootPubkey.md
@@ -153,6 +156,7 @@ docs/StakingPoolType.md
 docs/StakingSource.md
 docs/Stakings.md
 docs/StakingsValidatorInfo.md
+docs/SubWalletAssetBalance.md
 docs/TSSGroups.md
 docs/TSSRequest.md
 docs/TSSRequestStatus.md
@@ -172,7 +176,6 @@ docs/TransactionDepositToWalletDestination.md
 docs/TransactionDestination.md
 docs/TransactionDestinationType.md
 docs/TransactionDetail.md
-docs/TransactionDetailAllOfTimeline.md
 docs/TransactionDetails.md
 docs/TransactionEvmContractDestination.md
 docs/TransactionEvmEip1559Fee.md
@@ -252,6 +255,7 @@ package.json
 src/ApiClient.js
 src/Env.js
 src/api/DevelopersWebhooksApi.js
+src/api/OAuthApi.js
 src/api/TransactionsApi.js
 src/api/WalletsApi.js
 src/api/WalletsMPCWalletsApi.js
@@ -340,13 +344,14 @@ src/model/ExchangeId.js
 src/model/ExchangeTransferDestination.js
 src/model/ExchangeTransferSource.js
 src/model/ExchangeWalletInfo.js
-src/model/ExchangeWalletInfoAllOfSubAccounts.js
 src/model/ExtendedTokenInfo.js
 src/model/FeeAmount.js
 src/model/FeeGasLimit.js
 src/model/FeeRate.js
 src/model/FeeType.js
 src/model/FixedFeeRate.js
+src/model/GetToken200Response.js
+src/model/GetToken4XXResponse.js
 src/model/KeyShareHolder.js
 src/model/KeyShareHolderGroup.js
 src/model/KeyShareHolderGroupStatus.js
@@ -391,6 +396,7 @@ src/model/Pagination.js
 src/model/PoolDetails.js
 src/model/PoolDetailsAllOfValidatorsInfo.js
 src/model/PoolSummary.js
+src/model/RefreshTokenRequest.js
 src/model/ReplaceType.js
 src/model/RetryWebhookEventById201Response.js
 src/model/RootPubkey.js
@@ -406,6 +412,7 @@ src/model/StakingPoolType.js
 src/model/StakingSource.js
 src/model/Stakings.js
 src/model/StakingsValidatorInfo.js
+src/model/SubWalletAssetBalance.js
 src/model/TSSGroups.js
 src/model/TSSRequest.js
 src/model/TSSRequestStatus.js
@@ -425,7 +432,6 @@ src/model/TransactionDepositToWalletDestination.js
 src/model/TransactionDestination.js
 src/model/TransactionDestinationType.js
 src/model/TransactionDetail.js
-src/model/TransactionDetailAllOfTimeline.js
 src/model/TransactionDetails.js
 src/model/TransactionEvmContractDestination.js
 src/model/TransactionEvmEip1559Fee.js
@@ -497,6 +503,7 @@ src/model/WebhookEventLog.js
 src/model/WebhookEventStatus.js
 src/model/WebhookEventType.js
 test/api/DevelopersWebhooksApi.spec.js
+test/api/OAuthApi.spec.js
 test/api/TransactionsApi.spec.js
 test/api/WalletsApi.spec.js
 test/api/WalletsMPCWalletsApi.spec.js
@@ -583,13 +590,14 @@ test/model/ExchangeId.spec.js
 test/model/ExchangeTransferDestination.spec.js
 test/model/ExchangeTransferSource.spec.js
 test/model/ExchangeWalletInfo.spec.js
-test/model/ExchangeWalletInfoAllOfSubAccounts.spec.js
 test/model/ExtendedTokenInfo.spec.js
 test/model/FeeAmount.spec.js
 test/model/FeeGasLimit.spec.js
 test/model/FeeRate.spec.js
 test/model/FeeType.spec.js
 test/model/FixedFeeRate.spec.js
+test/model/GetToken200Response.spec.js
+test/model/GetToken4XXResponse.spec.js
 test/model/KeyShareHolder.spec.js
 test/model/KeyShareHolderGroup.spec.js
 test/model/KeyShareHolderGroupStatus.spec.js
@@ -634,6 +642,7 @@ test/model/Pagination.spec.js
 test/model/PoolDetails.spec.js
 test/model/PoolDetailsAllOfValidatorsInfo.spec.js
 test/model/PoolSummary.spec.js
+test/model/RefreshTokenRequest.spec.js
 test/model/ReplaceType.spec.js
 test/model/RetryWebhookEventById201Response.spec.js
 test/model/RootPubkey.spec.js
@@ -649,6 +658,7 @@ test/model/StakingPoolType.spec.js
 test/model/StakingSource.spec.js
 test/model/Stakings.spec.js
 test/model/StakingsValidatorInfo.spec.js
+test/model/SubWalletAssetBalance.spec.js
 test/model/TSSGroups.spec.js
 test/model/TSSRequest.spec.js
 test/model/TSSRequestStatus.spec.js
@@ -668,7 +678,6 @@ test/model/TransactionDepositToWalletDestination.spec.js
 test/model/TransactionDestination.spec.js
 test/model/TransactionDestinationType.spec.js
 test/model/TransactionDetail.spec.js
-test/model/TransactionDetailAllOfTimeline.spec.js
 test/model/TransactionDetails.spec.js
 test/model/TransactionEvmContractDestination.spec.js
 test/model/TransactionEvmEip1559Fee.spec.js
