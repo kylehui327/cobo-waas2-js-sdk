@@ -356,7 +356,7 @@ const token_id = "ETH_USDT"; // String | The token ID, which is the unique ident
 const fee_rate = "10"; // String | The fee rate in sats/vByte or gas price in wei.
 const to_address = "2N2xFZtbCFB6Nb3Pj9Sxsx5mX2fxX3yEgkE"; // String | The recipient's address.
 const opts = {
-  'from_address': "2N2xFZtbCFB6Nb3Pj9Sxsx5mX2fxX3yEgkE" // String | The sender's address.
+  'from_address': "2N2xFZtbCFB6Nb3Pj9Sxsx5mX2fxX3yEgkE" // String | The sender's address. For EVM addresses in MPC Wallets, this parameter is required.
 };
 apiInstance.getMaxTransferableValue(wallet_id, token_id, fee_rate, to_address, opts).then((data) => {
   console.log('API called successfully. Returned data: ' + data);
@@ -375,7 +375,7 @@ Name | Type | Description  | Notes
  **token_id** | **String**| The token ID, which is the unique identifier of a token. You can retrieve the IDs of all the tokens you can use by calling [List enabled tokens](/v2/api-references/wallets/list-enabled-tokens). | 
  **fee_rate** | **String**| The fee rate in sats/vByte or gas price in wei. | 
  **to_address** | **String**| The recipient&#39;s address. | 
- **from_address** | **String**| The sender&#39;s address. | [optional] 
+ **from_address** | **String**| The sender&#39;s address. For EVM addresses in MPC Wallets, this parameter is required. | [optional] 
 
 ### Return type
 

@@ -8,9 +8,9 @@ Name | Type | Description | Notes
 **type** | [**KeyShareHolderGroupType**](KeyShareHolderGroupType.md) |  | [optional] 
 **tss_key_share_groups** | [**[TSSGroups]**](TSSGroups.md) |  | [optional] 
 **key_share_holders** | [**[KeyShareHolder]**](KeyShareHolder.md) |  | [optional] 
-**node_count** | **Number** | The number of key share holders in this key share holder group. | [optional] 
+**participants** | **Number** | The number of key share holders in this key share holder group. | [optional] 
 **threshold** | **Number** | The number of key share holders required to approve each operation in this key share holder group. | [optional] 
 **status** | [**KeyShareHolderGroupStatus**](KeyShareHolderGroupStatus.md) |  | [optional] 
-**create_timestamp** | **Number** | The key share holder group&#39;s creation time in Unix timestamp format, measured in milliseconds. | [optional] 
+**created_timestamp** | **Number** | The key share holder group&#39;s creation time in Unix timestamp format, measured in milliseconds. | [optional] 
 
 
