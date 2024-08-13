@@ -28,7 +28,7 @@ This operation cancels a specified transaction. A transaction can be cancelled i
 ### Example
 
 ```javascript
-const CoboWaas2 = require('cobo-waas2');
+const CoboWaas2 = require('@cobo/cobo-waas2');
 // initial default api client
 const apiClient = CoboWaas2.ApiClient.instance
 // for dev env
@@ -77,7 +77,7 @@ This operation creates a transaction to interact with a smart contract on the bl
 ### Example
 
 ```javascript
-const CoboWaas2 = require('cobo-waas2');
+const CoboWaas2 = require('@cobo/cobo-waas2');
 // initial default api client
 const apiClient = CoboWaas2.ApiClient.instance
 // for dev env
@@ -128,7 +128,7 @@ This operation creates a transaction to sign the provided message using cryptogr
 ### Example
 
 ```javascript
-const CoboWaas2 = require('cobo-waas2');
+const CoboWaas2 = require('@cobo/cobo-waas2');
 // initial default api client
 const apiClient = CoboWaas2.ApiClient.instance
 // for dev env
@@ -179,7 +179,7 @@ The operation transfers your assets from a wallet created on Cobo Protal to anot
 ### Example
 
 ```javascript
-const CoboWaas2 = require('cobo-waas2');
+const CoboWaas2 = require('@cobo/cobo-waas2');
 // initial default api client
 const apiClient = CoboWaas2.ApiClient.instance
 // for dev env
@@ -230,7 +230,7 @@ This operation drops a specified transaction.   Dropping a transaction will trig
 ### Example
 
 ```javascript
-const CoboWaas2 = require('cobo-waas2');
+const CoboWaas2 = require('@cobo/cobo-waas2');
 // initial default api client
 const apiClient = CoboWaas2.ApiClient.instance
 // for dev env
@@ -283,7 +283,7 @@ This operation estimates the transaction fee rates of a token transfer or a cont
 ### Example
 
 ```javascript
-const CoboWaas2 = require('cobo-waas2');
+const CoboWaas2 = require('@cobo/cobo-waas2');
 // initial default api client
 const apiClient = CoboWaas2.ApiClient.instance
 // for dev env
@@ -334,7 +334,7 @@ This operation retrieves detailed information about a specified transaction, suc
 ### Example
 
 ```javascript
-const CoboWaas2 = require('cobo-waas2');
+const CoboWaas2 = require('@cobo/cobo-waas2');
 // initial default api client
 const apiClient = CoboWaas2.ApiClient.instance
 // for dev env
@@ -383,7 +383,7 @@ This operation retrieves all the transactions under your organization.  You can 
 ### Example
 
 ```javascript
-const CoboWaas2 = require('cobo-waas2');
+const CoboWaas2 = require('@cobo/cobo-waas2');
 // initial default api client
 const apiClient = CoboWaas2.ApiClient.instance
 // for dev env
@@ -466,7 +466,7 @@ This operation resends a specified transaction. Resending a transaction initiate
 ### Example
 
 ```javascript
-const CoboWaas2 = require('cobo-waas2');
+const CoboWaas2 = require('@cobo/cobo-waas2');
 // initial default api client
 const apiClient = CoboWaas2.ApiClient.instance
 // for dev env
@@ -519,7 +519,7 @@ This operation accelerates a specified transaction.   Speeding up a transaction 
 ### Example
 
 ```javascript
-const CoboWaas2 = require('cobo-waas2');
+const CoboWaas2 = require('@cobo/cobo-waas2');
 // initial default api client
 const apiClient = CoboWaas2.ApiClient.instance
 // for dev env

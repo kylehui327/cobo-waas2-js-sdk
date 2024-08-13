@@ -20,7 +20,7 @@ Get Access Token
 ### Example
 
 ```javascript
-const CoboWaas2 = require('cobo-waas2');
+const CoboWaas2 = require('@cobo/cobo-waas2');
 // initial default api client
 const apiClient = CoboWaas2.ApiClient.instance
 // for dev env
@@ -73,7 +73,7 @@ Refresh Access Token
 ### Example
 
 ```javascript
-const CoboWaas2 = require('cobo-waas2');
+const CoboWaas2 = require('@cobo/cobo-waas2');
 // initial default api client
 const apiClient = CoboWaas2.ApiClient.instance
 // for dev env
