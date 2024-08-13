@@ -27,7 +27,7 @@ This operation registers a new webhook endpoint for your organization.
 ### Example
 
 ```javascript
-const CoboWaas2 = require('cobo-waas2');
+const CoboWaas2 = require('@cobo/cobo-waas2');
 // initial default api client
 const apiClient = CoboWaas2.ApiClient.instance
 // for dev env
@@ -78,7 +78,7 @@ This operation retrieves the information of a specified webhook endpoint.
 ### Example
 
 ```javascript
-const CoboWaas2 = require('cobo-waas2');
+const CoboWaas2 = require('@cobo/cobo-waas2');
 // initial default api client
 const apiClient = CoboWaas2.ApiClient.instance
 // for dev env
@@ -127,7 +127,7 @@ This operation retrieves the information of a webhook event by the event ID.
 ### Example
 
 ```javascript
-const CoboWaas2 = require('cobo-waas2');
+const CoboWaas2 = require('@cobo/cobo-waas2');
 // initial default api client
 const apiClient = CoboWaas2.ApiClient.instance
 // for dev env
@@ -178,7 +178,7 @@ This operation retrieves the information of all webhook endpoints registered und
 ### Example
 
 ```javascript
-const CoboWaas2 = require('cobo-waas2');
+const CoboWaas2 = require('@cobo/cobo-waas2');
 // initial default api client
 const apiClient = CoboWaas2.ApiClient.instance
 // for dev env
@@ -237,7 +237,7 @@ This operation retrieves all supported webhook event types.
 ### Example
 
 ```javascript
-const CoboWaas2 = require('cobo-waas2');
+const CoboWaas2 = require('@cobo/cobo-waas2');
 // initial default api client
 const apiClient = CoboWaas2.ApiClient.instance
 // for dev env
@@ -282,7 +282,7 @@ This operation retrieves a list of webhook event logs by event ID. Each retry wi
 ### Example
 
 ```javascript
-const CoboWaas2 = require('cobo-waas2');
+const CoboWaas2 = require('@cobo/cobo-waas2');
 // initial default api client
 const apiClient = CoboWaas2.ApiClient.instance
 // for dev env
@@ -341,7 +341,7 @@ This operation retrieves a list of webhook events that have occurred within the 
 ### Example
 
 ```javascript
-const CoboWaas2 = require('cobo-waas2');
+const CoboWaas2 = require('@cobo/cobo-waas2');
 // initial default api client
 const apiClient = CoboWaas2.ApiClient.instance
 // for dev env
@@ -402,7 +402,7 @@ This operation retries delivering a webhook event with the specified event ID. Y
 ### Example
 
 ```javascript
-const CoboWaas2 = require('cobo-waas2');
+const CoboWaas2 = require('@cobo/cobo-waas2');
 // initial default api client
 const apiClient = CoboWaas2.ApiClient.instance
 // for dev env
@@ -453,7 +453,7 @@ This operation updates the information of a specified webhook endpoint.
 ### Example
 
 ```javascript
-const CoboWaas2 = require('cobo-waas2');
+const CoboWaas2 = require('@cobo/cobo-waas2');
 // initial default api client
 const apiClient = CoboWaas2.ApiClient.instance
 // for dev env

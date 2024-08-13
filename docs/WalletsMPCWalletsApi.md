@@ -36,7 +36,7 @@ This operation cancels a TSS request.
 ### Example
 
 ```javascript
-const CoboWaas2 = require('cobo-waas2');
+const CoboWaas2 = require('@cobo/cobo-waas2');
 // initial default api client
 const apiClient = CoboWaas2.ApiClient.instance
 // for dev env
@@ -87,7 +87,7 @@ This operation creates a key share holder group for a specified vault.
 ### Example
 
 ```javascript
-const CoboWaas2 = require('cobo-waas2');
+const CoboWaas2 = require('@cobo/cobo-waas2');
 // initial default api client
 const apiClient = CoboWaas2.ApiClient.instance
 // for dev env
@@ -140,7 +140,7 @@ This operation creates a project.  &lt;Info&gt;This operation applies to MPC Wal
 ### Example
 
 ```javascript
-const CoboWaas2 = require('cobo-waas2');
+const CoboWaas2 = require('@cobo/cobo-waas2');
 // initial default api client
 const apiClient = CoboWaas2.ApiClient.instance
 // for dev env
@@ -191,7 +191,7 @@ This operation creates a vault.
 ### Example
 
 ```javascript
-const CoboWaas2 = require('cobo-waas2');
+const CoboWaas2 = require('@cobo/cobo-waas2');
 // initial default api client
 const apiClient = CoboWaas2.ApiClient.instance
 // for dev env
@@ -242,7 +242,7 @@ This operation creates a TSS request under a specified vault. You can use this o
 ### Example
 
 ```javascript
-const CoboWaas2 = require('cobo-waas2');
+const CoboWaas2 = require('@cobo/cobo-waas2');
 // initial default api client
 const apiClient = CoboWaas2.ApiClient.instance
 // for dev env
@@ -295,7 +295,7 @@ This operation deletes a specified key share holder group.
 ### Example
 
 ```javascript
-const CoboWaas2 = require('cobo-waas2');
+const CoboWaas2 = require('@cobo/cobo-waas2');
 // initial default api client
 const apiClient = CoboWaas2.ApiClient.instance
 // for dev env
@@ -346,7 +346,7 @@ This operation retrieves detailed information about a specified key share holder
 ### Example
 
 ```javascript
-const CoboWaas2 = require('cobo-waas2');
+const CoboWaas2 = require('@cobo/cobo-waas2');
 // initial default api client
 const apiClient = CoboWaas2.ApiClient.instance
 // for dev env
@@ -397,7 +397,7 @@ This operation retrieves detailed information about a project. &lt;Info&gt;This 
 ### Example
 
 ```javascript
-const CoboWaas2 = require('cobo-waas2');
+const CoboWaas2 = require('@cobo/cobo-waas2');
 // initial default api client
 const apiClient = CoboWaas2.ApiClient.instance
 // for dev env
@@ -446,7 +446,7 @@ This operation retrieves detailed information about a vault.
 ### Example
 
 ```javascript
-const CoboWaas2 = require('cobo-waas2');
+const CoboWaas2 = require('@cobo/cobo-waas2');
 // initial default api client
 const apiClient = CoboWaas2.ApiClient.instance
 // for dev env
@@ -495,7 +495,7 @@ This operation retrieves detailed information about a TSS request.
 ### Example
 
 ```javascript
-const CoboWaas2 = require('cobo-waas2');
+const CoboWaas2 = require('@cobo/cobo-waas2');
 // initial default api client
 const apiClient = CoboWaas2.ApiClient.instance
 // for dev env
@@ -546,7 +546,7 @@ This operation retrieves a list of all Cobo key share holders and their informat
 ### Example
 
 ```javascript
-const CoboWaas2 = require('cobo-waas2');
+const CoboWaas2 = require('@cobo/cobo-waas2');
 // initial default api client
 const apiClient = CoboWaas2.ApiClient.instance
 // for dev env
@@ -591,7 +591,7 @@ This operation retrieves all key share holder groups under a specified vault. Yo
 ### Example
 
 ```javascript
-const CoboWaas2 = require('cobo-waas2');
+const CoboWaas2 = require('@cobo/cobo-waas2');
 // initial default api client
 const apiClient = CoboWaas2.ApiClient.instance
 // for dev env
@@ -650,7 +650,7 @@ This operation retrieves a list of all projects.  &lt;Info&gt;This operation app
 ### Example
 
 ```javascript
-const CoboWaas2 = require('cobo-waas2');
+const CoboWaas2 = require('@cobo/cobo-waas2');
 // initial default api client
 const apiClient = CoboWaas2.ApiClient.instance
 // for dev env
@@ -705,7 +705,7 @@ This operation retrieves a list of all vaults. You can filter the result by proj
 ### Example
 
 ```javascript
-const CoboWaas2 = require('cobo-waas2');
+const CoboWaas2 = require('@cobo/cobo-waas2');
 // initial default api client
 const apiClient = CoboWaas2.ApiClient.instance
 // for dev env
@@ -764,7 +764,7 @@ This operation retrieves a list of TSS requests and their details.
 ### Example
 
 ```javascript
-const CoboWaas2 = require('cobo-waas2');
+const CoboWaas2 = require('@cobo/cobo-waas2');
 // initial default api client
 const apiClient = CoboWaas2.ApiClient.instance
 // for dev env
@@ -823,7 +823,7 @@ This operation updates a specified active [Signing Group](https://manuals.cobo.c
 ### Example
 
 ```javascript
-const CoboWaas2 = require('cobo-waas2');
+const CoboWaas2 = require('@cobo/cobo-waas2');
 // initial default api client
 const apiClient = CoboWaas2.ApiClient.instance
 // for dev env
@@ -878,7 +878,7 @@ This operation updates a project&#39;s name.  &lt;Info&gt;This operation applies
 ### Example
 
 ```javascript
-const CoboWaas2 = require('cobo-waas2');
+const CoboWaas2 = require('@cobo/cobo-waas2');
 // initial default api client
 const apiClient = CoboWaas2.ApiClient.instance
 // for dev env
@@ -931,7 +931,7 @@ This operation updates a vault&#39;s name.
 ### Example
 
 ```javascript
-const CoboWaas2 = require('cobo-waas2');
+const CoboWaas2 = require('@cobo/cobo-waas2');
 // initial default api client
 const apiClient = CoboWaas2.ApiClient.instance
 // for dev env

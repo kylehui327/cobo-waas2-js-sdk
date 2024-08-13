@@ -39,7 +39,7 @@ This operation verifies if a given address is valid for a specific chain.
 ### Example
 
 ```javascript
-const CoboWaas2 = require('cobo-waas2');
+const CoboWaas2 = require('@cobo/cobo-waas2');
 // initial default api client
 const apiClient = CoboWaas2.ApiClient.instance
 // for dev env
@@ -90,7 +90,7 @@ This operation generates one or more addresses within a specified wallet.  &lt;N
 ### Example
 
 ```javascript
-const CoboWaas2 = require('cobo-waas2');
+const CoboWaas2 = require('@cobo/cobo-waas2');
 // initial default api client
 const apiClient = CoboWaas2.ApiClient.instance
 // for dev env
@@ -143,7 +143,7 @@ This operation creates a wallet with the provided information.
 ### Example
 
 ```javascript
-const CoboWaas2 = require('cobo-waas2');
+const CoboWaas2 = require('@cobo/cobo-waas2');
 // initial default api client
 const apiClient = CoboWaas2.ApiClient.instance
 // for dev env
@@ -194,7 +194,7 @@ This operation deletes a specified wallet.  &lt;Note&gt;This operation is applic
 ### Example
 
 ```javascript
-const CoboWaas2 = require('cobo-waas2');
+const CoboWaas2 = require('@cobo/cobo-waas2');
 // initial default api client
 const apiClient = CoboWaas2.ApiClient.instance
 // for dev env
@@ -243,7 +243,7 @@ This operation retrieves the detailed information about a specified address with
 ### Example
 
 ```javascript
-const CoboWaas2 = require('cobo-waas2');
+const CoboWaas2 = require('@cobo/cobo-waas2');
 // initial default api client
 const apiClient = CoboWaas2.ApiClient.instance
 // for dev env
@@ -294,7 +294,7 @@ This operation retrieves the detailed information about a specified chain.
 ### Example
 
 ```javascript
-const CoboWaas2 = require('cobo-waas2');
+const CoboWaas2 = require('@cobo/cobo-waas2');
 // initial default api client
 const apiClient = CoboWaas2.ApiClient.instance
 // for dev env
@@ -343,7 +343,7 @@ This operation retrieves the maximum amount that you can transfer from a wallet 
 ### Example
 
 ```javascript
-const CoboWaas2 = require('cobo-waas2');
+const CoboWaas2 = require('@cobo/cobo-waas2');
 // initial default api client
 const apiClient = CoboWaas2.ApiClient.instance
 // for dev env
@@ -402,7 +402,7 @@ This operation retrieves the detailed information about a specified token.
 ### Example
 
 ```javascript
-const CoboWaas2 = require('cobo-waas2');
+const CoboWaas2 = require('@cobo/cobo-waas2');
 // initial default api client
 const apiClient = CoboWaas2.ApiClient.instance
 // for dev env
@@ -451,7 +451,7 @@ This operation retrieves the detailed information about a specified wallet.
 ### Example
 
 ```javascript
-const CoboWaas2 = require('cobo-waas2');
+const CoboWaas2 = require('@cobo/cobo-waas2');
 // initial default api client
 const apiClient = CoboWaas2.ApiClient.instance
 // for dev env
@@ -500,7 +500,7 @@ This operation retrieves a list of addresses within a specified wallet.
 ### Example
 
 ```javascript
-const CoboWaas2 = require('cobo-waas2');
+const CoboWaas2 = require('@cobo/cobo-waas2');
 // initial default api client
 const apiClient = CoboWaas2.ApiClient.instance
 // for dev env
@@ -561,7 +561,7 @@ This operation retrieves all the chains that can be used by your organization.  
 ### Example
 
 ```javascript
-const CoboWaas2 = require('cobo-waas2');
+const CoboWaas2 = require('@cobo/cobo-waas2');
 // initial default api client
 const apiClient = CoboWaas2.ApiClient.instance
 // for dev env
@@ -620,7 +620,7 @@ This operation retrieves all the tokens that can be used by your organization.  
 ### Example
 
 ```javascript
-const CoboWaas2 = require('cobo-waas2');
+const CoboWaas2 = require('@cobo/cobo-waas2');
 // initial default api client
 const apiClient = CoboWaas2.ApiClient.instance
 // for dev env
@@ -681,7 +681,7 @@ This operation retrieves all chains supported by a specific wallet type or subty
 ### Example
 
 ```javascript
-const CoboWaas2 = require('cobo-waas2');
+const CoboWaas2 = require('@cobo/cobo-waas2');
 // initial default api client
 const apiClient = CoboWaas2.ApiClient.instance
 // for dev env
@@ -742,7 +742,7 @@ This operation retrieves all tokens supported by a specific wallet type or subty
 ### Example
 
 ```javascript
-const CoboWaas2 = require('cobo-waas2');
+const CoboWaas2 = require('@cobo/cobo-waas2');
 // initial default api client
 const apiClient = CoboWaas2.ApiClient.instance
 // for dev env
@@ -805,7 +805,7 @@ The operation retrieves a list of token balances for a specified address within 
 ### Example
 
 ```javascript
-const CoboWaas2 = require('cobo-waas2');
+const CoboWaas2 = require('@cobo/cobo-waas2');
 // initial default api client
 const apiClient = CoboWaas2.ApiClient.instance
 // for dev env
@@ -866,7 +866,7 @@ The operation retrieves a list of token balances within a specified wallet.  &lt
 ### Example
 
 ```javascript
-const CoboWaas2 = require('cobo-waas2');
+const CoboWaas2 = require('@cobo/cobo-waas2');
 // initial default api client
 const apiClient = CoboWaas2.ApiClient.instance
 // for dev env
@@ -925,7 +925,7 @@ The operation retrieves a list of unspent transaction outputs (UTXOs) for a spec
 ### Example
 
 ```javascript
-const CoboWaas2 = require('cobo-waas2');
+const CoboWaas2 = require('@cobo/cobo-waas2');
 // initial default api client
 const apiClient = CoboWaas2.ApiClient.instance
 // for dev env
@@ -986,7 +986,7 @@ This operation retrieves the information of all wallets under your organization.
 ### Example
 
 ```javascript
-const CoboWaas2 = require('cobo-waas2');
+const CoboWaas2 = require('@cobo/cobo-waas2');
 // initial default api client
 const apiClient = CoboWaas2.ApiClient.instance
 // for dev env
@@ -1049,7 +1049,7 @@ This operation locks the UTXOs with specified transaction hashes. Locked UTXOs c
 ### Example
 
 ```javascript
-const CoboWaas2 = require('cobo-waas2');
+const CoboWaas2 = require('@cobo/cobo-waas2');
 // initial default api client
 const apiClient = CoboWaas2.ApiClient.instance
 // for dev env
@@ -1102,7 +1102,7 @@ This operation unlocks the UTXOs with specified transaction hashes. Locked UTXOs
 ### Example
 
 ```javascript
-const CoboWaas2 = require('cobo-waas2');
+const CoboWaas2 = require('@cobo/cobo-waas2');
 // initial default api client
 const apiClient = CoboWaas2.ApiClient.instance
 // for dev env
@@ -1155,7 +1155,7 @@ This operation updates the information of a specified wallet.  For Exchange Wall
 ### Example
 
 ```javascript
-const CoboWaas2 = require('cobo-waas2');
+const CoboWaas2 = require('@cobo/cobo-waas2');
 // initial default api client
 const apiClient = CoboWaas2.ApiClient.instance
 // for dev env
