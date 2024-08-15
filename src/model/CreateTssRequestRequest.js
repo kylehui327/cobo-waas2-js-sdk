@@ -81,7 +81,9 @@ class CreateTssRequestRequest {
         }
         // validate the optional field `source_key_share_holder_group`
         if (data['source_key_share_holder_group']) { // data not null
-          SourceGroup.validateJSON(data['source_key_share_holder_group']);
+          if (!!SourceGroup.validateJSON) {
+            SourceGroup.validateJSON(data['source_key_share_holder_group']);
+          }
         }
 
         return true;

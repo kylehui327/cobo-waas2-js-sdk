@@ -163,7 +163,9 @@ class Stakings {
         }
         // validate the optional field `validator_info`
         if (data['validator_info']) { // data not null
-          StakingsValidatorInfo.validateJSON(data['validator_info']);
+          if (!!StakingsValidatorInfo.validateJSON) {
+            StakingsValidatorInfo.validateJSON(data['validator_info']);
+          }
         }
 
         return true;

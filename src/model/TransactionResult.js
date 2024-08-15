@@ -33,12 +33,12 @@ class TransactionResult {
         try {
             if (instance instanceof TransactionSignatureResult) {
                 this.actualInstance = instance;
-            } else if(TransactionSignatureResult.validateJSON(instance)){
+            } else if(!!TransactionSignatureResult.validateJSON && TransactionSignatureResult.validateJSON(instance)){
                 // plain JS object
                 // create TransactionSignatureResult from JS object
                 this.actualInstance = TransactionSignatureResult.constructFromObject(instance);
-            } else {
-                return;
+            } else if(TransactionSignatureResult.constructFromObject(instance)){
+                this.actualInstance = TransactionSignatureResult.constructFromObject(instance);
             }
             match++;
         } catch(err) {

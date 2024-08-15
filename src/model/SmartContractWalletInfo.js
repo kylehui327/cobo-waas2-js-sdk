@@ -36,12 +36,12 @@ class SmartContractWalletInfo {
         try {
             if (instance instanceof SafeWallet) {
                 this.actualInstance = instance;
-            } else if(SafeWallet.validateJSON(instance)){
+            } else if(!!SafeWallet.validateJSON && SafeWallet.validateJSON(instance)){
                 // plain JS object
                 // create SafeWallet from JS object
                 this.actualInstance = SafeWallet.constructFromObject(instance);
-            } else {
-                return;
+            } else if(SafeWallet.constructFromObject(instance)){
+                this.actualInstance = SafeWallet.constructFromObject(instance);
             }
             match++;
         } catch(err) {

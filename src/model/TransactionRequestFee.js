@@ -36,12 +36,12 @@ class TransactionRequestFee {
         try {
             if (instance instanceof TransactionRequestFixedFee) {
                 this.actualInstance = instance;
-            } else if(TransactionRequestFixedFee.validateJSON(instance)){
+            } else if(!!TransactionRequestFixedFee.validateJSON && TransactionRequestFixedFee.validateJSON(instance)){
                 // plain JS object
                 // create TransactionRequestFixedFee from JS object
                 this.actualInstance = TransactionRequestFixedFee.constructFromObject(instance);
-            } else {
-                return;
+            } else if(TransactionRequestFixedFee.constructFromObject(instance)){
+                this.actualInstance = TransactionRequestFixedFee.constructFromObject(instance);
             }
             match++;
         } catch(err) {
@@ -52,12 +52,12 @@ class TransactionRequestFee {
         try {
             if (instance instanceof TransactionRequestEvmEip1559Fee) {
                 this.actualInstance = instance;
-            } else if(TransactionRequestEvmEip1559Fee.validateJSON(instance)){
+            } else if(!!TransactionRequestEvmEip1559Fee.validateJSON && TransactionRequestEvmEip1559Fee.validateJSON(instance)){
                 // plain JS object
                 // create TransactionRequestEvmEip1559Fee from JS object
                 this.actualInstance = TransactionRequestEvmEip1559Fee.constructFromObject(instance);
-            } else {
-                return;
+            } else if(TransactionRequestEvmEip1559Fee.constructFromObject(instance)){
+                this.actualInstance = TransactionRequestEvmEip1559Fee.constructFromObject(instance);
             }
             match++;
         } catch(err) {
@@ -68,12 +68,12 @@ class TransactionRequestFee {
         try {
             if (instance instanceof TransactionRequestEvmLegacyFee) {
                 this.actualInstance = instance;
-            } else if(TransactionRequestEvmLegacyFee.validateJSON(instance)){
+            } else if(!!TransactionRequestEvmLegacyFee.validateJSON && TransactionRequestEvmLegacyFee.validateJSON(instance)){
                 // plain JS object
                 // create TransactionRequestEvmLegacyFee from JS object
                 this.actualInstance = TransactionRequestEvmLegacyFee.constructFromObject(instance);
-            } else {
-                return;
+            } else if(TransactionRequestEvmLegacyFee.constructFromObject(instance)){
+                this.actualInstance = TransactionRequestEvmLegacyFee.constructFromObject(instance);
             }
             match++;
         } catch(err) {
@@ -84,12 +84,12 @@ class TransactionRequestFee {
         try {
             if (instance instanceof TransactionRequestUtxoFee) {
                 this.actualInstance = instance;
-            } else if(TransactionRequestUtxoFee.validateJSON(instance)){
+            } else if(!!TransactionRequestUtxoFee.validateJSON && TransactionRequestUtxoFee.validateJSON(instance)){
                 // plain JS object
                 // create TransactionRequestUtxoFee from JS object
                 this.actualInstance = TransactionRequestUtxoFee.constructFromObject(instance);
-            } else {
-                return;
+            } else if(TransactionRequestUtxoFee.constructFromObject(instance)){
+                this.actualInstance = TransactionRequestUtxoFee.constructFromObject(instance);
             }
             match++;
         } catch(err) {

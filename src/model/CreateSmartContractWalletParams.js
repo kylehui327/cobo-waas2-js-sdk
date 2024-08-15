@@ -36,12 +36,12 @@ class CreateSmartContractWalletParams {
         try {
             if (instance instanceof CreateSafeWalletParams) {
                 this.actualInstance = instance;
-            } else if(CreateSafeWalletParams.validateJSON(instance)){
+            } else if(!!CreateSafeWalletParams.validateJSON && CreateSafeWalletParams.validateJSON(instance)){
                 // plain JS object
                 // create CreateSafeWalletParams from JS object
                 this.actualInstance = CreateSafeWalletParams.constructFromObject(instance);
-            } else {
-                return;
+            } else if(CreateSafeWalletParams.constructFromObject(instance)){
+                this.actualInstance = CreateSafeWalletParams.constructFromObject(instance);
             }
             match++;
         } catch(err) {

@@ -34,12 +34,12 @@ class MessageSignDestination {
         try {
             if (instance instanceof EvmEIP191MessageSignDestination) {
                 this.actualInstance = instance;
-            } else if(EvmEIP191MessageSignDestination.validateJSON(instance)){
+            } else if(!!EvmEIP191MessageSignDestination.validateJSON && EvmEIP191MessageSignDestination.validateJSON(instance)){
                 // plain JS object
                 // create EvmEIP191MessageSignDestination from JS object
                 this.actualInstance = EvmEIP191MessageSignDestination.constructFromObject(instance);
-            } else {
-                return;
+            } else if(EvmEIP191MessageSignDestination.constructFromObject(instance)){
+                this.actualInstance = EvmEIP191MessageSignDestination.constructFromObject(instance);
             }
             match++;
         } catch(err) {
@@ -50,12 +50,12 @@ class MessageSignDestination {
         try {
             if (instance instanceof EvmEIP712MessageSignDestination) {
                 this.actualInstance = instance;
-            } else if(EvmEIP712MessageSignDestination.validateJSON(instance)){
+            } else if(!!EvmEIP712MessageSignDestination.validateJSON && EvmEIP712MessageSignDestination.validateJSON(instance)){
                 // plain JS object
                 // create EvmEIP712MessageSignDestination from JS object
                 this.actualInstance = EvmEIP712MessageSignDestination.constructFromObject(instance);
-            } else {
-                return;
+            } else if(EvmEIP712MessageSignDestination.constructFromObject(instance)){
+                this.actualInstance = EvmEIP712MessageSignDestination.constructFromObject(instance);
             }
             match++;
         } catch(err) {

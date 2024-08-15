@@ -36,12 +36,12 @@ class TransactionFee {
         try {
             if (instance instanceof TransactionEvmEip1559Fee) {
                 this.actualInstance = instance;
-            } else if(TransactionEvmEip1559Fee.validateJSON(instance)){
+            } else if(!!TransactionEvmEip1559Fee.validateJSON && TransactionEvmEip1559Fee.validateJSON(instance)){
                 // plain JS object
                 // create TransactionEvmEip1559Fee from JS object
                 this.actualInstance = TransactionEvmEip1559Fee.constructFromObject(instance);
-            } else {
-                return;
+            } else if(TransactionEvmEip1559Fee.constructFromObject(instance)){
+                this.actualInstance = TransactionEvmEip1559Fee.constructFromObject(instance);
             }
             match++;
         } catch(err) {
@@ -52,12 +52,12 @@ class TransactionFee {
         try {
             if (instance instanceof TransactionEvmLegacyFee) {
                 this.actualInstance = instance;
-            } else if(TransactionEvmLegacyFee.validateJSON(instance)){
+            } else if(!!TransactionEvmLegacyFee.validateJSON && TransactionEvmLegacyFee.validateJSON(instance)){
                 // plain JS object
                 // create TransactionEvmLegacyFee from JS object
                 this.actualInstance = TransactionEvmLegacyFee.constructFromObject(instance);
-            } else {
-                return;
+            } else if(TransactionEvmLegacyFee.constructFromObject(instance)){
+                this.actualInstance = TransactionEvmLegacyFee.constructFromObject(instance);
             }
             match++;
         } catch(err) {
@@ -68,12 +68,12 @@ class TransactionFee {
         try {
             if (instance instanceof TransactionUtxoFee) {
                 this.actualInstance = instance;
-            } else if(TransactionUtxoFee.validateJSON(instance)){
+            } else if(!!TransactionUtxoFee.validateJSON && TransactionUtxoFee.validateJSON(instance)){
                 // plain JS object
                 // create TransactionUtxoFee from JS object
                 this.actualInstance = TransactionUtxoFee.constructFromObject(instance);
-            } else {
-                return;
+            } else if(TransactionUtxoFee.constructFromObject(instance)){
+                this.actualInstance = TransactionUtxoFee.constructFromObject(instance);
             }
             match++;
         } catch(err) {
@@ -84,12 +84,12 @@ class TransactionFee {
         try {
             if (instance instanceof TransactionFixedFee) {
                 this.actualInstance = instance;
-            } else if(TransactionFixedFee.validateJSON(instance)){
+            } else if(!!TransactionFixedFee.validateJSON && TransactionFixedFee.validateJSON(instance)){
                 // plain JS object
                 // create TransactionFixedFee from JS object
                 this.actualInstance = TransactionFixedFee.constructFromObject(instance);
-            } else {
-                return;
+            } else if(TransactionFixedFee.constructFromObject(instance)){
+                this.actualInstance = TransactionFixedFee.constructFromObject(instance);
             }
             match++;
         } catch(err) {

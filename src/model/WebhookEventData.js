@@ -43,12 +43,12 @@ class WebhookEventData {
         try {
             if (instance instanceof TransactionWebhookEventData) {
                 this.actualInstance = instance;
-            } else if(TransactionWebhookEventData.validateJSON(instance)){
+            } else if(!!TransactionWebhookEventData.validateJSON && TransactionWebhookEventData.validateJSON(instance)){
                 // plain JS object
                 // create TransactionWebhookEventData from JS object
                 this.actualInstance = TransactionWebhookEventData.constructFromObject(instance);
-            } else {
-                return;
+            } else if(TransactionWebhookEventData.constructFromObject(instance)){
+                this.actualInstance = TransactionWebhookEventData.constructFromObject(instance);
             }
             match++;
         } catch(err) {

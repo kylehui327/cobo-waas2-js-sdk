@@ -86,7 +86,9 @@ class AddressTransferDestination {
         }
         // validate the optional field `account_output`
         if (data['account_output']) { // data not null
-          AddressTransferDestinationAccountOutput.validateJSON(data['account_output']);
+          if (!!AddressTransferDestinationAccountOutput.validateJSON) {
+            AddressTransferDestinationAccountOutput.validateJSON(data['account_output']);
+          }
         }
         if (data['utxo_outputs']) { // data not null
             // ensure the json data is an array

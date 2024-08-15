@@ -33,12 +33,12 @@ class ContractCallDestination {
         try {
             if (instance instanceof EvmContractCallDestination) {
                 this.actualInstance = instance;
-            } else if(EvmContractCallDestination.validateJSON(instance)){
+            } else if(!!EvmContractCallDestination.validateJSON && EvmContractCallDestination.validateJSON(instance)){
                 // plain JS object
                 // create EvmContractCallDestination from JS object
                 this.actualInstance = EvmContractCallDestination.constructFromObject(instance);
-            } else {
-                return;
+            } else if(EvmContractCallDestination.constructFromObject(instance)){
+                this.actualInstance = EvmContractCallDestination.constructFromObject(instance);
             }
             match++;
         } catch(err) {

@@ -36,12 +36,12 @@ class UpdateWalletParams {
         try {
             if (instance instanceof UpdateCustodialWalletParams) {
                 this.actualInstance = instance;
-            } else if(UpdateCustodialWalletParams.validateJSON(instance)){
+            } else if(!!UpdateCustodialWalletParams.validateJSON && UpdateCustodialWalletParams.validateJSON(instance)){
                 // plain JS object
                 // create UpdateCustodialWalletParams from JS object
                 this.actualInstance = UpdateCustodialWalletParams.constructFromObject(instance);
-            } else {
-                return;
+            } else if(UpdateCustodialWalletParams.constructFromObject(instance)){
+                this.actualInstance = UpdateCustodialWalletParams.constructFromObject(instance);
             }
             match++;
         } catch(err) {
@@ -52,12 +52,12 @@ class UpdateWalletParams {
         try {
             if (instance instanceof UpdateMpcWalletParams) {
                 this.actualInstance = instance;
-            } else if(UpdateMpcWalletParams.validateJSON(instance)){
+            } else if(!!UpdateMpcWalletParams.validateJSON && UpdateMpcWalletParams.validateJSON(instance)){
                 // plain JS object
                 // create UpdateMpcWalletParams from JS object
                 this.actualInstance = UpdateMpcWalletParams.constructFromObject(instance);
-            } else {
-                return;
+            } else if(UpdateMpcWalletParams.constructFromObject(instance)){
+                this.actualInstance = UpdateMpcWalletParams.constructFromObject(instance);
             }
             match++;
         } catch(err) {
@@ -68,12 +68,12 @@ class UpdateWalletParams {
         try {
             if (instance instanceof UpdateSmartContractWalletParams) {
                 this.actualInstance = instance;
-            } else if(UpdateSmartContractWalletParams.validateJSON(instance)){
+            } else if(!!UpdateSmartContractWalletParams.validateJSON && UpdateSmartContractWalletParams.validateJSON(instance)){
                 // plain JS object
                 // create UpdateSmartContractWalletParams from JS object
                 this.actualInstance = UpdateSmartContractWalletParams.constructFromObject(instance);
-            } else {
-                return;
+            } else if(UpdateSmartContractWalletParams.constructFromObject(instance)){
+                this.actualInstance = UpdateSmartContractWalletParams.constructFromObject(instance);
             }
             match++;
         } catch(err) {
@@ -84,12 +84,12 @@ class UpdateWalletParams {
         try {
             if (instance instanceof UpdateExchangeWalletParams) {
                 this.actualInstance = instance;
-            } else if(UpdateExchangeWalletParams.validateJSON(instance)){
+            } else if(!!UpdateExchangeWalletParams.validateJSON && UpdateExchangeWalletParams.validateJSON(instance)){
                 // plain JS object
                 // create UpdateExchangeWalletParams from JS object
                 this.actualInstance = UpdateExchangeWalletParams.constructFromObject(instance);
-            } else {
-                return;
+            } else if(UpdateExchangeWalletParams.constructFromObject(instance)){
+                this.actualInstance = UpdateExchangeWalletParams.constructFromObject(instance);
             }
             match++;
         } catch(err) {

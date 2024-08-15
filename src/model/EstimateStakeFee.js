@@ -100,7 +100,9 @@ class EstimateStakeFee {
         }
         // validate the optional field `source`
         if (data['source']) { // data not null
-          StakingSource.validateJSON(data['source']);
+          if (!!StakingSource.validateJSON) {
+            StakingSource.validateJSON(data['source']);
+          }
         }
         // ensure the json data is a string
         if (data['pool_id'] && !(typeof data['pool_id'] === 'string' || data['pool_id'] instanceof String)) {
@@ -112,11 +114,15 @@ class EstimateStakeFee {
         }
         // validate the optional field `fee`
         if (data['fee']) { // data not null
-          TransactionRequestFee.validateJSON(data['fee']);
+          if (!!TransactionRequestFee.validateJSON) {
+            TransactionRequestFee.validateJSON(data['fee']);
+          }
         }
         // validate the optional field `extra`
         if (data['extra']) { // data not null
-          CreateStakeActivityExtra.validateJSON(data['extra']);
+          if (!!CreateStakeActivityExtra.validateJSON) {
+            CreateStakeActivityExtra.validateJSON(data['extra']);
+          }
         }
 
         return true;

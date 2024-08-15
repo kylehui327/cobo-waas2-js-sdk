@@ -90,15 +90,21 @@ class EstimatedUtxoFee {
         }
         // validate the optional field `slow`
         if (data['slow']) { // data not null
-          EstimatedUtxoFeeSlow.validateJSON(data['slow']);
+          if (!!EstimatedUtxoFeeSlow.validateJSON) {
+            EstimatedUtxoFeeSlow.validateJSON(data['slow']);
+          }
         }
         // validate the optional field `recommended`
         if (data['recommended']) { // data not null
-          EstimatedUtxoFeeSlow.validateJSON(data['recommended']);
+          if (!!EstimatedUtxoFeeSlow.validateJSON) {
+            EstimatedUtxoFeeSlow.validateJSON(data['recommended']);
+          }
         }
         // validate the optional field `fast`
         if (data['fast']) { // data not null
-          EstimatedUtxoFeeSlow.validateJSON(data['fast']);
+          if (!!EstimatedUtxoFeeSlow.validateJSON) {
+            EstimatedUtxoFeeSlow.validateJSON(data['fast']);
+          }
         }
 
         return true;

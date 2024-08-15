@@ -86,7 +86,9 @@ class TransactionTransferToAddressDestination {
         }
         // validate the optional field `account_output`
         if (data['account_output']) { // data not null
-          TransactionTransferToAddressDestinationAccountOutput.validateJSON(data['account_output']);
+          if (!!TransactionTransferToAddressDestinationAccountOutput.validateJSON) {
+            TransactionTransferToAddressDestinationAccountOutput.validateJSON(data['account_output']);
+          }
         }
         if (data['utxo_outputs']) { // data not null
             // ensure the json data is an array

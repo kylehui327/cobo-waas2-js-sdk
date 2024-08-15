@@ -105,7 +105,9 @@ class WebhookEventLog {
         }
         // validate the optional field `request_body`
         if (data['request_body']) { // data not null
-          WebhookEvent.validateJSON(data['request_body']);
+          if (!!WebhookEvent.validateJSON) {
+            WebhookEvent.validateJSON(data['request_body']);
+          }
         }
         // ensure the json data is a string
         if (data['response_body'] && !(typeof data['response_body'] === 'string' || data['response_body'] instanceof String)) {

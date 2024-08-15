@@ -37,12 +37,12 @@ class EstimateFeeParams {
         try {
             if (instance instanceof EstimateTransferFeeParams) {
                 this.actualInstance = instance;
-            } else if(EstimateTransferFeeParams.validateJSON(instance)){
+            } else if(!!EstimateTransferFeeParams.validateJSON && EstimateTransferFeeParams.validateJSON(instance)){
                 // plain JS object
                 // create EstimateTransferFeeParams from JS object
                 this.actualInstance = EstimateTransferFeeParams.constructFromObject(instance);
-            } else {
-                return;
+            } else if(EstimateTransferFeeParams.constructFromObject(instance)){
+                this.actualInstance = EstimateTransferFeeParams.constructFromObject(instance);
             }
             match++;
         } catch(err) {
@@ -53,12 +53,12 @@ class EstimateFeeParams {
         try {
             if (instance instanceof EstimateContractCallFeeParams) {
                 this.actualInstance = instance;
-            } else if(EstimateContractCallFeeParams.validateJSON(instance)){
+            } else if(!!EstimateContractCallFeeParams.validateJSON && EstimateContractCallFeeParams.validateJSON(instance)){
                 // plain JS object
                 // create EstimateContractCallFeeParams from JS object
                 this.actualInstance = EstimateContractCallFeeParams.constructFromObject(instance);
-            } else {
-                return;
+            } else if(EstimateContractCallFeeParams.constructFromObject(instance)){
+                this.actualInstance = EstimateContractCallFeeParams.constructFromObject(instance);
             }
             match++;
         } catch(err) {

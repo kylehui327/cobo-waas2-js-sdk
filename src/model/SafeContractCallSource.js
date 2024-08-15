@@ -96,7 +96,9 @@ class SafeContractCallSource {
         }
         // validate the optional field `delegate`
         if (data['delegate']) { // data not null
-          CoboSafeDelegate.validateJSON(data['delegate']);
+          if (!!CoboSafeDelegate.validateJSON) {
+            CoboSafeDelegate.validateJSON(data['delegate']);
+          }
         }
 
         return true;

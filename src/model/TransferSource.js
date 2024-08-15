@@ -38,12 +38,12 @@ class TransferSource {
         try {
             if (instance instanceof CustodialTransferSource) {
                 this.actualInstance = instance;
-            } else if(CustodialTransferSource.validateJSON(instance)){
+            } else if(!!CustodialTransferSource.validateJSON && CustodialTransferSource.validateJSON(instance)){
                 // plain JS object
                 // create CustodialTransferSource from JS object
                 this.actualInstance = CustodialTransferSource.constructFromObject(instance);
-            } else {
-                return;
+            } else if(CustodialTransferSource.constructFromObject(instance)){
+                this.actualInstance = CustodialTransferSource.constructFromObject(instance);
             }
             match++;
         } catch(err) {
@@ -54,12 +54,12 @@ class TransferSource {
         try {
             if (instance instanceof MpcTransferSource) {
                 this.actualInstance = instance;
-            } else if(MpcTransferSource.validateJSON(instance)){
+            } else if(!!MpcTransferSource.validateJSON && MpcTransferSource.validateJSON(instance)){
                 // plain JS object
                 // create MpcTransferSource from JS object
                 this.actualInstance = MpcTransferSource.constructFromObject(instance);
-            } else {
-                return;
+            } else if(MpcTransferSource.constructFromObject(instance)){
+                this.actualInstance = MpcTransferSource.constructFromObject(instance);
             }
             match++;
         } catch(err) {
@@ -70,12 +70,12 @@ class TransferSource {
         try {
             if (instance instanceof SafeTransferSource) {
                 this.actualInstance = instance;
-            } else if(SafeTransferSource.validateJSON(instance)){
+            } else if(!!SafeTransferSource.validateJSON && SafeTransferSource.validateJSON(instance)){
                 // plain JS object
                 // create SafeTransferSource from JS object
                 this.actualInstance = SafeTransferSource.constructFromObject(instance);
-            } else {
-                return;
+            } else if(SafeTransferSource.constructFromObject(instance)){
+                this.actualInstance = SafeTransferSource.constructFromObject(instance);
             }
             match++;
         } catch(err) {
@@ -86,12 +86,12 @@ class TransferSource {
         try {
             if (instance instanceof ExchangeTransferSource) {
                 this.actualInstance = instance;
-            } else if(ExchangeTransferSource.validateJSON(instance)){
+            } else if(!!ExchangeTransferSource.validateJSON && ExchangeTransferSource.validateJSON(instance)){
                 // plain JS object
                 // create ExchangeTransferSource from JS object
                 this.actualInstance = ExchangeTransferSource.constructFromObject(instance);
-            } else {
-                return;
+            } else if(ExchangeTransferSource.constructFromObject(instance)){
+                this.actualInstance = ExchangeTransferSource.constructFromObject(instance);
             }
             match++;
         } catch(err) {

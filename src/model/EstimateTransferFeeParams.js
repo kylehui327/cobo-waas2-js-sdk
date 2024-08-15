@@ -99,7 +99,9 @@ class EstimateTransferFeeParams {
         }
         // validate the optional field `source`
         if (data['source']) { // data not null
-          TransferSource.validateJSON(data['source']);
+          if (!!TransferSource.validateJSON) {
+            TransferSource.validateJSON(data['source']);
+          }
         }
         // ensure the json data is a string
         if (data['token_id'] && !(typeof data['token_id'] === 'string' || data['token_id'] instanceof String)) {
@@ -107,7 +109,9 @@ class EstimateTransferFeeParams {
         }
         // validate the optional field `destination`
         if (data['destination']) { // data not null
-          TransferDestination.validateJSON(data['destination']);
+          if (!!TransferDestination.validateJSON) {
+            TransferDestination.validateJSON(data['destination']);
+          }
         }
 
         return true;

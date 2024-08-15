@@ -235,19 +235,27 @@ class TransactionDetails {
         }
         // validate the optional field `source`
         if (data['source']) { // data not null
-          TransactionSource.validateJSON(data['source']);
+          if (!!TransactionSource.validateJSON) {
+            TransactionSource.validateJSON(data['source']);
+          }
         }
         // validate the optional field `destination`
         if (data['destination']) { // data not null
-          TransactionDestination.validateJSON(data['destination']);
+          if (!!TransactionDestination.validateJSON) {
+            TransactionDestination.validateJSON(data['destination']);
+          }
         }
         // validate the optional field `result`
         if (data['result']) { // data not null
-          TransactionResult.validateJSON(data['result']);
+          if (!!TransactionResult.validateJSON) {
+            TransactionResult.validateJSON(data['result']);
+          }
         }
         // validate the optional field `fee`
         if (data['fee']) { // data not null
-          TransactionRequestFee.validateJSON(data['fee']);
+          if (!!TransactionRequestFee.validateJSON) {
+            TransactionRequestFee.validateJSON(data['fee']);
+          }
         }
         // ensure the json data is a string
         if (data['initiator'] && !(typeof data['initiator'] === 'string' || data['initiator'] instanceof String)) {
@@ -259,15 +267,21 @@ class TransactionDetails {
         }
         // validate the optional field `block_info`
         if (data['block_info']) { // data not null
-          TransactionBlockInfo.validateJSON(data['block_info']);
+          if (!!TransactionBlockInfo.validateJSON) {
+            TransactionBlockInfo.validateJSON(data['block_info']);
+          }
         }
         // validate the optional field `raw_tx_info`
         if (data['raw_tx_info']) { // data not null
-          TransactionRawTxInfo.validateJSON(data['raw_tx_info']);
+          if (!!TransactionRawTxInfo.validateJSON) {
+            TransactionRawTxInfo.validateJSON(data['raw_tx_info']);
+          }
         }
         // validate the optional field `replacement`
         if (data['replacement']) { // data not null
-          TransactionReplacement.validateJSON(data['replacement']);
+          if (!!TransactionReplacement.validateJSON) {
+            TransactionReplacement.validateJSON(data['replacement']);
+          }
         }
         // ensure the json data is an array
         if (!Array.isArray(data['category'])) {
@@ -307,7 +321,9 @@ class TransactionDetails {
         }
         // validate the optional field `token_approval`
         if (data['token_approval']) { // data not null
-          TransactionTokeApproval.validateJSON(data['token_approval']);
+          if (!!TransactionTokeApproval.validateJSON) {
+            TransactionTokeApproval.validateJSON(data['token_approval']);
+          }
         }
         // ensure the json data is a string
         if (data['message'] && !(typeof data['message'] === 'string' || data['message'] instanceof String)) {

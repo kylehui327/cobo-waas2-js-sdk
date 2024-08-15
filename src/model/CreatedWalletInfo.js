@@ -37,12 +37,12 @@ class CreatedWalletInfo {
         try {
             if (instance instanceof CustodialWalletInfo) {
                 this.actualInstance = instance;
-            } else if(CustodialWalletInfo.validateJSON(instance)){
+            } else if(!!CustodialWalletInfo.validateJSON && CustodialWalletInfo.validateJSON(instance)){
                 // plain JS object
                 // create CustodialWalletInfo from JS object
                 this.actualInstance = CustodialWalletInfo.constructFromObject(instance);
-            } else {
-                return;
+            } else if(CustodialWalletInfo.constructFromObject(instance)){
+                this.actualInstance = CustodialWalletInfo.constructFromObject(instance);
             }
             match++;
         } catch(err) {
@@ -53,12 +53,12 @@ class CreatedWalletInfo {
         try {
             if (instance instanceof MPCWalletInfo) {
                 this.actualInstance = instance;
-            } else if(MPCWalletInfo.validateJSON(instance)){
+            } else if(!!MPCWalletInfo.validateJSON && MPCWalletInfo.validateJSON(instance)){
                 // plain JS object
                 // create MPCWalletInfo from JS object
                 this.actualInstance = MPCWalletInfo.constructFromObject(instance);
-            } else {
-                return;
+            } else if(MPCWalletInfo.constructFromObject(instance)){
+                this.actualInstance = MPCWalletInfo.constructFromObject(instance);
             }
             match++;
         } catch(err) {
@@ -69,12 +69,12 @@ class CreatedWalletInfo {
         try {
             if (instance instanceof ExchangeWalletInfo) {
                 this.actualInstance = instance;
-            } else if(ExchangeWalletInfo.validateJSON(instance)){
+            } else if(!!ExchangeWalletInfo.validateJSON && ExchangeWalletInfo.validateJSON(instance)){
                 // plain JS object
                 // create ExchangeWalletInfo from JS object
                 this.actualInstance = ExchangeWalletInfo.constructFromObject(instance);
-            } else {
-                return;
+            } else if(ExchangeWalletInfo.constructFromObject(instance)){
+                this.actualInstance = ExchangeWalletInfo.constructFromObject(instance);
             }
             match++;
         } catch(err) {

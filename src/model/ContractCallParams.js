@@ -103,11 +103,15 @@ class ContractCallParams {
         }
         // validate the optional field `source`
         if (data['source']) { // data not null
-          ContractCallSource.validateJSON(data['source']);
+          if (!!ContractCallSource.validateJSON) {
+            ContractCallSource.validateJSON(data['source']);
+          }
         }
         // validate the optional field `destination`
         if (data['destination']) { // data not null
-          ContractCallDestination.validateJSON(data['destination']);
+          if (!!ContractCallDestination.validateJSON) {
+            ContractCallDestination.validateJSON(data['destination']);
+          }
         }
         // ensure the json data is a string
         if (data['description'] && !(typeof data['description'] === 'string' || data['description'] instanceof String)) {
@@ -119,7 +123,9 @@ class ContractCallParams {
         }
         // validate the optional field `fee`
         if (data['fee']) { // data not null
-          TransactionRequestFee.validateJSON(data['fee']);
+          if (!!TransactionRequestFee.validateJSON) {
+            TransactionRequestFee.validateJSON(data['fee']);
+          }
         }
 
         return true;

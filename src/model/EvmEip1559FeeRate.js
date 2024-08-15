@@ -90,15 +90,21 @@ class EvmEip1559FeeRate {
         }
         // validate the optional field `slow`
         if (data['slow']) { // data not null
-          EvmEip1559FeeBasePrice.validateJSON(data['slow']);
+          if (!!EvmEip1559FeeBasePrice.validateJSON) {
+            EvmEip1559FeeBasePrice.validateJSON(data['slow']);
+          }
         }
         // validate the optional field `recommended`
         if (data['recommended']) { // data not null
-          EvmEip1559FeeBasePrice.validateJSON(data['recommended']);
+          if (!!EvmEip1559FeeBasePrice.validateJSON) {
+            EvmEip1559FeeBasePrice.validateJSON(data['recommended']);
+          }
         }
         // validate the optional field `fast`
         if (data['fast']) { // data not null
-          EvmEip1559FeeBasePrice.validateJSON(data['fast']);
+          if (!!EvmEip1559FeeBasePrice.validateJSON) {
+            EvmEip1559FeeBasePrice.validateJSON(data['fast']);
+          }
         }
 
         return true;
