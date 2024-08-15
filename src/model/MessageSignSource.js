@@ -33,12 +33,12 @@ class MessageSignSource {
         try {
             if (instance instanceof MpcMessageSignSource) {
                 this.actualInstance = instance;
-            } else if(MpcMessageSignSource.validateJSON(instance)){
+            } else if(!!MpcMessageSignSource.validateJSON && MpcMessageSignSource.validateJSON(instance)){
                 // plain JS object
                 // create MpcMessageSignSource from JS object
                 this.actualInstance = MpcMessageSignSource.constructFromObject(instance);
-            } else {
-                return;
+            } else if(MpcMessageSignSource.constructFromObject(instance)){
+                this.actualInstance = MpcMessageSignSource.constructFromObject(instance);
             }
             match++;
         } catch(err) {

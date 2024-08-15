@@ -33,12 +33,12 @@ class PoolDetailsAllOfValidatorsInfo {
         try {
             if (instance instanceof BabylonValidator) {
                 this.actualInstance = instance;
-            } else if(BabylonValidator.validateJSON(instance)){
+            } else if(!!BabylonValidator.validateJSON && BabylonValidator.validateJSON(instance)){
                 // plain JS object
                 // create BabylonValidator from JS object
                 this.actualInstance = BabylonValidator.constructFromObject(instance);
-            } else {
-                return;
+            } else if(BabylonValidator.constructFromObject(instance)){
+                this.actualInstance = BabylonValidator.constructFromObject(instance);
             }
             match++;
         } catch(err) {
@@ -49,12 +49,12 @@ class PoolDetailsAllOfValidatorsInfo {
         try {
             if (instance instanceof EigenlayerValidator) {
                 this.actualInstance = instance;
-            } else if(EigenlayerValidator.validateJSON(instance)){
+            } else if(!!EigenlayerValidator.validateJSON && EigenlayerValidator.validateJSON(instance)){
                 // plain JS object
                 // create EigenlayerValidator from JS object
                 this.actualInstance = EigenlayerValidator.constructFromObject(instance);
-            } else {
-                return;
+            } else if(EigenlayerValidator.constructFromObject(instance)){
+                this.actualInstance = EigenlayerValidator.constructFromObject(instance);
             }
             match++;
         } catch(err) {

@@ -35,12 +35,12 @@ class CreateStakeActivityExtra {
         try {
             if (instance instanceof BabylonStakeExtra) {
                 this.actualInstance = instance;
-            } else if(BabylonStakeExtra.validateJSON(instance)){
+            } else if(!!BabylonStakeExtra.validateJSON && BabylonStakeExtra.validateJSON(instance)){
                 // plain JS object
                 // create BabylonStakeExtra from JS object
                 this.actualInstance = BabylonStakeExtra.constructFromObject(instance);
-            } else {
-                return;
+            } else if(BabylonStakeExtra.constructFromObject(instance)){
+                this.actualInstance = BabylonStakeExtra.constructFromObject(instance);
             }
             match++;
         } catch(err) {
@@ -51,12 +51,12 @@ class CreateStakeActivityExtra {
         try {
             if (instance instanceof EigenLayerLstStakeExtra) {
                 this.actualInstance = instance;
-            } else if(EigenLayerLstStakeExtra.validateJSON(instance)){
+            } else if(!!EigenLayerLstStakeExtra.validateJSON && EigenLayerLstStakeExtra.validateJSON(instance)){
                 // plain JS object
                 // create EigenLayerLstStakeExtra from JS object
                 this.actualInstance = EigenLayerLstStakeExtra.constructFromObject(instance);
-            } else {
-                return;
+            } else if(EigenLayerLstStakeExtra.constructFromObject(instance)){
+                this.actualInstance = EigenLayerLstStakeExtra.constructFromObject(instance);
             }
             match++;
         } catch(err) {
@@ -67,12 +67,12 @@ class CreateStakeActivityExtra {
         try {
             if (instance instanceof EigenLayerNativeStakeExtra) {
                 this.actualInstance = instance;
-            } else if(EigenLayerNativeStakeExtra.validateJSON(instance)){
+            } else if(!!EigenLayerNativeStakeExtra.validateJSON && EigenLayerNativeStakeExtra.validateJSON(instance)){
                 // plain JS object
                 // create EigenLayerNativeStakeExtra from JS object
                 this.actualInstance = EigenLayerNativeStakeExtra.constructFromObject(instance);
-            } else {
-                return;
+            } else if(EigenLayerNativeStakeExtra.constructFromObject(instance)){
+                this.actualInstance = EigenLayerNativeStakeExtra.constructFromObject(instance);
             }
             match++;
         } catch(err) {

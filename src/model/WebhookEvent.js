@@ -106,7 +106,9 @@ class WebhookEvent {
         }
         // validate the optional field `data`
         if (data['data']) { // data not null
-          WebhookEventData.validateJSON(data['data']);
+          if (!!WebhookEventData.validateJSON) {
+            WebhookEventData.validateJSON(data['data']);
+          }
         }
 
         return true;

@@ -37,12 +37,12 @@ class FeeRate {
         try {
             if (instance instanceof FixedFeeRate) {
                 this.actualInstance = instance;
-            } else if(FixedFeeRate.validateJSON(instance)){
+            } else if(!!FixedFeeRate.validateJSON && FixedFeeRate.validateJSON(instance)){
                 // plain JS object
                 // create FixedFeeRate from JS object
                 this.actualInstance = FixedFeeRate.constructFromObject(instance);
-            } else {
-                return;
+            } else if(FixedFeeRate.constructFromObject(instance)){
+                this.actualInstance = FixedFeeRate.constructFromObject(instance);
             }
             match++;
         } catch(err) {
@@ -53,12 +53,12 @@ class FeeRate {
         try {
             if (instance instanceof EvmEip1559FeeRate) {
                 this.actualInstance = instance;
-            } else if(EvmEip1559FeeRate.validateJSON(instance)){
+            } else if(!!EvmEip1559FeeRate.validateJSON && EvmEip1559FeeRate.validateJSON(instance)){
                 // plain JS object
                 // create EvmEip1559FeeRate from JS object
                 this.actualInstance = EvmEip1559FeeRate.constructFromObject(instance);
-            } else {
-                return;
+            } else if(EvmEip1559FeeRate.constructFromObject(instance)){
+                this.actualInstance = EvmEip1559FeeRate.constructFromObject(instance);
             }
             match++;
         } catch(err) {
@@ -69,12 +69,12 @@ class FeeRate {
         try {
             if (instance instanceof EvmLegacyFeeRate) {
                 this.actualInstance = instance;
-            } else if(EvmLegacyFeeRate.validateJSON(instance)){
+            } else if(!!EvmLegacyFeeRate.validateJSON && EvmLegacyFeeRate.validateJSON(instance)){
                 // plain JS object
                 // create EvmLegacyFeeRate from JS object
                 this.actualInstance = EvmLegacyFeeRate.constructFromObject(instance);
-            } else {
-                return;
+            } else if(EvmLegacyFeeRate.constructFromObject(instance)){
+                this.actualInstance = EvmLegacyFeeRate.constructFromObject(instance);
             }
             match++;
         } catch(err) {
@@ -85,12 +85,12 @@ class FeeRate {
         try {
             if (instance instanceof UtxoFeeRate) {
                 this.actualInstance = instance;
-            } else if(UtxoFeeRate.validateJSON(instance)){
+            } else if(!!UtxoFeeRate.validateJSON && UtxoFeeRate.validateJSON(instance)){
                 // plain JS object
                 // create UtxoFeeRate from JS object
                 this.actualInstance = UtxoFeeRate.constructFromObject(instance);
-            } else {
-                return;
+            } else if(UtxoFeeRate.constructFromObject(instance)){
+                this.actualInstance = UtxoFeeRate.constructFromObject(instance);
             }
             match++;
         } catch(err) {

@@ -88,11 +88,15 @@ class TransactionRbf {
         }
         // validate the optional field `fee`
         if (data['fee']) { // data not null
-          TransactionRequestFee.validateJSON(data['fee']);
+          if (!!TransactionRequestFee.validateJSON) {
+            TransactionRequestFee.validateJSON(data['fee']);
+          }
         }
         // validate the optional field `source`
         if (data['source']) { // data not null
-          TransactionRbfSource.validateJSON(data['source']);
+          if (!!TransactionRbfSource.validateJSON) {
+            TransactionRbfSource.validateJSON(data['source']);
+          }
         }
         // ensure the json data is an array
         if (!Array.isArray(data['category_names'])) {

@@ -103,11 +103,15 @@ class EstimateContractCallFeeParams {
         }
         // validate the optional field `source`
         if (data['source']) { // data not null
-          ContractCallSource.validateJSON(data['source']);
+          if (!!ContractCallSource.validateJSON) {
+            ContractCallSource.validateJSON(data['source']);
+          }
         }
         // validate the optional field `destination`
         if (data['destination']) { // data not null
-          ContractCallDestination.validateJSON(data['destination']);
+          if (!!ContractCallDestination.validateJSON) {
+            ContractCallDestination.validateJSON(data['destination']);
+          }
         }
 
         return true;

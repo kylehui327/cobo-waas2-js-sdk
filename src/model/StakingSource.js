@@ -35,12 +35,12 @@ class StakingSource {
         try {
             if (instance instanceof MpcContractCallSource) {
                 this.actualInstance = instance;
-            } else if(MpcContractCallSource.validateJSON(instance)){
+            } else if(!!MpcContractCallSource.validateJSON && MpcContractCallSource.validateJSON(instance)){
                 // plain JS object
                 // create MpcContractCallSource from JS object
                 this.actualInstance = MpcContractCallSource.constructFromObject(instance);
-            } else {
-                return;
+            } else if(MpcContractCallSource.constructFromObject(instance)){
+                this.actualInstance = MpcContractCallSource.constructFromObject(instance);
             }
             match++;
         } catch(err) {
@@ -51,12 +51,12 @@ class StakingSource {
         try {
             if (instance instanceof SafeContractCallSource) {
                 this.actualInstance = instance;
-            } else if(SafeContractCallSource.validateJSON(instance)){
+            } else if(!!SafeContractCallSource.validateJSON && SafeContractCallSource.validateJSON(instance)){
                 // plain JS object
                 // create SafeContractCallSource from JS object
                 this.actualInstance = SafeContractCallSource.constructFromObject(instance);
-            } else {
-                return;
+            } else if(SafeContractCallSource.constructFromObject(instance)){
+                this.actualInstance = SafeContractCallSource.constructFromObject(instance);
             }
             match++;
         } catch(err) {

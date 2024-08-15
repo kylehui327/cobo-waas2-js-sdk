@@ -36,12 +36,12 @@ class TransferDestination {
         try {
             if (instance instanceof AddressTransferDestination) {
                 this.actualInstance = instance;
-            } else if(AddressTransferDestination.validateJSON(instance)){
+            } else if(!!AddressTransferDestination.validateJSON && AddressTransferDestination.validateJSON(instance)){
                 // plain JS object
                 // create AddressTransferDestination from JS object
                 this.actualInstance = AddressTransferDestination.constructFromObject(instance);
-            } else {
-                return;
+            } else if(AddressTransferDestination.constructFromObject(instance)){
+                this.actualInstance = AddressTransferDestination.constructFromObject(instance);
             }
             match++;
         } catch(err) {
@@ -52,12 +52,12 @@ class TransferDestination {
         try {
             if (instance instanceof ExchangeTransferDestination) {
                 this.actualInstance = instance;
-            } else if(ExchangeTransferDestination.validateJSON(instance)){
+            } else if(!!ExchangeTransferDestination.validateJSON && ExchangeTransferDestination.validateJSON(instance)){
                 // plain JS object
                 // create ExchangeTransferDestination from JS object
                 this.actualInstance = ExchangeTransferDestination.constructFromObject(instance);
-            } else {
-                return;
+            } else if(ExchangeTransferDestination.constructFromObject(instance)){
+                this.actualInstance = ExchangeTransferDestination.constructFromObject(instance);
             }
             match++;
         } catch(err) {

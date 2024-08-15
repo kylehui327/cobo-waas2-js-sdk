@@ -78,7 +78,9 @@ class AssetBalance {
         }
         // validate the optional field `balance`
         if (data['balance']) { // data not null
-          TokenBalanceBalance.validateJSON(data['balance']);
+          if (!!TokenBalanceBalance.validateJSON) {
+            TokenBalanceBalance.validateJSON(data['balance']);
+          }
         }
 
         return true;

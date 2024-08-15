@@ -34,12 +34,12 @@ class TransactionRbfSource {
         try {
             if (instance instanceof MpcTransferSource) {
                 this.actualInstance = instance;
-            } else if(MpcTransferSource.validateJSON(instance)){
+            } else if(!!MpcTransferSource.validateJSON && MpcTransferSource.validateJSON(instance)){
                 // plain JS object
                 // create MpcTransferSource from JS object
                 this.actualInstance = MpcTransferSource.constructFromObject(instance);
-            } else {
-                return;
+            } else if(MpcTransferSource.constructFromObject(instance)){
+                this.actualInstance = MpcTransferSource.constructFromObject(instance);
             }
             match++;
         } catch(err) {

@@ -289,7 +289,7 @@ import WalletsMPCWalletsApi from './api/WalletsMPCWalletsApi';
 * </pre>
 * </p>
 * @module index
-* @version 1.1.1
+* @version 1.1.2
 */
 export {
     Env,

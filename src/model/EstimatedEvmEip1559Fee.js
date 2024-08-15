@@ -90,15 +90,21 @@ class EstimatedEvmEip1559Fee {
         }
         // validate the optional field `slow`
         if (data['slow']) { // data not null
-          EstimatedEvmEip1559FeeSlow.validateJSON(data['slow']);
+          if (!!EstimatedEvmEip1559FeeSlow.validateJSON) {
+            EstimatedEvmEip1559FeeSlow.validateJSON(data['slow']);
+          }
         }
         // validate the optional field `recommended`
         if (data['recommended']) { // data not null
-          EstimatedEvmEip1559FeeSlow.validateJSON(data['recommended']);
+          if (!!EstimatedEvmEip1559FeeSlow.validateJSON) {
+            EstimatedEvmEip1559FeeSlow.validateJSON(data['recommended']);
+          }
         }
         // validate the optional field `fast`
         if (data['fast']) { // data not null
-          EstimatedEvmEip1559FeeSlow.validateJSON(data['fast']);
+          if (!!EstimatedEvmEip1559FeeSlow.validateJSON) {
+            EstimatedEvmEip1559FeeSlow.validateJSON(data['fast']);
+          }
         }
 
         return true;

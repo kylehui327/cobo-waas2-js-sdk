@@ -142,7 +142,9 @@ class SafeWallet {
         }
         // validate the optional field `initiator`
         if (data['initiator']) { // data not null
-          SmartContractInitiator.validateJSON(data['initiator']);
+          if (!!SmartContractInitiator.validateJSON) {
+            SmartContractInitiator.validateJSON(data['initiator']);
+          }
         }
 
         return true;

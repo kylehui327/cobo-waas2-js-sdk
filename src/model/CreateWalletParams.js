@@ -37,12 +37,12 @@ class CreateWalletParams {
         try {
             if (instance instanceof CreateCustodialWalletParams) {
                 this.actualInstance = instance;
-            } else if(CreateCustodialWalletParams.validateJSON(instance)){
+            } else if(!!CreateCustodialWalletParams.validateJSON && CreateCustodialWalletParams.validateJSON(instance)){
                 // plain JS object
                 // create CreateCustodialWalletParams from JS object
                 this.actualInstance = CreateCustodialWalletParams.constructFromObject(instance);
-            } else {
-                return;
+            } else if(CreateCustodialWalletParams.constructFromObject(instance)){
+                this.actualInstance = CreateCustodialWalletParams.constructFromObject(instance);
             }
             match++;
         } catch(err) {
@@ -53,12 +53,12 @@ class CreateWalletParams {
         try {
             if (instance instanceof CreateMpcWalletParams) {
                 this.actualInstance = instance;
-            } else if(CreateMpcWalletParams.validateJSON(instance)){
+            } else if(!!CreateMpcWalletParams.validateJSON && CreateMpcWalletParams.validateJSON(instance)){
                 // plain JS object
                 // create CreateMpcWalletParams from JS object
                 this.actualInstance = CreateMpcWalletParams.constructFromObject(instance);
-            } else {
-                return;
+            } else if(CreateMpcWalletParams.constructFromObject(instance)){
+                this.actualInstance = CreateMpcWalletParams.constructFromObject(instance);
             }
             match++;
         } catch(err) {
@@ -69,12 +69,12 @@ class CreateWalletParams {
         try {
             if (instance instanceof CreateExchangeWalletParams) {
                 this.actualInstance = instance;
-            } else if(CreateExchangeWalletParams.validateJSON(instance)){
+            } else if(!!CreateExchangeWalletParams.validateJSON && CreateExchangeWalletParams.validateJSON(instance)){
                 // plain JS object
                 // create CreateExchangeWalletParams from JS object
                 this.actualInstance = CreateExchangeWalletParams.constructFromObject(instance);
-            } else {
-                return;
+            } else if(CreateExchangeWalletParams.constructFromObject(instance)){
+                this.actualInstance = CreateExchangeWalletParams.constructFromObject(instance);
             }
             match++;
         } catch(err) {

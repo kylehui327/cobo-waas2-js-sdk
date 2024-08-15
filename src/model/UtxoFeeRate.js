@@ -90,15 +90,21 @@ class UtxoFeeRate {
         }
         // validate the optional field `slow`
         if (data['slow']) { // data not null
-          UtxoFeeBasePrice.validateJSON(data['slow']);
+          if (!!UtxoFeeBasePrice.validateJSON) {
+            UtxoFeeBasePrice.validateJSON(data['slow']);
+          }
         }
         // validate the optional field `recommended`
         if (data['recommended']) { // data not null
-          UtxoFeeBasePrice.validateJSON(data['recommended']);
+          if (!!UtxoFeeBasePrice.validateJSON) {
+            UtxoFeeBasePrice.validateJSON(data['recommended']);
+          }
         }
         // validate the optional field `fast`
         if (data['fast']) { // data not null
-          UtxoFeeBasePrice.validateJSON(data['fast']);
+          if (!!UtxoFeeBasePrice.validateJSON) {
+            UtxoFeeBasePrice.validateJSON(data['fast']);
+          }
         }
 
         return true;

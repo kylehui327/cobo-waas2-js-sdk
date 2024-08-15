@@ -99,11 +99,15 @@ class MessageSignParams {
         }
         // validate the optional field `source`
         if (data['source']) { // data not null
-          MessageSignSource.validateJSON(data['source']);
+          if (!!MessageSignSource.validateJSON) {
+            MessageSignSource.validateJSON(data['source']);
+          }
         }
         // validate the optional field `destination`
         if (data['destination']) { // data not null
-          MessageSignDestination.validateJSON(data['destination']);
+          if (!!MessageSignDestination.validateJSON) {
+            MessageSignDestination.validateJSON(data['destination']);
+          }
         }
         // ensure the json data is a string
         if (data['description'] && !(typeof data['description'] === 'string' || data['description'] instanceof String)) {

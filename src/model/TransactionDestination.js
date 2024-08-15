@@ -44,12 +44,12 @@ class TransactionDestination {
         try {
             if (instance instanceof TransactionTransferToAddressDestination) {
                 this.actualInstance = instance;
-            } else if(TransactionTransferToAddressDestination.validateJSON(instance)){
+            } else if(!!TransactionTransferToAddressDestination.validateJSON && TransactionTransferToAddressDestination.validateJSON(instance)){
                 // plain JS object
                 // create TransactionTransferToAddressDestination from JS object
                 this.actualInstance = TransactionTransferToAddressDestination.constructFromObject(instance);
-            } else {
-                return;
+            } else if(TransactionTransferToAddressDestination.constructFromObject(instance)){
+                this.actualInstance = TransactionTransferToAddressDestination.constructFromObject(instance);
             }
             match++;
         } catch(err) {
@@ -60,12 +60,12 @@ class TransactionDestination {
         try {
             if (instance instanceof TransactionTransferToWalletDestination) {
                 this.actualInstance = instance;
-            } else if(TransactionTransferToWalletDestination.validateJSON(instance)){
+            } else if(!!TransactionTransferToWalletDestination.validateJSON && TransactionTransferToWalletDestination.validateJSON(instance)){
                 // plain JS object
                 // create TransactionTransferToWalletDestination from JS object
                 this.actualInstance = TransactionTransferToWalletDestination.constructFromObject(instance);
-            } else {
-                return;
+            } else if(TransactionTransferToWalletDestination.constructFromObject(instance)){
+                this.actualInstance = TransactionTransferToWalletDestination.constructFromObject(instance);
             }
             match++;
         } catch(err) {
@@ -76,12 +76,12 @@ class TransactionDestination {
         try {
             if (instance instanceof TransactionEvmContractDestination) {
                 this.actualInstance = instance;
-            } else if(TransactionEvmContractDestination.validateJSON(instance)){
+            } else if(!!TransactionEvmContractDestination.validateJSON && TransactionEvmContractDestination.validateJSON(instance)){
                 // plain JS object
                 // create TransactionEvmContractDestination from JS object
                 this.actualInstance = TransactionEvmContractDestination.constructFromObject(instance);
-            } else {
-                return;
+            } else if(TransactionEvmContractDestination.constructFromObject(instance)){
+                this.actualInstance = TransactionEvmContractDestination.constructFromObject(instance);
             }
             match++;
         } catch(err) {
@@ -92,12 +92,12 @@ class TransactionDestination {
         try {
             if (instance instanceof TransactionMessageSignEIP191Destination) {
                 this.actualInstance = instance;
-            } else if(TransactionMessageSignEIP191Destination.validateJSON(instance)){
+            } else if(!!TransactionMessageSignEIP191Destination.validateJSON && TransactionMessageSignEIP191Destination.validateJSON(instance)){
                 // plain JS object
                 // create TransactionMessageSignEIP191Destination from JS object
                 this.actualInstance = TransactionMessageSignEIP191Destination.constructFromObject(instance);
-            } else {
-                return;
+            } else if(TransactionMessageSignEIP191Destination.constructFromObject(instance)){
+                this.actualInstance = TransactionMessageSignEIP191Destination.constructFromObject(instance);
             }
             match++;
         } catch(err) {
@@ -108,12 +108,12 @@ class TransactionDestination {
         try {
             if (instance instanceof TransactionMessageSignEIP712Destination) {
                 this.actualInstance = instance;
-            } else if(TransactionMessageSignEIP712Destination.validateJSON(instance)){
+            } else if(!!TransactionMessageSignEIP712Destination.validateJSON && TransactionMessageSignEIP712Destination.validateJSON(instance)){
                 // plain JS object
                 // create TransactionMessageSignEIP712Destination from JS object
                 this.actualInstance = TransactionMessageSignEIP712Destination.constructFromObject(instance);
-            } else {
-                return;
+            } else if(TransactionMessageSignEIP712Destination.constructFromObject(instance)){
+                this.actualInstance = TransactionMessageSignEIP712Destination.constructFromObject(instance);
             }
             match++;
         } catch(err) {
@@ -124,12 +124,12 @@ class TransactionDestination {
         try {
             if (instance instanceof TransactionDepositToAddressDestination) {
                 this.actualInstance = instance;
-            } else if(TransactionDepositToAddressDestination.validateJSON(instance)){
+            } else if(!!TransactionDepositToAddressDestination.validateJSON && TransactionDepositToAddressDestination.validateJSON(instance)){
                 // plain JS object
                 // create TransactionDepositToAddressDestination from JS object
                 this.actualInstance = TransactionDepositToAddressDestination.constructFromObject(instance);
-            } else {
-                return;
+            } else if(TransactionDepositToAddressDestination.constructFromObject(instance)){
+                this.actualInstance = TransactionDepositToAddressDestination.constructFromObject(instance);
             }
             match++;
         } catch(err) {
@@ -140,12 +140,12 @@ class TransactionDestination {
         try {
             if (instance instanceof TransactionDepositToWalletDestination) {
                 this.actualInstance = instance;
-            } else if(TransactionDepositToWalletDestination.validateJSON(instance)){
+            } else if(!!TransactionDepositToWalletDestination.validateJSON && TransactionDepositToWalletDestination.validateJSON(instance)){
                 // plain JS object
                 // create TransactionDepositToWalletDestination from JS object
                 this.actualInstance = TransactionDepositToWalletDestination.constructFromObject(instance);
-            } else {
-                return;
+            } else if(TransactionDepositToWalletDestination.constructFromObject(instance)){
+                this.actualInstance = TransactionDepositToWalletDestination.constructFromObject(instance);
             }
             match++;
         } catch(err) {

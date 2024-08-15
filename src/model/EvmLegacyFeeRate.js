@@ -90,15 +90,21 @@ class EvmLegacyFeeRate {
         }
         // validate the optional field `slow`
         if (data['slow']) { // data not null
-          EvmLegacyFeeBasePrice.validateJSON(data['slow']);
+          if (!!EvmLegacyFeeBasePrice.validateJSON) {
+            EvmLegacyFeeBasePrice.validateJSON(data['slow']);
+          }
         }
         // validate the optional field `recommended`
         if (data['recommended']) { // data not null
-          EvmLegacyFeeBasePrice.validateJSON(data['recommended']);
+          if (!!EvmLegacyFeeBasePrice.validateJSON) {
+            EvmLegacyFeeBasePrice.validateJSON(data['recommended']);
+          }
         }
         // validate the optional field `fast`
         if (data['fast']) { // data not null
-          EvmLegacyFeeBasePrice.validateJSON(data['fast']);
+          if (!!EvmLegacyFeeBasePrice.validateJSON) {
+            EvmLegacyFeeBasePrice.validateJSON(data['fast']);
+          }
         }
 
         return true;

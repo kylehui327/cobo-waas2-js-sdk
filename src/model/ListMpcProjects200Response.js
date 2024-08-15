@@ -74,7 +74,9 @@ class ListMpcProjects200Response {
         }
         // validate the optional field `pagination`
         if (data['pagination']) { // data not null
-          Pagination.validateJSON(data['pagination']);
+          if (!!Pagination.validateJSON) {
+            Pagination.validateJSON(data['pagination']);
+          }
         }
 
         return true;

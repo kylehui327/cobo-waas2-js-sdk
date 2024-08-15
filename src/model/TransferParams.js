@@ -99,7 +99,9 @@ class TransferParams {
         }
         // validate the optional field `source`
         if (data['source']) { // data not null
-          TransferSource.validateJSON(data['source']);
+          if (!!TransferSource.validateJSON) {
+            TransferSource.validateJSON(data['source']);
+          }
         }
         // ensure the json data is a string
         if (data['token_id'] && !(typeof data['token_id'] === 'string' || data['token_id'] instanceof String)) {
@@ -107,7 +109,9 @@ class TransferParams {
         }
         // validate the optional field `destination`
         if (data['destination']) { // data not null
-          TransferDestination.validateJSON(data['destination']);
+          if (!!TransferDestination.validateJSON) {
+            TransferDestination.validateJSON(data['destination']);
+          }
         }
         // ensure the json data is an array
         if (!Array.isArray(data['category_names'])) {
@@ -119,7 +123,9 @@ class TransferParams {
         }
         // validate the optional field `fee`
         if (data['fee']) { // data not null
-          TransactionRequestFee.validateJSON(data['fee']);
+          if (!!TransactionRequestFee.validateJSON) {
+            TransactionRequestFee.validateJSON(data['fee']);
+          }
         }
 
         return true;

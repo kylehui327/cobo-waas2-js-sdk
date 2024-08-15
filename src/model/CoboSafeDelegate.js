@@ -33,12 +33,12 @@ class CoboSafeDelegate {
         try {
             if (instance instanceof MPCDelegate) {
                 this.actualInstance = instance;
-            } else if(MPCDelegate.validateJSON(instance)){
+            } else if(!!MPCDelegate.validateJSON && MPCDelegate.validateJSON(instance)){
                 // plain JS object
                 // create MPCDelegate from JS object
                 this.actualInstance = MPCDelegate.constructFromObject(instance);
-            } else {
-                return;
+            } else if(MPCDelegate.constructFromObject(instance)){
+                this.actualInstance = MPCDelegate.constructFromObject(instance);
             }
             match++;
         } catch(err) {
