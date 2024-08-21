@@ -20,7 +20,7 @@ class AssetInfo {
      * Constructs a new <code>AssetInfo</code>.
      * The asset information.
      * @alias module:model/AssetInfo
-     * @param asset_id {String} (This concept applies to Exchange Wallets only) The asset ID. An asset ID is the unique identifier of the asset held within your linked exchange account.
+     * @param asset_id {String} The asset ID. An asset ID is the unique identifier of the asset held within your linked exchange account.
      */
     constructor(asset_id) { 
         
@@ -101,7 +101,7 @@ class AssetInfo {
 AssetInfo.RequiredProperties = ["asset_id"];
 
 /**
- * (This concept applies to Exchange Wallets only) The asset ID. An asset ID is the unique identifier of the asset held within your linked exchange account.
+ * The asset ID. An asset ID is the unique identifier of the asset held within your linked exchange account.
  * @member {String} asset_id
  */
 AssetInfo.prototype['asset_id'] = undefined;

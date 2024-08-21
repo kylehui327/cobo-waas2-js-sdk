@@ -66,6 +66,9 @@ class TransactionMPCWalletSource {
             if (data.hasOwnProperty('excluded_utxos')) {
                 obj['excluded_utxos'] = ApiClient.convertToType(data['excluded_utxos'], [TransactionUtxo]);
             }
+            if (data.hasOwnProperty('signer_key_share_holder_group_id')) {
+                obj['signer_key_share_holder_group_id'] = ApiClient.convertToType(data['signer_key_share_holder_group_id'], 'String');
+            }
         }
         return obj;
     }
@@ -110,6 +113,10 @@ class TransactionMPCWalletSource {
                 TransactionUtxo.validateJSON(item);
             };
         }
+        // ensure the json data is a string
+        if (data['signer_key_share_holder_group_id'] && !(typeof data['signer_key_share_holder_group_id'] === 'string' || data['signer_key_share_holder_group_id'] instanceof String)) {
+            throw new Error("Expected the field `signer_key_share_holder_group_id` to be a primitive type in the JSON string but got " + data['signer_key_share_holder_group_id']);
+        }
 
         return true;
     }
@@ -145,6 +152,12 @@ TransactionMPCWalletSource.prototype['included_utxos'] = undefined;
  * @member {Array.<module:model/TransactionUtxo>} excluded_utxos
  */
 TransactionMPCWalletSource.prototype['excluded_utxos'] = undefined;
+
+/**
+ * The ID of the key share holder group that is selected to sign the transaction.
+ * @member {String} signer_key_share_holder_group_id
+ */
+TransactionMPCWalletSource.prototype['signer_key_share_holder_group_id'] = undefined;
 
 
 

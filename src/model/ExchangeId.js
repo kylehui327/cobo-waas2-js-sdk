@@ -53,6 +53,13 @@ export default class ExchangeId {
 
     
         /**
+         * value: "bitget"
+         * @const
+         */
+        "bitget" = "bitget";
+
+    
+        /**
          * value: "unknown_default_open_api"
          * @const
          */

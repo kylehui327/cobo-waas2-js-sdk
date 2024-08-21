@@ -25,6 +25,8 @@ docs/BaseEstimateStakingFee.md
 docs/BaseStakeExtra.md
 docs/ChainInfo.md
 docs/CheckAddressValidity200Response.md
+docs/CheckAddressesValidity200ResponseInner.md
+docs/CheckLoopTransfers200ResponseInner.md
 docs/CoboSafeDelegate.md
 docs/CoboSafeDelegateType.md
 docs/ContractCallDestination.md
@@ -102,9 +104,12 @@ docs/KeyShareHolderGroupType.md
 docs/KeyShareHolderStatus.md
 docs/KeyShareHolderType.md
 docs/ListAddresses200Response.md
+docs/ListAssetBalancesForExchangeWallet200Response.md
+docs/ListExchanges200ResponseInner.md
 docs/ListKeyShareHolderGroups200Response.md
 docs/ListMpcProjects200Response.md
 docs/ListMpcVaults200Response.md
+docs/ListSupportedAssetsForExchange200Response.md
 docs/ListSupportedChains200Response.md
 docs/ListSupportedTokens200Response.md
 docs/ListTokenBalancesForAddress200Response.md
@@ -140,6 +145,7 @@ docs/Pagination.md
 docs/PoolDetails.md
 docs/PoolDetailsAllOfValidatorsInfo.md
 docs/PoolSummary.md
+docs/RefreshToken200Response.md
 docs/RefreshTokenRequest.md
 docs/ReplaceType.md
 docs/RetryWebhookEventById201Response.md
@@ -161,6 +167,7 @@ docs/TSSGroups.md
 docs/TSSRequest.md
 docs/TSSRequestStatus.md
 docs/TSSRequestType.md
+docs/TSSRequestWebhookEventData.md
 docs/TokenBalance.md
 docs/TokenBalanceBalance.md
 docs/TokenInfo.md
@@ -240,6 +247,7 @@ docs/WalletInfo.md
 docs/WalletSubtype.md
 docs/WalletType.md
 docs/WalletsApi.md
+docs/WalletsExchangeWalletApi.md
 docs/WalletsMPCWalletsApi.md
 docs/WebhookEndpoint.md
 docs/WebhookEndpointStatus.md
@@ -258,6 +266,7 @@ src/api/DevelopersWebhooksApi.js
 src/api/OAuthApi.js
 src/api/TransactionsApi.js
 src/api/WalletsApi.js
+src/api/WalletsExchangeWalletApi.js
 src/api/WalletsMPCWalletsApi.js
 src/crypto/ApiSigner.js
 src/index.js
@@ -283,6 +292,8 @@ src/model/BaseEstimateStakingFee.js
 src/model/BaseStakeExtra.js
 src/model/ChainInfo.js
 src/model/CheckAddressValidity200Response.js
+src/model/CheckAddressesValidity200ResponseInner.js
+src/model/CheckLoopTransfers200ResponseInner.js
 src/model/CoboSafeDelegate.js
 src/model/CoboSafeDelegateType.js
 src/model/ContractCallDestination.js
@@ -359,9 +370,12 @@ src/model/KeyShareHolderGroupType.js
 src/model/KeyShareHolderStatus.js
 src/model/KeyShareHolderType.js
 src/model/ListAddresses200Response.js
+src/model/ListAssetBalancesForExchangeWallet200Response.js
+src/model/ListExchanges200ResponseInner.js
 src/model/ListKeyShareHolderGroups200Response.js
 src/model/ListMpcProjects200Response.js
 src/model/ListMpcVaults200Response.js
+src/model/ListSupportedAssetsForExchange200Response.js
 src/model/ListSupportedChains200Response.js
 src/model/ListSupportedTokens200Response.js
 src/model/ListTokenBalancesForAddress200Response.js
@@ -396,6 +410,7 @@ src/model/Pagination.js
 src/model/PoolDetails.js
 src/model/PoolDetailsAllOfValidatorsInfo.js
 src/model/PoolSummary.js
+src/model/RefreshToken200Response.js
 src/model/RefreshTokenRequest.js
 src/model/ReplaceType.js
 src/model/RetryWebhookEventById201Response.js
@@ -417,6 +432,7 @@ src/model/TSSGroups.js
 src/model/TSSRequest.js
 src/model/TSSRequestStatus.js
 src/model/TSSRequestType.js
+src/model/TSSRequestWebhookEventData.js
 src/model/TokenBalance.js
 src/model/TokenBalanceBalance.js
 src/model/TokenInfo.js
@@ -506,6 +522,7 @@ test/api/DevelopersWebhooksApi.spec.js
 test/api/OAuthApi.spec.js
 test/api/TransactionsApi.spec.js
 test/api/WalletsApi.spec.js
+test/api/WalletsExchangeWalletApi.spec.js
 test/api/WalletsMPCWalletsApi.spec.js
 test/model/Activity.spec.js
 test/model/ActivityAction.spec.js
@@ -529,6 +546,8 @@ test/model/BaseEstimateStakingFee.spec.js
 test/model/BaseStakeExtra.spec.js
 test/model/ChainInfo.spec.js
 test/model/CheckAddressValidity200Response.spec.js
+test/model/CheckAddressesValidity200ResponseInner.spec.js
+test/model/CheckLoopTransfers200ResponseInner.spec.js
 test/model/CoboSafeDelegate.spec.js
 test/model/CoboSafeDelegateType.spec.js
 test/model/ContractCallDestination.spec.js
@@ -605,9 +624,12 @@ test/model/KeyShareHolderGroupType.spec.js
 test/model/KeyShareHolderStatus.spec.js
 test/model/KeyShareHolderType.spec.js
 test/model/ListAddresses200Response.spec.js
+test/model/ListAssetBalancesForExchangeWallet200Response.spec.js
+test/model/ListExchanges200ResponseInner.spec.js
 test/model/ListKeyShareHolderGroups200Response.spec.js
 test/model/ListMpcProjects200Response.spec.js
 test/model/ListMpcVaults200Response.spec.js
+test/model/ListSupportedAssetsForExchange200Response.spec.js
 test/model/ListSupportedChains200Response.spec.js
 test/model/ListSupportedTokens200Response.spec.js
 test/model/ListTokenBalancesForAddress200Response.spec.js
@@ -642,6 +664,7 @@ test/model/Pagination.spec.js
 test/model/PoolDetails.spec.js
 test/model/PoolDetailsAllOfValidatorsInfo.spec.js
 test/model/PoolSummary.spec.js
+test/model/RefreshToken200Response.spec.js
 test/model/RefreshTokenRequest.spec.js
 test/model/ReplaceType.spec.js
 test/model/RetryWebhookEventById201Response.spec.js
@@ -663,6 +686,7 @@ test/model/TSSGroups.spec.js
 test/model/TSSRequest.spec.js
 test/model/TSSRequestStatus.spec.js
 test/model/TSSRequestType.spec.js
+test/model/TSSRequestWebhookEventData.spec.js
 test/model/TokenBalance.spec.js
 test/model/TokenBalanceBalance.spec.js
 test/model/TokenInfo.spec.js

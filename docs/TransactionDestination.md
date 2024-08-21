@@ -11,11 +11,11 @@ Name | Type | Description | Notes
 **force_internal** | **Boolean** | Whether the transaction request must be executed as a Loop transfer. For more information about Loop, see [Loop&#39;s website](https://loop.top/).   - &#x60;true&#x60;: The transaction request must be executed as a Loop transfer.   - &#x60;false&#x60;: The transaction request may not be executed as a Loop transfer.  | [optional] 
 **force_external** | **Boolean** | Whether the transaction request must not be executed as a Loop transfer. For more information about Loop, see [Loop&#39;s website](https://loop.top/).   - &#x60;true&#x60;: The transaction request must not be executed as a Loop transfer.   - &#x60;false&#x60;: The transaction request can be executed as a Loop transfer.  | [optional] 
 **wallet_id** | **String** | The wallet ID. | 
-**sub_wallet_id** | **String** | The exchange trading account or the sub-wallet ID. | [optional] 
+**trading_account_type** | **String** | The trading account type. | [optional] 
 **exchange_id** | [**ExchangeId**](ExchangeId.md) |  | [optional] 
-**amount** | **String** | The quantity of the token in the transaction. For example, if you trade 1.5 ETH, then the value is &#x60;1.5&#x60;.  | 
+**amount** | **String** | The transfer amount. For example, if you trade 1.5 ETH, then the value is &#x60;1.5&#x60;.  | 
 **address** | **String** | The destination address. | 
-**value** | **String** | The quantity of the token in the transaction. For example, if you trade 1.5 ETH, then the value is &#x60;1.5&#x60;.  | [optional] 
+**value** | **String** | The transfer amount. For example, if you trade 1.5 ETH, then the value is &#x60;1.5&#x60;.  | [optional] 
 **calldata** | **Blob** | The data that is used to invoke a specific function or method within the specified contract at the destination address.  | 
 **message** | **String** | The raw data of the message to be signed, encoded in Base64 format. | 
 **structured_data** | **{String: Object}** | The structured data to be signed, formatted as a JSON object according to the EIP-712 standard. | 

@@ -82,6 +82,12 @@
       //expect(instance).to.be();
     });
 
+    it('should have the property signer_key_share_holder_group_id (base name: "signer_key_share_holder_group_id")', function() {
+      // uncomment below and update the code to test the property signer_key_share_holder_group_id
+      //var instance = new CoboWaas2.TransactionSource();
+      //expect(instance).to.be();
+    });
+
     it('should have the property delegate (base name: "delegate")', function() {
       // uncomment below and update the code to test the property delegate
       //var instance = new CoboWaas2.TransactionSource();
@@ -94,8 +100,8 @@
       //expect(instance).to.be();
     });
 
-    it('should have the property sub_wallet_id (base name: "sub_wallet_id")', function() {
-      // uncomment below and update the code to test the property sub_wallet_id
+    it('should have the property trading_account_type (base name: "trading_account_type")', function() {
+      // uncomment below and update the code to test the property trading_account_type
       //var instance = new CoboWaas2.TransactionSource();
       //expect(instance).to.be();
     });

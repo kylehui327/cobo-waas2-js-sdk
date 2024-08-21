@@ -116,7 +116,7 @@ ContractCallDestination.prototype['destination_type'] = undefined;
 ContractCallDestination.prototype['address'] = undefined;
 
 /**
- * The quantity of the token in the transaction. For example, if you trade 1.5 ETH, then the value is `1.5`. 
+ * The transfer amount. For example, if you trade 1.5 ETH, then the value is `1.5`. 
  * @member {String} value
  */
 ContractCallDestination.prototype['value'] = undefined;

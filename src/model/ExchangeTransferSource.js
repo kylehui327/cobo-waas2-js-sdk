@@ -19,15 +19,15 @@ import WalletSubtype from './WalletSubtype';
 class ExchangeTransferSource {
     /**
      * Constructs a new <code>ExchangeTransferSource</code>.
-     * The information about the transaction source types &#x60;Main&#x60; and &#x60;Sub&#x60;.   An Exchange Wallet (Sub Account) as the transaction source can only transfer tokens to another Exchange Wallet. 
+     * The information about the transaction source types &#x60;Main&#x60; and &#x60;Sub&#x60;.   Assets in an Exchange Wallet (Sub Account) can only be transferred to another Exchange Wallet. 
      * @alias module:model/ExchangeTransferSource
      * @param source_type {module:model/WalletSubtype} 
      * @param wallet_id {String} The wallet ID.
-     * @param sub_wallet_id {String} The exchange trading account or the sub-wallet ID.
+     * @param trading_account_type {String} The trading account type.
      */
-    constructor(source_type, wallet_id, sub_wallet_id) { 
+    constructor(source_type, wallet_id, trading_account_type) { 
         
-        ExchangeTransferSource.initialize(this, source_type, wallet_id, sub_wallet_id);
+        ExchangeTransferSource.initialize(this, source_type, wallet_id, trading_account_type);
     }
 
     /**
@@ -35,10 +35,10 @@ class ExchangeTransferSource {
      * This method is used by the constructors of any subclasses, in order to implement multiple inheritance (mix-ins).
      * Only for internal use.
      */
-    static initialize(obj, source_type, wallet_id, sub_wallet_id) { 
+    static initialize(obj, source_type, wallet_id, trading_account_type) { 
         obj['source_type'] = source_type;
         obj['wallet_id'] = wallet_id;
-        obj['sub_wallet_id'] = sub_wallet_id;
+        obj['trading_account_type'] = trading_account_type;
     }
 
     /**
@@ -58,8 +58,8 @@ class ExchangeTransferSource {
             if (data.hasOwnProperty('wallet_id')) {
                 obj['wallet_id'] = ApiClient.convertToType(data['wallet_id'], 'String');
             }
-            if (data.hasOwnProperty('sub_wallet_id')) {
-                obj['sub_wallet_id'] = ApiClient.convertToType(data['sub_wallet_id'], 'String');
+            if (data.hasOwnProperty('trading_account_type')) {
+                obj['trading_account_type'] = ApiClient.convertToType(data['trading_account_type'], 'String');
             }
         }
         return obj;
@@ -82,8 +82,8 @@ class ExchangeTransferSource {
             throw new Error("Expected the field `wallet_id` to be a primitive type in the JSON string but got " + data['wallet_id']);
         }
         // ensure the json data is a string
-        if (data['sub_wallet_id'] && !(typeof data['sub_wallet_id'] === 'string' || data['sub_wallet_id'] instanceof String)) {
-            throw new Error("Expected the field `sub_wallet_id` to be a primitive type in the JSON string but got " + data['sub_wallet_id']);
+        if (data['trading_account_type'] && !(typeof data['trading_account_type'] === 'string' || data['trading_account_type'] instanceof String)) {
+            throw new Error("Expected the field `trading_account_type` to be a primitive type in the JSON string but got " + data['trading_account_type']);
         }
 
         return true;
@@ -92,7 +92,7 @@ class ExchangeTransferSource {
 
 }
 
-ExchangeTransferSource.RequiredProperties = ["source_type", "wallet_id", "sub_wallet_id"];
+ExchangeTransferSource.RequiredProperties = ["source_type", "wallet_id", "trading_account_type"];
 
 /**
  * @member {module:model/WalletSubtype} source_type
@@ -106,10 +106,10 @@ ExchangeTransferSource.prototype['source_type'] = undefined;
 ExchangeTransferSource.prototype['wallet_id'] = undefined;
 
 /**
- * The exchange trading account or the sub-wallet ID.
- * @member {String} sub_wallet_id
+ * The trading account type.
+ * @member {String} trading_account_type
  */
-ExchangeTransferSource.prototype['sub_wallet_id'] = undefined;
+ExchangeTransferSource.prototype['trading_account_type'] = undefined;
 
 
 

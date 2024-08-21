@@ -20,7 +20,7 @@ class AddressTransferDestinationAccountOutput {
      * Constructs a new <code>AddressTransferDestinationAccountOutput</code>.
      * @alias module:model/AddressTransferDestinationAccountOutput
      * @param address {String} The destination address.
-     * @param amount {String} The quantity of the token in the transaction. For example, if you trade 1.5 ETH, then the value is `1.5`. 
+     * @param amount {String} The transfer amount. For example, if you trade 1.5 ETH, then the value is `1.5`. 
      */
     constructor(address, amount) { 
         
@@ -107,7 +107,7 @@ AddressTransferDestinationAccountOutput.prototype['address'] = undefined;
 AddressTransferDestinationAccountOutput.prototype['memo'] = undefined;
 
 /**
- * The quantity of the token in the transaction. For example, if you trade 1.5 ETH, then the value is `1.5`. 
+ * The transfer amount. For example, if you trade 1.5 ETH, then the value is `1.5`. 
  * @member {String} amount
  */
 AddressTransferDestinationAccountOutput.prototype['amount'] = undefined;

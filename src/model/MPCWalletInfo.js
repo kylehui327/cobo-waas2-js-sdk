@@ -79,8 +79,14 @@ class MPCWalletInfo {
             if (data.hasOwnProperty('project_id')) {
                 obj['project_id'] = ApiClient.convertToType(data['project_id'], 'String');
             }
+            if (data.hasOwnProperty('project_name')) {
+                obj['project_name'] = ApiClient.convertToType(data['project_name'], 'String');
+            }
             if (data.hasOwnProperty('vault_id')) {
                 obj['vault_id'] = ApiClient.convertToType(data['vault_id'], 'String');
+            }
+            if (data.hasOwnProperty('vault_name')) {
+                obj['vault_name'] = ApiClient.convertToType(data['vault_name'], 'String');
             }
         }
         return obj;
@@ -115,8 +121,16 @@ class MPCWalletInfo {
             throw new Error("Expected the field `project_id` to be a primitive type in the JSON string but got " + data['project_id']);
         }
         // ensure the json data is a string
+        if (data['project_name'] && !(typeof data['project_name'] === 'string' || data['project_name'] instanceof String)) {
+            throw new Error("Expected the field `project_name` to be a primitive type in the JSON string but got " + data['project_name']);
+        }
+        // ensure the json data is a string
         if (data['vault_id'] && !(typeof data['vault_id'] === 'string' || data['vault_id'] instanceof String)) {
             throw new Error("Expected the field `vault_id` to be a primitive type in the JSON string but got " + data['vault_id']);
+        }
+        // ensure the json data is a string
+        if (data['vault_name'] && !(typeof data['vault_name'] === 'string' || data['vault_name'] instanceof String)) {
+            throw new Error("Expected the field `vault_name` to be a primitive type in the JSON string but got " + data['vault_name']);
         }
 
         return true;
@@ -162,10 +176,22 @@ MPCWalletInfo.prototype['org_id'] = undefined;
 MPCWalletInfo.prototype['project_id'] = undefined;
 
 /**
+ * The project name.
+ * @member {String} project_name
+ */
+MPCWalletInfo.prototype['project_name'] = undefined;
+
+/**
  * The ID of the owning vault.
  * @member {String} vault_id
  */
 MPCWalletInfo.prototype['vault_id'] = undefined;
+
+/**
+ * The vault name.
+ * @member {String} vault_name
+ */
+MPCWalletInfo.prototype['vault_name'] = undefined;
 
 
 // Implement CustodialWalletInfo interface:

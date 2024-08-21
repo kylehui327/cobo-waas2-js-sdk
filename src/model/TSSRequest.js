@@ -21,7 +21,7 @@ import TSSRequestType from './TSSRequestType';
 class TSSRequest {
     /**
      * Constructs a new <code>TSSRequest</code>.
-     * The data for the TSS request information.
+     * The information about the TSS request.
      * @alias module:model/TSSRequest
      */
     constructor() { 
@@ -63,6 +63,12 @@ class TSSRequest {
             if (data.hasOwnProperty('status')) {
                 obj['status'] = TSSRequestStatus.constructFromObject(data['status']);
             }
+            if (data.hasOwnProperty('description')) {
+                obj['description'] = ApiClient.convertToType(data['description'], 'String');
+            }
+            if (data.hasOwnProperty('created_timestamp')) {
+                obj['created_timestamp'] = ApiClient.convertToType(data['created_timestamp'], 'Number');
+            }
         }
         return obj;
     }
@@ -86,6 +92,10 @@ class TSSRequest {
         // ensure the json data is a string
         if (data['target_key_share_holder_group_id'] && !(typeof data['target_key_share_holder_group_id'] === 'string' || data['target_key_share_holder_group_id'] instanceof String)) {
             throw new Error("Expected the field `target_key_share_holder_group_id` to be a primitive type in the JSON string but got " + data['target_key_share_holder_group_id']);
+        }
+        // ensure the json data is a string
+        if (data['description'] && !(typeof data['description'] === 'string' || data['description'] instanceof String)) {
+            throw new Error("Expected the field `description` to be a primitive type in the JSON string but got " + data['description']);
         }
 
         return true;
@@ -122,6 +132,18 @@ TSSRequest.prototype['type'] = undefined;
  * @member {module:model/TSSRequestStatus} status
  */
 TSSRequest.prototype['status'] = undefined;
+
+/**
+ * The description of the TSS request.
+ * @member {String} description
+ */
+TSSRequest.prototype['description'] = undefined;
+
+/**
+ * The TSS request's creation time in Unix timestamp format, measured in milliseconds.
+ * @member {Number} created_timestamp
+ */
+TSSRequest.prototype['created_timestamp'] = undefined;
 
 
 

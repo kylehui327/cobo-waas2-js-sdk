@@ -239,6 +239,12 @@ TransactionSource.prototype['included_utxos'] = undefined;
 TransactionSource.prototype['excluded_utxos'] = undefined;
 
 /**
+ * The ID of the key share holder group that is selected to sign the transaction.
+ * @member {String} signer_key_share_holder_group_id
+ */
+TransactionSource.prototype['signer_key_share_holder_group_id'] = undefined;
+
+/**
  * @member {module:model/CoboSafeDelegate} delegate
  */
 TransactionSource.prototype['delegate'] = undefined;
@@ -250,9 +256,9 @@ TransactionSource.prototype['exchange_id'] = undefined;
 
 /**
  * The exchange trading account or a sub-wallet ID.
- * @member {String} sub_wallet_id
+ * @member {String} trading_account_type
  */
-TransactionSource.prototype['sub_wallet_id'] = undefined;
+TransactionSource.prototype['trading_account_type'] = undefined;
 
 /**
  * @member {module:model/WalletType} wallet_type

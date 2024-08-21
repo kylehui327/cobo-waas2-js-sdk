@@ -251,10 +251,10 @@ TransactionDestination.prototype['force_external'] = undefined;
 TransactionDestination.prototype['wallet_id'] = undefined;
 
 /**
- * The exchange trading account or the sub-wallet ID.
- * @member {String} sub_wallet_id
+ * The trading account type.
+ * @member {String} trading_account_type
  */
-TransactionDestination.prototype['sub_wallet_id'] = undefined;
+TransactionDestination.prototype['trading_account_type'] = undefined;
 
 /**
  * @member {module:model/ExchangeId} exchange_id
@@ -262,7 +262,7 @@ TransactionDestination.prototype['sub_wallet_id'] = undefined;
 TransactionDestination.prototype['exchange_id'] = undefined;
 
 /**
- * The quantity of the token in the transaction. For example, if you trade 1.5 ETH, then the value is `1.5`. 
+ * The transfer amount. For example, if you trade 1.5 ETH, then the value is `1.5`. 
  * @member {String} amount
  */
 TransactionDestination.prototype['amount'] = undefined;
@@ -274,7 +274,7 @@ TransactionDestination.prototype['amount'] = undefined;
 TransactionDestination.prototype['address'] = undefined;
 
 /**
- * The quantity of the token in the transaction. For example, if you trade 1.5 ETH, then the value is `1.5`. 
+ * The transfer amount. For example, if you trade 1.5 ETH, then the value is `1.5`. 
  * @member {String} value
  */
 TransactionDestination.prototype['value'] = undefined;

@@ -37,15 +37,16 @@ This operation cancels a TSS request.
 
 ```javascript
 const CoboWaas2 = require('@cobo/cobo-waas2');
-// initial default api client
+// Initialize the API client
 const apiClient = CoboWaas2.ApiClient.instance
-// for dev env
-// apiClient.setEnv(CoboWaas2.Env.DEV);
-apiClient.setPrivateKey("<YOUR_API_PRIVATE_KEY_IN_HEX>");
-// call api
+// Select the development environment. To use the production environment, replace `Env.DEV` with `Env.PROD`
+apiClient.setEnv(CoboWaas2.Env.DEV);
+// Replace `<YOUR_PRIVATE_KEY>` with your private key
+apiClient.setPrivateKey("<YOUR_PRIVATE_KEY>");
+// Call the API
 const apiInstance = new CoboWaas2.WalletsMPCWalletsApi();
-const vault_id = "f47ac10b-58cc-4372-a567-0e02b2c3d479"; // String | The vault ID, which you can retrieve by calling [List all vaults](/v2/api-references/wallets--mpc-wallet/list-all-mpc-vaults).
-const tss_request_id = "20240711114129000132315000003970"; // String | The TSS request ID, which you can retrieve by calling [List TSS requests](/v2/api-references/wallets--mpc-wallets/list-tss-requests).
+const vault_id = "f47ac10b-58cc-4372-a567-0e02b2c3d479";
+const tss_request_id = "20240711114129000132315000003970";
 apiInstance.cancelTssRequestById(vault_id, tss_request_id).then((data) => {
   console.log('API called successfully. Returned data: ' + data);
 }, (error) => {
@@ -88,16 +89,17 @@ This operation creates a key share holder group for a specified vault.
 
 ```javascript
 const CoboWaas2 = require('@cobo/cobo-waas2');
-// initial default api client
+// Initialize the API client
 const apiClient = CoboWaas2.ApiClient.instance
-// for dev env
-// apiClient.setEnv(CoboWaas2.Env.DEV);
-apiClient.setPrivateKey("<YOUR_API_PRIVATE_KEY_IN_HEX>");
-// call api
+// Select the development environment. To use the production environment, replace `Env.DEV` with `Env.PROD`
+apiClient.setEnv(CoboWaas2.Env.DEV);
+// Replace `<YOUR_PRIVATE_KEY>` with your private key
+apiClient.setPrivateKey("<YOUR_PRIVATE_KEY>");
+// Call the API
 const apiInstance = new CoboWaas2.WalletsMPCWalletsApi();
-const vault_id = "f47ac10b-58cc-4372-a567-0e02b2c3d479"; // String | The vault ID, which you can retrieve by calling [List all vaults](/v2/api-references/wallets--mpc-wallet/list-all-mpc-vaults).
+const vault_id = "f47ac10b-58cc-4372-a567-0e02b2c3d479";
 const opts = {
-  'CreateKeyShareHolderGroupRequest': new CoboWaas2.CreateKeyShareHolderGroupRequest() // CreateKeyShareHolderGroupRequest | The request body to create a key share holder group.
+  'CreateKeyShareHolderGroupRequest': new CoboWaas2.CreateKeyShareHolderGroupRequest()
 };
 apiInstance.createKeyShareHolderGroup(vault_id, opts).then((data) => {
   console.log('API called successfully. Returned data: ' + data);
@@ -135,21 +137,22 @@ Name | Type | Description  | Notes
 
 Create project
 
-This operation creates a project.  &lt;Info&gt;This operation applies to MPC Wallets (User-Controlled Wallets) only.&lt;/Info&gt; 
+This operation creates a project.  &lt;Note&gt;This operation applies to MPC Wallets (User-Controlled Wallets) only.&lt;/Note&gt; 
 
 ### Example
 
 ```javascript
 const CoboWaas2 = require('@cobo/cobo-waas2');
-// initial default api client
+// Initialize the API client
 const apiClient = CoboWaas2.ApiClient.instance
-// for dev env
-// apiClient.setEnv(CoboWaas2.Env.DEV);
-apiClient.setPrivateKey("<YOUR_API_PRIVATE_KEY_IN_HEX>");
-// call api
+// Select the development environment. To use the production environment, replace `Env.DEV` with `Env.PROD`
+apiClient.setEnv(CoboWaas2.Env.DEV);
+// Replace `<YOUR_PRIVATE_KEY>` with your private key
+apiClient.setPrivateKey("<YOUR_PRIVATE_KEY>");
+// Call the API
 const apiInstance = new CoboWaas2.WalletsMPCWalletsApi();
 const opts = {
-  'CreateMpcProjectRequest': new CoboWaas2.CreateMpcProjectRequest() // CreateMpcProjectRequest | The request body to create a project.
+  'CreateMpcProjectRequest': new CoboWaas2.CreateMpcProjectRequest()
 };
 apiInstance.createMpcProject(opts).then((data) => {
   console.log('API called successfully. Returned data: ' + data);
@@ -192,15 +195,16 @@ This operation creates a vault.
 
 ```javascript
 const CoboWaas2 = require('@cobo/cobo-waas2');
-// initial default api client
+// Initialize the API client
 const apiClient = CoboWaas2.ApiClient.instance
-// for dev env
-// apiClient.setEnv(CoboWaas2.Env.DEV);
-apiClient.setPrivateKey("<YOUR_API_PRIVATE_KEY_IN_HEX>");
-// call api
+// Select the development environment. To use the production environment, replace `Env.DEV` with `Env.PROD`
+apiClient.setEnv(CoboWaas2.Env.DEV);
+// Replace `<YOUR_PRIVATE_KEY>` with your private key
+apiClient.setPrivateKey("<YOUR_PRIVATE_KEY>");
+// Call the API
 const apiInstance = new CoboWaas2.WalletsMPCWalletsApi();
 const opts = {
-  'CreateMpcVaultRequest': new CoboWaas2.CreateMpcVaultRequest() // CreateMpcVaultRequest | The request body to create a vault.
+  'CreateMpcVaultRequest': new CoboWaas2.CreateMpcVaultRequest()
 };
 apiInstance.createMpcVault(opts).then((data) => {
   console.log('API called successfully. Returned data: ' + data);
@@ -243,16 +247,17 @@ This operation creates a TSS request under a specified vault. You can use this o
 
 ```javascript
 const CoboWaas2 = require('@cobo/cobo-waas2');
-// initial default api client
+// Initialize the API client
 const apiClient = CoboWaas2.ApiClient.instance
-// for dev env
-// apiClient.setEnv(CoboWaas2.Env.DEV);
-apiClient.setPrivateKey("<YOUR_API_PRIVATE_KEY_IN_HEX>");
-// call api
+// Select the development environment. To use the production environment, replace `Env.DEV` with `Env.PROD`
+apiClient.setEnv(CoboWaas2.Env.DEV);
+// Replace `<YOUR_PRIVATE_KEY>` with your private key
+apiClient.setPrivateKey("<YOUR_PRIVATE_KEY>");
+// Call the API
 const apiInstance = new CoboWaas2.WalletsMPCWalletsApi();
-const vault_id = "f47ac10b-58cc-4372-a567-0e02b2c3d479"; // String | The vault ID, which you can retrieve by calling [List all vaults](/v2/api-references/wallets--mpc-wallet/list-all-mpc-vaults).
+const vault_id = "f47ac10b-58cc-4372-a567-0e02b2c3d479";
 const opts = {
-  'CreateTssRequestRequest': new CoboWaas2.CreateTssRequestRequest() // CreateTssRequestRequest | The request body to create a TSS request.
+  'CreateTssRequestRequest': new CoboWaas2.CreateTssRequestRequest()
 };
 apiInstance.createTssRequest(vault_id, opts).then((data) => {
   console.log('API called successfully. Returned data: ' + data);
@@ -296,15 +301,16 @@ This operation deletes a specified key share holder group.
 
 ```javascript
 const CoboWaas2 = require('@cobo/cobo-waas2');
-// initial default api client
+// Initialize the API client
 const apiClient = CoboWaas2.ApiClient.instance
-// for dev env
-// apiClient.setEnv(CoboWaas2.Env.DEV);
-apiClient.setPrivateKey("<YOUR_API_PRIVATE_KEY_IN_HEX>");
-// call api
+// Select the development environment. To use the production environment, replace `Env.DEV` with `Env.PROD`
+apiClient.setEnv(CoboWaas2.Env.DEV);
+// Replace `<YOUR_PRIVATE_KEY>` with your private key
+apiClient.setPrivateKey("<YOUR_PRIVATE_KEY>");
+// Call the API
 const apiInstance = new CoboWaas2.WalletsMPCWalletsApi();
-const vault_id = "f47ac10b-58cc-4372-a567-0e02b2c3d479"; // String | The vault ID, which you can retrieve by calling [List all vaults](/v2/api-references/wallets--mpc-wallet/list-all-mpc-vaults).
-const key_share_holder_group_id = "e8257ac8-76b8-4d1e-a1f9-eec4cb931dce"; // String | The key share holder group ID.
+const vault_id = "f47ac10b-58cc-4372-a567-0e02b2c3d479";
+const key_share_holder_group_id = "e8257ac8-76b8-4d1e-a1f9-eec4cb931dce";
 apiInstance.deleteKeyShareHolderGroupById(vault_id, key_share_holder_group_id).then((data) => {
   console.log('API called successfully. Returned data: ' + data);
 }, (error) => {
@@ -347,15 +353,16 @@ This operation retrieves detailed information about a specified key share holder
 
 ```javascript
 const CoboWaas2 = require('@cobo/cobo-waas2');
-// initial default api client
+// Initialize the API client
 const apiClient = CoboWaas2.ApiClient.instance
-// for dev env
-// apiClient.setEnv(CoboWaas2.Env.DEV);
-apiClient.setPrivateKey("<YOUR_API_PRIVATE_KEY_IN_HEX>");
-// call api
+// Select the development environment. To use the production environment, replace `Env.DEV` with `Env.PROD`
+apiClient.setEnv(CoboWaas2.Env.DEV);
+// Replace `<YOUR_PRIVATE_KEY>` with your private key
+apiClient.setPrivateKey("<YOUR_PRIVATE_KEY>");
+// Call the API
 const apiInstance = new CoboWaas2.WalletsMPCWalletsApi();
-const vault_id = "f47ac10b-58cc-4372-a567-0e02b2c3d479"; // String | The vault ID, which you can retrieve by calling [List all vaults](/v2/api-references/wallets--mpc-wallet/list-all-mpc-vaults).
-const key_share_holder_group_id = "e8257ac8-76b8-4d1e-a1f9-eec4cb931dce"; // String | The key share holder group ID.
+const vault_id = "f47ac10b-58cc-4372-a567-0e02b2c3d479";
+const key_share_holder_group_id = "e8257ac8-76b8-4d1e-a1f9-eec4cb931dce";
 apiInstance.getKeyShareHolderGroupById(vault_id, key_share_holder_group_id).then((data) => {
   console.log('API called successfully. Returned data: ' + data);
 }, (error) => {
@@ -392,20 +399,21 @@ Name | Type | Description  | Notes
 
 Get project information
 
-This operation retrieves detailed information about a project. &lt;Info&gt;This operation applies to MPC Wallets (User-Controlled Wallets) only.&lt;/Info&gt; 
+This operation retrieves detailed information about a project. &lt;Note&gt;This operation applies to MPC Wallets (User-Controlled Wallets) only.&lt;/Note&gt; 
 
 ### Example
 
 ```javascript
 const CoboWaas2 = require('@cobo/cobo-waas2');
-// initial default api client
+// Initialize the API client
 const apiClient = CoboWaas2.ApiClient.instance
-// for dev env
-// apiClient.setEnv(CoboWaas2.Env.DEV);
-apiClient.setPrivateKey("<YOUR_API_PRIVATE_KEY_IN_HEX>");
-// call api
+// Select the development environment. To use the production environment, replace `Env.DEV` with `Env.PROD`
+apiClient.setEnv(CoboWaas2.Env.DEV);
+// Replace `<YOUR_PRIVATE_KEY>` with your private key
+apiClient.setPrivateKey("<YOUR_PRIVATE_KEY>");
+// Call the API
 const apiInstance = new CoboWaas2.WalletsMPCWalletsApi();
-const project_id = "f47ac10b-58cc-4372-a567-0e02b2c3d479"; // String | The project ID, which you can retrieve by calling [List all projects](/v2/api-references/wallets--mpc-wallets/list-all-projects).
+const project_id = "f47ac10b-58cc-4372-a567-0e02b2c3d479";
 apiInstance.getMpcProjectById(project_id).then((data) => {
   console.log('API called successfully. Returned data: ' + data);
 }, (error) => {
@@ -447,14 +455,15 @@ This operation retrieves detailed information about a vault.
 
 ```javascript
 const CoboWaas2 = require('@cobo/cobo-waas2');
-// initial default api client
+// Initialize the API client
 const apiClient = CoboWaas2.ApiClient.instance
-// for dev env
-// apiClient.setEnv(CoboWaas2.Env.DEV);
-apiClient.setPrivateKey("<YOUR_API_PRIVATE_KEY_IN_HEX>");
-// call api
+// Select the development environment. To use the production environment, replace `Env.DEV` with `Env.PROD`
+apiClient.setEnv(CoboWaas2.Env.DEV);
+// Replace `<YOUR_PRIVATE_KEY>` with your private key
+apiClient.setPrivateKey("<YOUR_PRIVATE_KEY>");
+// Call the API
 const apiInstance = new CoboWaas2.WalletsMPCWalletsApi();
-const vault_id = "f47ac10b-58cc-4372-a567-0e02b2c3d479"; // String | The vault ID, which you can retrieve by calling [List all vaults](/v2/api-references/wallets--mpc-wallet/list-all-mpc-vaults).
+const vault_id = "f47ac10b-58cc-4372-a567-0e02b2c3d479";
 apiInstance.getMpcVaultById(vault_id).then((data) => {
   console.log('API called successfully. Returned data: ' + data);
 }, (error) => {
@@ -496,15 +505,16 @@ This operation retrieves detailed information about a TSS request.
 
 ```javascript
 const CoboWaas2 = require('@cobo/cobo-waas2');
-// initial default api client
+// Initialize the API client
 const apiClient = CoboWaas2.ApiClient.instance
-// for dev env
-// apiClient.setEnv(CoboWaas2.Env.DEV);
-apiClient.setPrivateKey("<YOUR_API_PRIVATE_KEY_IN_HEX>");
-// call api
+// Select the development environment. To use the production environment, replace `Env.DEV` with `Env.PROD`
+apiClient.setEnv(CoboWaas2.Env.DEV);
+// Replace `<YOUR_PRIVATE_KEY>` with your private key
+apiClient.setPrivateKey("<YOUR_PRIVATE_KEY>");
+// Call the API
 const apiInstance = new CoboWaas2.WalletsMPCWalletsApi();
-const vault_id = "f47ac10b-58cc-4372-a567-0e02b2c3d479"; // String | The vault ID, which you can retrieve by calling [List all vaults](/v2/api-references/wallets--mpc-wallet/list-all-mpc-vaults).
-const tss_request_id = "20240711114129000132315000003970"; // String | The TSS request ID, which you can retrieve by calling [List TSS requests](/v2/api-references/wallets--mpc-wallets/list-tss-requests).
+const vault_id = "f47ac10b-58cc-4372-a567-0e02b2c3d479";
+const tss_request_id = "20240711114129000132315000003970";
 apiInstance.getTssRequestById(vault_id, tss_request_id).then((data) => {
   console.log('API called successfully. Returned data: ' + data);
 }, (error) => {
@@ -547,12 +557,13 @@ This operation retrieves a list of all Cobo key share holders and their informat
 
 ```javascript
 const CoboWaas2 = require('@cobo/cobo-waas2');
-// initial default api client
+// Initialize the API client
 const apiClient = CoboWaas2.ApiClient.instance
-// for dev env
-// apiClient.setEnv(CoboWaas2.Env.DEV);
-apiClient.setPrivateKey("<YOUR_API_PRIVATE_KEY_IN_HEX>");
-// call api
+// Select the development environment. To use the production environment, replace `Env.DEV` with `Env.PROD`
+apiClient.setEnv(CoboWaas2.Env.DEV);
+// Replace `<YOUR_PRIVATE_KEY>` with your private key
+apiClient.setPrivateKey("<YOUR_PRIVATE_KEY>");
+// Call the API
 const apiInstance = new CoboWaas2.WalletsMPCWalletsApi();
 apiInstance.listCoboKeyHolders().then((data) => {
   console.log('API called successfully. Returned data: ' + data);
@@ -592,19 +603,20 @@ This operation retrieves all key share holder groups under a specified vault. Yo
 
 ```javascript
 const CoboWaas2 = require('@cobo/cobo-waas2');
-// initial default api client
+// Initialize the API client
 const apiClient = CoboWaas2.ApiClient.instance
-// for dev env
-// apiClient.setEnv(CoboWaas2.Env.DEV);
-apiClient.setPrivateKey("<YOUR_API_PRIVATE_KEY_IN_HEX>");
-// call api
+// Select the development environment. To use the production environment, replace `Env.DEV` with `Env.PROD`
+apiClient.setEnv(CoboWaas2.Env.DEV);
+// Replace `<YOUR_PRIVATE_KEY>` with your private key
+apiClient.setPrivateKey("<YOUR_PRIVATE_KEY>");
+// Call the API
 const apiInstance = new CoboWaas2.WalletsMPCWalletsApi();
-const vault_id = "f47ac10b-58cc-4372-a567-0e02b2c3d479"; // String | The vault ID, which you can retrieve by calling [List all vaults](/v2/api-references/wallets--mpc-wallet/list-all-mpc-vaults).
+const vault_id = "f47ac10b-58cc-4372-a567-0e02b2c3d479";
 const opts = {
-  'key_share_holder_group_type': new CoboWaas2.KeyShareHolderGroupType(), // KeyShareHolderGroupType | The key share holder group type. Possible values include: - `MainGroup`: The [Main Group](https://manuals.cobo.com/en/portal/mpc-wallets/ocw/create-key-share-groups#main-group).  - `SigningGroup`: The [Signing Group](https://manuals.cobo.com/en/portal/mpc-wallets/ocw/create-key-share-groups#signing-group).  - `RecoveryGroup`: The [Recovery Group](https://manuals.cobo.com/en/portal/mpc-wallets/ocw/create-key-share-groups#recovery-group).  **Note**: If this parameter is left empty, all key share holder group types will be retrieved. 
-  'limit': 10, // Number | The maximum number of objects to return. For most operations, the value range is [1, 50].
-  'before': "RqeEoTkgKG5rpzqYzg2Hd3szmPoj2cE7w5jWwShz3C1vyGmk1", // String | An object ID that serves as a starting point for retrieving data in reverse chronological order. For example, if you specify `before` as `RqeEoTkgKG5rpzqYzg2Hd3szmPoj2cE7w5jWwShz3C1vyGmk1`, the request will retrieve a list of data objects that end before the object with the object ID `RqeEoTkgKG5rpzqYzg2Hd3szmPoj2cE7w5jWwShz3C1vyGmk1`. You can set this parameter to the value of `pagination.before` in the response of the previous request.  - If you set both `after` and `before`, an error will occur.  - If you leave both `before` and `after` empty, the first page of data is returned.  - If you set `before` to `infinity`, the last page of data is returned. 
-  'after': "RqeEoTkgKG5rpzqYzg2Hd3szmPoj2cE7w5jWwShz3C1vyGSAk" // String | An object ID that acts as a starting point for retrieving data in chronological order. For example, if you specify `after` as `RqeEoTkgKG5rpzqYzg2Hd3szmPoj2cE7w5jWwShz3C1vyGSAk`, the request will retrieve a list of data objects that start after the object with the object ID `RqeEoTkgKG5rpzqYzg2Hd3szmPoj2cE7w5jWwShz3C1vyGSAk`. You can set this parameter to the value of `pagination.after` in the response of the previous request.  - If you set both `after` and `before`, an error will occur.  - If you leave both `before` and `after` empty, the first page of data is returned. 
+  'key_share_holder_group_type': new CoboWaas2.KeyShareHolderGroupType(),
+  'limit': 10,
+  'before': "RqeEoTkgKG5rpzqYzg2Hd3szmPoj2cE7w5jWwShz3C1vyGmk1",
+  'after': "RqeEoTkgKG5rpzqYzg2Hd3szmPoj2cE7w5jWwShz3C1vyGSAk"
 };
 apiInstance.listKeyShareHolderGroups(vault_id, opts).then((data) => {
   console.log('API called successfully. Returned data: ' + data);
@@ -645,23 +657,24 @@ Name | Type | Description  | Notes
 
 List all projects
 
-This operation retrieves a list of all projects.  &lt;Info&gt;This operation applies to MPC Wallets (User-Controlled Wallets) only.&lt;/Info&gt; 
+This operation retrieves a list of all projects.  &lt;Note&gt;This operation applies to MPC Wallets (User-Controlled Wallets) only.&lt;/Note&gt; 
 
 ### Example
 
 ```javascript
 const CoboWaas2 = require('@cobo/cobo-waas2');
-// initial default api client
+// Initialize the API client
 const apiClient = CoboWaas2.ApiClient.instance
-// for dev env
-// apiClient.setEnv(CoboWaas2.Env.DEV);
-apiClient.setPrivateKey("<YOUR_API_PRIVATE_KEY_IN_HEX>");
-// call api
+// Select the development environment. To use the production environment, replace `Env.DEV` with `Env.PROD`
+apiClient.setEnv(CoboWaas2.Env.DEV);
+// Replace `<YOUR_PRIVATE_KEY>` with your private key
+apiClient.setPrivateKey("<YOUR_PRIVATE_KEY>");
+// Call the API
 const apiInstance = new CoboWaas2.WalletsMPCWalletsApi();
 const opts = {
-  'limit': 10, // Number | The maximum number of objects to return. For most operations, the value range is [1, 50].
-  'before': "RqeEoTkgKG5rpzqYzg2Hd3szmPoj2cE7w5jWwShz3C1vyGmk1", // String | An object ID that serves as a starting point for retrieving data in reverse chronological order. For example, if you specify `before` as `RqeEoTkgKG5rpzqYzg2Hd3szmPoj2cE7w5jWwShz3C1vyGmk1`, the request will retrieve a list of data objects that end before the object with the object ID `RqeEoTkgKG5rpzqYzg2Hd3szmPoj2cE7w5jWwShz3C1vyGmk1`. You can set this parameter to the value of `pagination.before` in the response of the previous request.  - If you set both `after` and `before`, an error will occur.  - If you leave both `before` and `after` empty, the first page of data is returned.  - If you set `before` to `infinity`, the last page of data is returned. 
-  'after': "RqeEoTkgKG5rpzqYzg2Hd3szmPoj2cE7w5jWwShz3C1vyGSAk" // String | An object ID that acts as a starting point for retrieving data in chronological order. For example, if you specify `after` as `RqeEoTkgKG5rpzqYzg2Hd3szmPoj2cE7w5jWwShz3C1vyGSAk`, the request will retrieve a list of data objects that start after the object with the object ID `RqeEoTkgKG5rpzqYzg2Hd3szmPoj2cE7w5jWwShz3C1vyGSAk`. You can set this parameter to the value of `pagination.after` in the response of the previous request.  - If you set both `after` and `before`, an error will occur.  - If you leave both `before` and `after` empty, the first page of data is returned. 
+  'limit': 10,
+  'before': "RqeEoTkgKG5rpzqYzg2Hd3szmPoj2cE7w5jWwShz3C1vyGmk1",
+  'after': "RqeEoTkgKG5rpzqYzg2Hd3szmPoj2cE7w5jWwShz3C1vyGSAk"
 };
 apiInstance.listMpcProjects(opts).then((data) => {
   console.log('API called successfully. Returned data: ' + data);
@@ -706,19 +719,20 @@ This operation retrieves a list of all vaults. You can filter the result by proj
 
 ```javascript
 const CoboWaas2 = require('@cobo/cobo-waas2');
-// initial default api client
+// Initialize the API client
 const apiClient = CoboWaas2.ApiClient.instance
-// for dev env
-// apiClient.setEnv(CoboWaas2.Env.DEV);
-apiClient.setPrivateKey("<YOUR_API_PRIVATE_KEY_IN_HEX>");
-// call api
+// Select the development environment. To use the production environment, replace `Env.DEV` with `Env.PROD`
+apiClient.setEnv(CoboWaas2.Env.DEV);
+// Replace `<YOUR_PRIVATE_KEY>` with your private key
+apiClient.setPrivateKey("<YOUR_PRIVATE_KEY>");
+// Call the API
 const apiInstance = new CoboWaas2.WalletsMPCWalletsApi();
-const vault_type = new CoboWaas2.MPCVaultType(); // MPCVaultType | The vault type. Possible values include: - `Org-Controlled`: This vault is a collection of [Organization-Controlled Wallets](https://manuals.cobo.com/en/portal/mpc-wallets/introduction#organization-controlled-wallets).  - `User-Controlled`: This vault is a collection of [User-Controlled Wallets](https://manuals.cobo.com/en/portal/mpc-wallets/introduction#user-controlled-wallets). 
+const vault_type = new CoboWaas2.MPCVaultType();
 const opts = {
-  'project_id': "f47ac10b-58cc-4372-a567-0e02b2c3d479", // String | The project ID, which you can retrieve by calling [List all projects](/v2/api-references/wallets--mpc-wallets/list-all-projects). 
-  'limit': 10, // Number | The maximum number of objects to return. For most operations, the value range is [1, 50].
-  'before': "RqeEoTkgKG5rpzqYzg2Hd3szmPoj2cE7w5jWwShz3C1vyGmk1", // String | An object ID that serves as a starting point for retrieving data in reverse chronological order. For example, if you specify `before` as `RqeEoTkgKG5rpzqYzg2Hd3szmPoj2cE7w5jWwShz3C1vyGmk1`, the request will retrieve a list of data objects that end before the object with the object ID `RqeEoTkgKG5rpzqYzg2Hd3szmPoj2cE7w5jWwShz3C1vyGmk1`. You can set this parameter to the value of `pagination.before` in the response of the previous request.  - If you set both `after` and `before`, an error will occur.  - If you leave both `before` and `after` empty, the first page of data is returned.  - If you set `before` to `infinity`, the last page of data is returned. 
-  'after': "RqeEoTkgKG5rpzqYzg2Hd3szmPoj2cE7w5jWwShz3C1vyGSAk" // String | An object ID that acts as a starting point for retrieving data in chronological order. For example, if you specify `after` as `RqeEoTkgKG5rpzqYzg2Hd3szmPoj2cE7w5jWwShz3C1vyGSAk`, the request will retrieve a list of data objects that start after the object with the object ID `RqeEoTkgKG5rpzqYzg2Hd3szmPoj2cE7w5jWwShz3C1vyGSAk`. You can set this parameter to the value of `pagination.after` in the response of the previous request.  - If you set both `after` and `before`, an error will occur.  - If you leave both `before` and `after` empty, the first page of data is returned. 
+  'project_id': "f47ac10b-58cc-4372-a567-0e02b2c3d479",
+  'limit': 10,
+  'before': "RqeEoTkgKG5rpzqYzg2Hd3szmPoj2cE7w5jWwShz3C1vyGmk1",
+  'after': "RqeEoTkgKG5rpzqYzg2Hd3szmPoj2cE7w5jWwShz3C1vyGSAk"
 };
 apiInstance.listMpcVaults(vault_type, opts).then((data) => {
   console.log('API called successfully. Returned data: ' + data);
@@ -765,19 +779,20 @@ This operation retrieves a list of TSS requests and their details.
 
 ```javascript
 const CoboWaas2 = require('@cobo/cobo-waas2');
-// initial default api client
+// Initialize the API client
 const apiClient = CoboWaas2.ApiClient.instance
-// for dev env
-// apiClient.setEnv(CoboWaas2.Env.DEV);
-apiClient.setPrivateKey("<YOUR_API_PRIVATE_KEY_IN_HEX>");
-// call api
+// Select the development environment. To use the production environment, replace `Env.DEV` with `Env.PROD`
+apiClient.setEnv(CoboWaas2.Env.DEV);
+// Replace `<YOUR_PRIVATE_KEY>` with your private key
+apiClient.setPrivateKey("<YOUR_PRIVATE_KEY>");
+// Call the API
 const apiInstance = new CoboWaas2.WalletsMPCWalletsApi();
-const vault_id = "f47ac10b-58cc-4372-a567-0e02b2c3d479"; // String | The vault ID, which you can retrieve by calling [List all vaults](/v2/api-references/wallets--mpc-wallet/list-all-mpc-vaults).
-const key_share_holder_group_id = "a3a45e99-5a12-444f-867a-ffe0ebb1bb30"; // String | The key share holder group ID of the TSS request, which you can retrieve by calling [List all key share holder groups](/v2/api-references/wallets--mpc-wallets/list-all-key-share-holder-groups).
+const vault_id = "f47ac10b-58cc-4372-a567-0e02b2c3d479";
+const key_share_holder_group_id = "a3a45e99-5a12-444f-867a-ffe0ebb1bb30";
 const opts = {
-  'limit': 10, // Number | The maximum number of objects to return. For most operations, the value range is [1, 50].
-  'before': "RqeEoTkgKG5rpzqYzg2Hd3szmPoj2cE7w5jWwShz3C1vyGmk1", // String | An object ID that serves as a starting point for retrieving data in reverse chronological order. For example, if you specify `before` as `RqeEoTkgKG5rpzqYzg2Hd3szmPoj2cE7w5jWwShz3C1vyGmk1`, the request will retrieve a list of data objects that end before the object with the object ID `RqeEoTkgKG5rpzqYzg2Hd3szmPoj2cE7w5jWwShz3C1vyGmk1`. You can set this parameter to the value of `pagination.before` in the response of the previous request.  - If you set both `after` and `before`, an error will occur.  - If you leave both `before` and `after` empty, the first page of data is returned.  - If you set `before` to `infinity`, the last page of data is returned. 
-  'after': "RqeEoTkgKG5rpzqYzg2Hd3szmPoj2cE7w5jWwShz3C1vyGSAk" // String | An object ID that acts as a starting point for retrieving data in chronological order. For example, if you specify `after` as `RqeEoTkgKG5rpzqYzg2Hd3szmPoj2cE7w5jWwShz3C1vyGSAk`, the request will retrieve a list of data objects that start after the object with the object ID `RqeEoTkgKG5rpzqYzg2Hd3szmPoj2cE7w5jWwShz3C1vyGSAk`. You can set this parameter to the value of `pagination.after` in the response of the previous request.  - If you set both `after` and `before`, an error will occur.  - If you leave both `before` and `after` empty, the first page of data is returned. 
+  'limit': 10,
+  'before': "RqeEoTkgKG5rpzqYzg2Hd3szmPoj2cE7w5jWwShz3C1vyGmk1",
+  'after': "RqeEoTkgKG5rpzqYzg2Hd3szmPoj2cE7w5jWwShz3C1vyGSAk"
 };
 apiInstance.listTssRequests(vault_id, key_share_holder_group_id, opts).then((data) => {
   console.log('API called successfully. Returned data: ' + data);
@@ -824,17 +839,18 @@ This operation updates a specified active [Signing Group](https://manuals.cobo.c
 
 ```javascript
 const CoboWaas2 = require('@cobo/cobo-waas2');
-// initial default api client
+// Initialize the API client
 const apiClient = CoboWaas2.ApiClient.instance
-// for dev env
-// apiClient.setEnv(CoboWaas2.Env.DEV);
-apiClient.setPrivateKey("<YOUR_API_PRIVATE_KEY_IN_HEX>");
-// call api
+// Select the development environment. To use the production environment, replace `Env.DEV` with `Env.PROD`
+apiClient.setEnv(CoboWaas2.Env.DEV);
+// Replace `<YOUR_PRIVATE_KEY>` with your private key
+apiClient.setPrivateKey("<YOUR_PRIVATE_KEY>");
+// Call the API
 const apiInstance = new CoboWaas2.WalletsMPCWalletsApi();
-const vault_id = "f47ac10b-58cc-4372-a567-0e02b2c3d479"; // String | The vault ID, which you can retrieve by calling [List all vaults](/v2/api-references/wallets--mpc-wallet/list-all-mpc-vaults).
-const key_share_holder_group_id = "e8257ac8-76b8-4d1e-a1f9-eec4cb931dce"; // String | The key share holder group ID.
+const vault_id = "f47ac10b-58cc-4372-a567-0e02b2c3d479";
+const key_share_holder_group_id = "e8257ac8-76b8-4d1e-a1f9-eec4cb931dce";
 const opts = {
-  'UpdateKeyShareHolderGroupByIdRequest': new CoboWaas2.UpdateKeyShareHolderGroupByIdRequest() // UpdateKeyShareHolderGroupByIdRequest | 
+  'UpdateKeyShareHolderGroupByIdRequest': new CoboWaas2.UpdateKeyShareHolderGroupByIdRequest()
 };
 apiInstance.updateKeyShareHolderGroupById(vault_id, key_share_holder_group_id, opts).then((data) => {
   console.log('API called successfully. Returned data: ' + data);
@@ -873,22 +889,23 @@ Name | Type | Description  | Notes
 
 Update project name
 
-This operation updates a project&#39;s name.  &lt;Info&gt;This operation applies to MPC Wallets (User-Controlled Wallets) only.&lt;/Info&gt; 
+This operation updates a project&#39;s name.  &lt;Note&gt;This operation applies to MPC Wallets (User-Controlled Wallets) only.&lt;/Note&gt; 
 
 ### Example
 
 ```javascript
 const CoboWaas2 = require('@cobo/cobo-waas2');
-// initial default api client
+// Initialize the API client
 const apiClient = CoboWaas2.ApiClient.instance
-// for dev env
-// apiClient.setEnv(CoboWaas2.Env.DEV);
-apiClient.setPrivateKey("<YOUR_API_PRIVATE_KEY_IN_HEX>");
-// call api
+// Select the development environment. To use the production environment, replace `Env.DEV` with `Env.PROD`
+apiClient.setEnv(CoboWaas2.Env.DEV);
+// Replace `<YOUR_PRIVATE_KEY>` with your private key
+apiClient.setPrivateKey("<YOUR_PRIVATE_KEY>");
+// Call the API
 const apiInstance = new CoboWaas2.WalletsMPCWalletsApi();
-const project_id = "f47ac10b-58cc-4372-a567-0e02b2c3d479"; // String | The project ID, which you can retrieve by calling [List all projects](/v2/api-references/wallets--mpc-wallets/list-all-projects).
+const project_id = "f47ac10b-58cc-4372-a567-0e02b2c3d479";
 const opts = {
-  'UpdateMpcProjectByIdRequest': new CoboWaas2.UpdateMpcProjectByIdRequest() // UpdateMpcProjectByIdRequest | The request body to update a project's name.
+  'UpdateMpcProjectByIdRequest': new CoboWaas2.UpdateMpcProjectByIdRequest()
 };
 apiInstance.updateMpcProjectById(project_id, opts).then((data) => {
   console.log('API called successfully. Returned data: ' + data);
@@ -932,16 +949,17 @@ This operation updates a vault&#39;s name.
 
 ```javascript
 const CoboWaas2 = require('@cobo/cobo-waas2');
-// initial default api client
+// Initialize the API client
 const apiClient = CoboWaas2.ApiClient.instance
-// for dev env
-// apiClient.setEnv(CoboWaas2.Env.DEV);
-apiClient.setPrivateKey("<YOUR_API_PRIVATE_KEY_IN_HEX>");
-// call api
+// Select the development environment. To use the production environment, replace `Env.DEV` with `Env.PROD`
+apiClient.setEnv(CoboWaas2.Env.DEV);
+// Replace `<YOUR_PRIVATE_KEY>` with your private key
+apiClient.setPrivateKey("<YOUR_PRIVATE_KEY>");
+// Call the API
 const apiInstance = new CoboWaas2.WalletsMPCWalletsApi();
-const vault_id = "f47ac10b-58cc-4372-a567-0e02b2c3d479"; // String | The vault ID, which you can retrieve by calling [List all vaults](/v2/api-references/wallets--mpc-wallet/list-all-mpc-vaults).
+const vault_id = "f47ac10b-58cc-4372-a567-0e02b2c3d479";
 const opts = {
-  'UpdateMpcVaultByIdRequest': new CoboWaas2.UpdateMpcVaultByIdRequest() // UpdateMpcVaultByIdRequest | The request body to update a vault's name.
+  'UpdateMpcVaultByIdRequest': new CoboWaas2.UpdateMpcVaultByIdRequest()
 };
 apiInstance.updateMpcVaultById(vault_id, opts).then((data) => {
   console.log('API called successfully. Returned data: ' + data);

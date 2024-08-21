@@ -95,19 +95,19 @@ class GetToken200Response {
 
 
 /**
- * The access token, used by Cobo Portal Apps to access specific resources of other organizations.
+ * The access token.
  * @member {String} access_token
  */
 GetToken200Response.prototype['access_token'] = undefined;
 
 /**
- * The type of the tokens.
+ * The type of the tokens, which is Bearer.
  * @member {String} token_type
  */
 GetToken200Response.prototype['token_type'] = undefined;
 
 /**
- * The scope of the access token. This property value is empty by design.
+ * The scope of the access token to limit the app's access to the organization's resources.  **Note**: Currently this property value is empty. The scope of the access token is based on the permissions granted when the app user installs the app. 
  * @member {String} scope
  */
 GetToken200Response.prototype['scope'] = undefined;
@@ -119,7 +119,7 @@ GetToken200Response.prototype['scope'] = undefined;
 GetToken200Response.prototype['expires_in'] = undefined;
 
 /**
- * The refresh token, used by Cobo Portal Apps to obtain new access tokens when the access token expires.
+ * The refresh token, used to obtain a new access token when the current access token expires.
  * @member {String} refresh_token
  */
 GetToken200Response.prototype['refresh_token'] = undefined;

@@ -27,7 +27,7 @@ class TransactionDepositToAddressDestination {
      * @param wallet_id {String} The wallet ID.
      * @param wallet_type {module:model/WalletType} 
      * @param address {String} The destination address.
-     * @param amount {String} The quantity of the token in the transaction. For example, if you trade 1.5 ETH, then the value is `1.5`. 
+     * @param amount {String} The transfer amount. For example, if you trade 1.5 ETH, then the value is `1.5`. 
      */
     constructor(destination_type, wallet_id, wallet_type, address, amount) { 
         
@@ -154,7 +154,7 @@ TransactionDepositToAddressDestination.prototype['address'] = undefined;
 TransactionDepositToAddressDestination.prototype['memo'] = undefined;
 
 /**
- * The quantity of the token in the transaction. For example, if you trade 1.5 ETH, then the value is `1.5`. 
+ * The transfer amount. For example, if you trade 1.5 ETH, then the value is `1.5`. 
  * @member {String} amount
  */
 TransactionDepositToAddressDestination.prototype['amount'] = undefined;

@@ -167,7 +167,7 @@ export default class WalletsMPCWalletsApi {
 
     /**
      * Create project
-     * This operation creates a project.  <Info>This operation applies to MPC Wallets (User-Controlled Wallets) only.</Info> 
+     * This operation creates a project.  <Note>This operation applies to MPC Wallets (User-Controlled Wallets) only.</Note> 
      * @param {Object} opts Optional parameters
      * @param {module:model/CreateMpcProjectRequest} [CreateMpcProjectRequest] The request body to create a project.
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/MPCProject} and HTTP response
@@ -201,7 +201,7 @@ export default class WalletsMPCWalletsApi {
 
     /**
      * Create project
-     * This operation creates a project.  <Info>This operation applies to MPC Wallets (User-Controlled Wallets) only.</Info> 
+     * This operation creates a project.  <Note>This operation applies to MPC Wallets (User-Controlled Wallets) only.</Note> 
      * @param {Object} opts Optional parameters
      * @param {module:model/CreateMpcProjectRequest} opts.CreateMpcProjectRequest The request body to create a project.
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/MPCProject}
@@ -437,7 +437,7 @@ export default class WalletsMPCWalletsApi {
 
     /**
      * Get project information
-     * This operation retrieves detailed information about a project. <Info>This operation applies to MPC Wallets (User-Controlled Wallets) only.</Info> 
+     * This operation retrieves detailed information about a project. <Note>This operation applies to MPC Wallets (User-Controlled Wallets) only.</Note> 
      * @param {String} project_id The project ID, which you can retrieve by calling [List all projects](/v2/api-references/wallets--mpc-wallets/list-all-projects).
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/MPCProject} and HTTP response
      */
@@ -474,7 +474,7 @@ export default class WalletsMPCWalletsApi {
 
     /**
      * Get project information
-     * This operation retrieves detailed information about a project. <Info>This operation applies to MPC Wallets (User-Controlled Wallets) only.</Info> 
+     * This operation retrieves detailed information about a project. <Note>This operation applies to MPC Wallets (User-Controlled Wallets) only.</Note> 
      * @param {String} project_id The project ID, which you can retrieve by calling [List all projects](/v2/api-references/wallets--mpc-wallets/list-all-projects).
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/MPCProject}
      */
@@ -707,7 +707,7 @@ export default class WalletsMPCWalletsApi {
 
     /**
      * List all projects
-     * This operation retrieves a list of all projects.  <Info>This operation applies to MPC Wallets (User-Controlled Wallets) only.</Info> 
+     * This operation retrieves a list of all projects.  <Note>This operation applies to MPC Wallets (User-Controlled Wallets) only.</Note> 
      * @param {Object} opts Optional parameters
      * @param {Number} [limit = 10)] The maximum number of objects to return. For most operations, the value range is [1, 50].
      * @param {String} [before] An object ID that serves as a starting point for retrieving data in reverse chronological order. For example, if you specify `before` as `RqeEoTkgKG5rpzqYzg2Hd3szmPoj2cE7w5jWwShz3C1vyGmk1`, the request will retrieve a list of data objects that end before the object with the object ID `RqeEoTkgKG5rpzqYzg2Hd3szmPoj2cE7w5jWwShz3C1vyGmk1`. You can set this parameter to the value of `pagination.before` in the response of the previous request.  - If you set both `after` and `before`, an error will occur.  - If you leave both `before` and `after` empty, the first page of data is returned.  - If you set `before` to `infinity`, the last page of data is returned. 
@@ -746,7 +746,7 @@ export default class WalletsMPCWalletsApi {
 
     /**
      * List all projects
-     * This operation retrieves a list of all projects.  <Info>This operation applies to MPC Wallets (User-Controlled Wallets) only.</Info> 
+     * This operation retrieves a list of all projects.  <Note>This operation applies to MPC Wallets (User-Controlled Wallets) only.</Note> 
      * @param {Object} opts Optional parameters
      * @param {Number} opts.limit The maximum number of objects to return. For most operations, the value range is [1, 50]. (default to 10)
      * @param {String} opts.before An object ID that serves as a starting point for retrieving data in reverse chronological order. For example, if you specify `before` as `RqeEoTkgKG5rpzqYzg2Hd3szmPoj2cE7w5jWwShz3C1vyGmk1`, the request will retrieve a list of data objects that end before the object with the object ID `RqeEoTkgKG5rpzqYzg2Hd3szmPoj2cE7w5jWwShz3C1vyGmk1`. You can set this parameter to the value of `pagination.before` in the response of the previous request.  - If you set both `after` and `before`, an error will occur.  - If you leave both `before` and `after` empty, the first page of data is returned.  - If you set `before` to `infinity`, the last page of data is returned. 
@@ -962,7 +962,7 @@ export default class WalletsMPCWalletsApi {
 
     /**
      * Update project name
-     * This operation updates a project's name.  <Info>This operation applies to MPC Wallets (User-Controlled Wallets) only.</Info> 
+     * This operation updates a project's name.  <Note>This operation applies to MPC Wallets (User-Controlled Wallets) only.</Note> 
      * @param {String} project_id The project ID, which you can retrieve by calling [List all projects](/v2/api-references/wallets--mpc-wallets/list-all-projects).
      * @param {Object} opts Optional parameters
      * @param {module:model/UpdateMpcProjectByIdRequest} [UpdateMpcProjectByIdRequest] The request body to update a project's name.
@@ -1002,7 +1002,7 @@ export default class WalletsMPCWalletsApi {
 
     /**
      * Update project name
-     * This operation updates a project's name.  <Info>This operation applies to MPC Wallets (User-Controlled Wallets) only.</Info> 
+     * This operation updates a project's name.  <Note>This operation applies to MPC Wallets (User-Controlled Wallets) only.</Note> 
      * @param {String} project_id The project ID, which you can retrieve by calling [List all projects](/v2/api-references/wallets--mpc-wallets/list-all-projects).
      * @param {Object} opts Optional parameters
      * @param {module:model/UpdateMpcProjectByIdRequest} opts.UpdateMpcProjectByIdRequest The request body to update a project's name.

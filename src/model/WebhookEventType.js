@@ -21,28 +21,56 @@ export default class WebhookEventType {
          * value: "wallets.transaction.created"
          * @const
          */
-        "created" = "wallets.transaction.created";
+        "transaction.created" = "wallets.transaction.created";
 
     
         /**
          * value: "wallets.transaction.updated"
          * @const
          */
-        "updated" = "wallets.transaction.updated";
+        "transaction.updated" = "wallets.transaction.updated";
 
     
         /**
          * value: "wallets.transaction.failed"
          * @const
          */
-        "failed" = "wallets.transaction.failed";
+        "transaction.failed" = "wallets.transaction.failed";
 
     
         /**
          * value: "wallets.transaction.succeeded"
          * @const
          */
-        "succeeded" = "wallets.transaction.succeeded";
+        "transaction.succeeded" = "wallets.transaction.succeeded";
+
+    
+        /**
+         * value: "wallets.mpc.tss_request.created"
+         * @const
+         */
+        "mpc.tss_request.created" = "wallets.mpc.tss_request.created";
+
+    
+        /**
+         * value: "wallets.mpc.tss_request.updated"
+         * @const
+         */
+        "mpc.tss_request.updated" = "wallets.mpc.tss_request.updated";
+
+    
+        /**
+         * value: "wallets.mpc.tss_request.failed"
+         * @const
+         */
+        "mpc.tss_request.failed" = "wallets.mpc.tss_request.failed";
+
+    
+        /**
+         * value: "wallets.mpc.tss_request.succeeded"
+         * @const
+         */
+        "mpc.tss_request.succeeded" = "wallets.mpc.tss_request.succeeded";
 
     
         /**

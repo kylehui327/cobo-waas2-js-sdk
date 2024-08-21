@@ -24,7 +24,7 @@ class TransactionTransferToWalletDestination {
      * @alias module:model/TransactionTransferToWalletDestination
      * @param destination_type {module:model/TransactionDestinationType} 
      * @param wallet_id {String} The wallet ID.
-     * @param amount {String} The quantity of the token in the transaction. For example, if you trade 1.5 ETH, then the value is `1.5`. 
+     * @param amount {String} The transfer amount. For example, if you trade 1.5 ETH, then the value is `1.5`. 
      */
     constructor(destination_type, wallet_id, amount) { 
         
@@ -59,8 +59,8 @@ class TransactionTransferToWalletDestination {
             if (data.hasOwnProperty('wallet_id')) {
                 obj['wallet_id'] = ApiClient.convertToType(data['wallet_id'], 'String');
             }
-            if (data.hasOwnProperty('sub_wallet_id')) {
-                obj['sub_wallet_id'] = ApiClient.convertToType(data['sub_wallet_id'], 'String');
+            if (data.hasOwnProperty('trading_account_type')) {
+                obj['trading_account_type'] = ApiClient.convertToType(data['trading_account_type'], 'String');
             }
             if (data.hasOwnProperty('exchange_id')) {
                 obj['exchange_id'] = ExchangeId.constructFromObject(data['exchange_id']);
@@ -89,8 +89,8 @@ class TransactionTransferToWalletDestination {
             throw new Error("Expected the field `wallet_id` to be a primitive type in the JSON string but got " + data['wallet_id']);
         }
         // ensure the json data is a string
-        if (data['sub_wallet_id'] && !(typeof data['sub_wallet_id'] === 'string' || data['sub_wallet_id'] instanceof String)) {
-            throw new Error("Expected the field `sub_wallet_id` to be a primitive type in the JSON string but got " + data['sub_wallet_id']);
+        if (data['trading_account_type'] && !(typeof data['trading_account_type'] === 'string' || data['trading_account_type'] instanceof String)) {
+            throw new Error("Expected the field `trading_account_type` to be a primitive type in the JSON string but got " + data['trading_account_type']);
         }
         // ensure the json data is a string
         if (data['amount'] && !(typeof data['amount'] === 'string' || data['amount'] instanceof String)) {
@@ -117,10 +117,10 @@ TransactionTransferToWalletDestination.prototype['destination_type'] = undefined
 TransactionTransferToWalletDestination.prototype['wallet_id'] = undefined;
 
 /**
- * The exchange trading account or the sub-wallet ID.
- * @member {String} sub_wallet_id
+ * The trading account type.
+ * @member {String} trading_account_type
  */
-TransactionTransferToWalletDestination.prototype['sub_wallet_id'] = undefined;
+TransactionTransferToWalletDestination.prototype['trading_account_type'] = undefined;
 
 /**
  * @member {module:model/ExchangeId} exchange_id
@@ -128,7 +128,7 @@ TransactionTransferToWalletDestination.prototype['sub_wallet_id'] = undefined;
 TransactionTransferToWalletDestination.prototype['exchange_id'] = undefined;
 
 /**
- * The quantity of the token in the transaction. For example, if you trade 1.5 ETH, then the value is `1.5`. 
+ * The transfer amount. For example, if you trade 1.5 ETH, then the value is `1.5`. 
  * @member {String} amount
  */
 TransactionTransferToWalletDestination.prototype['amount'] = undefined;

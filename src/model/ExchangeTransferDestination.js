@@ -19,16 +19,16 @@ import TransferDestinationType from './TransferDestinationType';
 class ExchangeTransferDestination {
     /**
      * Constructs a new <code>ExchangeTransferDestination</code>.
-     * The information about the transaction destination type &#x60;ExchangeWallet&#x60;.   An Exchange Wallet (Sub Account) as the transaction destination can only receives token transfers from another Exchange Wallet. 
+     * The information about the transaction destination type &#x60;ExchangeWallet&#x60;.   An Exchange Wallet (Sub Account) can only receive asset transfers from another Exchange Wallet. 
      * @alias module:model/ExchangeTransferDestination
      * @param destination_type {module:model/TransferDestinationType} 
      * @param wallet_id {String} The wallet ID.
-     * @param sub_wallet_id {String} The exchange trading account or the sub-wallet ID.
-     * @param amount {String} The quantity of the token in the transaction. For example, if you trade 1.5 ETH, then the value is `1.5`. 
+     * @param trading_account_type {String} The trading account type.
+     * @param amount {String} The transfer amount. For example, if you trade 1.5 ETH, then the value is `1.5`. 
      */
-    constructor(destination_type, wallet_id, sub_wallet_id, amount) { 
+    constructor(destination_type, wallet_id, trading_account_type, amount) { 
         
-        ExchangeTransferDestination.initialize(this, destination_type, wallet_id, sub_wallet_id, amount);
+        ExchangeTransferDestination.initialize(this, destination_type, wallet_id, trading_account_type, amount);
     }
 
     /**
@@ -36,10 +36,10 @@ class ExchangeTransferDestination {
      * This method is used by the constructors of any subclasses, in order to implement multiple inheritance (mix-ins).
      * Only for internal use.
      */
-    static initialize(obj, destination_type, wallet_id, sub_wallet_id, amount) { 
+    static initialize(obj, destination_type, wallet_id, trading_account_type, amount) { 
         obj['destination_type'] = destination_type;
         obj['wallet_id'] = wallet_id;
-        obj['sub_wallet_id'] = sub_wallet_id;
+        obj['trading_account_type'] = trading_account_type;
         obj['amount'] = amount;
     }
 
@@ -60,8 +60,8 @@ class ExchangeTransferDestination {
             if (data.hasOwnProperty('wallet_id')) {
                 obj['wallet_id'] = ApiClient.convertToType(data['wallet_id'], 'String');
             }
-            if (data.hasOwnProperty('sub_wallet_id')) {
-                obj['sub_wallet_id'] = ApiClient.convertToType(data['sub_wallet_id'], 'String');
+            if (data.hasOwnProperty('trading_account_type')) {
+                obj['trading_account_type'] = ApiClient.convertToType(data['trading_account_type'], 'String');
             }
             if (data.hasOwnProperty('amount')) {
                 obj['amount'] = ApiClient.convertToType(data['amount'], 'String');
@@ -87,8 +87,8 @@ class ExchangeTransferDestination {
             throw new Error("Expected the field `wallet_id` to be a primitive type in the JSON string but got " + data['wallet_id']);
         }
         // ensure the json data is a string
-        if (data['sub_wallet_id'] && !(typeof data['sub_wallet_id'] === 'string' || data['sub_wallet_id'] instanceof String)) {
-            throw new Error("Expected the field `sub_wallet_id` to be a primitive type in the JSON string but got " + data['sub_wallet_id']);
+        if (data['trading_account_type'] && !(typeof data['trading_account_type'] === 'string' || data['trading_account_type'] instanceof String)) {
+            throw new Error("Expected the field `trading_account_type` to be a primitive type in the JSON string but got " + data['trading_account_type']);
         }
         // ensure the json data is a string
         if (data['amount'] && !(typeof data['amount'] === 'string' || data['amount'] instanceof String)) {
@@ -101,7 +101,7 @@ class ExchangeTransferDestination {
 
 }
 
-ExchangeTransferDestination.RequiredProperties = ["destination_type", "wallet_id", "sub_wallet_id", "amount"];
+ExchangeTransferDestination.RequiredProperties = ["destination_type", "wallet_id", "trading_account_type", "amount"];
 
 /**
  * @member {module:model/TransferDestinationType} destination_type
@@ -115,13 +115,13 @@ ExchangeTransferDestination.prototype['destination_type'] = undefined;
 ExchangeTransferDestination.prototype['wallet_id'] = undefined;
 
 /**
- * The exchange trading account or the sub-wallet ID.
- * @member {String} sub_wallet_id
+ * The trading account type.
+ * @member {String} trading_account_type
  */
-ExchangeTransferDestination.prototype['sub_wallet_id'] = undefined;
+ExchangeTransferDestination.prototype['trading_account_type'] = undefined;
 
 /**
- * The quantity of the token in the transaction. For example, if you trade 1.5 ETH, then the value is `1.5`. 
+ * The transfer amount. For example, if you trade 1.5 ETH, then the value is `1.5`. 
  * @member {String} amount
  */
 ExchangeTransferDestination.prototype['amount'] = undefined;

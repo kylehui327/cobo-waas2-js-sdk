@@ -18,10 +18,10 @@ import ApiClient from '../ApiClient';
 export default class SmartContractWalletType {
     
         /**
-         * value: "SafeWallet"
+         * value: "Safe{Wallet}"
          * @const
          */
-        "SafeWallet" = "SafeWallet";
+        "Safe{Wallet}" = "Safe{Wallet}";
 
     
         /**

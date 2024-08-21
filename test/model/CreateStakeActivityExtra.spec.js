@@ -70,6 +70,12 @@
       //expect(instance).to.be();
     });
 
+    it('should have the property only_sign (base name: "only_sign")', function() {
+      // uncomment below and update the code to test the property only_sign
+      //var instance = new CoboWaas2.CreateStakeActivityExtra();
+      //expect(instance).to.be();
+    });
+
     it('should have the property operator (base name: "operator")', function() {
       // uncomment below and update the code to test the property operator
       //var instance = new CoboWaas2.CreateStakeActivityExtra();

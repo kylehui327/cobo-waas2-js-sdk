@@ -91,13 +91,13 @@ class RefreshTokenRequest {
 RefreshTokenRequest.prototype['client_id'] = undefined;
 
 /**
- * The type of the permission granting. To refresh an access token, you need to set the value as `refresh_token`.
+ * The OAuth grant type. Set the value as `refresh_token`.
  * @member {String} grant_type
  */
 RefreshTokenRequest.prototype['grant_type'] = undefined;
 
 /**
- * The refresh token of the expired or expiring access token.
+ * The refresh token of the current access token.
  * @member {String} refresh_token
  */
 RefreshTokenRequest.prototype['refresh_token'] = undefined;

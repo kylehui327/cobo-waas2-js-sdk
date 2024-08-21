@@ -190,10 +190,10 @@ TransferSource.prototype['excluded_utxos'] = undefined;
 TransferSource.prototype['delegate'] = undefined;
 
 /**
- * The exchange trading account or the sub-wallet ID.
- * @member {String} sub_wallet_id
+ * The trading account type.
+ * @member {String} trading_account_type
  */
-TransferSource.prototype['sub_wallet_id'] = undefined;
+TransferSource.prototype['trading_account_type'] = undefined;
 
 
 TransferSource.OneOf = ["CustodialTransferSource", "ExchangeTransferSource", "MpcTransferSource", "SafeTransferSource"];

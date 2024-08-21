@@ -82,6 +82,18 @@
       //expect(instance).to.be();
     });
 
+    it('should have the property description (base name: "description")', function() {
+      // uncomment below and update the code to test the property description
+      //var instance = new CoboWaas2.TSSRequest();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property created_timestamp (base name: "created_timestamp")', function() {
+      // uncomment below and update the code to test the property created_timestamp
+      //var instance = new CoboWaas2.TSSRequest();
+      //expect(instance).to.be();
+    });
+
   });
 
 }));
