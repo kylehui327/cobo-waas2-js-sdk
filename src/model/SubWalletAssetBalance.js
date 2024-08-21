@@ -19,9 +19,9 @@ import TokenBalanceBalance from './TokenBalanceBalance';
 class SubWalletAssetBalance {
     /**
      * Constructs a new <code>SubWalletAssetBalance</code>.
-     * The data for sub wallet asset balance information.
+     * The information about the asset balance of a trading account.
      * @alias module:model/SubWalletAssetBalance
-     * @param asset_id {String} (This concept applies to Exchange Wallets only) The asset ID. An asset ID is the unique identifier of the asset held within your linked exchange account.
+     * @param asset_id {String} The asset ID. An asset ID is the unique identifier of the asset held within your linked exchange account.
      * @param balance {module:model/TokenBalanceBalance} 
      */
     constructor(asset_id, balance) { 
@@ -50,8 +50,8 @@ class SubWalletAssetBalance {
         if (data) {
             obj = obj || new SubWalletAssetBalance();
 
-            if (data.hasOwnProperty('sub_wallet_id')) {
-                obj['sub_wallet_id'] = ApiClient.convertToType(data['sub_wallet_id'], 'String');
+            if (data.hasOwnProperty('trading_account_type')) {
+                obj['trading_account_type'] = ApiClient.convertToType(data['trading_account_type'], 'String');
             }
             if (data.hasOwnProperty('asset_id')) {
                 obj['asset_id'] = ApiClient.convertToType(data['asset_id'], 'String');
@@ -76,8 +76,8 @@ class SubWalletAssetBalance {
             }
         }
         // ensure the json data is a string
-        if (data['sub_wallet_id'] && !(typeof data['sub_wallet_id'] === 'string' || data['sub_wallet_id'] instanceof String)) {
-            throw new Error("Expected the field `sub_wallet_id` to be a primitive type in the JSON string but got " + data['sub_wallet_id']);
+        if (data['trading_account_type'] && !(typeof data['trading_account_type'] === 'string' || data['trading_account_type'] instanceof String)) {
+            throw new Error("Expected the field `trading_account_type` to be a primitive type in the JSON string but got " + data['trading_account_type']);
         }
         // ensure the json data is a string
         if (data['asset_id'] && !(typeof data['asset_id'] === 'string' || data['asset_id'] instanceof String)) {
@@ -99,13 +99,13 @@ class SubWalletAssetBalance {
 SubWalletAssetBalance.RequiredProperties = ["asset_id", "balance"];
 
 /**
- * The exchange trading account or a sub-wallet ID.
- * @member {String} sub_wallet_id
+ * The trading account type.
+ * @member {String} trading_account_type
  */
-SubWalletAssetBalance.prototype['sub_wallet_id'] = undefined;
+SubWalletAssetBalance.prototype['trading_account_type'] = undefined;
 
 /**
- * (This concept applies to Exchange Wallets only) The asset ID. An asset ID is the unique identifier of the asset held within your linked exchange account.
+ * The asset ID. An asset ID is the unique identifier of the asset held within your linked exchange account.
  * @member {String} asset_id
  */
 SubWalletAssetBalance.prototype['asset_id'] = undefined;

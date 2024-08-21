@@ -88,8 +88,20 @@
       //expect(instance).to.be();
     });
 
+    it('should have the property project_name (base name: "project_name")', function() {
+      // uncomment below and update the code to test the property project_name
+      //var instance = new CoboWaas2.CreatedWalletInfo();
+      //expect(instance).to.be();
+    });
+
     it('should have the property vault_id (base name: "vault_id")', function() {
       // uncomment below and update the code to test the property vault_id
+      //var instance = new CoboWaas2.CreatedWalletInfo();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property vault_name (base name: "vault_name")', function() {
+      // uncomment below and update the code to test the property vault_name
       //var instance = new CoboWaas2.CreatedWalletInfo();
       //expect(instance).to.be();
     });

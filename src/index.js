@@ -33,6 +33,8 @@ import BaseEstimateStakingFee from './model/BaseEstimateStakingFee';
 import BaseStakeExtra from './model/BaseStakeExtra';
 import ChainInfo from './model/ChainInfo';
 import CheckAddressValidity200Response from './model/CheckAddressValidity200Response';
+import CheckAddressesValidity200ResponseInner from './model/CheckAddressesValidity200ResponseInner';
+import CheckLoopTransfers200ResponseInner from './model/CheckLoopTransfers200ResponseInner';
 import CoboSafeDelegate from './model/CoboSafeDelegate';
 import CoboSafeDelegateType from './model/CoboSafeDelegateType';
 import ContractCallDestination from './model/ContractCallDestination';
@@ -109,9 +111,12 @@ import KeyShareHolderGroupType from './model/KeyShareHolderGroupType';
 import KeyShareHolderStatus from './model/KeyShareHolderStatus';
 import KeyShareHolderType from './model/KeyShareHolderType';
 import ListAddresses200Response from './model/ListAddresses200Response';
+import ListAssetBalancesForExchangeWallet200Response from './model/ListAssetBalancesForExchangeWallet200Response';
+import ListExchanges200ResponseInner from './model/ListExchanges200ResponseInner';
 import ListKeyShareHolderGroups200Response from './model/ListKeyShareHolderGroups200Response';
 import ListMpcProjects200Response from './model/ListMpcProjects200Response';
 import ListMpcVaults200Response from './model/ListMpcVaults200Response';
+import ListSupportedAssetsForExchange200Response from './model/ListSupportedAssetsForExchange200Response';
 import ListSupportedChains200Response from './model/ListSupportedChains200Response';
 import ListSupportedTokens200Response from './model/ListSupportedTokens200Response';
 import ListTokenBalancesForAddress200Response from './model/ListTokenBalancesForAddress200Response';
@@ -146,6 +151,7 @@ import Pagination from './model/Pagination';
 import PoolDetails from './model/PoolDetails';
 import PoolDetailsAllOfValidatorsInfo from './model/PoolDetailsAllOfValidatorsInfo';
 import PoolSummary from './model/PoolSummary';
+import RefreshToken200Response from './model/RefreshToken200Response';
 import RefreshTokenRequest from './model/RefreshTokenRequest';
 import ReplaceType from './model/ReplaceType';
 import RetryWebhookEventById201Response from './model/RetryWebhookEventById201Response';
@@ -167,6 +173,7 @@ import TSSGroups from './model/TSSGroups';
 import TSSRequest from './model/TSSRequest';
 import TSSRequestStatus from './model/TSSRequestStatus';
 import TSSRequestType from './model/TSSRequestType';
+import TSSRequestWebhookEventData from './model/TSSRequestWebhookEventData';
 import TokenBalance from './model/TokenBalance';
 import TokenBalanceBalance from './model/TokenBalanceBalance';
 import TokenInfo from './model/TokenInfo';
@@ -256,6 +263,7 @@ import DevelopersWebhooksApi from './api/DevelopersWebhooksApi';
 import OAuthApi from './api/OAuthApi';
 import TransactionsApi from './api/TransactionsApi';
 import WalletsApi from './api/WalletsApi';
+import WalletsExchangeWalletApi from './api/WalletsExchangeWalletApi';
 import WalletsMPCWalletsApi from './api/WalletsMPCWalletsApi';
 
 
@@ -289,7 +297,7 @@ import WalletsMPCWalletsApi from './api/WalletsMPCWalletsApi';
 * </pre>
 * </p>
 * @module index
-* @version 1.1.2
+* @version 1.2.0
 */
 export {
     Env,
@@ -430,6 +438,18 @@ export {
      * @property {module:model/CheckAddressValidity200Response}
      */
     CheckAddressValidity200Response,
+
+    /**
+     * The CheckAddressesValidity200ResponseInner model constructor.
+     * @property {module:model/CheckAddressesValidity200ResponseInner}
+     */
+    CheckAddressesValidity200ResponseInner,
+
+    /**
+     * The CheckLoopTransfers200ResponseInner model constructor.
+     * @property {module:model/CheckLoopTransfers200ResponseInner}
+     */
+    CheckLoopTransfers200ResponseInner,
 
     /**
      * The CoboSafeDelegate model constructor.
@@ -888,6 +908,18 @@ export {
     ListAddresses200Response,
 
     /**
+     * The ListAssetBalancesForExchangeWallet200Response model constructor.
+     * @property {module:model/ListAssetBalancesForExchangeWallet200Response}
+     */
+    ListAssetBalancesForExchangeWallet200Response,
+
+    /**
+     * The ListExchanges200ResponseInner model constructor.
+     * @property {module:model/ListExchanges200ResponseInner}
+     */
+    ListExchanges200ResponseInner,
+
+    /**
      * The ListKeyShareHolderGroups200Response model constructor.
      * @property {module:model/ListKeyShareHolderGroups200Response}
      */
@@ -904,6 +936,12 @@ export {
      * @property {module:model/ListMpcVaults200Response}
      */
     ListMpcVaults200Response,
+
+    /**
+     * The ListSupportedAssetsForExchange200Response model constructor.
+     * @property {module:model/ListSupportedAssetsForExchange200Response}
+     */
+    ListSupportedAssetsForExchange200Response,
 
     /**
      * The ListSupportedChains200Response model constructor.
@@ -1110,6 +1148,12 @@ export {
     PoolSummary,
 
     /**
+     * The RefreshToken200Response model constructor.
+     * @property {module:model/RefreshToken200Response}
+     */
+    RefreshToken200Response,
+
+    /**
      * The RefreshTokenRequest model constructor.
      * @property {module:model/RefreshTokenRequest}
      */
@@ -1234,6 +1278,12 @@ export {
      * @property {module:model/TSSRequestType}
      */
     TSSRequestType,
+
+    /**
+     * The TSSRequestWebhookEventData model constructor.
+     * @property {module:model/TSSRequestWebhookEventData}
+     */
+    TSSRequestWebhookEventData,
 
     /**
      * The TokenBalance model constructor.
@@ -1768,6 +1818,12 @@ export {
     * @property {module:api/WalletsApi}
     */
     WalletsApi,
+
+    /**
+    * The WalletsExchangeWalletApi service constructor.
+    * @property {module:api/WalletsExchangeWalletApi}
+    */
+    WalletsExchangeWalletApi,
 
     /**
     * The WalletsMPCWalletsApi service constructor.

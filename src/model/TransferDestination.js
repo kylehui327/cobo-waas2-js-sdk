@@ -145,13 +145,13 @@ TransferDestination.prototype['utxo_outputs'] = undefined;
 TransferDestination.prototype['change_address'] = undefined;
 
 /**
- * Whether the transaction request must be executed as a Loop transfer. For more information about Loop, see [Loop's website](https://loop.top/).   - `true`: The transaction request must be executed as a Loop transfer.   - `false`: The transaction request may not be executed as a Loop transfer. 
+ * Whether the transaction request must be executed as a Loop transfer. For more information about Loop, see [Loop's website](https://loop.top/).   - `true`: The transaction request must be executed as a Loop transfer.   - `false`: The transaction request may not be executed as a Loop transfer. <Note>Please do not set both `force_internal` and `force_internal` as `true`.</Note> 
  * @member {Boolean} force_internal
  */
 TransferDestination.prototype['force_internal'] = undefined;
 
 /**
- * Whether the transaction request must not be executed as a Loop transfer. For more information about Loop, see [Loop's website](https://loop.top/).   - `true`: The transaction request must not be executed as a Loop transfer.   - `false`: The transaction request can be executed as a Loop transfer. 
+ * Whether the transaction request must not be executed as a Loop transfer. For more information about Loop, see [Loop's website](https://loop.top/).   - `true`: The transaction request must not be executed as a Loop transfer.   - `false`: The transaction request can be executed as a Loop transfer. <Note>Please do not set both `force_internal` and `force_internal` as `true`.</Note> 
  * @member {Boolean} force_external
  */
 TransferDestination.prototype['force_external'] = undefined;
@@ -163,13 +163,13 @@ TransferDestination.prototype['force_external'] = undefined;
 TransferDestination.prototype['wallet_id'] = undefined;
 
 /**
- * The exchange trading account or the sub-wallet ID.
- * @member {String} sub_wallet_id
+ * The trading account type.
+ * @member {String} trading_account_type
  */
-TransferDestination.prototype['sub_wallet_id'] = undefined;
+TransferDestination.prototype['trading_account_type'] = undefined;
 
 /**
- * The quantity of the token in the transaction. For example, if you trade 1.5 ETH, then the value is `1.5`. 
+ * The transfer amount. For example, if you trade 1.5 ETH, then the value is `1.5`. 
  * @member {String} amount
  */
 TransferDestination.prototype['amount'] = undefined;

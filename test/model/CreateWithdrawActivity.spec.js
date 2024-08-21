@@ -52,6 +52,12 @@
       //expect(instance).to.be.a(CoboWaas2.CreateWithdrawActivity);
     });
 
+    it('should have the property request_id (base name: "request_id")', function() {
+      // uncomment below and update the code to test the property request_id
+      //var instance = new CoboWaas2.CreateWithdrawActivity();
+      //expect(instance).to.be();
+    });
+
     it('should have the property staking_id (base name: "staking_id")', function() {
       // uncomment below and update the code to test the property staking_id
       //var instance = new CoboWaas2.CreateWithdrawActivity();

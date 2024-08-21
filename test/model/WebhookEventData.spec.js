@@ -226,6 +226,24 @@
       //expect(instance).to.be();
     });
 
+    it('should have the property tss_request_id (base name: "tss_request_id")', function() {
+      // uncomment below and update the code to test the property tss_request_id
+      //var instance = new CoboWaas2.WebhookEventData();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property source_key_share_holder_group (base name: "source_key_share_holder_group")', function() {
+      // uncomment below and update the code to test the property source_key_share_holder_group
+      //var instance = new CoboWaas2.WebhookEventData();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property target_key_share_holder_group_id (base name: "target_key_share_holder_group_id")', function() {
+      // uncomment below and update the code to test the property target_key_share_holder_group_id
+      //var instance = new CoboWaas2.WebhookEventData();
+      //expect(instance).to.be();
+    });
+
   });
 
 }));

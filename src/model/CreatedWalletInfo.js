@@ -175,10 +175,22 @@ CreatedWalletInfo.prototype['org_id'] = undefined;
 CreatedWalletInfo.prototype['project_id'] = undefined;
 
 /**
+ * The project name.
+ * @member {String} project_name
+ */
+CreatedWalletInfo.prototype['project_name'] = undefined;
+
+/**
  * The ID of the owning vault.
  * @member {String} vault_id
  */
 CreatedWalletInfo.prototype['vault_id'] = undefined;
+
+/**
+ * The vault name.
+ * @member {String} vault_name
+ */
+CreatedWalletInfo.prototype['vault_name'] = undefined;
 
 /**
  * The API key of your exchange account.

@@ -3,7 +3,7 @@
 ## Enum
 
 
-* `SafeWallet` (value: `"SafeWallet"`)
+* `Safe{Wallet}` (value: `"Safe{Wallet}"`)
 
 * `unknown_default_open_api` (value: `"unknown_default_open_api"`)
 

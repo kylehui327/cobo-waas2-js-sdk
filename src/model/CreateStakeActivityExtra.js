@@ -156,6 +156,12 @@ CreateStakeActivityExtra.prototype['finality_provider_public_key'] = undefined;
 CreateStakeActivityExtra.prototype['stake_block_time'] = undefined;
 
 /**
+ * Whether to only sign transactions. Default is `false`, if set to `true`,  the transaction will not be submitted to the blockchain automatically. You can call `Broadcast transactions` to submit the transaction to the blockchain,  Or you can find the signed raw_tx by `Get transaction information` and broadcast it yourself. 
+ * @member {Boolean} only_sign
+ */
+CreateStakeActivityExtra.prototype['only_sign'] = undefined;
+
+/**
  * The operator address.
  * @member {String} operator
  */

@@ -99,7 +99,7 @@ AddressTransferDestinationUtxoOutputsInner.RequiredProperties = ["address"];
 AddressTransferDestinationUtxoOutputsInner.prototype['address'] = undefined;
 
 /**
- * The quantity of the token in the transaction. For example, if you trade 1.5 ETH, then the value is `1.5`. 
+ * The transfer amount. For example, if you trade 1.5 ETH, then the value is `1.5`. 
  * @member {String} amount
  */
 AddressTransferDestinationUtxoOutputsInner.prototype['amount'] = undefined;

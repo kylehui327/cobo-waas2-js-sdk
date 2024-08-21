@@ -59,6 +59,9 @@ class CreateTssRequestRequest {
             if (data.hasOwnProperty('source_key_share_holder_group')) {
                 obj['source_key_share_holder_group'] = SourceGroup.constructFromObject(data['source_key_share_holder_group']);
             }
+            if (data.hasOwnProperty('description')) {
+                obj['description'] = ApiClient.convertToType(data['description'], 'String');
+            }
         }
         return obj;
     }
@@ -85,6 +88,10 @@ class CreateTssRequestRequest {
             SourceGroup.validateJSON(data['source_key_share_holder_group']);
           }
         }
+        // ensure the json data is a string
+        if (data['description'] && !(typeof data['description'] === 'string' || data['description'] instanceof String)) {
+            throw new Error("Expected the field `description` to be a primitive type in the JSON string but got " + data['description']);
+        }
 
         return true;
     }
@@ -109,6 +116,12 @@ CreateTssRequestRequest.prototype['target_key_share_holder_group_id'] = undefine
  * @member {module:model/SourceGroup} source_key_share_holder_group
  */
 CreateTssRequestRequest.prototype['source_key_share_holder_group'] = undefined;
+
+/**
+ * The description of the TSS request.
+ * @member {String} description
+ */
+CreateTssRequestRequest.prototype['description'] = undefined;
 
 
 

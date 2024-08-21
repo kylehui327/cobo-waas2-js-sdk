@@ -19,7 +19,7 @@ class CheckAddressValidity200Response {
     /**
      * Constructs a new <code>CheckAddressValidity200Response</code>.
      * @alias module:model/CheckAddressValidity200Response
-     * @param validity {Boolean} Whether the address is valid. - `true`: The address is valid. - `false`: the address is invalid. 
+     * @param validity {Boolean} Whether the address is valid. - `true`: The address is valid. - `false`: The address is invalid. 
      */
     constructor(validity) { 
         
@@ -75,7 +75,7 @@ class CheckAddressValidity200Response {
 CheckAddressValidity200Response.RequiredProperties = ["validity"];
 
 /**
- * Whether the address is valid. - `true`: The address is valid. - `false`: the address is invalid. 
+ * Whether the address is valid. - `true`: The address is valid. - `false`: The address is invalid. 
  * @member {Boolean} validity
  */
 CheckAddressValidity200Response.prototype['validity'] = undefined;

@@ -10,6 +10,6 @@ Name | Type | Description | Notes
 **included_utxos** | [**[TransactionUtxo]**](TransactionUtxo.md) |  | [optional] 
 **excluded_utxos** | [**[TransactionUtxo]**](TransactionUtxo.md) |  | [optional] 
 **delegate** | [**CoboSafeDelegate**](CoboSafeDelegate.md) |  | 
-**sub_wallet_id** | **String** | The exchange trading account or the sub-wallet ID. | 
+**trading_account_type** | **String** | The trading account type. | 
 
 

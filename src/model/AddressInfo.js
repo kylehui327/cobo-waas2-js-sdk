@@ -132,7 +132,7 @@ AddressInfo.prototype['chain_id'] = undefined;
 AddressInfo.prototype['memo'] = undefined;
 
 /**
- * The derivation path of the address. This property applies to MPC Wallets only.
+ * The derivation path of the address. This property applies to MPC Wallets only. To learn the meaning of each level in the path, see [Path levels](https://github.com/bitcoin/bips/blob/master/bip-0044.mediawiki#path-levels).
  * @member {String} path
  */
 AddressInfo.prototype['path'] = undefined;

@@ -67,6 +67,9 @@ class EstimateStakeFee {
             if (data.hasOwnProperty('activity_type')) {
                 obj['activity_type'] = ActivityType.constructFromObject(data['activity_type']);
             }
+            if (data.hasOwnProperty('request_id')) {
+                obj['request_id'] = ApiClient.convertToType(data['request_id'], 'String');
+            }
             if (data.hasOwnProperty('source')) {
                 obj['source'] = StakingSource.constructFromObject(data['source']);
             }
@@ -97,6 +100,10 @@ class EstimateStakeFee {
             if (!data.hasOwnProperty(property)) {
                 throw new Error("The required field `" + property + "` is not found in the JSON data: " + JSON.stringify(data));
             }
+        }
+        // ensure the json data is a string
+        if (data['request_id'] && !(typeof data['request_id'] === 'string' || data['request_id'] instanceof String)) {
+            throw new Error("Expected the field `request_id` to be a primitive type in the JSON string but got " + data['request_id']);
         }
         // validate the optional field `source`
         if (data['source']) { // data not null
@@ -139,6 +146,12 @@ EstimateStakeFee.RequiredProperties = ["activity_type", "pool_id", "amount", "fe
 EstimateStakeFee.prototype['activity_type'] = undefined;
 
 /**
+ * The request ID that is used to track a request. The request ID is provided by you and must be unique within your organization.
+ * @member {String} request_id
+ */
+EstimateStakeFee.prototype['request_id'] = undefined;
+
+/**
  * @member {module:model/StakingSource} source
  */
 EstimateStakeFee.prototype['source'] = undefined;
@@ -172,6 +185,11 @@ EstimateStakeFee.prototype['extra'] = undefined;
  */
 BaseEstimateStakingFee.prototype['activity_type'] = undefined;
 // Implement CreateStakeActivity interface:
+/**
+ * The request ID that is used to track a request. The request ID is provided by you and must be unique within your organization.
+ * @member {String} request_id
+ */
+CreateStakeActivity.prototype['request_id'] = undefined;
 /**
  * @member {module:model/StakingSource} source
  */

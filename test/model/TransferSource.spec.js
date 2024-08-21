@@ -88,8 +88,8 @@
       //expect(instance).to.be();
     });
 
-    it('should have the property sub_wallet_id (base name: "sub_wallet_id")', function() {
-      // uncomment below and update the code to test the property sub_wallet_id
+    it('should have the property trading_account_type (base name: "trading_account_type")', function() {
+      // uncomment below and update the code to test the property trading_account_type
       //var instance = new CoboWaas2.TransferSource();
       //expect(instance).to.be();
     });

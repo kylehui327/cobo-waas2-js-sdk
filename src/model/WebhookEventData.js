@@ -10,6 +10,10 @@
  */
 
 import ApiClient from '../ApiClient';
+import SourceGroup from './SourceGroup';
+import TSSRequestStatus from './TSSRequestStatus';
+import TSSRequestType from './TSSRequestType';
+import TSSRequestWebhookEventData from './TSSRequestWebhookEventData';
 import TransactionBlockInfo from './TransactionBlockInfo';
 import TransactionDestination from './TransactionDestination';
 import TransactionFee from './TransactionFee';
@@ -18,9 +22,7 @@ import TransactionRawTxInfo from './TransactionRawTxInfo';
 import TransactionReplacement from './TransactionReplacement';
 import TransactionResult from './TransactionResult';
 import TransactionSource from './TransactionSource';
-import TransactionStatus from './TransactionStatus';
 import TransactionSubStatus from './TransactionSubStatus';
-import TransactionType from './TransactionType';
 import TransactionWebhookEventData from './TransactionWebhookEventData';
 
 /**
@@ -31,7 +33,7 @@ class WebhookEventData {
     /**
      * Constructs a new <code>WebhookEventData</code>.
      * @alias module:model/WebhookEventData
-     * @param {(module:model/TransactionWebhookEventData)} instance The actual instance to initialize WebhookEventData.
+     * @param {(module:model/TSSRequestWebhookEventData|module:model/TransactionWebhookEventData)} instance The actual instance to initialize WebhookEventData.
      */
     constructor(instance = null) {
         if (instance === null) {
@@ -56,12 +58,28 @@ class WebhookEventData {
             errorMessages.push("Failed to construct TransactionWebhookEventData: " + err)
         }
 
+        try {
+            if (instance instanceof TSSRequestWebhookEventData) {
+                this.actualInstance = instance;
+            } else if(!!TSSRequestWebhookEventData.validateJSON && TSSRequestWebhookEventData.validateJSON(instance)){
+                // plain JS object
+                // create TSSRequestWebhookEventData from JS object
+                this.actualInstance = TSSRequestWebhookEventData.constructFromObject(instance);
+            } else if(TSSRequestWebhookEventData.constructFromObject(instance)){
+                this.actualInstance = TSSRequestWebhookEventData.constructFromObject(instance);
+            }
+            match++;
+        } catch(err) {
+            // json data failed to deserialize into TSSRequestWebhookEventData
+            errorMessages.push("Failed to construct TSSRequestWebhookEventData: " + err)
+        }
+
         // if (match > 1) {
-        //    throw new Error("Multiple matches found constructing `WebhookEventData` with oneOf schemas TransactionWebhookEventData. Input: " + JSON.stringify(instance));
+        //    throw new Error("Multiple matches found constructing `WebhookEventData` with oneOf schemas TSSRequestWebhookEventData, TransactionWebhookEventData. Input: " + JSON.stringify(instance));
         // } else
         if (match === 0) {
         //    this.actualInstance = null; // clear the actual instance in case there are multiple matches
-        //    throw new Error("No match found constructing `WebhookEventData` with oneOf schemas TransactionWebhookEventData. Details: " +
+        //    throw new Error("No match found constructing `WebhookEventData` with oneOf schemas TSSRequestWebhookEventData, TransactionWebhookEventData. Details: " +
         //                    errorMessages.join(", "));
         return;
         } else { // only 1 match
@@ -81,16 +99,16 @@ class WebhookEventData {
     }
 
     /**
-     * Gets the actual instance, which can be <code>TransactionWebhookEventData</code>.
-     * @return {(module:model/TransactionWebhookEventData)} The actual instance.
+     * Gets the actual instance, which can be <code>TSSRequestWebhookEventData</code>, <code>TransactionWebhookEventData</code>.
+     * @return {(module:model/TSSRequestWebhookEventData|module:model/TransactionWebhookEventData)} The actual instance.
      */
     getActualInstance() {
         return this.actualInstance;
     }
 
     /**
-     * Sets the actual instance, which can be <code>TransactionWebhookEventData</code>.
-     * @param {(module:model/TransactionWebhookEventData)} obj The actual instance.
+     * Sets the actual instance, which can be <code>TSSRequestWebhookEventData</code>, <code>TransactionWebhookEventData</code>.
+     * @param {(module:model/TSSRequestWebhookEventData|module:model/TransactionWebhookEventData)} obj The actual instance.
      */
     setActualInstance(obj) {
        this.actualInstance = WebhookEventData.constructFromObject(obj).getActualInstance();
@@ -115,7 +133,7 @@ class WebhookEventData {
 }
 
 /**
- * The data type of the event. When `data_type` is `Transaction`, it means the event uses the `transaction` schema as its data type.
+ *  The data type of the event. - `Transaction`: The transaction event data. - `TSSRequest`: The TSS request event data.
  * @member {module:model/WebhookEventData.DataTypeEnum} data_type
  */
 WebhookEventData.prototype['data_type'] = undefined;
@@ -145,12 +163,12 @@ WebhookEventData.prototype['request_id'] = undefined;
 WebhookEventData.prototype['wallet_id'] = undefined;
 
 /**
- * @member {module:model/TransactionType} type
+ * @member {module:model/TSSRequestType} type
  */
 WebhookEventData.prototype['type'] = undefined;
 
 /**
- * @member {module:model/TransactionStatus} status
+ * @member {module:model/TSSRequestStatus} status
  */
 WebhookEventData.prototype['status'] = undefined;
 
@@ -254,7 +272,7 @@ WebhookEventData.prototype['replacement'] = undefined;
 WebhookEventData.prototype['category'] = undefined;
 
 /**
- * The description for your transaction.
+ * The description of the TSS request.
  * @member {String} description
  */
 WebhookEventData.prototype['description'] = undefined;
@@ -266,7 +284,7 @@ WebhookEventData.prototype['description'] = undefined;
 WebhookEventData.prototype['is_loop'] = undefined;
 
 /**
- * The time when the transaction was created, in Unix timestamp format, measured in milliseconds.
+ * The TSS request's creation time in Unix timestamp format, measured in milliseconds.
  * @member {Number} created_timestamp
  */
 WebhookEventData.prototype['created_timestamp'] = undefined;
@@ -277,8 +295,25 @@ WebhookEventData.prototype['created_timestamp'] = undefined;
  */
 WebhookEventData.prototype['updated_timestamp'] = undefined;
 
+/**
+ * The TSS request ID.
+ * @member {String} tss_request_id
+ */
+WebhookEventData.prototype['tss_request_id'] = undefined;
 
-WebhookEventData.OneOf = ["TransactionWebhookEventData"];
+/**
+ * @member {module:model/SourceGroup} source_key_share_holder_group
+ */
+WebhookEventData.prototype['source_key_share_holder_group'] = undefined;
+
+/**
+ * The target key share holder group ID.
+ * @member {String} target_key_share_holder_group_id
+ */
+WebhookEventData.prototype['target_key_share_holder_group_id'] = undefined;
+
+
+WebhookEventData.OneOf = ["TSSRequestWebhookEventData", "TransactionWebhookEventData"];
 
 export default WebhookEventData;
 

@@ -82,6 +82,12 @@
       //expect(instance).to.be();
     });
 
+    it('should have the property signer_key_share_holder_group_id (base name: "signer_key_share_holder_group_id")', function() {
+      // uncomment below and update the code to test the property signer_key_share_holder_group_id
+      //var instance = new CoboWaas2.TransactionMPCWalletSource();
+      //expect(instance).to.be();
+    });
+
   });
 
 }));

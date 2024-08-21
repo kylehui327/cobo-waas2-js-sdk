@@ -63,6 +63,9 @@ class BabylonStakeExtra {
             if (data.hasOwnProperty('stake_block_time')) {
                 obj['stake_block_time'] = ApiClient.convertToType(data['stake_block_time'], 'Number');
             }
+            if (data.hasOwnProperty('only_sign')) {
+                obj['only_sign'] = ApiClient.convertToType(data['only_sign'], 'Boolean');
+            }
         }
         return obj;
     }
@@ -108,6 +111,12 @@ BabylonStakeExtra.prototype['finality_provider_public_key'] = undefined;
  * @member {Number} stake_block_time
  */
 BabylonStakeExtra.prototype['stake_block_time'] = undefined;
+
+/**
+ * Whether to only sign transactions. Default is `false`, if set to `true`,  the transaction will not be submitted to the blockchain automatically. You can call `Broadcast transactions` to submit the transaction to the blockchain,  Or you can find the signed raw_tx by `Get transaction information` and broadcast it yourself. 
+ * @member {Boolean} only_sign
+ */
+BabylonStakeExtra.prototype['only_sign'] = undefined;
 
 
 // Implement BaseStakeExtra interface:

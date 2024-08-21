@@ -116,6 +116,13 @@ export default class TransactionSubStatus {
 
     
         /**
+         * value: "PendingApprovalStart"
+         * @const
+         */
+        "PendingApprovalStart" = "PendingApprovalStart";
+
+    
+        /**
          * value: "FailedBySigner"
          * @const
          */

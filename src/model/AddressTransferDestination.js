@@ -21,7 +21,7 @@ import TransferDestinationType from './TransferDestinationType';
 class AddressTransferDestination {
     /**
      * Constructs a new <code>AddressTransferDestination</code>.
-     * The information about the transaction destination type &#x60;Address&#x60;.   Specify either the &#x60;account_output&#x60; property or the &#x60;utxo_outputs&#x60; property. Only MPC Wallets as the transaction source can transfer tokens to multiple addresses by using the &#x60;utxo_outputs&#x60; property. 
+     * The information about the transaction destination type &#x60;Address&#x60;.   Specify either the &#x60;account_output&#x60; property or the &#x60;utxo_outputs&#x60; property. You can transfer tokens to multiple addresses only if you use MPC Wallets as the transaction source. You should use the &#x60;utxo_outputs&#x60; property to specify the destination addresses. 
      * @alias module:model/AddressTransferDestination
      * @param destination_type {module:model/TransferDestinationType} 
      */
@@ -135,13 +135,13 @@ AddressTransferDestination.prototype['utxo_outputs'] = undefined;
 AddressTransferDestination.prototype['change_address'] = undefined;
 
 /**
- * Whether the transaction request must be executed as a Loop transfer. For more information about Loop, see [Loop's website](https://loop.top/).   - `true`: The transaction request must be executed as a Loop transfer.   - `false`: The transaction request may not be executed as a Loop transfer. 
+ * Whether the transaction request must be executed as a Loop transfer. For more information about Loop, see [Loop's website](https://loop.top/).   - `true`: The transaction request must be executed as a Loop transfer.   - `false`: The transaction request may not be executed as a Loop transfer. <Note>Please do not set both `force_internal` and `force_internal` as `true`.</Note> 
  * @member {Boolean} force_internal
  */
 AddressTransferDestination.prototype['force_internal'] = undefined;
 
 /**
- * Whether the transaction request must not be executed as a Loop transfer. For more information about Loop, see [Loop's website](https://loop.top/).   - `true`: The transaction request must not be executed as a Loop transfer.   - `false`: The transaction request can be executed as a Loop transfer. 
+ * Whether the transaction request must not be executed as a Loop transfer. For more information about Loop, see [Loop's website](https://loop.top/).   - `true`: The transaction request must not be executed as a Loop transfer.   - `false`: The transaction request can be executed as a Loop transfer. <Note>Please do not set both `force_internal` and `force_internal` as `true`.</Note> 
  * @member {Boolean} force_external
  */
 AddressTransferDestination.prototype['force_external'] = undefined;

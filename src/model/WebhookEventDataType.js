@@ -20,7 +20,7 @@ class WebhookEventDataType {
      * Constructs a new <code>WebhookEventDataType</code>.
      * The data type of the event.
      * @alias module:model/WebhookEventDataType
-     * @param data_type {module:model/WebhookEventDataType.DataTypeEnum} The data type of the event. When `data_type` is `Transaction`, it means the event uses the `transaction` schema as its data type.
+     * @param data_type {module:model/WebhookEventDataType.DataTypeEnum}  The data type of the event. - `Transaction`: The transaction event data. - `TSSRequest`: The TSS request event data.
      */
     constructor(data_type) { 
         
@@ -80,7 +80,7 @@ class WebhookEventDataType {
 WebhookEventDataType.RequiredProperties = ["data_type"];
 
 /**
- * The data type of the event. When `data_type` is `Transaction`, it means the event uses the `transaction` schema as its data type.
+ *  The data type of the event. - `Transaction`: The transaction event data. - `TSSRequest`: The TSS request event data.
  * @member {module:model/WebhookEventDataType.DataTypeEnum} data_type
  */
 WebhookEventDataType.prototype['data_type'] = undefined;
@@ -101,6 +101,12 @@ WebhookEventDataType['DataTypeEnum'] = {
      * @const
      */
     "Transaction": "Transaction",
+
+    /**
+     * value: "TSSRequest"
+     * @const
+     */
+    "TSSRequest": "TSSRequest",
 
     /**
      * value: "unknown_default_open_api"

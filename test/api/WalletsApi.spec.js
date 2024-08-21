@@ -46,6 +46,26 @@ import {ApiClient, Env} from "../../src/index.js";
         //});
       });
     });
+    describe('checkAddressesValidity', function() {
+      it('should call checkAddressesValidity successfully', function() {
+        //uncomment below and update the code to test checkAddressesValidity
+        //instance.checkAddressesValidity().then(function(data) {
+        //    console.log(data);
+        //}, function(error) {
+        //    console.error(error);
+        //});
+      });
+    });
+    describe('checkLoopTransfers', function() {
+      it('should call checkLoopTransfers successfully', function() {
+        //uncomment below and update the code to test checkLoopTransfers
+        //instance.checkLoopTransfers().then(function(data) {
+        //    console.log(data);
+        //}, function(error) {
+        //    console.error(error);
+        //});
+      });
+    });
     describe('createAddress', function() {
       it('should call createAddress successfully', function() {
         //uncomment below and update the code to test createAddress

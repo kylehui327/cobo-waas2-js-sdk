@@ -34,7 +34,7 @@ class TransactionWebhookEventData {
      * @alias module:model/TransactionWebhookEventData
      * @implements module:model/WebhookEventDataType
      * @implements module:model/Transaction
-     * @param data_type {module:model/TransactionWebhookEventData.DataTypeEnum} The data type of the event. When `data_type` is `Transaction`, it means the event uses the `transaction` schema as its data type.
+     * @param data_type {module:model/TransactionWebhookEventData.DataTypeEnum}  The data type of the event. - `Transaction`: The transaction event data. - `TSSRequest`: The TSS request event data.
      * @param transaction_id {String} The transaction ID.
      * @param wallet_id {String} For deposit transactions, this property represents the wallet ID of the transaction destination. For transactions of other types, this property represents the wallet ID of the transaction source.
      * @param status {module:model/TransactionStatus} 
@@ -282,7 +282,7 @@ class TransactionWebhookEventData {
 TransactionWebhookEventData.RequiredProperties = ["data_type", "transaction_id", "wallet_id", "status", "source", "destination", "initiator_type"];
 
 /**
- * The data type of the event. When `data_type` is `Transaction`, it means the event uses the `transaction` schema as its data type.
+ *  The data type of the event. - `Transaction`: The transaction event data. - `TSSRequest`: The TSS request event data.
  * @member {module:model/TransactionWebhookEventData.DataTypeEnum} data_type
  */
 TransactionWebhookEventData.prototype['data_type'] = undefined;
@@ -447,7 +447,7 @@ TransactionWebhookEventData.prototype['updated_timestamp'] = undefined;
 
 // Implement WebhookEventDataType interface:
 /**
- * The data type of the event. When `data_type` is `Transaction`, it means the event uses the `transaction` schema as its data type.
+ *  The data type of the event. - `Transaction`: The transaction event data. - `TSSRequest`: The TSS request event data.
  * @member {module:model/WebhookEventDataType.DataTypeEnum} data_type
  */
 WebhookEventDataType.prototype['data_type'] = undefined;
@@ -596,6 +596,12 @@ TransactionWebhookEventData['DataTypeEnum'] = {
      * @const
      */
     "Transaction": "Transaction",
+
+    /**
+     * value: "TSSRequest"
+     * @const
+     */
+    "TSSRequest": "TSSRequest",
 
     /**
      * value: "unknown_default_open_api"

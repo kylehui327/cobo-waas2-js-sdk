@@ -59,6 +59,9 @@ class EstimateUnstakeFee {
             if (data.hasOwnProperty('activity_type')) {
                 obj['activity_type'] = ActivityType.constructFromObject(data['activity_type']);
             }
+            if (data.hasOwnProperty('request_id')) {
+                obj['request_id'] = ApiClient.convertToType(data['request_id'], 'String');
+            }
             if (data.hasOwnProperty('staking_id')) {
                 obj['staking_id'] = ApiClient.convertToType(data['staking_id'], 'String');
             }
@@ -83,6 +86,10 @@ class EstimateUnstakeFee {
             if (!data.hasOwnProperty(property)) {
                 throw new Error("The required field `" + property + "` is not found in the JSON data: " + JSON.stringify(data));
             }
+        }
+        // ensure the json data is a string
+        if (data['request_id'] && !(typeof data['request_id'] === 'string' || data['request_id'] instanceof String)) {
+            throw new Error("Expected the field `request_id` to be a primitive type in the JSON string but got " + data['request_id']);
         }
         // ensure the json data is a string
         if (data['staking_id'] && !(typeof data['staking_id'] === 'string' || data['staking_id'] instanceof String)) {
@@ -113,6 +120,12 @@ EstimateUnstakeFee.RequiredProperties = ["activity_type", "staking_id"];
 EstimateUnstakeFee.prototype['activity_type'] = undefined;
 
 /**
+ * The request ID that is used to track a request. The request ID is provided by you and must be unique within your organization.
+ * @member {String} request_id
+ */
+EstimateUnstakeFee.prototype['request_id'] = undefined;
+
+/**
  * The id of the related staking.
  * @member {String} staking_id
  */
@@ -136,6 +149,11 @@ EstimateUnstakeFee.prototype['fee'] = undefined;
  */
 BaseEstimateStakingFee.prototype['activity_type'] = undefined;
 // Implement CreateUnstakeActivity interface:
+/**
+ * The request ID that is used to track a request. The request ID is provided by you and must be unique within your organization.
+ * @member {String} request_id
+ */
+CreateUnstakeActivity.prototype['request_id'] = undefined;
 /**
  * The id of the related staking.
  * @member {String} staking_id

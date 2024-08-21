@@ -65,6 +65,9 @@ class KeyShareHolder {
             if (data.hasOwnProperty('status')) {
                 obj['status'] = KeyShareHolderStatus.constructFromObject(data['status']);
             }
+            if (data.hasOwnProperty('account_id')) {
+                obj['account_id'] = ApiClient.convertToType(data['account_id'], 'String');
+            }
         }
         return obj;
     }
@@ -82,6 +85,10 @@ class KeyShareHolder {
         // ensure the json data is a string
         if (data['tss_node_id'] && !(typeof data['tss_node_id'] === 'string' || data['tss_node_id'] instanceof String)) {
             throw new Error("Expected the field `tss_node_id` to be a primitive type in the JSON string but got " + data['tss_node_id']);
+        }
+        // ensure the json data is a string
+        if (data['account_id'] && !(typeof data['account_id'] === 'string' || data['account_id'] instanceof String)) {
+            throw new Error("Expected the field `account_id` to be a primitive type in the JSON string but got " + data['account_id']);
         }
 
         return true;
@@ -125,6 +132,12 @@ KeyShareHolder.prototype['signer'] = undefined;
  * @member {module:model/KeyShareHolderStatus} status
  */
 KeyShareHolder.prototype['status'] = undefined;
+
+/**
+ * The key share holder's Cobo Portal account ID.
+ * @member {String} account_id
+ */
+KeyShareHolder.prototype['account_id'] = undefined;
 
 
 

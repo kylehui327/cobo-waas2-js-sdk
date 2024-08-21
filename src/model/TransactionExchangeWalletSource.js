@@ -62,8 +62,8 @@ class TransactionExchangeWalletSource {
             if (data.hasOwnProperty('wallet_id')) {
                 obj['wallet_id'] = ApiClient.convertToType(data['wallet_id'], 'String');
             }
-            if (data.hasOwnProperty('sub_wallet_id')) {
-                obj['sub_wallet_id'] = ApiClient.convertToType(data['sub_wallet_id'], 'String');
+            if (data.hasOwnProperty('trading_account_type')) {
+                obj['trading_account_type'] = ApiClient.convertToType(data['trading_account_type'], 'String');
             }
         }
         return obj;
@@ -86,8 +86,8 @@ class TransactionExchangeWalletSource {
             throw new Error("Expected the field `wallet_id` to be a primitive type in the JSON string but got " + data['wallet_id']);
         }
         // ensure the json data is a string
-        if (data['sub_wallet_id'] && !(typeof data['sub_wallet_id'] === 'string' || data['sub_wallet_id'] instanceof String)) {
-            throw new Error("Expected the field `sub_wallet_id` to be a primitive type in the JSON string but got " + data['sub_wallet_id']);
+        if (data['trading_account_type'] && !(typeof data['trading_account_type'] === 'string' || data['trading_account_type'] instanceof String)) {
+            throw new Error("Expected the field `trading_account_type` to be a primitive type in the JSON string but got " + data['trading_account_type']);
         }
 
         return true;
@@ -116,9 +116,9 @@ TransactionExchangeWalletSource.prototype['wallet_id'] = undefined;
 
 /**
  * The exchange trading account or a sub-wallet ID.
- * @member {String} sub_wallet_id
+ * @member {String} trading_account_type
  */
-TransactionExchangeWalletSource.prototype['sub_wallet_id'] = undefined;
+TransactionExchangeWalletSource.prototype['trading_account_type'] = undefined;
 
 
 
