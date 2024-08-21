@@ -106,7 +106,7 @@ Class | Method | HTTP request | Description
 *CoboWaas2.WalletsApi* | [**unlockUtxos**](docs/WalletsApi.md#unlockUtxos) | **POST** /wallets/{wallet_id}/utxos/unlock | Unlock UTXOs
 *CoboWaas2.WalletsApi* | [**updateWalletById**](docs/WalletsApi.md#updateWalletById) | **PUT** /wallets/{wallet_id} | Update wallet
 *CoboWaas2.WalletsExchangeWalletApi* | [**listAssetBalancesForExchangeWallet**](docs/WalletsExchangeWalletApi.md#listAssetBalancesForExchangeWallet) | **GET** /wallets/{wallet_id}/exchanges/assets | List asset balances
-*CoboWaas2.WalletsExchangeWalletApi* | [**listExchanges**](docs/WalletsExchangeWalletApi.md#listExchanges) | **GET** /wallets/exchanges/settings | List supported exchanges
+*CoboWaas2.WalletsExchangeWalletApi* | [**listExchanges**](docs/WalletsExchangeWalletApi.md#listExchanges) | **GET** /wallets/exchanges | List supported exchanges
 *CoboWaas2.WalletsExchangeWalletApi* | [**listSupportedAssetsForExchange**](docs/WalletsExchangeWalletApi.md#listSupportedAssetsForExchange) | **GET** /wallets/exchanges/{exchange_id}/assets | List supported assets
 *CoboWaas2.WalletsExchangeWalletApi* | [**listSupportedChainsForExchange**](docs/WalletsExchangeWalletApi.md#listSupportedChainsForExchange) | **GET** /wallets/exchanges/{exchange_id}/assets/{asset_id}/chains | List supported chains
 *CoboWaas2.WalletsMPCWalletsApi* | [**cancelTssRequestById**](docs/WalletsMPCWalletsApi.md#cancelTssRequestById) | **POST** /wallets/mpc/vaults/{vault_id}/tss_requests/{tss_request_id}/cancel | Cancel TSS request
