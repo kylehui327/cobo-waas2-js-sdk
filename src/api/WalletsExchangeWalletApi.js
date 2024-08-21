@@ -131,7 +131,7 @@ export default class WalletsExchangeWalletApi {
       let accepts = ['application/json'];
       let returnType = [ListExchanges200ResponseInner];
       return this.apiClient.callApi(
-        '/wallets/exchanges/settings', 'GET',
+        '/wallets/exchanges', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null
       );
