@@ -34,6 +34,29 @@ class CreatedWalletInfo {
         }
         var match = 0;
         var errorMessages = [];
+        var discriminatorValue = instance["wallet_type"];
+
+        if (discriminatorValue) {
+            switch(discriminatorValue) {
+                case "Custodial":
+                    this.actualInstance = CustodialWalletInfo.constructFromObject(instance);
+                    match++;
+                    break;
+                case "Exchange":
+                    this.actualInstance = ExchangeWalletInfo.constructFromObject(instance);
+                    match++;
+                    break;
+                case "MPC":
+                    this.actualInstance = MPCWalletInfo.constructFromObject(instance);
+                    match++;
+                    break;
+                default:
+                    errorMessages.push("Unrecognized discriminator value: " + discriminatorValue);
+                    break;
+            }
+            return;
+        }
+
         try {
             if (instance instanceof CustodialWalletInfo) {
                 this.actualInstance = instance;
@@ -41,8 +64,17 @@ class CreatedWalletInfo {
                 // plain JS object
                 // create CustodialWalletInfo from JS object
                 this.actualInstance = CustodialWalletInfo.constructFromObject(instance);
-            } else if(CustodialWalletInfo.constructFromObject(instance)){
-                this.actualInstance = CustodialWalletInfo.constructFromObject(instance);
+            } else {
+                if(CustodialWalletInfo.constructFromObject(instance)) {
+                    if (!!CustodialWalletInfo.constructFromObject(instance).toJSON) {
+                        if (CustodialWalletInfo.constructFromObject(instance).toJSON()) {
+                            this.actualInstance = CustodialWalletInfo.constructFromObject(instance);
+                        }
+                    } else {
+                        this.actualInstance = CustodialWalletInfo.constructFromObject(instance);
+                    }
+                }
+
             }
             match++;
         } catch(err) {
@@ -57,8 +89,17 @@ class CreatedWalletInfo {
                 // plain JS object
                 // create MPCWalletInfo from JS object
                 this.actualInstance = MPCWalletInfo.constructFromObject(instance);
-            } else if(MPCWalletInfo.constructFromObject(instance)){
-                this.actualInstance = MPCWalletInfo.constructFromObject(instance);
+            } else {
+                if(MPCWalletInfo.constructFromObject(instance)) {
+                    if (!!MPCWalletInfo.constructFromObject(instance).toJSON) {
+                        if (MPCWalletInfo.constructFromObject(instance).toJSON()) {
+                            this.actualInstance = MPCWalletInfo.constructFromObject(instance);
+                        }
+                    } else {
+                        this.actualInstance = MPCWalletInfo.constructFromObject(instance);
+                    }
+                }
+
             }
             match++;
         } catch(err) {
@@ -73,8 +114,17 @@ class CreatedWalletInfo {
                 // plain JS object
                 // create ExchangeWalletInfo from JS object
                 this.actualInstance = ExchangeWalletInfo.constructFromObject(instance);
-            } else if(ExchangeWalletInfo.constructFromObject(instance)){
-                this.actualInstance = ExchangeWalletInfo.constructFromObject(instance);
+            } else {
+                if(ExchangeWalletInfo.constructFromObject(instance)) {
+                    if (!!ExchangeWalletInfo.constructFromObject(instance).toJSON) {
+                        if (ExchangeWalletInfo.constructFromObject(instance).toJSON()) {
+                            this.actualInstance = ExchangeWalletInfo.constructFromObject(instance);
+                        }
+                    } else {
+                        this.actualInstance = ExchangeWalletInfo.constructFromObject(instance);
+                    }
+                }
+
             }
             match++;
         } catch(err) {

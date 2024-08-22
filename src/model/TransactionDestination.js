@@ -41,6 +41,45 @@ class TransactionDestination {
         }
         var match = 0;
         var errorMessages = [];
+        var discriminatorValue = instance["destination_type"];
+
+        if (discriminatorValue) {
+            switch(discriminatorValue) {
+                case "Address":
+                    this.actualInstance = TransactionTransferToAddressDestination.constructFromObject(instance);
+                    match++;
+                    break;
+                case "DepositToAddress":
+                    this.actualInstance = TransactionDepositToAddressDestination.constructFromObject(instance);
+                    match++;
+                    break;
+                case "DepositToWallet":
+                    this.actualInstance = TransactionDepositToWalletDestination.constructFromObject(instance);
+                    match++;
+                    break;
+                case "EVM_Contract":
+                    this.actualInstance = TransactionEvmContractDestination.constructFromObject(instance);
+                    match++;
+                    break;
+                case "EVM_EIP_191_Signature":
+                    this.actualInstance = TransactionMessageSignEIP191Destination.constructFromObject(instance);
+                    match++;
+                    break;
+                case "EVM_EIP_712_Signature":
+                    this.actualInstance = TransactionMessageSignEIP712Destination.constructFromObject(instance);
+                    match++;
+                    break;
+                case "ExchangeWallet":
+                    this.actualInstance = TransactionTransferToWalletDestination.constructFromObject(instance);
+                    match++;
+                    break;
+                default:
+                    errorMessages.push("Unrecognized discriminator value: " + discriminatorValue);
+                    break;
+            }
+            return;
+        }
+
         try {
             if (instance instanceof TransactionTransferToAddressDestination) {
                 this.actualInstance = instance;
@@ -48,8 +87,17 @@ class TransactionDestination {
                 // plain JS object
                 // create TransactionTransferToAddressDestination from JS object
                 this.actualInstance = TransactionTransferToAddressDestination.constructFromObject(instance);
-            } else if(TransactionTransferToAddressDestination.constructFromObject(instance)){
-                this.actualInstance = TransactionTransferToAddressDestination.constructFromObject(instance);
+            } else {
+                if(TransactionTransferToAddressDestination.constructFromObject(instance)) {
+                    if (!!TransactionTransferToAddressDestination.constructFromObject(instance).toJSON) {
+                        if (TransactionTransferToAddressDestination.constructFromObject(instance).toJSON()) {
+                            this.actualInstance = TransactionTransferToAddressDestination.constructFromObject(instance);
+                        }
+                    } else {
+                        this.actualInstance = TransactionTransferToAddressDestination.constructFromObject(instance);
+                    }
+                }
+
             }
             match++;
         } catch(err) {
@@ -64,8 +112,17 @@ class TransactionDestination {
                 // plain JS object
                 // create TransactionTransferToWalletDestination from JS object
                 this.actualInstance = TransactionTransferToWalletDestination.constructFromObject(instance);
-            } else if(TransactionTransferToWalletDestination.constructFromObject(instance)){
-                this.actualInstance = TransactionTransferToWalletDestination.constructFromObject(instance);
+            } else {
+                if(TransactionTransferToWalletDestination.constructFromObject(instance)) {
+                    if (!!TransactionTransferToWalletDestination.constructFromObject(instance).toJSON) {
+                        if (TransactionTransferToWalletDestination.constructFromObject(instance).toJSON()) {
+                            this.actualInstance = TransactionTransferToWalletDestination.constructFromObject(instance);
+                        }
+                    } else {
+                        this.actualInstance = TransactionTransferToWalletDestination.constructFromObject(instance);
+                    }
+                }
+
             }
             match++;
         } catch(err) {
@@ -80,8 +137,17 @@ class TransactionDestination {
                 // plain JS object
                 // create TransactionEvmContractDestination from JS object
                 this.actualInstance = TransactionEvmContractDestination.constructFromObject(instance);
-            } else if(TransactionEvmContractDestination.constructFromObject(instance)){
-                this.actualInstance = TransactionEvmContractDestination.constructFromObject(instance);
+            } else {
+                if(TransactionEvmContractDestination.constructFromObject(instance)) {
+                    if (!!TransactionEvmContractDestination.constructFromObject(instance).toJSON) {
+                        if (TransactionEvmContractDestination.constructFromObject(instance).toJSON()) {
+                            this.actualInstance = TransactionEvmContractDestination.constructFromObject(instance);
+                        }
+                    } else {
+                        this.actualInstance = TransactionEvmContractDestination.constructFromObject(instance);
+                    }
+                }
+
             }
             match++;
         } catch(err) {
@@ -96,8 +162,17 @@ class TransactionDestination {
                 // plain JS object
                 // create TransactionMessageSignEIP191Destination from JS object
                 this.actualInstance = TransactionMessageSignEIP191Destination.constructFromObject(instance);
-            } else if(TransactionMessageSignEIP191Destination.constructFromObject(instance)){
-                this.actualInstance = TransactionMessageSignEIP191Destination.constructFromObject(instance);
+            } else {
+                if(TransactionMessageSignEIP191Destination.constructFromObject(instance)) {
+                    if (!!TransactionMessageSignEIP191Destination.constructFromObject(instance).toJSON) {
+                        if (TransactionMessageSignEIP191Destination.constructFromObject(instance).toJSON()) {
+                            this.actualInstance = TransactionMessageSignEIP191Destination.constructFromObject(instance);
+                        }
+                    } else {
+                        this.actualInstance = TransactionMessageSignEIP191Destination.constructFromObject(instance);
+                    }
+                }
+
             }
             match++;
         } catch(err) {
@@ -112,8 +187,17 @@ class TransactionDestination {
                 // plain JS object
                 // create TransactionMessageSignEIP712Destination from JS object
                 this.actualInstance = TransactionMessageSignEIP712Destination.constructFromObject(instance);
-            } else if(TransactionMessageSignEIP712Destination.constructFromObject(instance)){
-                this.actualInstance = TransactionMessageSignEIP712Destination.constructFromObject(instance);
+            } else {
+                if(TransactionMessageSignEIP712Destination.constructFromObject(instance)) {
+                    if (!!TransactionMessageSignEIP712Destination.constructFromObject(instance).toJSON) {
+                        if (TransactionMessageSignEIP712Destination.constructFromObject(instance).toJSON()) {
+                            this.actualInstance = TransactionMessageSignEIP712Destination.constructFromObject(instance);
+                        }
+                    } else {
+                        this.actualInstance = TransactionMessageSignEIP712Destination.constructFromObject(instance);
+                    }
+                }
+
             }
             match++;
         } catch(err) {
@@ -128,8 +212,17 @@ class TransactionDestination {
                 // plain JS object
                 // create TransactionDepositToAddressDestination from JS object
                 this.actualInstance = TransactionDepositToAddressDestination.constructFromObject(instance);
-            } else if(TransactionDepositToAddressDestination.constructFromObject(instance)){
-                this.actualInstance = TransactionDepositToAddressDestination.constructFromObject(instance);
+            } else {
+                if(TransactionDepositToAddressDestination.constructFromObject(instance)) {
+                    if (!!TransactionDepositToAddressDestination.constructFromObject(instance).toJSON) {
+                        if (TransactionDepositToAddressDestination.constructFromObject(instance).toJSON()) {
+                            this.actualInstance = TransactionDepositToAddressDestination.constructFromObject(instance);
+                        }
+                    } else {
+                        this.actualInstance = TransactionDepositToAddressDestination.constructFromObject(instance);
+                    }
+                }
+
             }
             match++;
         } catch(err) {
@@ -144,8 +237,17 @@ class TransactionDestination {
                 // plain JS object
                 // create TransactionDepositToWalletDestination from JS object
                 this.actualInstance = TransactionDepositToWalletDestination.constructFromObject(instance);
-            } else if(TransactionDepositToWalletDestination.constructFromObject(instance)){
-                this.actualInstance = TransactionDepositToWalletDestination.constructFromObject(instance);
+            } else {
+                if(TransactionDepositToWalletDestination.constructFromObject(instance)) {
+                    if (!!TransactionDepositToWalletDestination.constructFromObject(instance).toJSON) {
+                        if (TransactionDepositToWalletDestination.constructFromObject(instance).toJSON()) {
+                            this.actualInstance = TransactionDepositToWalletDestination.constructFromObject(instance);
+                        }
+                    } else {
+                        this.actualInstance = TransactionDepositToWalletDestination.constructFromObject(instance);
+                    }
+                }
+
             }
             match++;
         } catch(err) {

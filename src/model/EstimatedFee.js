@@ -34,6 +34,33 @@ class EstimatedFee {
         }
         var match = 0;
         var errorMessages = [];
+        var discriminatorValue = instance["fee_type"];
+
+        if (discriminatorValue) {
+            switch(discriminatorValue) {
+                case "EVM_EIP_1559":
+                    this.actualInstance = EstimatedEvmEip1559Fee.constructFromObject(instance);
+                    match++;
+                    break;
+                case "EVM_Legacy":
+                    this.actualInstance = EstimatedEvmLegacyFee.constructFromObject(instance);
+                    match++;
+                    break;
+                case "Fixed":
+                    this.actualInstance = EstimatedFixedFee.constructFromObject(instance);
+                    match++;
+                    break;
+                case "UTXO":
+                    this.actualInstance = EstimatedUtxoFee.constructFromObject(instance);
+                    match++;
+                    break;
+                default:
+                    errorMessages.push("Unrecognized discriminator value: " + discriminatorValue);
+                    break;
+            }
+            return;
+        }
+
         try {
             if (instance instanceof EstimatedFixedFee) {
                 this.actualInstance = instance;
@@ -41,8 +68,17 @@ class EstimatedFee {
                 // plain JS object
                 // create EstimatedFixedFee from JS object
                 this.actualInstance = EstimatedFixedFee.constructFromObject(instance);
-            } else if(EstimatedFixedFee.constructFromObject(instance)){
-                this.actualInstance = EstimatedFixedFee.constructFromObject(instance);
+            } else {
+                if(EstimatedFixedFee.constructFromObject(instance)) {
+                    if (!!EstimatedFixedFee.constructFromObject(instance).toJSON) {
+                        if (EstimatedFixedFee.constructFromObject(instance).toJSON()) {
+                            this.actualInstance = EstimatedFixedFee.constructFromObject(instance);
+                        }
+                    } else {
+                        this.actualInstance = EstimatedFixedFee.constructFromObject(instance);
+                    }
+                }
+
             }
             match++;
         } catch(err) {
@@ -57,8 +93,17 @@ class EstimatedFee {
                 // plain JS object
                 // create EstimatedEvmEip1559Fee from JS object
                 this.actualInstance = EstimatedEvmEip1559Fee.constructFromObject(instance);
-            } else if(EstimatedEvmEip1559Fee.constructFromObject(instance)){
-                this.actualInstance = EstimatedEvmEip1559Fee.constructFromObject(instance);
+            } else {
+                if(EstimatedEvmEip1559Fee.constructFromObject(instance)) {
+                    if (!!EstimatedEvmEip1559Fee.constructFromObject(instance).toJSON) {
+                        if (EstimatedEvmEip1559Fee.constructFromObject(instance).toJSON()) {
+                            this.actualInstance = EstimatedEvmEip1559Fee.constructFromObject(instance);
+                        }
+                    } else {
+                        this.actualInstance = EstimatedEvmEip1559Fee.constructFromObject(instance);
+                    }
+                }
+
             }
             match++;
         } catch(err) {
@@ -73,8 +118,17 @@ class EstimatedFee {
                 // plain JS object
                 // create EstimatedEvmLegacyFee from JS object
                 this.actualInstance = EstimatedEvmLegacyFee.constructFromObject(instance);
-            } else if(EstimatedEvmLegacyFee.constructFromObject(instance)){
-                this.actualInstance = EstimatedEvmLegacyFee.constructFromObject(instance);
+            } else {
+                if(EstimatedEvmLegacyFee.constructFromObject(instance)) {
+                    if (!!EstimatedEvmLegacyFee.constructFromObject(instance).toJSON) {
+                        if (EstimatedEvmLegacyFee.constructFromObject(instance).toJSON()) {
+                            this.actualInstance = EstimatedEvmLegacyFee.constructFromObject(instance);
+                        }
+                    } else {
+                        this.actualInstance = EstimatedEvmLegacyFee.constructFromObject(instance);
+                    }
+                }
+
             }
             match++;
         } catch(err) {
@@ -89,8 +143,17 @@ class EstimatedFee {
                 // plain JS object
                 // create EstimatedUtxoFee from JS object
                 this.actualInstance = EstimatedUtxoFee.constructFromObject(instance);
-            } else if(EstimatedUtxoFee.constructFromObject(instance)){
-                this.actualInstance = EstimatedUtxoFee.constructFromObject(instance);
+            } else {
+                if(EstimatedUtxoFee.constructFromObject(instance)) {
+                    if (!!EstimatedUtxoFee.constructFromObject(instance).toJSON) {
+                        if (EstimatedUtxoFee.constructFromObject(instance).toJSON()) {
+                            this.actualInstance = EstimatedUtxoFee.constructFromObject(instance);
+                        }
+                    } else {
+                        this.actualInstance = EstimatedUtxoFee.constructFromObject(instance);
+                    }
+                }
+
             }
             match++;
         } catch(err) {

@@ -30,6 +30,7 @@ class PoolDetailsAllOfValidatorsInfo {
         }
         var match = 0;
         var errorMessages = [];
+
         try {
             if (instance instanceof BabylonValidator) {
                 this.actualInstance = instance;
@@ -37,8 +38,17 @@ class PoolDetailsAllOfValidatorsInfo {
                 // plain JS object
                 // create BabylonValidator from JS object
                 this.actualInstance = BabylonValidator.constructFromObject(instance);
-            } else if(BabylonValidator.constructFromObject(instance)){
-                this.actualInstance = BabylonValidator.constructFromObject(instance);
+            } else {
+                if(BabylonValidator.constructFromObject(instance)) {
+                    if (!!BabylonValidator.constructFromObject(instance).toJSON) {
+                        if (BabylonValidator.constructFromObject(instance).toJSON()) {
+                            this.actualInstance = BabylonValidator.constructFromObject(instance);
+                        }
+                    } else {
+                        this.actualInstance = BabylonValidator.constructFromObject(instance);
+                    }
+                }
+
             }
             match++;
         } catch(err) {
@@ -53,8 +63,17 @@ class PoolDetailsAllOfValidatorsInfo {
                 // plain JS object
                 // create EigenlayerValidator from JS object
                 this.actualInstance = EigenlayerValidator.constructFromObject(instance);
-            } else if(EigenlayerValidator.constructFromObject(instance)){
-                this.actualInstance = EigenlayerValidator.constructFromObject(instance);
+            } else {
+                if(EigenlayerValidator.constructFromObject(instance)) {
+                    if (!!EigenlayerValidator.constructFromObject(instance).toJSON) {
+                        if (EigenlayerValidator.constructFromObject(instance).toJSON()) {
+                            this.actualInstance = EigenlayerValidator.constructFromObject(instance);
+                        }
+                    } else {
+                        this.actualInstance = EigenlayerValidator.constructFromObject(instance);
+                    }
+                }
+
             }
             match++;
         } catch(err) {

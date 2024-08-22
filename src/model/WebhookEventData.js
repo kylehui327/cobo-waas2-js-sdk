@@ -42,6 +42,25 @@ class WebhookEventData {
         }
         var match = 0;
         var errorMessages = [];
+        var discriminatorValue = instance["data_type"];
+
+        if (discriminatorValue) {
+            switch(discriminatorValue) {
+                case "TSSRequest":
+                    this.actualInstance = TSSRequestWebhookEventData.constructFromObject(instance);
+                    match++;
+                    break;
+                case "Transaction":
+                    this.actualInstance = TransactionWebhookEventData.constructFromObject(instance);
+                    match++;
+                    break;
+                default:
+                    errorMessages.push("Unrecognized discriminator value: " + discriminatorValue);
+                    break;
+            }
+            return;
+        }
+
         try {
             if (instance instanceof TransactionWebhookEventData) {
                 this.actualInstance = instance;
@@ -49,8 +68,17 @@ class WebhookEventData {
                 // plain JS object
                 // create TransactionWebhookEventData from JS object
                 this.actualInstance = TransactionWebhookEventData.constructFromObject(instance);
-            } else if(TransactionWebhookEventData.constructFromObject(instance)){
-                this.actualInstance = TransactionWebhookEventData.constructFromObject(instance);
+            } else {
+                if(TransactionWebhookEventData.constructFromObject(instance)) {
+                    if (!!TransactionWebhookEventData.constructFromObject(instance).toJSON) {
+                        if (TransactionWebhookEventData.constructFromObject(instance).toJSON()) {
+                            this.actualInstance = TransactionWebhookEventData.constructFromObject(instance);
+                        }
+                    } else {
+                        this.actualInstance = TransactionWebhookEventData.constructFromObject(instance);
+                    }
+                }
+
             }
             match++;
         } catch(err) {
@@ -65,8 +93,17 @@ class WebhookEventData {
                 // plain JS object
                 // create TSSRequestWebhookEventData from JS object
                 this.actualInstance = TSSRequestWebhookEventData.constructFromObject(instance);
-            } else if(TSSRequestWebhookEventData.constructFromObject(instance)){
-                this.actualInstance = TSSRequestWebhookEventData.constructFromObject(instance);
+            } else {
+                if(TSSRequestWebhookEventData.constructFromObject(instance)) {
+                    if (!!TSSRequestWebhookEventData.constructFromObject(instance).toJSON) {
+                        if (TSSRequestWebhookEventData.constructFromObject(instance).toJSON()) {
+                            this.actualInstance = TSSRequestWebhookEventData.constructFromObject(instance);
+                        }
+                    } else {
+                        this.actualInstance = TSSRequestWebhookEventData.constructFromObject(instance);
+                    }
+                }
+
             }
             match++;
         } catch(err) {

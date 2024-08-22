@@ -30,6 +30,25 @@ class MessageSignSource {
         }
         var match = 0;
         var errorMessages = [];
+        var discriminatorValue = instance["source_type"];
+
+        if (discriminatorValue) {
+            switch(discriminatorValue) {
+                case "Org-Controlled":
+                    this.actualInstance = MpcMessageSignSource.constructFromObject(instance);
+                    match++;
+                    break;
+                case "User-Controlled":
+                    this.actualInstance = MpcMessageSignSource.constructFromObject(instance);
+                    match++;
+                    break;
+                default:
+                    errorMessages.push("Unrecognized discriminator value: " + discriminatorValue);
+                    break;
+            }
+            return;
+        }
+
         try {
             if (instance instanceof MpcMessageSignSource) {
                 this.actualInstance = instance;
@@ -37,8 +56,17 @@ class MessageSignSource {
                 // plain JS object
                 // create MpcMessageSignSource from JS object
                 this.actualInstance = MpcMessageSignSource.constructFromObject(instance);
-            } else if(MpcMessageSignSource.constructFromObject(instance)){
-                this.actualInstance = MpcMessageSignSource.constructFromObject(instance);
+            } else {
+                if(MpcMessageSignSource.constructFromObject(instance)) {
+                    if (!!MpcMessageSignSource.constructFromObject(instance).toJSON) {
+                        if (MpcMessageSignSource.constructFromObject(instance).toJSON()) {
+                            this.actualInstance = MpcMessageSignSource.constructFromObject(instance);
+                        }
+                    } else {
+                        this.actualInstance = MpcMessageSignSource.constructFromObject(instance);
+                    }
+                }
+
             }
             match++;
         } catch(err) {
