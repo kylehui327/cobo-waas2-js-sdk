@@ -30,6 +30,21 @@ class ContractCallDestination {
         }
         var match = 0;
         var errorMessages = [];
+        var discriminatorValue = instance["destination_type"];
+
+        if (discriminatorValue) {
+            switch(discriminatorValue) {
+                case "EVM":
+                    this.actualInstance = EvmContractCallDestination.constructFromObject(instance);
+                    match++;
+                    break;
+                default:
+                    errorMessages.push("Unrecognized discriminator value: " + discriminatorValue);
+                    break;
+            }
+            return;
+        }
+
         try {
             if (instance instanceof EvmContractCallDestination) {
                 this.actualInstance = instance;
@@ -37,8 +52,17 @@ class ContractCallDestination {
                 // plain JS object
                 // create EvmContractCallDestination from JS object
                 this.actualInstance = EvmContractCallDestination.constructFromObject(instance);
-            } else if(EvmContractCallDestination.constructFromObject(instance)){
-                this.actualInstance = EvmContractCallDestination.constructFromObject(instance);
+            } else {
+                if(EvmContractCallDestination.constructFromObject(instance)) {
+                    if (!!EvmContractCallDestination.constructFromObject(instance).toJSON) {
+                        if (EvmContractCallDestination.constructFromObject(instance).toJSON()) {
+                            this.actualInstance = EvmContractCallDestination.constructFromObject(instance);
+                        }
+                    } else {
+                        this.actualInstance = EvmContractCallDestination.constructFromObject(instance);
+                    }
+                }
+
             }
             match++;
         } catch(err) {

@@ -31,6 +31,25 @@ class MessageSignDestination {
         }
         var match = 0;
         var errorMessages = [];
+        var discriminatorValue = instance["destination_type"];
+
+        if (discriminatorValue) {
+            switch(discriminatorValue) {
+                case "EVM_EIP_191":
+                    this.actualInstance = EvmEIP191MessageSignDestination.constructFromObject(instance);
+                    match++;
+                    break;
+                case "EVM_EIP_712":
+                    this.actualInstance = EvmEIP712MessageSignDestination.constructFromObject(instance);
+                    match++;
+                    break;
+                default:
+                    errorMessages.push("Unrecognized discriminator value: " + discriminatorValue);
+                    break;
+            }
+            return;
+        }
+
         try {
             if (instance instanceof EvmEIP191MessageSignDestination) {
                 this.actualInstance = instance;
@@ -38,8 +57,17 @@ class MessageSignDestination {
                 // plain JS object
                 // create EvmEIP191MessageSignDestination from JS object
                 this.actualInstance = EvmEIP191MessageSignDestination.constructFromObject(instance);
-            } else if(EvmEIP191MessageSignDestination.constructFromObject(instance)){
-                this.actualInstance = EvmEIP191MessageSignDestination.constructFromObject(instance);
+            } else {
+                if(EvmEIP191MessageSignDestination.constructFromObject(instance)) {
+                    if (!!EvmEIP191MessageSignDestination.constructFromObject(instance).toJSON) {
+                        if (EvmEIP191MessageSignDestination.constructFromObject(instance).toJSON()) {
+                            this.actualInstance = EvmEIP191MessageSignDestination.constructFromObject(instance);
+                        }
+                    } else {
+                        this.actualInstance = EvmEIP191MessageSignDestination.constructFromObject(instance);
+                    }
+                }
+
             }
             match++;
         } catch(err) {
@@ -54,8 +82,17 @@ class MessageSignDestination {
                 // plain JS object
                 // create EvmEIP712MessageSignDestination from JS object
                 this.actualInstance = EvmEIP712MessageSignDestination.constructFromObject(instance);
-            } else if(EvmEIP712MessageSignDestination.constructFromObject(instance)){
-                this.actualInstance = EvmEIP712MessageSignDestination.constructFromObject(instance);
+            } else {
+                if(EvmEIP712MessageSignDestination.constructFromObject(instance)) {
+                    if (!!EvmEIP712MessageSignDestination.constructFromObject(instance).toJSON) {
+                        if (EvmEIP712MessageSignDestination.constructFromObject(instance).toJSON()) {
+                            this.actualInstance = EvmEIP712MessageSignDestination.constructFromObject(instance);
+                        }
+                    } else {
+                        this.actualInstance = EvmEIP712MessageSignDestination.constructFromObject(instance);
+                    }
+                }
+
             }
             match++;
         } catch(err) {

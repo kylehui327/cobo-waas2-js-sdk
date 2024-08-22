@@ -33,6 +33,25 @@ class TransferDestination {
         }
         var match = 0;
         var errorMessages = [];
+        var discriminatorValue = instance["destination_type"];
+
+        if (discriminatorValue) {
+            switch(discriminatorValue) {
+                case "Address":
+                    this.actualInstance = AddressTransferDestination.constructFromObject(instance);
+                    match++;
+                    break;
+                case "ExchangeWallet":
+                    this.actualInstance = ExchangeTransferDestination.constructFromObject(instance);
+                    match++;
+                    break;
+                default:
+                    errorMessages.push("Unrecognized discriminator value: " + discriminatorValue);
+                    break;
+            }
+            return;
+        }
+
         try {
             if (instance instanceof AddressTransferDestination) {
                 this.actualInstance = instance;
@@ -40,8 +59,17 @@ class TransferDestination {
                 // plain JS object
                 // create AddressTransferDestination from JS object
                 this.actualInstance = AddressTransferDestination.constructFromObject(instance);
-            } else if(AddressTransferDestination.constructFromObject(instance)){
-                this.actualInstance = AddressTransferDestination.constructFromObject(instance);
+            } else {
+                if(AddressTransferDestination.constructFromObject(instance)) {
+                    if (!!AddressTransferDestination.constructFromObject(instance).toJSON) {
+                        if (AddressTransferDestination.constructFromObject(instance).toJSON()) {
+                            this.actualInstance = AddressTransferDestination.constructFromObject(instance);
+                        }
+                    } else {
+                        this.actualInstance = AddressTransferDestination.constructFromObject(instance);
+                    }
+                }
+
             }
             match++;
         } catch(err) {
@@ -56,8 +84,17 @@ class TransferDestination {
                 // plain JS object
                 // create ExchangeTransferDestination from JS object
                 this.actualInstance = ExchangeTransferDestination.constructFromObject(instance);
-            } else if(ExchangeTransferDestination.constructFromObject(instance)){
-                this.actualInstance = ExchangeTransferDestination.constructFromObject(instance);
+            } else {
+                if(ExchangeTransferDestination.constructFromObject(instance)) {
+                    if (!!ExchangeTransferDestination.constructFromObject(instance).toJSON) {
+                        if (ExchangeTransferDestination.constructFromObject(instance).toJSON()) {
+                            this.actualInstance = ExchangeTransferDestination.constructFromObject(instance);
+                        }
+                    } else {
+                        this.actualInstance = ExchangeTransferDestination.constructFromObject(instance);
+                    }
+                }
+
             }
             match++;
         } catch(err) {

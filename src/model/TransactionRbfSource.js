@@ -31,6 +31,25 @@ class TransactionRbfSource {
         }
         var match = 0;
         var errorMessages = [];
+        var discriminatorValue = instance["source_type"];
+
+        if (discriminatorValue) {
+            switch(discriminatorValue) {
+                case "Org-Controlled":
+                    this.actualInstance = MpcTransferSource.constructFromObject(instance);
+                    match++;
+                    break;
+                case "User-Controlled":
+                    this.actualInstance = MpcTransferSource.constructFromObject(instance);
+                    match++;
+                    break;
+                default:
+                    errorMessages.push("Unrecognized discriminator value: " + discriminatorValue);
+                    break;
+            }
+            return;
+        }
+
         try {
             if (instance instanceof MpcTransferSource) {
                 this.actualInstance = instance;
@@ -38,8 +57,17 @@ class TransactionRbfSource {
                 // plain JS object
                 // create MpcTransferSource from JS object
                 this.actualInstance = MpcTransferSource.constructFromObject(instance);
-            } else if(MpcTransferSource.constructFromObject(instance)){
-                this.actualInstance = MpcTransferSource.constructFromObject(instance);
+            } else {
+                if(MpcTransferSource.constructFromObject(instance)) {
+                    if (!!MpcTransferSource.constructFromObject(instance).toJSON) {
+                        if (MpcTransferSource.constructFromObject(instance).toJSON()) {
+                            this.actualInstance = MpcTransferSource.constructFromObject(instance);
+                        }
+                    } else {
+                        this.actualInstance = MpcTransferSource.constructFromObject(instance);
+                    }
+                }
+
             }
             match++;
         } catch(err) {

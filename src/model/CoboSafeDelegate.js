@@ -30,6 +30,25 @@ class CoboSafeDelegate {
         }
         var match = 0;
         var errorMessages = [];
+        var discriminatorValue = instance["delegate_type"];
+
+        if (discriminatorValue) {
+            switch(discriminatorValue) {
+                case "Org-Controlled":
+                    this.actualInstance = MPCDelegate.constructFromObject(instance);
+                    match++;
+                    break;
+                case "User-Controlled":
+                    this.actualInstance = MPCDelegate.constructFromObject(instance);
+                    match++;
+                    break;
+                default:
+                    errorMessages.push("Unrecognized discriminator value: " + discriminatorValue);
+                    break;
+            }
+            return;
+        }
+
         try {
             if (instance instanceof MPCDelegate) {
                 this.actualInstance = instance;
@@ -37,8 +56,17 @@ class CoboSafeDelegate {
                 // plain JS object
                 // create MPCDelegate from JS object
                 this.actualInstance = MPCDelegate.constructFromObject(instance);
-            } else if(MPCDelegate.constructFromObject(instance)){
-                this.actualInstance = MPCDelegate.constructFromObject(instance);
+            } else {
+                if(MPCDelegate.constructFromObject(instance)) {
+                    if (!!MPCDelegate.constructFromObject(instance).toJSON) {
+                        if (MPCDelegate.constructFromObject(instance).toJSON()) {
+                            this.actualInstance = MPCDelegate.constructFromObject(instance);
+                        }
+                    } else {
+                        this.actualInstance = MPCDelegate.constructFromObject(instance);
+                    }
+                }
+
             }
             match++;
         } catch(err) {

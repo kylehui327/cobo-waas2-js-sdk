@@ -35,6 +35,41 @@ class TransferSource {
         }
         var match = 0;
         var errorMessages = [];
+        var discriminatorValue = instance["source_type"];
+
+        if (discriminatorValue) {
+            switch(discriminatorValue) {
+                case "Asset":
+                    this.actualInstance = CustodialTransferSource.constructFromObject(instance);
+                    match++;
+                    break;
+                case "Main":
+                    this.actualInstance = ExchangeTransferSource.constructFromObject(instance);
+                    match++;
+                    break;
+                case "Org-Controlled":
+                    this.actualInstance = MpcTransferSource.constructFromObject(instance);
+                    match++;
+                    break;
+                case "Safe{Wallet}":
+                    this.actualInstance = SafeTransferSource.constructFromObject(instance);
+                    match++;
+                    break;
+                case "Sub":
+                    this.actualInstance = ExchangeTransferSource.constructFromObject(instance);
+                    match++;
+                    break;
+                case "User-Controlled":
+                    this.actualInstance = MpcTransferSource.constructFromObject(instance);
+                    match++;
+                    break;
+                default:
+                    errorMessages.push("Unrecognized discriminator value: " + discriminatorValue);
+                    break;
+            }
+            return;
+        }
+
         try {
             if (instance instanceof CustodialTransferSource) {
                 this.actualInstance = instance;
@@ -42,8 +77,17 @@ class TransferSource {
                 // plain JS object
                 // create CustodialTransferSource from JS object
                 this.actualInstance = CustodialTransferSource.constructFromObject(instance);
-            } else if(CustodialTransferSource.constructFromObject(instance)){
-                this.actualInstance = CustodialTransferSource.constructFromObject(instance);
+            } else {
+                if(CustodialTransferSource.constructFromObject(instance)) {
+                    if (!!CustodialTransferSource.constructFromObject(instance).toJSON) {
+                        if (CustodialTransferSource.constructFromObject(instance).toJSON()) {
+                            this.actualInstance = CustodialTransferSource.constructFromObject(instance);
+                        }
+                    } else {
+                        this.actualInstance = CustodialTransferSource.constructFromObject(instance);
+                    }
+                }
+
             }
             match++;
         } catch(err) {
@@ -58,8 +102,17 @@ class TransferSource {
                 // plain JS object
                 // create MpcTransferSource from JS object
                 this.actualInstance = MpcTransferSource.constructFromObject(instance);
-            } else if(MpcTransferSource.constructFromObject(instance)){
-                this.actualInstance = MpcTransferSource.constructFromObject(instance);
+            } else {
+                if(MpcTransferSource.constructFromObject(instance)) {
+                    if (!!MpcTransferSource.constructFromObject(instance).toJSON) {
+                        if (MpcTransferSource.constructFromObject(instance).toJSON()) {
+                            this.actualInstance = MpcTransferSource.constructFromObject(instance);
+                        }
+                    } else {
+                        this.actualInstance = MpcTransferSource.constructFromObject(instance);
+                    }
+                }
+
             }
             match++;
         } catch(err) {
@@ -74,8 +127,17 @@ class TransferSource {
                 // plain JS object
                 // create SafeTransferSource from JS object
                 this.actualInstance = SafeTransferSource.constructFromObject(instance);
-            } else if(SafeTransferSource.constructFromObject(instance)){
-                this.actualInstance = SafeTransferSource.constructFromObject(instance);
+            } else {
+                if(SafeTransferSource.constructFromObject(instance)) {
+                    if (!!SafeTransferSource.constructFromObject(instance).toJSON) {
+                        if (SafeTransferSource.constructFromObject(instance).toJSON()) {
+                            this.actualInstance = SafeTransferSource.constructFromObject(instance);
+                        }
+                    } else {
+                        this.actualInstance = SafeTransferSource.constructFromObject(instance);
+                    }
+                }
+
             }
             match++;
         } catch(err) {
@@ -90,8 +152,17 @@ class TransferSource {
                 // plain JS object
                 // create ExchangeTransferSource from JS object
                 this.actualInstance = ExchangeTransferSource.constructFromObject(instance);
-            } else if(ExchangeTransferSource.constructFromObject(instance)){
-                this.actualInstance = ExchangeTransferSource.constructFromObject(instance);
+            } else {
+                if(ExchangeTransferSource.constructFromObject(instance)) {
+                    if (!!ExchangeTransferSource.constructFromObject(instance).toJSON) {
+                        if (ExchangeTransferSource.constructFromObject(instance).toJSON()) {
+                            this.actualInstance = ExchangeTransferSource.constructFromObject(instance);
+                        }
+                    } else {
+                        this.actualInstance = ExchangeTransferSource.constructFromObject(instance);
+                    }
+                }
+
             }
             match++;
         } catch(err) {

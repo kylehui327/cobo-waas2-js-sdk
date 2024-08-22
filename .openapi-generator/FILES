@@ -262,6 +262,7 @@ mocha.opts
 package.json
 src/ApiClient.js
 src/Env.js
+src/PreRequestScript.js
 src/api/DevelopersWebhooksApi.js
 src/api/OAuthApi.js
 src/api/TransactionsApi.js

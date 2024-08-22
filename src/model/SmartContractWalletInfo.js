@@ -33,6 +33,21 @@ class SmartContractWalletInfo {
         }
         var match = 0;
         var errorMessages = [];
+        var discriminatorValue = instance["smart_contract_wallet_type"];
+
+        if (discriminatorValue) {
+            switch(discriminatorValue) {
+                case "Safe":
+                    this.actualInstance = SafeWallet.constructFromObject(instance);
+                    match++;
+                    break;
+                default:
+                    errorMessages.push("Unrecognized discriminator value: " + discriminatorValue);
+                    break;
+            }
+            return;
+        }
+
         try {
             if (instance instanceof SafeWallet) {
                 this.actualInstance = instance;
@@ -40,8 +55,17 @@ class SmartContractWalletInfo {
                 // plain JS object
                 // create SafeWallet from JS object
                 this.actualInstance = SafeWallet.constructFromObject(instance);
-            } else if(SafeWallet.constructFromObject(instance)){
-                this.actualInstance = SafeWallet.constructFromObject(instance);
+            } else {
+                if(SafeWallet.constructFromObject(instance)) {
+                    if (!!SafeWallet.constructFromObject(instance).toJSON) {
+                        if (SafeWallet.constructFromObject(instance).toJSON()) {
+                            this.actualInstance = SafeWallet.constructFromObject(instance);
+                        }
+                    } else {
+                        this.actualInstance = SafeWallet.constructFromObject(instance);
+                    }
+                }
+
             }
             match++;
         } catch(err) {

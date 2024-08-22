@@ -41,6 +41,53 @@ class TransactionSource {
         }
         var match = 0;
         var errorMessages = [];
+        var discriminatorValue = instance["source_type"];
+
+        if (discriminatorValue) {
+            switch(discriminatorValue) {
+                case "Asset":
+                    this.actualInstance = TransactionCustodialAssetWalletSource.constructFromObject(instance);
+                    match++;
+                    break;
+                case "DepositFromAddress":
+                    this.actualInstance = TransactionDepositFromAddressSource.constructFromObject(instance);
+                    match++;
+                    break;
+                case "DepositFromLoop":
+                    this.actualInstance = TransactionDepositFromLoopSource.constructFromObject(instance);
+                    match++;
+                    break;
+                case "DepositFromWallet":
+                    this.actualInstance = TransactionDepositFromWalletSource.constructFromObject(instance);
+                    match++;
+                    break;
+                case "Main":
+                    this.actualInstance = TransactionExchangeWalletSource.constructFromObject(instance);
+                    match++;
+                    break;
+                case "Org-Controlled":
+                    this.actualInstance = TransactionMPCWalletSource.constructFromObject(instance);
+                    match++;
+                    break;
+                case "SafeWallet":
+                    this.actualInstance = TransactionSmartContractSafeWalletSource.constructFromObject(instance);
+                    match++;
+                    break;
+                case "Sub":
+                    this.actualInstance = TransactionExchangeWalletSource.constructFromObject(instance);
+                    match++;
+                    break;
+                case "User-Controlled":
+                    this.actualInstance = TransactionMPCWalletSource.constructFromObject(instance);
+                    match++;
+                    break;
+                default:
+                    errorMessages.push("Unrecognized discriminator value: " + discriminatorValue);
+                    break;
+            }
+            return;
+        }
+
         try {
             if (instance instanceof TransactionCustodialAssetWalletSource) {
                 this.actualInstance = instance;
@@ -48,8 +95,17 @@ class TransactionSource {
                 // plain JS object
                 // create TransactionCustodialAssetWalletSource from JS object
                 this.actualInstance = TransactionCustodialAssetWalletSource.constructFromObject(instance);
-            } else if(TransactionCustodialAssetWalletSource.constructFromObject(instance)){
-                this.actualInstance = TransactionCustodialAssetWalletSource.constructFromObject(instance);
+            } else {
+                if(TransactionCustodialAssetWalletSource.constructFromObject(instance)) {
+                    if (!!TransactionCustodialAssetWalletSource.constructFromObject(instance).toJSON) {
+                        if (TransactionCustodialAssetWalletSource.constructFromObject(instance).toJSON()) {
+                            this.actualInstance = TransactionCustodialAssetWalletSource.constructFromObject(instance);
+                        }
+                    } else {
+                        this.actualInstance = TransactionCustodialAssetWalletSource.constructFromObject(instance);
+                    }
+                }
+
             }
             match++;
         } catch(err) {
@@ -64,8 +120,17 @@ class TransactionSource {
                 // plain JS object
                 // create TransactionMPCWalletSource from JS object
                 this.actualInstance = TransactionMPCWalletSource.constructFromObject(instance);
-            } else if(TransactionMPCWalletSource.constructFromObject(instance)){
-                this.actualInstance = TransactionMPCWalletSource.constructFromObject(instance);
+            } else {
+                if(TransactionMPCWalletSource.constructFromObject(instance)) {
+                    if (!!TransactionMPCWalletSource.constructFromObject(instance).toJSON) {
+                        if (TransactionMPCWalletSource.constructFromObject(instance).toJSON()) {
+                            this.actualInstance = TransactionMPCWalletSource.constructFromObject(instance);
+                        }
+                    } else {
+                        this.actualInstance = TransactionMPCWalletSource.constructFromObject(instance);
+                    }
+                }
+
             }
             match++;
         } catch(err) {
@@ -80,8 +145,17 @@ class TransactionSource {
                 // plain JS object
                 // create TransactionSmartContractSafeWalletSource from JS object
                 this.actualInstance = TransactionSmartContractSafeWalletSource.constructFromObject(instance);
-            } else if(TransactionSmartContractSafeWalletSource.constructFromObject(instance)){
-                this.actualInstance = TransactionSmartContractSafeWalletSource.constructFromObject(instance);
+            } else {
+                if(TransactionSmartContractSafeWalletSource.constructFromObject(instance)) {
+                    if (!!TransactionSmartContractSafeWalletSource.constructFromObject(instance).toJSON) {
+                        if (TransactionSmartContractSafeWalletSource.constructFromObject(instance).toJSON()) {
+                            this.actualInstance = TransactionSmartContractSafeWalletSource.constructFromObject(instance);
+                        }
+                    } else {
+                        this.actualInstance = TransactionSmartContractSafeWalletSource.constructFromObject(instance);
+                    }
+                }
+
             }
             match++;
         } catch(err) {
@@ -96,8 +170,17 @@ class TransactionSource {
                 // plain JS object
                 // create TransactionExchangeWalletSource from JS object
                 this.actualInstance = TransactionExchangeWalletSource.constructFromObject(instance);
-            } else if(TransactionExchangeWalletSource.constructFromObject(instance)){
-                this.actualInstance = TransactionExchangeWalletSource.constructFromObject(instance);
+            } else {
+                if(TransactionExchangeWalletSource.constructFromObject(instance)) {
+                    if (!!TransactionExchangeWalletSource.constructFromObject(instance).toJSON) {
+                        if (TransactionExchangeWalletSource.constructFromObject(instance).toJSON()) {
+                            this.actualInstance = TransactionExchangeWalletSource.constructFromObject(instance);
+                        }
+                    } else {
+                        this.actualInstance = TransactionExchangeWalletSource.constructFromObject(instance);
+                    }
+                }
+
             }
             match++;
         } catch(err) {
@@ -112,8 +195,17 @@ class TransactionSource {
                 // plain JS object
                 // create TransactionDepositFromAddressSource from JS object
                 this.actualInstance = TransactionDepositFromAddressSource.constructFromObject(instance);
-            } else if(TransactionDepositFromAddressSource.constructFromObject(instance)){
-                this.actualInstance = TransactionDepositFromAddressSource.constructFromObject(instance);
+            } else {
+                if(TransactionDepositFromAddressSource.constructFromObject(instance)) {
+                    if (!!TransactionDepositFromAddressSource.constructFromObject(instance).toJSON) {
+                        if (TransactionDepositFromAddressSource.constructFromObject(instance).toJSON()) {
+                            this.actualInstance = TransactionDepositFromAddressSource.constructFromObject(instance);
+                        }
+                    } else {
+                        this.actualInstance = TransactionDepositFromAddressSource.constructFromObject(instance);
+                    }
+                }
+
             }
             match++;
         } catch(err) {
@@ -128,8 +220,17 @@ class TransactionSource {
                 // plain JS object
                 // create TransactionDepositFromWalletSource from JS object
                 this.actualInstance = TransactionDepositFromWalletSource.constructFromObject(instance);
-            } else if(TransactionDepositFromWalletSource.constructFromObject(instance)){
-                this.actualInstance = TransactionDepositFromWalletSource.constructFromObject(instance);
+            } else {
+                if(TransactionDepositFromWalletSource.constructFromObject(instance)) {
+                    if (!!TransactionDepositFromWalletSource.constructFromObject(instance).toJSON) {
+                        if (TransactionDepositFromWalletSource.constructFromObject(instance).toJSON()) {
+                            this.actualInstance = TransactionDepositFromWalletSource.constructFromObject(instance);
+                        }
+                    } else {
+                        this.actualInstance = TransactionDepositFromWalletSource.constructFromObject(instance);
+                    }
+                }
+
             }
             match++;
         } catch(err) {
@@ -144,8 +245,17 @@ class TransactionSource {
                 // plain JS object
                 // create TransactionDepositFromLoopSource from JS object
                 this.actualInstance = TransactionDepositFromLoopSource.constructFromObject(instance);
-            } else if(TransactionDepositFromLoopSource.constructFromObject(instance)){
-                this.actualInstance = TransactionDepositFromLoopSource.constructFromObject(instance);
+            } else {
+                if(TransactionDepositFromLoopSource.constructFromObject(instance)) {
+                    if (!!TransactionDepositFromLoopSource.constructFromObject(instance).toJSON) {
+                        if (TransactionDepositFromLoopSource.constructFromObject(instance).toJSON()) {
+                            this.actualInstance = TransactionDepositFromLoopSource.constructFromObject(instance);
+                        }
+                    } else {
+                        this.actualInstance = TransactionDepositFromLoopSource.constructFromObject(instance);
+                    }
+                }
+
             }
             match++;
         } catch(err) {

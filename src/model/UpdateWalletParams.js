@@ -33,6 +33,33 @@ class UpdateWalletParams {
         }
         var match = 0;
         var errorMessages = [];
+        var discriminatorValue = instance["wallet_type"];
+
+        if (discriminatorValue) {
+            switch(discriminatorValue) {
+                case "Custodial":
+                    this.actualInstance = UpdateCustodialWalletParams.constructFromObject(instance);
+                    match++;
+                    break;
+                case "Exchange":
+                    this.actualInstance = UpdateExchangeWalletParams.constructFromObject(instance);
+                    match++;
+                    break;
+                case "MPC":
+                    this.actualInstance = UpdateMpcWalletParams.constructFromObject(instance);
+                    match++;
+                    break;
+                case "SmartContract":
+                    this.actualInstance = UpdateSmartContractWalletParams.constructFromObject(instance);
+                    match++;
+                    break;
+                default:
+                    errorMessages.push("Unrecognized discriminator value: " + discriminatorValue);
+                    break;
+            }
+            return;
+        }
+
         try {
             if (instance instanceof UpdateCustodialWalletParams) {
                 this.actualInstance = instance;
@@ -40,8 +67,17 @@ class UpdateWalletParams {
                 // plain JS object
                 // create UpdateCustodialWalletParams from JS object
                 this.actualInstance = UpdateCustodialWalletParams.constructFromObject(instance);
-            } else if(UpdateCustodialWalletParams.constructFromObject(instance)){
-                this.actualInstance = UpdateCustodialWalletParams.constructFromObject(instance);
+            } else {
+                if(UpdateCustodialWalletParams.constructFromObject(instance)) {
+                    if (!!UpdateCustodialWalletParams.constructFromObject(instance).toJSON) {
+                        if (UpdateCustodialWalletParams.constructFromObject(instance).toJSON()) {
+                            this.actualInstance = UpdateCustodialWalletParams.constructFromObject(instance);
+                        }
+                    } else {
+                        this.actualInstance = UpdateCustodialWalletParams.constructFromObject(instance);
+                    }
+                }
+
             }
             match++;
         } catch(err) {
@@ -56,8 +92,17 @@ class UpdateWalletParams {
                 // plain JS object
                 // create UpdateMpcWalletParams from JS object
                 this.actualInstance = UpdateMpcWalletParams.constructFromObject(instance);
-            } else if(UpdateMpcWalletParams.constructFromObject(instance)){
-                this.actualInstance = UpdateMpcWalletParams.constructFromObject(instance);
+            } else {
+                if(UpdateMpcWalletParams.constructFromObject(instance)) {
+                    if (!!UpdateMpcWalletParams.constructFromObject(instance).toJSON) {
+                        if (UpdateMpcWalletParams.constructFromObject(instance).toJSON()) {
+                            this.actualInstance = UpdateMpcWalletParams.constructFromObject(instance);
+                        }
+                    } else {
+                        this.actualInstance = UpdateMpcWalletParams.constructFromObject(instance);
+                    }
+                }
+
             }
             match++;
         } catch(err) {
@@ -72,8 +117,17 @@ class UpdateWalletParams {
                 // plain JS object
                 // create UpdateSmartContractWalletParams from JS object
                 this.actualInstance = UpdateSmartContractWalletParams.constructFromObject(instance);
-            } else if(UpdateSmartContractWalletParams.constructFromObject(instance)){
-                this.actualInstance = UpdateSmartContractWalletParams.constructFromObject(instance);
+            } else {
+                if(UpdateSmartContractWalletParams.constructFromObject(instance)) {
+                    if (!!UpdateSmartContractWalletParams.constructFromObject(instance).toJSON) {
+                        if (UpdateSmartContractWalletParams.constructFromObject(instance).toJSON()) {
+                            this.actualInstance = UpdateSmartContractWalletParams.constructFromObject(instance);
+                        }
+                    } else {
+                        this.actualInstance = UpdateSmartContractWalletParams.constructFromObject(instance);
+                    }
+                }
+
             }
             match++;
         } catch(err) {
@@ -88,8 +142,17 @@ class UpdateWalletParams {
                 // plain JS object
                 // create UpdateExchangeWalletParams from JS object
                 this.actualInstance = UpdateExchangeWalletParams.constructFromObject(instance);
-            } else if(UpdateExchangeWalletParams.constructFromObject(instance)){
-                this.actualInstance = UpdateExchangeWalletParams.constructFromObject(instance);
+            } else {
+                if(UpdateExchangeWalletParams.constructFromObject(instance)) {
+                    if (!!UpdateExchangeWalletParams.constructFromObject(instance).toJSON) {
+                        if (UpdateExchangeWalletParams.constructFromObject(instance).toJSON()) {
+                            this.actualInstance = UpdateExchangeWalletParams.constructFromObject(instance);
+                        }
+                    } else {
+                        this.actualInstance = UpdateExchangeWalletParams.constructFromObject(instance);
+                    }
+                }
+
             }
             match++;
         } catch(err) {

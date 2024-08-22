@@ -30,6 +30,21 @@ class TransactionResult {
         }
         var match = 0;
         var errorMessages = [];
+        var discriminatorValue = instance["result_type"];
+
+        if (discriminatorValue) {
+            switch(discriminatorValue) {
+                case "Signature":
+                    this.actualInstance = TransactionSignatureResult.constructFromObject(instance);
+                    match++;
+                    break;
+                default:
+                    errorMessages.push("Unrecognized discriminator value: " + discriminatorValue);
+                    break;
+            }
+            return;
+        }
+
         try {
             if (instance instanceof TransactionSignatureResult) {
                 this.actualInstance = instance;
@@ -37,8 +52,17 @@ class TransactionResult {
                 // plain JS object
                 // create TransactionSignatureResult from JS object
                 this.actualInstance = TransactionSignatureResult.constructFromObject(instance);
-            } else if(TransactionSignatureResult.constructFromObject(instance)){
-                this.actualInstance = TransactionSignatureResult.constructFromObject(instance);
+            } else {
+                if(TransactionSignatureResult.constructFromObject(instance)) {
+                    if (!!TransactionSignatureResult.constructFromObject(instance).toJSON) {
+                        if (TransactionSignatureResult.constructFromObject(instance).toJSON()) {
+                            this.actualInstance = TransactionSignatureResult.constructFromObject(instance);
+                        }
+                    } else {
+                        this.actualInstance = TransactionSignatureResult.constructFromObject(instance);
+                    }
+                }
+
             }
             match++;
         } catch(err) {

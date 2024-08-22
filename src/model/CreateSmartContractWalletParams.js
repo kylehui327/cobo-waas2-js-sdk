@@ -33,6 +33,21 @@ class CreateSmartContractWalletParams {
         }
         var match = 0;
         var errorMessages = [];
+        var discriminatorValue = instance["smart_contract_wallet_type"];
+
+        if (discriminatorValue) {
+            switch(discriminatorValue) {
+                case "Safe":
+                    this.actualInstance = CreateSafeWalletParams.constructFromObject(instance);
+                    match++;
+                    break;
+                default:
+                    errorMessages.push("Unrecognized discriminator value: " + discriminatorValue);
+                    break;
+            }
+            return;
+        }
+
         try {
             if (instance instanceof CreateSafeWalletParams) {
                 this.actualInstance = instance;
@@ -40,8 +55,17 @@ class CreateSmartContractWalletParams {
                 // plain JS object
                 // create CreateSafeWalletParams from JS object
                 this.actualInstance = CreateSafeWalletParams.constructFromObject(instance);
-            } else if(CreateSafeWalletParams.constructFromObject(instance)){
-                this.actualInstance = CreateSafeWalletParams.constructFromObject(instance);
+            } else {
+                if(CreateSafeWalletParams.constructFromObject(instance)) {
+                    if (!!CreateSafeWalletParams.constructFromObject(instance).toJSON) {
+                        if (CreateSafeWalletParams.constructFromObject(instance).toJSON()) {
+                            this.actualInstance = CreateSafeWalletParams.constructFromObject(instance);
+                        }
+                    } else {
+                        this.actualInstance = CreateSafeWalletParams.constructFromObject(instance);
+                    }
+                }
+
             }
             match++;
         } catch(err) {

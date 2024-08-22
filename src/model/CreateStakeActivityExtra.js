@@ -32,6 +32,29 @@ class CreateStakeActivityExtra {
         }
         var match = 0;
         var errorMessages = [];
+        var discriminatorValue = instance["pool_type"];
+
+        if (discriminatorValue) {
+            switch(discriminatorValue) {
+                case "Babylon":
+                    this.actualInstance = BabylonStakeExtra.constructFromObject(instance);
+                    match++;
+                    break;
+                case "EigenLayerLST":
+                    this.actualInstance = EigenLayerNativeStakeExtra.constructFromObject(instance);
+                    match++;
+                    break;
+                case "EigenLayerNativeETH":
+                    this.actualInstance = EigenLayerLstStakeExtra.constructFromObject(instance);
+                    match++;
+                    break;
+                default:
+                    errorMessages.push("Unrecognized discriminator value: " + discriminatorValue);
+                    break;
+            }
+            return;
+        }
+
         try {
             if (instance instanceof BabylonStakeExtra) {
                 this.actualInstance = instance;
@@ -39,8 +62,17 @@ class CreateStakeActivityExtra {
                 // plain JS object
                 // create BabylonStakeExtra from JS object
                 this.actualInstance = BabylonStakeExtra.constructFromObject(instance);
-            } else if(BabylonStakeExtra.constructFromObject(instance)){
-                this.actualInstance = BabylonStakeExtra.constructFromObject(instance);
+            } else {
+                if(BabylonStakeExtra.constructFromObject(instance)) {
+                    if (!!BabylonStakeExtra.constructFromObject(instance).toJSON) {
+                        if (BabylonStakeExtra.constructFromObject(instance).toJSON()) {
+                            this.actualInstance = BabylonStakeExtra.constructFromObject(instance);
+                        }
+                    } else {
+                        this.actualInstance = BabylonStakeExtra.constructFromObject(instance);
+                    }
+                }
+
             }
             match++;
         } catch(err) {
@@ -55,8 +87,17 @@ class CreateStakeActivityExtra {
                 // plain JS object
                 // create EigenLayerLstStakeExtra from JS object
                 this.actualInstance = EigenLayerLstStakeExtra.constructFromObject(instance);
-            } else if(EigenLayerLstStakeExtra.constructFromObject(instance)){
-                this.actualInstance = EigenLayerLstStakeExtra.constructFromObject(instance);
+            } else {
+                if(EigenLayerLstStakeExtra.constructFromObject(instance)) {
+                    if (!!EigenLayerLstStakeExtra.constructFromObject(instance).toJSON) {
+                        if (EigenLayerLstStakeExtra.constructFromObject(instance).toJSON()) {
+                            this.actualInstance = EigenLayerLstStakeExtra.constructFromObject(instance);
+                        }
+                    } else {
+                        this.actualInstance = EigenLayerLstStakeExtra.constructFromObject(instance);
+                    }
+                }
+
             }
             match++;
         } catch(err) {
@@ -71,8 +112,17 @@ class CreateStakeActivityExtra {
                 // plain JS object
                 // create EigenLayerNativeStakeExtra from JS object
                 this.actualInstance = EigenLayerNativeStakeExtra.constructFromObject(instance);
-            } else if(EigenLayerNativeStakeExtra.constructFromObject(instance)){
-                this.actualInstance = EigenLayerNativeStakeExtra.constructFromObject(instance);
+            } else {
+                if(EigenLayerNativeStakeExtra.constructFromObject(instance)) {
+                    if (!!EigenLayerNativeStakeExtra.constructFromObject(instance).toJSON) {
+                        if (EigenLayerNativeStakeExtra.constructFromObject(instance).toJSON()) {
+                            this.actualInstance = EigenLayerNativeStakeExtra.constructFromObject(instance);
+                        }
+                    } else {
+                        this.actualInstance = EigenLayerNativeStakeExtra.constructFromObject(instance);
+                    }
+                }
+
             }
             match++;
         } catch(err) {

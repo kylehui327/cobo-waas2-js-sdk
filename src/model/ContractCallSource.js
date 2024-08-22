@@ -32,6 +32,29 @@ class ContractCallSource {
         }
         var match = 0;
         var errorMessages = [];
+        var discriminatorValue = instance["source_type"];
+
+        if (discriminatorValue) {
+            switch(discriminatorValue) {
+                case "Org-Controlled":
+                    this.actualInstance = MpcContractCallSource.constructFromObject(instance);
+                    match++;
+                    break;
+                case "Safe{Wallet}":
+                    this.actualInstance = SafeContractCallSource.constructFromObject(instance);
+                    match++;
+                    break;
+                case "User-Controlled":
+                    this.actualInstance = MpcContractCallSource.constructFromObject(instance);
+                    match++;
+                    break;
+                default:
+                    errorMessages.push("Unrecognized discriminator value: " + discriminatorValue);
+                    break;
+            }
+            return;
+        }
+
         try {
             if (instance instanceof MpcContractCallSource) {
                 this.actualInstance = instance;
@@ -39,8 +62,17 @@ class ContractCallSource {
                 // plain JS object
                 // create MpcContractCallSource from JS object
                 this.actualInstance = MpcContractCallSource.constructFromObject(instance);
-            } else if(MpcContractCallSource.constructFromObject(instance)){
-                this.actualInstance = MpcContractCallSource.constructFromObject(instance);
+            } else {
+                if(MpcContractCallSource.constructFromObject(instance)) {
+                    if (!!MpcContractCallSource.constructFromObject(instance).toJSON) {
+                        if (MpcContractCallSource.constructFromObject(instance).toJSON()) {
+                            this.actualInstance = MpcContractCallSource.constructFromObject(instance);
+                        }
+                    } else {
+                        this.actualInstance = MpcContractCallSource.constructFromObject(instance);
+                    }
+                }
+
             }
             match++;
         } catch(err) {
@@ -55,8 +87,17 @@ class ContractCallSource {
                 // plain JS object
                 // create SafeContractCallSource from JS object
                 this.actualInstance = SafeContractCallSource.constructFromObject(instance);
-            } else if(SafeContractCallSource.constructFromObject(instance)){
-                this.actualInstance = SafeContractCallSource.constructFromObject(instance);
+            } else {
+                if(SafeContractCallSource.constructFromObject(instance)) {
+                    if (!!SafeContractCallSource.constructFromObject(instance).toJSON) {
+                        if (SafeContractCallSource.constructFromObject(instance).toJSON()) {
+                            this.actualInstance = SafeContractCallSource.constructFromObject(instance);
+                        }
+                    } else {
+                        this.actualInstance = SafeContractCallSource.constructFromObject(instance);
+                    }
+                }
+
             }
             match++;
         } catch(err) {
