@@ -88,6 +88,24 @@
       //expect(instance).to.be();
     });
 
+    it('should have the property x_only_pubkey (base name: "x_only_pubkey")', function() {
+      // uncomment below and update the code to test the property x_only_pubkey
+      //var instance = new CoboWaas2.AddressInfo();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property taproot_script_tree_hash (base name: "taproot_script_tree_hash")', function() {
+      // uncomment below and update the code to test the property taproot_script_tree_hash
+      //var instance = new CoboWaas2.AddressInfo();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property taproot_internal_address (base name: "taproot_internal_address")', function() {
+      // uncomment below and update the code to test the property taproot_internal_address
+      //var instance = new CoboWaas2.AddressInfo();
+      //expect(instance).to.be();
+    });
+
   });
 
 }));
