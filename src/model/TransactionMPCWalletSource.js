@@ -20,7 +20,7 @@ import TransactionUtxo from './TransactionUtxo';
 class TransactionMPCWalletSource {
     /**
      * Constructs a new <code>TransactionMPCWalletSource</code>.
-     * Information about the transaction source type &#x60;Org-Controlled&#x60; and &#x60;User-Controlled&#x60;. 
+     * Information about the transaction source type &#x60;Org-Controlled&#x60; and &#x60;User-Controlled&#x60;. Switch between the tabs to display the properties for different transaction sources. 
      * @alias module:model/TransactionMPCWalletSource
      * @param source_type {module:model/TransactionSourceType} 
      * @param wallet_id {String} The wallet ID.

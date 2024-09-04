@@ -4,6 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**pool_type** | [**StakingPoolType**](StakingPoolType.md) |  | 
 **icon_url** | **String** | The URL of the validator&#39;s icon. | 
 **name** | **String** | The name of validator. | 
 **priority** | **Number** | The priority of validator. | [optional] 

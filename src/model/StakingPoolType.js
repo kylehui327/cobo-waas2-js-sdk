@@ -25,20 +25,6 @@ export default class StakingPoolType {
 
     
         /**
-         * value: "EigenLayerNativeETH"
-         * @const
-         */
-        "EigenLayerNativeETH" = "EigenLayerNativeETH";
-
-    
-        /**
-         * value: "EigenLayerLst"
-         * @const
-         */
-        "EigenLayerLst" = "EigenLayerLst";
-
-    
-        /**
          * value: "unknown_default_open_api"
          * @const
          */

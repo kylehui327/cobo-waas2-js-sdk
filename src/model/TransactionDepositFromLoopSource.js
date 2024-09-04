@@ -19,7 +19,7 @@ import TransactionSourceType from './TransactionSourceType';
 class TransactionDepositFromLoopSource {
     /**
      * Constructs a new <code>TransactionDepositFromLoopSource</code>.
-     * Information about the transaction source type &#x60;DepositFromLoop&#x60;. 
+     * Information about the transaction source type &#x60;DepositFromLoop&#x60;. Switch between the tabs to display the properties for different transaction sources. 
      * @alias module:model/TransactionDepositFromLoopSource
      * @param source_type {module:model/TransactionSourceType} 
      */

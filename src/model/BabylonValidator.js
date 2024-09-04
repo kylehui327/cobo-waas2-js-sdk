@@ -10,6 +10,8 @@
  */
 
 import ApiClient from '../ApiClient';
+import BaseStakeExtra from './BaseStakeExtra';
+import StakingPoolType from './StakingPoolType';
 
 /**
  * The BabylonValidator model module.
@@ -18,17 +20,18 @@ import ApiClient from '../ApiClient';
 class BabylonValidator {
     /**
      * Constructs a new <code>BabylonValidator</code>.
-     * The babylon validator information.
      * @alias module:model/BabylonValidator
+     * @implements module:model/BaseStakeExtra
+     * @param pool_type {module:model/StakingPoolType} 
      * @param icon_url {String} The URL of the validator's icon.
      * @param name {String} The name of validator.
      * @param public_key {String} The public key of validator.
      * @param commission_rate {Number} The commission rate of validator.
      * @param supported_pos_chains {Array.<module:model/BabylonValidator.SupportedPosChainsEnum>} The list of supported pos chains.
      */
-    constructor(icon_url, name, public_key, commission_rate, supported_pos_chains) { 
-        
-        BabylonValidator.initialize(this, icon_url, name, public_key, commission_rate, supported_pos_chains);
+    constructor(pool_type, icon_url, name, public_key, commission_rate, supported_pos_chains) { 
+        BaseStakeExtra.initialize(this, pool_type);
+        BabylonValidator.initialize(this, pool_type, icon_url, name, public_key, commission_rate, supported_pos_chains);
     }
 
     /**
@@ -36,7 +39,8 @@ class BabylonValidator {
      * This method is used by the constructors of any subclasses, in order to implement multiple inheritance (mix-ins).
      * Only for internal use.
      */
-    static initialize(obj, icon_url, name, public_key, commission_rate, supported_pos_chains) { 
+    static initialize(obj, pool_type, icon_url, name, public_key, commission_rate, supported_pos_chains) { 
+        obj['pool_type'] = pool_type;
         obj['icon_url'] = icon_url;
         obj['name'] = name;
         obj['public_key'] = public_key;
@@ -54,7 +58,11 @@ class BabylonValidator {
     static constructFromObject(data, obj) {
         if (data) {
             obj = obj || new BabylonValidator();
+            BaseStakeExtra.constructFromObject(data, obj);
 
+            if (data.hasOwnProperty('pool_type')) {
+                obj['pool_type'] = StakingPoolType.constructFromObject(data['pool_type']);
+            }
             if (data.hasOwnProperty('icon_url')) {
                 obj['icon_url'] = ApiClient.convertToType(data['icon_url'], 'String');
             }
@@ -112,7 +120,12 @@ class BabylonValidator {
 
 }
 
-BabylonValidator.RequiredProperties = ["icon_url", "name", "public_key", "commission_rate", "supported_pos_chains"];
+BabylonValidator.RequiredProperties = ["pool_type", "icon_url", "name", "public_key", "commission_rate", "supported_pos_chains"];
+
+/**
+ * @member {module:model/StakingPoolType} pool_type
+ */
+BabylonValidator.prototype['pool_type'] = undefined;
 
 /**
  * The URL of the validator's icon.
@@ -151,6 +164,11 @@ BabylonValidator.prototype['commission_rate'] = undefined;
 BabylonValidator.prototype['supported_pos_chains'] = undefined;
 
 
+// Implement BaseStakeExtra interface:
+/**
+ * @member {module:model/StakingPoolType} pool_type
+ */
+BaseStakeExtra.prototype['pool_type'] = undefined;
 
 
 

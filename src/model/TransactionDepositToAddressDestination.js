@@ -21,13 +21,13 @@ import WalletType from './WalletType';
 class TransactionDepositToAddressDestination {
     /**
      * Constructs a new <code>TransactionDepositToAddressDestination</code>.
-     * Information about the transaction destination type &#x60;DepositToAddress&#x60;. 
+     * Information about the transaction destination type &#x60;DepositToAddress&#x60;. Switch between the tabs to display the properties for different transaction destinations. 
      * @alias module:model/TransactionDepositToAddressDestination
      * @param destination_type {module:model/TransactionDestinationType} 
      * @param wallet_id {String} The wallet ID.
      * @param wallet_type {module:model/WalletType} 
      * @param address {String} The destination address.
-     * @param amount {String} The transfer amount. For example, if you trade 1.5 ETH, then the value is `1.5`. 
+     * @param amount {String} The transfer amount. For example, if you trade 1.5 BTC, then the value is `1.5`. 
      */
     constructor(destination_type, wallet_id, wallet_type, address, amount) { 
         
@@ -154,7 +154,7 @@ TransactionDepositToAddressDestination.prototype['address'] = undefined;
 TransactionDepositToAddressDestination.prototype['memo'] = undefined;
 
 /**
- * The transfer amount. For example, if you trade 1.5 ETH, then the value is `1.5`. 
+ * The transfer amount. For example, if you trade 1.5 BTC, then the value is `1.5`. 
  * @member {String} amount
  */
 TransactionDepositToAddressDestination.prototype['amount'] = undefined;

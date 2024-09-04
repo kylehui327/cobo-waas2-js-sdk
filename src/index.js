@@ -27,10 +27,12 @@ import AmountStatus from './model/AmountStatus';
 import AssetBalance from './model/AssetBalance';
 import AssetInfo from './model/AssetInfo';
 import BabylonStakeExtra from './model/BabylonStakeExtra';
+import BabylonStakingExtra from './model/BabylonStakingExtra';
 import BabylonValidator from './model/BabylonValidator';
 import BaseContractCallSource from './model/BaseContractCallSource';
 import BaseEstimateStakingFee from './model/BaseEstimateStakingFee';
 import BaseStakeExtra from './model/BaseStakeExtra';
+import BaseStakeSource from './model/BaseStakeSource';
 import ChainInfo from './model/ChainInfo';
 import CheckAddressValidity200Response from './model/CheckAddressValidity200Response';
 import CheckAddressesValidity200ResponseInner from './model/CheckAddressesValidity200ResponseInner';
@@ -133,6 +135,7 @@ import LockUtxosRequest from './model/LockUtxosRequest';
 import LockUtxosRequestUtxosInner from './model/LockUtxosRequestUtxosInner';
 import MPCDelegate from './model/MPCDelegate';
 import MPCProject from './model/MPCProject';
+import MPCStakeSource from './model/MPCStakeSource';
 import MPCVault from './model/MPCVault';
 import MPCVaultType from './model/MPCVaultType';
 import MPCWalletInfo from './model/MPCWalletInfo';
@@ -151,6 +154,7 @@ import Pagination from './model/Pagination';
 import PoolDetails from './model/PoolDetails';
 import PoolDetailsAllOfValidatorsInfo from './model/PoolDetailsAllOfValidatorsInfo';
 import PoolSummary from './model/PoolSummary';
+import RawMessageSignDestination from './model/RawMessageSignDestination';
 import RefreshToken200Response from './model/RefreshToken200Response';
 import RefreshTokenRequest from './model/RefreshTokenRequest';
 import ReplaceType from './model/ReplaceType';
@@ -164,9 +168,11 @@ import SmartContractWalletInfo from './model/SmartContractWalletInfo';
 import SmartContractWalletOperationType from './model/SmartContractWalletOperationType';
 import SmartContractWalletType from './model/SmartContractWalletType';
 import SourceGroup from './model/SourceGroup';
+import StakeSourceType from './model/StakeSourceType';
 import StakingPoolType from './model/StakingPoolType';
 import StakingSource from './model/StakingSource';
 import Stakings from './model/Stakings';
+import StakingsExtra from './model/StakingsExtra';
 import StakingsValidatorInfo from './model/StakingsValidatorInfo';
 import SubWalletAssetBalance from './model/SubWalletAssetBalance';
 import TSSGroups from './model/TSSGroups';
@@ -297,7 +303,7 @@ import WalletsMPCWalletsApi from './api/WalletsMPCWalletsApi';
 * </pre>
 * </p>
 * @module index
-* @version 1.2.2
+* @version 1.2.3
 */
 export {
     Env,
@@ -404,6 +410,12 @@ export {
     BabylonStakeExtra,
 
     /**
+     * The BabylonStakingExtra model constructor.
+     * @property {module:model/BabylonStakingExtra}
+     */
+    BabylonStakingExtra,
+
+    /**
      * The BabylonValidator model constructor.
      * @property {module:model/BabylonValidator}
      */
@@ -426,6 +438,12 @@ export {
      * @property {module:model/BaseStakeExtra}
      */
     BaseStakeExtra,
+
+    /**
+     * The BaseStakeSource model constructor.
+     * @property {module:model/BaseStakeSource}
+     */
+    BaseStakeSource,
 
     /**
      * The ChainInfo model constructor.
@@ -1040,6 +1058,12 @@ export {
     MPCProject,
 
     /**
+     * The MPCStakeSource model constructor.
+     * @property {module:model/MPCStakeSource}
+     */
+    MPCStakeSource,
+
+    /**
      * The MPCVault model constructor.
      * @property {module:model/MPCVault}
      */
@@ -1148,6 +1172,12 @@ export {
     PoolSummary,
 
     /**
+     * The RawMessageSignDestination model constructor.
+     * @property {module:model/RawMessageSignDestination}
+     */
+    RawMessageSignDestination,
+
+    /**
      * The RefreshToken200Response model constructor.
      * @property {module:model/RefreshToken200Response}
      */
@@ -1226,6 +1256,12 @@ export {
     SourceGroup,
 
     /**
+     * The StakeSourceType model constructor.
+     * @property {module:model/StakeSourceType}
+     */
+    StakeSourceType,
+
+    /**
      * The StakingPoolType model constructor.
      * @property {module:model/StakingPoolType}
      */
@@ -1242,6 +1278,12 @@ export {
      * @property {module:model/Stakings}
      */
     Stakings,
+
+    /**
+     * The StakingsExtra model constructor.
+     * @property {module:model/StakingsExtra}
+     */
+    StakingsExtra,
 
     /**
      * The StakingsValidatorInfo model constructor.

@@ -44,8 +44,8 @@ class ActivityInitiator {
         if (data) {
             obj = obj || new ActivityInitiator();
 
-            if (data.hasOwnProperty('initiator')) {
-                obj['initiator'] = ApiClient.convertToType(data['initiator'], 'String');
+            if (data.hasOwnProperty('app_initiator')) {
+                obj['app_initiator'] = ApiClient.convertToType(data['app_initiator'], 'String');
             }
         }
         return obj;
@@ -58,8 +58,8 @@ class ActivityInitiator {
      */
     static validateJSON(data) {
         // ensure the json data is a string
-        if (data['initiator'] && !(typeof data['initiator'] === 'string' || data['initiator'] instanceof String)) {
-            throw new Error("Expected the field `initiator` to be a primitive type in the JSON string but got " + data['initiator']);
+        if (data['app_initiator'] && !(typeof data['app_initiator'] === 'string' || data['app_initiator'] instanceof String)) {
+            throw new Error("Expected the field `app_initiator` to be a primitive type in the JSON string but got " + data['app_initiator']);
         }
 
         return true;
@@ -72,9 +72,9 @@ class ActivityInitiator {
 
 /**
  * The initiator of the staking activity.
- * @member {String} initiator
+ * @member {String} app_initiator
  */
-ActivityInitiator.prototype['initiator'] = undefined;
+ActivityInitiator.prototype['app_initiator'] = undefined;
 
 
 

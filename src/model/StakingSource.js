@@ -10,10 +10,8 @@
  */
 
 import ApiClient from '../ApiClient';
-import CoboSafeDelegate from './CoboSafeDelegate';
-import ContractCallSourceType from './ContractCallSourceType';
-import MpcContractCallSource from './MpcContractCallSource';
-import SafeContractCallSource from './SafeContractCallSource';
+import MPCStakeSource from './MPCStakeSource';
+import StakeSourceType from './StakeSourceType';
 
 /**
  * The StakingSource model module.
@@ -23,7 +21,7 @@ class StakingSource {
     /**
      * Constructs a new <code>StakingSource</code>.
      * @alias module:model/StakingSource
-     * @param {(module:model/MpcContractCallSource|module:model/SafeContractCallSource)} instance The actual instance to initialize StakingSource.
+     * @param {(module:model/MPCStakeSource)} instance The actual instance to initialize StakingSource.
      */
     constructor(instance = null) {
         if (instance === null) {
@@ -37,15 +35,7 @@ class StakingSource {
         if (discriminatorValue) {
             switch(discriminatorValue) {
                 case "Org-Controlled":
-                    this.actualInstance = MpcContractCallSource.constructFromObject(instance);
-                    match++;
-                    break;
-                case "Safe{Wallet}":
-                    this.actualInstance = SafeContractCallSource.constructFromObject(instance);
-                    match++;
-                    break;
-                case "User-Controlled":
-                    this.actualInstance = MpcContractCallSource.constructFromObject(instance);
+                    this.actualInstance = MpcStakeSource.constructFromObject(instance);
                     match++;
                     break;
                 default:
@@ -56,61 +46,36 @@ class StakingSource {
         }
 
         try {
-            if (instance instanceof MpcContractCallSource) {
+            if (instance instanceof MPCStakeSource) {
                 this.actualInstance = instance;
-            } else if(!!MpcContractCallSource.validateJSON && MpcContractCallSource.validateJSON(instance)){
+            } else if(!!MPCStakeSource.validateJSON && MPCStakeSource.validateJSON(instance)){
                 // plain JS object
-                // create MpcContractCallSource from JS object
-                this.actualInstance = MpcContractCallSource.constructFromObject(instance);
+                // create MPCStakeSource from JS object
+                this.actualInstance = MPCStakeSource.constructFromObject(instance);
             } else {
-                if(MpcContractCallSource.constructFromObject(instance)) {
-                    if (!!MpcContractCallSource.constructFromObject(instance).toJSON) {
-                        if (MpcContractCallSource.constructFromObject(instance).toJSON()) {
-                            this.actualInstance = MpcContractCallSource.constructFromObject(instance);
+                if(MPCStakeSource.constructFromObject(instance)) {
+                    if (!!MPCStakeSource.constructFromObject(instance).toJSON) {
+                        if (MPCStakeSource.constructFromObject(instance).toJSON()) {
+                            this.actualInstance = MPCStakeSource.constructFromObject(instance);
                         }
                     } else {
-                        this.actualInstance = MpcContractCallSource.constructFromObject(instance);
+                        this.actualInstance = MPCStakeSource.constructFromObject(instance);
                     }
                 }
 
             }
             match++;
         } catch(err) {
-            // json data failed to deserialize into MpcContractCallSource
-            errorMessages.push("Failed to construct MpcContractCallSource: " + err)
-        }
-
-        try {
-            if (instance instanceof SafeContractCallSource) {
-                this.actualInstance = instance;
-            } else if(!!SafeContractCallSource.validateJSON && SafeContractCallSource.validateJSON(instance)){
-                // plain JS object
-                // create SafeContractCallSource from JS object
-                this.actualInstance = SafeContractCallSource.constructFromObject(instance);
-            } else {
-                if(SafeContractCallSource.constructFromObject(instance)) {
-                    if (!!SafeContractCallSource.constructFromObject(instance).toJSON) {
-                        if (SafeContractCallSource.constructFromObject(instance).toJSON()) {
-                            this.actualInstance = SafeContractCallSource.constructFromObject(instance);
-                        }
-                    } else {
-                        this.actualInstance = SafeContractCallSource.constructFromObject(instance);
-                    }
-                }
-
-            }
-            match++;
-        } catch(err) {
-            // json data failed to deserialize into SafeContractCallSource
-            errorMessages.push("Failed to construct SafeContractCallSource: " + err)
+            // json data failed to deserialize into MPCStakeSource
+            errorMessages.push("Failed to construct MPCStakeSource: " + err)
         }
 
         // if (match > 1) {
-        //    throw new Error("Multiple matches found constructing `StakingSource` with oneOf schemas MpcContractCallSource, SafeContractCallSource. Input: " + JSON.stringify(instance));
+        //    throw new Error("Multiple matches found constructing `StakingSource` with oneOf schemas MPCStakeSource. Input: " + JSON.stringify(instance));
         // } else
         if (match === 0) {
         //    this.actualInstance = null; // clear the actual instance in case there are multiple matches
-        //    throw new Error("No match found constructing `StakingSource` with oneOf schemas MpcContractCallSource, SafeContractCallSource. Details: " +
+        //    throw new Error("No match found constructing `StakingSource` with oneOf schemas MPCStakeSource. Details: " +
         //                    errorMessages.join(", "));
         return;
         } else { // only 1 match
@@ -130,16 +95,16 @@ class StakingSource {
     }
 
     /**
-     * Gets the actual instance, which can be <code>MpcContractCallSource</code>, <code>SafeContractCallSource</code>.
-     * @return {(module:model/MpcContractCallSource|module:model/SafeContractCallSource)} The actual instance.
+     * Gets the actual instance, which can be <code>MPCStakeSource</code>.
+     * @return {(module:model/MPCStakeSource)} The actual instance.
      */
     getActualInstance() {
         return this.actualInstance;
     }
 
     /**
-     * Sets the actual instance, which can be <code>MpcContractCallSource</code>, <code>SafeContractCallSource</code>.
-     * @param {(module:model/MpcContractCallSource|module:model/SafeContractCallSource)} obj The actual instance.
+     * Sets the actual instance, which can be <code>MPCStakeSource</code>.
+     * @param {(module:model/MPCStakeSource)} obj The actual instance.
      */
     setActualInstance(obj) {
        this.actualInstance = StakingSource.constructFromObject(obj).getActualInstance();
@@ -164,7 +129,7 @@ class StakingSource {
 }
 
 /**
- * @member {module:model/ContractCallSourceType} source_type
+ * @member {module:model/StakeSourceType} source_type
  */
 StakingSource.prototype['source_type'] = undefined;
 
@@ -180,19 +145,8 @@ StakingSource.prototype['wallet_id'] = undefined;
  */
 StakingSource.prototype['address'] = undefined;
 
-/**
- * The transaction nonce.
- * @member {Number} nonce
- */
-StakingSource.prototype['nonce'] = undefined;
 
-/**
- * @member {module:model/CoboSafeDelegate} delegate
- */
-StakingSource.prototype['delegate'] = undefined;
-
-
-StakingSource.OneOf = ["MpcContractCallSource", "SafeContractCallSource"];
+StakingSource.OneOf = ["MPCStakeSource"];
 
 export default StakingSource;
 

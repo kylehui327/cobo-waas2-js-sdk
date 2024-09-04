@@ -21,7 +21,7 @@ import TransactionTransferToAddressDestinationUtxoOutputsInner from './Transacti
 class TransactionTransferToAddressDestination {
     /**
      * Constructs a new <code>TransactionTransferToAddressDestination</code>.
-     * Information about the transaction destination type &#x60;Address&#x60;. 
+     * Information about the transaction destination type &#x60;Address&#x60;. Switch between the tabs to display the properties for different transaction destinations. 
      * @alias module:model/TransactionTransferToAddressDestination
      * @param destination_type {module:model/TransactionDestinationType} 
      */

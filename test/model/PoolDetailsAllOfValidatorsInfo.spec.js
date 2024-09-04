@@ -52,6 +52,12 @@
       //expect(instance).to.be.a(CoboWaas2.PoolDetailsAllOfValidatorsInfo);
     });
 
+    it('should have the property pool_type (base name: "pool_type")', function() {
+      // uncomment below and update the code to test the property pool_type
+      //var instance = new CoboWaas2.PoolDetailsAllOfValidatorsInfo();
+      //expect(instance).to.be();
+    });
+
     it('should have the property icon_url (base name: "icon_url")', function() {
       // uncomment below and update the code to test the property icon_url
       //var instance = new CoboWaas2.PoolDetailsAllOfValidatorsInfo();
@@ -84,12 +90,6 @@
 
     it('should have the property supported_pos_chains (base name: "supported_pos_chains")', function() {
       // uncomment below and update the code to test the property supported_pos_chains
-      //var instance = new CoboWaas2.PoolDetailsAllOfValidatorsInfo();
-      //expect(instance).to.be();
-    });
-
-    it('should have the property address (base name: "address")', function() {
-      // uncomment below and update the code to test the property address
       //var instance = new CoboWaas2.PoolDetailsAllOfValidatorsInfo();
       //expect(instance).to.be();
     });

@@ -21,7 +21,7 @@ import WalletType from './WalletType';
 class TransactionDepositFromAddressSource {
     /**
      * Constructs a new <code>TransactionDepositFromAddressSource</code>.
-     * Information about the transaction source type &#x60;DepositFromAddress&#x60;. 
+     * Information about the transaction source type &#x60;DepositFromAddress&#x60;. Switch between the tabs to display the properties for different transaction sources. 
      * @alias module:model/TransactionDepositFromAddressSource
      * @param source_type {module:model/TransactionSourceType} 
      * @param addresses {Array.<String>} A list of addresses.

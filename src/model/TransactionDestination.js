@@ -364,7 +364,7 @@ TransactionDestination.prototype['trading_account_type'] = undefined;
 TransactionDestination.prototype['exchange_id'] = undefined;
 
 /**
- * The transfer amount. For example, if you trade 1.5 ETH, then the value is `1.5`. 
+ * The transfer amount. For example, if you trade 1.5 BTC, then the value is `1.5`. 
  * @member {String} amount
  */
 TransactionDestination.prototype['amount'] = undefined;

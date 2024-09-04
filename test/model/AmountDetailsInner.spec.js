@@ -64,12 +64,6 @@
       //expect(instance).to.be();
     });
 
-    it('should have the property activity_id (base name: "activity_id")', function() {
-      // uncomment below and update the code to test the property activity_id
-      //var instance = new CoboWaas2.AmountDetailsInner();
-      //expect(instance).to.be();
-    });
-
   });
 
 }));

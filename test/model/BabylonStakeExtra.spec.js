@@ -70,8 +70,8 @@
       //expect(instance).to.be();
     });
 
-    it('should have the property only_sign (base name: "only_sign")', function() {
-      // uncomment below and update the code to test the property only_sign
+    it('should have the property auto_broadcast (base name: "auto_broadcast")', function() {
+      // uncomment below and update the code to test the property auto_broadcast
       //var instance = new CoboWaas2.BabylonStakeExtra();
       //expect(instance).to.be();
     });

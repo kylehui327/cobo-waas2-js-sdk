@@ -13,6 +13,10 @@
 
 * `ExternalSafeTx` (value: `"ExternalSafeTx"`)
 
+* `Stake` (value: `"Stake"`)
+
+* `Unstake` (value: `"Unstake"`)
+
 * `unknown_default_open_api` (value: `"unknown_default_open_api"`)
 
 

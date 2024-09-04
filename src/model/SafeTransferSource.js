@@ -20,7 +20,7 @@ import WalletSubtype from './WalletSubtype';
 class SafeTransferSource {
     /**
      * Constructs a new <code>SafeTransferSource</code>.
-     * The information about the transaction source type &#x60;Safe{Wallet}&#x60;.
+     * The information about the transaction source type &#x60;Safe{Wallet}&#x60;. Switch between the tabs to display the properties for different transaction sources.
      * @alias module:model/SafeTransferSource
      * @param source_type {module:model/WalletSubtype} 
      * @param wallet_id {String} The wallet ID.

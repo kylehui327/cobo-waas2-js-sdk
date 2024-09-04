@@ -20,7 +20,7 @@ import MaxFeeAmount from './MaxFeeAmount';
 class TransactionFixedFee {
     /**
      * Constructs a new <code>TransactionFixedFee</code>.
-     * The transaction fee actually charged by the chain that uses the fixed fee model.
+     * The transaction fee actually charged by the chain that uses the fixed fee model.   Switch between the tabs to display the properties for different transaction fee models. 
      * @alias module:model/TransactionFixedFee
      * @implements module:model/MaxFeeAmount
      * @param fee_type {module:model/FeeType} 

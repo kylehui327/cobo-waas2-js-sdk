@@ -19,12 +19,12 @@ import TransferDestinationType from './TransferDestinationType';
 class ExchangeTransferDestination {
     /**
      * Constructs a new <code>ExchangeTransferDestination</code>.
-     * The information about the transaction destination type &#x60;ExchangeWallet&#x60;.   An Exchange Wallet (Sub Account) can only receive asset transfers from another Exchange Wallet. 
+     * The information about the transaction destination type &#x60;ExchangeWallet&#x60;.   An Exchange Wallet (Sub Account) can only receive asset transfers from another Exchange Wallet.  Switch between the tabs to display the properties for different transaction destinations. 
      * @alias module:model/ExchangeTransferDestination
      * @param destination_type {module:model/TransferDestinationType} 
      * @param wallet_id {String} The wallet ID.
      * @param trading_account_type {String} The trading account type.
-     * @param amount {String} The transfer amount. For example, if you trade 1.5 ETH, then the value is `1.5`. 
+     * @param amount {String} The transfer amount. For example, if you trade 1.5 BTC, then the value is `1.5`. 
      */
     constructor(destination_type, wallet_id, trading_account_type, amount) { 
         
@@ -121,7 +121,7 @@ ExchangeTransferDestination.prototype['wallet_id'] = undefined;
 ExchangeTransferDestination.prototype['trading_account_type'] = undefined;
 
 /**
- * The transfer amount. For example, if you trade 1.5 ETH, then the value is `1.5`. 
+ * The transfer amount. For example, if you trade 1.5 BTC, then the value is `1.5`. 
  * @member {String} amount
  */
 ExchangeTransferDestination.prototype['amount'] = undefined;

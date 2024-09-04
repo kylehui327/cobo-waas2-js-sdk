@@ -19,7 +19,7 @@ import TransactionDestinationType from './TransactionDestinationType';
 class TransactionMessageSignEIP712Destination {
     /**
      * Constructs a new <code>TransactionMessageSignEIP712Destination</code>.
-     * Information about the transaction destination type &#x60;EVM_EIP_712_Signature&#x60;. 
+     * Information about the transaction destination type &#x60;EVM_EIP_712_Signature&#x60;. Switch between the tabs to display the properties for different transaction destinations. 
      * @alias module:model/TransactionMessageSignEIP712Destination
      * @param destination_type {module:model/TransactionDestinationType} 
      * @param structured_data {Object.<String, Object>} The structured data to be signed, formatted as a JSON object according to the EIP-712 standard.

@@ -19,7 +19,7 @@ import ContractCallSourceType from './ContractCallSourceType';
 class BaseContractCallSource {
     /**
      * Constructs a new <code>BaseContractCallSource</code>.
-     * The information about the transaction source type &#x60;Org-Controlled&#x60; and &#x60;User-Controlled&#x60;.
+     * The information about the transaction source type &#x60;Org-Controlled&#x60; and &#x60;User-Controlled&#x60;. Switch between the tabs to display the properties for different transaction sources.
      * @alias module:model/BaseContractCallSource
      * @param source_type {module:model/ContractCallSourceType} 
      * @param wallet_id {String} The wallet ID.

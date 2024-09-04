@@ -63,8 +63,8 @@ class BabylonStakeExtra {
             if (data.hasOwnProperty('stake_block_time')) {
                 obj['stake_block_time'] = ApiClient.convertToType(data['stake_block_time'], 'Number');
             }
-            if (data.hasOwnProperty('only_sign')) {
-                obj['only_sign'] = ApiClient.convertToType(data['only_sign'], 'Boolean');
+            if (data.hasOwnProperty('auto_broadcast')) {
+                obj['auto_broadcast'] = ApiClient.convertToType(data['auto_broadcast'], 'Boolean');
             }
         }
         return obj;
@@ -113,10 +113,10 @@ BabylonStakeExtra.prototype['finality_provider_public_key'] = undefined;
 BabylonStakeExtra.prototype['stake_block_time'] = undefined;
 
 /**
- * Whether to only sign transactions. Default is `false`, if set to `true`,  the transaction will not be submitted to the blockchain automatically. You can call `Broadcast transactions` to submit the transaction to the blockchain,  Or you can find the signed raw_tx by `Get transaction information` and broadcast it yourself. 
- * @member {Boolean} only_sign
+ * Whether to auto broadcast transactions. Default is `true`, if set to `false`,  the transaction will not be submitted to the blockchain automatically. You can call `Broadcast transactions` to submit the transaction to the blockchain,  Or you can find the signed raw_tx by `Get transaction information` and broadcast it yourself. 
+ * @member {Boolean} auto_broadcast
  */
-BabylonStakeExtra.prototype['only_sign'] = undefined;
+BabylonStakeExtra.prototype['auto_broadcast'] = undefined;
 
 
 // Implement BaseStakeExtra interface:

@@ -20,7 +20,7 @@ import WalletSubtype from './WalletSubtype';
 class MpcTransferSource {
     /**
      * Constructs a new <code>MpcTransferSource</code>.
-     * The information about the transaction source types &#x60;Org-Controlled&#x60; and &#x60;User-Controlled&#x60;.   If you specify both the &#x60;address&#x60; or &#x60;included_utxos&#x60; properties, the specified included UTXOs must belong to the address. 
+     * The information about the transaction source types &#x60;Org-Controlled&#x60; and &#x60;User-Controlled&#x60;.   If you specify both the &#x60;address&#x60; or &#x60;included_utxos&#x60; properties, the specified included UTXOs must belong to the address.  Switch between the tabs to display the properties for different transaction sources. 
      * @alias module:model/MpcTransferSource
      * @param source_type {module:model/WalletSubtype} 
      * @param wallet_id {String} The wallet ID.

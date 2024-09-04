@@ -39,27 +39,6 @@ export default class ActivityType {
 
     
         /**
-         * value: "Claim"
-         * @const
-         */
-        "Claim" = "Claim";
-
-    
-        /**
-         * value: "Delegate"
-         * @const
-         */
-        "Delegate" = "Delegate";
-
-    
-        /**
-         * value: "Undelegate"
-         * @const
-         */
-        "Undelegate" = "Undelegate";
-
-    
-        /**
          * value: "unknown_default_open_api"
          * @const
          */

@@ -76,24 +76,6 @@
       //expect(instance).to.be();
     });
 
-    it('should have the property initiator (base name: "initiator")', function() {
-      // uncomment below and update the code to test the property initiator
-      //var instance = new CoboWaas2.Stakings();
-      //expect(instance).to.be();
-    });
-
-    it('should have the property unlock_timestamp (base name: "unlock_timestamp")', function() {
-      // uncomment below and update the code to test the property unlock_timestamp
-      //var instance = new CoboWaas2.Stakings();
-      //expect(instance).to.be();
-    });
-
-    it('should have the property unlock_block_height (base name: "unlock_block_height")', function() {
-      // uncomment below and update the code to test the property unlock_block_height
-      //var instance = new CoboWaas2.Stakings();
-      //expect(instance).to.be();
-    });
-
     it('should have the property pool_id (base name: "pool_id")', function() {
       // uncomment below and update the code to test the property pool_id
       //var instance = new CoboWaas2.Stakings();
@@ -102,12 +84,6 @@
 
     it('should have the property token_id (base name: "token_id")', function() {
       // uncomment below and update the code to test the property token_id
-      //var instance = new CoboWaas2.Stakings();
-      //expect(instance).to.be();
-    });
-
-    it('should have the property pos_chain (base name: "pos_chain")', function() {
-      // uncomment below and update the code to test the property pos_chain
       //var instance = new CoboWaas2.Stakings();
       //expect(instance).to.be();
     });
@@ -132,6 +108,12 @@
 
     it('should have the property validator_info (base name: "validator_info")', function() {
       // uncomment below and update the code to test the property validator_info
+      //var instance = new CoboWaas2.Stakings();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property extra (base name: "extra")', function() {
+      // uncomment below and update the code to test the property extra
       //var instance = new CoboWaas2.Stakings();
       //expect(instance).to.be();
     });

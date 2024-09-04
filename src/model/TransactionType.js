@@ -53,6 +53,20 @@ export default class TransactionType {
 
     
         /**
+         * value: "Stake"
+         * @const
+         */
+        "Stake" = "Stake";
+
+    
+        /**
+         * value: "Unstake"
+         * @const
+         */
+        "Unstake" = "Unstake";
+
+    
+        /**
          * value: "unknown_default_open_api"
          * @const
          */

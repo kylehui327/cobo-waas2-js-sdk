@@ -11,8 +11,6 @@
 
 import ApiClient from '../ApiClient';
 import BabylonStakeExtra from './BabylonStakeExtra';
-import EigenLayerLstStakeExtra from './EigenLayerLstStakeExtra';
-import EigenLayerNativeStakeExtra from './EigenLayerNativeStakeExtra';
 import StakingPoolType from './StakingPoolType';
 
 /**
@@ -23,7 +21,7 @@ class CreateStakeActivityExtra {
     /**
      * Constructs a new <code>CreateStakeActivityExtra</code>.
      * @alias module:model/CreateStakeActivityExtra
-     * @param {(module:model/BabylonStakeExtra|module:model/EigenLayerLstStakeExtra|module:model/EigenLayerNativeStakeExtra)} instance The actual instance to initialize CreateStakeActivityExtra.
+     * @param {(module:model/BabylonStakeExtra)} instance The actual instance to initialize CreateStakeActivityExtra.
      */
     constructor(instance = null) {
         if (instance === null) {
@@ -38,14 +36,6 @@ class CreateStakeActivityExtra {
             switch(discriminatorValue) {
                 case "Babylon":
                     this.actualInstance = BabylonStakeExtra.constructFromObject(instance);
-                    match++;
-                    break;
-                case "EigenLayerLST":
-                    this.actualInstance = EigenLayerNativeStakeExtra.constructFromObject(instance);
-                    match++;
-                    break;
-                case "EigenLayerNativeETH":
-                    this.actualInstance = EigenLayerLstStakeExtra.constructFromObject(instance);
                     match++;
                     break;
                 default:
@@ -80,62 +70,12 @@ class CreateStakeActivityExtra {
             errorMessages.push("Failed to construct BabylonStakeExtra: " + err)
         }
 
-        try {
-            if (instance instanceof EigenLayerLstStakeExtra) {
-                this.actualInstance = instance;
-            } else if(!!EigenLayerLstStakeExtra.validateJSON && EigenLayerLstStakeExtra.validateJSON(instance)){
-                // plain JS object
-                // create EigenLayerLstStakeExtra from JS object
-                this.actualInstance = EigenLayerLstStakeExtra.constructFromObject(instance);
-            } else {
-                if(EigenLayerLstStakeExtra.constructFromObject(instance)) {
-                    if (!!EigenLayerLstStakeExtra.constructFromObject(instance).toJSON) {
-                        if (EigenLayerLstStakeExtra.constructFromObject(instance).toJSON()) {
-                            this.actualInstance = EigenLayerLstStakeExtra.constructFromObject(instance);
-                        }
-                    } else {
-                        this.actualInstance = EigenLayerLstStakeExtra.constructFromObject(instance);
-                    }
-                }
-
-            }
-            match++;
-        } catch(err) {
-            // json data failed to deserialize into EigenLayerLstStakeExtra
-            errorMessages.push("Failed to construct EigenLayerLstStakeExtra: " + err)
-        }
-
-        try {
-            if (instance instanceof EigenLayerNativeStakeExtra) {
-                this.actualInstance = instance;
-            } else if(!!EigenLayerNativeStakeExtra.validateJSON && EigenLayerNativeStakeExtra.validateJSON(instance)){
-                // plain JS object
-                // create EigenLayerNativeStakeExtra from JS object
-                this.actualInstance = EigenLayerNativeStakeExtra.constructFromObject(instance);
-            } else {
-                if(EigenLayerNativeStakeExtra.constructFromObject(instance)) {
-                    if (!!EigenLayerNativeStakeExtra.constructFromObject(instance).toJSON) {
-                        if (EigenLayerNativeStakeExtra.constructFromObject(instance).toJSON()) {
-                            this.actualInstance = EigenLayerNativeStakeExtra.constructFromObject(instance);
-                        }
-                    } else {
-                        this.actualInstance = EigenLayerNativeStakeExtra.constructFromObject(instance);
-                    }
-                }
-
-            }
-            match++;
-        } catch(err) {
-            // json data failed to deserialize into EigenLayerNativeStakeExtra
-            errorMessages.push("Failed to construct EigenLayerNativeStakeExtra: " + err)
-        }
-
         // if (match > 1) {
-        //    throw new Error("Multiple matches found constructing `CreateStakeActivityExtra` with oneOf schemas BabylonStakeExtra, EigenLayerLstStakeExtra, EigenLayerNativeStakeExtra. Input: " + JSON.stringify(instance));
+        //    throw new Error("Multiple matches found constructing `CreateStakeActivityExtra` with oneOf schemas BabylonStakeExtra. Input: " + JSON.stringify(instance));
         // } else
         if (match === 0) {
         //    this.actualInstance = null; // clear the actual instance in case there are multiple matches
-        //    throw new Error("No match found constructing `CreateStakeActivityExtra` with oneOf schemas BabylonStakeExtra, EigenLayerLstStakeExtra, EigenLayerNativeStakeExtra. Details: " +
+        //    throw new Error("No match found constructing `CreateStakeActivityExtra` with oneOf schemas BabylonStakeExtra. Details: " +
         //                    errorMessages.join(", "));
         return;
         } else { // only 1 match
@@ -155,16 +95,16 @@ class CreateStakeActivityExtra {
     }
 
     /**
-     * Gets the actual instance, which can be <code>BabylonStakeExtra</code>, <code>EigenLayerLstStakeExtra</code>, <code>EigenLayerNativeStakeExtra</code>.
-     * @return {(module:model/BabylonStakeExtra|module:model/EigenLayerLstStakeExtra|module:model/EigenLayerNativeStakeExtra)} The actual instance.
+     * Gets the actual instance, which can be <code>BabylonStakeExtra</code>.
+     * @return {(module:model/BabylonStakeExtra)} The actual instance.
      */
     getActualInstance() {
         return this.actualInstance;
     }
 
     /**
-     * Sets the actual instance, which can be <code>BabylonStakeExtra</code>, <code>EigenLayerLstStakeExtra</code>, <code>EigenLayerNativeStakeExtra</code>.
-     * @param {(module:model/BabylonStakeExtra|module:model/EigenLayerLstStakeExtra|module:model/EigenLayerNativeStakeExtra)} obj The actual instance.
+     * Sets the actual instance, which can be <code>BabylonStakeExtra</code>.
+     * @param {(module:model/BabylonStakeExtra)} obj The actual instance.
      */
     setActualInstance(obj) {
        this.actualInstance = CreateStakeActivityExtra.constructFromObject(obj).getActualInstance();
@@ -206,25 +146,13 @@ CreateStakeActivityExtra.prototype['finality_provider_public_key'] = undefined;
 CreateStakeActivityExtra.prototype['stake_block_time'] = undefined;
 
 /**
- * Whether to only sign transactions. Default is `false`, if set to `true`,  the transaction will not be submitted to the blockchain automatically. You can call `Broadcast transactions` to submit the transaction to the blockchain,  Or you can find the signed raw_tx by `Get transaction information` and broadcast it yourself. 
- * @member {Boolean} only_sign
+ * Whether to auto broadcast transactions. Default is `true`, if set to `false`,  the transaction will not be submitted to the blockchain automatically. You can call `Broadcast transactions` to submit the transaction to the blockchain,  Or you can find the signed raw_tx by `Get transaction information` and broadcast it yourself. 
+ * @member {Boolean} auto_broadcast
  */
-CreateStakeActivityExtra.prototype['only_sign'] = undefined;
-
-/**
- * The operator address.
- * @member {String} operator
- */
-CreateStakeActivityExtra.prototype['operator'] = undefined;
-
-/**
- * The fee recipient address, if not provided the staker address will be used.
- * @member {Number} fee_recipient
- */
-CreateStakeActivityExtra.prototype['fee_recipient'] = undefined;
+CreateStakeActivityExtra.prototype['auto_broadcast'] = undefined;
 
 
-CreateStakeActivityExtra.OneOf = ["BabylonStakeExtra", "EigenLayerLstStakeExtra", "EigenLayerNativeStakeExtra"];
+CreateStakeActivityExtra.OneOf = ["BabylonStakeExtra"];
 
 export default CreateStakeActivityExtra;
 

@@ -91,7 +91,7 @@ class TransactionTransferToAddressDestinationUtxoOutputsInner {
 TransactionTransferToAddressDestinationUtxoOutputsInner.prototype['address'] = undefined;
 
 /**
- * The transfer amount. For example, if you trade 1.5 ETH, then the value is `1.5`. 
+ * The transfer amount. For example, if you trade 1.5 BTC, then the value is `1.5`. 
  * @member {String} amount
  */
 TransactionTransferToAddressDestinationUtxoOutputsInner.prototype['amount'] = undefined;

@@ -22,13 +22,13 @@ import WalletType from './WalletType';
 class TransactionDepositToWalletDestination {
     /**
      * Constructs a new <code>TransactionDepositToWalletDestination</code>.
-     * Information about the transaction destination type &#x60;DepositToWallet&#x60;. 
+     * Information about the transaction destination type &#x60;DepositToWallet&#x60;. Switch between the tabs to display the properties for different transaction destinations. 
      * @alias module:model/TransactionDepositToWalletDestination
      * @param destination_type {module:model/TransactionDestinationType} 
      * @param wallet_id {String} The wallet ID.
      * @param wallet_type {module:model/WalletType} 
      * @param wallet_subtype {module:model/WalletSubtype} 
-     * @param amount {String} The transfer amount. For example, if you trade 1.5 ETH, then the value is `1.5`. 
+     * @param amount {String} The transfer amount. For example, if you trade 1.5 BTC, then the value is `1.5`. 
      */
     constructor(destination_type, wallet_id, wallet_type, wallet_subtype, amount) { 
         
@@ -150,7 +150,7 @@ TransactionDepositToWalletDestination.prototype['trading_account_type'] = undefi
 TransactionDepositToWalletDestination.prototype['exchange_id'] = undefined;
 
 /**
- * The transfer amount. For example, if you trade 1.5 ETH, then the value is `1.5`. 
+ * The transfer amount. For example, if you trade 1.5 BTC, then the value is `1.5`. 
  * @member {String} amount
  */
 TransactionDepositToWalletDestination.prototype['amount'] = undefined;

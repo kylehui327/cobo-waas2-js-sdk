@@ -6,6 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **String** | The unique id of the activity. | [optional] 
 **initiator** | **String** | The initiator of the activity. | [optional] 
+**initiator_type** | [**TransactionInitiatorType**](TransactionInitiatorType.md) |  | [optional] 
 **type** | [**ActivityType**](ActivityType.md) |  | [optional] 
 **wallet_id** | **String** | The id of the wallet to stake. | [optional] 
 **address** | **String** | The staker wallet address. | [optional] 
