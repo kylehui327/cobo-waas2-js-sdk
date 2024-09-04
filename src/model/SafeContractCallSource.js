@@ -21,7 +21,7 @@ import ContractCallSourceType from './ContractCallSourceType';
 class SafeContractCallSource {
     /**
      * Constructs a new <code>SafeContractCallSource</code>.
-     * The information about the transaction source type &#x60;Safe{Wallet}&#x60;.
+     * The information about the transaction source type &#x60;Safe{Wallet}&#x60;. Switch between the tabs to display the properties for different transaction sources.
      * @alias module:model/SafeContractCallSource
      * @implements module:model/BaseContractCallSource
      * @param source_type {module:model/ContractCallSourceType} 

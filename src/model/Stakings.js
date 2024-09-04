@@ -11,6 +11,7 @@
 
 import ApiClient from '../ApiClient';
 import AmountDetailsInner from './AmountDetailsInner';
+import StakingsExtra from './StakingsExtra';
 import StakingsValidatorInfo from './StakingsValidatorInfo';
 
 /**
@@ -77,23 +78,11 @@ class Stakings {
             if (data.hasOwnProperty('amounts')) {
                 obj['amounts'] = ApiClient.convertToType(data['amounts'], [AmountDetailsInner]);
             }
-            if (data.hasOwnProperty('initiator')) {
-                obj['initiator'] = ApiClient.convertToType(data['initiator'], 'String');
-            }
-            if (data.hasOwnProperty('unlock_timestamp')) {
-                obj['unlock_timestamp'] = ApiClient.convertToType(data['unlock_timestamp'], 'Number');
-            }
-            if (data.hasOwnProperty('unlock_block_height')) {
-                obj['unlock_block_height'] = ApiClient.convertToType(data['unlock_block_height'], 'Number');
-            }
             if (data.hasOwnProperty('pool_id')) {
                 obj['pool_id'] = ApiClient.convertToType(data['pool_id'], 'String');
             }
             if (data.hasOwnProperty('token_id')) {
                 obj['token_id'] = ApiClient.convertToType(data['token_id'], 'String');
-            }
-            if (data.hasOwnProperty('pos_chain')) {
-                obj['pos_chain'] = ApiClient.convertToType(data['pos_chain'], 'String');
             }
             if (data.hasOwnProperty('rewards_info')) {
                 obj['rewards_info'] = ApiClient.convertToType(data['rewards_info'], Object);
@@ -106,6 +95,9 @@ class Stakings {
             }
             if (data.hasOwnProperty('validator_info')) {
                 obj['validator_info'] = StakingsValidatorInfo.constructFromObject(data['validator_info']);
+            }
+            if (data.hasOwnProperty('extra')) {
+                obj['extra'] = StakingsExtra.constructFromObject(data['extra']);
             }
         }
         return obj;
@@ -146,10 +138,6 @@ class Stakings {
             };
         }
         // ensure the json data is a string
-        if (data['initiator'] && !(typeof data['initiator'] === 'string' || data['initiator'] instanceof String)) {
-            throw new Error("Expected the field `initiator` to be a primitive type in the JSON string but got " + data['initiator']);
-        }
-        // ensure the json data is a string
         if (data['pool_id'] && !(typeof data['pool_id'] === 'string' || data['pool_id'] instanceof String)) {
             throw new Error("Expected the field `pool_id` to be a primitive type in the JSON string but got " + data['pool_id']);
         }
@@ -157,14 +145,16 @@ class Stakings {
         if (data['token_id'] && !(typeof data['token_id'] === 'string' || data['token_id'] instanceof String)) {
             throw new Error("Expected the field `token_id` to be a primitive type in the JSON string but got " + data['token_id']);
         }
-        // ensure the json data is a string
-        if (data['pos_chain'] && !(typeof data['pos_chain'] === 'string' || data['pos_chain'] instanceof String)) {
-            throw new Error("Expected the field `pos_chain` to be a primitive type in the JSON string but got " + data['pos_chain']);
-        }
         // validate the optional field `validator_info`
         if (data['validator_info']) { // data not null
           if (!!StakingsValidatorInfo.validateJSON) {
             StakingsValidatorInfo.validateJSON(data['validator_info']);
+          }
+        }
+        // validate the optional field `extra`
+        if (data['extra']) { // data not null
+          if (!!StakingsExtra.validateJSON) {
+            StakingsExtra.validateJSON(data['extra']);
           }
         }
 
@@ -201,24 +191,6 @@ Stakings.prototype['address'] = undefined;
 Stakings.prototype['amounts'] = undefined;
 
 /**
- * The initiator of the stake.
- * @member {String} initiator
- */
-Stakings.prototype['initiator'] = undefined;
-
-/**
- * The unlock time.
- * @member {Number} unlock_timestamp
- */
-Stakings.prototype['unlock_timestamp'] = undefined;
-
-/**
- * The unlock block height.
- * @member {Number} unlock_block_height
- */
-Stakings.prototype['unlock_block_height'] = undefined;
-
-/**
  * The unique pool id.
  * @member {String} pool_id
  */
@@ -229,12 +201,6 @@ Stakings.prototype['pool_id'] = undefined;
  * @member {String} token_id
  */
 Stakings.prototype['token_id'] = undefined;
-
-/**
- * The pos chain of the stake.
- * @member {String} pos_chain
- */
-Stakings.prototype['pos_chain'] = undefined;
 
 /**
  * The rewards info of the stake.
@@ -258,6 +224,11 @@ Stakings.prototype['updated_timestamp'] = undefined;
  * @member {module:model/StakingsValidatorInfo} validator_info
  */
 Stakings.prototype['validator_info'] = undefined;
+
+/**
+ * @member {module:model/StakingsExtra} extra
+ */
+Stakings.prototype['extra'] = undefined;
 
 
 

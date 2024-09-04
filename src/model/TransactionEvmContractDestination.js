@@ -19,7 +19,7 @@ import TransactionDestinationType from './TransactionDestinationType';
 class TransactionEvmContractDestination {
     /**
      * Constructs a new <code>TransactionEvmContractDestination</code>.
-     * Information about the transaction destination type &#x60;EVM_Contract&#x60;. 
+     * Information about the transaction destination type &#x60;EVM_Contract&#x60;. Switch between the tabs to display the properties for different transaction destinations. 
      * @alias module:model/TransactionEvmContractDestination
      * @param destination_type {module:model/TransactionDestinationType} 
      * @param address {String} The destination address.

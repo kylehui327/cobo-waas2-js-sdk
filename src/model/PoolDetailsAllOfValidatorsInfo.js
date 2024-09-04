@@ -11,7 +11,7 @@
 
 import ApiClient from '../ApiClient';
 import BabylonValidator from './BabylonValidator';
-import EigenlayerValidator from './EigenlayerValidator';
+import StakingPoolType from './StakingPoolType';
 
 /**
  * The PoolDetailsAllOfValidatorsInfo model module.
@@ -21,7 +21,7 @@ class PoolDetailsAllOfValidatorsInfo {
     /**
      * Constructs a new <code>PoolDetailsAllOfValidatorsInfo</code>.
      * @alias module:model/PoolDetailsAllOfValidatorsInfo
-     * @param {(module:model/BabylonValidator|module:model/EigenlayerValidator)} instance The actual instance to initialize PoolDetailsAllOfValidatorsInfo.
+     * @param {(module:model/BabylonValidator)} instance The actual instance to initialize PoolDetailsAllOfValidatorsInfo.
      */
     constructor(instance = null) {
         if (instance === null) {
@@ -30,6 +30,20 @@ class PoolDetailsAllOfValidatorsInfo {
         }
         var match = 0;
         var errorMessages = [];
+        var discriminatorValue = instance["pool_type"];
+
+        if (discriminatorValue) {
+            switch(discriminatorValue) {
+                case "Babylon":
+                    this.actualInstance = BabylonValidator.constructFromObject(instance);
+                    match++;
+                    break;
+                default:
+                    errorMessages.push("Unrecognized discriminator value: " + discriminatorValue);
+                    break;
+            }
+            return;
+        }
 
         try {
             if (instance instanceof BabylonValidator) {
@@ -56,37 +70,12 @@ class PoolDetailsAllOfValidatorsInfo {
             errorMessages.push("Failed to construct BabylonValidator: " + err)
         }
 
-        try {
-            if (instance instanceof EigenlayerValidator) {
-                this.actualInstance = instance;
-            } else if(!!EigenlayerValidator.validateJSON && EigenlayerValidator.validateJSON(instance)){
-                // plain JS object
-                // create EigenlayerValidator from JS object
-                this.actualInstance = EigenlayerValidator.constructFromObject(instance);
-            } else {
-                if(EigenlayerValidator.constructFromObject(instance)) {
-                    if (!!EigenlayerValidator.constructFromObject(instance).toJSON) {
-                        if (EigenlayerValidator.constructFromObject(instance).toJSON()) {
-                            this.actualInstance = EigenlayerValidator.constructFromObject(instance);
-                        }
-                    } else {
-                        this.actualInstance = EigenlayerValidator.constructFromObject(instance);
-                    }
-                }
-
-            }
-            match++;
-        } catch(err) {
-            // json data failed to deserialize into EigenlayerValidator
-            errorMessages.push("Failed to construct EigenlayerValidator: " + err)
-        }
-
         // if (match > 1) {
-        //    throw new Error("Multiple matches found constructing `PoolDetailsAllOfValidatorsInfo` with oneOf schemas BabylonValidator, EigenlayerValidator. Input: " + JSON.stringify(instance));
+        //    throw new Error("Multiple matches found constructing `PoolDetailsAllOfValidatorsInfo` with oneOf schemas BabylonValidator. Input: " + JSON.stringify(instance));
         // } else
         if (match === 0) {
         //    this.actualInstance = null; // clear the actual instance in case there are multiple matches
-        //    throw new Error("No match found constructing `PoolDetailsAllOfValidatorsInfo` with oneOf schemas BabylonValidator, EigenlayerValidator. Details: " +
+        //    throw new Error("No match found constructing `PoolDetailsAllOfValidatorsInfo` with oneOf schemas BabylonValidator. Details: " +
         //                    errorMessages.join(", "));
         return;
         } else { // only 1 match
@@ -106,16 +95,16 @@ class PoolDetailsAllOfValidatorsInfo {
     }
 
     /**
-     * Gets the actual instance, which can be <code>BabylonValidator</code>, <code>EigenlayerValidator</code>.
-     * @return {(module:model/BabylonValidator|module:model/EigenlayerValidator)} The actual instance.
+     * Gets the actual instance, which can be <code>BabylonValidator</code>.
+     * @return {(module:model/BabylonValidator)} The actual instance.
      */
     getActualInstance() {
         return this.actualInstance;
     }
 
     /**
-     * Sets the actual instance, which can be <code>BabylonValidator</code>, <code>EigenlayerValidator</code>.
-     * @param {(module:model/BabylonValidator|module:model/EigenlayerValidator)} obj The actual instance.
+     * Sets the actual instance, which can be <code>BabylonValidator</code>.
+     * @param {(module:model/BabylonValidator)} obj The actual instance.
      */
     setActualInstance(obj) {
        this.actualInstance = PoolDetailsAllOfValidatorsInfo.constructFromObject(obj).getActualInstance();
@@ -138,6 +127,11 @@ class PoolDetailsAllOfValidatorsInfo {
         return PoolDetailsAllOfValidatorsInfo.constructFromObject(JSON.parse(json_string));
     }
 }
+
+/**
+ * @member {module:model/StakingPoolType} pool_type
+ */
+PoolDetailsAllOfValidatorsInfo.prototype['pool_type'] = undefined;
 
 /**
  * The URL of the validator's icon.
@@ -164,7 +158,7 @@ PoolDetailsAllOfValidatorsInfo.prototype['priority'] = undefined;
 PoolDetailsAllOfValidatorsInfo.prototype['public_key'] = undefined;
 
 /**
- * The commission of validator.
+ * The commission rate of validator.
  * @member {Number} commission_rate
  */
 PoolDetailsAllOfValidatorsInfo.prototype['commission_rate'] = undefined;
@@ -175,14 +169,8 @@ PoolDetailsAllOfValidatorsInfo.prototype['commission_rate'] = undefined;
  */
 PoolDetailsAllOfValidatorsInfo.prototype['supported_pos_chains'] = undefined;
 
-/**
- * The address of validator.
- * @member {String} address
- */
-PoolDetailsAllOfValidatorsInfo.prototype['address'] = undefined;
 
-
-PoolDetailsAllOfValidatorsInfo.OneOf = ["BabylonValidator", "EigenlayerValidator"];
+PoolDetailsAllOfValidatorsInfo.OneOf = ["BabylonValidator"];
 
 export default PoolDetailsAllOfValidatorsInfo;
 

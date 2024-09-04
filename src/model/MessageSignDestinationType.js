@@ -21,14 +21,21 @@ export default class MessageSignDestinationType {
          * value: "EVM_EIP_191_Signature"
          * @const
          */
-        "191_Signature" = "EVM_EIP_191_Signature";
+        "EVM_EIP_191_Signature" = "EVM_EIP_191_Signature";
 
     
         /**
          * value: "EVM_EIP_712_Signature"
          * @const
          */
-        "712_Signature" = "EVM_EIP_712_Signature";
+        "EVM_EIP_712_Signature" = "EVM_EIP_712_Signature";
+
+    
+        /**
+         * value: "Raw_Message_Signature"
+         * @const
+         */
+        "Raw_Message_Signature" = "Raw_Message_Signature";
 
     
         /**

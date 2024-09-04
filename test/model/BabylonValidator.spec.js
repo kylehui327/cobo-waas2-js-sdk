@@ -52,6 +52,12 @@
       //expect(instance).to.be.a(CoboWaas2.BabylonValidator);
     });
 
+    it('should have the property pool_type (base name: "pool_type")', function() {
+      // uncomment below and update the code to test the property pool_type
+      //var instance = new CoboWaas2.BabylonValidator();
+      //expect(instance).to.be();
+    });
+
     it('should have the property icon_url (base name: "icon_url")', function() {
       // uncomment below and update the code to test the property icon_url
       //var instance = new CoboWaas2.BabylonValidator();

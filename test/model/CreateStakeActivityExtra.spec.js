@@ -70,20 +70,8 @@
       //expect(instance).to.be();
     });
 
-    it('should have the property only_sign (base name: "only_sign")', function() {
-      // uncomment below and update the code to test the property only_sign
-      //var instance = new CoboWaas2.CreateStakeActivityExtra();
-      //expect(instance).to.be();
-    });
-
-    it('should have the property operator (base name: "operator")', function() {
-      // uncomment below and update the code to test the property operator
-      //var instance = new CoboWaas2.CreateStakeActivityExtra();
-      //expect(instance).to.be();
-    });
-
-    it('should have the property fee_recipient (base name: "fee_recipient")', function() {
-      // uncomment below and update the code to test the property fee_recipient
+    it('should have the property auto_broadcast (base name: "auto_broadcast")', function() {
+      // uncomment below and update the code to test the property auto_broadcast
       //var instance = new CoboWaas2.CreateStakeActivityExtra();
       //expect(instance).to.be();
     });

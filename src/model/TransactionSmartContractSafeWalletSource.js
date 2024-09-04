@@ -20,7 +20,7 @@ import TransactionSourceType from './TransactionSourceType';
 class TransactionSmartContractSafeWalletSource {
     /**
      * Constructs a new <code>TransactionSmartContractSafeWalletSource</code>.
-     * Information about the transaction source type &#x60;Safe{Wallet}&#x60;. 
+     * Information about the transaction source type &#x60;Safe{Wallet}&#x60;. Switch between the tabs to display the properties for different transaction sources. 
      * @alias module:model/TransactionSmartContractSafeWalletSource
      * @param source_type {module:model/TransactionSourceType} 
      * @param wallet_id {String} The wallet ID.

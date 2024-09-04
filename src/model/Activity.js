@@ -13,6 +13,7 @@ import ApiClient from '../ApiClient';
 import ActivityStatus from './ActivityStatus';
 import ActivityTimeline from './ActivityTimeline';
 import ActivityType from './ActivityType';
+import TransactionInitiatorType from './TransactionInitiatorType';
 import TransactionRequestFee from './TransactionRequestFee';
 
 /**
@@ -62,6 +63,9 @@ class Activity {
             }
             if (data.hasOwnProperty('initiator')) {
                 obj['initiator'] = ApiClient.convertToType(data['initiator'], 'String');
+            }
+            if (data.hasOwnProperty('initiator_type')) {
+                obj['initiator_type'] = TransactionInitiatorType.constructFromObject(data['initiator_type']);
             }
             if (data.hasOwnProperty('type')) {
                 obj['type'] = ActivityType.constructFromObject(data['type']);
@@ -190,6 +194,11 @@ Activity.prototype['id'] = undefined;
  * @member {String} initiator
  */
 Activity.prototype['initiator'] = undefined;
+
+/**
+ * @member {module:model/TransactionInitiatorType} initiator_type
+ */
+Activity.prototype['initiator_type'] = undefined;
 
 /**
  * @member {module:model/ActivityType} type

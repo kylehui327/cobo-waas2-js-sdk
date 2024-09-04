@@ -19,10 +19,12 @@ docs/AmountStatus.md
 docs/AssetBalance.md
 docs/AssetInfo.md
 docs/BabylonStakeExtra.md
+docs/BabylonStakingExtra.md
 docs/BabylonValidator.md
 docs/BaseContractCallSource.md
 docs/BaseEstimateStakingFee.md
 docs/BaseStakeExtra.md
+docs/BaseStakeSource.md
 docs/ChainInfo.md
 docs/CheckAddressValidity200Response.md
 docs/CheckAddressesValidity200ResponseInner.md
@@ -126,6 +128,7 @@ docs/LockUtxosRequest.md
 docs/LockUtxosRequestUtxosInner.md
 docs/MPCDelegate.md
 docs/MPCProject.md
+docs/MPCStakeSource.md
 docs/MPCVault.md
 docs/MPCVaultType.md
 docs/MPCWalletInfo.md
@@ -145,6 +148,7 @@ docs/Pagination.md
 docs/PoolDetails.md
 docs/PoolDetailsAllOfValidatorsInfo.md
 docs/PoolSummary.md
+docs/RawMessageSignDestination.md
 docs/RefreshToken200Response.md
 docs/RefreshTokenRequest.md
 docs/ReplaceType.md
@@ -158,9 +162,11 @@ docs/SmartContractWalletInfo.md
 docs/SmartContractWalletOperationType.md
 docs/SmartContractWalletType.md
 docs/SourceGroup.md
+docs/StakeSourceType.md
 docs/StakingPoolType.md
 docs/StakingSource.md
 docs/Stakings.md
+docs/StakingsExtra.md
 docs/StakingsValidatorInfo.md
 docs/SubWalletAssetBalance.md
 docs/TSSGroups.md
@@ -287,10 +293,12 @@ src/model/AmountStatus.js
 src/model/AssetBalance.js
 src/model/AssetInfo.js
 src/model/BabylonStakeExtra.js
+src/model/BabylonStakingExtra.js
 src/model/BabylonValidator.js
 src/model/BaseContractCallSource.js
 src/model/BaseEstimateStakingFee.js
 src/model/BaseStakeExtra.js
+src/model/BaseStakeSource.js
 src/model/ChainInfo.js
 src/model/CheckAddressValidity200Response.js
 src/model/CheckAddressesValidity200ResponseInner.js
@@ -393,6 +401,7 @@ src/model/LockUtxosRequest.js
 src/model/LockUtxosRequestUtxosInner.js
 src/model/MPCDelegate.js
 src/model/MPCProject.js
+src/model/MPCStakeSource.js
 src/model/MPCVault.js
 src/model/MPCVaultType.js
 src/model/MPCWalletInfo.js
@@ -411,6 +420,7 @@ src/model/Pagination.js
 src/model/PoolDetails.js
 src/model/PoolDetailsAllOfValidatorsInfo.js
 src/model/PoolSummary.js
+src/model/RawMessageSignDestination.js
 src/model/RefreshToken200Response.js
 src/model/RefreshTokenRequest.js
 src/model/ReplaceType.js
@@ -424,9 +434,11 @@ src/model/SmartContractWalletInfo.js
 src/model/SmartContractWalletOperationType.js
 src/model/SmartContractWalletType.js
 src/model/SourceGroup.js
+src/model/StakeSourceType.js
 src/model/StakingPoolType.js
 src/model/StakingSource.js
 src/model/Stakings.js
+src/model/StakingsExtra.js
 src/model/StakingsValidatorInfo.js
 src/model/SubWalletAssetBalance.js
 src/model/TSSGroups.js
@@ -541,10 +553,12 @@ test/model/AmountStatus.spec.js
 test/model/AssetBalance.spec.js
 test/model/AssetInfo.spec.js
 test/model/BabylonStakeExtra.spec.js
+test/model/BabylonStakingExtra.spec.js
 test/model/BabylonValidator.spec.js
 test/model/BaseContractCallSource.spec.js
 test/model/BaseEstimateStakingFee.spec.js
 test/model/BaseStakeExtra.spec.js
+test/model/BaseStakeSource.spec.js
 test/model/ChainInfo.spec.js
 test/model/CheckAddressValidity200Response.spec.js
 test/model/CheckAddressesValidity200ResponseInner.spec.js
@@ -647,6 +661,7 @@ test/model/LockUtxosRequest.spec.js
 test/model/LockUtxosRequestUtxosInner.spec.js
 test/model/MPCDelegate.spec.js
 test/model/MPCProject.spec.js
+test/model/MPCStakeSource.spec.js
 test/model/MPCVault.spec.js
 test/model/MPCVaultType.spec.js
 test/model/MPCWalletInfo.spec.js
@@ -665,6 +680,7 @@ test/model/Pagination.spec.js
 test/model/PoolDetails.spec.js
 test/model/PoolDetailsAllOfValidatorsInfo.spec.js
 test/model/PoolSummary.spec.js
+test/model/RawMessageSignDestination.spec.js
 test/model/RefreshToken200Response.spec.js
 test/model/RefreshTokenRequest.spec.js
 test/model/ReplaceType.spec.js
@@ -678,9 +694,11 @@ test/model/SmartContractWalletInfo.spec.js
 test/model/SmartContractWalletOperationType.spec.js
 test/model/SmartContractWalletType.spec.js
 test/model/SourceGroup.spec.js
+test/model/StakeSourceType.spec.js
 test/model/StakingPoolType.spec.js
 test/model/StakingSource.spec.js
 test/model/Stakings.spec.js
+test/model/StakingsExtra.spec.js
 test/model/StakingsValidatorInfo.spec.js
 test/model/SubWalletAssetBalance.spec.js
 test/model/TSSGroups.spec.js

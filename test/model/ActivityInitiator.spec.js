@@ -52,8 +52,8 @@
       //expect(instance).to.be.a(CoboWaas2.ActivityInitiator);
     });
 
-    it('should have the property initiator (base name: "initiator")', function() {
-      // uncomment below and update the code to test the property initiator
+    it('should have the property app_initiator (base name: "app_initiator")', function() {
+      // uncomment below and update the code to test the property app_initiator
       //var instance = new CoboWaas2.ActivityInitiator();
       //expect(instance).to.be();
     });

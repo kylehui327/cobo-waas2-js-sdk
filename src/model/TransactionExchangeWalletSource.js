@@ -20,7 +20,7 @@ import TransactionSourceType from './TransactionSourceType';
 class TransactionExchangeWalletSource {
     /**
      * Constructs a new <code>TransactionExchangeWalletSource</code>.
-     * Information about the transaction source types &#x60;Main&#x60; and &#x60;Sub&#x60;. 
+     * Information about the transaction source types &#x60;Main&#x60; and &#x60;Sub&#x60;. Switch between the tabs to display the properties for different transaction sources. 
      * @alias module:model/TransactionExchangeWalletSource
      * @param source_type {module:model/TransactionSourceType} 
      * @param exchange_id {module:model/ExchangeId} 

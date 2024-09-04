@@ -19,7 +19,7 @@ import TransactionDestinationType from './TransactionDestinationType';
 class TransactionMessageSignEIP191Destination {
     /**
      * Constructs a new <code>TransactionMessageSignEIP191Destination</code>.
-     * Information about the transaction destination type &#x60;EVM_EIP_191_Signature&#x60;. 
+     * Information about the transaction destination type &#x60;EVM_EIP_191_Signature&#x60;. Switch between the tabs to display the properties for different transaction destinations. 
      * @alias module:model/TransactionMessageSignEIP191Destination
      * @param destination_type {module:model/TransactionDestinationType} 
      * @param message {String} The raw data of the message to be signed, encoded in Base64 format.
