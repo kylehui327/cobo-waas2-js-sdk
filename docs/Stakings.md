@@ -4,19 +4,16 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**id** | **String** | The unique id of the stake. | 
-**wallet_id** | **String** | The unique wallet id. | 
-**address** | **String** | The staker wallet address. | 
-**amounts** | [**[AmountDetailsInner]**](AmountDetailsInner.md) | The staking amount details. | 
-**initiator** | **String** | The initiator of the stake. | [optional] 
-**unlock_timestamp** | **Number** | The unlock time. | [optional] 
-**unlock_block_height** | **Number** | The unlock block height. | [optional] 
-**pool_id** | **String** | The unique pool id. | 
-**token_id** | **String** | The token id. | 
-**pos_chain** | **String** | The pos chain of the stake. | [optional] 
-**rewards_info** | **Object** | The rewards info of the stake. | [optional] 
-**created_timestamp** | **Number** | The time when the stake was created. | 
-**updated_timestamp** | **Number** | The time when the stake was last updated. | 
+**id** | **String** | The ID of the staking position. | 
+**wallet_id** | **String** | The staker&#39;s wallet ID. | 
+**address** | **String** | The staker&#39;s wallet address. | 
+**amounts** | [**[AmountDetailsInner]**](AmountDetailsInner.md) | The details about the staking amount. | 
+**pool_id** | **String** | The ID of the staking pool. | 
+**token_id** | **String** | The token ID. | 
+**rewards_info** | **Object** | The information about the staking rewards. | [optional] 
+**created_timestamp** | **Number** | The time when the staking position was created. | 
+**updated_timestamp** | **Number** | The time when the staking position was last updated. | 
 **validator_info** | [**StakingsValidatorInfo**](StakingsValidatorInfo.md) |  | 
+**extra** | [**StakingsExtra**](StakingsExtra.md) |  | [optional] 
 
 

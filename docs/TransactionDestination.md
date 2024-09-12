@@ -13,10 +13,10 @@ Name | Type | Description | Notes
 **wallet_id** | **String** | The wallet ID. | 
 **trading_account_type** | **String** | The trading account type. | [optional] 
 **exchange_id** | [**ExchangeId**](ExchangeId.md) |  | [optional] 
-**amount** | **String** | The transfer amount. For example, if you trade 1.5 ETH, then the value is &#x60;1.5&#x60;.  | 
+**amount** | **String** | The transfer amount. For example, if you trade 1.5 BTC, then the value is &#x60;1.5&#x60;.  | 
 **address** | **String** | The destination address. | 
 **value** | **String** | The transfer amount. For example, if you trade 1.5 ETH, then the value is &#x60;1.5&#x60;.  | [optional] 
-**calldata** | **Blob** | The data that is used to invoke a specific function or method within the specified contract at the destination address.  | 
+**calldata** | **String** | The data that is used to invoke a specific function or method within the specified contract at the destination address.  | 
 **message** | **String** | The raw data of the message to be signed, encoded in Base64 format. | 
 **structured_data** | **{String: Object}** | The structured data to be signed, formatted as a JSON object according to the EIP-712 standard. | 
 **wallet_type** | [**WalletType**](WalletType.md) |  | 

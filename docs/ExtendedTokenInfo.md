@@ -15,5 +15,7 @@ Name | Type | Description | Notes
 **fee_token_id** | **String** | The fee token ID. A fee token is the token with which you pay transaction fees. | [optional] 
 **can_deposit** | **Boolean** | Whether the token can be deposited.  - &#x60;true&#x60;: The token can be deposited.  - &#x60;false&#x60;: The token cannot be deposited.  | [optional] [default to false]
 **can_withdraw** | **Boolean** | Whether the token can be withdrawn.  - &#x60;true&#x60;: The token can be withdrawn.  - &#x60;false&#x60;: The token cannot be withdrawn.  | [optional] [default to false]
+**dust_threshold** | **String** | The minimum withdrawal amount for Custodial Wallets. If your withdrawal amount is smaller than this threshold, the withdrawal request will receive an error.  Note: [Loop transfers](https://loop.top/) do not have this limitation.  | [optional] 
+**custodial_minimum_deposit_threshold** | **String** | The minimum deposit amount for Custodial Wallets. If the amount you deposit to a Custodial Wallet is smaller than this threshold, the deposit will not show up on Cobo Portal or trigger any webhook events.  Note: [Loop transfers](https://loop.top/) do not have this limitation.  | [optional] 
 
 

@@ -8,6 +8,6 @@ Name | Type | Description | Notes
 **wallet_id** | **String** | The wallet ID. | 
 **trading_account_type** | **String** | The trading account type. | [optional] 
 **exchange_id** | [**ExchangeId**](ExchangeId.md) |  | [optional] 
-**amount** | **String** | The transfer amount. For example, if you trade 1.5 ETH, then the value is &#x60;1.5&#x60;.  | 
+**amount** | **String** | The transfer amount. For example, if you trade 1.5 BTC, then the value is &#x60;1.5&#x60;.  | 
 
 

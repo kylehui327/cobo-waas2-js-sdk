@@ -6,7 +6,6 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**checkAddressValidity**](WalletsApi.md#checkAddressValidity) | **GET** /wallets/check_address_validity | Check address validity
 [**checkAddressesValidity**](WalletsApi.md#checkAddressesValidity) | **GET** /wallets/check_addresses_validity | Check addresses validity
-[**checkLoopTransfers**](WalletsApi.md#checkLoopTransfers) | **GET** /wallets/check_loop_transfers | Check Loop transfers
 [**createAddress**](WalletsApi.md#createAddress) | **POST** /wallets/{wallet_id}/addresses | Create addresses in wallet
 [**createWallet**](WalletsApi.md#createWallet) | **POST** /wallets | Create wallet
 [**deleteWalletById**](WalletsApi.md#deleteWalletById) | **POST** /wallets/{wallet_id}/delete | Delete wallet
@@ -123,60 +122,6 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**[CheckAddressesValidity200ResponseInner]**](CheckAddressesValidity200ResponseInner.md)
-
-### Authorization
-
-[CoboAuth](../README.md#CoboAuth)
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: application/json
-
-
-## checkLoopTransfers
-
-> [CheckLoopTransfers200ResponseInner] checkLoopTransfers(token_id, source_wallet_id, destination_addresses)
-
-Check Loop transfers
-
-This operation verifies if the transactions from a given source wallet to a list of destination addresses can be executed as Loop transfers.   For more information about Loop, see [Loop&#39;s website](https://loop.top/). 
-
-### Example
-
-```javascript
-const CoboWaas2 = require('@cobo/cobo-waas2');
-// Initialize the API client
-const apiClient = CoboWaas2.ApiClient.instance
-// Select the development environment. To use the production environment, replace `Env.DEV` with `Env.PROD`
-apiClient.setEnv(CoboWaas2.Env.DEV);
-// Replace `<YOUR_PRIVATE_KEY>` with your private key
-apiClient.setPrivateKey("<YOUR_PRIVATE_KEY>");
-// Call the API
-const apiInstance = new CoboWaas2.WalletsApi();
-const token_id = "ETH_USDT";
-const source_wallet_id = "f47ac10b-58cc-4372-a567-0e02b2c3d479";
-const destination_addresses = "0xd8dA6BF26964aF9D7eEd9e03E53415D37aA96045,0x4838B106FCe9647Bdf1E7877BF73cE8B0BAD5f97";
-apiInstance.checkLoopTransfers(token_id, source_wallet_id, destination_addresses).then((data) => {
-  console.log('API called successfully. Returned data: ' + data);
-}, (error) => {
-  console.error(error);
-});
-
-```
-
-### Parameters
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **token_id** | **String**| The token ID, which is the unique identifier of a token. You can retrieve the IDs of all the tokens you can use by calling [List enabled tokens](/v2/api-references/wallets/list-enabled-tokens). | 
- **source_wallet_id** | **String**| The source wallet ID. | 
- **destination_addresses** | **String**| A list of destination wallet addresses, separated by comma. | 
-
-### Return type
-
-[**[CheckLoopTransfers200ResponseInner]**](CheckLoopTransfers200ResponseInner.md)
 
 ### Authorization
 
