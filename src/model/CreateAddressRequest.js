@@ -21,7 +21,7 @@ class CreateAddressRequest {
      * Constructs a new <code>CreateAddressRequest</code>.
      * @alias module:model/CreateAddressRequest
      * @param chain_id {String} The chain ID, which is the unique identifier of a blockchain. You can retrieve the IDs of all the chains you can use by calling [List enabled chains](/v2/api-references/wallets/list-enabled-chains).
-     * @param count {Number} The number of addresses to create.
+     * @param count {Number} The number of addresses to create. This property will be ignored if you are tweaking Taproot address(es).
      */
     constructor(chain_id, count) { 
         
@@ -55,6 +55,12 @@ class CreateAddressRequest {
             if (data.hasOwnProperty('count')) {
                 obj['count'] = ApiClient.convertToType(data['count'], 'Number');
             }
+            if (data.hasOwnProperty('taproot_script_tree_hashes')) {
+                obj['taproot_script_tree_hashes'] = ApiClient.convertToType(data['taproot_script_tree_hashes'], ['String']);
+            }
+            if (data.hasOwnProperty('taproot_internal_address')) {
+                obj['taproot_internal_address'] = ApiClient.convertToType(data['taproot_internal_address'], 'String');
+            }
             if (data.hasOwnProperty('encoding')) {
                 obj['encoding'] = AddressEncoding.constructFromObject(data['encoding']);
             }
@@ -78,6 +84,14 @@ class CreateAddressRequest {
         if (data['chain_id'] && !(typeof data['chain_id'] === 'string' || data['chain_id'] instanceof String)) {
             throw new Error("Expected the field `chain_id` to be a primitive type in the JSON string but got " + data['chain_id']);
         }
+        // ensure the json data is an array
+        if (!Array.isArray(data['taproot_script_tree_hashes'])) {
+            throw new Error("Expected the field `taproot_script_tree_hashes` to be an array in the JSON data but got " + data['taproot_script_tree_hashes']);
+        }
+        // ensure the json data is a string
+        if (data['taproot_internal_address'] && !(typeof data['taproot_internal_address'] === 'string' || data['taproot_internal_address'] instanceof String)) {
+            throw new Error("Expected the field `taproot_internal_address` to be a primitive type in the JSON string but got " + data['taproot_internal_address']);
+        }
 
         return true;
     }
@@ -94,11 +108,23 @@ CreateAddressRequest.RequiredProperties = ["chain_id", "count"];
 CreateAddressRequest.prototype['chain_id'] = undefined;
 
 /**
- * The number of addresses to create.
+ * The number of addresses to create. This property will be ignored if you are tweaking Taproot address(es).
  * @member {Number} count
  * @default 1
  */
 CreateAddressRequest.prototype['count'] = 1;
+
+/**
+ * The information about the new address. This parameter is required only if you want to generate a tweaked address.
+ * @member {Array.<String>} taproot_script_tree_hashes
+ */
+CreateAddressRequest.prototype['taproot_script_tree_hashes'] = undefined;
+
+/**
+ * The address you want to tweak. This parameter is required only if you want to generate a tweaked address.
+ * @member {String} taproot_internal_address
+ */
+CreateAddressRequest.prototype['taproot_internal_address'] = undefined;
 
 /**
  * @member {module:model/AddressEncoding} encoding

@@ -511,7 +511,7 @@ Name | Type | Description  | Notes
 
 List staking positions
 
-This operation retrieves a list of staking positions.  
+This operation retrieves a list of staking positions. 
 
 ### Example
 
