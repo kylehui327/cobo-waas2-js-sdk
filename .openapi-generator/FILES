@@ -1,4 +1,5 @@
 .babelrc
+.github/workflows/codeql.yml
 .gitignore
 .openapi-generator-ignore
 .travis.yml
