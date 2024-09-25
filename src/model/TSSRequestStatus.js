@@ -39,6 +39,13 @@ export default class TSSRequestStatus {
 
     
         /**
+         * value: "MPCProcessing"
+         * @const
+         */
+        "MPCProcessing" = "MPCProcessing";
+
+    
+        /**
          * value: "KeyGeneratingFailed"
          * @const
          */

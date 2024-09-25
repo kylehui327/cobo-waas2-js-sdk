@@ -85,7 +85,7 @@ class RefreshTokenRequest {
 
 
 /**
- * The App ID, a unique identifier to distinguish Cobo Portal Apps. You can get the App ID by retrieving the Manifest file after receiving the notification of app launch approval.
+ * The client ID, a unique identifier to distinguish Cobo Portal Apps. You can get the client ID by retrieving the manifest file after publishing the app.
  * @member {String} client_id
  */
 RefreshTokenRequest.prototype['client_id'] = undefined;
@@ -97,7 +97,7 @@ RefreshTokenRequest.prototype['client_id'] = undefined;
 RefreshTokenRequest.prototype['grant_type'] = undefined;
 
 /**
- * The refresh token of the current access token.
+ * The Refresh Token of the current Org Access Token.
  * @member {String} refresh_token
  */
 RefreshTokenRequest.prototype['refresh_token'] = undefined;

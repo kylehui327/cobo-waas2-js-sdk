@@ -39,13 +39,6 @@ export default class TransactionStatus {
 
     
         /**
-         * value: "Queued"
-         * @const
-         */
-        "Queued" = "Queued";
-
-    
-        /**
          * value: "PendingSignature"
          * @const
          */

@@ -149,7 +149,7 @@ MessageSignParams.prototype['source'] = undefined;
 MessageSignParams.prototype['destination'] = undefined;
 
 /**
- * The description of the message sign transaction.
+ * The description of the message signing transaction.
  * @member {String} description
  */
 MessageSignParams.prototype['description'] = undefined;

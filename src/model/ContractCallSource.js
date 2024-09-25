@@ -181,12 +181,6 @@ ContractCallSource.prototype['wallet_id'] = undefined;
 ContractCallSource.prototype['address'] = undefined;
 
 /**
- * The transaction nonce.
- * @member {Number} nonce
- */
-ContractCallSource.prototype['nonce'] = undefined;
-
-/**
  * @member {module:model/CoboSafeDelegate} delegate
  */
 ContractCallSource.prototype['delegate'] = undefined;

@@ -57,7 +57,7 @@ class ApiClient {
          * @default {}
          */
         this.defaultHeaders = {
-            'User-Agent': 'cobo-waas2-js-sdk/1.3.0'
+            'User-Agent': 'cobo-waas2-js-sdk/1.4.0'
         };
 
         /**

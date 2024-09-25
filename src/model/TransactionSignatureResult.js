@@ -19,7 +19,7 @@ import TransactionResultType from './TransactionResultType';
 class TransactionSignatureResult {
     /**
      * Constructs a new <code>TransactionSignatureResult</code>.
-     * The result of a message sign transaction.
+     * The result of a message signing transaction.
      * @alias module:model/TransactionSignatureResult
      * @param signature {String} The raw data of the signature.
      */

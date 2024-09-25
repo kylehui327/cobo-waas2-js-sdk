@@ -70,12 +70,6 @@
       //expect(instance).to.be();
     });
 
-    it('should have the property nonce (base name: "nonce")', function() {
-      // uncomment below and update the code to test the property nonce
-      //var instance = new CoboWaas2.MpcContractCallSource();
-      //expect(instance).to.be();
-    });
-
   });
 
 }));

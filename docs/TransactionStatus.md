@@ -9,8 +9,6 @@
 
 * `PendingAuthorization` (value: `"PendingAuthorization"`)
 
-* `Queued` (value: `"Queued"`)
-
 * `PendingSignature` (value: `"PendingSignature"`)
 
 * `Broadcasting` (value: `"Broadcasting"`)
