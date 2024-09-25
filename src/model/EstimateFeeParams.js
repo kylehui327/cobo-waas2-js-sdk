@@ -38,7 +38,7 @@ class EstimateFeeParams {
 
         if (discriminatorValue) {
             switch(discriminatorValue) {
-                case "Call":
+                case "ContractCall":
                     this.actualInstance = EstimateContractCallFeeParams.constructFromObject(instance);
                     match++;
                     break;

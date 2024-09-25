@@ -63,9 +63,6 @@ class MpcContractCallSource {
             if (data.hasOwnProperty('address')) {
                 obj['address'] = ApiClient.convertToType(data['address'], 'String');
             }
-            if (data.hasOwnProperty('nonce')) {
-                obj['nonce'] = ApiClient.convertToType(data['nonce'], 'Number');
-            }
         }
         return obj;
     }
@@ -115,12 +112,6 @@ MpcContractCallSource.prototype['wallet_id'] = undefined;
  * @member {String} address
  */
 MpcContractCallSource.prototype['address'] = undefined;
-
-/**
- * The transaction nonce.
- * @member {Number} nonce
- */
-MpcContractCallSource.prototype['nonce'] = undefined;
 
 
 // Implement BaseContractCallSource interface:

@@ -25,13 +25,6 @@ export default class TransactionSubStatus {
 
     
         /**
-         * value: "RejectedTravelRule"
-         * @const
-         */
-        "RejectedTravelRule" = "RejectedTravelRule";
-
-    
-        /**
          * value: "PendingDoubleCheck"
          * @const
          */
@@ -144,6 +137,13 @@ export default class TransactionSubStatus {
 
     
         /**
+         * value: "Reverting"
+         * @const
+         */
+        "Reverting" = "Reverting";
+
+    
+        /**
          * value: "Queue"
          * @const
          */
@@ -183,6 +183,55 @@ export default class TransactionSubStatus {
          * @const
          */
         "OnchainRejection" = "OnchainRejection";
+
+    
+        /**
+         * value: "RejectedTravelRule"
+         * @const
+         */
+        "RejectedTravelRule" = "RejectedTravelRule";
+
+    
+        /**
+         * value: "RejectedTravelRuleDueToCompliance"
+         * @const
+         */
+        "RejectedTravelRuleDueToCompliance" = "RejectedTravelRuleDueToCompliance";
+
+    
+        /**
+         * value: "PendingTravelRuleInfo"
+         * @const
+         */
+        "PendingTravelRuleInfo" = "PendingTravelRuleInfo";
+
+    
+        /**
+         * value: "PendingTravelRuleCheck"
+         * @const
+         */
+        "PendingTravelRuleCheck" = "PendingTravelRuleCheck";
+
+    
+        /**
+         * value: "RejectedTravelRuleDueToUnsupportedToken"
+         * @const
+         */
+        "RejectedTravelRuleDueToUnsupportedToken" = "RejectedTravelRuleDueToUnsupportedToken";
+
+    
+        /**
+         * value: "SignatureVerificationSuccess"
+         * @const
+         */
+        "SignatureVerificationSuccess" = "SignatureVerificationSuccess";
+
+    
+        /**
+         * value: "SignatureVerificationFailed"
+         * @const
+         */
+        "SignatureVerificationFailed" = "SignatureVerificationFailed";
 
     
         /**

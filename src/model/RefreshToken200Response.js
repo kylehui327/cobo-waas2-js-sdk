@@ -95,7 +95,7 @@ class RefreshToken200Response {
 
 
 /**
- * The new access token.
+ * The new Org Access Token.
  * @member {String} access_token
  */
 RefreshToken200Response.prototype['access_token'] = undefined;
@@ -107,19 +107,19 @@ RefreshToken200Response.prototype['access_token'] = undefined;
 RefreshToken200Response.prototype['token_type'] = undefined;
 
 /**
- * The scope of the access token to limit the app's access to the organization's resources. **Note**: Currently this property value is empty. The scope of the access token is based on the permissions granted when the app user installs the app. 
+ * The scope of the Org Access Token to limit the app's access to the organization's resources. **Note**: Currently this property value is empty. The scope of the Org Access Token is based on the permissions granted when the app user installs the app. 
  * @member {String} scope
  */
 RefreshToken200Response.prototype['scope'] = undefined;
 
 /**
- * The time in seconds in which the new access token expires.
+ * The time in seconds in which the new Org Access Token expires.
  * @member {Number} expires_in
  */
 RefreshToken200Response.prototype['expires_in'] = undefined;
 
 /**
- * The refresh token, used to obtain another access token when the new access token expires.
+ * The Refresh Token, used to obtain another Org Access Token when the new Org Access Token expires. The expiration time for Refresh Tokens is currently set to 30 days and is subject to change.
  * @member {String} refresh_token
  */
 RefreshToken200Response.prototype['refresh_token'] = undefined;

@@ -111,7 +111,7 @@ export default class WalletsMPCWalletsApi {
 
     /**
      * Create key share holder group
-     * This operation creates a key share holder group for a specified vault. 
+     * This operation creates a key share holder group for a specified vault. <Note>This operation will not return the `tss_key_share_groups` property until key shares have been created using the [Create TSS request](/v2/api-references/wallets--mpc-wallets/create-tss-request) operation. Creating a wallet with the [Create wallet](/v2/api-references/wallets/create-wallet) operation is only possible after you've completed the previous actions.</Note> 
      * @param {String} vault_id The vault ID, which you can retrieve by calling [List all vaults](/v2/api-references/wallets--mpc-wallet/list-all-mpc-vaults).
      * @param {Object} opts Optional parameters
      * @param {module:model/CreateKeyShareHolderGroupRequest} [CreateKeyShareHolderGroupRequest] The request body to create a key share holder group.
@@ -151,7 +151,7 @@ export default class WalletsMPCWalletsApi {
 
     /**
      * Create key share holder group
-     * This operation creates a key share holder group for a specified vault. 
+     * This operation creates a key share holder group for a specified vault. <Note>This operation will not return the `tss_key_share_groups` property until key shares have been created using the [Create TSS request](/v2/api-references/wallets--mpc-wallets/create-tss-request) operation. Creating a wallet with the [Create wallet](/v2/api-references/wallets/create-wallet) operation is only possible after you've completed the previous actions.</Note> 
      * @param {String} vault_id The vault ID, which you can retrieve by calling [List all vaults](/v2/api-references/wallets--mpc-wallet/list-all-mpc-vaults).
      * @param {Object} opts Optional parameters
      * @param {module:model/CreateKeyShareHolderGroupRequest} opts.CreateKeyShareHolderGroupRequest The request body to create a key share holder group.

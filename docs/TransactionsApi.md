@@ -263,7 +263,7 @@ apiInstance.createMessageSignTransaction(opts).then((data) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **MessageSignParams** | [**MessageSignParams**](MessageSignParams.md)| The request body to create a message sign transaction | [optional] 
+ **MessageSignParams** | [**MessageSignParams**](MessageSignParams.md)| The request body to create a message signing transaction | [optional] 
 
 ### Return type
 

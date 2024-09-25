@@ -17,6 +17,7 @@ import ActivityInitiator from './model/ActivityInitiator';
 import ActivityStatus from './model/ActivityStatus';
 import ActivityTimeline from './model/ActivityTimeline';
 import ActivityType from './model/ActivityType';
+import AddressBook from './model/AddressBook';
 import AddressEncoding from './model/AddressEncoding';
 import AddressInfo from './model/AddressInfo';
 import AddressTransferDestination from './model/AddressTransferDestination';
@@ -319,7 +320,7 @@ import WalletsMPCWalletsApi from './api/WalletsMPCWalletsApi';
 * </pre>
 * </p>
 * @module index
-* @version 1.3.0
+* @version 1.4.0
 */
 export {
     Env,
@@ -364,6 +365,12 @@ export {
      * @property {module:model/ActivityType}
      */
     ActivityType,
+
+    /**
+     * The AddressBook model constructor.
+     * @property {module:model/AddressBook}
+     */
+    AddressBook,
 
     /**
      * The AddressEncoding model constructor.
