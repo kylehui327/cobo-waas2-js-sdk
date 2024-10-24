@@ -22,8 +22,8 @@ class MPCDelegate {
      * The information about the MPC Wallet as the Delegate.
      * @alias module:model/MPCDelegate
      * @param delegate_type {module:model/CoboSafeDelegateType} 
-     * @param wallet_id {String} The wallet ID of the Delegate. This is required when initiating a transfer from Smart Contract Wallets (Safe{Wallet}).
-     * @param address {String} The wallet address of the Delegate. This is required when initiating a transfer from Smart Contract Wallets (Safe{Wallet}).
+     * @param wallet_id {String} The wallet ID of the Delegate. This is required when initiating a transfer or contract call from Smart Contract Wallets (Safe{Wallet}).
+     * @param address {String} The wallet address of the Delegate. This is required when initiating a transfer or contract call from Smart Contract Wallets (Safe{Wallet}).
      */
     constructor(delegate_type, wallet_id, address) { 
         
@@ -100,13 +100,13 @@ MPCDelegate.RequiredProperties = ["delegate_type", "wallet_id", "address"];
 MPCDelegate.prototype['delegate_type'] = undefined;
 
 /**
- * The wallet ID of the Delegate. This is required when initiating a transfer from Smart Contract Wallets (Safe{Wallet}).
+ * The wallet ID of the Delegate. This is required when initiating a transfer or contract call from Smart Contract Wallets (Safe{Wallet}).
  * @member {String} wallet_id
  */
 MPCDelegate.prototype['wallet_id'] = undefined;
 
 /**
- * The wallet address of the Delegate. This is required when initiating a transfer from Smart Contract Wallets (Safe{Wallet}).
+ * The wallet address of the Delegate. This is required when initiating a transfer or contract call from Smart Contract Wallets (Safe{Wallet}).
  * @member {String} address
  */
 MPCDelegate.prototype['address'] = undefined;

@@ -12,17 +12,17 @@
 import ApiClient from '../ApiClient';
 
 /**
- * The RefreshToken200Response model module.
- * @module model/RefreshToken200Response
+ * The RefreshToken201Response model module.
+ * @module model/RefreshToken201Response
  */
-class RefreshToken200Response {
+class RefreshToken201Response {
     /**
-     * Constructs a new <code>RefreshToken200Response</code>.
-     * @alias module:model/RefreshToken200Response
+     * Constructs a new <code>RefreshToken201Response</code>.
+     * @alias module:model/RefreshToken201Response
      */
     constructor() { 
         
-        RefreshToken200Response.initialize(this);
+        RefreshToken201Response.initialize(this);
     }
 
     /**
@@ -34,15 +34,15 @@ class RefreshToken200Response {
     }
 
     /**
-     * Constructs a <code>RefreshToken200Response</code> from a plain JavaScript object, optionally creating a new instance.
+     * Constructs a <code>RefreshToken201Response</code> from a plain JavaScript object, optionally creating a new instance.
      * Copies all relevant properties from <code>data</code> to <code>obj</code> if supplied or a new instance if not.
      * @param {Object} data The plain JavaScript object bearing properties of interest.
-     * @param {module:model/RefreshToken200Response} obj Optional instance to populate.
-     * @return {module:model/RefreshToken200Response} The populated <code>RefreshToken200Response</code> instance.
+     * @param {module:model/RefreshToken201Response} obj Optional instance to populate.
+     * @return {module:model/RefreshToken201Response} The populated <code>RefreshToken201Response</code> instance.
      */
     static constructFromObject(data, obj) {
         if (data) {
-            obj = obj || new RefreshToken200Response();
+            obj = obj || new RefreshToken201Response();
 
             if (data.hasOwnProperty('access_token')) {
                 obj['access_token'] = ApiClient.convertToType(data['access_token'], 'String');
@@ -64,9 +64,9 @@ class RefreshToken200Response {
     }
 
     /**
-     * Validates the JSON data with respect to <code>RefreshToken200Response</code>.
+     * Validates the JSON data with respect to <code>RefreshToken201Response</code>.
      * @param {Object} data The plain JavaScript object bearing properties of interest.
-     * @return {boolean} to indicate whether the JSON data is valid with respect to <code>RefreshToken200Response</code>.
+     * @return {boolean} to indicate whether the JSON data is valid with respect to <code>RefreshToken201Response</code>.
      */
     static validateJSON(data) {
         // ensure the json data is a string
@@ -98,36 +98,36 @@ class RefreshToken200Response {
  * The new Org Access Token.
  * @member {String} access_token
  */
-RefreshToken200Response.prototype['access_token'] = undefined;
+RefreshToken201Response.prototype['access_token'] = undefined;
 
 /**
  * The type of the tokens, which is Bearer.
  * @member {String} token_type
  */
-RefreshToken200Response.prototype['token_type'] = undefined;
+RefreshToken201Response.prototype['token_type'] = undefined;
 
 /**
  * The scope of the Org Access Token to limit the app's access to the organization's resources. **Note**: Currently this property value is empty. The scope of the Org Access Token is based on the permissions granted when the app user installs the app. 
  * @member {String} scope
  */
-RefreshToken200Response.prototype['scope'] = undefined;
+RefreshToken201Response.prototype['scope'] = undefined;
 
 /**
  * The time in seconds in which the new Org Access Token expires.
  * @member {Number} expires_in
  */
-RefreshToken200Response.prototype['expires_in'] = undefined;
+RefreshToken201Response.prototype['expires_in'] = undefined;
 
 /**
  * The Refresh Token, used to obtain another Org Access Token when the new Org Access Token expires. The expiration time for Refresh Tokens is currently set to 30 days and is subject to change.
  * @member {String} refresh_token
  */
-RefreshToken200Response.prototype['refresh_token'] = undefined;
+RefreshToken201Response.prototype['refresh_token'] = undefined;
 
 
 
 
 
 
-export default RefreshToken200Response;
+export default RefreshToken201Response;
 

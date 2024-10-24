@@ -24,7 +24,7 @@ class EstimateTransferFeeParams {
      * Constructs a new <code>EstimateTransferFeeParams</code>.
      * The information about a token transfer.
      * @alias module:model/EstimateTransferFeeParams
-     * @param request_id {String} The request ID that is used to track a transaction request. The request ID is provided by you and must be unique within your organization.
+     * @param request_id {String} The request ID that is used to track a transaction request. The request ID is provided by you and must be unique within your organization. It is recommended to use the same request ID as the transaction for which you want to estimate the transaction fee.
      * @param request_type {module:model/EstimateFeeRequestType} 
      * @param source {module:model/TransferSource} 
      * @param token_id {String} The token ID of the transferred token. You can retrieve the IDs of all the tokens you can use by calling [List enabled tokens](/v2/api-references/wallets/list-enabled-tokens).
@@ -123,7 +123,7 @@ class EstimateTransferFeeParams {
 EstimateTransferFeeParams.RequiredProperties = ["request_id", "request_type", "source", "token_id", "destination"];
 
 /**
- * The request ID that is used to track a transaction request. The request ID is provided by you and must be unique within your organization.
+ * The request ID that is used to track a transaction request. The request ID is provided by you and must be unique within your organization. It is recommended to use the same request ID as the transaction for which you want to estimate the transaction fee.
  * @member {String} request_id
  */
 EstimateTransferFeeParams.prototype['request_id'] = undefined;

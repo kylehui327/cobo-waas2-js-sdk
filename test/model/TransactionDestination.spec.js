@@ -130,6 +130,12 @@
       //expect(instance).to.be();
     });
 
+    it('should have the property calldata_info (base name: "calldata_info")', function() {
+      // uncomment below and update the code to test the property calldata_info
+      //var instance = new CoboWaas2.TransactionDestination();
+      //expect(instance).to.be();
+    });
+
     it('should have the property message (base name: "message")', function() {
       // uncomment below and update the code to test the property message
       //var instance = new CoboWaas2.TransactionDestination();
@@ -138,6 +144,12 @@
 
     it('should have the property structured_data (base name: "structured_data")', function() {
       // uncomment below and update the code to test the property structured_data
+      //var instance = new CoboWaas2.TransactionDestination();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property msg_hash (base name: "msg_hash")', function() {
+      // uncomment below and update the code to test the property msg_hash
       //var instance = new CoboWaas2.TransactionDestination();
       //expect(instance).to.be();
     });

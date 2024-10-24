@@ -25,6 +25,8 @@ import AddressTransferDestinationAccountOutput from './model/AddressTransferDest
 import AddressTransferDestinationUtxoOutputsInner from './model/AddressTransferDestinationUtxoOutputsInner';
 import AmountDetailsInner from './model/AmountDetailsInner';
 import AmountStatus from './model/AmountStatus';
+import ApiLogDetails from './model/ApiLogDetails';
+import ApiLogSummary from './model/ApiLogSummary';
 import AssetBalance from './model/AssetBalance';
 import AssetInfo from './model/AssetInfo';
 import BabylonStakeExtra from './model/BabylonStakeExtra';
@@ -34,8 +36,6 @@ import BaseContractCallSource from './model/BaseContractCallSource';
 import BaseEstimateStakingFee from './model/BaseEstimateStakingFee';
 import BaseStakeExtra from './model/BaseStakeExtra';
 import BaseStakeSource from './model/BaseStakeSource';
-import BookkeepingRecord from './model/BookkeepingRecord';
-import BookkeepingSummary from './model/BookkeepingSummary';
 import BroadcastSignedTransactions201ResponseInner from './model/BroadcastSignedTransactions201ResponseInner';
 import BroadcastSignedTransactionsRequest from './model/BroadcastSignedTransactionsRequest';
 import ChainInfo from './model/ChainInfo';
@@ -123,6 +123,7 @@ import KeyShareHolderGroupStatus from './model/KeyShareHolderGroupStatus';
 import KeyShareHolderGroupType from './model/KeyShareHolderGroupType';
 import KeyShareHolderStatus from './model/KeyShareHolderStatus';
 import KeyShareHolderType from './model/KeyShareHolderType';
+import ListAddressBooks200Response from './model/ListAddressBooks200Response';
 import ListAddresses200Response from './model/ListAddresses200Response';
 import ListAssetBalancesForExchangeWallet200Response from './model/ListAssetBalancesForExchangeWallet200Response';
 import ListExchanges200ResponseInner from './model/ListExchanges200ResponseInner';
@@ -169,7 +170,7 @@ import PoolDetails from './model/PoolDetails';
 import PoolDetailsAllOfValidatorsInfo from './model/PoolDetailsAllOfValidatorsInfo';
 import PoolSummary from './model/PoolSummary';
 import RawMessageSignDestination from './model/RawMessageSignDestination';
-import RefreshToken200Response from './model/RefreshToken200Response';
+import RefreshToken201Response from './model/RefreshToken201Response';
 import RefreshTokenRequest from './model/RefreshTokenRequest';
 import ReplaceType from './model/ReplaceType';
 import RetryWebhookEventById201Response from './model/RetryWebhookEventById201Response';
@@ -177,6 +178,9 @@ import RootPubkey from './model/RootPubkey';
 import SafeContractCallSource from './model/SafeContractCallSource';
 import SafeTransferSource from './model/SafeTransferSource';
 import SafeWallet from './model/SafeWallet';
+import SafeWalletDelegates from './model/SafeWalletDelegates';
+import SafeWalletDelegatesContractCall from './model/SafeWalletDelegatesContractCall';
+import SafeWalletDelegatesTransfer from './model/SafeWalletDelegatesTransfer';
 import SmartContractInitiator from './model/SmartContractInitiator';
 import SmartContractWalletInfo from './model/SmartContractWalletInfo';
 import SmartContractWalletOperationType from './model/SmartContractWalletOperationType';
@@ -194,6 +198,7 @@ import TSSRequest from './model/TSSRequest';
 import TSSRequestStatus from './model/TSSRequestStatus';
 import TSSRequestType from './model/TSSRequestType';
 import TSSRequestWebhookEventData from './model/TSSRequestWebhookEventData';
+import TokenAssetModelType from './model/TokenAssetModelType';
 import TokenBalance from './model/TokenBalance';
 import TokenBalanceBalance from './model/TokenBalanceBalance';
 import TokenInfo from './model/TokenInfo';
@@ -210,7 +215,9 @@ import TransactionDestination from './model/TransactionDestination';
 import TransactionDestinationType from './model/TransactionDestinationType';
 import TransactionDetail from './model/TransactionDetail';
 import TransactionDetails from './model/TransactionDetails';
+import TransactionEvmCalldataInfo from './model/TransactionEvmCalldataInfo';
 import TransactionEvmContractDestination from './model/TransactionEvmContractDestination';
+import TransactionEvmContractMethod from './model/TransactionEvmContractMethod';
 import TransactionEvmEip1559Fee from './model/TransactionEvmEip1559Fee';
 import TransactionEvmLegacyFee from './model/TransactionEvmLegacyFee';
 import TransactionExchangeWalletSource from './model/TransactionExchangeWalletSource';
@@ -221,6 +228,7 @@ import TransactionInitiatorType from './model/TransactionInitiatorType';
 import TransactionMPCWalletSource from './model/TransactionMPCWalletSource';
 import TransactionMessageSignEIP191Destination from './model/TransactionMessageSignEIP191Destination';
 import TransactionMessageSignEIP712Destination from './model/TransactionMessageSignEIP712Destination';
+import TransactionRawMessageSignDestination from './model/TransactionRawMessageSignDestination';
 import TransactionRawTxInfo from './model/TransactionRawTxInfo';
 import TransactionRbf from './model/TransactionRbf';
 import TransactionRbfSource from './model/TransactionRbfSource';
@@ -255,6 +263,8 @@ import TransferDestination from './model/TransferDestination';
 import TransferDestinationType from './model/TransferDestinationType';
 import TransferParams from './model/TransferParams';
 import TransferSource from './model/TransferSource';
+import TriggerTestWebhookEvent201Response from './model/TriggerTestWebhookEvent201Response';
+import TriggerTestWebhookEventRequest from './model/TriggerTestWebhookEventRequest';
 import UTXO from './model/UTXO';
 import UpdateCustodialWalletParams from './model/UpdateCustodialWalletParams';
 import UpdateExchangeWalletParams from './model/UpdateExchangeWalletParams';
@@ -268,8 +278,6 @@ import UpdateWalletParams from './model/UpdateWalletParams';
 import UpdateWebhookEndpointByIdRequest from './model/UpdateWebhookEndpointByIdRequest';
 import UtxoFeeBasePrice from './model/UtxoFeeBasePrice';
 import UtxoFeeRate from './model/UtxoFeeRate';
-import WalletBalanceSnapshot from './model/WalletBalanceSnapshot';
-import WalletBalanceSnapshotRecord from './model/WalletBalanceSnapshotRecord';
 import WalletInfo from './model/WalletInfo';
 import WalletSubtype from './model/WalletSubtype';
 import WalletType from './model/WalletType';
@@ -281,6 +289,7 @@ import WebhookEventDataType from './model/WebhookEventDataType';
 import WebhookEventLog from './model/WebhookEventLog';
 import WebhookEventStatus from './model/WebhookEventStatus';
 import WebhookEventType from './model/WebhookEventType';
+import AddressBooksApi from './api/AddressBooksApi';
 import DevelopersWebhooksApi from './api/DevelopersWebhooksApi';
 import OAuthApi from './api/OAuthApi';
 import StakingsApi from './api/StakingsApi';
@@ -288,11 +297,12 @@ import TransactionsApi from './api/TransactionsApi';
 import WalletsApi from './api/WalletsApi';
 import WalletsExchangeWalletApi from './api/WalletsExchangeWalletApi';
 import WalletsMPCWalletsApi from './api/WalletsMPCWalletsApi';
+import WalletsSmartContractWalletsApi from './api/WalletsSmartContractWalletsApi';
 
 
 /**
 
-* The Cobo Wallet-as-a-Service (WaaS) 2.0 API is the latest version of Cobo’s WaaS API offering. It enables you to access Cobo’s full suite of crypto wallet technologies with powerful and flexible access controls. By encapsulating complex security protocols and streamlining blockchain interactions, this API allows you to concentrate on your core business activities without worrying about the safety of your assets. The WaaS 2.0 API presents the following key features:  - A unified API for Cobo’s [all four wallet types](https://manuals.cobo.com/en/portal/introduction#an-all-in-one-wallet-platform) - Support for 80+ chains and 3000+ tokens - A comprehensive selection of webhook events - Flexible usage models for MPC Wallets, including [Organization-Controlled Wallets](https://manuals.cobo.com/en/portal/mpc-wallets/ocw/introduction) and [User-Controlled Wallets](https://manuals.cobo.com/en/portal/mpc-wallets/ucw/introduction) - Programmatic control of smart contract wallets such as Safe{Wallet} with fine-grained access controls - Seamlessly transfer funds across multiple exchanges, including Binance, OKX, Bybit, Deribit, and more  For more information about the WaaS 2.0 API, see [Introduction to WaaS 2.0](https://www.cobo.com/developers/v2/guides/overview/introduction). .<br>
+* The Cobo Wallet-as-a-Service (WaaS) 2.0 API is the latest version of Cobo’s WaaS API offering. It enables you to access Cobo’s full suite of crypto wallet technologies with powerful and flexible access controls. By encapsulating complex security protocols and streamlining blockchain interactions, this API allows you to concentrate on your core business activities without worrying about the safety of your assets. The WaaS 2.0 API presents the following key features:  - A unified API for Cobo’s [all four wallet types](https://manuals.cobo.com/en/portal/introduction#an-all-in-one-wallet-platform) - Support for 80+ chains and 3000+ tokens - A comprehensive selection of webhook events - Flexible usage models for MPC Wallets, including [Organization-Controlled Wallets](https://manuals.cobo.com/en/portal/mpc-wallets/ocw/introduction) and [User-Controlled Wallets](https://manuals.cobo.com/en/portal/mpc-wallets/ucw/introduction) - Programmatic control of smart contract wallets such as Safe{Wallet} with fine-grained access controls - Seamlessly transfer funds across multiple exchanges, including Binance, OKX, Bybit, Deribit, and more  For more information about the WaaS 2.0 API, see [Introduction to WaaS 2.0](/v2/guides/overview/introduction). .<br>
 * The <code>index</code> module provides access to constructors for all the classes which comprise the public API.
 * <p>
 * An AMD (recommended!) or CommonJS application will generally do something equivalent to the following:
@@ -320,7 +330,7 @@ import WalletsMPCWalletsApi from './api/WalletsMPCWalletsApi';
 * </pre>
 * </p>
 * @module index
-* @version 1.4.0
+* @version 1.5.0
 */
 export {
     Env,
@@ -415,6 +425,18 @@ export {
     AmountStatus,
 
     /**
+     * The ApiLogDetails model constructor.
+     * @property {module:model/ApiLogDetails}
+     */
+    ApiLogDetails,
+
+    /**
+     * The ApiLogSummary model constructor.
+     * @property {module:model/ApiLogSummary}
+     */
+    ApiLogSummary,
+
+    /**
      * The AssetBalance model constructor.
      * @property {module:model/AssetBalance}
      */
@@ -467,18 +489,6 @@ export {
      * @property {module:model/BaseStakeSource}
      */
     BaseStakeSource,
-
-    /**
-     * The BookkeepingRecord model constructor.
-     * @property {module:model/BookkeepingRecord}
-     */
-    BookkeepingRecord,
-
-    /**
-     * The BookkeepingSummary model constructor.
-     * @property {module:model/BookkeepingSummary}
-     */
-    BookkeepingSummary,
 
     /**
      * The BroadcastSignedTransactions201ResponseInner model constructor.
@@ -1003,6 +1013,12 @@ export {
     KeyShareHolderType,
 
     /**
+     * The ListAddressBooks200Response model constructor.
+     * @property {module:model/ListAddressBooks200Response}
+     */
+    ListAddressBooks200Response,
+
+    /**
      * The ListAddresses200Response model constructor.
      * @property {module:model/ListAddresses200Response}
      */
@@ -1279,10 +1295,10 @@ export {
     RawMessageSignDestination,
 
     /**
-     * The RefreshToken200Response model constructor.
-     * @property {module:model/RefreshToken200Response}
+     * The RefreshToken201Response model constructor.
+     * @property {module:model/RefreshToken201Response}
      */
-    RefreshToken200Response,
+    RefreshToken201Response,
 
     /**
      * The RefreshTokenRequest model constructor.
@@ -1325,6 +1341,24 @@ export {
      * @property {module:model/SafeWallet}
      */
     SafeWallet,
+
+    /**
+     * The SafeWalletDelegates model constructor.
+     * @property {module:model/SafeWalletDelegates}
+     */
+    SafeWalletDelegates,
+
+    /**
+     * The SafeWalletDelegatesContractCall model constructor.
+     * @property {module:model/SafeWalletDelegatesContractCall}
+     */
+    SafeWalletDelegatesContractCall,
+
+    /**
+     * The SafeWalletDelegatesTransfer model constructor.
+     * @property {module:model/SafeWalletDelegatesTransfer}
+     */
+    SafeWalletDelegatesTransfer,
 
     /**
      * The SmartContractInitiator model constructor.
@@ -1429,6 +1463,12 @@ export {
     TSSRequestWebhookEventData,
 
     /**
+     * The TokenAssetModelType model constructor.
+     * @property {module:model/TokenAssetModelType}
+     */
+    TokenAssetModelType,
+
+    /**
      * The TokenBalance model constructor.
      * @property {module:model/TokenBalance}
      */
@@ -1525,10 +1565,22 @@ export {
     TransactionDetails,
 
     /**
+     * The TransactionEvmCalldataInfo model constructor.
+     * @property {module:model/TransactionEvmCalldataInfo}
+     */
+    TransactionEvmCalldataInfo,
+
+    /**
      * The TransactionEvmContractDestination model constructor.
      * @property {module:model/TransactionEvmContractDestination}
      */
     TransactionEvmContractDestination,
+
+    /**
+     * The TransactionEvmContractMethod model constructor.
+     * @property {module:model/TransactionEvmContractMethod}
+     */
+    TransactionEvmContractMethod,
 
     /**
      * The TransactionEvmEip1559Fee model constructor.
@@ -1589,6 +1641,12 @@ export {
      * @property {module:model/TransactionMessageSignEIP712Destination}
      */
     TransactionMessageSignEIP712Destination,
+
+    /**
+     * The TransactionRawMessageSignDestination model constructor.
+     * @property {module:model/TransactionRawMessageSignDestination}
+     */
+    TransactionRawMessageSignDestination,
 
     /**
      * The TransactionRawTxInfo model constructor.
@@ -1795,6 +1853,18 @@ export {
     TransferSource,
 
     /**
+     * The TriggerTestWebhookEvent201Response model constructor.
+     * @property {module:model/TriggerTestWebhookEvent201Response}
+     */
+    TriggerTestWebhookEvent201Response,
+
+    /**
+     * The TriggerTestWebhookEventRequest model constructor.
+     * @property {module:model/TriggerTestWebhookEventRequest}
+     */
+    TriggerTestWebhookEventRequest,
+
+    /**
      * The UTXO model constructor.
      * @property {module:model/UTXO}
      */
@@ -1873,18 +1943,6 @@ export {
     UtxoFeeRate,
 
     /**
-     * The WalletBalanceSnapshot model constructor.
-     * @property {module:model/WalletBalanceSnapshot}
-     */
-    WalletBalanceSnapshot,
-
-    /**
-     * The WalletBalanceSnapshotRecord model constructor.
-     * @property {module:model/WalletBalanceSnapshotRecord}
-     */
-    WalletBalanceSnapshotRecord,
-
-    /**
      * The WalletInfo model constructor.
      * @property {module:model/WalletInfo}
      */
@@ -1951,6 +2009,12 @@ export {
     WebhookEventType,
 
     /**
+    * The AddressBooksApi service constructor.
+    * @property {module:api/AddressBooksApi}
+    */
+    AddressBooksApi,
+
+    /**
     * The DevelopersWebhooksApi service constructor.
     * @property {module:api/DevelopersWebhooksApi}
     */
@@ -1990,5 +2054,11 @@ export {
     * The WalletsMPCWalletsApi service constructor.
     * @property {module:api/WalletsMPCWalletsApi}
     */
-    WalletsMPCWalletsApi
+    WalletsMPCWalletsApi,
+
+    /**
+    * The WalletsSmartContractWalletsApi service constructor.
+    * @property {module:api/WalletsSmartContractWalletsApi}
+    */
+    WalletsSmartContractWalletsApi
 };

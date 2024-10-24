@@ -11,6 +11,7 @@ docs/ActivityStatus.md
 docs/ActivityTimeline.md
 docs/ActivityType.md
 docs/AddressBook.md
+docs/AddressBooksApi.md
 docs/AddressEncoding.md
 docs/AddressInfo.md
 docs/AddressTransferDestination.md
@@ -18,6 +19,8 @@ docs/AddressTransferDestinationAccountOutput.md
 docs/AddressTransferDestinationUtxoOutputsInner.md
 docs/AmountDetailsInner.md
 docs/AmountStatus.md
+docs/ApiLogDetails.md
+docs/ApiLogSummary.md
 docs/AssetBalance.md
 docs/AssetInfo.md
 docs/BabylonStakeExtra.md
@@ -27,8 +30,6 @@ docs/BaseContractCallSource.md
 docs/BaseEstimateStakingFee.md
 docs/BaseStakeExtra.md
 docs/BaseStakeSource.md
-docs/BookkeepingRecord.md
-docs/BookkeepingSummary.md
 docs/BroadcastSignedTransactions201ResponseInner.md
 docs/BroadcastSignedTransactionsRequest.md
 docs/ChainInfo.md
@@ -117,6 +118,7 @@ docs/KeyShareHolderGroupStatus.md
 docs/KeyShareHolderGroupType.md
 docs/KeyShareHolderStatus.md
 docs/KeyShareHolderType.md
+docs/ListAddressBooks200Response.md
 docs/ListAddresses200Response.md
 docs/ListAssetBalancesForExchangeWallet200Response.md
 docs/ListExchanges200ResponseInner.md
@@ -164,7 +166,7 @@ docs/PoolDetails.md
 docs/PoolDetailsAllOfValidatorsInfo.md
 docs/PoolSummary.md
 docs/RawMessageSignDestination.md
-docs/RefreshToken200Response.md
+docs/RefreshToken201Response.md
 docs/RefreshTokenRequest.md
 docs/ReplaceType.md
 docs/RetryWebhookEventById201Response.md
@@ -172,6 +174,9 @@ docs/RootPubkey.md
 docs/SafeContractCallSource.md
 docs/SafeTransferSource.md
 docs/SafeWallet.md
+docs/SafeWalletDelegates.md
+docs/SafeWalletDelegatesContractCall.md
+docs/SafeWalletDelegatesTransfer.md
 docs/SmartContractInitiator.md
 docs/SmartContractWalletInfo.md
 docs/SmartContractWalletOperationType.md
@@ -190,6 +195,7 @@ docs/TSSRequest.md
 docs/TSSRequestStatus.md
 docs/TSSRequestType.md
 docs/TSSRequestWebhookEventData.md
+docs/TokenAssetModelType.md
 docs/TokenBalance.md
 docs/TokenBalanceBalance.md
 docs/TokenInfo.md
@@ -206,7 +212,9 @@ docs/TransactionDestination.md
 docs/TransactionDestinationType.md
 docs/TransactionDetail.md
 docs/TransactionDetails.md
+docs/TransactionEvmCalldataInfo.md
 docs/TransactionEvmContractDestination.md
+docs/TransactionEvmContractMethod.md
 docs/TransactionEvmEip1559Fee.md
 docs/TransactionEvmLegacyFee.md
 docs/TransactionExchangeWalletSource.md
@@ -217,6 +225,7 @@ docs/TransactionInitiatorType.md
 docs/TransactionMPCWalletSource.md
 docs/TransactionMessageSignEIP191Destination.md
 docs/TransactionMessageSignEIP712Destination.md
+docs/TransactionRawMessageSignDestination.md
 docs/TransactionRawTxInfo.md
 docs/TransactionRbf.md
 docs/TransactionRbfSource.md
@@ -252,6 +261,8 @@ docs/TransferDestination.md
 docs/TransferDestinationType.md
 docs/TransferParams.md
 docs/TransferSource.md
+docs/TriggerTestWebhookEvent201Response.md
+docs/TriggerTestWebhookEventRequest.md
 docs/UTXO.md
 docs/UpdateCustodialWalletParams.md
 docs/UpdateExchangeWalletParams.md
@@ -265,14 +276,13 @@ docs/UpdateWalletParams.md
 docs/UpdateWebhookEndpointByIdRequest.md
 docs/UtxoFeeBasePrice.md
 docs/UtxoFeeRate.md
-docs/WalletBalanceSnapshot.md
-docs/WalletBalanceSnapshotRecord.md
 docs/WalletInfo.md
 docs/WalletSubtype.md
 docs/WalletType.md
 docs/WalletsApi.md
 docs/WalletsExchangeWalletApi.md
 docs/WalletsMPCWalletsApi.md
+docs/WalletsSmartContractWalletsApi.md
 docs/WebhookEndpoint.md
 docs/WebhookEndpointStatus.md
 docs/WebhookEvent.md
@@ -287,6 +297,7 @@ package.json
 src/ApiClient.js
 src/Env.js
 src/PreRequestScript.js
+src/api/AddressBooksApi.js
 src/api/DevelopersWebhooksApi.js
 src/api/OAuthApi.js
 src/api/StakingsApi.js
@@ -294,6 +305,7 @@ src/api/TransactionsApi.js
 src/api/WalletsApi.js
 src/api/WalletsExchangeWalletApi.js
 src/api/WalletsMPCWalletsApi.js
+src/api/WalletsSmartContractWalletsApi.js
 src/crypto/ApiSigner.js
 src/index.js
 src/model/Activity.js
@@ -310,6 +322,8 @@ src/model/AddressTransferDestinationAccountOutput.js
 src/model/AddressTransferDestinationUtxoOutputsInner.js
 src/model/AmountDetailsInner.js
 src/model/AmountStatus.js
+src/model/ApiLogDetails.js
+src/model/ApiLogSummary.js
 src/model/AssetBalance.js
 src/model/AssetInfo.js
 src/model/BabylonStakeExtra.js
@@ -319,8 +333,6 @@ src/model/BaseContractCallSource.js
 src/model/BaseEstimateStakingFee.js
 src/model/BaseStakeExtra.js
 src/model/BaseStakeSource.js
-src/model/BookkeepingRecord.js
-src/model/BookkeepingSummary.js
 src/model/BroadcastSignedTransactions201ResponseInner.js
 src/model/BroadcastSignedTransactionsRequest.js
 src/model/ChainInfo.js
@@ -408,6 +420,7 @@ src/model/KeyShareHolderGroupStatus.js
 src/model/KeyShareHolderGroupType.js
 src/model/KeyShareHolderStatus.js
 src/model/KeyShareHolderType.js
+src/model/ListAddressBooks200Response.js
 src/model/ListAddresses200Response.js
 src/model/ListAssetBalancesForExchangeWallet200Response.js
 src/model/ListExchanges200ResponseInner.js
@@ -454,7 +467,7 @@ src/model/PoolDetails.js
 src/model/PoolDetailsAllOfValidatorsInfo.js
 src/model/PoolSummary.js
 src/model/RawMessageSignDestination.js
-src/model/RefreshToken200Response.js
+src/model/RefreshToken201Response.js
 src/model/RefreshTokenRequest.js
 src/model/ReplaceType.js
 src/model/RetryWebhookEventById201Response.js
@@ -462,6 +475,9 @@ src/model/RootPubkey.js
 src/model/SafeContractCallSource.js
 src/model/SafeTransferSource.js
 src/model/SafeWallet.js
+src/model/SafeWalletDelegates.js
+src/model/SafeWalletDelegatesContractCall.js
+src/model/SafeWalletDelegatesTransfer.js
 src/model/SmartContractInitiator.js
 src/model/SmartContractWalletInfo.js
 src/model/SmartContractWalletOperationType.js
@@ -479,6 +495,7 @@ src/model/TSSRequest.js
 src/model/TSSRequestStatus.js
 src/model/TSSRequestType.js
 src/model/TSSRequestWebhookEventData.js
+src/model/TokenAssetModelType.js
 src/model/TokenBalance.js
 src/model/TokenBalanceBalance.js
 src/model/TokenInfo.js
@@ -495,7 +512,9 @@ src/model/TransactionDestination.js
 src/model/TransactionDestinationType.js
 src/model/TransactionDetail.js
 src/model/TransactionDetails.js
+src/model/TransactionEvmCalldataInfo.js
 src/model/TransactionEvmContractDestination.js
+src/model/TransactionEvmContractMethod.js
 src/model/TransactionEvmEip1559Fee.js
 src/model/TransactionEvmLegacyFee.js
 src/model/TransactionExchangeWalletSource.js
@@ -506,6 +525,7 @@ src/model/TransactionInitiatorType.js
 src/model/TransactionMPCWalletSource.js
 src/model/TransactionMessageSignEIP191Destination.js
 src/model/TransactionMessageSignEIP712Destination.js
+src/model/TransactionRawMessageSignDestination.js
 src/model/TransactionRawTxInfo.js
 src/model/TransactionRbf.js
 src/model/TransactionRbfSource.js
@@ -540,6 +560,8 @@ src/model/TransferDestination.js
 src/model/TransferDestinationType.js
 src/model/TransferParams.js
 src/model/TransferSource.js
+src/model/TriggerTestWebhookEvent201Response.js
+src/model/TriggerTestWebhookEventRequest.js
 src/model/UTXO.js
 src/model/UpdateCustodialWalletParams.js
 src/model/UpdateExchangeWalletParams.js
@@ -553,8 +575,6 @@ src/model/UpdateWalletParams.js
 src/model/UpdateWebhookEndpointByIdRequest.js
 src/model/UtxoFeeBasePrice.js
 src/model/UtxoFeeRate.js
-src/model/WalletBalanceSnapshot.js
-src/model/WalletBalanceSnapshotRecord.js
 src/model/WalletInfo.js
 src/model/WalletSubtype.js
 src/model/WalletType.js
@@ -566,6 +586,7 @@ src/model/WebhookEventDataType.js
 src/model/WebhookEventLog.js
 src/model/WebhookEventStatus.js
 src/model/WebhookEventType.js
+test/api/AddressBooksApi.spec.js
 test/api/DevelopersWebhooksApi.spec.js
 test/api/OAuthApi.spec.js
 test/api/StakingsApi.spec.js
@@ -573,6 +594,7 @@ test/api/TransactionsApi.spec.js
 test/api/WalletsApi.spec.js
 test/api/WalletsExchangeWalletApi.spec.js
 test/api/WalletsMPCWalletsApi.spec.js
+test/api/WalletsSmartContractWalletsApi.spec.js
 test/model/Activity.spec.js
 test/model/ActivityAction.spec.js
 test/model/ActivityInitiator.spec.js
@@ -587,6 +609,8 @@ test/model/AddressTransferDestinationAccountOutput.spec.js
 test/model/AddressTransferDestinationUtxoOutputsInner.spec.js
 test/model/AmountDetailsInner.spec.js
 test/model/AmountStatus.spec.js
+test/model/ApiLogDetails.spec.js
+test/model/ApiLogSummary.spec.js
 test/model/AssetBalance.spec.js
 test/model/AssetInfo.spec.js
 test/model/BabylonStakeExtra.spec.js
@@ -596,8 +620,6 @@ test/model/BaseContractCallSource.spec.js
 test/model/BaseEstimateStakingFee.spec.js
 test/model/BaseStakeExtra.spec.js
 test/model/BaseStakeSource.spec.js
-test/model/BookkeepingRecord.spec.js
-test/model/BookkeepingSummary.spec.js
 test/model/BroadcastSignedTransactions201ResponseInner.spec.js
 test/model/BroadcastSignedTransactionsRequest.spec.js
 test/model/ChainInfo.spec.js
@@ -685,6 +707,7 @@ test/model/KeyShareHolderGroupStatus.spec.js
 test/model/KeyShareHolderGroupType.spec.js
 test/model/KeyShareHolderStatus.spec.js
 test/model/KeyShareHolderType.spec.js
+test/model/ListAddressBooks200Response.spec.js
 test/model/ListAddresses200Response.spec.js
 test/model/ListAssetBalancesForExchangeWallet200Response.spec.js
 test/model/ListExchanges200ResponseInner.spec.js
@@ -731,7 +754,7 @@ test/model/PoolDetails.spec.js
 test/model/PoolDetailsAllOfValidatorsInfo.spec.js
 test/model/PoolSummary.spec.js
 test/model/RawMessageSignDestination.spec.js
-test/model/RefreshToken200Response.spec.js
+test/model/RefreshToken201Response.spec.js
 test/model/RefreshTokenRequest.spec.js
 test/model/ReplaceType.spec.js
 test/model/RetryWebhookEventById201Response.spec.js
@@ -739,6 +762,9 @@ test/model/RootPubkey.spec.js
 test/model/SafeContractCallSource.spec.js
 test/model/SafeTransferSource.spec.js
 test/model/SafeWallet.spec.js
+test/model/SafeWalletDelegates.spec.js
+test/model/SafeWalletDelegatesContractCall.spec.js
+test/model/SafeWalletDelegatesTransfer.spec.js
 test/model/SmartContractInitiator.spec.js
 test/model/SmartContractWalletInfo.spec.js
 test/model/SmartContractWalletOperationType.spec.js
@@ -756,6 +782,7 @@ test/model/TSSRequest.spec.js
 test/model/TSSRequestStatus.spec.js
 test/model/TSSRequestType.spec.js
 test/model/TSSRequestWebhookEventData.spec.js
+test/model/TokenAssetModelType.spec.js
 test/model/TokenBalance.spec.js
 test/model/TokenBalanceBalance.spec.js
 test/model/TokenInfo.spec.js
@@ -772,7 +799,9 @@ test/model/TransactionDestination.spec.js
 test/model/TransactionDestinationType.spec.js
 test/model/TransactionDetail.spec.js
 test/model/TransactionDetails.spec.js
+test/model/TransactionEvmCalldataInfo.spec.js
 test/model/TransactionEvmContractDestination.spec.js
+test/model/TransactionEvmContractMethod.spec.js
 test/model/TransactionEvmEip1559Fee.spec.js
 test/model/TransactionEvmLegacyFee.spec.js
 test/model/TransactionExchangeWalletSource.spec.js
@@ -783,6 +812,7 @@ test/model/TransactionInitiatorType.spec.js
 test/model/TransactionMPCWalletSource.spec.js
 test/model/TransactionMessageSignEIP191Destination.spec.js
 test/model/TransactionMessageSignEIP712Destination.spec.js
+test/model/TransactionRawMessageSignDestination.spec.js
 test/model/TransactionRawTxInfo.spec.js
 test/model/TransactionRbf.spec.js
 test/model/TransactionRbfSource.spec.js
@@ -817,6 +847,8 @@ test/model/TransferDestination.spec.js
 test/model/TransferDestinationType.spec.js
 test/model/TransferParams.spec.js
 test/model/TransferSource.spec.js
+test/model/TriggerTestWebhookEvent201Response.spec.js
+test/model/TriggerTestWebhookEventRequest.spec.js
 test/model/UTXO.spec.js
 test/model/UpdateCustodialWalletParams.spec.js
 test/model/UpdateExchangeWalletParams.spec.js
@@ -830,8 +862,6 @@ test/model/UpdateWalletParams.spec.js
 test/model/UpdateWebhookEndpointByIdRequest.spec.js
 test/model/UtxoFeeBasePrice.spec.js
 test/model/UtxoFeeRate.spec.js
-test/model/WalletBalanceSnapshot.spec.js
-test/model/WalletBalanceSnapshotRecord.spec.js
 test/model/WalletInfo.spec.js
 test/model/WalletSubtype.spec.js
 test/model/WalletType.spec.js

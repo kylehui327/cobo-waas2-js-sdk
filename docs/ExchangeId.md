@@ -15,6 +15,10 @@
 
 * `bitget` (value: `"bitget"`)
 
+* `bitmart` (value: `"bitmart"`)
+
+* `bitfinex` (value: `"bitfinex"`)
+
 * `unknown_default_open_api` (value: `"unknown_default_open_api"`)
 
 

@@ -25,11 +25,10 @@ class TransactionSmartContractSafeWalletSource {
      * @param source_type {module:model/TransactionSourceType} 
      * @param wallet_id {String} The wallet ID.
      * @param address {String} The wallet address.
-     * @param delegate {module:model/CoboSafeDelegate} 
      */
-    constructor(source_type, wallet_id, address, delegate) { 
+    constructor(source_type, wallet_id, address) { 
         
-        TransactionSmartContractSafeWalletSource.initialize(this, source_type, wallet_id, address, delegate);
+        TransactionSmartContractSafeWalletSource.initialize(this, source_type, wallet_id, address);
     }
 
     /**
@@ -37,11 +36,10 @@ class TransactionSmartContractSafeWalletSource {
      * This method is used by the constructors of any subclasses, in order to implement multiple inheritance (mix-ins).
      * Only for internal use.
      */
-    static initialize(obj, source_type, wallet_id, address, delegate) { 
+    static initialize(obj, source_type, wallet_id, address) { 
         obj['source_type'] = source_type;
         obj['wallet_id'] = wallet_id;
         obj['address'] = address;
-        obj['delegate'] = delegate;
     }
 
     /**
@@ -104,7 +102,7 @@ class TransactionSmartContractSafeWalletSource {
 
 }
 
-TransactionSmartContractSafeWalletSource.RequiredProperties = ["source_type", "wallet_id", "address", "delegate"];
+TransactionSmartContractSafeWalletSource.RequiredProperties = ["source_type", "wallet_id", "address"];
 
 /**
  * @member {module:model/TransactionSourceType} source_type

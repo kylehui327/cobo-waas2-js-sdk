@@ -20,8 +20,8 @@ class TokenBalanceBalance {
      * Constructs a new <code>TokenBalanceBalance</code>.
      * The balance details.
      * @alias module:model/TokenBalanceBalance
-     * @param total {String} The total balance, which is the sum of the available, pending, and locked balances.
-     * @param available {String} The balance free to use.
+     * @param total {String} The current amount of tokens in an address, which is retrieved directly from the network. To learn more, see [Balances and transaction amounts for MPC Wallets](/v2/guides/mpc-wallets/balance-amounts) for more details.
+     * @param available {String} The amount of tokens ready to be spent. To learn more, see [Balances and transaction amounts for MPC Wallets](/v2/guides/mpc-wallets/balance-amounts) for more details.
      */
     constructor(total, available) { 
         
@@ -103,26 +103,26 @@ class TokenBalanceBalance {
 TokenBalanceBalance.RequiredProperties = ["total", "available"];
 
 /**
- * The total balance, which is the sum of the available, pending, and locked balances.
+ * The current amount of tokens in an address, which is retrieved directly from the network. To learn more, see [Balances and transaction amounts for MPC Wallets](/v2/guides/mpc-wallets/balance-amounts) for more details.
  * @member {String} total
  */
 TokenBalanceBalance.prototype['total'] = undefined;
 
 /**
- * The balance free to use.
+ * The amount of tokens ready to be spent. To learn more, see [Balances and transaction amounts for MPC Wallets](/v2/guides/mpc-wallets/balance-amounts) for more details.
  * @member {String} available
  */
 TokenBalanceBalance.prototype['available'] = undefined;
 
 /**
- * The balance that is currently pending confirmation.
+ * The total amount being sent in a transaction, which is calculated as the withdrawal amount plus the transaction fee. To learn more, see [Balances and transaction amounts for MPC Wallets](/v2/guides/mpc-wallets/balance-amounts) for more details.
  * @member {String} pending
  * @default '0'
  */
 TokenBalanceBalance.prototype['pending'] = '0';
 
 /**
- * The balance that is currently not accessible to transactions.
+ * For UTXO chains, this is the combined value of the selected UTXOs for the transaction. For other chains, it is equal to the Pending amount. To learn more, see [Balances and transaction amounts for MPC Wallets](/v2/guides/mpc-wallets/balance-amounts) for more details.
  * @member {String} locked
  * @default '0'
  */

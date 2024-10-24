@@ -94,6 +94,12 @@
       //expect(instance).to.be();
     });
 
+    it('should have the property chain_ids (base name: "chain_ids")', function() {
+      // uncomment below and update the code to test the property chain_ids
+      //var instance = new CoboWaas2.AddressBook();
+      //expect(instance).to.be();
+    });
+
     it('should have the property email (base name: "email")', function() {
       // uncomment below and update the code to test the property email
       //var instance = new CoboWaas2.AddressBook();

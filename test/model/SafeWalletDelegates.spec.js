@@ -26,7 +26,7 @@
   var instance;
 
   beforeEach(function() {
-    instance = new CoboWaas2.WalletBalanceSnapshotRecord();
+    instance = new CoboWaas2.SafeWalletDelegates();
   });
 
   var getProperty = function(object, getter, property) {
@@ -45,40 +45,46 @@
       object[property] = value;
   }
 
-  describe('WalletBalanceSnapshotRecord', function() {
-    it('should create an instance of WalletBalanceSnapshotRecord', function() {
-      // uncomment below and update the code to test WalletBalanceSnapshotRecord
-      //var instance = new CoboWaas2.WalletBalanceSnapshotRecord();
-      //expect(instance).to.be.a(CoboWaas2.WalletBalanceSnapshotRecord);
+  describe('SafeWalletDelegates', function() {
+    it('should create an instance of SafeWalletDelegates', function() {
+      // uncomment below and update the code to test SafeWalletDelegates
+      //var instance = new CoboWaas2.SafeWalletDelegates();
+      //expect(instance).to.be.a(CoboWaas2.SafeWalletDelegates);
     });
 
-    it('should have the property wallet_id (base name: "wallet_id")', function() {
-      // uncomment below and update the code to test the property wallet_id
-      //var instance = new CoboWaas2.WalletBalanceSnapshotRecord();
+    it('should have the property request_type (base name: "request_type")', function() {
+      // uncomment below and update the code to test the property request_type
+      //var instance = new CoboWaas2.SafeWalletDelegates();
       //expect(instance).to.be();
     });
 
-    it('should have the property wallet_type (base name: "wallet_type")', function() {
-      // uncomment below and update the code to test the property wallet_type
-      //var instance = new CoboWaas2.WalletBalanceSnapshotRecord();
+    it('should have the property address (base name: "address")', function() {
+      // uncomment below and update the code to test the property address
+      //var instance = new CoboWaas2.SafeWalletDelegates();
       //expect(instance).to.be();
     });
 
-    it('should have the property wallet_name (base name: "wallet_name")', function() {
-      // uncomment below and update the code to test the property wallet_name
-      //var instance = new CoboWaas2.WalletBalanceSnapshotRecord();
+    it('should have the property value (base name: "value")', function() {
+      // uncomment below and update the code to test the property value
+      //var instance = new CoboWaas2.SafeWalletDelegates();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property calldata (base name: "calldata")', function() {
+      // uncomment below and update the code to test the property calldata
+      //var instance = new CoboWaas2.SafeWalletDelegates();
       //expect(instance).to.be();
     });
 
     it('should have the property token_id (base name: "token_id")', function() {
       // uncomment below and update the code to test the property token_id
-      //var instance = new CoboWaas2.WalletBalanceSnapshotRecord();
+      //var instance = new CoboWaas2.SafeWalletDelegates();
       //expect(instance).to.be();
     });
 
-    it('should have the property balance (base name: "balance")', function() {
-      // uncomment below and update the code to test the property balance
-      //var instance = new CoboWaas2.WalletBalanceSnapshotRecord();
+    it('should have the property amount (base name: "amount")', function() {
+      // uncomment below and update the code to test the property amount
+      //var instance = new CoboWaas2.SafeWalletDelegates();
       //expect(instance).to.be();
     });
 

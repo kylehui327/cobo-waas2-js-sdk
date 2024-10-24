@@ -11,6 +11,7 @@
 
 import ApiClient from '../ApiClient';
 import TransactionDestinationType from './TransactionDestinationType';
+import TransactionEvmCalldataInfo from './TransactionEvmCalldataInfo';
 
 /**
  * The TransactionEvmContractDestination model module.
@@ -64,6 +65,9 @@ class TransactionEvmContractDestination {
             if (data.hasOwnProperty('calldata')) {
                 obj['calldata'] = ApiClient.convertToType(data['calldata'], 'String');
             }
+            if (data.hasOwnProperty('calldata_info')) {
+                obj['calldata_info'] = TransactionEvmCalldataInfo.constructFromObject(data['calldata_info']);
+            }
         }
         return obj;
     }
@@ -91,6 +95,12 @@ class TransactionEvmContractDestination {
         // ensure the json data is a string
         if (data['calldata'] && !(typeof data['calldata'] === 'string' || data['calldata'] instanceof String)) {
             throw new Error("Expected the field `calldata` to be a primitive type in the JSON string but got " + data['calldata']);
+        }
+        // validate the optional field `calldata_info`
+        if (data['calldata_info']) { // data not null
+          if (!!TransactionEvmCalldataInfo.validateJSON) {
+            TransactionEvmCalldataInfo.validateJSON(data['calldata_info']);
+          }
         }
 
         return true;
@@ -123,6 +133,11 @@ TransactionEvmContractDestination.prototype['value'] = undefined;
  * @member {String} calldata
  */
 TransactionEvmContractDestination.prototype['calldata'] = undefined;
+
+/**
+ * @member {module:model/TransactionEvmCalldataInfo} calldata_info
+ */
+TransactionEvmContractDestination.prototype['calldata_info'] = undefined;
 
 
 

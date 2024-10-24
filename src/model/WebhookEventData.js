@@ -315,7 +315,7 @@ WebhookEventData.prototype['category'] = undefined;
 WebhookEventData.prototype['description'] = undefined;
 
 /**
- * Whether the transaction is a Loop transfer. For more information about Loop, see [Loop's website](https://loop.top/).  - `true`: The transaction is a Loop transfer. - `false`: The transaction is not a Loop transfer. 
+ * Whether the transaction was executed as a [Cobo Loop](https://manuals.cobo.com/en/portal/custodial-wallets/cobo-loop) transfer. - `true`: The transaction was executed as a Cobo Loop transfer. - `false`: The transaction was not executed as a Cobo Loop transfer. 
  * @member {Boolean} is_loop
  */
 WebhookEventData.prototype['is_loop'] = undefined;

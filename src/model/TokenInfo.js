@@ -10,6 +10,7 @@
  */
 
 import ApiClient from '../ApiClient';
+import TokenAssetModelType from './TokenAssetModelType';
 
 /**
  * The TokenInfo model module.
@@ -87,6 +88,9 @@ class TokenInfo {
             }
             if (data.hasOwnProperty('custodial_minimum_deposit_threshold')) {
                 obj['custodial_minimum_deposit_threshold'] = ApiClient.convertToType(data['custodial_minimum_deposit_threshold'], 'String');
+            }
+            if (data.hasOwnProperty('asset_model_type')) {
+                obj['asset_model_type'] = TokenAssetModelType.constructFromObject(data['asset_model_type']);
             }
         }
         return obj;
@@ -220,16 +224,21 @@ TokenInfo.prototype['can_deposit'] = undefined;
 TokenInfo.prototype['can_withdraw'] = undefined;
 
 /**
- * The minimum withdrawal amount for Custodial Wallets. If your withdrawal amount is smaller than this threshold, the withdrawal request will receive an error.  Note: [Loop transfers](https://loop.top/) do not have this limitation. 
+ * The minimum withdrawal amount for Custodial Wallets. If your withdrawal amount is smaller than this threshold, the withdrawal request will receive an error.  Note: [Cobo Loop](https://manuals.cobo.com/en/portal/custodial-wallets/cobo-loop) transfers do not have this limitation. 
  * @member {String} dust_threshold
  */
 TokenInfo.prototype['dust_threshold'] = undefined;
 
 /**
- * The minimum deposit amount for Custodial Wallets. If the amount you deposit to a Custodial Wallet is smaller than this threshold, the deposit will not show up on Cobo Portal or trigger any webhook events.  Note: [Loop transfers](https://loop.top/) do not have this limitation. 
+ * The minimum deposit amount for Custodial Wallets. If the amount you deposit to a Custodial Wallet is smaller than this threshold, the deposit will not show up on Cobo Portal or trigger any webhook events.  Note: [Cobo Loop](https://manuals.cobo.com/en/portal/custodial-wallets/cobo-loop)transfers do not have this limitation. 
  * @member {String} custodial_minimum_deposit_threshold
  */
 TokenInfo.prototype['custodial_minimum_deposit_threshold'] = undefined;
+
+/**
+ * @member {module:model/TokenAssetModelType} asset_model_type
+ */
+TokenInfo.prototype['asset_model_type'] = undefined;
 
 
 

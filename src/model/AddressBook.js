@@ -19,12 +19,12 @@ import WalletType from './WalletType';
 class AddressBook {
     /**
      * Constructs a new <code>AddressBook</code>.
-     * The data for address book entry information.
+     * The information of an address book entry.
      * @alias module:model/AddressBook
-     * @param org_id {String} 
-     * @param entry_id {String} 
-     * @param address {String} address.
-     * @param label {String} The label to address.
+     * @param org_id {String} The organization ID.
+     * @param entry_id {String} The entry ID.
+     * @param address {String} The wallet address.
+     * @param label {String} The address label.
      */
     constructor(org_id, entry_id, address, label) { 
         
@@ -75,6 +75,9 @@ class AddressBook {
             if (data.hasOwnProperty('label')) {
                 obj['label'] = ApiClient.convertToType(data['label'], 'String');
             }
+            if (data.hasOwnProperty('chain_ids')) {
+                obj['chain_ids'] = ApiClient.convertToType(data['chain_ids'], ['String']);
+            }
             if (data.hasOwnProperty('email')) {
                 obj['email'] = ApiClient.convertToType(data['email'], 'String');
             }
@@ -118,6 +121,10 @@ class AddressBook {
         if (data['label'] && !(typeof data['label'] === 'string' || data['label'] instanceof String)) {
             throw new Error("Expected the field `label` to be a primitive type in the JSON string but got " + data['label']);
         }
+        // ensure the json data is an array
+        if (!Array.isArray(data['chain_ids'])) {
+            throw new Error("Expected the field `chain_ids` to be an array in the JSON data but got " + data['chain_ids']);
+        }
         // ensure the json data is a string
         if (data['email'] && !(typeof data['email'] === 'string' || data['email'] instanceof String)) {
             throw new Error("Expected the field `email` to be a primitive type in the JSON string but got " + data['email']);
@@ -132,29 +139,31 @@ class AddressBook {
 AddressBook.RequiredProperties = ["org_id", "entry_id", "address", "label"];
 
 /**
+ * The organization ID.
  * @member {String} org_id
  */
 AddressBook.prototype['org_id'] = undefined;
 
 /**
+ * The entry ID.
  * @member {String} entry_id
  */
 AddressBook.prototype['entry_id'] = undefined;
 
 /**
- * address.
+ * The wallet address.
  * @member {String} address
  */
 AddressBook.prototype['address'] = undefined;
 
 /**
- * memo.
+ * The memo.
  * @member {String} memo
  */
 AddressBook.prototype['memo'] = undefined;
 
 /**
- * wallet name.
+ * The wallet name.
  * @member {String} wallet_name
  */
 AddressBook.prototype['wallet_name'] = undefined;
@@ -165,13 +174,19 @@ AddressBook.prototype['wallet_name'] = undefined;
 AddressBook.prototype['wallet_type'] = undefined;
 
 /**
- * The label to address.
+ * The address label.
  * @member {String} label
  */
 AddressBook.prototype['label'] = undefined;
 
 /**
- * email.
+ * A list of chain IDs.
+ * @member {Array.<String>} chain_ids
+ */
+AddressBook.prototype['chain_ids'] = undefined;
+
+/**
+ * The email of the address owner.
  * @member {String} email
  */
 AddressBook.prototype['email'] = undefined;

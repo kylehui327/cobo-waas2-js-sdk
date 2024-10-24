@@ -26,7 +26,7 @@
   var instance;
 
   beforeEach(function() {
-    instance = new CoboWaas2.RefreshToken200Response();
+    instance = new CoboWaas2.TransactionEvmContractMethod();
   });
 
   var getProperty = function(object, getter, property) {
@@ -45,40 +45,40 @@
       object[property] = value;
   }
 
-  describe('RefreshToken200Response', function() {
-    it('should create an instance of RefreshToken200Response', function() {
-      // uncomment below and update the code to test RefreshToken200Response
-      //var instance = new CoboWaas2.RefreshToken200Response();
-      //expect(instance).to.be.a(CoboWaas2.RefreshToken200Response);
+  describe('TransactionEvmContractMethod', function() {
+    it('should create an instance of TransactionEvmContractMethod', function() {
+      // uncomment below and update the code to test TransactionEvmContractMethod
+      //var instance = new CoboWaas2.TransactionEvmContractMethod();
+      //expect(instance).to.be.a(CoboWaas2.TransactionEvmContractMethod);
     });
 
-    it('should have the property access_token (base name: "access_token")', function() {
-      // uncomment below and update the code to test the property access_token
-      //var instance = new CoboWaas2.RefreshToken200Response();
+    it('should have the property name (base name: "name")', function() {
+      // uncomment below and update the code to test the property name
+      //var instance = new CoboWaas2.TransactionEvmContractMethod();
       //expect(instance).to.be();
     });
 
-    it('should have the property token_type (base name: "token_type")', function() {
-      // uncomment below and update the code to test the property token_type
-      //var instance = new CoboWaas2.RefreshToken200Response();
+    it('should have the property sig (base name: "sig")', function() {
+      // uncomment below and update the code to test the property sig
+      //var instance = new CoboWaas2.TransactionEvmContractMethod();
       //expect(instance).to.be();
     });
 
-    it('should have the property scope (base name: "scope")', function() {
-      // uncomment below and update the code to test the property scope
-      //var instance = new CoboWaas2.RefreshToken200Response();
+    it('should have the property type (base name: "type")', function() {
+      // uncomment below and update the code to test the property type
+      //var instance = new CoboWaas2.TransactionEvmContractMethod();
       //expect(instance).to.be();
     });
 
-    it('should have the property expires_in (base name: "expires_in")', function() {
-      // uncomment below and update the code to test the property expires_in
-      //var instance = new CoboWaas2.RefreshToken200Response();
+    it('should have the property payable (base name: "payable")', function() {
+      // uncomment below and update the code to test the property payable
+      //var instance = new CoboWaas2.TransactionEvmContractMethod();
       //expect(instance).to.be();
     });
 
-    it('should have the property refresh_token (base name: "refresh_token")', function() {
-      // uncomment below and update the code to test the property refresh_token
-      //var instance = new CoboWaas2.RefreshToken200Response();
+    it('should have the property selector (base name: "selector")', function() {
+      // uncomment below and update the code to test the property selector
+      //var instance = new CoboWaas2.TransactionEvmContractMethod();
       //expect(instance).to.be();
     });
 
