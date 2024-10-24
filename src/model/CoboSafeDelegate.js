@@ -138,13 +138,13 @@ class CoboSafeDelegate {
 CoboSafeDelegate.prototype['delegate_type'] = undefined;
 
 /**
- * The wallet ID of the Delegate. This is required when initiating a transfer from Smart Contract Wallets (Safe{Wallet}).
+ * The wallet ID of the Delegate. This is required when initiating a transfer or contract call from Smart Contract Wallets (Safe{Wallet}).
  * @member {String} wallet_id
  */
 CoboSafeDelegate.prototype['wallet_id'] = undefined;
 
 /**
- * The wallet address of the Delegate. This is required when initiating a transfer from Smart Contract Wallets (Safe{Wallet}).
+ * The wallet address of the Delegate. This is required when initiating a transfer or contract call from Smart Contract Wallets (Safe{Wallet}).
  * @member {String} address
  */
 CoboSafeDelegate.prototype['address'] = undefined;

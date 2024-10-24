@@ -13,6 +13,8 @@
 
 * `EVM_EIP_712_Signature` (value: `"EVM_EIP_712_Signature"`)
 
+* `Raw_Message_Signature` (value: `"Raw_Message_Signature"`)
+
 * `DepositToAddress` (value: `"DepositToAddress"`)
 
 * `DepositToWallet` (value: `"DepositToWallet"`)

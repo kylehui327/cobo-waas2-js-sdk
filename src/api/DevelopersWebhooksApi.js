@@ -18,6 +18,8 @@ import ListWebhookEventDefinitions200ResponseInner from '../model/ListWebhookEve
 import ListWebhookEventLogs200Response from '../model/ListWebhookEventLogs200Response';
 import ListWebhookEvents200Response from '../model/ListWebhookEvents200Response';
 import RetryWebhookEventById201Response from '../model/RetryWebhookEventById201Response';
+import TriggerTestWebhookEvent201Response from '../model/TriggerTestWebhookEvent201Response';
+import TriggerTestWebhookEventRequest from '../model/TriggerTestWebhookEventRequest';
 import UpdateWebhookEndpointByIdRequest from '../model/UpdateWebhookEndpointByIdRequest';
 import WebhookEndpoint from '../model/WebhookEndpoint';
 import WebhookEndpointStatus from '../model/WebhookEndpointStatus';
@@ -499,6 +501,55 @@ export default class DevelopersWebhooksApi {
      */
     retryWebhookEventById(event_id, endpoint_id) {
       return this.retryWebhookEventByIdWithHttpInfo(event_id, endpoint_id)
+        .then(function(response_and_data) {
+          return response_and_data.data;
+        });
+    }
+
+
+    /**
+     * Trigger test event
+     * This operation tests the functionality of your webhook endpoint by triggering a test webhook event.   You only need to provide the event type. By default, the payload contains dummy data with no impact on your real business transactions or activities. You can optionally provide the `override_data` property to customize the payload. 
+     * @param {Object} opts Optional parameters
+     * @param {module:model/TriggerTestWebhookEventRequest} [TriggerTestWebhookEventRequest] The request body used to trigger a test webhook event. 
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/TriggerTestWebhookEvent201Response} and HTTP response
+     */
+    triggerTestWebhookEventWithHttpInfo(opts) {
+      opts = opts || {};
+      let postBody = opts['TriggerTestWebhookEventRequest'];
+      if (postBody && postBody.toJSON) {
+          postBody = postBody.toJSON()
+      }
+
+      let pathParams = {
+      };
+      let queryParams = {
+      };
+      let headerParams = {
+      };
+      let formParams = {
+      };
+
+      let authNames = ['CoboAuth'];
+      let contentTypes = ['application/json'];
+      let accepts = ['application/json'];
+      let returnType = TriggerTestWebhookEvent201Response;
+      return this.apiClient.callApi(
+        '/webhooks/events/trigger', 'POST',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, null
+      );
+    }
+
+    /**
+     * Trigger test event
+     * This operation tests the functionality of your webhook endpoint by triggering a test webhook event.   You only need to provide the event type. By default, the payload contains dummy data with no impact on your real business transactions or activities. You can optionally provide the `override_data` property to customize the payload. 
+     * @param {Object} opts Optional parameters
+     * @param {module:model/TriggerTestWebhookEventRequest} opts.TriggerTestWebhookEventRequest The request body used to trigger a test webhook event. 
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/TriggerTestWebhookEvent201Response}
+     */
+    triggerTestWebhookEvent(opts) {
+      return this.triggerTestWebhookEventWithHttpInfo(opts)
         .then(function(response_and_data) {
           return response_and_data.data;
         });

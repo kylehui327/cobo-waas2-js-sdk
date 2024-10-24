@@ -60,6 +60,20 @@ export default class ExchangeId {
 
     
         /**
+         * value: "bitmart"
+         * @const
+         */
+        "bitmart" = "bitmart";
+
+    
+        /**
+         * value: "bitfinex"
+         * @const
+         */
+        "bitfinex" = "bitfinex";
+
+    
+        /**
          * value: "unknown_default_open_api"
          * @const
          */

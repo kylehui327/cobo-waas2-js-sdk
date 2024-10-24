@@ -26,7 +26,7 @@
   var instance;
 
   beforeEach(function() {
-    instance = new CoboWaas2.BookkeepingSummary();
+    instance = new CoboWaas2.SafeWalletDelegatesContractCall();
   });
 
   var getProperty = function(object, getter, property) {
@@ -45,34 +45,34 @@
       object[property] = value;
   }
 
-  describe('BookkeepingSummary', function() {
-    it('should create an instance of BookkeepingSummary', function() {
-      // uncomment below and update the code to test BookkeepingSummary
-      //var instance = new CoboWaas2.BookkeepingSummary();
-      //expect(instance).to.be.a(CoboWaas2.BookkeepingSummary);
+  describe('SafeWalletDelegatesContractCall', function() {
+    it('should create an instance of SafeWalletDelegatesContractCall', function() {
+      // uncomment below and update the code to test SafeWalletDelegatesContractCall
+      //var instance = new CoboWaas2.SafeWalletDelegatesContractCall();
+      //expect(instance).to.be.a(CoboWaas2.SafeWalletDelegatesContractCall);
     });
 
-    it('should have the property total_transaction_count (base name: "total_transaction_count")', function() {
-      // uncomment below and update the code to test the property total_transaction_count
-      //var instance = new CoboWaas2.BookkeepingSummary();
+    it('should have the property request_type (base name: "request_type")', function() {
+      // uncomment below and update the code to test the property request_type
+      //var instance = new CoboWaas2.SafeWalletDelegatesContractCall();
       //expect(instance).to.be();
     });
 
-    it('should have the property total_inflow_value (base name: "total_inflow_value")', function() {
-      // uncomment below and update the code to test the property total_inflow_value
-      //var instance = new CoboWaas2.BookkeepingSummary();
+    it('should have the property address (base name: "address")', function() {
+      // uncomment below and update the code to test the property address
+      //var instance = new CoboWaas2.SafeWalletDelegatesContractCall();
       //expect(instance).to.be();
     });
 
-    it('should have the property total_outflow_value (base name: "total_outflow_value")', function() {
-      // uncomment below and update the code to test the property total_outflow_value
-      //var instance = new CoboWaas2.BookkeepingSummary();
+    it('should have the property value (base name: "value")', function() {
+      // uncomment below and update the code to test the property value
+      //var instance = new CoboWaas2.SafeWalletDelegatesContractCall();
       //expect(instance).to.be();
     });
 
-    it('should have the property total_fee_value (base name: "total_fee_value")', function() {
-      // uncomment below and update the code to test the property total_fee_value
-      //var instance = new CoboWaas2.BookkeepingSummary();
+    it('should have the property calldata (base name: "calldata")', function() {
+      // uncomment below and update the code to test the property calldata
+      //var instance = new CoboWaas2.SafeWalletDelegatesContractCall();
       //expect(instance).to.be();
     });
 

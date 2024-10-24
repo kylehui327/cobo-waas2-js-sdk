@@ -130,6 +130,12 @@
       //expect(instance).to.be();
     });
 
+    it('should have the property asset_model_type (base name: "asset_model_type")', function() {
+      // uncomment below and update the code to test the property asset_model_type
+      //var instance = new CoboWaas2.TokenInfo();
+      //expect(instance).to.be();
+    });
+
   });
 
 }));

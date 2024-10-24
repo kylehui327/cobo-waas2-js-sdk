@@ -20,7 +20,7 @@ class ErrorResponse {
      * Constructs a new <code>ErrorResponse</code>.
      * The response of a failed request.
      * @alias module:model/ErrorResponse
-     * @param error_code {Number} The error code.
+     * @param error_code {Number} The error code. Refer to [Error codes and status codes](/v2/api-references/error-codes) for more details.
      * @param error_message {String} The error description.
      * @param error_id {String} The error log ID. You can provide the error ID when submitting a ticket to help Cobo to locate the issue.
      */
@@ -94,7 +94,7 @@ class ErrorResponse {
 ErrorResponse.RequiredProperties = ["error_code", "error_message", "error_id"];
 
 /**
- * The error code.
+ * The error code. Refer to [Error codes and status codes](/v2/api-references/error-codes) for more details.
  * @member {Number} error_code
  */
 ErrorResponse.prototype['error_code'] = undefined;

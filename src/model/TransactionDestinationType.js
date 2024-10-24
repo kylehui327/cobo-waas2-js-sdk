@@ -53,6 +53,13 @@ export default class TransactionDestinationType {
 
     
         /**
+         * value: "Raw_Message_Signature"
+         * @const
+         */
+        "Raw_Message_Signature" = "Raw_Message_Signature";
+
+    
+        /**
          * value: "DepositToAddress"
          * @const
          */

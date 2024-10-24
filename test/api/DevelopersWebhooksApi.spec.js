@@ -116,6 +116,16 @@ import {ApiClient, Env} from "../../src/index.js";
         //});
       });
     });
+    describe('triggerTestWebhookEvent', function() {
+      it('should call triggerTestWebhookEvent successfully', function() {
+        //uncomment below and update the code to test triggerTestWebhookEvent
+        //instance.triggerTestWebhookEvent().then(function(data) {
+        //    console.log(data);
+        //}, function(error) {
+        //    console.error(error);
+        //});
+      });
+    });
     describe('updateWebhookEndpointById', function() {
       it('should call updateWebhookEndpointById successfully', function() {
         //uncomment below and update the code to test updateWebhookEndpointById

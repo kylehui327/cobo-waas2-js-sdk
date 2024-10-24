@@ -76,6 +76,12 @@
       //expect(instance).to.be();
     });
 
+    it('should have the property calldata_info (base name: "calldata_info")', function() {
+      // uncomment below and update the code to test the property calldata_info
+      //var instance = new CoboWaas2.TransactionEvmContractDestination();
+      //expect(instance).to.be();
+    });
+
   });
 
 }));
