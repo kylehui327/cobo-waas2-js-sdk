@@ -1,4 +1,4 @@
-# CoboWaas2.GetToken200Response
+# CoboWaas2.GetToken2XXResponse
 
 ## Properties
 

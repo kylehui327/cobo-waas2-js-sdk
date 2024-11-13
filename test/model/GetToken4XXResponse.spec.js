@@ -58,8 +58,8 @@
       //expect(instance).to.be();
     });
 
-    it('should have the property error_message (base name: "error_message")', function() {
-      // uncomment below and update the code to test the property error_message
+    it('should have the property error_description (base name: "error_description")', function() {
+      // uncomment below and update the code to test the property error_description
       //var instance = new CoboWaas2.GetToken4XXResponse();
       //expect(instance).to.be();
     });

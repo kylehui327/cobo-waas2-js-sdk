@@ -64,12 +64,6 @@
       //expect(instance).to.be();
     });
 
-    it('should have the property script (base name: "script")', function() {
-      // uncomment below and update the code to test the property script
-      //var instance = new CoboWaas2.TransactionTransferToAddressDestinationUtxoOutputsInner();
-      //expect(instance).to.be();
-    });
-
   });
 
 }));

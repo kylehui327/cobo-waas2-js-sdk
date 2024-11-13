@@ -36,6 +36,16 @@ import {ApiClient, Env} from "../../src/index.js";
   });
 
   describe('WalletsApi', function() {
+    describe('checkAddressChainsValidity', function() {
+      it('should call checkAddressChainsValidity successfully', function() {
+        //uncomment below and update the code to test checkAddressChainsValidity
+        //instance.checkAddressChainsValidity().then(function(data) {
+        //    console.log(data);
+        //}, function(error) {
+        //    console.error(error);
+        //});
+      });
+    });
     describe('checkAddressValidity', function() {
       it('should call checkAddressValidity successfully', function() {
         //uncomment below and update the code to test checkAddressValidity
@@ -80,16 +90,6 @@ import {ApiClient, Env} from "../../src/index.js";
       it('should call deleteWalletById successfully', function() {
         //uncomment below and update the code to test deleteWalletById
         //instance.deleteWalletById().then(function(data) {
-        //    console.log(data);
-        //}, function(error) {
-        //    console.error(error);
-        //});
-      });
-    });
-    describe('getAddress', function() {
-      it('should call getAddress successfully', function() {
-        //uncomment below and update the code to test getAddress
-        //instance.getAddress().then(function(data) {
         //    console.log(data);
         //}, function(error) {
         //    console.error(error);

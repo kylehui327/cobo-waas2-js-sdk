@@ -192,6 +192,12 @@ BabylonValidator['SupportedPosChainsEnum'] = {
     "Cosmos": "Cosmos",
 
     /**
+     * value: "Ethereum"
+     * @const
+     */
+    "Ethereum": "Ethereum",
+
+    /**
      * value: "unknown_default_open_api"
      * @const
      */

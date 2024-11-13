@@ -12,6 +12,7 @@
 import ApiClient from '../ApiClient';
 import ActivityInitiator from './ActivityInitiator';
 import CreateUnstakeActivity from './CreateUnstakeActivity';
+import CreateUnstakeActivityExtra from './CreateUnstakeActivityExtra';
 import TransactionRequestFee from './TransactionRequestFee';
 
 /**
@@ -65,6 +66,9 @@ class CreateUnstakeActivityRequest {
             if (data.hasOwnProperty('fee')) {
                 obj['fee'] = TransactionRequestFee.constructFromObject(data['fee']);
             }
+            if (data.hasOwnProperty('extra')) {
+                obj['extra'] = CreateUnstakeActivityExtra.constructFromObject(data['extra']);
+            }
             if (data.hasOwnProperty('app_initiator')) {
                 obj['app_initiator'] = ApiClient.convertToType(data['app_initiator'], 'String');
             }
@@ -100,6 +104,12 @@ class CreateUnstakeActivityRequest {
         if (data['fee']) { // data not null
           if (!!TransactionRequestFee.validateJSON) {
             TransactionRequestFee.validateJSON(data['fee']);
+          }
+        }
+        // validate the optional field `extra`
+        if (data['extra']) { // data not null
+          if (!!CreateUnstakeActivityExtra.validateJSON) {
+            CreateUnstakeActivityExtra.validateJSON(data['extra']);
           }
         }
         // ensure the json data is a string
@@ -139,6 +149,11 @@ CreateUnstakeActivityRequest.prototype['amount'] = undefined;
 CreateUnstakeActivityRequest.prototype['fee'] = undefined;
 
 /**
+ * @member {module:model/CreateUnstakeActivityExtra} extra
+ */
+CreateUnstakeActivityRequest.prototype['extra'] = undefined;
+
+/**
  * The initiator of the staking activity. If you do not specify this property, the WaaS service will automatically designate the API key as the initiator.
  * @member {String} app_initiator
  */
@@ -165,6 +180,10 @@ CreateUnstakeActivity.prototype['amount'] = undefined;
  * @member {module:model/TransactionRequestFee} fee
  */
 CreateUnstakeActivity.prototype['fee'] = undefined;
+/**
+ * @member {module:model/CreateUnstakeActivityExtra} extra
+ */
+CreateUnstakeActivity.prototype['extra'] = undefined;
 // Implement ActivityInitiator interface:
 /**
  * The initiator of the staking activity. If you do not specify this property, the WaaS service will automatically designate the API key as the initiator.

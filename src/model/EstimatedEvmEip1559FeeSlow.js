@@ -40,7 +40,7 @@ class EstimatedEvmEip1559FeeSlow {
     static initialize(obj, max_fee_per_gas, max_priority_fee_per_gas, gas_limit) { 
         obj['max_fee_per_gas'] = max_fee_per_gas;
         obj['max_priority_fee_per_gas'] = max_priority_fee_per_gas;
-        obj['gas_limit'] = gas_limit || '21000';
+        obj['gas_limit'] = gas_limit;
     }
 
     /**
@@ -117,9 +117,8 @@ EstimatedEvmEip1559FeeSlow.prototype['max_priority_fee_per_gas'] = undefined;
 /**
  * The gas limit. It represents the maximum number of gas units that you are willing to pay for the execution of a transaction or Ethereum Virtual Machine (EVM) operation. The gas unit cost of each operation varies.
  * @member {String} gas_limit
- * @default '21000'
  */
-EstimatedEvmEip1559FeeSlow.prototype['gas_limit'] = '21000';
+EstimatedEvmEip1559FeeSlow.prototype['gas_limit'] = undefined;
 
 
 // Implement EvmEip1559FeeBasePrice interface:
@@ -137,9 +136,8 @@ EvmEip1559FeeBasePrice.prototype['max_priority_fee_per_gas'] = undefined;
 /**
  * The gas limit. It represents the maximum number of gas units that you are willing to pay for the execution of a transaction or Ethereum Virtual Machine (EVM) operation. The gas unit cost of each operation varies.
  * @member {String} gas_limit
- * @default '21000'
  */
-FeeGasLimit.prototype['gas_limit'] = '21000';
+FeeGasLimit.prototype['gas_limit'] = undefined;
 
 
 

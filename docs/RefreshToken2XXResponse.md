@@ -1,4 +1,4 @@
-# CoboWaas2.RefreshToken201Response
+# CoboWaas2.RefreshToken2XXResponse
 
 ## Properties
 

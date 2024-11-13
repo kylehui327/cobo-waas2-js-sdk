@@ -25,6 +25,13 @@ export default class StakingPoolType {
 
     
         /**
+         * value: "ETHBeacon"
+         * @const
+         */
+        "ETHBeacon" = "ETHBeacon";
+
+    
+        /**
          * value: "unknown_default_open_api"
          * @const
          */

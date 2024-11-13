@@ -135,13 +135,13 @@ AddressTransferDestination.prototype['utxo_outputs'] = undefined;
 AddressTransferDestination.prototype['change_address'] = undefined;
 
 /**
- * Whether the transaction request must be executed as a [Cobo Loop](https://manuals.cobo.com/en/portal/custodial-wallets/cobo-loop) transfer.   - `true`: The transaction request must be executed as a Cobo Loop transfer.   - `false`: The transaction request may not be executed as a Cobo Loop transfer.    Please do not set both `force_internal` and `force_internal` as `true`. 
+ * Whether the transaction request must be executed as a [Cobo Loop](https://manuals.cobo.com/en/portal/custodial-wallets/cobo-loop) transfer.   - `true`: The transaction request must be executed as a Cobo Loop transfer.   - `false`: The transaction request may not be executed as a Cobo Loop transfer.    Please do not set both `force_internal` and `force_external` as `true`. 
  * @member {Boolean} force_internal
  */
 AddressTransferDestination.prototype['force_internal'] = undefined;
 
 /**
- * Whether the transaction request must not be executed as a [Cobo Loop](https://manuals.cobo.com/en/portal/custodial-wallets/cobo-loop) transfer.   - `true`: The transaction request must not be executed as a Cobo Loop transfer.   - `false`: The transaction request can be executed as a Cobo Loop transfer.  Please do not set both `force_internal` and `force_internal` as `true`. 
+ * Whether the transaction request must not be executed as a [Cobo Loop](https://manuals.cobo.com/en/portal/custodial-wallets/cobo-loop) transfer.   - `true`: The transaction request must not be executed as a Cobo Loop transfer.   - `false`: The transaction request can be executed as a Cobo Loop transfer.  Please do not set both `force_internal` and `force_external` as `true`. 
  * @member {Boolean} force_external
  */
 AddressTransferDestination.prototype['force_external'] = undefined;

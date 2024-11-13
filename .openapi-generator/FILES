@@ -23,6 +23,7 @@ docs/ApiLogDetails.md
 docs/ApiLogSummary.md
 docs/AssetBalance.md
 docs/AssetInfo.md
+docs/BabylonStakeEstimatedFee.md
 docs/BabylonStakeExtra.md
 docs/BabylonStakingExtra.md
 docs/BabylonValidator.md
@@ -33,6 +34,7 @@ docs/BaseStakeSource.md
 docs/BroadcastSignedTransactions201ResponseInner.md
 docs/BroadcastSignedTransactionsRequest.md
 docs/ChainInfo.md
+docs/CheckAddressChainsValidity200ResponseInner.md
 docs/CheckAddressValidity200Response.md
 docs/CheckAddressesValidity200ResponseInner.md
 docs/CheckLoopTransfers200ResponseInner.md
@@ -60,6 +62,7 @@ docs/CreateStakeActivityRequest.md
 docs/CreateTransferTransaction201Response.md
 docs/CreateTssRequestRequest.md
 docs/CreateUnstakeActivity.md
+docs/CreateUnstakeActivityExtra.md
 docs/CreateUnstakeActivityRequest.md
 docs/CreateWalletParams.md
 docs/CreateWebhookEndpointRequest.md
@@ -71,6 +74,7 @@ docs/CustodialTransferSource.md
 docs/CustodialWalletInfo.md
 docs/DeleteKeyShareHolderGroupById201Response.md
 docs/DeleteWalletById201Response.md
+docs/DevelopersApi.md
 docs/DevelopersWebhooksApi.md
 docs/EigenLayerLstStakeExtra.md
 docs/EigenLayerNativeStakeExtra.md
@@ -91,6 +95,10 @@ docs/EstimatedFee.md
 docs/EstimatedFixedFee.md
 docs/EstimatedUtxoFee.md
 docs/EstimatedUtxoFeeSlow.md
+docs/EthStakeEstimatedFee.md
+docs/EthStakeExtra.md
+docs/EthStakingExtra.md
+docs/EthUnstakeExtra.md
 docs/EvmContractCallDestination.md
 docs/EvmEIP191MessageSignDestination.md
 docs/EvmEIP712MessageSignDestination.md
@@ -108,9 +116,10 @@ docs/FeeGasLimit.md
 docs/FeeRate.md
 docs/FeeType.md
 docs/FixedFeeRate.md
+docs/GetApiKeyInfo200Response.md
 docs/GetStakingEstimationFee201Response.md
 docs/GetStakingEstimationFeeRequest.md
-docs/GetToken200Response.md
+docs/GetToken2XXResponse.md
 docs/GetToken4XXResponse.md
 docs/KeyShareHolder.md
 docs/KeyShareHolderGroup.md
@@ -166,10 +175,11 @@ docs/PoolDetails.md
 docs/PoolDetailsAllOfValidatorsInfo.md
 docs/PoolSummary.md
 docs/RawMessageSignDestination.md
-docs/RefreshToken201Response.md
+docs/RefreshToken2XXResponse.md
 docs/RefreshTokenRequest.md
 docs/ReplaceType.md
 docs/RetryWebhookEventById201Response.md
+docs/RoleScopes.md
 docs/RootPubkey.md
 docs/SafeContractCallSource.md
 docs/SafeTransferSource.md
@@ -177,6 +187,7 @@ docs/SafeWallet.md
 docs/SafeWalletDelegates.md
 docs/SafeWalletDelegatesContractCall.md
 docs/SafeWalletDelegatesTransfer.md
+docs/Scopes.md
 docs/SmartContractInitiator.md
 docs/SmartContractWalletInfo.md
 docs/SmartContractWalletOperationType.md
@@ -297,7 +308,9 @@ package.json
 src/ApiClient.js
 src/Env.js
 src/PreRequestScript.js
+src/ServerDemo.js
 src/api/AddressBooksApi.js
+src/api/DevelopersApi.js
 src/api/DevelopersWebhooksApi.js
 src/api/OAuthApi.js
 src/api/StakingsApi.js
@@ -326,6 +339,7 @@ src/model/ApiLogDetails.js
 src/model/ApiLogSummary.js
 src/model/AssetBalance.js
 src/model/AssetInfo.js
+src/model/BabylonStakeEstimatedFee.js
 src/model/BabylonStakeExtra.js
 src/model/BabylonStakingExtra.js
 src/model/BabylonValidator.js
@@ -336,6 +350,7 @@ src/model/BaseStakeSource.js
 src/model/BroadcastSignedTransactions201ResponseInner.js
 src/model/BroadcastSignedTransactionsRequest.js
 src/model/ChainInfo.js
+src/model/CheckAddressChainsValidity200ResponseInner.js
 src/model/CheckAddressValidity200Response.js
 src/model/CheckAddressesValidity200ResponseInner.js
 src/model/CheckLoopTransfers200ResponseInner.js
@@ -363,6 +378,7 @@ src/model/CreateStakeActivityRequest.js
 src/model/CreateTransferTransaction201Response.js
 src/model/CreateTssRequestRequest.js
 src/model/CreateUnstakeActivity.js
+src/model/CreateUnstakeActivityExtra.js
 src/model/CreateUnstakeActivityRequest.js
 src/model/CreateWalletParams.js
 src/model/CreateWebhookEndpointRequest.js
@@ -393,6 +409,10 @@ src/model/EstimatedFee.js
 src/model/EstimatedFixedFee.js
 src/model/EstimatedUtxoFee.js
 src/model/EstimatedUtxoFeeSlow.js
+src/model/EthStakeEstimatedFee.js
+src/model/EthStakeExtra.js
+src/model/EthStakingExtra.js
+src/model/EthUnstakeExtra.js
 src/model/EvmContractCallDestination.js
 src/model/EvmEIP191MessageSignDestination.js
 src/model/EvmEIP712MessageSignDestination.js
@@ -410,9 +430,10 @@ src/model/FeeGasLimit.js
 src/model/FeeRate.js
 src/model/FeeType.js
 src/model/FixedFeeRate.js
+src/model/GetApiKeyInfo200Response.js
 src/model/GetStakingEstimationFee201Response.js
 src/model/GetStakingEstimationFeeRequest.js
-src/model/GetToken200Response.js
+src/model/GetToken2XXResponse.js
 src/model/GetToken4XXResponse.js
 src/model/KeyShareHolder.js
 src/model/KeyShareHolderGroup.js
@@ -467,10 +488,11 @@ src/model/PoolDetails.js
 src/model/PoolDetailsAllOfValidatorsInfo.js
 src/model/PoolSummary.js
 src/model/RawMessageSignDestination.js
-src/model/RefreshToken201Response.js
+src/model/RefreshToken2XXResponse.js
 src/model/RefreshTokenRequest.js
 src/model/ReplaceType.js
 src/model/RetryWebhookEventById201Response.js
+src/model/RoleScopes.js
 src/model/RootPubkey.js
 src/model/SafeContractCallSource.js
 src/model/SafeTransferSource.js
@@ -478,6 +500,7 @@ src/model/SafeWallet.js
 src/model/SafeWalletDelegates.js
 src/model/SafeWalletDelegatesContractCall.js
 src/model/SafeWalletDelegatesTransfer.js
+src/model/Scopes.js
 src/model/SmartContractInitiator.js
 src/model/SmartContractWalletInfo.js
 src/model/SmartContractWalletOperationType.js
@@ -587,6 +610,7 @@ src/model/WebhookEventLog.js
 src/model/WebhookEventStatus.js
 src/model/WebhookEventType.js
 test/api/AddressBooksApi.spec.js
+test/api/DevelopersApi.spec.js
 test/api/DevelopersWebhooksApi.spec.js
 test/api/OAuthApi.spec.js
 test/api/StakingsApi.spec.js
@@ -613,6 +637,7 @@ test/model/ApiLogDetails.spec.js
 test/model/ApiLogSummary.spec.js
 test/model/AssetBalance.spec.js
 test/model/AssetInfo.spec.js
+test/model/BabylonStakeEstimatedFee.spec.js
 test/model/BabylonStakeExtra.spec.js
 test/model/BabylonStakingExtra.spec.js
 test/model/BabylonValidator.spec.js
@@ -623,6 +648,7 @@ test/model/BaseStakeSource.spec.js
 test/model/BroadcastSignedTransactions201ResponseInner.spec.js
 test/model/BroadcastSignedTransactionsRequest.spec.js
 test/model/ChainInfo.spec.js
+test/model/CheckAddressChainsValidity200ResponseInner.spec.js
 test/model/CheckAddressValidity200Response.spec.js
 test/model/CheckAddressesValidity200ResponseInner.spec.js
 test/model/CheckLoopTransfers200ResponseInner.spec.js
@@ -650,6 +676,7 @@ test/model/CreateStakeActivityRequest.spec.js
 test/model/CreateTransferTransaction201Response.spec.js
 test/model/CreateTssRequestRequest.spec.js
 test/model/CreateUnstakeActivity.spec.js
+test/model/CreateUnstakeActivityExtra.spec.js
 test/model/CreateUnstakeActivityRequest.spec.js
 test/model/CreateWalletParams.spec.js
 test/model/CreateWebhookEndpointRequest.spec.js
@@ -680,6 +707,10 @@ test/model/EstimatedFee.spec.js
 test/model/EstimatedFixedFee.spec.js
 test/model/EstimatedUtxoFee.spec.js
 test/model/EstimatedUtxoFeeSlow.spec.js
+test/model/EthStakeEstimatedFee.spec.js
+test/model/EthStakeExtra.spec.js
+test/model/EthStakingExtra.spec.js
+test/model/EthUnstakeExtra.spec.js
 test/model/EvmContractCallDestination.spec.js
 test/model/EvmEIP191MessageSignDestination.spec.js
 test/model/EvmEIP712MessageSignDestination.spec.js
@@ -697,9 +728,10 @@ test/model/FeeGasLimit.spec.js
 test/model/FeeRate.spec.js
 test/model/FeeType.spec.js
 test/model/FixedFeeRate.spec.js
+test/model/GetApiKeyInfo200Response.spec.js
 test/model/GetStakingEstimationFee201Response.spec.js
 test/model/GetStakingEstimationFeeRequest.spec.js
-test/model/GetToken200Response.spec.js
+test/model/GetToken2XXResponse.spec.js
 test/model/GetToken4XXResponse.spec.js
 test/model/KeyShareHolder.spec.js
 test/model/KeyShareHolderGroup.spec.js
@@ -754,10 +786,11 @@ test/model/PoolDetails.spec.js
 test/model/PoolDetailsAllOfValidatorsInfo.spec.js
 test/model/PoolSummary.spec.js
 test/model/RawMessageSignDestination.spec.js
-test/model/RefreshToken201Response.spec.js
+test/model/RefreshToken2XXResponse.spec.js
 test/model/RefreshTokenRequest.spec.js
 test/model/ReplaceType.spec.js
 test/model/RetryWebhookEventById201Response.spec.js
+test/model/RoleScopes.spec.js
 test/model/RootPubkey.spec.js
 test/model/SafeContractCallSource.spec.js
 test/model/SafeTransferSource.spec.js
@@ -765,6 +798,7 @@ test/model/SafeWallet.spec.js
 test/model/SafeWalletDelegates.spec.js
 test/model/SafeWalletDelegatesContractCall.spec.js
 test/model/SafeWalletDelegatesTransfer.spec.js
+test/model/Scopes.spec.js
 test/model/SmartContractInitiator.spec.js
 test/model/SmartContractWalletInfo.spec.js
 test/model/SmartContractWalletOperationType.spec.js

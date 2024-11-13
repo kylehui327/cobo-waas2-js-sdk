@@ -139,9 +139,8 @@ TransactionRequestEvmEip1559Fee.prototype['token_id'] = undefined;
 /**
  * The gas limit. It represents the maximum number of gas units that you are willing to pay for the execution of a transaction or Ethereum Virtual Machine (EVM) operation. The gas unit cost of each operation varies.
  * @member {String} gas_limit
- * @default '21000'
  */
-TransactionRequestEvmEip1559Fee.prototype['gas_limit'] = '21000';
+TransactionRequestEvmEip1559Fee.prototype['gas_limit'] = undefined;
 
 
 // Implement EvmEip1559FeeBasePrice interface:

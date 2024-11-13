@@ -29,6 +29,7 @@ import ApiLogDetails from './model/ApiLogDetails';
 import ApiLogSummary from './model/ApiLogSummary';
 import AssetBalance from './model/AssetBalance';
 import AssetInfo from './model/AssetInfo';
+import BabylonStakeEstimatedFee from './model/BabylonStakeEstimatedFee';
 import BabylonStakeExtra from './model/BabylonStakeExtra';
 import BabylonStakingExtra from './model/BabylonStakingExtra';
 import BabylonValidator from './model/BabylonValidator';
@@ -39,6 +40,7 @@ import BaseStakeSource from './model/BaseStakeSource';
 import BroadcastSignedTransactions201ResponseInner from './model/BroadcastSignedTransactions201ResponseInner';
 import BroadcastSignedTransactionsRequest from './model/BroadcastSignedTransactionsRequest';
 import ChainInfo from './model/ChainInfo';
+import CheckAddressChainsValidity200ResponseInner from './model/CheckAddressChainsValidity200ResponseInner';
 import CheckAddressValidity200Response from './model/CheckAddressValidity200Response';
 import CheckAddressesValidity200ResponseInner from './model/CheckAddressesValidity200ResponseInner';
 import CheckLoopTransfers200ResponseInner from './model/CheckLoopTransfers200ResponseInner';
@@ -66,6 +68,7 @@ import CreateStakeActivityRequest from './model/CreateStakeActivityRequest';
 import CreateTransferTransaction201Response from './model/CreateTransferTransaction201Response';
 import CreateTssRequestRequest from './model/CreateTssRequestRequest';
 import CreateUnstakeActivity from './model/CreateUnstakeActivity';
+import CreateUnstakeActivityExtra from './model/CreateUnstakeActivityExtra';
 import CreateUnstakeActivityRequest from './model/CreateUnstakeActivityRequest';
 import CreateWalletParams from './model/CreateWalletParams';
 import CreateWebhookEndpointRequest from './model/CreateWebhookEndpointRequest';
@@ -96,6 +99,10 @@ import EstimatedFee from './model/EstimatedFee';
 import EstimatedFixedFee from './model/EstimatedFixedFee';
 import EstimatedUtxoFee from './model/EstimatedUtxoFee';
 import EstimatedUtxoFeeSlow from './model/EstimatedUtxoFeeSlow';
+import EthStakeEstimatedFee from './model/EthStakeEstimatedFee';
+import EthStakeExtra from './model/EthStakeExtra';
+import EthStakingExtra from './model/EthStakingExtra';
+import EthUnstakeExtra from './model/EthUnstakeExtra';
 import EvmContractCallDestination from './model/EvmContractCallDestination';
 import EvmEIP191MessageSignDestination from './model/EvmEIP191MessageSignDestination';
 import EvmEIP712MessageSignDestination from './model/EvmEIP712MessageSignDestination';
@@ -113,9 +120,10 @@ import FeeGasLimit from './model/FeeGasLimit';
 import FeeRate from './model/FeeRate';
 import FeeType from './model/FeeType';
 import FixedFeeRate from './model/FixedFeeRate';
+import GetApiKeyInfo200Response from './model/GetApiKeyInfo200Response';
 import GetStakingEstimationFee201Response from './model/GetStakingEstimationFee201Response';
 import GetStakingEstimationFeeRequest from './model/GetStakingEstimationFeeRequest';
-import GetToken200Response from './model/GetToken200Response';
+import GetToken2XXResponse from './model/GetToken2XXResponse';
 import GetToken4XXResponse from './model/GetToken4XXResponse';
 import KeyShareHolder from './model/KeyShareHolder';
 import KeyShareHolderGroup from './model/KeyShareHolderGroup';
@@ -170,10 +178,11 @@ import PoolDetails from './model/PoolDetails';
 import PoolDetailsAllOfValidatorsInfo from './model/PoolDetailsAllOfValidatorsInfo';
 import PoolSummary from './model/PoolSummary';
 import RawMessageSignDestination from './model/RawMessageSignDestination';
-import RefreshToken201Response from './model/RefreshToken201Response';
+import RefreshToken2XXResponse from './model/RefreshToken2XXResponse';
 import RefreshTokenRequest from './model/RefreshTokenRequest';
 import ReplaceType from './model/ReplaceType';
 import RetryWebhookEventById201Response from './model/RetryWebhookEventById201Response';
+import RoleScopes from './model/RoleScopes';
 import RootPubkey from './model/RootPubkey';
 import SafeContractCallSource from './model/SafeContractCallSource';
 import SafeTransferSource from './model/SafeTransferSource';
@@ -181,6 +190,7 @@ import SafeWallet from './model/SafeWallet';
 import SafeWalletDelegates from './model/SafeWalletDelegates';
 import SafeWalletDelegatesContractCall from './model/SafeWalletDelegatesContractCall';
 import SafeWalletDelegatesTransfer from './model/SafeWalletDelegatesTransfer';
+import Scopes from './model/Scopes';
 import SmartContractInitiator from './model/SmartContractInitiator';
 import SmartContractWalletInfo from './model/SmartContractWalletInfo';
 import SmartContractWalletOperationType from './model/SmartContractWalletOperationType';
@@ -290,6 +300,7 @@ import WebhookEventLog from './model/WebhookEventLog';
 import WebhookEventStatus from './model/WebhookEventStatus';
 import WebhookEventType from './model/WebhookEventType';
 import AddressBooksApi from './api/AddressBooksApi';
+import DevelopersApi from './api/DevelopersApi';
 import DevelopersWebhooksApi from './api/DevelopersWebhooksApi';
 import OAuthApi from './api/OAuthApi';
 import StakingsApi from './api/StakingsApi';
@@ -330,7 +341,7 @@ import WalletsSmartContractWalletsApi from './api/WalletsSmartContractWalletsApi
 * </pre>
 * </p>
 * @module index
-* @version 1.5.0
+* @version 1.6.0
 */
 export {
     Env,
@@ -449,6 +460,12 @@ export {
     AssetInfo,
 
     /**
+     * The BabylonStakeEstimatedFee model constructor.
+     * @property {module:model/BabylonStakeEstimatedFee}
+     */
+    BabylonStakeEstimatedFee,
+
+    /**
      * The BabylonStakeExtra model constructor.
      * @property {module:model/BabylonStakeExtra}
      */
@@ -507,6 +524,12 @@ export {
      * @property {module:model/ChainInfo}
      */
     ChainInfo,
+
+    /**
+     * The CheckAddressChainsValidity200ResponseInner model constructor.
+     * @property {module:model/CheckAddressChainsValidity200ResponseInner}
+     */
+    CheckAddressChainsValidity200ResponseInner,
 
     /**
      * The CheckAddressValidity200Response model constructor.
@@ -669,6 +692,12 @@ export {
      * @property {module:model/CreateUnstakeActivity}
      */
     CreateUnstakeActivity,
+
+    /**
+     * The CreateUnstakeActivityExtra model constructor.
+     * @property {module:model/CreateUnstakeActivityExtra}
+     */
+    CreateUnstakeActivityExtra,
 
     /**
      * The CreateUnstakeActivityRequest model constructor.
@@ -851,6 +880,30 @@ export {
     EstimatedUtxoFeeSlow,
 
     /**
+     * The EthStakeEstimatedFee model constructor.
+     * @property {module:model/EthStakeEstimatedFee}
+     */
+    EthStakeEstimatedFee,
+
+    /**
+     * The EthStakeExtra model constructor.
+     * @property {module:model/EthStakeExtra}
+     */
+    EthStakeExtra,
+
+    /**
+     * The EthStakingExtra model constructor.
+     * @property {module:model/EthStakingExtra}
+     */
+    EthStakingExtra,
+
+    /**
+     * The EthUnstakeExtra model constructor.
+     * @property {module:model/EthUnstakeExtra}
+     */
+    EthUnstakeExtra,
+
+    /**
      * The EvmContractCallDestination model constructor.
      * @property {module:model/EvmContractCallDestination}
      */
@@ -953,6 +1006,12 @@ export {
     FixedFeeRate,
 
     /**
+     * The GetApiKeyInfo200Response model constructor.
+     * @property {module:model/GetApiKeyInfo200Response}
+     */
+    GetApiKeyInfo200Response,
+
+    /**
      * The GetStakingEstimationFee201Response model constructor.
      * @property {module:model/GetStakingEstimationFee201Response}
      */
@@ -965,10 +1024,10 @@ export {
     GetStakingEstimationFeeRequest,
 
     /**
-     * The GetToken200Response model constructor.
-     * @property {module:model/GetToken200Response}
+     * The GetToken2XXResponse model constructor.
+     * @property {module:model/GetToken2XXResponse}
      */
-    GetToken200Response,
+    GetToken2XXResponse,
 
     /**
      * The GetToken4XXResponse model constructor.
@@ -1295,10 +1354,10 @@ export {
     RawMessageSignDestination,
 
     /**
-     * The RefreshToken201Response model constructor.
-     * @property {module:model/RefreshToken201Response}
+     * The RefreshToken2XXResponse model constructor.
+     * @property {module:model/RefreshToken2XXResponse}
      */
-    RefreshToken201Response,
+    RefreshToken2XXResponse,
 
     /**
      * The RefreshTokenRequest model constructor.
@@ -1317,6 +1376,12 @@ export {
      * @property {module:model/RetryWebhookEventById201Response}
      */
     RetryWebhookEventById201Response,
+
+    /**
+     * The RoleScopes model constructor.
+     * @property {module:model/RoleScopes}
+     */
+    RoleScopes,
 
     /**
      * The RootPubkey model constructor.
@@ -1359,6 +1424,12 @@ export {
      * @property {module:model/SafeWalletDelegatesTransfer}
      */
     SafeWalletDelegatesTransfer,
+
+    /**
+     * The Scopes model constructor.
+     * @property {module:model/Scopes}
+     */
+    Scopes,
 
     /**
      * The SmartContractInitiator model constructor.
@@ -2013,6 +2084,12 @@ export {
     * @property {module:api/AddressBooksApi}
     */
     AddressBooksApi,
+
+    /**
+    * The DevelopersApi service constructor.
+    * @property {module:api/DevelopersApi}
+    */
+    DevelopersApi,
 
     /**
     * The DevelopersWebhooksApi service constructor.

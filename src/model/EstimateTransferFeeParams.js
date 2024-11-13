@@ -24,15 +24,13 @@ class EstimateTransferFeeParams {
      * Constructs a new <code>EstimateTransferFeeParams</code>.
      * The information about a token transfer.
      * @alias module:model/EstimateTransferFeeParams
-     * @param request_id {String} The request ID that is used to track a transaction request. The request ID is provided by you and must be unique within your organization. It is recommended to use the same request ID as the transaction for which you want to estimate the transaction fee.
      * @param request_type {module:model/EstimateFeeRequestType} 
      * @param source {module:model/TransferSource} 
      * @param token_id {String} The token ID of the transferred token. You can retrieve the IDs of all the tokens you can use by calling [List enabled tokens](/v2/api-references/wallets/list-enabled-tokens).
-     * @param destination {module:model/TransferDestination} 
      */
-    constructor(request_id, request_type, source, token_id, destination) { 
+    constructor(request_type, source, token_id) { 
         
-        EstimateTransferFeeParams.initialize(this, request_id, request_type, source, token_id, destination);
+        EstimateTransferFeeParams.initialize(this, request_type, source, token_id);
     }
 
     /**
@@ -40,12 +38,10 @@ class EstimateTransferFeeParams {
      * This method is used by the constructors of any subclasses, in order to implement multiple inheritance (mix-ins).
      * Only for internal use.
      */
-    static initialize(obj, request_id, request_type, source, token_id, destination) { 
-        obj['request_id'] = request_id;
+    static initialize(obj, request_type, source, token_id) { 
         obj['request_type'] = request_type;
         obj['source'] = source;
         obj['token_id'] = token_id;
-        obj['destination'] = destination;
     }
 
     /**
@@ -120,7 +116,7 @@ class EstimateTransferFeeParams {
 
 }
 
-EstimateTransferFeeParams.RequiredProperties = ["request_id", "request_type", "source", "token_id", "destination"];
+EstimateTransferFeeParams.RequiredProperties = ["request_type", "source", "token_id"];
 
 /**
  * The request ID that is used to track a transaction request. The request ID is provided by you and must be unique within your organization. It is recommended to use the same request ID as the transaction for which you want to estimate the transaction fee.

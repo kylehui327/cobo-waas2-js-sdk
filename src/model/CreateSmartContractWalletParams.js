@@ -37,7 +37,7 @@ class CreateSmartContractWalletParams {
 
         if (discriminatorValue) {
             switch(discriminatorValue) {
-                case "Safe":
+                case "Safe{Wallet}":
                     this.actualInstance = CreateSafeWalletParams.constructFromObject(instance);
                     match++;
                     break;

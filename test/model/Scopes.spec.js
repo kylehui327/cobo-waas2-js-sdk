@@ -26,7 +26,7 @@
   var instance;
 
   beforeEach(function() {
-    instance = new CoboWaas2.RefreshToken201Response();
+    instance = new CoboWaas2.Scopes();
   });
 
   var getProperty = function(object, getter, property) {
@@ -45,40 +45,40 @@
       object[property] = value;
   }
 
-  describe('RefreshToken201Response', function() {
-    it('should create an instance of RefreshToken201Response', function() {
-      // uncomment below and update the code to test RefreshToken201Response
-      //var instance = new CoboWaas2.RefreshToken201Response();
-      //expect(instance).to.be.a(CoboWaas2.RefreshToken201Response);
+  describe('Scopes', function() {
+    it('should create an instance of Scopes', function() {
+      // uncomment below and update the code to test Scopes
+      //var instance = new CoboWaas2.Scopes();
+      //expect(instance).to.be.a(CoboWaas2.Scopes);
     });
 
-    it('should have the property access_token (base name: "access_token")', function() {
-      // uncomment below and update the code to test the property access_token
-      //var instance = new CoboWaas2.RefreshToken201Response();
+    it('should have the property wallet_types (base name: "wallet_types")', function() {
+      // uncomment below and update the code to test the property wallet_types
+      //var instance = new CoboWaas2.Scopes();
       //expect(instance).to.be();
     });
 
-    it('should have the property token_type (base name: "token_type")', function() {
-      // uncomment below and update the code to test the property token_type
-      //var instance = new CoboWaas2.RefreshToken201Response();
+    it('should have the property wallet_subtypes (base name: "wallet_subtypes")', function() {
+      // uncomment below and update the code to test the property wallet_subtypes
+      //var instance = new CoboWaas2.Scopes();
       //expect(instance).to.be();
     });
 
-    it('should have the property scope (base name: "scope")', function() {
-      // uncomment below and update the code to test the property scope
-      //var instance = new CoboWaas2.RefreshToken201Response();
+    it('should have the property wallet_ids (base name: "wallet_ids")', function() {
+      // uncomment below and update the code to test the property wallet_ids
+      //var instance = new CoboWaas2.Scopes();
       //expect(instance).to.be();
     });
 
-    it('should have the property expires_in (base name: "expires_in")', function() {
-      // uncomment below and update the code to test the property expires_in
-      //var instance = new CoboWaas2.RefreshToken201Response();
+    it('should have the property vault_ids (base name: "vault_ids")', function() {
+      // uncomment below and update the code to test the property vault_ids
+      //var instance = new CoboWaas2.Scopes();
       //expect(instance).to.be();
     });
 
-    it('should have the property refresh_token (base name: "refresh_token")', function() {
-      // uncomment below and update the code to test the property refresh_token
-      //var instance = new CoboWaas2.RefreshToken201Response();
+    it('should have the property project_ids (base name: "project_ids")', function() {
+      // uncomment below and update the code to test the property project_ids
+      //var instance = new CoboWaas2.Scopes();
       //expect(instance).to.be();
     });
 

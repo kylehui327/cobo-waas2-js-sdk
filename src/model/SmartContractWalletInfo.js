@@ -37,7 +37,7 @@ class SmartContractWalletInfo {
 
         if (discriminatorValue) {
             switch(discriminatorValue) {
-                case "Safe":
+                case "Safe{Wallet}":
                     this.actualInstance = SafeWallet.constructFromObject(instance);
                     match++;
                     break;

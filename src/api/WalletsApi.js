@@ -13,6 +13,7 @@
 import ApiClient from "../ApiClient";
 import AddressInfo from '../model/AddressInfo';
 import ChainInfo from '../model/ChainInfo';
+import CheckAddressChainsValidity200ResponseInner from '../model/CheckAddressChainsValidity200ResponseInner';
 import CheckAddressValidity200Response from '../model/CheckAddressValidity200Response';
 import CheckAddressesValidity200ResponseInner from '../model/CheckAddressesValidity200ResponseInner';
 import CreateAddressRequest from '../model/CreateAddressRequest';
@@ -52,6 +53,64 @@ export default class WalletsApi {
         this.apiClient = apiClient || ApiClient.instance;
     }
 
+
+
+    /**
+     * Check address validity across chains
+     * This operation verifies if a given address is valid for a list of chains. 
+     * @param {String} address The wallet address.
+     * @param {String} chain_ids A list of chain IDs, separated by comma. The chain ID is the unique identifier of a blockchain. You can retrieve the IDs of all the chains you can use by calling [List enabled chains](/v2/api-references/wallets/list-enabled-chains).
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link Array.<module:model/CheckAddressChainsValidity200ResponseInner>} and HTTP response
+     */
+    checkAddressChainsValidityWithHttpInfo(address, chain_ids) {
+      let postBody = null;
+      if (postBody && postBody.toJSON) {
+          postBody = postBody.toJSON()
+      }
+      // verify the required parameter 'address' is set
+      if (address === undefined || address === null) {
+        throw new Error("Missing the required parameter 'address' when calling checkAddressChainsValidity");
+      }
+      // verify the required parameter 'chain_ids' is set
+      if (chain_ids === undefined || chain_ids === null) {
+        throw new Error("Missing the required parameter 'chain_ids' when calling checkAddressChainsValidity");
+      }
+
+      let pathParams = {
+      };
+      let queryParams = {
+        'address': address,
+        'chain_ids': chain_ids
+      };
+      let headerParams = {
+      };
+      let formParams = {
+      };
+
+      let authNames = ['CoboAuth'];
+      let contentTypes = [];
+      let accepts = ['application/json'];
+      let returnType = [CheckAddressChainsValidity200ResponseInner];
+      return this.apiClient.callApi(
+        '/wallets/check_address_chains_validity', 'GET',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, null
+      );
+    }
+
+    /**
+     * Check address validity across chains
+     * This operation verifies if a given address is valid for a list of chains. 
+     * @param {String} address The wallet address.
+     * @param {String} chain_ids A list of chain IDs, separated by comma. The chain ID is the unique identifier of a blockchain. You can retrieve the IDs of all the chains you can use by calling [List enabled chains](/v2/api-references/wallets/list-enabled-chains).
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link Array.<module:model/CheckAddressChainsValidity200ResponseInner>}
+     */
+    checkAddressChainsValidity(address, chain_ids) {
+      return this.checkAddressChainsValidityWithHttpInfo(address, chain_ids)
+        .then(function(response_and_data) {
+          return response_and_data.data;
+        });
+    }
 
 
     /**
@@ -327,64 +386,6 @@ export default class WalletsApi {
 
 
     /**
-     * Get address information
-     * This operation retrieves the detailed information about a specified address within a wallet. 
-     * @param {String} wallet_id The wallet ID.
-     * @param {String} address The wallet address.
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link Array.<module:model/AddressInfo>} and HTTP response
-     */
-    getAddressWithHttpInfo(wallet_id, address) {
-      let postBody = null;
-      if (postBody && postBody.toJSON) {
-          postBody = postBody.toJSON()
-      }
-      // verify the required parameter 'wallet_id' is set
-      if (wallet_id === undefined || wallet_id === null) {
-        throw new Error("Missing the required parameter 'wallet_id' when calling getAddress");
-      }
-      // verify the required parameter 'address' is set
-      if (address === undefined || address === null) {
-        throw new Error("Missing the required parameter 'address' when calling getAddress");
-      }
-
-      let pathParams = {
-        'wallet_id': wallet_id,
-        'address': address
-      };
-      let queryParams = {
-      };
-      let headerParams = {
-      };
-      let formParams = {
-      };
-
-      let authNames = ['CoboAuth'];
-      let contentTypes = [];
-      let accepts = ['application/json'];
-      let returnType = [AddressInfo];
-      return this.apiClient.callApi(
-        '/wallets/{wallet_id}/addresses/{address}', 'GET',
-        pathParams, queryParams, headerParams, formParams, postBody,
-        authNames, contentTypes, accepts, returnType, null
-      );
-    }
-
-    /**
-     * Get address information
-     * This operation retrieves the detailed information about a specified address within a wallet. 
-     * @param {String} wallet_id The wallet ID.
-     * @param {String} address The wallet address.
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link Array.<module:model/AddressInfo>}
-     */
-    getAddress(wallet_id, address) {
-      return this.getAddressWithHttpInfo(wallet_id, address)
-        .then(function(response_and_data) {
-          return response_and_data.data;
-        });
-    }
-
-
-    /**
      * Get chain information
      * This operation retrieves the detailed information about a specified chain. 
      * @param {String} chain_id The chain ID, which is the unique identifier of a blockchain. You can retrieve the IDs of all the chains you can use by calling [List enabled chains](/v2/api-references/wallets/list-enabled-chains).
@@ -621,7 +622,7 @@ export default class WalletsApi {
      * @param {String} wallet_id The wallet ID.
      * @param {Object} opts Optional parameters
      * @param {String} [chain_ids] A list of chain IDs, separated by comma. The chain ID is the unique identifier of a blockchain. You can retrieve the IDs of all the chains you can use by calling [List enabled chains](/v2/api-references/wallets/list-enabled-chains).
-     * @param {String} [addresses] A list of wallet addresses, separated by comma.
+     * @param {String} [addresses] A list of wallet addresses, separated by comma. For addresses requiring a memo, append the memo after the address using the '|' separator (e.g., \"address|memo\").
      * @param {Number} [limit = 10)] The maximum number of objects to return. For most operations, the value range is [1, 50].
      * @param {String} [before] An object ID that serves as a starting point for retrieving data in reverse chronological order. For example, if you specify `before` as `RqeEoTkgKG5rpzqYzg2Hd3szmPoj2cE7w5jWwShz3C1vyGmk1`, the request will retrieve a list of data objects that end before the object with the object ID `RqeEoTkgKG5rpzqYzg2Hd3szmPoj2cE7w5jWwShz3C1vyGmk1`. You can set this parameter to the value of `pagination.before` in the response of the previous request.  - If you set both `after` and `before`, an error will occur.  - If you leave both `before` and `after` empty, the first page of data is returned.  - If you set `before` to `infinity`, the last page of data is returned. 
      * @param {String} [after] An object ID that acts as a starting point for retrieving data in chronological order. For example, if you specify `after` as `RqeEoTkgKG5rpzqYzg2Hd3szmPoj2cE7w5jWwShz3C1vyGSAk`, the request will retrieve a list of data objects that start after the object with the object ID `RqeEoTkgKG5rpzqYzg2Hd3szmPoj2cE7w5jWwShz3C1vyGSAk`. You can set this parameter to the value of `pagination.after` in the response of the previous request.  - If you set both `after` and `before`, an error will occur.  - If you leave both `before` and `after` empty, the first page of data is returned. 
@@ -670,7 +671,7 @@ export default class WalletsApi {
      * @param {String} wallet_id The wallet ID.
      * @param {Object} opts Optional parameters
      * @param {String} opts.chain_ids A list of chain IDs, separated by comma. The chain ID is the unique identifier of a blockchain. You can retrieve the IDs of all the chains you can use by calling [List enabled chains](/v2/api-references/wallets/list-enabled-chains).
-     * @param {String} opts.addresses A list of wallet addresses, separated by comma.
+     * @param {String} opts.addresses A list of wallet addresses, separated by comma. For addresses requiring a memo, append the memo after the address using the '|' separator (e.g., \"address|memo\").
      * @param {Number} opts.limit The maximum number of objects to return. For most operations, the value range is [1, 50]. (default to 10)
      * @param {String} opts.before An object ID that serves as a starting point for retrieving data in reverse chronological order. For example, if you specify `before` as `RqeEoTkgKG5rpzqYzg2Hd3szmPoj2cE7w5jWwShz3C1vyGmk1`, the request will retrieve a list of data objects that end before the object with the object ID `RqeEoTkgKG5rpzqYzg2Hd3szmPoj2cE7w5jWwShz3C1vyGmk1`. You can set this parameter to the value of `pagination.before` in the response of the previous request.  - If you set both `after` and `before`, an error will occur.  - If you leave both `before` and `after` empty, the first page of data is returned.  - If you set `before` to `infinity`, the last page of data is returned. 
      * @param {String} opts.after An object ID that acts as a starting point for retrieving data in chronological order. For example, if you specify `after` as `RqeEoTkgKG5rpzqYzg2Hd3szmPoj2cE7w5jWwShz3C1vyGSAk`, the request will retrieve a list of data objects that start after the object with the object ID `RqeEoTkgKG5rpzqYzg2Hd3szmPoj2cE7w5jWwShz3C1vyGSAk`. You can set this parameter to the value of `pagination.after` in the response of the previous request.  - If you set both `after` and `before`, an error will occur.  - If you leave both `before` and `after` empty, the first page of data is returned. 
