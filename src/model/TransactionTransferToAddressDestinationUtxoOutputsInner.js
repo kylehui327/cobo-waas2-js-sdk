@@ -50,9 +50,6 @@ class TransactionTransferToAddressDestinationUtxoOutputsInner {
             if (data.hasOwnProperty('amount')) {
                 obj['amount'] = ApiClient.convertToType(data['amount'], 'String');
             }
-            if (data.hasOwnProperty('script')) {
-                obj['script'] = ApiClient.convertToType(data['script'], 'String');
-            }
         }
         return obj;
     }
@@ -70,10 +67,6 @@ class TransactionTransferToAddressDestinationUtxoOutputsInner {
         // ensure the json data is a string
         if (data['amount'] && !(typeof data['amount'] === 'string' || data['amount'] instanceof String)) {
             throw new Error("Expected the field `amount` to be a primitive type in the JSON string but got " + data['amount']);
-        }
-        // ensure the json data is a string
-        if (data['script'] && !(typeof data['script'] === 'string' || data['script'] instanceof String)) {
-            throw new Error("Expected the field `script` to be a primitive type in the JSON string but got " + data['script']);
         }
 
         return true;
@@ -95,12 +88,6 @@ TransactionTransferToAddressDestinationUtxoOutputsInner.prototype['address'] = u
  * @member {String} amount
  */
 TransactionTransferToAddressDestinationUtxoOutputsInner.prototype['amount'] = undefined;
-
-/**
- * The script of the output. It is a programmable code fragment that defines the conditions under which the UTXO can be spent.
- * @member {String} script
- */
-TransactionTransferToAddressDestinationUtxoOutputsInner.prototype['script'] = undefined;
 
 
 

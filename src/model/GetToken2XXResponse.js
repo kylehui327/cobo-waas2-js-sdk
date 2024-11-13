@@ -12,17 +12,17 @@
 import ApiClient from '../ApiClient';
 
 /**
- * The GetToken200Response model module.
- * @module model/GetToken200Response
+ * The GetToken2XXResponse model module.
+ * @module model/GetToken2XXResponse
  */
-class GetToken200Response {
+class GetToken2XXResponse {
     /**
-     * Constructs a new <code>GetToken200Response</code>.
-     * @alias module:model/GetToken200Response
+     * Constructs a new <code>GetToken2XXResponse</code>.
+     * @alias module:model/GetToken2XXResponse
      */
     constructor() { 
         
-        GetToken200Response.initialize(this);
+        GetToken2XXResponse.initialize(this);
     }
 
     /**
@@ -34,15 +34,15 @@ class GetToken200Response {
     }
 
     /**
-     * Constructs a <code>GetToken200Response</code> from a plain JavaScript object, optionally creating a new instance.
+     * Constructs a <code>GetToken2XXResponse</code> from a plain JavaScript object, optionally creating a new instance.
      * Copies all relevant properties from <code>data</code> to <code>obj</code> if supplied or a new instance if not.
      * @param {Object} data The plain JavaScript object bearing properties of interest.
-     * @param {module:model/GetToken200Response} obj Optional instance to populate.
-     * @return {module:model/GetToken200Response} The populated <code>GetToken200Response</code> instance.
+     * @param {module:model/GetToken2XXResponse} obj Optional instance to populate.
+     * @return {module:model/GetToken2XXResponse} The populated <code>GetToken2XXResponse</code> instance.
      */
     static constructFromObject(data, obj) {
         if (data) {
-            obj = obj || new GetToken200Response();
+            obj = obj || new GetToken2XXResponse();
 
             if (data.hasOwnProperty('access_token')) {
                 obj['access_token'] = ApiClient.convertToType(data['access_token'], 'String');
@@ -64,9 +64,9 @@ class GetToken200Response {
     }
 
     /**
-     * Validates the JSON data with respect to <code>GetToken200Response</code>.
+     * Validates the JSON data with respect to <code>GetToken2XXResponse</code>.
      * @param {Object} data The plain JavaScript object bearing properties of interest.
-     * @return {boolean} to indicate whether the JSON data is valid with respect to <code>GetToken200Response</code>.
+     * @return {boolean} to indicate whether the JSON data is valid with respect to <code>GetToken2XXResponse</code>.
      */
     static validateJSON(data) {
         // ensure the json data is a string
@@ -98,36 +98,36 @@ class GetToken200Response {
  * The Org Access Token.
  * @member {String} access_token
  */
-GetToken200Response.prototype['access_token'] = undefined;
+GetToken2XXResponse.prototype['access_token'] = undefined;
 
 /**
  * The type of the tokens, which is Bearer.
  * @member {String} token_type
  */
-GetToken200Response.prototype['token_type'] = undefined;
+GetToken2XXResponse.prototype['token_type'] = undefined;
 
 /**
  * The scope of the Org Access Token to limit the app's access to the organization's resources.  **Note**: Currently this property value is empty. The scope of the Org Access Token is based on the permissions granted when the app user installs the app. 
  * @member {String} scope
  */
-GetToken200Response.prototype['scope'] = undefined;
+GetToken2XXResponse.prototype['scope'] = undefined;
 
 /**
  * The time in seconds in which the Org Access Token expires.
  * @member {Number} expires_in
  */
-GetToken200Response.prototype['expires_in'] = undefined;
+GetToken2XXResponse.prototype['expires_in'] = undefined;
 
 /**
  * The Refresh Token, used to obtain a new Org Access Token when the current Org Access Token expires. The expiration time for Refresh Tokens is currently set to 30 days and is subject to change.
  * @member {String} refresh_token
  */
-GetToken200Response.prototype['refresh_token'] = undefined;
+GetToken2XXResponse.prototype['refresh_token'] = undefined;
 
 
 
 
 
 
-export default GetToken200Response;
+export default GetToken2XXResponse;
 

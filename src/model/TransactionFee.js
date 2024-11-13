@@ -262,9 +262,8 @@ TransactionFee.prototype['max_priority_fee_per_gas'] = undefined;
 /**
  * The gas limit. It represents the maximum number of gas units that you are willing to pay for the execution of a transaction or Ethereum Virtual Machine (EVM) operation. The gas unit cost of each operation varies.
  * @member {String} gas_limit
- * @default '21000'
  */
-TransactionFee.prototype['gas_limit'] = '21000';
+TransactionFee.prototype['gas_limit'] = undefined;
 
 /**
  * The gas price, in wei. The gas price represents the amount of ETH that must be paid to validators for processing transactions per gas unit used.

@@ -13,6 +13,7 @@ import ApiClient from '../ApiClient';
 import ActivityType from './ActivityType';
 import BaseEstimateStakingFee from './BaseEstimateStakingFee';
 import CreateUnstakeActivity from './CreateUnstakeActivity';
+import CreateUnstakeActivityExtra from './CreateUnstakeActivityExtra';
 import TransactionRequestFee from './TransactionRequestFee';
 
 /**
@@ -71,6 +72,9 @@ class EstimateUnstakeFee {
             if (data.hasOwnProperty('fee')) {
                 obj['fee'] = TransactionRequestFee.constructFromObject(data['fee']);
             }
+            if (data.hasOwnProperty('extra')) {
+                obj['extra'] = CreateUnstakeActivityExtra.constructFromObject(data['extra']);
+            }
         }
         return obj;
     }
@@ -103,6 +107,12 @@ class EstimateUnstakeFee {
         if (data['fee']) { // data not null
           if (!!TransactionRequestFee.validateJSON) {
             TransactionRequestFee.validateJSON(data['fee']);
+          }
+        }
+        // validate the optional field `extra`
+        if (data['extra']) { // data not null
+          if (!!CreateUnstakeActivityExtra.validateJSON) {
+            CreateUnstakeActivityExtra.validateJSON(data['extra']);
           }
         }
 
@@ -142,6 +152,11 @@ EstimateUnstakeFee.prototype['amount'] = undefined;
  */
 EstimateUnstakeFee.prototype['fee'] = undefined;
 
+/**
+ * @member {module:model/CreateUnstakeActivityExtra} extra
+ */
+EstimateUnstakeFee.prototype['extra'] = undefined;
+
 
 // Implement BaseEstimateStakingFee interface:
 /**
@@ -168,6 +183,10 @@ CreateUnstakeActivity.prototype['amount'] = undefined;
  * @member {module:model/TransactionRequestFee} fee
  */
 CreateUnstakeActivity.prototype['fee'] = undefined;
+/**
+ * @member {module:model/CreateUnstakeActivityExtra} extra
+ */
+CreateUnstakeActivity.prototype['extra'] = undefined;
 
 
 

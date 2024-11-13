@@ -11,7 +11,7 @@
 
 import ApiClient from '../ApiClient';
 import ActivityType from './ActivityType';
-import CreateStakeActivityExtra from './CreateStakeActivityExtra';
+import CreateUnstakeActivityExtra from './CreateUnstakeActivityExtra';
 import EstimateStakeFee from './EstimateStakeFee';
 import EstimateUnstakeFee from './EstimateUnstakeFee';
 import EstimateWithdrawFee from './EstimateWithdrawFee';
@@ -225,7 +225,7 @@ GetStakingEstimationFeeRequest.prototype['amount'] = undefined;
 GetStakingEstimationFeeRequest.prototype['fee'] = undefined;
 
 /**
- * @member {module:model/CreateStakeActivityExtra} extra
+ * @member {module:model/CreateUnstakeActivityExtra} extra
  */
 GetStakingEstimationFeeRequest.prototype['extra'] = undefined;
 

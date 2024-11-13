@@ -11,7 +11,7 @@ Method | HTTP request | Description
 
 ## getToken
 
-> GetToken200Response getToken(client_id, org_id, grant_type)
+> GetToken2XXResponse getToken(client_id, org_id, grant_type)
 
 Get Org Access Token
 
@@ -51,7 +51,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**GetToken200Response**](GetToken200Response.md)
+[**GetToken2XXResponse**](GetToken2XXResponse.md)
 
 ### Authorization
 
@@ -65,7 +65,7 @@ Name | Type | Description  | Notes
 
 ## refreshToken
 
-> RefreshToken201Response refreshToken(RefreshTokenRequest)
+> RefreshToken2XXResponse refreshToken(RefreshTokenRequest)
 
 Refresh Org Access Token
 
@@ -101,7 +101,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**RefreshToken201Response**](RefreshToken201Response.md)
+[**RefreshToken2XXResponse**](RefreshToken2XXResponse.md)
 
 ### Authorization
 

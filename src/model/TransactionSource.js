@@ -69,7 +69,7 @@ class TransactionSource {
                     this.actualInstance = TransactionMPCWalletSource.constructFromObject(instance);
                     match++;
                     break;
-                case "SafeWallet":
+                case "Safe{Wallet}":
                     this.actualInstance = TransactionSmartContractSafeWalletSource.constructFromObject(instance);
                     match++;
                     break;

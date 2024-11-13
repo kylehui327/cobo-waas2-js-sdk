@@ -21,10 +21,11 @@ class GetToken4XXResponse {
      * The response of a failed request.
      * @alias module:model/GetToken4XXResponse
      * @param error {String} The error name.
+     * @param error_description {String} The error description.
      */
-    constructor(error) { 
+    constructor(error, error_description) { 
         
-        GetToken4XXResponse.initialize(this, error);
+        GetToken4XXResponse.initialize(this, error, error_description);
     }
 
     /**
@@ -32,8 +33,9 @@ class GetToken4XXResponse {
      * This method is used by the constructors of any subclasses, in order to implement multiple inheritance (mix-ins).
      * Only for internal use.
      */
-    static initialize(obj, error) { 
+    static initialize(obj, error, error_description) { 
         obj['error'] = error;
+        obj['error_description'] = error_description;
     }
 
     /**
@@ -50,8 +52,8 @@ class GetToken4XXResponse {
             if (data.hasOwnProperty('error')) {
                 obj['error'] = ApiClient.convertToType(data['error'], 'String');
             }
-            if (data.hasOwnProperty('error_message')) {
-                obj['error_message'] = ApiClient.convertToType(data['error_message'], 'String');
+            if (data.hasOwnProperty('error_description')) {
+                obj['error_description'] = ApiClient.convertToType(data['error_description'], 'String');
             }
         }
         return obj;
@@ -74,8 +76,8 @@ class GetToken4XXResponse {
             throw new Error("Expected the field `error` to be a primitive type in the JSON string but got " + data['error']);
         }
         // ensure the json data is a string
-        if (data['error_message'] && !(typeof data['error_message'] === 'string' || data['error_message'] instanceof String)) {
-            throw new Error("Expected the field `error_message` to be a primitive type in the JSON string but got " + data['error_message']);
+        if (data['error_description'] && !(typeof data['error_description'] === 'string' || data['error_description'] instanceof String)) {
+            throw new Error("Expected the field `error_description` to be a primitive type in the JSON string but got " + data['error_description']);
         }
 
         return true;
@@ -84,7 +86,7 @@ class GetToken4XXResponse {
 
 }
 
-GetToken4XXResponse.RequiredProperties = ["error"];
+GetToken4XXResponse.RequiredProperties = ["error", "error_description"];
 
 /**
  * The error name.
@@ -94,9 +96,9 @@ GetToken4XXResponse.prototype['error'] = undefined;
 
 /**
  * The error description.
- * @member {String} error_message
+ * @member {String} error_description
  */
-GetToken4XXResponse.prototype['error_message'] = undefined;
+GetToken4XXResponse.prototype['error_description'] = undefined;
 
 
 

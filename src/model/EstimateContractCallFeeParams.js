@@ -24,15 +24,14 @@ class EstimateContractCallFeeParams {
      * Constructs a new <code>EstimateContractCallFeeParams</code>.
      * The information about a transaction that interacts with a smart contract
      * @alias module:model/EstimateContractCallFeeParams
-     * @param request_id {String} The request ID that is used to track a transaction request. The request ID is provided by you and must be unique within your organization. It is recommended to use the same request ID as the transaction for which you want to estimate the transaction fee.
      * @param request_type {module:model/EstimateFeeRequestType} 
      * @param chain_id {String} The chain ID, which is the unique identifier of a blockchain. You can retrieve the IDs of all the chains you can use by calling [List enabled chains](/v2/api-references/wallets/list-enabled-chains).
      * @param source {module:model/ContractCallSource} 
      * @param destination {module:model/ContractCallDestination} 
      */
-    constructor(request_id, request_type, chain_id, source, destination) { 
+    constructor(request_type, chain_id, source, destination) { 
         
-        EstimateContractCallFeeParams.initialize(this, request_id, request_type, chain_id, source, destination);
+        EstimateContractCallFeeParams.initialize(this, request_type, chain_id, source, destination);
     }
 
     /**
@@ -40,8 +39,7 @@ class EstimateContractCallFeeParams {
      * This method is used by the constructors of any subclasses, in order to implement multiple inheritance (mix-ins).
      * Only for internal use.
      */
-    static initialize(obj, request_id, request_type, chain_id, source, destination) { 
-        obj['request_id'] = request_id;
+    static initialize(obj, request_type, chain_id, source, destination) { 
         obj['request_type'] = request_type;
         obj['chain_id'] = chain_id;
         obj['source'] = source;
@@ -120,7 +118,7 @@ class EstimateContractCallFeeParams {
 
 }
 
-EstimateContractCallFeeParams.RequiredProperties = ["request_id", "request_type", "chain_id", "source", "destination"];
+EstimateContractCallFeeParams.RequiredProperties = ["request_type", "chain_id", "source", "destination"];
 
 /**
  * The request ID that is used to track a transaction request. The request ID is provided by you and must be unique within your organization. It is recommended to use the same request ID as the transaction for which you want to estimate the transaction fee.

@@ -12,9 +12,9 @@
 
 import ApiClient from "../ApiClient";
 import ErrorResponse from '../model/ErrorResponse';
-import GetToken200Response from '../model/GetToken200Response';
+import GetToken2XXResponse from '../model/GetToken2XXResponse';
 import GetToken4XXResponse from '../model/GetToken4XXResponse';
-import RefreshToken201Response from '../model/RefreshToken201Response';
+import RefreshToken2XXResponse from '../model/RefreshToken2XXResponse';
 import RefreshTokenRequest from '../model/RefreshTokenRequest';
 
 /**
@@ -42,7 +42,7 @@ export default class OAuthApi {
      * @param {String} client_id The client ID, a unique identifier to distinguish Cobo Portal Apps. You can get the client ID by retrieving the manifest file after publishing the app.
      * @param {String} org_id Organization ID, a unique identifier to distinguish different organizations. You can get the organization ID from the callback message sent to the URL that was configured in the manifest file.
      * @param {String} grant_type The OAuth grant type. Set the value as `org_implicit`.
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/GetToken200Response} and HTTP response
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/GetToken2XXResponse} and HTTP response
      */
     getTokenWithHttpInfo(client_id, org_id, grant_type) {
       let postBody = null;
@@ -77,7 +77,7 @@ export default class OAuthApi {
       let authNames = ['CoboAuth'];
       let contentTypes = [];
       let accepts = ['application/json'];
-      let returnType = GetToken200Response;
+      let returnType = GetToken2XXResponse;
       return this.apiClient.callApi(
         '/oauth/token', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -91,7 +91,7 @@ export default class OAuthApi {
      * @param {String} client_id The client ID, a unique identifier to distinguish Cobo Portal Apps. You can get the client ID by retrieving the manifest file after publishing the app.
      * @param {String} org_id Organization ID, a unique identifier to distinguish different organizations. You can get the organization ID from the callback message sent to the URL that was configured in the manifest file.
      * @param {String} grant_type The OAuth grant type. Set the value as `org_implicit`.
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/GetToken200Response}
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/GetToken2XXResponse}
      */
     getToken(client_id, org_id, grant_type) {
       return this.getTokenWithHttpInfo(client_id, org_id, grant_type)
@@ -105,7 +105,7 @@ export default class OAuthApi {
      * Refresh Org Access Token
      * <Note>This operation is only applicable to Cobo Portal Apps developers. To call this operation, you need to use the Cobo OAuth authentication method that requires an app key.</Note> This operation allows Cobo Portal Apps to obtain a new Org Access Token with a specified client ID, grant type and a Refresh Token.   For security purposes, Org Access Tokens expire after a certain period. Once they expire, the app needs to call this operation to get a new Org Access Token and a new Refresh Token.  
      * @param {module:model/RefreshTokenRequest} RefreshTokenRequest The request body for refreshing an Org Access Token.
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/RefreshToken201Response} and HTTP response
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/RefreshToken2XXResponse} and HTTP response
      */
     refreshTokenWithHttpInfo(RefreshTokenRequest) {
       let postBody = RefreshTokenRequest;
@@ -129,7 +129,7 @@ export default class OAuthApi {
       let authNames = ['CoboAuth'];
       let contentTypes = ['application/json'];
       let accepts = ['application/json'];
-      let returnType = RefreshToken201Response;
+      let returnType = RefreshToken2XXResponse;
       return this.apiClient.callApi(
         '/oauth/token', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -141,7 +141,7 @@ export default class OAuthApi {
      * Refresh Org Access Token
      * <Note>This operation is only applicable to Cobo Portal Apps developers. To call this operation, you need to use the Cobo OAuth authentication method that requires an app key.</Note> This operation allows Cobo Portal Apps to obtain a new Org Access Token with a specified client ID, grant type and a Refresh Token.   For security purposes, Org Access Tokens expire after a certain period. Once they expire, the app needs to call this operation to get a new Org Access Token and a new Refresh Token.  
      * @param {module:model/RefreshTokenRequest} RefreshTokenRequest The request body for refreshing an Org Access Token.
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/RefreshToken201Response}
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/RefreshToken2XXResponse}
      */
     refreshToken(RefreshTokenRequest) {
       return this.refreshTokenWithHttpInfo(RefreshTokenRequest)

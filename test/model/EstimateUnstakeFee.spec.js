@@ -82,6 +82,12 @@
       //expect(instance).to.be();
     });
 
+    it('should have the property extra (base name: "extra")', function() {
+      // uncomment below and update the code to test the property extra
+      //var instance = new CoboWaas2.EstimateUnstakeFee();
+      //expect(instance).to.be();
+    });
+
   });
 
 }));

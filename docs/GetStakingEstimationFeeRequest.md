@@ -10,7 +10,7 @@ Name | Type | Description | Notes
 **pool_id** | **String** | The ID of the staking pool. | 
 **amount** | **String** | The amount to withdraw. | 
 **fee** | [**TransactionRequestFee**](TransactionRequestFee.md) |  | 
-**extra** | [**CreateStakeActivityExtra**](CreateStakeActivityExtra.md) |  | 
+**extra** | [**CreateUnstakeActivityExtra**](CreateUnstakeActivityExtra.md) |  | 
 **staking_id** | **String** | The ID of the corresponding staking position. | 
 **address** | **String** | The withdrawal address. | 
 

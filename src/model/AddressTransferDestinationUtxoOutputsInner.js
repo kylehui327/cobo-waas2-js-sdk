@@ -20,10 +20,11 @@ class AddressTransferDestinationUtxoOutputsInner {
      * Constructs a new <code>AddressTransferDestinationUtxoOutputsInner</code>.
      * @alias module:model/AddressTransferDestinationUtxoOutputsInner
      * @param address {String} The destination address.
+     * @param amount {String} The transfer amount. For example, if you trade 1.5 BTC, then the value is `1.5`. 
      */
-    constructor(address) { 
+    constructor(address, amount) { 
         
-        AddressTransferDestinationUtxoOutputsInner.initialize(this, address);
+        AddressTransferDestinationUtxoOutputsInner.initialize(this, address, amount);
     }
 
     /**
@@ -31,8 +32,9 @@ class AddressTransferDestinationUtxoOutputsInner {
      * This method is used by the constructors of any subclasses, in order to implement multiple inheritance (mix-ins).
      * Only for internal use.
      */
-    static initialize(obj, address) { 
+    static initialize(obj, address, amount) { 
         obj['address'] = address;
+        obj['amount'] = amount;
     }
 
     /**
@@ -51,9 +53,6 @@ class AddressTransferDestinationUtxoOutputsInner {
             }
             if (data.hasOwnProperty('amount')) {
                 obj['amount'] = ApiClient.convertToType(data['amount'], 'String');
-            }
-            if (data.hasOwnProperty('script')) {
-                obj['script'] = ApiClient.convertToType(data['script'], 'String');
             }
         }
         return obj;
@@ -79,10 +78,6 @@ class AddressTransferDestinationUtxoOutputsInner {
         if (data['amount'] && !(typeof data['amount'] === 'string' || data['amount'] instanceof String)) {
             throw new Error("Expected the field `amount` to be a primitive type in the JSON string but got " + data['amount']);
         }
-        // ensure the json data is a string
-        if (data['script'] && !(typeof data['script'] === 'string' || data['script'] instanceof String)) {
-            throw new Error("Expected the field `script` to be a primitive type in the JSON string but got " + data['script']);
-        }
 
         return true;
     }
@@ -90,7 +85,7 @@ class AddressTransferDestinationUtxoOutputsInner {
 
 }
 
-AddressTransferDestinationUtxoOutputsInner.RequiredProperties = ["address"];
+AddressTransferDestinationUtxoOutputsInner.RequiredProperties = ["address", "amount"];
 
 /**
  * The destination address.
@@ -103,12 +98,6 @@ AddressTransferDestinationUtxoOutputsInner.prototype['address'] = undefined;
  * @member {String} amount
  */
 AddressTransferDestinationUtxoOutputsInner.prototype['amount'] = undefined;
-
-/**
- * The script of the output. It is a programmable code fragment that defines the conditions under which the UTXO can be spent.
- * @member {String} script
- */
-AddressTransferDestinationUtxoOutputsInner.prototype['script'] = undefined;
 
 
 

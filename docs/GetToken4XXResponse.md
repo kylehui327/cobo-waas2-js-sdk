@@ -5,6 +5,6 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **error** | **String** | The error name. | 
-**error_message** | **String** | The error description. | [optional] 
+**error_description** | **String** | The error description. | 
 
 

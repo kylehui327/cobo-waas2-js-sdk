@@ -11,6 +11,7 @@
 
 import ApiClient from '../ApiClient';
 import BabylonStakingExtra from './BabylonStakingExtra';
+import EthStakingExtra from './EthStakingExtra';
 import StakingPoolType from './StakingPoolType';
 
 /**
@@ -21,7 +22,7 @@ class StakingsExtra {
     /**
      * Constructs a new <code>StakingsExtra</code>.
      * @alias module:model/StakingsExtra
-     * @param {(module:model/BabylonStakingExtra)} instance The actual instance to initialize StakingsExtra.
+     * @param {(module:model/BabylonStakingExtra|module:model/EthStakingExtra)} instance The actual instance to initialize StakingsExtra.
      */
     constructor(instance = null) {
         if (instance === null) {
@@ -36,6 +37,10 @@ class StakingsExtra {
             switch(discriminatorValue) {
                 case "Babylon":
                     this.actualInstance = BabylonStakingExtra.constructFromObject(instance);
+                    match++;
+                    break;
+                case "ETHBeacon":
+                    this.actualInstance = EthStakingExtra.constructFromObject(instance);
                     match++;
                     break;
                 default:
@@ -70,12 +75,37 @@ class StakingsExtra {
             errorMessages.push("Failed to construct BabylonStakingExtra: " + err)
         }
 
+        try {
+            if (instance instanceof EthStakingExtra) {
+                this.actualInstance = instance;
+            } else if(!!EthStakingExtra.validateJSON && EthStakingExtra.validateJSON(instance)){
+                // plain JS object
+                // create EthStakingExtra from JS object
+                this.actualInstance = EthStakingExtra.constructFromObject(instance);
+            } else {
+                if(EthStakingExtra.constructFromObject(instance)) {
+                    if (!!EthStakingExtra.constructFromObject(instance).toJSON) {
+                        if (EthStakingExtra.constructFromObject(instance).toJSON()) {
+                            this.actualInstance = EthStakingExtra.constructFromObject(instance);
+                        }
+                    } else {
+                        this.actualInstance = EthStakingExtra.constructFromObject(instance);
+                    }
+                }
+
+            }
+            match++;
+        } catch(err) {
+            // json data failed to deserialize into EthStakingExtra
+            errorMessages.push("Failed to construct EthStakingExtra: " + err)
+        }
+
         // if (match > 1) {
-        //    throw new Error("Multiple matches found constructing `StakingsExtra` with oneOf schemas BabylonStakingExtra. Input: " + JSON.stringify(instance));
+        //    throw new Error("Multiple matches found constructing `StakingsExtra` with oneOf schemas BabylonStakingExtra, EthStakingExtra. Input: " + JSON.stringify(instance));
         // } else
         if (match === 0) {
         //    this.actualInstance = null; // clear the actual instance in case there are multiple matches
-        //    throw new Error("No match found constructing `StakingsExtra` with oneOf schemas BabylonStakingExtra. Details: " +
+        //    throw new Error("No match found constructing `StakingsExtra` with oneOf schemas BabylonStakingExtra, EthStakingExtra. Details: " +
         //                    errorMessages.join(", "));
         return;
         } else { // only 1 match
@@ -95,16 +125,16 @@ class StakingsExtra {
     }
 
     /**
-     * Gets the actual instance, which can be <code>BabylonStakingExtra</code>.
-     * @return {(module:model/BabylonStakingExtra)} The actual instance.
+     * Gets the actual instance, which can be <code>BabylonStakingExtra</code>, <code>EthStakingExtra</code>.
+     * @return {(module:model/BabylonStakingExtra|module:model/EthStakingExtra)} The actual instance.
      */
     getActualInstance() {
         return this.actualInstance;
     }
 
     /**
-     * Sets the actual instance, which can be <code>BabylonStakingExtra</code>.
-     * @param {(module:model/BabylonStakingExtra)} obj The actual instance.
+     * Sets the actual instance, which can be <code>BabylonStakingExtra</code>, <code>EthStakingExtra</code>.
+     * @param {(module:model/BabylonStakingExtra|module:model/EthStakingExtra)} obj The actual instance.
      */
     setActualInstance(obj) {
        this.actualInstance = StakingsExtra.constructFromObject(obj).getActualInstance();
@@ -164,7 +194,7 @@ StakingsExtra.prototype['stake_address'] = undefined;
 StakingsExtra.prototype['unbond_address'] = undefined;
 
 
-StakingsExtra.OneOf = ["BabylonStakingExtra"];
+StakingsExtra.OneOf = ["BabylonStakingExtra", "EthStakingExtra"];
 
 export default StakingsExtra;
 

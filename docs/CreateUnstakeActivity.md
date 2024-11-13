@@ -8,5 +8,6 @@ Name | Type | Description | Notes
 **staking_id** | **String** | The ID of the corresponding staking position. | 
 **amount** | **String** | The amount to unstake. For the Babylon protocol, this property is ignored. | [optional] 
 **fee** | [**TransactionRequestFee**](TransactionRequestFee.md) |  | [optional] 
+**extra** | [**CreateUnstakeActivityExtra**](CreateUnstakeActivityExtra.md) |  | [optional] 
 
 

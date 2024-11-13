@@ -10,7 +10,11 @@
  */
 
 import ApiClient from '../ApiClient';
+import BabylonStakeEstimatedFee from './BabylonStakeEstimatedFee';
+import EstimatedFee from './EstimatedFee';
+import EthStakeEstimatedFee from './EthStakeEstimatedFee';
 import FeeType from './FeeType';
+import StakingPoolType from './StakingPoolType';
 
 /**
  * The GetStakingEstimationFee201Response model module.
@@ -20,18 +24,95 @@ class GetStakingEstimationFee201Response {
     /**
      * Constructs a new <code>GetStakingEstimationFee201Response</code>.
      * @alias module:model/GetStakingEstimationFee201Response
+     * @param {(module:model/BabylonStakeEstimatedFee|module:model/EthStakeEstimatedFee)} instance The actual instance to initialize GetStakingEstimationFee201Response.
      */
-    constructor() { 
-        
-        GetStakingEstimationFee201Response.initialize(this);
-    }
+    constructor(instance = null) {
+        if (instance === null) {
+            this.actualInstance = null;
+            return;
+        }
+        var match = 0;
+        var errorMessages = [];
+        var discriminatorValue = instance["pool_type"];
 
-    /**
-     * Initializes the fields of this object.
-     * This method is used by the constructors of any subclasses, in order to implement multiple inheritance (mix-ins).
-     * Only for internal use.
-     */
-    static initialize(obj) { 
+        if (discriminatorValue) {
+            switch(discriminatorValue) {
+                case "Babylon":
+                    this.actualInstance = BabylonStakeEstimatedFee.constructFromObject(instance);
+                    match++;
+                    break;
+                case "ETHBeacon":
+                    this.actualInstance = EthStakeEstimatedFee.constructFromObject(instance);
+                    match++;
+                    break;
+                default:
+                    errorMessages.push("Unrecognized discriminator value: " + discriminatorValue);
+                    break;
+            }
+            return;
+        }
+
+        try {
+            if (instance instanceof EthStakeEstimatedFee) {
+                this.actualInstance = instance;
+            } else if(!!EthStakeEstimatedFee.validateJSON && EthStakeEstimatedFee.validateJSON(instance)){
+                // plain JS object
+                // create EthStakeEstimatedFee from JS object
+                this.actualInstance = EthStakeEstimatedFee.constructFromObject(instance);
+            } else {
+                if(EthStakeEstimatedFee.constructFromObject(instance)) {
+                    if (!!EthStakeEstimatedFee.constructFromObject(instance).toJSON) {
+                        if (EthStakeEstimatedFee.constructFromObject(instance).toJSON()) {
+                            this.actualInstance = EthStakeEstimatedFee.constructFromObject(instance);
+                        }
+                    } else {
+                        this.actualInstance = EthStakeEstimatedFee.constructFromObject(instance);
+                    }
+                }
+
+            }
+            match++;
+        } catch(err) {
+            // json data failed to deserialize into EthStakeEstimatedFee
+            errorMessages.push("Failed to construct EthStakeEstimatedFee: " + err)
+        }
+
+        try {
+            if (instance instanceof BabylonStakeEstimatedFee) {
+                this.actualInstance = instance;
+            } else if(!!BabylonStakeEstimatedFee.validateJSON && BabylonStakeEstimatedFee.validateJSON(instance)){
+                // plain JS object
+                // create BabylonStakeEstimatedFee from JS object
+                this.actualInstance = BabylonStakeEstimatedFee.constructFromObject(instance);
+            } else {
+                if(BabylonStakeEstimatedFee.constructFromObject(instance)) {
+                    if (!!BabylonStakeEstimatedFee.constructFromObject(instance).toJSON) {
+                        if (BabylonStakeEstimatedFee.constructFromObject(instance).toJSON()) {
+                            this.actualInstance = BabylonStakeEstimatedFee.constructFromObject(instance);
+                        }
+                    } else {
+                        this.actualInstance = BabylonStakeEstimatedFee.constructFromObject(instance);
+                    }
+                }
+
+            }
+            match++;
+        } catch(err) {
+            // json data failed to deserialize into BabylonStakeEstimatedFee
+            errorMessages.push("Failed to construct BabylonStakeEstimatedFee: " + err)
+        }
+
+        // if (match > 1) {
+        //    throw new Error("Multiple matches found constructing `GetStakingEstimationFee201Response` with oneOf schemas BabylonStakeEstimatedFee, EthStakeEstimatedFee. Input: " + JSON.stringify(instance));
+        // } else
+        if (match === 0) {
+        //    this.actualInstance = null; // clear the actual instance in case there are multiple matches
+        //    throw new Error("No match found constructing `GetStakingEstimationFee201Response` with oneOf schemas BabylonStakeEstimatedFee, EthStakeEstimatedFee. Details: " +
+        //                    errorMessages.join(", "));
+        return;
+        } else { // only 1 match
+            // the input is valid
+        }
     }
 
     /**
@@ -42,44 +123,58 @@ class GetStakingEstimationFee201Response {
      * @return {module:model/GetStakingEstimationFee201Response} The populated <code>GetStakingEstimationFee201Response</code> instance.
      */
     static constructFromObject(data, obj) {
-        if (data) {
-            obj = obj || new GetStakingEstimationFee201Response();
-
-            if (data.hasOwnProperty('fee_type')) {
-                obj['fee_type'] = FeeType.constructFromObject(data['fee_type']);
-            }
-            if (data.hasOwnProperty('fee_amount')) {
-                obj['fee_amount'] = ApiClient.convertToType(data['fee_amount'], 'String');
-            }
-            if (data.hasOwnProperty('token_id')) {
-                obj['token_id'] = ApiClient.convertToType(data['token_id'], 'String');
-            }
-        }
-        return obj;
+        return new GetStakingEstimationFee201Response(data);
     }
 
     /**
-     * Validates the JSON data with respect to <code>GetStakingEstimationFee201Response</code>.
-     * @param {Object} data The plain JavaScript object bearing properties of interest.
-     * @return {boolean} to indicate whether the JSON data is valid with respect to <code>GetStakingEstimationFee201Response</code>.
+     * Gets the actual instance, which can be <code>BabylonStakeEstimatedFee</code>, <code>EthStakeEstimatedFee</code>.
+     * @return {(module:model/BabylonStakeEstimatedFee|module:model/EthStakeEstimatedFee)} The actual instance.
      */
-    static validateJSON(data) {
-        // ensure the json data is a string
-        if (data['fee_amount'] && !(typeof data['fee_amount'] === 'string' || data['fee_amount'] instanceof String)) {
-            throw new Error("Expected the field `fee_amount` to be a primitive type in the JSON string but got " + data['fee_amount']);
-        }
-        // ensure the json data is a string
-        if (data['token_id'] && !(typeof data['token_id'] === 'string' || data['token_id'] instanceof String)) {
-            throw new Error("Expected the field `token_id` to be a primitive type in the JSON string but got " + data['token_id']);
-        }
-
-        return true;
+    getActualInstance() {
+        return this.actualInstance;
     }
 
+    /**
+     * Sets the actual instance, which can be <code>BabylonStakeEstimatedFee</code>, <code>EthStakeEstimatedFee</code>.
+     * @param {(module:model/BabylonStakeEstimatedFee|module:model/EthStakeEstimatedFee)} obj The actual instance.
+     */
+    setActualInstance(obj) {
+       this.actualInstance = GetStakingEstimationFee201Response.constructFromObject(obj).getActualInstance();
+    }
 
+    /**
+     * Returns the JSON representation of the actual instance.
+     * @return {string}
+     */
+    toJSON = function(){
+        return this.getActualInstance();
+    }
+
+    /**
+     * Create an instance of GetStakingEstimationFee201Response from a JSON string.
+     * @param {string} json_string JSON string.
+     * @return {module:model/GetStakingEstimationFee201Response} An instance of GetStakingEstimationFee201Response.
+     */
+    static fromJSON = function(json_string){
+        return GetStakingEstimationFee201Response.constructFromObject(JSON.parse(json_string));
+    }
 }
 
+/**
+ * @member {module:model/StakingPoolType} pool_type
+ */
+GetStakingEstimationFee201Response.prototype['pool_type'] = undefined;
 
+/**
+ * @member {module:model/EstimatedFee} fee
+ */
+GetStakingEstimationFee201Response.prototype['fee'] = undefined;
+
+/**
+ * A list of public keys associated with the Ethereum validators for this staking operation.
+ * @member {Array.<String>} validator_pubkeys
+ */
+GetStakingEstimationFee201Response.prototype['validator_pubkeys'] = undefined;
 
 /**
  * @member {module:model/FeeType} fee_type
@@ -99,9 +194,7 @@ GetStakingEstimationFee201Response.prototype['fee_amount'] = undefined;
 GetStakingEstimationFee201Response.prototype['token_id'] = undefined;
 
 
-
-
-
+GetStakingEstimationFee201Response.OneOf = ["BabylonStakeEstimatedFee", "EthStakeEstimatedFee"];
 
 export default GetStakingEstimationFee201Response;
 

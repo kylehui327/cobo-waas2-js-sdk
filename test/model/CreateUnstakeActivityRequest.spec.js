@@ -76,6 +76,12 @@
       //expect(instance).to.be();
     });
 
+    it('should have the property extra (base name: "extra")', function() {
+      // uncomment below and update the code to test the property extra
+      //var instance = new CoboWaas2.CreateUnstakeActivityRequest();
+      //expect(instance).to.be();
+    });
+
     it('should have the property app_initiator (base name: "app_initiator")', function() {
       // uncomment below and update the code to test the property app_initiator
       //var instance = new CoboWaas2.CreateUnstakeActivityRequest();

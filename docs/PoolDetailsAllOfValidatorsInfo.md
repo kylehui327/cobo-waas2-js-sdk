@@ -21,6 +21,8 @@ Name | Type | Description | Notes
 
 * `Cosmos` (value: `"Cosmos"`)
 
+* `Ethereum` (value: `"Ethereum"`)
+
 * `unknown_default_open_api` (value: `"unknown_default_open_api"`)
 
 
