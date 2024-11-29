@@ -15,6 +15,7 @@ Method | HTTP request | Description
 [**getTransactionById**](TransactionsApi.md#getTransactionById) | **GET** /transactions/{transaction_id} | Get transaction information
 [**listTransactions**](TransactionsApi.md#listTransactions) | **GET** /transactions | List all transactions
 [**resendTransactionById**](TransactionsApi.md#resendTransactionById) | **POST** /transactions/{transaction_id}/resend | Resend transaction
+[**signAndBroadcastTransactionById**](TransactionsApi.md#signAndBroadcastTransactionById) | **POST** /transactions/{transaction_id}/sign_and_broadcast | Sign and broadcast transaction
 [**speedupTransactionById**](TransactionsApi.md#speedupTransactionById) | **POST** /transactions/{transaction_id}/speedup | Speed up transaction
 
 
@@ -622,6 +623,56 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: application/json
+- **Accept**: application/json
+
+
+## signAndBroadcastTransactionById
+
+> CreateTransferTransaction201Response signAndBroadcastTransactionById(transaction_id)
+
+Sign and broadcast transaction
+
+This operation sign and broadcast a specified transaction. 
+
+### Example
+
+```javascript
+const CoboWaas2 = require('@cobo/cobo-waas2');
+// Initialize the API client
+const apiClient = CoboWaas2.ApiClient.instance
+// Select the development environment. To use the production environment, replace `Env.DEV` with `Env.PROD`
+apiClient.setEnv(CoboWaas2.Env.DEV);
+// Replace `<YOUR_PRIVATE_KEY>` with your private key
+apiClient.setPrivateKey("<YOUR_PRIVATE_KEY>");
+// Call the API
+const apiInstance = new CoboWaas2.TransactionsApi();
+const transaction_id = "f47ac10b-58cc-4372-a567-0e02b2c3d479";
+apiInstance.signAndBroadcastTransactionById(transaction_id).then((data) => {
+  console.log('API called successfully. Returned data: ' + data);
+}, (error) => {
+  console.error(error);
+});
+
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **transaction_id** | **String**| The transaction ID. | 
+
+### Return type
+
+[**CreateTransferTransaction201Response**](CreateTransferTransaction201Response.md)
+
+### Authorization
+
+[CoboAuth](../README.md#CoboAuth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
 - **Accept**: application/json
 
 

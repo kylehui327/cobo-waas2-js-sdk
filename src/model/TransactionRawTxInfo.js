@@ -55,6 +55,9 @@ class TransactionRawTxInfo {
             if (data.hasOwnProperty('raw_tx')) {
                 obj['raw_tx'] = ApiClient.convertToType(data['raw_tx'], 'String');
             }
+            if (data.hasOwnProperty('unsigned_raw_tx')) {
+                obj['unsigned_raw_tx'] = ApiClient.convertToType(data['unsigned_raw_tx'], 'String');
+            }
         }
         return obj;
     }
@@ -78,6 +81,10 @@ class TransactionRawTxInfo {
         // ensure the json data is a string
         if (data['raw_tx'] && !(typeof data['raw_tx'] === 'string' || data['raw_tx'] instanceof String)) {
             throw new Error("Expected the field `raw_tx` to be a primitive type in the JSON string but got " + data['raw_tx']);
+        }
+        // ensure the json data is a string
+        if (data['unsigned_raw_tx'] && !(typeof data['unsigned_raw_tx'] === 'string' || data['unsigned_raw_tx'] instanceof String)) {
+            throw new Error("Expected the field `unsigned_raw_tx` to be a primitive type in the JSON string but got " + data['unsigned_raw_tx']);
         }
 
         return true;
@@ -105,6 +112,12 @@ TransactionRawTxInfo.prototype['selected_utxos'] = undefined;
  * @member {String} raw_tx
  */
 TransactionRawTxInfo.prototype['raw_tx'] = undefined;
+
+/**
+ * The unsigned raw transaction data.
+ * @member {String} unsigned_raw_tx
+ */
+TransactionRawTxInfo.prototype['unsigned_raw_tx'] = undefined;
 
 
 

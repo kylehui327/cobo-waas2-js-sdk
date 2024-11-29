@@ -23,6 +23,7 @@ docs/ApiLogDetails.md
 docs/ApiLogSummary.md
 docs/AssetBalance.md
 docs/AssetInfo.md
+docs/BTCEIP191MessageSignDestination.md
 docs/BabylonStakeEstimatedFee.md
 docs/BabylonStakeExtra.md
 docs/BabylonStakingExtra.md
@@ -320,6 +321,8 @@ src/api/WalletsExchangeWalletApi.js
 src/api/WalletsMPCWalletsApi.js
 src/api/WalletsSmartContractWalletsApi.js
 src/crypto/ApiSigner.js
+src/crypto/Ed25519Signer.js
+src/crypto/Secp256k1Signer.js
 src/index.js
 src/model/Activity.js
 src/model/ActivityAction.js
@@ -339,6 +342,7 @@ src/model/ApiLogDetails.js
 src/model/ApiLogSummary.js
 src/model/AssetBalance.js
 src/model/AssetInfo.js
+src/model/BTCEIP191MessageSignDestination.js
 src/model/BabylonStakeEstimatedFee.js
 src/model/BabylonStakeExtra.js
 src/model/BabylonStakingExtra.js
@@ -637,6 +641,7 @@ test/model/ApiLogDetails.spec.js
 test/model/ApiLogSummary.spec.js
 test/model/AssetBalance.spec.js
 test/model/AssetInfo.spec.js
+test/model/BTCEIP191MessageSignDestination.spec.js
 test/model/BabylonStakeEstimatedFee.spec.js
 test/model/BabylonStakeExtra.spec.js
 test/model/BabylonStakingExtra.spec.js

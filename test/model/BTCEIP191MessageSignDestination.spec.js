@@ -26,7 +26,7 @@
   var instance;
 
   beforeEach(function() {
-    instance = new CoboWaas2.TransactionRawTxInfo();
+    instance = new CoboWaas2.BTCEIP191MessageSignDestination();
   });
 
   var getProperty = function(object, getter, property) {
@@ -45,34 +45,22 @@
       object[property] = value;
   }
 
-  describe('TransactionRawTxInfo', function() {
-    it('should create an instance of TransactionRawTxInfo', function() {
-      // uncomment below and update the code to test TransactionRawTxInfo
-      //var instance = new CoboWaas2.TransactionRawTxInfo();
-      //expect(instance).to.be.a(CoboWaas2.TransactionRawTxInfo);
+  describe('BTCEIP191MessageSignDestination', function() {
+    it('should create an instance of BTCEIP191MessageSignDestination', function() {
+      // uncomment below and update the code to test BTCEIP191MessageSignDestination
+      //var instance = new CoboWaas2.BTCEIP191MessageSignDestination();
+      //expect(instance).to.be.a(CoboWaas2.BTCEIP191MessageSignDestination);
     });
 
-    it('should have the property used_nonce (base name: "used_nonce")', function() {
-      // uncomment below and update the code to test the property used_nonce
-      //var instance = new CoboWaas2.TransactionRawTxInfo();
+    it('should have the property destination_type (base name: "destination_type")', function() {
+      // uncomment below and update the code to test the property destination_type
+      //var instance = new CoboWaas2.BTCEIP191MessageSignDestination();
       //expect(instance).to.be();
     });
 
-    it('should have the property selected_utxos (base name: "selected_utxos")', function() {
-      // uncomment below and update the code to test the property selected_utxos
-      //var instance = new CoboWaas2.TransactionRawTxInfo();
-      //expect(instance).to.be();
-    });
-
-    it('should have the property raw_tx (base name: "raw_tx")', function() {
-      // uncomment below and update the code to test the property raw_tx
-      //var instance = new CoboWaas2.TransactionRawTxInfo();
-      //expect(instance).to.be();
-    });
-
-    it('should have the property unsigned_raw_tx (base name: "unsigned_raw_tx")', function() {
-      // uncomment below and update the code to test the property unsigned_raw_tx
-      //var instance = new CoboWaas2.TransactionRawTxInfo();
+    it('should have the property message (base name: "message")', function() {
+      // uncomment below and update the code to test the property message
+      //var instance = new CoboWaas2.BTCEIP191MessageSignDestination();
       //expect(instance).to.be();
     });
 

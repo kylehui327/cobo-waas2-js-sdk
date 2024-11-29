@@ -10,6 +10,8 @@
  */
 
 import Env from "./Env";
+import Ed25519Signer from "./crypto/Ed25519Signer";
+import Secp256k1Signer from "./crypto/Secp256k1Signer";
 import ApiClient from './ApiClient';
 import Activity from './model/Activity';
 import ActivityAction from './model/ActivityAction';
@@ -29,6 +31,7 @@ import ApiLogDetails from './model/ApiLogDetails';
 import ApiLogSummary from './model/ApiLogSummary';
 import AssetBalance from './model/AssetBalance';
 import AssetInfo from './model/AssetInfo';
+import BTCEIP191MessageSignDestination from './model/BTCEIP191MessageSignDestination';
 import BabylonStakeEstimatedFee from './model/BabylonStakeEstimatedFee';
 import BabylonStakeExtra from './model/BabylonStakeExtra';
 import BabylonStakingExtra from './model/BabylonStakingExtra';
@@ -345,6 +348,8 @@ import WalletsSmartContractWalletsApi from './api/WalletsSmartContractWalletsApi
 */
 export {
     Env,
+    Ed25519Signer,
+    Secp256k1Signer,
     /**
      * The ApiClient constructor.
      * @property {module:ApiClient}
@@ -458,6 +463,12 @@ export {
      * @property {module:model/AssetInfo}
      */
     AssetInfo,
+
+    /**
+     * The BTCEIP191MessageSignDestination model constructor.
+     * @property {module:model/BTCEIP191MessageSignDestination}
+     */
+    BTCEIP191MessageSignDestination,
 
     /**
      * The BabylonStakeEstimatedFee model constructor.

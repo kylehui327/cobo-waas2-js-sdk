@@ -146,6 +146,16 @@ import {ApiClient, Env} from "../../src/index.js";
         //});
       });
     });
+    describe('signAndBroadcastTransactionById', function() {
+      it('should call signAndBroadcastTransactionById successfully', function() {
+        //uncomment below and update the code to test signAndBroadcastTransactionById
+        //instance.signAndBroadcastTransactionById().then(function(data) {
+        //    console.log(data);
+        //}, function(error) {
+        //    console.error(error);
+        //});
+      });
+    });
     describe('speedupTransactionById', function() {
       it('should call speedupTransactionById successfully', function() {
         //uncomment below and update the code to test speedupTransactionById

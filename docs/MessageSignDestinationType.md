@@ -3,9 +3,11 @@
 ## Enum
 
 
-* `191_Signature` (value: `"EVM_EIP_191_Signature"`)
+* `EVM_EIP_191_Signature` (value: `"EVM_EIP_191_Signature"`)
 
-* `712_Signature` (value: `"EVM_EIP_712_Signature"`)
+* `EVM_EIP_712_Signature` (value: `"EVM_EIP_712_Signature"`)
+
+* `BTC_EIP_191_Signature` (value: `"BTC_EIP_191_Signature"`)
 
 * `unknown_default_open_api` (value: `"unknown_default_open_api"`)
 

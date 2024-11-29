@@ -668,6 +668,57 @@ export default class TransactionsApi {
 
 
     /**
+     * Sign and broadcast transaction
+     * This operation sign and broadcast a specified transaction. 
+     * @param {String} transaction_id The transaction ID.
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/CreateTransferTransaction201Response} and HTTP response
+     */
+    signAndBroadcastTransactionByIdWithHttpInfo(transaction_id) {
+      let postBody = null;
+      if (postBody && postBody.toJSON) {
+          postBody = postBody.toJSON()
+      }
+      // verify the required parameter 'transaction_id' is set
+      if (transaction_id === undefined || transaction_id === null) {
+        throw new Error("Missing the required parameter 'transaction_id' when calling signAndBroadcastTransactionById");
+      }
+
+      let pathParams = {
+        'transaction_id': transaction_id
+      };
+      let queryParams = {
+      };
+      let headerParams = {
+      };
+      let formParams = {
+      };
+
+      let authNames = ['CoboAuth'];
+      let contentTypes = [];
+      let accepts = ['application/json'];
+      let returnType = CreateTransferTransaction201Response;
+      return this.apiClient.callApi(
+        '/transactions/{transaction_id}/sign_and_broadcast', 'POST',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, null
+      );
+    }
+
+    /**
+     * Sign and broadcast transaction
+     * This operation sign and broadcast a specified transaction. 
+     * @param {String} transaction_id The transaction ID.
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/CreateTransferTransaction201Response}
+     */
+    signAndBroadcastTransactionById(transaction_id) {
+      return this.signAndBroadcastTransactionByIdWithHttpInfo(transaction_id)
+        .then(function(response_and_data) {
+          return response_and_data.data;
+        });
+    }
+
+
+    /**
      * Speed up transaction
      * This operation accelerates a specified transaction.   Speeding up a transaction will trigger a Replace-By-Fee (RBF) transaction which is a new version of the original transaction. It shares the same inputs but must have a higher transaction fee to incentivize miners to prioritize its confirmation over the previous one. A transaction can be accelerated if its status is `Broadcasting`.  You can use the `address` or `included_utxos` properties in the request body to specify the address or UTXOs that will cover the transaction fee. Generally, the transaction fee is paid by the original transaction's source. If that source's balance is insufficient, the specified address or UTXOs can be used to cover the fee.  A transaction request for tracking is returned upon successful operation.  <Note>This operation only applies to transactions from MPC Wallets and Smart Contract Wallets. It does not apply to transactions on the following chains: VET, TRON, TVET, SOL, and TON.</Note>  <Info>If you speed up a transaction from a Smart Contract Wallet, two RBF transactions will be triggered, one for the transaction from the Smart Contract Wallet, and the other for the transaction from the Delegate.</Info> 
      * @param {String} transaction_id The transaction ID.

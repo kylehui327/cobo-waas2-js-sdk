@@ -77,6 +77,9 @@ class ContractCallParams {
             if (data.hasOwnProperty('fee')) {
                 obj['fee'] = TransactionRequestFee.constructFromObject(data['fee']);
             }
+            if (data.hasOwnProperty('transaction_process_type')) {
+                obj['transaction_process_type'] = ApiClient.convertToType(data['transaction_process_type'], 'String');
+            }
         }
         return obj;
     }
@@ -127,6 +130,10 @@ class ContractCallParams {
             TransactionRequestFee.validateJSON(data['fee']);
           }
         }
+        // ensure the json data is a string
+        if (data['transaction_process_type'] && !(typeof data['transaction_process_type'] === 'string' || data['transaction_process_type'] instanceof String)) {
+            throw new Error("Expected the field `transaction_process_type` to be a primitive type in the JSON string but got " + data['transaction_process_type']);
+        }
 
         return true;
     }
@@ -175,8 +182,41 @@ ContractCallParams.prototype['category_names'] = undefined;
  */
 ContractCallParams.prototype['fee'] = undefined;
 
+/**
+ * Transaction processing type: **AutoProcess** means that after the transaction is constructed, it will be automatically signed and broadcasted. **AutoProcess** is the default vault. **BuildOnly** means that after the transaction is constructed, you need to manually call an interface to sign and broadcast it. 
+ * @member {module:model/ContractCallParams.TransactionProcessTypeEnum} transaction_process_type
+ */
+ContractCallParams.prototype['transaction_process_type'] = undefined;
 
 
+
+
+
+/**
+ * Allowed values for the <code>transaction_process_type</code> property.
+ * @enum {String}
+ * @readonly
+ */
+ContractCallParams['TransactionProcessTypeEnum'] = {
+
+    /**
+     * value: "AutoProcess"
+     * @const
+     */
+    "AutoProcess": "AutoProcess",
+
+    /**
+     * value: "BuildOnly"
+     * @const
+     */
+    "BuildOnly": "BuildOnly",
+
+    /**
+     * value: "unknown_default_open_api"
+     * @const
+     */
+    "unknown_default_open_api": "unknown_default_open_api"
+};
 
 
 

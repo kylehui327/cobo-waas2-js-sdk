@@ -536,7 +536,7 @@ export default class StakingsApi {
 
     /**
      * List staking positions
-     * This operation retrieves a list of staking positions.  
+     * This operation retrieves a list of staking positions. 
      * @param {Object} opts Optional parameters
      * @param {String} [pool_id] The ID of the staking pool. A staking pool is a pairing of a staking protocol and a specific type of token. You can call [List staking pools](/v2/api-references/stakings/list-staking-pools) to retrieve a list of staking pools.
      * @param {String} [statuses] The statuses of the staking amounts, separated by comma. Possible values include:  - `StakeInProgress`: The staking request is submitted and is waiting to be confirmed by the staking protocol. - `Active`: The amount has been staked. - `Rejected`: The staking request has been rejected because the signer refuses to sign the transaction. - `LimitExceeded`: The total staking cap of the staking protocol has been reached. - `Invalid`: The staking request is invalid. This is often due to the failure to broadcast the transaction. - `UnstakeInProgress`: The unstaking request is submitted and is waiting to be confirmed by the staking protocol. - `Withdrawable`: The tokens have been unstaked and are ready to be withdrawn. - `WithdrawInProgress`: The withdrawal request is submitted and is waiting to be confirmed on the chain network. - `Closed`: The staking position is closed. 
@@ -583,7 +583,7 @@ export default class StakingsApi {
 
     /**
      * List staking positions
-     * This operation retrieves a list of staking positions.  
+     * This operation retrieves a list of staking positions. 
      * @param {Object} opts Optional parameters
      * @param {String} opts.pool_id The ID of the staking pool. A staking pool is a pairing of a staking protocol and a specific type of token. You can call [List staking pools](/v2/api-references/stakings/list-staking-pools) to retrieve a list of staking pools.
      * @param {String} opts.statuses The statuses of the staking amounts, separated by comma. Possible values include:  - `StakeInProgress`: The staking request is submitted and is waiting to be confirmed by the staking protocol. - `Active`: The amount has been staked. - `Rejected`: The staking request has been rejected because the signer refuses to sign the transaction. - `LimitExceeded`: The total staking cap of the staking protocol has been reached. - `Invalid`: The staking request is invalid. This is often due to the failure to broadcast the transaction. - `UnstakeInProgress`: The unstaking request is submitted and is waiting to be confirmed by the staking protocol. - `Withdrawable`: The tokens have been unstaked and are ready to be withdrawn. - `WithdrawInProgress`: The withdrawal request is submitted and is waiting to be confirmed on the chain network. - `Closed`: The staking position is closed. 

@@ -94,6 +94,12 @@
       //expect(instance).to.be();
     });
 
+    it('should have the property transaction_process_type (base name: "transaction_process_type")', function() {
+      // uncomment below and update the code to test the property transaction_process_type
+      //var instance = new CoboWaas2.TransferParams();
+      //expect(instance).to.be();
+    });
+
   });
 
 }));

@@ -36,7 +36,13 @@ const CoboWaas2 = require('@cobo/cobo-waas2');
 const apiClient = CoboWaas2.ApiClient.instance
 // for dev env
 // apiClient.setEnv(CoboWaas2.Env.DEV);
+
+// by default, ed25519 is used
 apiClient.setPrivateKey("<YOUR_API_PRIVATE_KEY_IN_HEX>");
+
+// or secp256k1
+// apiClient.setPrivateKey("<YOUR_API_PRIVATE_KEY_IN_HEX>", "SECP256K1");
+
 // call api
 const apiInstance = new CoboWaas2.WalletsApi();
 const opts = {
@@ -96,6 +102,7 @@ Class | Method | HTTP request | Description
 *CoboWaas2.TransactionsApi* | [**getTransactionById**](docs/TransactionsApi.md#getTransactionById) | **GET** /transactions/{transaction_id} | Get transaction information
 *CoboWaas2.TransactionsApi* | [**listTransactions**](docs/TransactionsApi.md#listTransactions) | **GET** /transactions | List all transactions
 *CoboWaas2.TransactionsApi* | [**resendTransactionById**](docs/TransactionsApi.md#resendTransactionById) | **POST** /transactions/{transaction_id}/resend | Resend transaction
+*CoboWaas2.TransactionsApi* | [**signAndBroadcastTransactionById**](docs/TransactionsApi.md#signAndBroadcastTransactionById) | **POST** /transactions/{transaction_id}/sign_and_broadcast | Sign and broadcast transaction
 *CoboWaas2.TransactionsApi* | [**speedupTransactionById**](docs/TransactionsApi.md#speedupTransactionById) | **POST** /transactions/{transaction_id}/speedup | Speed up transaction
 *CoboWaas2.WalletsApi* | [**checkAddressChainsValidity**](docs/WalletsApi.md#checkAddressChainsValidity) | **GET** /wallets/check_address_chains_validity | Check address validity across chains
 *CoboWaas2.WalletsApi* | [**checkAddressValidity**](docs/WalletsApi.md#checkAddressValidity) | **GET** /wallets/check_address_validity | Check address validity
@@ -164,6 +171,7 @@ Class | Method | HTTP request | Description
  - [CoboWaas2.ApiLogSummary](docs/ApiLogSummary.md)
  - [CoboWaas2.AssetBalance](docs/AssetBalance.md)
  - [CoboWaas2.AssetInfo](docs/AssetInfo.md)
+ - [CoboWaas2.BTCEIP191MessageSignDestination](docs/BTCEIP191MessageSignDestination.md)
  - [CoboWaas2.BabylonStakeEstimatedFee](docs/BabylonStakeEstimatedFee.md)
  - [CoboWaas2.BabylonStakeExtra](docs/BabylonStakeExtra.md)
  - [CoboWaas2.BabylonStakingExtra](docs/BabylonStakingExtra.md)
