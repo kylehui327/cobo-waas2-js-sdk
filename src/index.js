@@ -10,6 +10,8 @@
  */
 
 import Env from "./Env";
+import Ed25519Signer from "./crypto/Ed25519Signer";
+import Secp256k1Signer from "./crypto/Secp256k1Signer";
 import ApiClient from './ApiClient';
 import Activity from './model/Activity';
 import ActivityAction from './model/ActivityAction';
@@ -29,6 +31,7 @@ import ApiLogDetails from './model/ApiLogDetails';
 import ApiLogSummary from './model/ApiLogSummary';
 import AssetBalance from './model/AssetBalance';
 import AssetInfo from './model/AssetInfo';
+import AutoFuelType from './model/AutoFuelType';
 import BabylonStakeEstimatedFee from './model/BabylonStakeEstimatedFee';
 import BabylonStakeExtra from './model/BabylonStakeExtra';
 import BabylonStakingExtra from './model/BabylonStakingExtra';
@@ -51,7 +54,11 @@ import ContractCallDestinationType from './model/ContractCallDestinationType';
 import ContractCallParams from './model/ContractCallParams';
 import ContractCallSource from './model/ContractCallSource';
 import ContractCallSourceType from './model/ContractCallSourceType';
+import CoreStakeExtra from './model/CoreStakeExtra';
+import CoreStakingExtra from './model/CoreStakingExtra';
 import CreateAddressRequest from './model/CreateAddressRequest';
+import CreateClaimActivity from './model/CreateClaimActivity';
+import CreateClaimActivityRequest from './model/CreateClaimActivityRequest';
 import CreateCustodialWalletParams from './model/CreateCustodialWalletParams';
 import CreateExchangeWalletParams from './model/CreateExchangeWalletParams';
 import CreateKeyShareHolder from './model/CreateKeyShareHolder';
@@ -84,6 +91,7 @@ import EigenLayerLstStakeExtra from './model/EigenLayerLstStakeExtra';
 import EigenLayerNativeStakeExtra from './model/EigenLayerNativeStakeExtra';
 import EigenlayerValidator from './model/EigenlayerValidator';
 import ErrorResponse from './model/ErrorResponse';
+import EstimateClaimFee from './model/EstimateClaimFee';
 import EstimateContractCallFeeParams from './model/EstimateContractCallFeeParams';
 import EstimateFeeParams from './model/EstimateFeeParams';
 import EstimateFeeRequestType from './model/EstimateFeeRequestType';
@@ -102,6 +110,7 @@ import EstimatedUtxoFeeSlow from './model/EstimatedUtxoFeeSlow';
 import EthStakeEstimatedFee from './model/EthStakeEstimatedFee';
 import EthStakeExtra from './model/EthStakeExtra';
 import EthStakingExtra from './model/EthStakingExtra';
+import EthStakingExtraAllOfBeaconValidators from './model/EthStakingExtraAllOfBeaconValidators';
 import EthUnstakeExtra from './model/EthUnstakeExtra';
 import EvmContractCallDestination from './model/EvmContractCallDestination';
 import EvmEIP191MessageSignDestination from './model/EvmEIP191MessageSignDestination';
@@ -197,11 +206,11 @@ import SmartContractWalletOperationType from './model/SmartContractWalletOperati
 import SmartContractWalletType from './model/SmartContractWalletType';
 import SourceGroup from './model/SourceGroup';
 import StakeSourceType from './model/StakeSourceType';
+import StakingPoolId from './model/StakingPoolId';
 import StakingPoolType from './model/StakingPoolType';
 import StakingSource from './model/StakingSource';
 import Stakings from './model/Stakings';
 import StakingsExtra from './model/StakingsExtra';
-import StakingsValidatorInfo from './model/StakingsValidatorInfo';
 import SubWalletAssetBalance from './model/SubWalletAssetBalance';
 import TSSGroups from './model/TSSGroups';
 import TSSRequest from './model/TSSRequest';
@@ -341,10 +350,12 @@ import WalletsSmartContractWalletsApi from './api/WalletsSmartContractWalletsApi
 * </pre>
 * </p>
 * @module index
-* @version 1.6.0
+* @version 1.7.0
 */
 export {
     Env,
+    Ed25519Signer,
+    Secp256k1Signer,
     /**
      * The ApiClient constructor.
      * @property {module:ApiClient}
@@ -458,6 +469,12 @@ export {
      * @property {module:model/AssetInfo}
      */
     AssetInfo,
+
+    /**
+     * The AutoFuelType model constructor.
+     * @property {module:model/AutoFuelType}
+     */
+    AutoFuelType,
 
     /**
      * The BabylonStakeEstimatedFee model constructor.
@@ -592,10 +609,34 @@ export {
     ContractCallSourceType,
 
     /**
+     * The CoreStakeExtra model constructor.
+     * @property {module:model/CoreStakeExtra}
+     */
+    CoreStakeExtra,
+
+    /**
+     * The CoreStakingExtra model constructor.
+     * @property {module:model/CoreStakingExtra}
+     */
+    CoreStakingExtra,
+
+    /**
      * The CreateAddressRequest model constructor.
      * @property {module:model/CreateAddressRequest}
      */
     CreateAddressRequest,
+
+    /**
+     * The CreateClaimActivity model constructor.
+     * @property {module:model/CreateClaimActivity}
+     */
+    CreateClaimActivity,
+
+    /**
+     * The CreateClaimActivityRequest model constructor.
+     * @property {module:model/CreateClaimActivityRequest}
+     */
+    CreateClaimActivityRequest,
 
     /**
      * The CreateCustodialWalletParams model constructor.
@@ -790,6 +831,12 @@ export {
     ErrorResponse,
 
     /**
+     * The EstimateClaimFee model constructor.
+     * @property {module:model/EstimateClaimFee}
+     */
+    EstimateClaimFee,
+
+    /**
      * The EstimateContractCallFeeParams model constructor.
      * @property {module:model/EstimateContractCallFeeParams}
      */
@@ -896,6 +943,12 @@ export {
      * @property {module:model/EthStakingExtra}
      */
     EthStakingExtra,
+
+    /**
+     * The EthStakingExtraAllOfBeaconValidators model constructor.
+     * @property {module:model/EthStakingExtraAllOfBeaconValidators}
+     */
+    EthStakingExtraAllOfBeaconValidators,
 
     /**
      * The EthUnstakeExtra model constructor.
@@ -1468,6 +1521,12 @@ export {
     StakeSourceType,
 
     /**
+     * The StakingPoolId model constructor.
+     * @property {module:model/StakingPoolId}
+     */
+    StakingPoolId,
+
+    /**
      * The StakingPoolType model constructor.
      * @property {module:model/StakingPoolType}
      */
@@ -1490,12 +1549,6 @@ export {
      * @property {module:model/StakingsExtra}
      */
     StakingsExtra,
-
-    /**
-     * The StakingsValidatorInfo model constructor.
-     * @property {module:model/StakingsValidatorInfo}
-     */
-    StakingsValidatorInfo,
 
     /**
      * The SubWalletAssetBalance model constructor.

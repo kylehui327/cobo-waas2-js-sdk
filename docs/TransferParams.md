@@ -11,5 +11,6 @@ Name | Type | Description | Notes
 **category_names** | **[String]** | The custom category for you to identify your transactions. | [optional] 
 **description** | **String** | The description of the transfer. | [optional] 
 **fee** | [**TransactionRequestFee**](TransactionRequestFee.md) |  | [optional] 
+**auto_fuel** | [**AutoFuelType**](AutoFuelType.md) |  | [optional] 
 
 

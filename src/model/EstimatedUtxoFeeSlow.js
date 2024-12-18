@@ -24,7 +24,7 @@ class EstimatedUtxoFeeSlow {
      * @implements module:model/UtxoFeeBasePrice
      * @implements module:model/FeeAmount
      * @param fee_rate {String} The fee rate in sat/vByte. The fee rate represents the satoshis you are willing to pay for each byte of data that your transaction will consume on the blockchain.
-     * @param fee_amount {String} The fee that you need to pay for the transaction.
+     * @param fee_amount {String} The transaction fee that you need to pay for the transaction.
      */
     constructor(fee_rate, fee_amount) { 
         UtxoFeeBasePrice.initialize(this);FeeAmount.initialize(this);
@@ -100,7 +100,7 @@ EstimatedUtxoFeeSlow.RequiredProperties = ["fee_rate", "fee_amount"];
 EstimatedUtxoFeeSlow.prototype['fee_rate'] = undefined;
 
 /**
- * The fee that you need to pay for the transaction.
+ * The transaction fee that you need to pay for the transaction.
  * @member {String} fee_amount
  */
 EstimatedUtxoFeeSlow.prototype['fee_amount'] = undefined;
@@ -114,7 +114,7 @@ EstimatedUtxoFeeSlow.prototype['fee_amount'] = undefined;
 UtxoFeeBasePrice.prototype['fee_rate'] = undefined;
 // Implement FeeAmount interface:
 /**
- * The fee that you need to pay for the transaction.
+ * The transaction fee that you need to pay for the transaction.
  * @member {String} fee_amount
  */
 FeeAmount.prototype['fee_amount'] = undefined;

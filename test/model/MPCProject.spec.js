@@ -82,8 +82,8 @@
       //expect(instance).to.be();
     });
 
-    it('should have the property create_timestamp (base name: "create_timestamp")', function() {
-      // uncomment below and update the code to test the property create_timestamp
+    it('should have the property created_timestamp (base name: "created_timestamp")', function() {
+      // uncomment below and update the code to test the property created_timestamp
       //var instance = new CoboWaas2.MPCProject();
       //expect(instance).to.be();
     });

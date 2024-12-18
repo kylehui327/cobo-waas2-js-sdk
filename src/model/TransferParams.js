@@ -10,6 +10,7 @@
  */
 
 import ApiClient from '../ApiClient';
+import AutoFuelType from './AutoFuelType';
 import TransactionRequestFee from './TransactionRequestFee';
 import TransferDestination from './TransferDestination';
 import TransferSource from './TransferSource';
@@ -76,6 +77,9 @@ class TransferParams {
             }
             if (data.hasOwnProperty('fee')) {
                 obj['fee'] = TransactionRequestFee.constructFromObject(data['fee']);
+            }
+            if (data.hasOwnProperty('auto_fuel')) {
+                obj['auto_fuel'] = AutoFuelType.constructFromObject(data['auto_fuel']);
             }
         }
         return obj;
@@ -174,6 +178,11 @@ TransferParams.prototype['description'] = undefined;
  * @member {module:model/TransactionRequestFee} fee
  */
 TransferParams.prototype['fee'] = undefined;
+
+/**
+ * @member {module:model/AutoFuelType} auto_fuel
+ */
+TransferParams.prototype['auto_fuel'] = undefined;
 
 
 

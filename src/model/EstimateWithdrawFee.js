@@ -70,9 +70,6 @@ class EstimateWithdrawFee {
             if (data.hasOwnProperty('amount')) {
                 obj['amount'] = ApiClient.convertToType(data['amount'], 'String');
             }
-            if (data.hasOwnProperty('address')) {
-                obj['address'] = ApiClient.convertToType(data['address'], 'String');
-            }
             if (data.hasOwnProperty('fee')) {
                 obj['fee'] = TransactionRequestFee.constructFromObject(data['fee']);
             }
@@ -103,10 +100,6 @@ class EstimateWithdrawFee {
         // ensure the json data is a string
         if (data['amount'] && !(typeof data['amount'] === 'string' || data['amount'] instanceof String)) {
             throw new Error("Expected the field `amount` to be a primitive type in the JSON string but got " + data['amount']);
-        }
-        // ensure the json data is a string
-        if (data['address'] && !(typeof data['address'] === 'string' || data['address'] instanceof String)) {
-            throw new Error("Expected the field `address` to be a primitive type in the JSON string but got " + data['address']);
         }
         // validate the optional field `fee`
         if (data['fee']) { // data not null
@@ -147,12 +140,6 @@ EstimateWithdrawFee.prototype['staking_id'] = undefined;
 EstimateWithdrawFee.prototype['amount'] = undefined;
 
 /**
- * The withdrawal address.
- * @member {String} address
- */
-EstimateWithdrawFee.prototype['address'] = undefined;
-
-/**
  * @member {module:model/TransactionRequestFee} fee
  */
 EstimateWithdrawFee.prototype['fee'] = undefined;
@@ -179,11 +166,6 @@ CreateWithdrawActivity.prototype['staking_id'] = undefined;
  * @member {String} amount
  */
 CreateWithdrawActivity.prototype['amount'] = undefined;
-/**
- * The withdrawal address.
- * @member {String} address
- */
-CreateWithdrawActivity.prototype['address'] = undefined;
 /**
  * @member {module:model/TransactionRequestFee} fee
  */

@@ -72,7 +72,7 @@ class FeeAmount {
 
 
 /**
- * The fee that you need to pay for the transaction.
+ * The transaction fee that you need to pay for the transaction.
  * @member {String} fee_amount
  */
 FeeAmount.prototype['fee_amount'] = undefined;

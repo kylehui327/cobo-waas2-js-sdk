@@ -9,5 +9,6 @@ Name | Type | Description | Notes
 **source** | [**TransactionRbfSource**](TransactionRbfSource.md) |  | [optional] 
 **category_names** | **[String]** | The custom category for you to identify your transactions. | [optional] 
 **description** | **String** | The description of the RBF transaction. | [optional] 
+**auto_fuel** | [**AutoFuelType**](AutoFuelType.md) |  | [optional] 
 
 

@@ -82,6 +82,30 @@
       //expect(instance).to.be();
     });
 
+    it('should have the property timelock (base name: "timelock")', function() {
+      // uncomment below and update the code to test the property timelock
+      //var instance = new CoboWaas2.CreateStakeActivityExtra();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property change_address (base name: "change_address")', function() {
+      // uncomment below and update the code to test the property change_address
+      //var instance = new CoboWaas2.CreateStakeActivityExtra();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property validator_address (base name: "validator_address")', function() {
+      // uncomment below and update the code to test the property validator_address
+      //var instance = new CoboWaas2.CreateStakeActivityExtra();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property reward_address (base name: "reward_address")', function() {
+      // uncomment below and update the code to test the property reward_address
+      //var instance = new CoboWaas2.CreateStakeActivityExtra();
+      //expect(instance).to.be();
+    });
+
   });
 
 }));

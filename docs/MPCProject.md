@@ -9,6 +9,6 @@ Name | Type | Description | Notes
 **name** | **String** | The project name. | [optional] 
 **participants** | **Number** | The number of key share holders in the project. | [optional] 
 **threshold** | **Number** | The number of key share holders required to sign an operation in the project. | [optional] 
-**create_timestamp** | **Number** | The project&#39;s creation time in Unix timestamp format, measured in milliseconds. | [optional] 
+**created_timestamp** | **Number** | The project&#39;s creation time in Unix timestamp format, measured in milliseconds. | [optional] 
 
 

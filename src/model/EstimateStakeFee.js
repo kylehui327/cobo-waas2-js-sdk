@@ -14,6 +14,7 @@ import ActivityType from './ActivityType';
 import BaseEstimateStakingFee from './BaseEstimateStakingFee';
 import CreateStakeActivity from './CreateStakeActivity';
 import CreateStakeActivityExtra from './CreateStakeActivityExtra';
+import StakingPoolId from './StakingPoolId';
 import StakingSource from './StakingSource';
 import TransactionRequestFee from './TransactionRequestFee';
 
@@ -28,7 +29,7 @@ class EstimateStakeFee {
      * @implements module:model/BaseEstimateStakingFee
      * @implements module:model/CreateStakeActivity
      * @param activity_type {module:model/ActivityType} 
-     * @param pool_id {String} The ID of the staking pool.
+     * @param pool_id {module:model/StakingPoolId} 
      * @param amount {String} The amount to stake.
      * @param fee {module:model/TransactionRequestFee} 
      * @param extra {module:model/CreateStakeActivityExtra} 
@@ -74,7 +75,7 @@ class EstimateStakeFee {
                 obj['source'] = StakingSource.constructFromObject(data['source']);
             }
             if (data.hasOwnProperty('pool_id')) {
-                obj['pool_id'] = ApiClient.convertToType(data['pool_id'], 'String');
+                obj['pool_id'] = StakingPoolId.constructFromObject(data['pool_id']);
             }
             if (data.hasOwnProperty('amount')) {
                 obj['amount'] = ApiClient.convertToType(data['amount'], 'String');
@@ -110,10 +111,6 @@ class EstimateStakeFee {
           if (!!StakingSource.validateJSON) {
             StakingSource.validateJSON(data['source']);
           }
-        }
-        // ensure the json data is a string
-        if (data['pool_id'] && !(typeof data['pool_id'] === 'string' || data['pool_id'] instanceof String)) {
-            throw new Error("Expected the field `pool_id` to be a primitive type in the JSON string but got " + data['pool_id']);
         }
         // ensure the json data is a string
         if (data['amount'] && !(typeof data['amount'] === 'string' || data['amount'] instanceof String)) {
@@ -157,8 +154,7 @@ EstimateStakeFee.prototype['request_id'] = undefined;
 EstimateStakeFee.prototype['source'] = undefined;
 
 /**
- * The ID of the staking pool.
- * @member {String} pool_id
+ * @member {module:model/StakingPoolId} pool_id
  */
 EstimateStakeFee.prototype['pool_id'] = undefined;
 
@@ -195,8 +191,7 @@ CreateStakeActivity.prototype['request_id'] = undefined;
  */
 CreateStakeActivity.prototype['source'] = undefined;
 /**
- * The ID of the staking pool.
- * @member {String} pool_id
+ * @member {module:model/StakingPoolId} pool_id
  */
 CreateStakeActivity.prototype['pool_id'] = undefined;
 /**

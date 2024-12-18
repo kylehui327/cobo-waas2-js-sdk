@@ -14,11 +14,13 @@ import ApiClient from "../ApiClient";
 import Activity from '../model/Activity';
 import ActivityStatus from '../model/ActivityStatus';
 import ActivityType from '../model/ActivityType';
+import CreateClaimActivityRequest from '../model/CreateClaimActivityRequest';
 import CreateStakeActivity201Response from '../model/CreateStakeActivity201Response';
 import CreateStakeActivityRequest from '../model/CreateStakeActivityRequest';
 import CreateUnstakeActivityRequest from '../model/CreateUnstakeActivityRequest';
 import CreateWithdrawActivityRequest from '../model/CreateWithdrawActivityRequest';
 import ErrorResponse from '../model/ErrorResponse';
+import EthStakeEstimatedFee from '../model/EthStakeEstimatedFee';
 import GetStakingEstimationFee201Response from '../model/GetStakingEstimationFee201Response';
 import GetStakingEstimationFeeRequest from '../model/GetStakingEstimationFeeRequest';
 import ListStakingActivities200Response from '../model/ListStakingActivities200Response';
@@ -44,6 +46,55 @@ export default class StakingsApi {
         this.apiClient = apiClient || ApiClient.instance;
     }
 
+
+
+    /**
+     * Create claim activity
+     * This operation creates a claim request.  <Note>Currently, only the Ethereum Beacon protocol supports this operation.</Note>  For some protocols, you can use the `fee` property in the request body to specify the maximum fee you are willing to pay. The transaction will fail if the actual fee exceeds the specified maximum fee.  
+     * @param {Object} opts Optional parameters
+     * @param {module:model/CreateClaimActivityRequest} [CreateClaimActivityRequest] The request body to create a staking request.
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/CreateStakeActivity201Response} and HTTP response
+     */
+    createClaimActivityWithHttpInfo(opts) {
+      opts = opts || {};
+      let postBody = opts['CreateClaimActivityRequest'];
+      if (postBody && postBody.toJSON) {
+          postBody = postBody.toJSON()
+      }
+
+      let pathParams = {
+      };
+      let queryParams = {
+      };
+      let headerParams = {
+      };
+      let formParams = {
+      };
+
+      let authNames = ['CoboAuth'];
+      let contentTypes = ['application/json'];
+      let accepts = ['application/json'];
+      let returnType = CreateStakeActivity201Response;
+      return this.apiClient.callApi(
+        '/stakings/activities/claim', 'POST',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, null
+      );
+    }
+
+    /**
+     * Create claim activity
+     * This operation creates a claim request.  <Note>Currently, only the Ethereum Beacon protocol supports this operation.</Note>  For some protocols, you can use the `fee` property in the request body to specify the maximum fee you are willing to pay. The transaction will fail if the actual fee exceeds the specified maximum fee.  
+     * @param {Object} opts Optional parameters
+     * @param {module:model/CreateClaimActivityRequest} opts.CreateClaimActivityRequest The request body to create a staking request.
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/CreateStakeActivity201Response}
+     */
+    createClaimActivity(opts) {
+      return this.createClaimActivityWithHttpInfo(opts)
+        .then(function(response_and_data) {
+          return response_and_data.data;
+        });
+    }
 
 
     /**
@@ -247,7 +298,7 @@ export default class StakingsApi {
     /**
      * Get staking position details
      * This operation retrieves the detailed information about a specified staking position. 
-     * @param {String} staking_id The ID of the staking position. You can retrieve a list of staking positions by calling [List staking positions](/v2/api-references/stakings/list-all-stakings).
+     * @param {String} staking_id The ID of the staking position. You can retrieve a list of staking positions by calling [List staking positions](/v2/api-references/stakings/list-staking-positions).
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/Stakings} and HTTP response
      */
     getStakingByIdWithHttpInfo(staking_id) {
@@ -284,7 +335,7 @@ export default class StakingsApi {
     /**
      * Get staking position details
      * This operation retrieves the detailed information about a specified staking position. 
-     * @param {String} staking_id The ID of the staking position. You can retrieve a list of staking positions by calling [List staking positions](/v2/api-references/stakings/list-all-stakings).
+     * @param {String} staking_id The ID of the staking position. You can retrieve a list of staking positions by calling [List staking positions](/v2/api-references/stakings/list-staking-positions).
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/Stakings}
      */
     getStakingById(staking_id) {
@@ -297,7 +348,7 @@ export default class StakingsApi {
 
     /**
      * Estimate staking fees
-     * This operation calculates the fee required for a staking activity based on factors such as network congestion and transaction complexity.  For some protocols, you can use the `fee.fee_rate` property in the request body to specify the fee rate you are willing to pay.  The `fee.max_fee_amount` property in the request body will be ignored.  <Note>For the Babylon protocol, you can only select UTXO as the fee model.</Note> 
+     * <Note>This operation is deprecated. Please use the [updated version](/v2/api-references/stakings/estimate-staking-fees-1) instead.</Note>  This operation calculates the fee required for a staking activity based on factors such as network congestion and transaction complexity.  For some protocols, you can use the `fee.fee_rate` property in the request body to specify the fee rate you are willing to pay.  The `fee.max_fee_amount` property in the request body will be ignored.  <Note>For the Babylon protocol, you can only select UTXO as the fee model.</Note> 
      * @param {Object} opts Optional parameters
      * @param {module:model/GetStakingEstimationFeeRequest} [GetStakingEstimationFeeRequest] The request body to get the estimated fee of a staking activity.
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/GetStakingEstimationFee201Response} and HTTP response
@@ -331,13 +382,62 @@ export default class StakingsApi {
 
     /**
      * Estimate staking fees
-     * This operation calculates the fee required for a staking activity based on factors such as network congestion and transaction complexity.  For some protocols, you can use the `fee.fee_rate` property in the request body to specify the fee rate you are willing to pay.  The `fee.max_fee_amount` property in the request body will be ignored.  <Note>For the Babylon protocol, you can only select UTXO as the fee model.</Note> 
+     * <Note>This operation is deprecated. Please use the [updated version](/v2/api-references/stakings/estimate-staking-fees-1) instead.</Note>  This operation calculates the fee required for a staking activity based on factors such as network congestion and transaction complexity.  For some protocols, you can use the `fee.fee_rate` property in the request body to specify the fee rate you are willing to pay.  The `fee.max_fee_amount` property in the request body will be ignored.  <Note>For the Babylon protocol, you can only select UTXO as the fee model.</Note> 
      * @param {Object} opts Optional parameters
      * @param {module:model/GetStakingEstimationFeeRequest} opts.GetStakingEstimationFeeRequest The request body to get the estimated fee of a staking activity.
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/GetStakingEstimationFee201Response}
      */
     getStakingEstimationFee(opts) {
       return this.getStakingEstimationFeeWithHttpInfo(opts)
+        .then(function(response_and_data) {
+          return response_and_data.data;
+        });
+    }
+
+
+    /**
+     * Estimate staking fees
+     * This operation calculates the fee required for a staking activity based on factors such as network congestion and transaction complexity.  <Note>For the Babylon protocol, you can only select UTXO as the fee model.</Note> 
+     * @param {Object} opts Optional parameters
+     * @param {module:model/GetStakingEstimationFeeRequest} [GetStakingEstimationFeeRequest] The request body to get the estimated fee of a staking activity.
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/EthStakeEstimatedFee} and HTTP response
+     */
+    getStakingEstimationFeeV2WithHttpInfo(opts) {
+      opts = opts || {};
+      let postBody = opts['GetStakingEstimationFeeRequest'];
+      if (postBody && postBody.toJSON) {
+          postBody = postBody.toJSON()
+      }
+
+      let pathParams = {
+      };
+      let queryParams = {
+      };
+      let headerParams = {
+      };
+      let formParams = {
+      };
+
+      let authNames = ['CoboAuth'];
+      let contentTypes = ['application/json'];
+      let accepts = ['application/json'];
+      let returnType = EthStakeEstimatedFee;
+      return this.apiClient.callApi(
+        '/stakings/estimate_fee_v2', 'POST',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, null
+      );
+    }
+
+    /**
+     * Estimate staking fees
+     * This operation calculates the fee required for a staking activity based on factors such as network congestion and transaction complexity.  <Note>For the Babylon protocol, you can only select UTXO as the fee model.</Note> 
+     * @param {Object} opts Optional parameters
+     * @param {module:model/GetStakingEstimationFeeRequest} opts.GetStakingEstimationFeeRequest The request body to get the estimated fee of a staking activity.
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/EthStakeEstimatedFee}
+     */
+    getStakingEstimationFeeV2(opts) {
+      return this.getStakingEstimationFeeV2WithHttpInfo(opts)
         .then(function(response_and_data) {
           return response_and_data.data;
         });

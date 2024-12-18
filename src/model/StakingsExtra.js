@@ -11,7 +11,9 @@
 
 import ApiClient from '../ApiClient';
 import BabylonStakingExtra from './BabylonStakingExtra';
+import CoreStakingExtra from './CoreStakingExtra';
 import EthStakingExtra from './EthStakingExtra';
+import EthStakingExtraAllOfBeaconValidators from './EthStakingExtraAllOfBeaconValidators';
 import StakingPoolType from './StakingPoolType';
 
 /**
@@ -22,7 +24,7 @@ class StakingsExtra {
     /**
      * Constructs a new <code>StakingsExtra</code>.
      * @alias module:model/StakingsExtra
-     * @param {(module:model/BabylonStakingExtra|module:model/EthStakingExtra)} instance The actual instance to initialize StakingsExtra.
+     * @param {(module:model/BabylonStakingExtra|module:model/CoreStakingExtra|module:model/EthStakingExtra)} instance The actual instance to initialize StakingsExtra.
      */
     constructor(instance = null) {
         if (instance === null) {
@@ -37,6 +39,10 @@ class StakingsExtra {
             switch(discriminatorValue) {
                 case "Babylon":
                     this.actualInstance = BabylonStakingExtra.constructFromObject(instance);
+                    match++;
+                    break;
+                case "CoreBTC":
+                    this.actualInstance = CoreStakingExtra.constructFromObject(instance);
                     match++;
                     break;
                 case "ETHBeacon":
@@ -100,12 +106,37 @@ class StakingsExtra {
             errorMessages.push("Failed to construct EthStakingExtra: " + err)
         }
 
+        try {
+            if (instance instanceof CoreStakingExtra) {
+                this.actualInstance = instance;
+            } else if(!!CoreStakingExtra.validateJSON && CoreStakingExtra.validateJSON(instance)){
+                // plain JS object
+                // create CoreStakingExtra from JS object
+                this.actualInstance = CoreStakingExtra.constructFromObject(instance);
+            } else {
+                if(CoreStakingExtra.constructFromObject(instance)) {
+                    if (!!CoreStakingExtra.constructFromObject(instance).toJSON) {
+                        if (CoreStakingExtra.constructFromObject(instance).toJSON()) {
+                            this.actualInstance = CoreStakingExtra.constructFromObject(instance);
+                        }
+                    } else {
+                        this.actualInstance = CoreStakingExtra.constructFromObject(instance);
+                    }
+                }
+
+            }
+            match++;
+        } catch(err) {
+            // json data failed to deserialize into CoreStakingExtra
+            errorMessages.push("Failed to construct CoreStakingExtra: " + err)
+        }
+
         // if (match > 1) {
-        //    throw new Error("Multiple matches found constructing `StakingsExtra` with oneOf schemas BabylonStakingExtra, EthStakingExtra. Input: " + JSON.stringify(instance));
+        //    throw new Error("Multiple matches found constructing `StakingsExtra` with oneOf schemas BabylonStakingExtra, CoreStakingExtra, EthStakingExtra. Input: " + JSON.stringify(instance));
         // } else
         if (match === 0) {
         //    this.actualInstance = null; // clear the actual instance in case there are multiple matches
-        //    throw new Error("No match found constructing `StakingsExtra` with oneOf schemas BabylonStakingExtra, EthStakingExtra. Details: " +
+        //    throw new Error("No match found constructing `StakingsExtra` with oneOf schemas BabylonStakingExtra, CoreStakingExtra, EthStakingExtra. Details: " +
         //                    errorMessages.join(", "));
         return;
         } else { // only 1 match
@@ -125,16 +156,16 @@ class StakingsExtra {
     }
 
     /**
-     * Gets the actual instance, which can be <code>BabylonStakingExtra</code>, <code>EthStakingExtra</code>.
-     * @return {(module:model/BabylonStakingExtra|module:model/EthStakingExtra)} The actual instance.
+     * Gets the actual instance, which can be <code>BabylonStakingExtra</code>, <code>CoreStakingExtra</code>, <code>EthStakingExtra</code>.
+     * @return {(module:model/BabylonStakingExtra|module:model/CoreStakingExtra|module:model/EthStakingExtra)} The actual instance.
      */
     getActualInstance() {
         return this.actualInstance;
     }
 
     /**
-     * Sets the actual instance, which can be <code>BabylonStakingExtra</code>, <code>EthStakingExtra</code>.
-     * @param {(module:model/BabylonStakingExtra|module:model/EthStakingExtra)} obj The actual instance.
+     * Sets the actual instance, which can be <code>BabylonStakingExtra</code>, <code>CoreStakingExtra</code>, <code>EthStakingExtra</code>.
+     * @param {(module:model/BabylonStakingExtra|module:model/CoreStakingExtra|module:model/EthStakingExtra)} obj The actual instance.
      */
     setActualInstance(obj) {
        this.actualInstance = StakingsExtra.constructFromObject(obj).getActualInstance();
@@ -193,8 +224,38 @@ StakingsExtra.prototype['stake_address'] = undefined;
  */
 StakingsExtra.prototype['unbond_address'] = undefined;
 
+/**
+ * The list of validator information.
+ * @member {Array.<module:model/EthStakingExtraAllOfBeaconValidators>} beacon_validators
+ */
+StakingsExtra.prototype['beacon_validators'] = undefined;
 
-StakingsExtra.OneOf = ["BabylonStakingExtra", "EthStakingExtra"];
+/**
+ * The staker's Bitcoin address.
+ * @member {String} staker_address
+ */
+StakingsExtra.prototype['staker_address'] = undefined;
+
+/**
+ * The validator's EVM address.
+ * @member {String} validator_address
+ */
+StakingsExtra.prototype['validator_address'] = undefined;
+
+/**
+ * The EVM address to receive staking rewards.
+ * @member {String} reward_address
+ */
+StakingsExtra.prototype['reward_address'] = undefined;
+
+/**
+ * The Unix timestamp (in seconds) when the staking position will be unlocked and available for withdrawal.
+ * @member {Number} timelock
+ */
+StakingsExtra.prototype['timelock'] = undefined;
+
+
+StakingsExtra.OneOf = ["BabylonStakingExtra", "CoreStakingExtra", "EthStakingExtra"];
 
 export default StakingsExtra;
 

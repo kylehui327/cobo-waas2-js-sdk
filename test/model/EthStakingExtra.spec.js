@@ -64,6 +64,12 @@
       //expect(instance).to.be();
     });
 
+    it('should have the property beacon_validators (base name: "beacon_validators")', function() {
+      // uncomment below and update the code to test the property beacon_validators
+      //var instance = new CoboWaas2.EthStakingExtra();
+      //expect(instance).to.be();
+    });
+
   });
 
 }));

@@ -23,6 +23,7 @@ docs/ApiLogDetails.md
 docs/ApiLogSummary.md
 docs/AssetBalance.md
 docs/AssetInfo.md
+docs/AutoFuelType.md
 docs/BabylonStakeEstimatedFee.md
 docs/BabylonStakeExtra.md
 docs/BabylonStakingExtra.md
@@ -45,7 +46,11 @@ docs/ContractCallDestinationType.md
 docs/ContractCallParams.md
 docs/ContractCallSource.md
 docs/ContractCallSourceType.md
+docs/CoreStakeExtra.md
+docs/CoreStakingExtra.md
 docs/CreateAddressRequest.md
+docs/CreateClaimActivity.md
+docs/CreateClaimActivityRequest.md
 docs/CreateCustodialWalletParams.md
 docs/CreateExchangeWalletParams.md
 docs/CreateKeyShareHolder.md
@@ -80,6 +85,7 @@ docs/EigenLayerLstStakeExtra.md
 docs/EigenLayerNativeStakeExtra.md
 docs/EigenlayerValidator.md
 docs/ErrorResponse.md
+docs/EstimateClaimFee.md
 docs/EstimateContractCallFeeParams.md
 docs/EstimateFeeParams.md
 docs/EstimateFeeRequestType.md
@@ -98,6 +104,7 @@ docs/EstimatedUtxoFeeSlow.md
 docs/EthStakeEstimatedFee.md
 docs/EthStakeExtra.md
 docs/EthStakingExtra.md
+docs/EthStakingExtraAllOfBeaconValidators.md
 docs/EthUnstakeExtra.md
 docs/EvmContractCallDestination.md
 docs/EvmEIP191MessageSignDestination.md
@@ -194,12 +201,12 @@ docs/SmartContractWalletOperationType.md
 docs/SmartContractWalletType.md
 docs/SourceGroup.md
 docs/StakeSourceType.md
+docs/StakingPoolId.md
 docs/StakingPoolType.md
 docs/StakingSource.md
 docs/Stakings.md
 docs/StakingsApi.md
 docs/StakingsExtra.md
-docs/StakingsValidatorInfo.md
 docs/SubWalletAssetBalance.md
 docs/TSSGroups.md
 docs/TSSRequest.md
@@ -320,6 +327,8 @@ src/api/WalletsExchangeWalletApi.js
 src/api/WalletsMPCWalletsApi.js
 src/api/WalletsSmartContractWalletsApi.js
 src/crypto/ApiSigner.js
+src/crypto/Ed25519Signer.js
+src/crypto/Secp256k1Signer.js
 src/index.js
 src/model/Activity.js
 src/model/ActivityAction.js
@@ -339,6 +348,7 @@ src/model/ApiLogDetails.js
 src/model/ApiLogSummary.js
 src/model/AssetBalance.js
 src/model/AssetInfo.js
+src/model/AutoFuelType.js
 src/model/BabylonStakeEstimatedFee.js
 src/model/BabylonStakeExtra.js
 src/model/BabylonStakingExtra.js
@@ -361,7 +371,11 @@ src/model/ContractCallDestinationType.js
 src/model/ContractCallParams.js
 src/model/ContractCallSource.js
 src/model/ContractCallSourceType.js
+src/model/CoreStakeExtra.js
+src/model/CoreStakingExtra.js
 src/model/CreateAddressRequest.js
+src/model/CreateClaimActivity.js
+src/model/CreateClaimActivityRequest.js
 src/model/CreateCustodialWalletParams.js
 src/model/CreateExchangeWalletParams.js
 src/model/CreateKeyShareHolder.js
@@ -394,6 +408,7 @@ src/model/EigenLayerLstStakeExtra.js
 src/model/EigenLayerNativeStakeExtra.js
 src/model/EigenlayerValidator.js
 src/model/ErrorResponse.js
+src/model/EstimateClaimFee.js
 src/model/EstimateContractCallFeeParams.js
 src/model/EstimateFeeParams.js
 src/model/EstimateFeeRequestType.js
@@ -412,6 +427,7 @@ src/model/EstimatedUtxoFeeSlow.js
 src/model/EthStakeEstimatedFee.js
 src/model/EthStakeExtra.js
 src/model/EthStakingExtra.js
+src/model/EthStakingExtraAllOfBeaconValidators.js
 src/model/EthUnstakeExtra.js
 src/model/EvmContractCallDestination.js
 src/model/EvmEIP191MessageSignDestination.js
@@ -507,11 +523,11 @@ src/model/SmartContractWalletOperationType.js
 src/model/SmartContractWalletType.js
 src/model/SourceGroup.js
 src/model/StakeSourceType.js
+src/model/StakingPoolId.js
 src/model/StakingPoolType.js
 src/model/StakingSource.js
 src/model/Stakings.js
 src/model/StakingsExtra.js
-src/model/StakingsValidatorInfo.js
 src/model/SubWalletAssetBalance.js
 src/model/TSSGroups.js
 src/model/TSSRequest.js
@@ -637,6 +653,7 @@ test/model/ApiLogDetails.spec.js
 test/model/ApiLogSummary.spec.js
 test/model/AssetBalance.spec.js
 test/model/AssetInfo.spec.js
+test/model/AutoFuelType.spec.js
 test/model/BabylonStakeEstimatedFee.spec.js
 test/model/BabylonStakeExtra.spec.js
 test/model/BabylonStakingExtra.spec.js
@@ -659,7 +676,11 @@ test/model/ContractCallDestinationType.spec.js
 test/model/ContractCallParams.spec.js
 test/model/ContractCallSource.spec.js
 test/model/ContractCallSourceType.spec.js
+test/model/CoreStakeExtra.spec.js
+test/model/CoreStakingExtra.spec.js
 test/model/CreateAddressRequest.spec.js
+test/model/CreateClaimActivity.spec.js
+test/model/CreateClaimActivityRequest.spec.js
 test/model/CreateCustodialWalletParams.spec.js
 test/model/CreateExchangeWalletParams.spec.js
 test/model/CreateKeyShareHolder.spec.js
@@ -692,6 +713,7 @@ test/model/EigenLayerLstStakeExtra.spec.js
 test/model/EigenLayerNativeStakeExtra.spec.js
 test/model/EigenlayerValidator.spec.js
 test/model/ErrorResponse.spec.js
+test/model/EstimateClaimFee.spec.js
 test/model/EstimateContractCallFeeParams.spec.js
 test/model/EstimateFeeParams.spec.js
 test/model/EstimateFeeRequestType.spec.js
@@ -710,6 +732,7 @@ test/model/EstimatedUtxoFeeSlow.spec.js
 test/model/EthStakeEstimatedFee.spec.js
 test/model/EthStakeExtra.spec.js
 test/model/EthStakingExtra.spec.js
+test/model/EthStakingExtraAllOfBeaconValidators.spec.js
 test/model/EthUnstakeExtra.spec.js
 test/model/EvmContractCallDestination.spec.js
 test/model/EvmEIP191MessageSignDestination.spec.js
@@ -805,11 +828,11 @@ test/model/SmartContractWalletOperationType.spec.js
 test/model/SmartContractWalletType.spec.js
 test/model/SourceGroup.spec.js
 test/model/StakeSourceType.spec.js
+test/model/StakingPoolId.spec.js
 test/model/StakingPoolType.spec.js
 test/model/StakingSource.spec.js
 test/model/Stakings.spec.js
 test/model/StakingsExtra.spec.js
-test/model/StakingsValidatorInfo.spec.js
 test/model/SubWalletAssetBalance.spec.js
 test/model/TSSGroups.spec.js
 test/model/TSSRequest.spec.js

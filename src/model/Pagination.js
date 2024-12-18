@@ -22,7 +22,7 @@ class Pagination {
      * @alias module:model/Pagination
      * @param before {String} An object ID that serves as a starting point for retrieving data in reverse chronological order for the next request.   If this property is empty, it means that you have reached the start of the data records. 
      * @param after {String} An object ID that acts as a starting point for retrieving data in chronological order for the next request.  If this property is empty, it means that you have reached the end of the data records. 
-     * @param total_count {Number} The total number of records that match the query, across all pages.
+     * @param total_count {Number} The total number of records that match the query criteria, unaffected by the pagination parameters (`before` , `after`, and `limit`).
      */
     constructor(before, after, total_count) { 
         
@@ -106,7 +106,7 @@ Pagination.prototype['before'] = undefined;
 Pagination.prototype['after'] = undefined;
 
 /**
- * The total number of records that match the query, across all pages.
+ * The total number of records that match the query criteria, unaffected by the pagination parameters (`before` , `after`, and `limit`).
  * @member {Number} total_count
  */
 Pagination.prototype['total_count'] = undefined;

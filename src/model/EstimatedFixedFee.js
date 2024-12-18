@@ -20,10 +20,10 @@ import FeeType from './FeeType';
 class EstimatedFixedFee {
     /**
      * Constructs a new <code>EstimatedFixedFee</code>.
-     * In the fixed fee model, the transaction fee is a fixed amount within a certain amount of period regardless of the transaction size or network congestion, which can vary between different chains.
+     * The estimated transaction fee based on the fixed fee model.
      * @alias module:model/EstimatedFixedFee
      * @implements module:model/FeeAmount
-     * @param fee_amount {String} The fee that you need to pay for the transaction.
+     * @param fee_amount {String} The transaction fee that you need to pay for the transaction.
      * @param fee_type {module:model/FeeType} 
      * @param token_id {String} The token ID of the transaction fee.
      */
@@ -101,7 +101,7 @@ class EstimatedFixedFee {
 EstimatedFixedFee.RequiredProperties = ["fee_amount", "fee_type", "token_id"];
 
 /**
- * The fee that you need to pay for the transaction.
+ * The transaction fee that you need to pay for the transaction.
  * @member {String} fee_amount
  */
 EstimatedFixedFee.prototype['fee_amount'] = undefined;
@@ -126,7 +126,7 @@ EstimatedFixedFee.prototype['is_loop'] = undefined;
 
 // Implement FeeAmount interface:
 /**
- * The fee that you need to pay for the transaction.
+ * The transaction fee that you need to pay for the transaction.
  * @member {String} fee_amount
  */
 FeeAmount.prototype['fee_amount'] = undefined;
