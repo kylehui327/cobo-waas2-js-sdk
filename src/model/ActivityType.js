@@ -39,6 +39,13 @@ export default class ActivityType {
 
     
         /**
+         * value: "Claim"
+         * @const
+         */
+        "Claim" = "Claim";
+
+    
+        /**
          * value: "unknown_default_open_api"
          * @const
          */

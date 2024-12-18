@@ -10,6 +10,7 @@
  */
 
 import ApiClient from '../ApiClient';
+import AutoFuelType from './AutoFuelType';
 import TransactionRbfSource from './TransactionRbfSource';
 import TransactionRequestFee from './TransactionRequestFee';
 
@@ -65,6 +66,9 @@ class TransactionRbf {
             }
             if (data.hasOwnProperty('description')) {
                 obj['description'] = ApiClient.convertToType(data['description'], 'String');
+            }
+            if (data.hasOwnProperty('auto_fuel')) {
+                obj['auto_fuel'] = AutoFuelType.constructFromObject(data['auto_fuel']);
             }
         }
         return obj;
@@ -142,6 +146,11 @@ TransactionRbf.prototype['category_names'] = undefined;
  * @member {String} description
  */
 TransactionRbf.prototype['description'] = undefined;
+
+/**
+ * @member {module:model/AutoFuelType} auto_fuel
+ */
+TransactionRbf.prototype['auto_fuel'] = undefined;
 
 
 

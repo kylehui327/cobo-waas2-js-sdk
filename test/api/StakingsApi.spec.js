@@ -36,6 +36,16 @@ import {ApiClient, Env} from "../../src/index.js";
   });
 
   describe('StakingsApi', function() {
+    describe('createClaimActivity', function() {
+      it('should call createClaimActivity successfully', function() {
+        //uncomment below and update the code to test createClaimActivity
+        //instance.createClaimActivity().then(function(data) {
+        //    console.log(data);
+        //}, function(error) {
+        //    console.error(error);
+        //});
+      });
+    });
     describe('createStakeActivity', function() {
       it('should call createStakeActivity successfully', function() {
         //uncomment below and update the code to test createStakeActivity
@@ -90,6 +100,16 @@ import {ApiClient, Env} from "../../src/index.js";
       it('should call getStakingEstimationFee successfully', function() {
         //uncomment below and update the code to test getStakingEstimationFee
         //instance.getStakingEstimationFee().then(function(data) {
+        //    console.log(data);
+        //}, function(error) {
+        //    console.error(error);
+        //});
+      });
+    });
+    describe('getStakingEstimationFeeV2', function() {
+      it('should call getStakingEstimationFeeV2 successfully', function() {
+        //uncomment below and update the code to test getStakingEstimationFeeV2
+        //instance.getStakingEstimationFeeV2().then(function(data) {
         //    console.log(data);
         //}, function(error) {
         //    console.error(error);

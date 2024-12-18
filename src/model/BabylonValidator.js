@@ -23,15 +23,11 @@ class BabylonValidator {
      * @alias module:model/BabylonValidator
      * @implements module:model/BaseStakeExtra
      * @param pool_type {module:model/StakingPoolType} 
-     * @param icon_url {String} The URL of the validator's icon.
      * @param name {String} The validator's name.
-     * @param public_key {String} The public key of the validator.
-     * @param commission_rate {Number} The commission rate of the validator.
-     * @param supported_pos_chains {Array.<module:model/BabylonValidator.SupportedPosChainsEnum>} A list of supported Proof-of-Stake (PoS) chains.
      */
-    constructor(pool_type, icon_url, name, public_key, commission_rate, supported_pos_chains) { 
+    constructor(pool_type, name) { 
         BaseStakeExtra.initialize(this, pool_type);
-        BabylonValidator.initialize(this, pool_type, icon_url, name, public_key, commission_rate, supported_pos_chains);
+        BabylonValidator.initialize(this, pool_type, name);
     }
 
     /**
@@ -39,13 +35,9 @@ class BabylonValidator {
      * This method is used by the constructors of any subclasses, in order to implement multiple inheritance (mix-ins).
      * Only for internal use.
      */
-    static initialize(obj, pool_type, icon_url, name, public_key, commission_rate, supported_pos_chains) { 
+    static initialize(obj, pool_type, name) { 
         obj['pool_type'] = pool_type;
-        obj['icon_url'] = icon_url;
         obj['name'] = name;
-        obj['public_key'] = public_key;
-        obj['commission_rate'] = commission_rate;
-        obj['supported_pos_chains'] = supported_pos_chains;
     }
 
     /**
@@ -120,7 +112,7 @@ class BabylonValidator {
 
 }
 
-BabylonValidator.RequiredProperties = ["pool_type", "icon_url", "name", "public_key", "commission_rate", "supported_pos_chains"];
+BabylonValidator.RequiredProperties = ["pool_type", "name"];
 
 /**
  * @member {module:model/StakingPoolType} pool_type

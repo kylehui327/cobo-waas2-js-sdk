@@ -70,12 +70,6 @@
       //expect(instance).to.be();
     });
 
-    it('should have the property address (base name: "address")', function() {
-      // uncomment below and update the code to test the property address
-      //var instance = new CoboWaas2.CreateWithdrawActivity();
-      //expect(instance).to.be();
-    });
-
     it('should have the property fee (base name: "fee")', function() {
       // uncomment below and update the code to test the property fee
       //var instance = new CoboWaas2.CreateWithdrawActivity();

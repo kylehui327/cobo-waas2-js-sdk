@@ -26,7 +26,7 @@
   var instance;
 
   beforeEach(function() {
-    instance = new CoboWaas2.StakingsValidatorInfo();
+    instance = new CoboWaas2.CoreStakeExtra();
   });
 
   var getProperty = function(object, getter, property) {
@@ -45,40 +45,40 @@
       object[property] = value;
   }
 
-  describe('StakingsValidatorInfo', function() {
-    it('should create an instance of StakingsValidatorInfo', function() {
-      // uncomment below and update the code to test StakingsValidatorInfo
-      //var instance = new CoboWaas2.StakingsValidatorInfo();
-      //expect(instance).to.be.a(CoboWaas2.StakingsValidatorInfo);
+  describe('CoreStakeExtra', function() {
+    it('should create an instance of CoreStakeExtra', function() {
+      // uncomment below and update the code to test CoreStakeExtra
+      //var instance = new CoboWaas2.CoreStakeExtra();
+      //expect(instance).to.be.a(CoboWaas2.CoreStakeExtra);
     });
 
-    it('should have the property icon_url (base name: "icon_url")', function() {
-      // uncomment below and update the code to test the property icon_url
-      //var instance = new CoboWaas2.StakingsValidatorInfo();
+    it('should have the property pool_type (base name: "pool_type")', function() {
+      // uncomment below and update the code to test the property pool_type
+      //var instance = new CoboWaas2.CoreStakeExtra();
       //expect(instance).to.be();
     });
 
-    it('should have the property public_key (base name: "public_key")', function() {
-      // uncomment below and update the code to test the property public_key
-      //var instance = new CoboWaas2.StakingsValidatorInfo();
+    it('should have the property timelock (base name: "timelock")', function() {
+      // uncomment below and update the code to test the property timelock
+      //var instance = new CoboWaas2.CoreStakeExtra();
       //expect(instance).to.be();
     });
 
-    it('should have the property name (base name: "name")', function() {
-      // uncomment below and update the code to test the property name
-      //var instance = new CoboWaas2.StakingsValidatorInfo();
+    it('should have the property change_address (base name: "change_address")', function() {
+      // uncomment below and update the code to test the property change_address
+      //var instance = new CoboWaas2.CoreStakeExtra();
       //expect(instance).to.be();
     });
 
-    it('should have the property address (base name: "address")', function() {
-      // uncomment below and update the code to test the property address
-      //var instance = new CoboWaas2.StakingsValidatorInfo();
+    it('should have the property validator_address (base name: "validator_address")', function() {
+      // uncomment below and update the code to test the property validator_address
+      //var instance = new CoboWaas2.CoreStakeExtra();
       //expect(instance).to.be();
     });
 
-    it('should have the property commission_rate (base name: "commission_rate")', function() {
-      // uncomment below and update the code to test the property commission_rate
-      //var instance = new CoboWaas2.StakingsValidatorInfo();
+    it('should have the property reward_address (base name: "reward_address")', function() {
+      // uncomment below and update the code to test the property reward_address
+      //var instance = new CoboWaas2.CoreStakeExtra();
       //expect(instance).to.be();
     });
 

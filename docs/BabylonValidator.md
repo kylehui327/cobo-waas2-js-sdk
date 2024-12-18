@@ -5,12 +5,12 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **pool_type** | [**StakingPoolType**](StakingPoolType.md) |  | 
-**icon_url** | **String** | The URL of the validator&#39;s icon. | 
+**icon_url** | **String** | The URL of the validator&#39;s icon. | [optional] 
 **name** | **String** | The validator&#39;s name. | 
 **priority** | **Number** | This property can be ignored. | [optional] 
-**public_key** | **String** | The public key of the validator. | 
-**commission_rate** | **Number** | The commission rate of the validator. | 
-**supported_pos_chains** | **[String]** | A list of supported Proof-of-Stake (PoS) chains. | 
+**public_key** | **String** | The public key of the validator. | [optional] 
+**commission_rate** | **Number** | The commission rate of the validator. | [optional] 
+**supported_pos_chains** | **[String]** | A list of supported Proof-of-Stake (PoS) chains. | [optional] 
 
 
 

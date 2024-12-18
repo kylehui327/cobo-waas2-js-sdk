@@ -11,6 +11,7 @@
 
 import ApiClient from '../ApiClient';
 import BaseStakeExtra from './BaseStakeExtra';
+import EthStakingExtraAllOfBeaconValidators from './EthStakingExtraAllOfBeaconValidators';
 import StakingPoolType from './StakingPoolType';
 
 /**
@@ -58,6 +59,9 @@ class EthStakingExtra {
             if (data.hasOwnProperty('pos_chain')) {
                 obj['pos_chain'] = ApiClient.convertToType(data['pos_chain'], 'String');
             }
+            if (data.hasOwnProperty('beacon_validators')) {
+                obj['beacon_validators'] = ApiClient.convertToType(data['beacon_validators'], [EthStakingExtraAllOfBeaconValidators]);
+            }
         }
         return obj;
     }
@@ -78,6 +82,16 @@ class EthStakingExtra {
         if (data['pos_chain'] && !(typeof data['pos_chain'] === 'string' || data['pos_chain'] instanceof String)) {
             throw new Error("Expected the field `pos_chain` to be a primitive type in the JSON string but got " + data['pos_chain']);
         }
+        if (data['beacon_validators']) { // data not null
+            // ensure the json data is an array
+            if (!Array.isArray(data['beacon_validators'])) {
+                throw new Error("Expected the field `beacon_validators` to be an array in the JSON data but got " + data['beacon_validators']);
+            }
+            // validate the optional field `beacon_validators` (array)
+            for (const item of data['beacon_validators']) {
+                EthStakingExtraAllOfBeaconValidators.validateJSON(item);
+            };
+        }
 
         return true;
     }
@@ -97,6 +111,12 @@ EthStakingExtra.prototype['pool_type'] = undefined;
  * @member {String} pos_chain
  */
 EthStakingExtra.prototype['pos_chain'] = undefined;
+
+/**
+ * The list of validator information.
+ * @member {Array.<module:model/EthStakingExtraAllOfBeaconValidators>} beacon_validators
+ */
+EthStakingExtra.prototype['beacon_validators'] = undefined;
 
 
 // Implement BaseStakeExtra interface:

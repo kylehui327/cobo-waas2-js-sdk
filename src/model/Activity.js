@@ -13,6 +13,7 @@ import ApiClient from '../ApiClient';
 import ActivityStatus from './ActivityStatus';
 import ActivityTimeline from './ActivityTimeline';
 import ActivityType from './ActivityType';
+import StakingPoolId from './StakingPoolId';
 import TransactionInitiatorType from './TransactionInitiatorType';
 import TransactionRequestFee from './TransactionRequestFee';
 
@@ -25,7 +26,7 @@ class Activity {
      * Constructs a new <code>Activity</code>.
      * The staking activity.
      * @alias module:model/Activity
-     * @param pool_id {String} The ID of the staking pool.
+     * @param pool_id {module:model/StakingPoolId} 
      * @param token_id {String} The token ID.
      * @param amount {String} The staking amount.
      * @param status {module:model/ActivityStatus} 
@@ -77,7 +78,7 @@ class Activity {
                 obj['address'] = ApiClient.convertToType(data['address'], 'String');
             }
             if (data.hasOwnProperty('pool_id')) {
-                obj['pool_id'] = ApiClient.convertToType(data['pool_id'], 'String');
+                obj['pool_id'] = StakingPoolId.constructFromObject(data['pool_id']);
             }
             if (data.hasOwnProperty('token_id')) {
                 obj['token_id'] = ApiClient.convertToType(data['token_id'], 'String');
@@ -137,10 +138,6 @@ class Activity {
         // ensure the json data is a string
         if (data['address'] && !(typeof data['address'] === 'string' || data['address'] instanceof String)) {
             throw new Error("Expected the field `address` to be a primitive type in the JSON string but got " + data['address']);
-        }
-        // ensure the json data is a string
-        if (data['pool_id'] && !(typeof data['pool_id'] === 'string' || data['pool_id'] instanceof String)) {
-            throw new Error("Expected the field `pool_id` to be a primitive type in the JSON string but got " + data['pool_id']);
         }
         // ensure the json data is a string
         if (data['token_id'] && !(typeof data['token_id'] === 'string' || data['token_id'] instanceof String)) {
@@ -218,8 +215,7 @@ Activity.prototype['wallet_id'] = undefined;
 Activity.prototype['address'] = undefined;
 
 /**
- * The ID of the staking pool.
- * @member {String} pool_id
+ * @member {module:model/StakingPoolId} pool_id
  */
 Activity.prototype['pool_id'] = undefined;
 

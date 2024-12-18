@@ -11,5 +11,6 @@ Name | Type | Description | Notes
 **description** | **String** | The description of the contract call transaction. | [optional] 
 **category_names** | **[String]** | The custom category for you to identify your transactions. | [optional] 
 **fee** | [**TransactionRequestFee**](TransactionRequestFee.md) |  | [optional] 
+**auto_fuel** | [**AutoFuelType**](AutoFuelType.md) |  | [optional] 
 
 

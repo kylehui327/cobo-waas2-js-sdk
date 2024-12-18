@@ -10,6 +10,7 @@
  */
 
 import ApiClient from '../ApiClient';
+import AutoFuelType from './AutoFuelType';
 import ContractCallDestination from './ContractCallDestination';
 import ContractCallSource from './ContractCallSource';
 import TransactionRequestFee from './TransactionRequestFee';
@@ -76,6 +77,9 @@ class ContractCallParams {
             }
             if (data.hasOwnProperty('fee')) {
                 obj['fee'] = TransactionRequestFee.constructFromObject(data['fee']);
+            }
+            if (data.hasOwnProperty('auto_fuel')) {
+                obj['auto_fuel'] = AutoFuelType.constructFromObject(data['auto_fuel']);
             }
         }
         return obj;
@@ -174,6 +178,11 @@ ContractCallParams.prototype['category_names'] = undefined;
  * @member {module:model/TransactionRequestFee} fee
  */
 ContractCallParams.prototype['fee'] = undefined;
+
+/**
+ * @member {module:model/AutoFuelType} auto_fuel
+ */
+ContractCallParams.prototype['auto_fuel'] = undefined;
 
 
 

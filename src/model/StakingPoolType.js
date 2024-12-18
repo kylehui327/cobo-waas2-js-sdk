@@ -32,6 +32,13 @@ export default class StakingPoolType {
 
     
         /**
+         * value: "CoreBTC"
+         * @const
+         */
+        "CoreBTC" = "CoreBTC";
+
+    
+        /**
          * value: "unknown_default_open_api"
          * @const
          */

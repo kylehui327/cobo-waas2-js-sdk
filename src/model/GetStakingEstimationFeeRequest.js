@@ -12,9 +12,11 @@
 import ApiClient from '../ApiClient';
 import ActivityType from './ActivityType';
 import CreateUnstakeActivityExtra from './CreateUnstakeActivityExtra';
+import EstimateClaimFee from './EstimateClaimFee';
 import EstimateStakeFee from './EstimateStakeFee';
 import EstimateUnstakeFee from './EstimateUnstakeFee';
 import EstimateWithdrawFee from './EstimateWithdrawFee';
+import StakingPoolId from './StakingPoolId';
 import StakingSource from './StakingSource';
 import TransactionRequestFee from './TransactionRequestFee';
 
@@ -26,7 +28,7 @@ class GetStakingEstimationFeeRequest {
     /**
      * Constructs a new <code>GetStakingEstimationFeeRequest</code>.
      * @alias module:model/GetStakingEstimationFeeRequest
-     * @param {(module:model/EstimateStakeFee|module:model/EstimateUnstakeFee|module:model/EstimateWithdrawFee)} instance The actual instance to initialize GetStakingEstimationFeeRequest.
+     * @param {(module:model/EstimateClaimFee|module:model/EstimateStakeFee|module:model/EstimateUnstakeFee|module:model/EstimateWithdrawFee)} instance The actual instance to initialize GetStakingEstimationFeeRequest.
      */
     constructor(instance = null) {
         if (instance === null) {
@@ -39,6 +41,10 @@ class GetStakingEstimationFeeRequest {
 
         if (discriminatorValue) {
             switch(discriminatorValue) {
+                case "Claim":
+                    this.actualInstance = EstimateClaimFee.constructFromObject(instance);
+                    match++;
+                    break;
                 case "Stake":
                     this.actualInstance = EstimateStakeFee.constructFromObject(instance);
                     match++;
@@ -133,12 +139,37 @@ class GetStakingEstimationFeeRequest {
             errorMessages.push("Failed to construct EstimateWithdrawFee: " + err)
         }
 
+        try {
+            if (instance instanceof EstimateClaimFee) {
+                this.actualInstance = instance;
+            } else if(!!EstimateClaimFee.validateJSON && EstimateClaimFee.validateJSON(instance)){
+                // plain JS object
+                // create EstimateClaimFee from JS object
+                this.actualInstance = EstimateClaimFee.constructFromObject(instance);
+            } else {
+                if(EstimateClaimFee.constructFromObject(instance)) {
+                    if (!!EstimateClaimFee.constructFromObject(instance).toJSON) {
+                        if (EstimateClaimFee.constructFromObject(instance).toJSON()) {
+                            this.actualInstance = EstimateClaimFee.constructFromObject(instance);
+                        }
+                    } else {
+                        this.actualInstance = EstimateClaimFee.constructFromObject(instance);
+                    }
+                }
+
+            }
+            match++;
+        } catch(err) {
+            // json data failed to deserialize into EstimateClaimFee
+            errorMessages.push("Failed to construct EstimateClaimFee: " + err)
+        }
+
         // if (match > 1) {
-        //    throw new Error("Multiple matches found constructing `GetStakingEstimationFeeRequest` with oneOf schemas EstimateStakeFee, EstimateUnstakeFee, EstimateWithdrawFee. Input: " + JSON.stringify(instance));
+        //    throw new Error("Multiple matches found constructing `GetStakingEstimationFeeRequest` with oneOf schemas EstimateClaimFee, EstimateStakeFee, EstimateUnstakeFee, EstimateWithdrawFee. Input: " + JSON.stringify(instance));
         // } else
         if (match === 0) {
         //    this.actualInstance = null; // clear the actual instance in case there are multiple matches
-        //    throw new Error("No match found constructing `GetStakingEstimationFeeRequest` with oneOf schemas EstimateStakeFee, EstimateUnstakeFee, EstimateWithdrawFee. Details: " +
+        //    throw new Error("No match found constructing `GetStakingEstimationFeeRequest` with oneOf schemas EstimateClaimFee, EstimateStakeFee, EstimateUnstakeFee, EstimateWithdrawFee. Details: " +
         //                    errorMessages.join(", "));
         return;
         } else { // only 1 match
@@ -158,16 +189,16 @@ class GetStakingEstimationFeeRequest {
     }
 
     /**
-     * Gets the actual instance, which can be <code>EstimateStakeFee</code>, <code>EstimateUnstakeFee</code>, <code>EstimateWithdrawFee</code>.
-     * @return {(module:model/EstimateStakeFee|module:model/EstimateUnstakeFee|module:model/EstimateWithdrawFee)} The actual instance.
+     * Gets the actual instance, which can be <code>EstimateClaimFee</code>, <code>EstimateStakeFee</code>, <code>EstimateUnstakeFee</code>, <code>EstimateWithdrawFee</code>.
+     * @return {(module:model/EstimateClaimFee|module:model/EstimateStakeFee|module:model/EstimateUnstakeFee|module:model/EstimateWithdrawFee)} The actual instance.
      */
     getActualInstance() {
         return this.actualInstance;
     }
 
     /**
-     * Sets the actual instance, which can be <code>EstimateStakeFee</code>, <code>EstimateUnstakeFee</code>, <code>EstimateWithdrawFee</code>.
-     * @param {(module:model/EstimateStakeFee|module:model/EstimateUnstakeFee|module:model/EstimateWithdrawFee)} obj The actual instance.
+     * Sets the actual instance, which can be <code>EstimateClaimFee</code>, <code>EstimateStakeFee</code>, <code>EstimateUnstakeFee</code>, <code>EstimateWithdrawFee</code>.
+     * @param {(module:model/EstimateClaimFee|module:model/EstimateStakeFee|module:model/EstimateUnstakeFee|module:model/EstimateWithdrawFee)} obj The actual instance.
      */
     setActualInstance(obj) {
        this.actualInstance = GetStakingEstimationFeeRequest.constructFromObject(obj).getActualInstance();
@@ -208,8 +239,7 @@ GetStakingEstimationFeeRequest.prototype['request_id'] = undefined;
 GetStakingEstimationFeeRequest.prototype['source'] = undefined;
 
 /**
- * The ID of the staking pool.
- * @member {String} pool_id
+ * @member {module:model/StakingPoolId} pool_id
  */
 GetStakingEstimationFeeRequest.prototype['pool_id'] = undefined;
 
@@ -230,19 +260,13 @@ GetStakingEstimationFeeRequest.prototype['fee'] = undefined;
 GetStakingEstimationFeeRequest.prototype['extra'] = undefined;
 
 /**
- * The ID of the corresponding staking position.
+ * The ID of the staking position. You can retrieve a list of staking positions by calling [List staking positions](/v2/api-references/stakings/list-staking-positions).
  * @member {String} staking_id
  */
 GetStakingEstimationFeeRequest.prototype['staking_id'] = undefined;
 
-/**
- * The withdrawal address.
- * @member {String} address
- */
-GetStakingEstimationFeeRequest.prototype['address'] = undefined;
 
-
-GetStakingEstimationFeeRequest.OneOf = ["EstimateStakeFee", "EstimateUnstakeFee", "EstimateWithdrawFee"];
+GetStakingEstimationFeeRequest.OneOf = ["EstimateClaimFee", "EstimateStakeFee", "EstimateUnstakeFee", "EstimateWithdrawFee"];
 
 export default GetStakingEstimationFeeRequest;
 

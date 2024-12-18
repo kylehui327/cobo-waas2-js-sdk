@@ -88,6 +88,36 @@
       //expect(instance).to.be();
     });
 
+    it('should have the property beacon_validators (base name: "beacon_validators")', function() {
+      // uncomment below and update the code to test the property beacon_validators
+      //var instance = new CoboWaas2.StakingsExtra();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property staker_address (base name: "staker_address")', function() {
+      // uncomment below and update the code to test the property staker_address
+      //var instance = new CoboWaas2.StakingsExtra();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property validator_address (base name: "validator_address")', function() {
+      // uncomment below and update the code to test the property validator_address
+      //var instance = new CoboWaas2.StakingsExtra();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property reward_address (base name: "reward_address")', function() {
+      // uncomment below and update the code to test the property reward_address
+      //var instance = new CoboWaas2.StakingsExtra();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property timelock (base name: "timelock")', function() {
+      // uncomment below and update the code to test the property timelock
+      //var instance = new CoboWaas2.StakingsExtra();
+      //expect(instance).to.be();
+    });
+
   });
 
 }));

@@ -12,8 +12,10 @@
 
 import superagent from "superagent";
 import querystring from "querystring";
-import ApiSigner from "./crypto/ApiSigner";
 import Env from "./Env";
+import Ed25519Signer from "./crypto/Ed25519Signer";
+import Secp256k1Signer from "./crypto/Secp256k1Signer";
+import * as CryptoJS from "crypto-js";
 
 /**
 * @module ApiClient
@@ -33,14 +35,23 @@ class ApiClient {
      * @param {Env} env
      * @param {String} privateKey
      */
-    constructor(env = Env.PROD, privateKey = "" ) {
+    constructor(env = Env.PROD, privateKey = "", curve_type = "" , signer ) {
         /**
          * The base URL against which to resolve every API call's (relative) path.
          * @type {String}
          * @default https://api.dev.cobo.com/v2
          */
         this.basePath = env.basePath
-        this.privateKey = privateKey
+        if (privateKey) {
+            curve_type = curve_type || "ED25519"
+            if (curve_type === "ED25519") {
+                this.signer = new Ed25519Signer(privateKey)
+            } else if(curve_type === "SECP256k1") {
+                this.signer = new Secp256k1Signer(privateKey)
+            }
+        } else if(signer) {
+            this.signer = signer
+        }
 
         /**
          * The authentication methods to be included for all API calls.
@@ -57,7 +68,7 @@ class ApiClient {
          * @default {}
          */
         this.defaultHeaders = {
-            'User-Agent': 'cobo-waas2-js-sdk/1.6.0'
+            'User-Agent': 'cobo-waas2-js-sdk/1.7.0'
         };
 
         /**
@@ -102,12 +113,35 @@ class ApiClient {
 
     }
 
+    /***
+     *
+     * @param env
+     */
     setEnv(env) {
         this.basePath = env.basePath
     }
 
-    setPrivateKey(privateKey) {
-        this.privateKey = privateKey
+    /***
+     *
+     * @param privateKey
+     */
+    setPrivateKey(privateKey, curveType="ED25519") {
+        if (curveType === "ED25519") {
+            this.signer = new Ed25519Signer(privateKey);
+        } else if(curveType === "SECP256K1") {
+            this.signer = new Secp256k1Signer(privateKey);
+        } else {
+            throw new Error('Invalid curve type'+ curveType);
+        }
+    }
+
+
+    /***
+     *
+     * @param signer
+     */
+    setSigner(signer) {
+        this.signer = signer
     }
 
     /**
@@ -423,8 +457,17 @@ class ApiClient {
            .filter((k) => queryParams[k] !== undefined && queryParams[k] !== '')
            .map((k) => {
            return k + '=' + encodeURIComponent(queryParams[k]).replace(/%20/g, "+");}).join('&')
-        var signer = new ApiSigner(this.privateKey)
-        request.set(signer.generateHeaders(new URL(url).pathname, httpMethod, bodyParam, queryStr))
+
+       const nonce = String(new Date().getTime());
+       const strToSign = [httpMethod, new URL(url).pathname, nonce, queryStr, bodyParam?JSON.stringify(bodyParam):''].join('|');
+       console.log("strToSign:", strToSign)
+       const hash2String = CryptoJS.SHA256(CryptoJS.SHA256(strToSign)).toString(CryptoJS.enc.Hex);
+       const headers = {
+           'BIZ-API-KEY': this.signer.getPublicKey(),
+           "BIZ-API-NONCE": nonce,
+           "BIZ-API-SIGNATURE": this.signer.sign(hash2String)
+       }
+        request.set(headers)
 
         if (this.plugins !== null) {
             for (var index in this.plugins) {

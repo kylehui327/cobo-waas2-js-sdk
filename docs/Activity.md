@@ -10,7 +10,7 @@ Name | Type | Description | Notes
 **type** | [**ActivityType**](ActivityType.md) |  | [optional] 
 **wallet_id** | **String** | The staker&#39;s wallet ID. | [optional] 
 **address** | **String** | The staker&#39;s wallet address. | [optional] 
-**pool_id** | **String** | The ID of the staking pool. | 
+**pool_id** | [**StakingPoolId**](StakingPoolId.md) |  | 
 **token_id** | **String** | The token ID. | 
 **staking_id** | **String** | The ID of the corresponding staking position. | [optional] 
 **amount** | **String** | The staking amount. | 

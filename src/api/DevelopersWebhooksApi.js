@@ -509,7 +509,7 @@ export default class DevelopersWebhooksApi {
 
     /**
      * Trigger test event
-     * This operation tests the functionality of your webhook endpoint by triggering a test webhook event.   You only need to provide the event type. By default, the payload contains dummy data with no impact on your real business transactions or activities. You can optionally provide the `override_data` property to customize the payload. 
+     * This operation tests the functionality of your webhook endpoint by triggering a test webhook event. The test event will be sent to all the endpoints you have registered on Cobo Portal.  You only need to provide the event type. By default, the payload contains dummy data with no impact on your real business transactions or activities. You can optionally provide the `override_data` property to customize the payload. 
      * @param {Object} opts Optional parameters
      * @param {module:model/TriggerTestWebhookEventRequest} [TriggerTestWebhookEventRequest] The request body used to trigger a test webhook event. 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/TriggerTestWebhookEvent201Response} and HTTP response
@@ -543,7 +543,7 @@ export default class DevelopersWebhooksApi {
 
     /**
      * Trigger test event
-     * This operation tests the functionality of your webhook endpoint by triggering a test webhook event.   You only need to provide the event type. By default, the payload contains dummy data with no impact on your real business transactions or activities. You can optionally provide the `override_data` property to customize the payload. 
+     * This operation tests the functionality of your webhook endpoint by triggering a test webhook event. The test event will be sent to all the endpoints you have registered on Cobo Portal.  You only need to provide the event type. By default, the payload contains dummy data with no impact on your real business transactions or activities. You can optionally provide the `override_data` property to customize the payload. 
      * @param {Object} opts Optional parameters
      * @param {module:model/TriggerTestWebhookEventRequest} opts.TriggerTestWebhookEventRequest The request body used to trigger a test webhook event. 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/TriggerTestWebhookEvent201Response}

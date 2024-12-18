@@ -60,8 +60,8 @@ class MPCProject {
             if (data.hasOwnProperty('threshold')) {
                 obj['threshold'] = ApiClient.convertToType(data['threshold'], 'Number');
             }
-            if (data.hasOwnProperty('create_timestamp')) {
-                obj['create_timestamp'] = ApiClient.convertToType(data['create_timestamp'], 'Number');
+            if (data.hasOwnProperty('created_timestamp')) {
+                obj['created_timestamp'] = ApiClient.convertToType(data['created_timestamp'], 'Number');
             }
         }
         return obj;
@@ -126,9 +126,9 @@ MPCProject.prototype['threshold'] = undefined;
 
 /**
  * The project's creation time in Unix timestamp format, measured in milliseconds.
- * @member {Number} create_timestamp
+ * @member {Number} created_timestamp
  */
-MPCProject.prototype['create_timestamp'] = undefined;
+MPCProject.prototype['created_timestamp'] = undefined;
 
 
 

@@ -11,8 +11,9 @@
 
 import ApiClient from '../ApiClient';
 import AmountDetailsInner from './AmountDetailsInner';
+import BabylonValidator from './BabylonValidator';
+import StakingPoolId from './StakingPoolId';
 import StakingsExtra from './StakingsExtra';
-import StakingsValidatorInfo from './StakingsValidatorInfo';
 
 /**
  * The Stakings model module.
@@ -27,11 +28,11 @@ class Stakings {
      * @param wallet_id {String} The staker's wallet ID.
      * @param address {String} The staker's wallet address.
      * @param amounts {Array.<module:model/AmountDetailsInner>} The details about the staking amount.
-     * @param pool_id {String} The ID of the staking pool.
+     * @param pool_id {module:model/StakingPoolId} 
      * @param token_id {String} The token ID.
      * @param created_timestamp {Number} The time when the staking position was created.
      * @param updated_timestamp {Number} The time when the staking position was last updated.
-     * @param validator_info {module:model/StakingsValidatorInfo} 
+     * @param validator_info {module:model/BabylonValidator} 
      */
     constructor(id, wallet_id, address, amounts, pool_id, token_id, created_timestamp, updated_timestamp, validator_info) { 
         
@@ -79,7 +80,7 @@ class Stakings {
                 obj['amounts'] = ApiClient.convertToType(data['amounts'], [AmountDetailsInner]);
             }
             if (data.hasOwnProperty('pool_id')) {
-                obj['pool_id'] = ApiClient.convertToType(data['pool_id'], 'String');
+                obj['pool_id'] = StakingPoolId.constructFromObject(data['pool_id']);
             }
             if (data.hasOwnProperty('token_id')) {
                 obj['token_id'] = ApiClient.convertToType(data['token_id'], 'String');
@@ -94,7 +95,7 @@ class Stakings {
                 obj['updated_timestamp'] = ApiClient.convertToType(data['updated_timestamp'], 'Number');
             }
             if (data.hasOwnProperty('validator_info')) {
-                obj['validator_info'] = StakingsValidatorInfo.constructFromObject(data['validator_info']);
+                obj['validator_info'] = BabylonValidator.constructFromObject(data['validator_info']);
             }
             if (data.hasOwnProperty('extra')) {
                 obj['extra'] = StakingsExtra.constructFromObject(data['extra']);
@@ -138,17 +139,13 @@ class Stakings {
             };
         }
         // ensure the json data is a string
-        if (data['pool_id'] && !(typeof data['pool_id'] === 'string' || data['pool_id'] instanceof String)) {
-            throw new Error("Expected the field `pool_id` to be a primitive type in the JSON string but got " + data['pool_id']);
-        }
-        // ensure the json data is a string
         if (data['token_id'] && !(typeof data['token_id'] === 'string' || data['token_id'] instanceof String)) {
             throw new Error("Expected the field `token_id` to be a primitive type in the JSON string but got " + data['token_id']);
         }
         // validate the optional field `validator_info`
         if (data['validator_info']) { // data not null
-          if (!!StakingsValidatorInfo.validateJSON) {
-            StakingsValidatorInfo.validateJSON(data['validator_info']);
+          if (!!BabylonValidator.validateJSON) {
+            BabylonValidator.validateJSON(data['validator_info']);
           }
         }
         // validate the optional field `extra`
@@ -191,8 +188,7 @@ Stakings.prototype['address'] = undefined;
 Stakings.prototype['amounts'] = undefined;
 
 /**
- * The ID of the staking pool.
- * @member {String} pool_id
+ * @member {module:model/StakingPoolId} pool_id
  */
 Stakings.prototype['pool_id'] = undefined;
 
@@ -221,7 +217,7 @@ Stakings.prototype['created_timestamp'] = undefined;
 Stakings.prototype['updated_timestamp'] = undefined;
 
 /**
- * @member {module:model/StakingsValidatorInfo} validator_info
+ * @member {module:model/BabylonValidator} validator_info
  */
 Stakings.prototype['validator_info'] = undefined;
 

@@ -82,6 +82,12 @@
       //expect(instance).to.be();
     });
 
+    it('should have the property auto_fuel (base name: "auto_fuel")', function() {
+      // uncomment below and update the code to test the property auto_fuel
+      //var instance = new CoboWaas2.TransactionRbf();
+      //expect(instance).to.be();
+    });
+
   });
 
 }));

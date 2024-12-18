@@ -39,6 +39,34 @@ export default class ActivityAction {
 
     
         /**
+         * value: "DepositETH"
+         * @const
+         */
+        "DepositETH" = "DepositETH";
+
+    
+        /**
+         * value: "ClaimRewards"
+         * @const
+         */
+        "ClaimRewards" = "ClaimRewards";
+
+    
+        /**
+         * value: "ActivateValidator"
+         * @const
+         */
+        "ActivateValidator" = "ActivateValidator";
+
+    
+        /**
+         * value: "UnstakeETH"
+         * @const
+         */
+        "UnstakeETH" = "UnstakeETH";
+
+    
+        /**
          * value: "unknown_default_open_api"
          * @const
          */
