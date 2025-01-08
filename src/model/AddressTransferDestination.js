@@ -21,7 +21,7 @@ import TransferDestinationType from './TransferDestinationType';
 class AddressTransferDestination {
     /**
      * Constructs a new <code>AddressTransferDestination</code>.
-     * The information about the transaction destination type &#x60;Address&#x60;. Refer to [Transaction sources and destinations](/v2/guides/transactions/sources-and-destinations) for a detailed introduction about the supported sources and destinations for each transaction type.  Specify either the &#x60;account_output&#x60; property or the &#x60;utxo_outputs&#x60; property. You can transfer tokens to multiple addresses only if you use MPC Wallets as the transaction source. You should use the &#x60;utxo_outputs&#x60; property to specify the destination addresses.  Switch between the tabs to display the properties for different transaction destinations. 
+     * The information about the transaction destination type &#x60;Address&#x60;. Refer to [Transaction sources and destinations](https://www.cobo.com/developers/v2/guides/transactions/sources-and-destinations) for a detailed introduction about the supported sources and destinations for each transaction type.  Specify either the &#x60;account_output&#x60; property or the &#x60;utxo_outputs&#x60; property. You can transfer tokens to multiple addresses only if you use MPC Wallets as the transaction source. You should use the &#x60;utxo_outputs&#x60; property to specify the destination addresses.  Switch between the tabs to display the properties for different transaction destinations. 
      * @alias module:model/AddressTransferDestination
      * @param destination_type {module:model/TransferDestinationType} 
      */

@@ -21,6 +21,7 @@ import EstimateFeeParams from '../model/EstimateFeeParams';
 import EstimatedFee from '../model/EstimatedFee';
 import ListTransactions200Response from '../model/ListTransactions200Response';
 import MessageSignParams from '../model/MessageSignParams';
+import TransactionApprovalDetail from '../model/TransactionApprovalDetail';
 import TransactionDetail from '../model/TransactionDetail';
 import TransactionRbf from '../model/TransactionRbf';
 import TransactionResend from '../model/TransactionResend';
@@ -47,7 +48,7 @@ export default class TransactionsApi {
 
     /**
      * Broadcast signed transactions
-     * <Note>This operation is only applicable to the staking scenarios.</Note> This operation broadcasts a list of signed transactions.   If you set `auto_broadcast` to `false` when [creating a staking activity](/v2/api-references/staking/create-stake-activity), the transaction will not be submitted to the blockchain automatically after being signed. In such cases, you can call this operation to broadcast the transaction to the blockchain.  A transaction can only be broadcast if its status is `Broadcasting`. 
+     * <Note>This operation is only applicable to the staking scenarios.</Note> This operation broadcasts a list of signed transactions.   If you set `auto_broadcast` to `false` when [creating a staking activity](https://www.cobo.com/developers/v2/api-references/staking/create-stake-activity), the transaction will not be submitted to the blockchain automatically after being signed. In such cases, you can call this operation to broadcast the transaction to the blockchain.  A transaction can only be broadcast if its status is `Broadcasting`. 
      * @param {Object} opts Optional parameters
      * @param {module:model/BroadcastSignedTransactionsRequest} [BroadcastSignedTransactionsRequest] The request body to broadcast a list of signed transactions.
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link Array.<module:model/BroadcastSignedTransactions201ResponseInner>} and HTTP response
@@ -81,7 +82,7 @@ export default class TransactionsApi {
 
     /**
      * Broadcast signed transactions
-     * <Note>This operation is only applicable to the staking scenarios.</Note> This operation broadcasts a list of signed transactions.   If you set `auto_broadcast` to `false` when [creating a staking activity](/v2/api-references/staking/create-stake-activity), the transaction will not be submitted to the blockchain automatically after being signed. In such cases, you can call this operation to broadcast the transaction to the blockchain.  A transaction can only be broadcast if its status is `Broadcasting`. 
+     * <Note>This operation is only applicable to the staking scenarios.</Note> This operation broadcasts a list of signed transactions.   If you set `auto_broadcast` to `false` when [creating a staking activity](https://www.cobo.com/developers/v2/api-references/staking/create-stake-activity), the transaction will not be submitted to the blockchain automatically after being signed. In such cases, you can call this operation to broadcast the transaction to the blockchain.  A transaction can only be broadcast if its status is `Broadcasting`. 
      * @param {Object} opts Optional parameters
      * @param {module:model/BroadcastSignedTransactionsRequest} opts.BroadcastSignedTransactionsRequest The request body to broadcast a list of signed transactions.
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link Array.<module:model/BroadcastSignedTransactions201ResponseInner>}
@@ -96,7 +97,7 @@ export default class TransactionsApi {
 
     /**
      * Cancel transaction
-     * This operation cancels a specified transaction. A transaction can be cancelled if its status is either of the following: - `Submitted` - `PendingScreening` - `PendingAuthorization` - `PendingSignature`   A transaction request for tracking is returned upon successful operation. <Note>This operation only applies to transactions from MPC Wallets and Smart Contract Wallets.</Note> 
+     * This operation cancels a specified transaction. Canceling a transaction stops it while it is still pending. For more information, see [Cancel a transaction](https://www.cobo.com/developers/v2/guides/transactions/manage-transactions#cancel-a-transaction).  <Note>This operation only applies to transactions from MPC Wallets and Smart Contract Wallets.</Note>  A transaction can be cancelled if its status is either of the following: - `Submitted` - `PendingScreening` - `PendingAuthorization` - `PendingSignature`  
      * @param {String} transaction_id The transaction ID.
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/CreateTransferTransaction201Response} and HTTP response
      */
@@ -133,7 +134,7 @@ export default class TransactionsApi {
 
     /**
      * Cancel transaction
-     * This operation cancels a specified transaction. A transaction can be cancelled if its status is either of the following: - `Submitted` - `PendingScreening` - `PendingAuthorization` - `PendingSignature`   A transaction request for tracking is returned upon successful operation. <Note>This operation only applies to transactions from MPC Wallets and Smart Contract Wallets.</Note> 
+     * This operation cancels a specified transaction. Canceling a transaction stops it while it is still pending. For more information, see [Cancel a transaction](https://www.cobo.com/developers/v2/guides/transactions/manage-transactions#cancel-a-transaction).  <Note>This operation only applies to transactions from MPC Wallets and Smart Contract Wallets.</Note>  A transaction can be cancelled if its status is either of the following: - `Submitted` - `PendingScreening` - `PendingAuthorization` - `PendingSignature`  
      * @param {String} transaction_id The transaction ID.
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/CreateTransferTransaction201Response}
      */
@@ -148,7 +149,7 @@ export default class TransactionsApi {
     /**
      * Check Cobo Loop transfers
      * This operation verifies if the transactions from a given source wallet to a list of given destinations can be executed as Cobo Loop transfers.   For more information about Cobo Loop, see [Cobo Loop's product manuals](https://manuals.cobo.com/en/portal/custodial-wallets/cobo-loop). 
-     * @param {String} token_id The token ID, which is the unique identifier of a token. You can retrieve the IDs of all the tokens you can use by calling [List enabled tokens](/v2/api-references/wallets/list-enabled-tokens).
+     * @param {String} token_id The token ID, which is the unique identifier of a token. You can retrieve the IDs of all the tokens you can use by calling [List enabled tokens](https://www.cobo.com/developers/v2/api-references/wallets/list-enabled-tokens).
      * @param {String} source_wallet_id The wallet ID of the transaction source.
      * @param {String} destination_addresses A list of destination addresses, separated by comma.
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link Array.<module:model/CheckLoopTransfers200ResponseInner>} and HTTP response
@@ -197,7 +198,7 @@ export default class TransactionsApi {
     /**
      * Check Cobo Loop transfers
      * This operation verifies if the transactions from a given source wallet to a list of given destinations can be executed as Cobo Loop transfers.   For more information about Cobo Loop, see [Cobo Loop's product manuals](https://manuals.cobo.com/en/portal/custodial-wallets/cobo-loop). 
-     * @param {String} token_id The token ID, which is the unique identifier of a token. You can retrieve the IDs of all the tokens you can use by calling [List enabled tokens](/v2/api-references/wallets/list-enabled-tokens).
+     * @param {String} token_id The token ID, which is the unique identifier of a token. You can retrieve the IDs of all the tokens you can use by calling [List enabled tokens](https://www.cobo.com/developers/v2/api-references/wallets/list-enabled-tokens).
      * @param {String} source_wallet_id The wallet ID of the transaction source.
      * @param {String} destination_addresses A list of destination addresses, separated by comma.
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link Array.<module:model/CheckLoopTransfers200ResponseInner>}
@@ -261,7 +262,7 @@ export default class TransactionsApi {
 
     /**
      * Sign message
-     * This operation creates a transaction to sign the provided message using cryptographic techniques.  In some scenarios, you want to sign a message for identity authentication or transaction approval. You need to provide details such as the source address, destination address, and the message to be signed. A transaction request for tracking is returned upon successful operation.  You can get the signature result by calling [Get transaction information](/v2/api-references/transactions/get-transaction-information).   <Note>This operation only applies to transactions from MPC Wallets.</Note> 
+     * This operation creates a transaction to sign the provided message using cryptographic techniques.  In some scenarios, you want to sign a message for identity authentication or transaction approval. You need to provide details such as the source address, destination address, and the message to be signed. A transaction request for tracking is returned upon successful operation.  You can get the signature result by calling [Get transaction information](https://www.cobo.com/developers/v2/api-references/transactions/get-transaction-information).   <Note>This operation only applies to transactions from MPC Wallets.</Note> 
      * @param {Object} opts Optional parameters
      * @param {module:model/MessageSignParams} [MessageSignParams] The request body to create a message signing transaction
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/CreateTransferTransaction201Response} and HTTP response
@@ -295,7 +296,7 @@ export default class TransactionsApi {
 
     /**
      * Sign message
-     * This operation creates a transaction to sign the provided message using cryptographic techniques.  In some scenarios, you want to sign a message for identity authentication or transaction approval. You need to provide details such as the source address, destination address, and the message to be signed. A transaction request for tracking is returned upon successful operation.  You can get the signature result by calling [Get transaction information](/v2/api-references/transactions/get-transaction-information).   <Note>This operation only applies to transactions from MPC Wallets.</Note> 
+     * This operation creates a transaction to sign the provided message using cryptographic techniques.  In some scenarios, you want to sign a message for identity authentication or transaction approval. You need to provide details such as the source address, destination address, and the message to be signed. A transaction request for tracking is returned upon successful operation.  You can get the signature result by calling [Get transaction information](https://www.cobo.com/developers/v2/api-references/transactions/get-transaction-information).   <Note>This operation only applies to transactions from MPC Wallets.</Note> 
      * @param {Object} opts Optional parameters
      * @param {module:model/MessageSignParams} opts.MessageSignParams The request body to create a message signing transaction
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/CreateTransferTransaction201Response}
@@ -359,7 +360,7 @@ export default class TransactionsApi {
 
     /**
      * Drop transaction
-     * This operation drops a specified transaction.   Dropping a transaction will trigger a Replace-By-Fee (RBF) transaction which is a new version of the original transaction. It must have a higher transaction fee to incentivize miners to prioritize its confirmation over the original one. A transaction can be dropped if its status is `Broadcasting`.  <ul> <li>For EVM chains, this RBF transaction has a transfer amount of `0` and the sending address is the same as the receiving address.</li> <li>For UTXO chains, this RBF transaction has a transfer amount of `0` and the destination address is the same as the change address in the original transaction.</li> </ul>  You can use the `address` or `included_utxos` properties in the request body to specify the address or UTXOs that will cover the transaction fee. Generally, the transaction fee is paid by the original transaction's source. If that source's balance is insufficient, the specified address or UTXOs can be used to cover the fee.  A transaction request for tracking is returned upon successful operation.  When a transaction is being dropped, any subsequent drop or speed up operations will still apply to the original transaction. For example, if a user creates Transaction A and later performs a drop operation on Transaction A using Transaction B, followed by a speed up operation on Transaction B using Transaction C, the speed up operation will still apply to Transaction A, not Transaction B.  <Note>This operation only applies to transactions from MPC Wallets and Smart Contract Wallets. It does not apply to transactions on the following chains: VET, TRON, TVET, SOL, and TON.</Note>  <Info>If you drop a transaction from a Smart Contract Wallet, two RBF transactions will be triggered, one for the transaction from the Smart Contract Wallet, and the other for the transaction from the Delegate.</Info> 
+     * This operation drops a specified transaction. Dropping a transaction leverages RBF to replace the original transaction with a version that effectively cancels it. For more details about dropping a transaction, refer to [Drop a transaction](https://www.cobo.com/developers/v2/guides/transactions/manage-transactions#drop-a-transaction).  A transaction can be sped up only if its status is `Broadcasting`.  <Note>This operation only applies to transactions from MPC Wallets and Smart Contract Wallets. It does not apply to transactions on the following chains: VET, TRON, TVET, SOL, and TON.</Note>  You can use the `address` or `included_utxos` properties in the request body to specify the address or UTXOs that will cover the transaction fee. Generally, the transaction fee is paid by the original transaction's source. If that source's balance is insufficient, the specified address or UTXOs can be used to cover the fee. 
      * @param {String} transaction_id The transaction ID.
      * @param {Object} opts Optional parameters
      * @param {module:model/TransactionRbf} [TransactionRbf] The request body to drop or to speed up transactions
@@ -399,7 +400,7 @@ export default class TransactionsApi {
 
     /**
      * Drop transaction
-     * This operation drops a specified transaction.   Dropping a transaction will trigger a Replace-By-Fee (RBF) transaction which is a new version of the original transaction. It must have a higher transaction fee to incentivize miners to prioritize its confirmation over the original one. A transaction can be dropped if its status is `Broadcasting`.  <ul> <li>For EVM chains, this RBF transaction has a transfer amount of `0` and the sending address is the same as the receiving address.</li> <li>For UTXO chains, this RBF transaction has a transfer amount of `0` and the destination address is the same as the change address in the original transaction.</li> </ul>  You can use the `address` or `included_utxos` properties in the request body to specify the address or UTXOs that will cover the transaction fee. Generally, the transaction fee is paid by the original transaction's source. If that source's balance is insufficient, the specified address or UTXOs can be used to cover the fee.  A transaction request for tracking is returned upon successful operation.  When a transaction is being dropped, any subsequent drop or speed up operations will still apply to the original transaction. For example, if a user creates Transaction A and later performs a drop operation on Transaction A using Transaction B, followed by a speed up operation on Transaction B using Transaction C, the speed up operation will still apply to Transaction A, not Transaction B.  <Note>This operation only applies to transactions from MPC Wallets and Smart Contract Wallets. It does not apply to transactions on the following chains: VET, TRON, TVET, SOL, and TON.</Note>  <Info>If you drop a transaction from a Smart Contract Wallet, two RBF transactions will be triggered, one for the transaction from the Smart Contract Wallet, and the other for the transaction from the Delegate.</Info> 
+     * This operation drops a specified transaction. Dropping a transaction leverages RBF to replace the original transaction with a version that effectively cancels it. For more details about dropping a transaction, refer to [Drop a transaction](https://www.cobo.com/developers/v2/guides/transactions/manage-transactions#drop-a-transaction).  A transaction can be sped up only if its status is `Broadcasting`.  <Note>This operation only applies to transactions from MPC Wallets and Smart Contract Wallets. It does not apply to transactions on the following chains: VET, TRON, TVET, SOL, and TON.</Note>  You can use the `address` or `included_utxos` properties in the request body to specify the address or UTXOs that will cover the transaction fee. Generally, the transaction fee is paid by the original transaction's source. If that source's balance is insufficient, the specified address or UTXOs can be used to cover the fee. 
      * @param {String} transaction_id The transaction ID.
      * @param {Object} opts Optional parameters
      * @param {module:model/TransactionRbf} opts.TransactionRbf The request body to drop or to speed up transactions
@@ -415,7 +416,7 @@ export default class TransactionsApi {
 
     /**
      * Estimate transaction fee
-     * This operation estimates the transaction fee of a token transfer or a contract call based on the fee model that the chain uses, considering factors such as network congestion and transaction complexity.  You need to specify the transaction information, including the request ID, request type, source address, destination address, token ID (only applicable to token transfers), and chain ID (only applicable to contract calls).  The response can contain different properties based on the transaction fee model used by the chain. For the legacy, EIP-1559, and UTXO fee models, Cobo also supports three different transaction speed levels: slow, recommended, and fast. For more information about estimating transaction fees, refer to [Estimate transaction fee](/v2/guides/transactions/estimate-fees). 
+     * This operation estimates the transaction fee of a token transfer or a contract call based on the fee model that the chain uses, considering factors such as network congestion and transaction complexity.  You need to specify the transaction information, including the request ID, request type, source address, destination address, token ID (only applicable to token transfers), and chain ID (only applicable to contract calls).  The response can contain different properties based on the transaction fee model used by the chain. For the legacy, EIP-1559, and UTXO fee models, Cobo also supports three different transaction speed levels: slow, recommended, and fast. For more information about estimating transaction fees, refer to [Estimate transaction fee](https://www.cobo.com/developers/v2/guides/transactions/estimate-fees). 
      * @param {Object} opts Optional parameters
      * @param {module:model/EstimateFeeParams} [EstimateFeeParams] The request body to estimate the transaction fee of a token transfer or a contract call.
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/EstimatedFee} and HTTP response
@@ -449,13 +450,64 @@ export default class TransactionsApi {
 
     /**
      * Estimate transaction fee
-     * This operation estimates the transaction fee of a token transfer or a contract call based on the fee model that the chain uses, considering factors such as network congestion and transaction complexity.  You need to specify the transaction information, including the request ID, request type, source address, destination address, token ID (only applicable to token transfers), and chain ID (only applicable to contract calls).  The response can contain different properties based on the transaction fee model used by the chain. For the legacy, EIP-1559, and UTXO fee models, Cobo also supports three different transaction speed levels: slow, recommended, and fast. For more information about estimating transaction fees, refer to [Estimate transaction fee](/v2/guides/transactions/estimate-fees). 
+     * This operation estimates the transaction fee of a token transfer or a contract call based on the fee model that the chain uses, considering factors such as network congestion and transaction complexity.  You need to specify the transaction information, including the request ID, request type, source address, destination address, token ID (only applicable to token transfers), and chain ID (only applicable to contract calls).  The response can contain different properties based on the transaction fee model used by the chain. For the legacy, EIP-1559, and UTXO fee models, Cobo also supports three different transaction speed levels: slow, recommended, and fast. For more information about estimating transaction fees, refer to [Estimate transaction fee](https://www.cobo.com/developers/v2/guides/transactions/estimate-fees). 
      * @param {Object} opts Optional parameters
      * @param {module:model/EstimateFeeParams} opts.EstimateFeeParams The request body to estimate the transaction fee of a token transfer or a contract call.
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/EstimatedFee}
      */
     estimateFee(opts) {
       return this.estimateFeeWithHttpInfo(opts)
+        .then(function(response_and_data) {
+          return response_and_data.data;
+        });
+    }
+
+
+    /**
+     * Get transaction approval information
+     * This operation retrieves approval detailed information about a specified transaction. 
+     * @param {String} transaction_id The transaction ID.
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/TransactionApprovalDetail} and HTTP response
+     */
+    getTransactionApprovalDetailWithHttpInfo(transaction_id) {
+      let postBody = null;
+      if (postBody && postBody.toJSON) {
+          postBody = postBody.toJSON()
+      }
+      // verify the required parameter 'transaction_id' is set
+      if (transaction_id === undefined || transaction_id === null) {
+        throw new Error("Missing the required parameter 'transaction_id' when calling getTransactionApprovalDetail");
+      }
+
+      let pathParams = {
+        'transaction_id': transaction_id
+      };
+      let queryParams = {
+      };
+      let headerParams = {
+      };
+      let formParams = {
+      };
+
+      let authNames = ['CoboAuth'];
+      let contentTypes = [];
+      let accepts = ['application/json'];
+      let returnType = TransactionApprovalDetail;
+      return this.apiClient.callApi(
+        '/transactions/{transaction_id}/approval_detail', 'GET',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, null
+      );
+    }
+
+    /**
+     * Get transaction approval information
+     * This operation retrieves approval detailed information about a specified transaction. 
+     * @param {String} transaction_id The transaction ID.
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/TransactionApprovalDetail}
+     */
+    getTransactionApprovalDetail(transaction_id) {
+      return this.getTransactionApprovalDetailWithHttpInfo(transaction_id)
         .then(function(response_and_data) {
           return response_and_data.data;
         });
@@ -524,16 +576,16 @@ export default class TransactionsApi {
      * @param {String} [types] A list of transaction types, separated by comma. Possible values include:    - `Deposit`: A deposit transaction.   - `Withdrawal`: A withdrawal transaction.   - `ContractCall`: A transaction that interacts with a smart contract.   - `MessageSign`: A transaction that signs a message.    - `ExternalSafeTx`: A transaction to a Smart Contract Wallet (Safe{Wallet}) that requires one or multiple signatures to be executed.   - `Stake`: A transaction that creates a staking request.   - `Unstake`: A transaction that creates a unstaking request. 
      * @param {String} [statuses] A list of transaction statuses, separated by comma. Possible values include:    - `Submitted`: The transaction is submitted.   - `PendingScreening`: The transaction is pending screening by Risk Control.    - `PendingAuthorization`: The transaction is pending approvals.   - `PendingSignature`: The transaction is pending signature.    - `Broadcasting`: The transaction is being broadcast.   - `Confirming`: The transaction is waiting for the required number of confirmations.   - `Completed`: The transaction is completed.   - `Failed`: The transaction failed.   - `Rejected`: The transaction is rejected.   - `Pending`: The transaction is waiting to be included in the next block of the blockchain. 
      * @param {String} [wallet_ids] A list of wallet IDs, separated by comma.
-     * @param {String} [chain_ids] A list of chain IDs, separated by comma. The chain ID is the unique identifier of a blockchain. You can retrieve the IDs of all the chains you can use by calling [List enabled chains](/v2/api-references/wallets/list-enabled-chains).
-     * @param {String} [token_ids] A list of token IDs, separated by comma. The token ID is the unique identifier of a token. You can retrieve the IDs of all the tokens you can use by calling [List enabled tokens](/v2/api-references/wallets/list-enabled-tokens).
+     * @param {String} [chain_ids] A list of chain IDs, separated by comma. The chain ID is the unique identifier of a blockchain. You can retrieve the IDs of all the chains you can use by calling [List enabled chains](https://www.cobo.com/developers/v2/api-references/wallets/list-enabled-chains).
+     * @param {String} [token_ids] A list of token IDs, separated by comma. The token ID is the unique identifier of a token. You can retrieve the IDs of all the tokens you can use by calling [List enabled tokens](https://www.cobo.com/developers/v2/api-references/wallets/list-enabled-tokens).
      * @param {String} [asset_ids] (This concept applies to Exchange Wallets only) A list of asset IDs, separated by comma. An asset ID is the unique identifier of the asset held within your linked exchange account.
-     * @param {String} [vault_id] The vault ID, which you can retrieve by calling [List all vaults](/v2/api-references/wallets--mpc-wallets/list-all-vaults).
-     * @param {String} [project_id] The project ID, which you can retrieve by calling [List all projects](/v2/api-references/wallets--mpc-wallets/list-all-projects). 
+     * @param {String} [vault_id] The vault ID, which you can retrieve by calling [List all vaults](https://www.cobo.com/developers/v2/api-references/wallets--mpc-wallets/list-all-vaults).
+     * @param {String} [project_id] The project ID, which you can retrieve by calling [List all projects](https://www.cobo.com/developers/v2/api-references/wallets--mpc-wallets/list-all-projects). 
      * @param {Number} [min_created_timestamp] The time when the transaction was created, in Unix timestamp format, measured in milliseconds. You can use this parameter to filter transactions created on or after the specified time.
      * @param {Number} [max_created_timestamp] The time when the transaction was created, in Unix timestamp format, measured in milliseconds. You can use this parameter to filter transactions created on or before the specified time.
      * @param {Number} [limit = 10)] The maximum number of objects to return. For most operations, the value range is [1, 50].
-     * @param {String} [before] An object ID that serves as a starting point for retrieving data in reverse chronological order. For example, if you specify `before` as `RqeEoTkgKG5rpzqYzg2Hd3szmPoj2cE7w5jWwShz3C1vyGmk1`, the request will retrieve a list of data objects that end before the object with the object ID `RqeEoTkgKG5rpzqYzg2Hd3szmPoj2cE7w5jWwShz3C1vyGmk1`. You can set this parameter to the value of `pagination.before` in the response of the previous request.  - If you set both `after` and `before`, an error will occur.  - If you leave both `before` and `after` empty, the first page of data is returned.  - If you set `before` to `infinity`, the last page of data is returned. 
-     * @param {String} [after] An object ID that acts as a starting point for retrieving data in chronological order. For example, if you specify `after` as `RqeEoTkgKG5rpzqYzg2Hd3szmPoj2cE7w5jWwShz3C1vyGSAk`, the request will retrieve a list of data objects that start after the object with the object ID `RqeEoTkgKG5rpzqYzg2Hd3szmPoj2cE7w5jWwShz3C1vyGSAk`. You can set this parameter to the value of `pagination.after` in the response of the previous request.  - If you set both `after` and `before`, an error will occur.  - If you leave both `before` and `after` empty, the first page of data is returned. 
+     * @param {String} [before] This parameter specifies an object ID as a starting point for pagination, retrieving data before the specified object relative to the current dataset.    Suppose the current data is ordered as Object A, Object B, and Object C.  If you set `before` to the ID of Object C (`RqeEoTkgKG5rpzqYzg2Hd3szmPoj2cE7w5jWwShz3C1vyGSAk`), the response will include Object B and Object A.    **Notes**:   - If you set both `after` and `before`, an error will occur. - If you leave both `before` and `after` empty, the first page of data is returned. - If you set it to `infinity`, the last page of data is returned. 
+     * @param {String} [after] This parameter specifies an object ID as a starting point for pagination, retrieving data after the specified object relative to the current dataset.    Suppose the current data is ordered as Object A, Object B, and Object C. If you set `after` to the ID of Object A (`RqeEoTkgKG5rpzqYzg2Hd3szmPoj2cE7w5jWwShz3C1vyGSAk`), the response will include Object B and Object C.    **Notes**:   - If you set both `after` and `before`, an error will occur. - If you leave both `before` and `after` empty, the first page of data is returned. 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/ListTransactions200Response} and HTTP response
      */
     listTransactionsWithHttpInfo(opts) {
@@ -591,16 +643,16 @@ export default class TransactionsApi {
      * @param {String} opts.types A list of transaction types, separated by comma. Possible values include:    - `Deposit`: A deposit transaction.   - `Withdrawal`: A withdrawal transaction.   - `ContractCall`: A transaction that interacts with a smart contract.   - `MessageSign`: A transaction that signs a message.    - `ExternalSafeTx`: A transaction to a Smart Contract Wallet (Safe{Wallet}) that requires one or multiple signatures to be executed.   - `Stake`: A transaction that creates a staking request.   - `Unstake`: A transaction that creates a unstaking request. 
      * @param {String} opts.statuses A list of transaction statuses, separated by comma. Possible values include:    - `Submitted`: The transaction is submitted.   - `PendingScreening`: The transaction is pending screening by Risk Control.    - `PendingAuthorization`: The transaction is pending approvals.   - `PendingSignature`: The transaction is pending signature.    - `Broadcasting`: The transaction is being broadcast.   - `Confirming`: The transaction is waiting for the required number of confirmations.   - `Completed`: The transaction is completed.   - `Failed`: The transaction failed.   - `Rejected`: The transaction is rejected.   - `Pending`: The transaction is waiting to be included in the next block of the blockchain. 
      * @param {String} opts.wallet_ids A list of wallet IDs, separated by comma.
-     * @param {String} opts.chain_ids A list of chain IDs, separated by comma. The chain ID is the unique identifier of a blockchain. You can retrieve the IDs of all the chains you can use by calling [List enabled chains](/v2/api-references/wallets/list-enabled-chains).
-     * @param {String} opts.token_ids A list of token IDs, separated by comma. The token ID is the unique identifier of a token. You can retrieve the IDs of all the tokens you can use by calling [List enabled tokens](/v2/api-references/wallets/list-enabled-tokens).
+     * @param {String} opts.chain_ids A list of chain IDs, separated by comma. The chain ID is the unique identifier of a blockchain. You can retrieve the IDs of all the chains you can use by calling [List enabled chains](https://www.cobo.com/developers/v2/api-references/wallets/list-enabled-chains).
+     * @param {String} opts.token_ids A list of token IDs, separated by comma. The token ID is the unique identifier of a token. You can retrieve the IDs of all the tokens you can use by calling [List enabled tokens](https://www.cobo.com/developers/v2/api-references/wallets/list-enabled-tokens).
      * @param {String} opts.asset_ids (This concept applies to Exchange Wallets only) A list of asset IDs, separated by comma. An asset ID is the unique identifier of the asset held within your linked exchange account.
-     * @param {String} opts.vault_id The vault ID, which you can retrieve by calling [List all vaults](/v2/api-references/wallets--mpc-wallets/list-all-vaults).
-     * @param {String} opts.project_id The project ID, which you can retrieve by calling [List all projects](/v2/api-references/wallets--mpc-wallets/list-all-projects). 
+     * @param {String} opts.vault_id The vault ID, which you can retrieve by calling [List all vaults](https://www.cobo.com/developers/v2/api-references/wallets--mpc-wallets/list-all-vaults).
+     * @param {String} opts.project_id The project ID, which you can retrieve by calling [List all projects](https://www.cobo.com/developers/v2/api-references/wallets--mpc-wallets/list-all-projects). 
      * @param {Number} opts.min_created_timestamp The time when the transaction was created, in Unix timestamp format, measured in milliseconds. You can use this parameter to filter transactions created on or after the specified time.
      * @param {Number} opts.max_created_timestamp The time when the transaction was created, in Unix timestamp format, measured in milliseconds. You can use this parameter to filter transactions created on or before the specified time.
      * @param {Number} opts.limit The maximum number of objects to return. For most operations, the value range is [1, 50]. (default to 10)
-     * @param {String} opts.before An object ID that serves as a starting point for retrieving data in reverse chronological order. For example, if you specify `before` as `RqeEoTkgKG5rpzqYzg2Hd3szmPoj2cE7w5jWwShz3C1vyGmk1`, the request will retrieve a list of data objects that end before the object with the object ID `RqeEoTkgKG5rpzqYzg2Hd3szmPoj2cE7w5jWwShz3C1vyGmk1`. You can set this parameter to the value of `pagination.before` in the response of the previous request.  - If you set both `after` and `before`, an error will occur.  - If you leave both `before` and `after` empty, the first page of data is returned.  - If you set `before` to `infinity`, the last page of data is returned. 
-     * @param {String} opts.after An object ID that acts as a starting point for retrieving data in chronological order. For example, if you specify `after` as `RqeEoTkgKG5rpzqYzg2Hd3szmPoj2cE7w5jWwShz3C1vyGSAk`, the request will retrieve a list of data objects that start after the object with the object ID `RqeEoTkgKG5rpzqYzg2Hd3szmPoj2cE7w5jWwShz3C1vyGSAk`. You can set this parameter to the value of `pagination.after` in the response of the previous request.  - If you set both `after` and `before`, an error will occur.  - If you leave both `before` and `after` empty, the first page of data is returned. 
+     * @param {String} opts.before This parameter specifies an object ID as a starting point for pagination, retrieving data before the specified object relative to the current dataset.    Suppose the current data is ordered as Object A, Object B, and Object C.  If you set `before` to the ID of Object C (`RqeEoTkgKG5rpzqYzg2Hd3szmPoj2cE7w5jWwShz3C1vyGSAk`), the response will include Object B and Object A.    **Notes**:   - If you set both `after` and `before`, an error will occur. - If you leave both `before` and `after` empty, the first page of data is returned. - If you set it to `infinity`, the last page of data is returned. 
+     * @param {String} opts.after This parameter specifies an object ID as a starting point for pagination, retrieving data after the specified object relative to the current dataset.    Suppose the current data is ordered as Object A, Object B, and Object C. If you set `after` to the ID of Object A (`RqeEoTkgKG5rpzqYzg2Hd3szmPoj2cE7w5jWwShz3C1vyGSAk`), the response will include Object B and Object C.    **Notes**:   - If you set both `after` and `before`, an error will occur. - If you leave both `before` and `after` empty, the first page of data is returned. 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/ListTransactions200Response}
      */
     listTransactions(opts) {
@@ -613,7 +665,7 @@ export default class TransactionsApi {
 
     /**
      * Resend transaction
-     * This operation resends a specified transaction. Resending a transaction initiates a new attempt to process the transaction that failed previously. A transaction can be resent if its status is `failed`.  A transaction request for tracking is returned upon successful operation. <Note>This operation only applies to transactions from MPC Wallets in the SOL token.</Note> 
+     * This operation resends a specified transaction. Resending a transaction means retrying a previously failed transaction. For more details about resending a transaction, see [Resend a transaction](/v2/guides/transactions/manage-transactions#resend-a-transaction).  A transaction can be resent if its status is `failed`.  <Note>This operation only applies to transactions from MPC Wallets in the SOL token.</Note> 
      * @param {String} transaction_id The transaction ID.
      * @param {Object} opts Optional parameters
      * @param {module:model/TransactionResend} [TransactionResend] The request body to resend transactions
@@ -653,7 +705,7 @@ export default class TransactionsApi {
 
     /**
      * Resend transaction
-     * This operation resends a specified transaction. Resending a transaction initiates a new attempt to process the transaction that failed previously. A transaction can be resent if its status is `failed`.  A transaction request for tracking is returned upon successful operation. <Note>This operation only applies to transactions from MPC Wallets in the SOL token.</Note> 
+     * This operation resends a specified transaction. Resending a transaction means retrying a previously failed transaction. For more details about resending a transaction, see [Resend a transaction](/v2/guides/transactions/manage-transactions#resend-a-transaction).  A transaction can be resent if its status is `failed`.  <Note>This operation only applies to transactions from MPC Wallets in the SOL token.</Note> 
      * @param {String} transaction_id The transaction ID.
      * @param {Object} opts Optional parameters
      * @param {module:model/TransactionResend} opts.TransactionResend The request body to resend transactions
@@ -669,7 +721,7 @@ export default class TransactionsApi {
 
     /**
      * Speed up transaction
-     * This operation accelerates a specified transaction.   Speeding up a transaction will trigger a Replace-By-Fee (RBF) transaction which is a new version of the original transaction. It shares the same inputs but must have a higher transaction fee to incentivize miners to prioritize its confirmation over the previous one. A transaction can be accelerated if its status is `Broadcasting`.  You can use the `address` or `included_utxos` properties in the request body to specify the address or UTXOs that will cover the transaction fee. Generally, the transaction fee is paid by the original transaction's source. If that source's balance is insufficient, the specified address or UTXOs can be used to cover the fee.  A transaction request for tracking is returned upon successful operation.  <Note>This operation only applies to transactions from MPC Wallets and Smart Contract Wallets. It does not apply to transactions on the following chains: VET, TRON, TVET, SOL, and TON.</Note>  <Info>If you speed up a transaction from a Smart Contract Wallet, two RBF transactions will be triggered, one for the transaction from the Smart Contract Wallet, and the other for the transaction from the Delegate.</Info> 
+     * This operation accelerates a specified transaction. Speeding up a transaction will trigger a Replace-By-Fee (RBF) transaction which is a new version of the original transaction. For more details about speeding up a transaction, refer to [Speed up a transaction](/v2/guides/transactions/manage-transactions#speed-up-a-transaction).  You can use the `address` or `included_utxos` properties in the request body to specify the address or UTXOs that will cover the transaction fee. Generally, the transaction fee is paid by the original transaction's source. If that source's balance is insufficient, the specified address or UTXOs can be used to cover the fee.  A transaction can be sped up only if its status is `Broadcasting`.  <Note>This operation only applies to transactions from MPC Wallets and Smart Contract Wallets. It does not apply to transactions on the following chains: VET, TRON, TVET, SOL, and TON.</Note>  <Info>If you speed up a transaction from a Smart Contract Wallet, two RBF transactions will be triggered, one for the transaction from the Smart Contract Wallet, and the other for the transaction from the Delegate.</Info> 
      * @param {String} transaction_id The transaction ID.
      * @param {Object} opts Optional parameters
      * @param {module:model/TransactionRbf} [TransactionRbf] The request body to drop or to speed up transactions
@@ -709,7 +761,7 @@ export default class TransactionsApi {
 
     /**
      * Speed up transaction
-     * This operation accelerates a specified transaction.   Speeding up a transaction will trigger a Replace-By-Fee (RBF) transaction which is a new version of the original transaction. It shares the same inputs but must have a higher transaction fee to incentivize miners to prioritize its confirmation over the previous one. A transaction can be accelerated if its status is `Broadcasting`.  You can use the `address` or `included_utxos` properties in the request body to specify the address or UTXOs that will cover the transaction fee. Generally, the transaction fee is paid by the original transaction's source. If that source's balance is insufficient, the specified address or UTXOs can be used to cover the fee.  A transaction request for tracking is returned upon successful operation.  <Note>This operation only applies to transactions from MPC Wallets and Smart Contract Wallets. It does not apply to transactions on the following chains: VET, TRON, TVET, SOL, and TON.</Note>  <Info>If you speed up a transaction from a Smart Contract Wallet, two RBF transactions will be triggered, one for the transaction from the Smart Contract Wallet, and the other for the transaction from the Delegate.</Info> 
+     * This operation accelerates a specified transaction. Speeding up a transaction will trigger a Replace-By-Fee (RBF) transaction which is a new version of the original transaction. For more details about speeding up a transaction, refer to [Speed up a transaction](/v2/guides/transactions/manage-transactions#speed-up-a-transaction).  You can use the `address` or `included_utxos` properties in the request body to specify the address or UTXOs that will cover the transaction fee. Generally, the transaction fee is paid by the original transaction's source. If that source's balance is insufficient, the specified address or UTXOs can be used to cover the fee.  A transaction can be sped up only if its status is `Broadcasting`.  <Note>This operation only applies to transactions from MPC Wallets and Smart Contract Wallets. It does not apply to transactions on the following chains: VET, TRON, TVET, SOL, and TON.</Note>  <Info>If you speed up a transaction from a Smart Contract Wallet, two RBF transactions will be triggered, one for the transaction from the Smart Contract Wallet, and the other for the transaction from the Delegate.</Info> 
      * @param {String} transaction_id The transaction ID.
      * @param {Object} opts Optional parameters
      * @param {module:model/TransactionRbf} opts.TransactionRbf The request body to drop or to speed up transactions

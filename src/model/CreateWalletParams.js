@@ -207,7 +207,7 @@ CreateWalletParams.prototype['wallet_type'] = undefined;
 CreateWalletParams.prototype['wallet_subtype'] = undefined;
 
 /**
- * The ID of the owning vault. You can call [List all vaults](/v2/api-references/wallets--mpc-wallets/list-all-vaults) to retrieve all vault IDs under your organization.
+ * The ID of the owning vault. You can call [List all vaults](https://www.cobo.com/developers/v2/api-references/wallets--mpc-wallets/list-all-vaults) to retrieve all vault IDs under your organization.
  * @member {String} vault_id
  */
 CreateWalletParams.prototype['vault_id'] = undefined;

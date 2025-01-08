@@ -32,11 +32,10 @@ class EstimateStakeFee {
      * @param pool_id {module:model/StakingPoolId} 
      * @param amount {String} The amount to stake.
      * @param fee {module:model/TransactionRequestFee} 
-     * @param extra {module:model/CreateStakeActivityExtra} 
      */
-    constructor(activity_type, pool_id, amount, fee, extra) { 
-        BaseEstimateStakingFee.initialize(this, activity_type);CreateStakeActivity.initialize(this, pool_id, amount, fee, extra);
-        EstimateStakeFee.initialize(this, activity_type, pool_id, amount, fee, extra);
+    constructor(activity_type, pool_id, amount, fee) { 
+        BaseEstimateStakingFee.initialize(this, activity_type);CreateStakeActivity.initialize(this, pool_id, amount, fee);
+        EstimateStakeFee.initialize(this, activity_type, pool_id, amount, fee);
     }
 
     /**
@@ -44,12 +43,11 @@ class EstimateStakeFee {
      * This method is used by the constructors of any subclasses, in order to implement multiple inheritance (mix-ins).
      * Only for internal use.
      */
-    static initialize(obj, activity_type, pool_id, amount, fee, extra) { 
+    static initialize(obj, activity_type, pool_id, amount, fee) { 
         obj['activity_type'] = activity_type;
         obj['pool_id'] = pool_id;
         obj['amount'] = amount;
         obj['fee'] = fee;
-        obj['extra'] = extra;
     }
 
     /**
@@ -135,7 +133,7 @@ class EstimateStakeFee {
 
 }
 
-EstimateStakeFee.RequiredProperties = ["activity_type", "pool_id", "amount", "fee", "extra"];
+EstimateStakeFee.RequiredProperties = ["activity_type", "pool_id", "amount", "fee"];
 
 /**
  * @member {module:model/ActivityType} activity_type

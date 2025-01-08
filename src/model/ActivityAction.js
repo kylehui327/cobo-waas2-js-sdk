@@ -67,6 +67,48 @@ export default class ActivityAction {
 
     
         /**
+         * value: "ApproveUSDC"
+         * @const
+         */
+        "ApproveUSDC" = "ApproveUSDC";
+
+    
+        /**
+         * value: "ConvertToUSDS"
+         * @const
+         */
+        "ConvertToUSDS" = "ConvertToUSDS";
+
+    
+        /**
+         * value: "ApproveUSDS"
+         * @const
+         */
+        "ApproveUSDS" = "ApproveUSDS";
+
+    
+        /**
+         * value: "DepositUSDS"
+         * @const
+         */
+        "DepositUSDS" = "DepositUSDS";
+
+    
+        /**
+         * value: "WithdrawUSDS"
+         * @const
+         */
+        "WithdrawUSDS" = "WithdrawUSDS";
+
+    
+        /**
+         * value: "ConvertToUSDC"
+         * @const
+         */
+        "ConvertToUSDC" = "ConvertToUSDC";
+
+    
+        /**
          * value: "unknown_default_open_api"
          * @const
          */

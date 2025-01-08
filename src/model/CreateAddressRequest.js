@@ -20,7 +20,7 @@ class CreateAddressRequest {
     /**
      * Constructs a new <code>CreateAddressRequest</code>.
      * @alias module:model/CreateAddressRequest
-     * @param chain_id {String} The chain ID, which is the unique identifier of a blockchain. You can retrieve the IDs of all the chains you can use by calling [List enabled chains](/v2/api-references/wallets/list-enabled-chains).
+     * @param chain_id {String} The chain ID, which is the unique identifier of a blockchain. You can retrieve the IDs of all the chains you can use by calling [List enabled chains](https://www.cobo.com/developers/v2/api-references/wallets/list-enabled-chains).
      * @param count {Number} The number of addresses to create.
      */
     constructor(chain_id, count) { 
@@ -88,7 +88,7 @@ class CreateAddressRequest {
 CreateAddressRequest.RequiredProperties = ["chain_id", "count"];
 
 /**
- * The chain ID, which is the unique identifier of a blockchain. You can retrieve the IDs of all the chains you can use by calling [List enabled chains](/v2/api-references/wallets/list-enabled-chains).
+ * The chain ID, which is the unique identifier of a blockchain. You can retrieve the IDs of all the chains you can use by calling [List enabled chains](https://www.cobo.com/developers/v2/api-references/wallets/list-enabled-chains).
  * @member {String} chain_id
  */
 CreateAddressRequest.prototype['chain_id'] = undefined;

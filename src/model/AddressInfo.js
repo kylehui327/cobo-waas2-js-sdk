@@ -22,7 +22,7 @@ class AddressInfo {
      * The address information.
      * @alias module:model/AddressInfo
      * @param address {String} The wallet address.
-     * @param chain_id {String} The chain ID, which is the unique identifier of a blockchain. You can retrieve the IDs of all the chains you can use by calling [List enabled chains](/v2/api-references/wallets/list-enabled-chains).
+     * @param chain_id {String} The chain ID, which is the unique identifier of a blockchain. You can retrieve the IDs of all the chains you can use by calling [List enabled chains](https://www.cobo.com/developers/v2/api-references/wallets/list-enabled-chains).
      */
     constructor(address, chain_id) { 
         
@@ -71,6 +71,9 @@ class AddressInfo {
             if (data.hasOwnProperty('x_only_pubkey')) {
                 obj['x_only_pubkey'] = ApiClient.convertToType(data['x_only_pubkey'], 'String');
             }
+            if (data.hasOwnProperty('root_pubkey')) {
+                obj['root_pubkey'] = ApiClient.convertToType(data['root_pubkey'], 'String');
+            }
             if (data.hasOwnProperty('taproot_script_tree_hash')) {
                 obj['taproot_script_tree_hash'] = ApiClient.convertToType(data['taproot_script_tree_hash'], 'String');
             }
@@ -118,6 +121,10 @@ class AddressInfo {
             throw new Error("Expected the field `x_only_pubkey` to be a primitive type in the JSON string but got " + data['x_only_pubkey']);
         }
         // ensure the json data is a string
+        if (data['root_pubkey'] && !(typeof data['root_pubkey'] === 'string' || data['root_pubkey'] instanceof String)) {
+            throw new Error("Expected the field `root_pubkey` to be a primitive type in the JSON string but got " + data['root_pubkey']);
+        }
+        // ensure the json data is a string
         if (data['taproot_script_tree_hash'] && !(typeof data['taproot_script_tree_hash'] === 'string' || data['taproot_script_tree_hash'] instanceof String)) {
             throw new Error("Expected the field `taproot_script_tree_hash` to be a primitive type in the JSON string but got " + data['taproot_script_tree_hash']);
         }
@@ -141,7 +148,7 @@ AddressInfo.RequiredProperties = ["address", "chain_id"];
 AddressInfo.prototype['address'] = undefined;
 
 /**
- * The chain ID, which is the unique identifier of a blockchain. You can retrieve the IDs of all the chains you can use by calling [List enabled chains](/v2/api-references/wallets/list-enabled-chains).
+ * The chain ID, which is the unique identifier of a blockchain. You can retrieve the IDs of all the chains you can use by calling [List enabled chains](https://www.cobo.com/developers/v2/api-references/wallets/list-enabled-chains).
  * @member {String} chain_id
  */
 AddressInfo.prototype['chain_id'] = undefined;
@@ -174,6 +181,12 @@ AddressInfo.prototype['pubkey'] = undefined;
  * @member {String} x_only_pubkey
  */
 AddressInfo.prototype['x_only_pubkey'] = undefined;
+
+/**
+ * The root public key of the address. This property applies to MPC Wallets only.
+ * @member {String} root_pubkey
+ */
+AddressInfo.prototype['root_pubkey'] = undefined;
 
 /**
  * The information about the new address.

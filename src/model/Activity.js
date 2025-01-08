@@ -10,6 +10,7 @@
  */
 
 import ApiClient from '../ApiClient';
+import ActivityExtra from './ActivityExtra';
 import ActivityStatus from './ActivityStatus';
 import ActivityTimeline from './ActivityTimeline';
 import ActivityType from './ActivityType';
@@ -86,6 +87,9 @@ class Activity {
             if (data.hasOwnProperty('staking_id')) {
                 obj['staking_id'] = ApiClient.convertToType(data['staking_id'], 'String');
             }
+            if (data.hasOwnProperty('request_ids')) {
+                obj['request_ids'] = ApiClient.convertToType(data['request_ids'], ['String']);
+            }
             if (data.hasOwnProperty('amount')) {
                 obj['amount'] = ApiClient.convertToType(data['amount'], 'String');
             }
@@ -100,6 +104,9 @@ class Activity {
             }
             if (data.hasOwnProperty('status')) {
                 obj['status'] = ActivityStatus.constructFromObject(data['status']);
+            }
+            if (data.hasOwnProperty('extra')) {
+                obj['extra'] = ActivityExtra.constructFromObject(data['extra']);
             }
             if (data.hasOwnProperty('created_timestamp')) {
                 obj['created_timestamp'] = ApiClient.convertToType(data['created_timestamp'], 'Number');
@@ -147,6 +154,10 @@ class Activity {
         if (data['staking_id'] && !(typeof data['staking_id'] === 'string' || data['staking_id'] instanceof String)) {
             throw new Error("Expected the field `staking_id` to be a primitive type in the JSON string but got " + data['staking_id']);
         }
+        // ensure the json data is an array
+        if (!Array.isArray(data['request_ids'])) {
+            throw new Error("Expected the field `request_ids` to be an array in the JSON data but got " + data['request_ids']);
+        }
         // ensure the json data is a string
         if (data['amount'] && !(typeof data['amount'] === 'string' || data['amount'] instanceof String)) {
             throw new Error("Expected the field `amount` to be a primitive type in the JSON string but got " + data['amount']);
@@ -169,6 +180,12 @@ class Activity {
         if (data['fee']) { // data not null
           if (!!TransactionRequestFee.validateJSON) {
             TransactionRequestFee.validateJSON(data['fee']);
+          }
+        }
+        // validate the optional field `extra`
+        if (data['extra']) { // data not null
+          if (!!ActivityExtra.validateJSON) {
+            ActivityExtra.validateJSON(data['extra']);
           }
         }
 
@@ -232,6 +249,12 @@ Activity.prototype['token_id'] = undefined;
 Activity.prototype['staking_id'] = undefined;
 
 /**
+ * The request IDs of the corresponding transactions of the activity.
+ * @member {Array.<String>} request_ids
+ */
+Activity.prototype['request_ids'] = undefined;
+
+/**
  * The staking amount.
  * @member {String} amount
  */
@@ -258,6 +281,11 @@ Activity.prototype['fee'] = undefined;
  * @member {module:model/ActivityStatus} status
  */
 Activity.prototype['status'] = undefined;
+
+/**
+ * @member {module:model/ActivityExtra} extra
+ */
+Activity.prototype['extra'] = undefined;
 
 /**
  * The time when the activity was created.

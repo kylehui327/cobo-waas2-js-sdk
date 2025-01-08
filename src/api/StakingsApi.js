@@ -298,7 +298,7 @@ export default class StakingsApi {
     /**
      * Get staking position details
      * This operation retrieves the detailed information about a specified staking position. 
-     * @param {String} staking_id The ID of the staking position. You can retrieve a list of staking positions by calling [List staking positions](/v2/api-references/stakings/list-staking-positions).
+     * @param {String} staking_id The ID of the staking position. You can retrieve a list of staking positions by calling [List staking positions](https://www.cobo.com/developers/v2/api-references/stakings/list-staking-positions).
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/Stakings} and HTTP response
      */
     getStakingByIdWithHttpInfo(staking_id) {
@@ -335,7 +335,7 @@ export default class StakingsApi {
     /**
      * Get staking position details
      * This operation retrieves the detailed information about a specified staking position. 
-     * @param {String} staking_id The ID of the staking position. You can retrieve a list of staking positions by calling [List staking positions](/v2/api-references/stakings/list-staking-positions).
+     * @param {String} staking_id The ID of the staking position. You can retrieve a list of staking positions by calling [List staking positions](https://www.cobo.com/developers/v2/api-references/stakings/list-staking-positions).
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/Stakings}
      */
     getStakingById(staking_id) {
@@ -348,7 +348,7 @@ export default class StakingsApi {
 
     /**
      * Estimate staking fees
-     * <Note>This operation is deprecated. Please use the [updated version](/v2/api-references/stakings/estimate-staking-fees-1) instead.</Note>  This operation calculates the fee required for a staking activity based on factors such as network congestion and transaction complexity.  For some protocols, you can use the `fee.fee_rate` property in the request body to specify the fee rate you are willing to pay.  The `fee.max_fee_amount` property in the request body will be ignored.  <Note>For the Babylon protocol, you can only select UTXO as the fee model.</Note> 
+     * <Note>This operation is deprecated. Please use the [updated version](https://www.cobo.com/developers/v2/api-references/stakings/estimate-staking-fees-v2) instead.</Note>  This operation calculates the fee required for a staking activity based on factors such as network congestion and transaction complexity.  For some protocols, you can use the `fee.fee_rate` property in the request body to specify the fee rate you are willing to pay.  The `fee.max_fee_amount` property in the request body will be ignored.  <Note>For the Babylon protocol, you can only select UTXO as the fee model.</Note> 
      * @param {Object} opts Optional parameters
      * @param {module:model/GetStakingEstimationFeeRequest} [GetStakingEstimationFeeRequest] The request body to get the estimated fee of a staking activity.
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/GetStakingEstimationFee201Response} and HTTP response
@@ -382,7 +382,7 @@ export default class StakingsApi {
 
     /**
      * Estimate staking fees
-     * <Note>This operation is deprecated. Please use the [updated version](/v2/api-references/stakings/estimate-staking-fees-1) instead.</Note>  This operation calculates the fee required for a staking activity based on factors such as network congestion and transaction complexity.  For some protocols, you can use the `fee.fee_rate` property in the request body to specify the fee rate you are willing to pay.  The `fee.max_fee_amount` property in the request body will be ignored.  <Note>For the Babylon protocol, you can only select UTXO as the fee model.</Note> 
+     * <Note>This operation is deprecated. Please use the [updated version](https://www.cobo.com/developers/v2/api-references/stakings/estimate-staking-fees-v2) instead.</Note>  This operation calculates the fee required for a staking activity based on factors such as network congestion and transaction complexity.  For some protocols, you can use the `fee.fee_rate` property in the request body to specify the fee rate you are willing to pay.  The `fee.max_fee_amount` property in the request body will be ignored.  <Note>For the Babylon protocol, you can only select UTXO as the fee model.</Note> 
      * @param {Object} opts Optional parameters
      * @param {module:model/GetStakingEstimationFeeRequest} opts.GetStakingEstimationFeeRequest The request body to get the estimated fee of a staking activity.
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/GetStakingEstimationFee201Response}
@@ -396,7 +396,7 @@ export default class StakingsApi {
 
 
     /**
-     * Estimate staking fees
+     * Estimate staking fees v2
      * This operation calculates the fee required for a staking activity based on factors such as network congestion and transaction complexity.  <Note>For the Babylon protocol, you can only select UTXO as the fee model.</Note> 
      * @param {Object} opts Optional parameters
      * @param {module:model/GetStakingEstimationFeeRequest} [GetStakingEstimationFeeRequest] The request body to get the estimated fee of a staking activity.
@@ -430,7 +430,7 @@ export default class StakingsApi {
     }
 
     /**
-     * Estimate staking fees
+     * Estimate staking fees v2
      * This operation calculates the fee required for a staking activity based on factors such as network congestion and transaction complexity.  <Note>For the Babylon protocol, you can only select UTXO as the fee model.</Note> 
      * @param {Object} opts Optional parameters
      * @param {module:model/GetStakingEstimationFeeRequest} opts.GetStakingEstimationFeeRequest The request body to get the estimated fee of a staking activity.
@@ -447,7 +447,7 @@ export default class StakingsApi {
     /**
      * Get staking pool details
      * This operation retrieves the detailed information about a specified staking pool. 
-     * @param {String} pool_id The ID of the staking pool. A staking pool is a pairing of a staking protocol and a specific type of token. You can call [List staking pools](/v2/api-references/stakings/list-staking-pools) to retrieve a list of staking pools.
+     * @param {String} pool_id The ID of the staking pool. A staking pool is a pairing of a staking protocol and a specific type of token. You can call [List staking pools](https://www.cobo.com/developers/v2/api-references/stakings/list-staking-pools) to retrieve a list of staking pools.
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/PoolDetails} and HTTP response
      */
     getStakingPoolByIdWithHttpInfo(pool_id) {
@@ -484,7 +484,7 @@ export default class StakingsApi {
     /**
      * Get staking pool details
      * This operation retrieves the detailed information about a specified staking pool. 
-     * @param {String} pool_id The ID of the staking pool. A staking pool is a pairing of a staking protocol and a specific type of token. You can call [List staking pools](/v2/api-references/stakings/list-staking-pools) to retrieve a list of staking pools.
+     * @param {String} pool_id The ID of the staking pool. A staking pool is a pairing of a staking protocol and a specific type of token. You can call [List staking pools](https://www.cobo.com/developers/v2/api-references/stakings/list-staking-pools) to retrieve a list of staking pools.
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/PoolDetails}
      */
     getStakingPoolById(pool_id) {
@@ -499,16 +499,17 @@ export default class StakingsApi {
      * List staking activities
      * This operation retrieves a list of staking activities. 
      * @param {Object} opts Optional parameters
-     * @param {String} [pool_id] The ID of the staking pool. A staking pool is a pairing of a staking protocol and a specific type of token. You can call [List staking pools](/v2/api-references/stakings/list-staking-pools) to retrieve a list of staking pools.
+     * @param {String} [pool_id] The ID of the staking pool. A staking pool is a pairing of a staking protocol and a specific type of token. You can call [List staking pools](https://www.cobo.com/developers/v2/api-references/stakings/list-staking-pools) to retrieve a list of staking pools.
      * @param {String} [staking_id] The position ID.
      * @param {module:model/ActivityType} [activity_type] 
      * @param {module:model/ActivityStatus} [activity_status] 
      * @param {Number} [min_modified_timestamp] The start time of the query. All staking activities updated after the specified time will be retrieved. The time is in Unix timestamp format, measured in milliseconds.
      * @param {Number} [max_modified_timestamp] The end time of the query. All staking activities updated before the specified time will be retrieved. The time is in Unix timestamp format, measured in milliseconds.
      * @param {String} [initiator] The activity initiator, which is your API key by default. You can also specify the initiator when creating the activity.
+     * @param {String} [request_id] The request ID that is used to track a transaction request. The request ID is provided by you and must be unique within your organization.
      * @param {Number} [limit = 10)] The maximum number of objects to return. For most operations, the value range is [1, 50].
-     * @param {String} [before] An object ID that serves as a starting point for retrieving data in reverse chronological order. For example, if you specify `before` as `RqeEoTkgKG5rpzqYzg2Hd3szmPoj2cE7w5jWwShz3C1vyGmk1`, the request will retrieve a list of data objects that end before the object with the object ID `RqeEoTkgKG5rpzqYzg2Hd3szmPoj2cE7w5jWwShz3C1vyGmk1`. You can set this parameter to the value of `pagination.before` in the response of the previous request.  - If you set both `after` and `before`, an error will occur.  - If you leave both `before` and `after` empty, the first page of data is returned.  - If you set `before` to `infinity`, the last page of data is returned. 
-     * @param {String} [after] An object ID that acts as a starting point for retrieving data in chronological order. For example, if you specify `after` as `RqeEoTkgKG5rpzqYzg2Hd3szmPoj2cE7w5jWwShz3C1vyGSAk`, the request will retrieve a list of data objects that start after the object with the object ID `RqeEoTkgKG5rpzqYzg2Hd3szmPoj2cE7w5jWwShz3C1vyGSAk`. You can set this parameter to the value of `pagination.after` in the response of the previous request.  - If you set both `after` and `before`, an error will occur.  - If you leave both `before` and `after` empty, the first page of data is returned. 
+     * @param {String} [before] This parameter specifies an object ID as a starting point for pagination, retrieving data before the specified object relative to the current dataset.    Suppose the current data is ordered as Object A, Object B, and Object C.  If you set `before` to the ID of Object C (`RqeEoTkgKG5rpzqYzg2Hd3szmPoj2cE7w5jWwShz3C1vyGSAk`), the response will include Object B and Object A.    **Notes**:   - If you set both `after` and `before`, an error will occur. - If you leave both `before` and `after` empty, the first page of data is returned. - If you set it to `infinity`, the last page of data is returned. 
+     * @param {String} [after] This parameter specifies an object ID as a starting point for pagination, retrieving data after the specified object relative to the current dataset.    Suppose the current data is ordered as Object A, Object B, and Object C. If you set `after` to the ID of Object A (`RqeEoTkgKG5rpzqYzg2Hd3szmPoj2cE7w5jWwShz3C1vyGSAk`), the response will include Object B and Object C.    **Notes**:   - If you set both `after` and `before`, an error will occur. - If you leave both `before` and `after` empty, the first page of data is returned. 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/ListStakingActivities200Response} and HTTP response
      */
     listStakingActivitiesWithHttpInfo(opts) {
@@ -528,6 +529,7 @@ export default class StakingsApi {
         'min_modified_timestamp': opts['min_modified_timestamp'],
         'max_modified_timestamp': opts['max_modified_timestamp'],
         'initiator': opts['initiator'],
+        'request_id': opts['request_id'],
         'limit': opts['limit'],
         'before': opts['before'],
         'after': opts['after']
@@ -552,16 +554,17 @@ export default class StakingsApi {
      * List staking activities
      * This operation retrieves a list of staking activities. 
      * @param {Object} opts Optional parameters
-     * @param {String} opts.pool_id The ID of the staking pool. A staking pool is a pairing of a staking protocol and a specific type of token. You can call [List staking pools](/v2/api-references/stakings/list-staking-pools) to retrieve a list of staking pools.
+     * @param {String} opts.pool_id The ID of the staking pool. A staking pool is a pairing of a staking protocol and a specific type of token. You can call [List staking pools](https://www.cobo.com/developers/v2/api-references/stakings/list-staking-pools) to retrieve a list of staking pools.
      * @param {String} opts.staking_id The position ID.
      * @param {module:model/ActivityType} opts.activity_type 
      * @param {module:model/ActivityStatus} opts.activity_status 
      * @param {Number} opts.min_modified_timestamp The start time of the query. All staking activities updated after the specified time will be retrieved. The time is in Unix timestamp format, measured in milliseconds.
      * @param {Number} opts.max_modified_timestamp The end time of the query. All staking activities updated before the specified time will be retrieved. The time is in Unix timestamp format, measured in milliseconds.
      * @param {String} opts.initiator The activity initiator, which is your API key by default. You can also specify the initiator when creating the activity.
+     * @param {String} opts.request_id The request ID that is used to track a transaction request. The request ID is provided by you and must be unique within your organization.
      * @param {Number} opts.limit The maximum number of objects to return. For most operations, the value range is [1, 50]. (default to 10)
-     * @param {String} opts.before An object ID that serves as a starting point for retrieving data in reverse chronological order. For example, if you specify `before` as `RqeEoTkgKG5rpzqYzg2Hd3szmPoj2cE7w5jWwShz3C1vyGmk1`, the request will retrieve a list of data objects that end before the object with the object ID `RqeEoTkgKG5rpzqYzg2Hd3szmPoj2cE7w5jWwShz3C1vyGmk1`. You can set this parameter to the value of `pagination.before` in the response of the previous request.  - If you set both `after` and `before`, an error will occur.  - If you leave both `before` and `after` empty, the first page of data is returned.  - If you set `before` to `infinity`, the last page of data is returned. 
-     * @param {String} opts.after An object ID that acts as a starting point for retrieving data in chronological order. For example, if you specify `after` as `RqeEoTkgKG5rpzqYzg2Hd3szmPoj2cE7w5jWwShz3C1vyGSAk`, the request will retrieve a list of data objects that start after the object with the object ID `RqeEoTkgKG5rpzqYzg2Hd3szmPoj2cE7w5jWwShz3C1vyGSAk`. You can set this parameter to the value of `pagination.after` in the response of the previous request.  - If you set both `after` and `before`, an error will occur.  - If you leave both `before` and `after` empty, the first page of data is returned. 
+     * @param {String} opts.before This parameter specifies an object ID as a starting point for pagination, retrieving data before the specified object relative to the current dataset.    Suppose the current data is ordered as Object A, Object B, and Object C.  If you set `before` to the ID of Object C (`RqeEoTkgKG5rpzqYzg2Hd3szmPoj2cE7w5jWwShz3C1vyGSAk`), the response will include Object B and Object A.    **Notes**:   - If you set both `after` and `before`, an error will occur. - If you leave both `before` and `after` empty, the first page of data is returned. - If you set it to `infinity`, the last page of data is returned. 
+     * @param {String} opts.after This parameter specifies an object ID as a starting point for pagination, retrieving data after the specified object relative to the current dataset.    Suppose the current data is ordered as Object A, Object B, and Object C. If you set `after` to the ID of Object A (`RqeEoTkgKG5rpzqYzg2Hd3szmPoj2cE7w5jWwShz3C1vyGSAk`), the response will include Object B and Object C.    **Notes**:   - If you set both `after` and `before`, an error will occur. - If you leave both `before` and `after` empty, the first page of data is returned. 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/ListStakingActivities200Response}
      */
     listStakingActivities(opts) {
@@ -576,11 +579,11 @@ export default class StakingsApi {
      * List staking pools
      * This operation retrieves a list of staking pools currently supported. 
      * @param {Object} opts Optional parameters
-     * @param {String} [chain_id] The chain ID, which is the unique identifier of a blockchain. You can retrieve the IDs of all the chains you can use by calling [List enabled chains](/v2/api-references/wallets/list-enabled-chains).
-     * @param {String} [token_id] The token ID, which is the unique identifier of a token. You can retrieve the IDs of all the tokens you can use by calling [List enabled tokens](/v2/api-references/wallets/list-enabled-tokens).
+     * @param {String} [chain_id] The chain ID, which is the unique identifier of a blockchain. You can retrieve the IDs of all the chains you can use by calling [List enabled chains](https://www.cobo.com/developers/v2/api-references/wallets/list-enabled-chains).
+     * @param {String} [token_id] The token ID, which is the unique identifier of a token. You can retrieve the IDs of all the tokens you can use by calling [List enabled tokens](https://www.cobo.com/developers/v2/api-references/wallets/list-enabled-tokens).
      * @param {Number} [limit = 10)] The maximum number of objects to return. For most operations, the value range is [1, 50].
-     * @param {String} [before] An object ID that serves as a starting point for retrieving data in reverse chronological order. For example, if you specify `before` as `RqeEoTkgKG5rpzqYzg2Hd3szmPoj2cE7w5jWwShz3C1vyGmk1`, the request will retrieve a list of data objects that end before the object with the object ID `RqeEoTkgKG5rpzqYzg2Hd3szmPoj2cE7w5jWwShz3C1vyGmk1`. You can set this parameter to the value of `pagination.before` in the response of the previous request.  - If you set both `after` and `before`, an error will occur.  - If you leave both `before` and `after` empty, the first page of data is returned.  - If you set `before` to `infinity`, the last page of data is returned. 
-     * @param {String} [after] An object ID that acts as a starting point for retrieving data in chronological order. For example, if you specify `after` as `RqeEoTkgKG5rpzqYzg2Hd3szmPoj2cE7w5jWwShz3C1vyGSAk`, the request will retrieve a list of data objects that start after the object with the object ID `RqeEoTkgKG5rpzqYzg2Hd3szmPoj2cE7w5jWwShz3C1vyGSAk`. You can set this parameter to the value of `pagination.after` in the response of the previous request.  - If you set both `after` and `before`, an error will occur.  - If you leave both `before` and `after` empty, the first page of data is returned. 
+     * @param {String} [before] This parameter specifies an object ID as a starting point for pagination, retrieving data before the specified object relative to the current dataset.    Suppose the current data is ordered as Object A, Object B, and Object C.  If you set `before` to the ID of Object C (`RqeEoTkgKG5rpzqYzg2Hd3szmPoj2cE7w5jWwShz3C1vyGSAk`), the response will include Object B and Object A.    **Notes**:   - If you set both `after` and `before`, an error will occur. - If you leave both `before` and `after` empty, the first page of data is returned. - If you set it to `infinity`, the last page of data is returned. 
+     * @param {String} [after] This parameter specifies an object ID as a starting point for pagination, retrieving data after the specified object relative to the current dataset.    Suppose the current data is ordered as Object A, Object B, and Object C. If you set `after` to the ID of Object A (`RqeEoTkgKG5rpzqYzg2Hd3szmPoj2cE7w5jWwShz3C1vyGSAk`), the response will include Object B and Object C.    **Notes**:   - If you set both `after` and `before`, an error will occur. - If you leave both `before` and `after` empty, the first page of data is returned. 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/ListStakingPools200Response} and HTTP response
      */
     listStakingPoolsWithHttpInfo(opts) {
@@ -619,11 +622,11 @@ export default class StakingsApi {
      * List staking pools
      * This operation retrieves a list of staking pools currently supported. 
      * @param {Object} opts Optional parameters
-     * @param {String} opts.chain_id The chain ID, which is the unique identifier of a blockchain. You can retrieve the IDs of all the chains you can use by calling [List enabled chains](/v2/api-references/wallets/list-enabled-chains).
-     * @param {String} opts.token_id The token ID, which is the unique identifier of a token. You can retrieve the IDs of all the tokens you can use by calling [List enabled tokens](/v2/api-references/wallets/list-enabled-tokens).
+     * @param {String} opts.chain_id The chain ID, which is the unique identifier of a blockchain. You can retrieve the IDs of all the chains you can use by calling [List enabled chains](https://www.cobo.com/developers/v2/api-references/wallets/list-enabled-chains).
+     * @param {String} opts.token_id The token ID, which is the unique identifier of a token. You can retrieve the IDs of all the tokens you can use by calling [List enabled tokens](https://www.cobo.com/developers/v2/api-references/wallets/list-enabled-tokens).
      * @param {Number} opts.limit The maximum number of objects to return. For most operations, the value range is [1, 50]. (default to 10)
-     * @param {String} opts.before An object ID that serves as a starting point for retrieving data in reverse chronological order. For example, if you specify `before` as `RqeEoTkgKG5rpzqYzg2Hd3szmPoj2cE7w5jWwShz3C1vyGmk1`, the request will retrieve a list of data objects that end before the object with the object ID `RqeEoTkgKG5rpzqYzg2Hd3szmPoj2cE7w5jWwShz3C1vyGmk1`. You can set this parameter to the value of `pagination.before` in the response of the previous request.  - If you set both `after` and `before`, an error will occur.  - If you leave both `before` and `after` empty, the first page of data is returned.  - If you set `before` to `infinity`, the last page of data is returned. 
-     * @param {String} opts.after An object ID that acts as a starting point for retrieving data in chronological order. For example, if you specify `after` as `RqeEoTkgKG5rpzqYzg2Hd3szmPoj2cE7w5jWwShz3C1vyGSAk`, the request will retrieve a list of data objects that start after the object with the object ID `RqeEoTkgKG5rpzqYzg2Hd3szmPoj2cE7w5jWwShz3C1vyGSAk`. You can set this parameter to the value of `pagination.after` in the response of the previous request.  - If you set both `after` and `before`, an error will occur.  - If you leave both `before` and `after` empty, the first page of data is returned. 
+     * @param {String} opts.before This parameter specifies an object ID as a starting point for pagination, retrieving data before the specified object relative to the current dataset.    Suppose the current data is ordered as Object A, Object B, and Object C.  If you set `before` to the ID of Object C (`RqeEoTkgKG5rpzqYzg2Hd3szmPoj2cE7w5jWwShz3C1vyGSAk`), the response will include Object B and Object A.    **Notes**:   - If you set both `after` and `before`, an error will occur. - If you leave both `before` and `after` empty, the first page of data is returned. - If you set it to `infinity`, the last page of data is returned. 
+     * @param {String} opts.after This parameter specifies an object ID as a starting point for pagination, retrieving data after the specified object relative to the current dataset.    Suppose the current data is ordered as Object A, Object B, and Object C. If you set `after` to the ID of Object A (`RqeEoTkgKG5rpzqYzg2Hd3szmPoj2cE7w5jWwShz3C1vyGSAk`), the response will include Object B and Object C.    **Notes**:   - If you set both `after` and `before`, an error will occur. - If you leave both `before` and `after` empty, the first page of data is returned. 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/ListStakingPools200Response}
      */
     listStakingPools(opts) {
@@ -638,13 +641,13 @@ export default class StakingsApi {
      * List staking positions
      * This operation retrieves a list of staking positions.  
      * @param {Object} opts Optional parameters
-     * @param {String} [pool_id] The ID of the staking pool. A staking pool is a pairing of a staking protocol and a specific type of token. You can call [List staking pools](/v2/api-references/stakings/list-staking-pools) to retrieve a list of staking pools.
+     * @param {String} [pool_id] The ID of the staking pool. A staking pool is a pairing of a staking protocol and a specific type of token. You can call [List staking pools](https://www.cobo.com/developers/v2/api-references/stakings/list-staking-pools) to retrieve a list of staking pools.
      * @param {String} [statuses] The statuses of the staking amounts, separated by comma. Possible values include:  - `StakeInProgress`: The staking request is submitted and is waiting to be confirmed by the staking protocol. - `Active`: The amount has been staked. - `Rejected`: The staking request has been rejected because the signer refuses to sign the transaction. - `LimitExceeded`: The total staking cap of the staking protocol has been reached. - `Invalid`: The staking request is invalid. This is often due to the failure to broadcast the transaction. - `UnstakeInProgress`: The unstaking request is submitted and is waiting to be confirmed by the staking protocol. - `Withdrawable`: The tokens have been unstaked and are ready to be withdrawn. - `WithdrawInProgress`: The withdrawal request is submitted and is waiting to be confirmed on the chain network. - `Closed`: The staking position is closed. 
      * @param {String} [wallet_id] The wallet ID.
-     * @param {String} [token_id] The token ID, which is the unique identifier of a token. You can retrieve the IDs of all the tokens you can use by calling [List enabled tokens](/v2/api-references/wallets/list-enabled-tokens).
+     * @param {String} [token_id] The token ID, which is the unique identifier of a token. You can retrieve the IDs of all the tokens you can use by calling [List enabled tokens](https://www.cobo.com/developers/v2/api-references/wallets/list-enabled-tokens).
      * @param {Number} [limit = 10)] The maximum number of objects to return. For most operations, the value range is [1, 50].
-     * @param {String} [before] An object ID that serves as a starting point for retrieving data in reverse chronological order. For example, if you specify `before` as `RqeEoTkgKG5rpzqYzg2Hd3szmPoj2cE7w5jWwShz3C1vyGmk1`, the request will retrieve a list of data objects that end before the object with the object ID `RqeEoTkgKG5rpzqYzg2Hd3szmPoj2cE7w5jWwShz3C1vyGmk1`. You can set this parameter to the value of `pagination.before` in the response of the previous request.  - If you set both `after` and `before`, an error will occur.  - If you leave both `before` and `after` empty, the first page of data is returned.  - If you set `before` to `infinity`, the last page of data is returned. 
-     * @param {String} [after] An object ID that acts as a starting point for retrieving data in chronological order. For example, if you specify `after` as `RqeEoTkgKG5rpzqYzg2Hd3szmPoj2cE7w5jWwShz3C1vyGSAk`, the request will retrieve a list of data objects that start after the object with the object ID `RqeEoTkgKG5rpzqYzg2Hd3szmPoj2cE7w5jWwShz3C1vyGSAk`. You can set this parameter to the value of `pagination.after` in the response of the previous request.  - If you set both `after` and `before`, an error will occur.  - If you leave both `before` and `after` empty, the first page of data is returned. 
+     * @param {String} [before] This parameter specifies an object ID as a starting point for pagination, retrieving data before the specified object relative to the current dataset.    Suppose the current data is ordered as Object A, Object B, and Object C.  If you set `before` to the ID of Object C (`RqeEoTkgKG5rpzqYzg2Hd3szmPoj2cE7w5jWwShz3C1vyGSAk`), the response will include Object B and Object A.    **Notes**:   - If you set both `after` and `before`, an error will occur. - If you leave both `before` and `after` empty, the first page of data is returned. - If you set it to `infinity`, the last page of data is returned. 
+     * @param {String} [after] This parameter specifies an object ID as a starting point for pagination, retrieving data after the specified object relative to the current dataset.    Suppose the current data is ordered as Object A, Object B, and Object C. If you set `after` to the ID of Object A (`RqeEoTkgKG5rpzqYzg2Hd3szmPoj2cE7w5jWwShz3C1vyGSAk`), the response will include Object B and Object C.    **Notes**:   - If you set both `after` and `before`, an error will occur. - If you leave both `before` and `after` empty, the first page of data is returned. 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/ListStakings200Response} and HTTP response
      */
     listStakingsWithHttpInfo(opts) {
@@ -685,13 +688,13 @@ export default class StakingsApi {
      * List staking positions
      * This operation retrieves a list of staking positions.  
      * @param {Object} opts Optional parameters
-     * @param {String} opts.pool_id The ID of the staking pool. A staking pool is a pairing of a staking protocol and a specific type of token. You can call [List staking pools](/v2/api-references/stakings/list-staking-pools) to retrieve a list of staking pools.
+     * @param {String} opts.pool_id The ID of the staking pool. A staking pool is a pairing of a staking protocol and a specific type of token. You can call [List staking pools](https://www.cobo.com/developers/v2/api-references/stakings/list-staking-pools) to retrieve a list of staking pools.
      * @param {String} opts.statuses The statuses of the staking amounts, separated by comma. Possible values include:  - `StakeInProgress`: The staking request is submitted and is waiting to be confirmed by the staking protocol. - `Active`: The amount has been staked. - `Rejected`: The staking request has been rejected because the signer refuses to sign the transaction. - `LimitExceeded`: The total staking cap of the staking protocol has been reached. - `Invalid`: The staking request is invalid. This is often due to the failure to broadcast the transaction. - `UnstakeInProgress`: The unstaking request is submitted and is waiting to be confirmed by the staking protocol. - `Withdrawable`: The tokens have been unstaked and are ready to be withdrawn. - `WithdrawInProgress`: The withdrawal request is submitted and is waiting to be confirmed on the chain network. - `Closed`: The staking position is closed. 
      * @param {String} opts.wallet_id The wallet ID.
-     * @param {String} opts.token_id The token ID, which is the unique identifier of a token. You can retrieve the IDs of all the tokens you can use by calling [List enabled tokens](/v2/api-references/wallets/list-enabled-tokens).
+     * @param {String} opts.token_id The token ID, which is the unique identifier of a token. You can retrieve the IDs of all the tokens you can use by calling [List enabled tokens](https://www.cobo.com/developers/v2/api-references/wallets/list-enabled-tokens).
      * @param {Number} opts.limit The maximum number of objects to return. For most operations, the value range is [1, 50]. (default to 10)
-     * @param {String} opts.before An object ID that serves as a starting point for retrieving data in reverse chronological order. For example, if you specify `before` as `RqeEoTkgKG5rpzqYzg2Hd3szmPoj2cE7w5jWwShz3C1vyGmk1`, the request will retrieve a list of data objects that end before the object with the object ID `RqeEoTkgKG5rpzqYzg2Hd3szmPoj2cE7w5jWwShz3C1vyGmk1`. You can set this parameter to the value of `pagination.before` in the response of the previous request.  - If you set both `after` and `before`, an error will occur.  - If you leave both `before` and `after` empty, the first page of data is returned.  - If you set `before` to `infinity`, the last page of data is returned. 
-     * @param {String} opts.after An object ID that acts as a starting point for retrieving data in chronological order. For example, if you specify `after` as `RqeEoTkgKG5rpzqYzg2Hd3szmPoj2cE7w5jWwShz3C1vyGSAk`, the request will retrieve a list of data objects that start after the object with the object ID `RqeEoTkgKG5rpzqYzg2Hd3szmPoj2cE7w5jWwShz3C1vyGSAk`. You can set this parameter to the value of `pagination.after` in the response of the previous request.  - If you set both `after` and `before`, an error will occur.  - If you leave both `before` and `after` empty, the first page of data is returned. 
+     * @param {String} opts.before This parameter specifies an object ID as a starting point for pagination, retrieving data before the specified object relative to the current dataset.    Suppose the current data is ordered as Object A, Object B, and Object C.  If you set `before` to the ID of Object C (`RqeEoTkgKG5rpzqYzg2Hd3szmPoj2cE7w5jWwShz3C1vyGSAk`), the response will include Object B and Object A.    **Notes**:   - If you set both `after` and `before`, an error will occur. - If you leave both `before` and `after` empty, the first page of data is returned. - If you set it to `infinity`, the last page of data is returned. 
+     * @param {String} opts.after This parameter specifies an object ID as a starting point for pagination, retrieving data after the specified object relative to the current dataset.    Suppose the current data is ordered as Object A, Object B, and Object C. If you set `after` to the ID of Object A (`RqeEoTkgKG5rpzqYzg2Hd3szmPoj2cE7w5jWwShz3C1vyGSAk`), the response will include Object B and Object C.    **Notes**:   - If you set both `after` and `before`, an error will occur. - If you leave both `before` and `after` empty, the first page of data is returned. 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/ListStakings200Response}
      */
     listStakings(opts) {

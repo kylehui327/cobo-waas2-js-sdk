@@ -244,6 +244,42 @@
       //expect(instance).to.be();
     });
 
+    it('should have the property addresses (base name: "addresses")', function() {
+      // uncomment below and update the code to test the property addresses
+      //var instance = new CoboWaas2.WebhookEventData();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property wallet (base name: "wallet")', function() {
+      // uncomment below and update the code to test the property wallet
+      //var instance = new CoboWaas2.WebhookEventData();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property vault_id (base name: "vault_id")', function() {
+      // uncomment below and update the code to test the property vault_id
+      //var instance = new CoboWaas2.WebhookEventData();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property project_id (base name: "project_id")', function() {
+      // uncomment below and update the code to test the property project_id
+      //var instance = new CoboWaas2.WebhookEventData();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property name (base name: "name")', function() {
+      // uncomment below and update the code to test the property name
+      //var instance = new CoboWaas2.WebhookEventData();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property root_pubkeys (base name: "root_pubkeys")', function() {
+      // uncomment below and update the code to test the property root_pubkeys
+      //var instance = new CoboWaas2.WebhookEventData();
+      //expect(instance).to.be();
+    });
+
   });
 
 }));

@@ -19,7 +19,7 @@ import MessageSignDestinationType from './MessageSignDestinationType';
 class EvmEIP191MessageSignDestination {
     /**
      * Constructs a new <code>EvmEIP191MessageSignDestination</code>.
-     * The information about the destination &#x60;EVM_EIP_191_Signature&#x60;. Refer to [Transaction sources and destinations](/v2/guides/transactions/sources-and-destinations) for a detailed introduction about the supported sources and destinations for each transaction type.
+     * The information about the destination &#x60;EVM_EIP_191_Signature&#x60;. Refer to [Transaction sources and destinations](https://www.cobo.com/developers/v2/guides/transactions/sources-and-destinations) for a detailed introduction about the supported sources and destinations for each transaction type.
      * @alias module:model/EvmEIP191MessageSignDestination
      * @param destination_type {module:model/MessageSignDestinationType} 
      * @param message {String} The raw data of the message to be signed, encoded in Base64 format.

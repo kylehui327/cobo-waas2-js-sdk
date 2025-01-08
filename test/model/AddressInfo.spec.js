@@ -94,6 +94,12 @@
       //expect(instance).to.be();
     });
 
+    it('should have the property root_pubkey (base name: "root_pubkey")', function() {
+      // uncomment below and update the code to test the property root_pubkey
+      //var instance = new CoboWaas2.AddressInfo();
+      //expect(instance).to.be();
+    });
+
     it('should have the property taproot_script_tree_hash (base name: "taproot_script_tree_hash")', function() {
       // uncomment below and update the code to test the property taproot_script_tree_hash
       //var instance = new CoboWaas2.AddressInfo();

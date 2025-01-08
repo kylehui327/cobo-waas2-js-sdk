@@ -13,6 +13,8 @@
 import ApiClient from "../ApiClient";
 import ErrorResponse from '../model/ErrorResponse';
 import GetApiKeyInfo200Response from '../model/GetApiKeyInfo200Response';
+import ListCallbackMessages200Response from '../model/ListCallbackMessages200Response';
+import RetryCallbackMessage201Response from '../model/RetryCallbackMessage201Response';
 
 /**
 * Developers service.
@@ -71,6 +73,128 @@ export default class DevelopersApi {
      */
     getApiKeyInfo() {
       return this.getApiKeyInfoWithHttpInfo()
+        .then(function(response_and_data) {
+          return response_and_data.data;
+        });
+    }
+
+
+    /**
+     * List all callback messages
+     * This operation retrieves all the callback messages in your organization.  For more details about how to respond to callback messages, refer to [Callback messages](/v2/guides/webhooks-callbacks/set-up-endpoint#callback-messages). 
+     * @param {Object} opts Optional parameters
+     * @param {String} [callback_message_ids] A list of callback message IDs, separated by commas.
+     * @param {String} [request_ids] A list of request IDs, separated by commas. The request ID is provided by you and must be unique within your organization.
+     * @param {String} [transaction_ids] A list of transaction IDs, separated by commas.
+     * @param {String} [wallet_ids] A list of wallet IDs, separated by commas.
+     * @param {module:model/String} [status] The callback message status. Possible values include `Approved`, `Denied`, and `Failed`.
+     * @param {Number} [limit = 10)] The maximum number of objects to return. For most operations, the value range is [1, 50].
+     * @param {String} [before] This parameter specifies an object ID as a starting point for pagination, retrieving data before the specified object relative to the current dataset.    Suppose the current data is ordered as Object A, Object B, and Object C.  If you set `before` to the ID of Object C (`RqeEoTkgKG5rpzqYzg2Hd3szmPoj2cE7w5jWwShz3C1vyGSAk`), the response will include Object B and Object A.    **Notes**:   - If you set both `after` and `before`, an error will occur. - If you leave both `before` and `after` empty, the first page of data is returned. - If you set it to `infinity`, the last page of data is returned. 
+     * @param {String} [after] This parameter specifies an object ID as a starting point for pagination, retrieving data after the specified object relative to the current dataset.    Suppose the current data is ordered as Object A, Object B, and Object C. If you set `after` to the ID of Object A (`RqeEoTkgKG5rpzqYzg2Hd3szmPoj2cE7w5jWwShz3C1vyGSAk`), the response will include Object B and Object C.    **Notes**:   - If you set both `after` and `before`, an error will occur. - If you leave both `before` and `after` empty, the first page of data is returned. 
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/ListCallbackMessages200Response} and HTTP response
+     */
+    listCallbackMessagesWithHttpInfo(opts) {
+      opts = opts || {};
+      let postBody = null;
+      if (postBody && postBody.toJSON) {
+          postBody = postBody.toJSON()
+      }
+
+      let pathParams = {
+      };
+      let queryParams = {
+        'callback_message_ids': opts['callback_message_ids'],
+        'request_ids': opts['request_ids'],
+        'transaction_ids': opts['transaction_ids'],
+        'wallet_ids': opts['wallet_ids'],
+        'status': opts['status'],
+        'limit': opts['limit'],
+        'before': opts['before'],
+        'after': opts['after']
+      };
+      let headerParams = {
+      };
+      let formParams = {
+      };
+
+      let authNames = ['CoboAuth'];
+      let contentTypes = [];
+      let accepts = ['application/json'];
+      let returnType = ListCallbackMessages200Response;
+      return this.apiClient.callApi(
+        '/developers/callback_messages', 'GET',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, null
+      );
+    }
+
+    /**
+     * List all callback messages
+     * This operation retrieves all the callback messages in your organization.  For more details about how to respond to callback messages, refer to [Callback messages](/v2/guides/webhooks-callbacks/set-up-endpoint#callback-messages). 
+     * @param {Object} opts Optional parameters
+     * @param {String} opts.callback_message_ids A list of callback message IDs, separated by commas.
+     * @param {String} opts.request_ids A list of request IDs, separated by commas. The request ID is provided by you and must be unique within your organization.
+     * @param {String} opts.transaction_ids A list of transaction IDs, separated by commas.
+     * @param {String} opts.wallet_ids A list of wallet IDs, separated by commas.
+     * @param {module:model/String} opts.status The callback message status. Possible values include `Approved`, `Denied`, and `Failed`.
+     * @param {Number} opts.limit The maximum number of objects to return. For most operations, the value range is [1, 50]. (default to 10)
+     * @param {String} opts.before This parameter specifies an object ID as a starting point for pagination, retrieving data before the specified object relative to the current dataset.    Suppose the current data is ordered as Object A, Object B, and Object C.  If you set `before` to the ID of Object C (`RqeEoTkgKG5rpzqYzg2Hd3szmPoj2cE7w5jWwShz3C1vyGSAk`), the response will include Object B and Object A.    **Notes**:   - If you set both `after` and `before`, an error will occur. - If you leave both `before` and `after` empty, the first page of data is returned. - If you set it to `infinity`, the last page of data is returned. 
+     * @param {String} opts.after This parameter specifies an object ID as a starting point for pagination, retrieving data after the specified object relative to the current dataset.    Suppose the current data is ordered as Object A, Object B, and Object C. If you set `after` to the ID of Object A (`RqeEoTkgKG5rpzqYzg2Hd3szmPoj2cE7w5jWwShz3C1vyGSAk`), the response will include Object B and Object C.    **Notes**:   - If you set both `after` and `before`, an error will occur. - If you leave both `before` and `after` empty, the first page of data is returned. 
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/ListCallbackMessages200Response}
+     */
+    listCallbackMessages(opts) {
+      return this.listCallbackMessagesWithHttpInfo(opts)
+        .then(function(response_and_data) {
+          return response_and_data.data;
+        });
+    }
+
+
+    /**
+     * Retry callback message
+     * This operation resends a callback message that failed previously.  If your callback endpoint doesn't respond as expected, the WaaS service will retry sending the callback message up to 30 times. After that, the callback message status will be `Failed`. Use this operation to resend the message. For more details, refer to [Webhooks and Callbacks](/v2/guides/webhooks-callbacks/set-up-endpoint#callback-messages). 
+     * @param {String} message_id The callback message ID.
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/RetryCallbackMessage201Response} and HTTP response
+     */
+    retryCallbackMessageWithHttpInfo(message_id) {
+      let postBody = null;
+      if (postBody && postBody.toJSON) {
+          postBody = postBody.toJSON()
+      }
+      // verify the required parameter 'message_id' is set
+      if (message_id === undefined || message_id === null) {
+        throw new Error("Missing the required parameter 'message_id' when calling retryCallbackMessage");
+      }
+
+      let pathParams = {
+        'message_id': message_id
+      };
+      let queryParams = {
+      };
+      let headerParams = {
+      };
+      let formParams = {
+      };
+
+      let authNames = ['CoboAuth'];
+      let contentTypes = [];
+      let accepts = ['application/json'];
+      let returnType = RetryCallbackMessage201Response;
+      return this.apiClient.callApi(
+        '/developers/callback_messages/{message_id}/retry', 'POST',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, null
+      );
+    }
+
+    /**
+     * Retry callback message
+     * This operation resends a callback message that failed previously.  If your callback endpoint doesn't respond as expected, the WaaS service will retry sending the callback message up to 30 times. After that, the callback message status will be `Failed`. Use this operation to resend the message. For more details, refer to [Webhooks and Callbacks](/v2/guides/webhooks-callbacks/set-up-endpoint#callback-messages). 
+     * @param {String} message_id The callback message ID.
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/RetryCallbackMessage201Response}
+     */
+    retryCallbackMessage(message_id) {
+      return this.retryCallbackMessageWithHttpInfo(message_id)
         .then(function(response_and_data) {
           return response_and_data.data;
         });

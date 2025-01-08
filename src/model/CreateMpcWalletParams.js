@@ -26,7 +26,7 @@ class CreateMpcWalletParams {
      * @param name {String} The wallet name.
      * @param wallet_type {module:model/WalletType} 
      * @param wallet_subtype {module:model/WalletSubtype} 
-     * @param vault_id {String} The ID of the owning vault. You can call [List all vaults](/v2/api-references/wallets--mpc-wallets/list-all-vaults) to retrieve all vault IDs under your organization.
+     * @param vault_id {String} The ID of the owning vault. You can call [List all vaults](https://www.cobo.com/developers/v2/api-references/wallets--mpc-wallets/list-all-vaults) to retrieve all vault IDs under your organization.
      */
     constructor(name, wallet_type, wallet_subtype, vault_id) { 
         CreateCustodialWalletParams.initialize(this, name, wallet_type, wallet_subtype);
@@ -119,7 +119,7 @@ CreateMpcWalletParams.prototype['wallet_type'] = undefined;
 CreateMpcWalletParams.prototype['wallet_subtype'] = undefined;
 
 /**
- * The ID of the owning vault. You can call [List all vaults](/v2/api-references/wallets--mpc-wallets/list-all-vaults) to retrieve all vault IDs under your organization.
+ * The ID of the owning vault. You can call [List all vaults](https://www.cobo.com/developers/v2/api-references/wallets--mpc-wallets/list-all-vaults) to retrieve all vault IDs under your organization.
  * @member {String} vault_id
  */
 CreateMpcWalletParams.prototype['vault_id'] = undefined;

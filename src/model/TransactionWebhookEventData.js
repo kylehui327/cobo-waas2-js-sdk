@@ -34,7 +34,7 @@ class TransactionWebhookEventData {
      * @alias module:model/TransactionWebhookEventData
      * @implements module:model/WebhookEventDataType
      * @implements module:model/Transaction
-     * @param data_type {module:model/TransactionWebhookEventData.DataTypeEnum}  The data type of the event. - `Transaction`: The transaction event data. - `TSSRequest`: The TSS request event data.
+     * @param data_type {module:model/TransactionWebhookEventData.DataTypeEnum}  The data type of the event. - `Transaction`: The transaction event data. - `TSSRequest`: The TSS request event data. - `Addresses`: The addresses event data. - `WalletInfo`: The wallet information event data. - `MPCVault`: The MPC vault event data.
      * @param transaction_id {String} The transaction ID.
      * @param wallet_id {String} For deposit transactions, this property represents the wallet ID of the transaction destination. For transactions of other types, this property represents the wallet ID of the transaction source.
      * @param status {module:model/TransactionStatus} 
@@ -282,7 +282,7 @@ class TransactionWebhookEventData {
 TransactionWebhookEventData.RequiredProperties = ["data_type", "transaction_id", "wallet_id", "status", "source", "destination", "initiator_type"];
 
 /**
- *  The data type of the event. - `Transaction`: The transaction event data. - `TSSRequest`: The TSS request event data.
+ *  The data type of the event. - `Transaction`: The transaction event data. - `TSSRequest`: The TSS request event data. - `Addresses`: The addresses event data. - `WalletInfo`: The wallet information event data. - `MPCVault`: The MPC vault event data.
  * @member {module:model/TransactionWebhookEventData.DataTypeEnum} data_type
  */
 TransactionWebhookEventData.prototype['data_type'] = undefined;
@@ -333,13 +333,13 @@ TransactionWebhookEventData.prototype['sub_status'] = undefined;
 TransactionWebhookEventData.prototype['failed_reason'] = undefined;
 
 /**
- * The chain ID, which is the unique identifier of a blockchain. You can retrieve the IDs of all the chains you can use by calling [List enabled chains](/v2/api-references/wallets/list-enabled-chains).
+ * The chain ID, which is the unique identifier of a blockchain. You can retrieve the IDs of all the chains you can use by calling [List enabled chains](https://www.cobo.com/developers/v2/api-references/wallets/list-enabled-chains).
  * @member {String} chain_id
  */
 TransactionWebhookEventData.prototype['chain_id'] = undefined;
 
 /**
- * The token ID, which is the unique identifier of a token. You can retrieve the IDs of all the tokens you can use by calling [List enabled tokens](/v2/api-references/wallets/list-enabled-tokens).
+ * The token ID, which is the unique identifier of a token. You can retrieve the IDs of all the tokens you can use by calling [List enabled tokens](https://www.cobo.com/developers/v2/api-references/wallets/list-enabled-tokens).
  * @member {String} token_id
  */
 TransactionWebhookEventData.prototype['token_id'] = undefined;
@@ -447,7 +447,7 @@ TransactionWebhookEventData.prototype['updated_timestamp'] = undefined;
 
 // Implement WebhookEventDataType interface:
 /**
- *  The data type of the event. - `Transaction`: The transaction event data. - `TSSRequest`: The TSS request event data.
+ *  The data type of the event. - `Transaction`: The transaction event data. - `TSSRequest`: The TSS request event data. - `Addresses`: The addresses event data. - `WalletInfo`: The wallet information event data. - `MPCVault`: The MPC vault event data.
  * @member {module:model/WebhookEventDataType.DataTypeEnum} data_type
  */
 WebhookEventDataType.prototype['data_type'] = undefined;
@@ -490,12 +490,12 @@ Transaction.prototype['sub_status'] = undefined;
  */
 Transaction.prototype['failed_reason'] = undefined;
 /**
- * The chain ID, which is the unique identifier of a blockchain. You can retrieve the IDs of all the chains you can use by calling [List enabled chains](/v2/api-references/wallets/list-enabled-chains).
+ * The chain ID, which is the unique identifier of a blockchain. You can retrieve the IDs of all the chains you can use by calling [List enabled chains](https://www.cobo.com/developers/v2/api-references/wallets/list-enabled-chains).
  * @member {String} chain_id
  */
 Transaction.prototype['chain_id'] = undefined;
 /**
- * The token ID, which is the unique identifier of a token. You can retrieve the IDs of all the tokens you can use by calling [List enabled tokens](/v2/api-references/wallets/list-enabled-tokens).
+ * The token ID, which is the unique identifier of a token. You can retrieve the IDs of all the tokens you can use by calling [List enabled tokens](https://www.cobo.com/developers/v2/api-references/wallets/list-enabled-tokens).
  * @member {String} token_id
  */
 Transaction.prototype['token_id'] = undefined;
@@ -602,6 +602,24 @@ TransactionWebhookEventData['DataTypeEnum'] = {
      * @const
      */
     "TSSRequest": "TSSRequest",
+
+    /**
+     * value: "Addresses"
+     * @const
+     */
+    "Addresses": "Addresses",
+
+    /**
+     * value: "WalletInfo"
+     * @const
+     */
+    "WalletInfo": "WalletInfo",
+
+    /**
+     * value: "MPCVault"
+     * @const
+     */
+    "MPCVault": "MPCVault",
 
     /**
      * value: "unknown_default_open_api"

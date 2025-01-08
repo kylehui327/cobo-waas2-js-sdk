@@ -20,8 +20,8 @@ class TokenBalanceBalance {
      * Constructs a new <code>TokenBalanceBalance</code>.
      * The balance details.
      * @alias module:model/TokenBalanceBalance
-     * @param total {String} The current amount of tokens in an address, which is retrieved directly from the network. To learn more, see [Balances and transaction amounts for MPC Wallets](/v2/guides/mpc-wallets/balance-amounts) for more details.
-     * @param available {String} The amount of tokens ready to be spent. To learn more, see [Balances and transaction amounts for MPC Wallets](/v2/guides/mpc-wallets/balance-amounts) for more details.
+     * @param total {String} The current amount of tokens in an address, which is retrieved directly from the network. To learn more, see [Balances and transaction amounts for MPC Wallets](https://www.cobo.com/developers/v2/guides/mpc-wallets/balance-amounts) for more details.
+     * @param available {String} The amount of tokens ready to be spent. To learn more, see [Balances and transaction amounts for MPC Wallets](https://www.cobo.com/developers/v2/guides/mpc-wallets/balance-amounts) for more details.
      */
     constructor(total, available) { 
         
@@ -103,26 +103,26 @@ class TokenBalanceBalance {
 TokenBalanceBalance.RequiredProperties = ["total", "available"];
 
 /**
- * The current amount of tokens in an address, which is retrieved directly from the network. To learn more, see [Balances and transaction amounts for MPC Wallets](/v2/guides/mpc-wallets/balance-amounts) for more details.
+ * The current amount of tokens in an address, which is retrieved directly from the network. To learn more, see [Balances and transaction amounts for MPC Wallets](https://www.cobo.com/developers/v2/guides/mpc-wallets/balance-amounts) for more details.
  * @member {String} total
  */
 TokenBalanceBalance.prototype['total'] = undefined;
 
 /**
- * The amount of tokens ready to be spent. To learn more, see [Balances and transaction amounts for MPC Wallets](/v2/guides/mpc-wallets/balance-amounts) for more details.
+ * The amount of tokens ready to be spent. To learn more, see [Balances and transaction amounts for MPC Wallets](https://www.cobo.com/developers/v2/guides/mpc-wallets/balance-amounts) for more details.
  * @member {String} available
  */
 TokenBalanceBalance.prototype['available'] = undefined;
 
 /**
- * The total amount being sent in a transaction, which is calculated as the withdrawal amount plus the transaction fee. To learn more, see [Balances and transaction amounts for MPC Wallets](/v2/guides/mpc-wallets/balance-amounts) for more details.
+ * The total amount being sent in a transaction, which is calculated as the withdrawal amount plus the transaction fee. To learn more, see [Balances and transaction amounts for MPC Wallets](https://www.cobo.com/developers/v2/guides/mpc-wallets/balance-amounts) for more details.
  * @member {String} pending
  * @default '0'
  */
 TokenBalanceBalance.prototype['pending'] = '0';
 
 /**
- * For UTXO chains, this is the combined value of the selected UTXOs for the transaction. For other chains, it is equal to the Pending amount. To learn more, see [Balances and transaction amounts for MPC Wallets](/v2/guides/mpc-wallets/balance-amounts) for more details.
+ * For UTXO chains, this is the combined value of the selected UTXOs for the transaction. For other chains, it is equal to the Pending amount. To learn more, see [Balances and transaction amounts for MPC Wallets](https://www.cobo.com/developers/v2/guides/mpc-wallets/balance-amounts) for more details.
  * @member {String} locked
  * @default '0'
  */

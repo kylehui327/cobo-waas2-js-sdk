@@ -55,6 +55,9 @@ class EthStakeEstimatedFee {
             if (data.hasOwnProperty('validator_pubkeys')) {
                 obj['validator_pubkeys'] = ApiClient.convertToType(data['validator_pubkeys'], ['String']);
             }
+            if (data.hasOwnProperty('core_btc_staking_address')) {
+                obj['core_btc_staking_address'] = ApiClient.convertToType(data['core_btc_staking_address'], 'String');
+            }
         }
         return obj;
     }
@@ -74,6 +77,10 @@ class EthStakeEstimatedFee {
         // ensure the json data is an array
         if (!Array.isArray(data['validator_pubkeys'])) {
             throw new Error("Expected the field `validator_pubkeys` to be an array in the JSON data but got " + data['validator_pubkeys']);
+        }
+        // ensure the json data is a string
+        if (data['core_btc_staking_address'] && !(typeof data['core_btc_staking_address'] === 'string' || data['core_btc_staking_address'] instanceof String)) {
+            throw new Error("Expected the field `core_btc_staking_address` to be a primitive type in the JSON string but got " + data['core_btc_staking_address']);
         }
 
         return true;
@@ -99,6 +106,12 @@ EthStakeEstimatedFee.prototype['fee'] = undefined;
  * @member {Array.<String>} validator_pubkeys
  */
 EthStakeEstimatedFee.prototype['validator_pubkeys'] = undefined;
+
+/**
+ * P2WSH address generated for this staking operation(If the estimated fee is for core BTC staking).
+ * @member {String} core_btc_staking_address
+ */
+EthStakeEstimatedFee.prototype['core_btc_staking_address'] = undefined;
 
 
 

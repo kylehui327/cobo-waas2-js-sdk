@@ -178,7 +178,7 @@ EstimateFeeParams.prototype['request_type'] = undefined;
 EstimateFeeParams.prototype['source'] = undefined;
 
 /**
- * The token ID of the transferred token. You can retrieve the IDs of all the tokens you can use by calling [List enabled tokens](/v2/api-references/wallets/list-enabled-tokens).
+ * The token ID of the transferred token. You can retrieve the IDs of all the tokens you can use by calling [List enabled tokens](https://www.cobo.com/developers/v2/api-references/wallets/list-enabled-tokens).
  * @member {String} token_id
  */
 EstimateFeeParams.prototype['token_id'] = undefined;
@@ -194,7 +194,7 @@ EstimateFeeParams.prototype['destination'] = undefined;
 EstimateFeeParams.prototype['fee_type'] = undefined;
 
 /**
- * The chain ID of the chain on which the smart contract is deployed. You can retrieve the IDs of all the chains you can use by calling [List enabled chains](/v2/api-references/wallets/list-enabled-chains).
+ * The chain ID of the chain on which the smart contract is deployed. You can retrieve the IDs of all the chains you can use by calling [List enabled chains](https://www.cobo.com/developers/v2/api-references/wallets/list-enabled-chains).
  * @member {String} chain_id
  */
 EstimateFeeParams.prototype['chain_id'] = undefined;

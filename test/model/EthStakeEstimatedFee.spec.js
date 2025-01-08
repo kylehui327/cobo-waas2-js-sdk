@@ -70,6 +70,12 @@
       //expect(instance).to.be();
     });
 
+    it('should have the property core_btc_staking_address (base name: "core_btc_staking_address")', function() {
+      // uncomment below and update the code to test the property core_btc_staking_address
+      //var instance = new CoboWaas2.EthStakeEstimatedFee();
+      //expect(instance).to.be();
+    });
+
   });
 
 }));

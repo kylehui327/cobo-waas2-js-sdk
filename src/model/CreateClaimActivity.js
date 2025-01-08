@@ -20,7 +20,7 @@ class CreateClaimActivity {
     /**
      * Constructs a new <code>CreateClaimActivity</code>.
      * @alias module:model/CreateClaimActivity
-     * @param staking_id {String} The ID of the staking position. You can retrieve a list of staking positions by calling [List staking positions](/v2/api-references/stakings/list-staking-positions).
+     * @param staking_id {String} The ID of the staking position. You can retrieve a list of staking positions by calling [List staking positions](https://www.cobo.com/developers/v2/api-references/stakings/list-staking-positions).
      */
     constructor(staking_id) { 
         
@@ -102,7 +102,7 @@ CreateClaimActivity.RequiredProperties = ["staking_id"];
 CreateClaimActivity.prototype['request_id'] = undefined;
 
 /**
- * The ID of the staking position. You can retrieve a list of staking positions by calling [List staking positions](/v2/api-references/stakings/list-staking-positions).
+ * The ID of the staking position. You can retrieve a list of staking positions by calling [List staking positions](https://www.cobo.com/developers/v2/api-references/stakings/list-staking-positions).
  * @member {String} staking_id
  */
 CreateClaimActivity.prototype['staking_id'] = undefined;

@@ -39,6 +39,13 @@ export default class StakingPoolType {
 
     
         /**
+         * value: "SkyFarm"
+         * @const
+         */
+        "SkyFarm" = "SkyFarm";
+
+    
+        /**
          * value: "unknown_default_open_api"
          * @const
          */

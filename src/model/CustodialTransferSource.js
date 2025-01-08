@@ -19,7 +19,7 @@ import WalletSubtype from './WalletSubtype';
 class CustodialTransferSource {
     /**
      * Constructs a new <code>CustodialTransferSource</code>.
-     * The information about the transaction source types &#x60;Asset&#x60; and &#x60;Web3&#x60;. Refer to [Transaction sources and destinations](/v2/guides/transactions/sources-and-destinations) for a detailed introduction about the supported sources and destinations for each transaction type.  Switch between the tabs to display the properties for different transaction sources. 
+     * The information about the transaction source types &#x60;Asset&#x60; and &#x60;Web3&#x60;. Refer to [Transaction sources and destinations](https://www.cobo.com/developers/v2/guides/transactions/sources-and-destinations) for a detailed introduction about the supported sources and destinations for each transaction type.  Switch between the tabs to display the properties for different transaction sources. 
      * @alias module:model/CustodialTransferSource
      * @param source_type {module:model/WalletSubtype} 
      * @param wallet_id {String} The wallet ID.

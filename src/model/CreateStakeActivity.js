@@ -26,11 +26,10 @@ class CreateStakeActivity {
      * @param pool_id {module:model/StakingPoolId} 
      * @param amount {String} The amount to stake.
      * @param fee {module:model/TransactionRequestFee} 
-     * @param extra {module:model/CreateStakeActivityExtra} 
      */
-    constructor(pool_id, amount, fee, extra) { 
+    constructor(pool_id, amount, fee) { 
         
-        CreateStakeActivity.initialize(this, pool_id, amount, fee, extra);
+        CreateStakeActivity.initialize(this, pool_id, amount, fee);
     }
 
     /**
@@ -38,11 +37,10 @@ class CreateStakeActivity {
      * This method is used by the constructors of any subclasses, in order to implement multiple inheritance (mix-ins).
      * Only for internal use.
      */
-    static initialize(obj, pool_id, amount, fee, extra) { 
+    static initialize(obj, pool_id, amount, fee) { 
         obj['pool_id'] = pool_id;
         obj['amount'] = amount;
         obj['fee'] = fee;
-        obj['extra'] = extra;
     }
 
     /**
@@ -123,7 +121,7 @@ class CreateStakeActivity {
 
 }
 
-CreateStakeActivity.RequiredProperties = ["pool_id", "amount", "fee", "extra"];
+CreateStakeActivity.RequiredProperties = ["pool_id", "amount", "fee"];
 
 /**
  * The request ID that is used to track a request. The request ID is provided by you and must be unique within your organization.

@@ -15,6 +15,8 @@
 
 * `core_xtn` (value: `"core_xtn"`)
 
+* `sky_farm_eth_usdc` (value: `"sky_farm_eth_usdc"`)
+
 * `unknown_default_open_api` (value: `"unknown_default_open_api"`)
 
 
