@@ -15,6 +15,7 @@ import Secp256k1Signer from "./crypto/Secp256k1Signer";
 import ApiClient from './ApiClient';
 import Activity from './model/Activity';
 import ActivityAction from './model/ActivityAction';
+import ActivityExtra from './model/ActivityExtra';
 import ActivityInitiator from './model/ActivityInitiator';
 import ActivityStatus from './model/ActivityStatus';
 import ActivityTimeline from './model/ActivityTimeline';
@@ -25,6 +26,7 @@ import AddressInfo from './model/AddressInfo';
 import AddressTransferDestination from './model/AddressTransferDestination';
 import AddressTransferDestinationAccountOutput from './model/AddressTransferDestinationAccountOutput';
 import AddressTransferDestinationUtxoOutputsInner from './model/AddressTransferDestinationUtxoOutputsInner';
+import AddressesEventData from './model/AddressesEventData';
 import AmountDetailsInner from './model/AmountDetailsInner';
 import AmountStatus from './model/AmountStatus';
 import ApiLogDetails from './model/ApiLogDetails';
@@ -34,6 +36,7 @@ import AssetInfo from './model/AssetInfo';
 import AutoFuelType from './model/AutoFuelType';
 import BabylonStakeEstimatedFee from './model/BabylonStakeEstimatedFee';
 import BabylonStakeExtra from './model/BabylonStakeExtra';
+import BabylonStakingActivityDetailExtra from './model/BabylonStakingActivityDetailExtra';
 import BabylonStakingExtra from './model/BabylonStakingExtra';
 import BabylonValidator from './model/BabylonValidator';
 import BaseContractCallSource from './model/BaseContractCallSource';
@@ -42,6 +45,7 @@ import BaseStakeExtra from './model/BaseStakeExtra';
 import BaseStakeSource from './model/BaseStakeSource';
 import BroadcastSignedTransactions201ResponseInner from './model/BroadcastSignedTransactions201ResponseInner';
 import BroadcastSignedTransactionsRequest from './model/BroadcastSignedTransactionsRequest';
+import CallbackMessage from './model/CallbackMessage';
 import ChainInfo from './model/ChainInfo';
 import CheckAddressChainsValidity200ResponseInner from './model/CheckAddressChainsValidity200ResponseInner';
 import CheckAddressValidity200Response from './model/CheckAddressValidity200Response';
@@ -55,6 +59,7 @@ import ContractCallParams from './model/ContractCallParams';
 import ContractCallSource from './model/ContractCallSource';
 import ContractCallSourceType from './model/ContractCallSourceType';
 import CoreStakeExtra from './model/CoreStakeExtra';
+import CoreStakingActivityDetailExtra from './model/CoreStakingActivityDetailExtra';
 import CoreStakingExtra from './model/CoreStakingExtra';
 import CreateAddressRequest from './model/CreateAddressRequest';
 import CreateClaimActivity from './model/CreateClaimActivity';
@@ -87,6 +92,7 @@ import CustodialTransferSource from './model/CustodialTransferSource';
 import CustodialWalletInfo from './model/CustodialWalletInfo';
 import DeleteKeyShareHolderGroupById201Response from './model/DeleteKeyShareHolderGroupById201Response';
 import DeleteWalletById201Response from './model/DeleteWalletById201Response';
+import DestinationWalletType from './model/DestinationWalletType';
 import EigenLayerLstStakeExtra from './model/EigenLayerLstStakeExtra';
 import EigenLayerNativeStakeExtra from './model/EigenLayerNativeStakeExtra';
 import EigenlayerValidator from './model/EigenlayerValidator';
@@ -109,6 +115,7 @@ import EstimatedUtxoFee from './model/EstimatedUtxoFee';
 import EstimatedUtxoFeeSlow from './model/EstimatedUtxoFeeSlow';
 import EthStakeEstimatedFee from './model/EthStakeEstimatedFee';
 import EthStakeExtra from './model/EthStakeExtra';
+import EthStakingActivityDetailExtra from './model/EthStakingActivityDetailExtra';
 import EthStakingExtra from './model/EthStakingExtra';
 import EthStakingExtraAllOfBeaconValidators from './model/EthStakingExtraAllOfBeaconValidators';
 import EthUnstakeExtra from './model/EthUnstakeExtra';
@@ -134,6 +141,7 @@ import GetStakingEstimationFee201Response from './model/GetStakingEstimationFee2
 import GetStakingEstimationFeeRequest from './model/GetStakingEstimationFeeRequest';
 import GetToken2XXResponse from './model/GetToken2XXResponse';
 import GetToken4XXResponse from './model/GetToken4XXResponse';
+import GetTransactionLimitation200Response from './model/GetTransactionLimitation200Response';
 import KeyShareHolder from './model/KeyShareHolder';
 import KeyShareHolderGroup from './model/KeyShareHolderGroup';
 import KeyShareHolderGroupStatus from './model/KeyShareHolderGroupStatus';
@@ -143,6 +151,7 @@ import KeyShareHolderType from './model/KeyShareHolderType';
 import ListAddressBooks200Response from './model/ListAddressBooks200Response';
 import ListAddresses200Response from './model/ListAddresses200Response';
 import ListAssetBalancesForExchangeWallet200Response from './model/ListAssetBalancesForExchangeWallet200Response';
+import ListCallbackMessages200Response from './model/ListCallbackMessages200Response';
 import ListExchanges200ResponseInner from './model/ListExchanges200ResponseInner';
 import ListKeyShareHolderGroups200Response from './model/ListKeyShareHolderGroups200Response';
 import ListMpcProjects200Response from './model/ListMpcProjects200Response';
@@ -152,6 +161,7 @@ import ListStakingPools200Response from './model/ListStakingPools200Response';
 import ListStakings200Response from './model/ListStakings200Response';
 import ListSupportedAssetsForExchange200Response from './model/ListSupportedAssetsForExchange200Response';
 import ListSupportedChains200Response from './model/ListSupportedChains200Response';
+import ListSupportedCountries200ResponseInner from './model/ListSupportedCountries200ResponseInner';
 import ListSupportedTokens200Response from './model/ListSupportedTokens200Response';
 import ListTokenBalancesForAddress200Response from './model/ListTokenBalancesForAddress200Response';
 import ListTransactions200Response from './model/ListTransactions200Response';
@@ -168,6 +178,7 @@ import LockUtxosRequestUtxosInner from './model/LockUtxosRequestUtxosInner';
 import MPCDelegate from './model/MPCDelegate';
 import MPCProject from './model/MPCProject';
 import MPCVault from './model/MPCVault';
+import MPCVaultEventData from './model/MPCVaultEventData';
 import MPCVaultType from './model/MPCVaultType';
 import MPCWalletInfo from './model/MPCWalletInfo';
 import MaxFeeAmount from './model/MaxFeeAmount';
@@ -182,6 +193,7 @@ import MpcMessageSignSource from './model/MpcMessageSignSource';
 import MpcSigningGroup from './model/MpcSigningGroup';
 import MpcStakeSource from './model/MpcStakeSource';
 import MpcTransferSource from './model/MpcTransferSource';
+import OrgInfo from './model/OrgInfo';
 import Pagination from './model/Pagination';
 import PoolDetails from './model/PoolDetails';
 import PoolDetailsAllOfValidatorsInfo from './model/PoolDetailsAllOfValidatorsInfo';
@@ -190,6 +202,7 @@ import RawMessageSignDestination from './model/RawMessageSignDestination';
 import RefreshToken2XXResponse from './model/RefreshToken2XXResponse';
 import RefreshTokenRequest from './model/RefreshTokenRequest';
 import ReplaceType from './model/ReplaceType';
+import RetryCallbackMessage201Response from './model/RetryCallbackMessage201Response';
 import RetryWebhookEventById201Response from './model/RetryWebhookEventById201Response';
 import RoleScopes from './model/RoleScopes';
 import RootPubkey from './model/RootPubkey';
@@ -200,6 +213,8 @@ import SafeWalletDelegates from './model/SafeWalletDelegates';
 import SafeWalletDelegatesContractCall from './model/SafeWalletDelegatesContractCall';
 import SafeWalletDelegatesTransfer from './model/SafeWalletDelegatesTransfer';
 import Scopes from './model/Scopes';
+import SelectedEntityType from './model/SelectedEntityType';
+import SelfCustodyWallet from './model/SelfCustodyWallet';
 import SmartContractInitiator from './model/SmartContractInitiator';
 import SmartContractWalletInfo from './model/SmartContractWalletInfo';
 import SmartContractWalletOperationType from './model/SmartContractWalletOperationType';
@@ -212,6 +227,10 @@ import StakingSource from './model/StakingSource';
 import Stakings from './model/Stakings';
 import StakingsExtra from './model/StakingsExtra';
 import SubWalletAssetBalance from './model/SubWalletAssetBalance';
+import SubmitDepositTravelRuleInfo201Response from './model/SubmitDepositTravelRuleInfo201Response';
+import SwapActivity from './model/SwapActivity';
+import SwapSummary from './model/SwapSummary';
+import SwapTokenPair from './model/SwapTokenPair';
 import TSSGroups from './model/TSSGroups';
 import TSSRequest from './model/TSSRequest';
 import TSSRequestStatus from './model/TSSRequestStatus';
@@ -222,6 +241,8 @@ import TokenBalance from './model/TokenBalance';
 import TokenBalanceBalance from './model/TokenBalanceBalance';
 import TokenInfo from './model/TokenInfo';
 import Transaction from './model/Transaction';
+import TransactionApprovalDetail from './model/TransactionApprovalDetail';
+import TransactionApprovalResult from './model/TransactionApprovalResult';
 import TransactionApprover from './model/TransactionApprover';
 import TransactionBlockInfo from './model/TransactionBlockInfo';
 import TransactionCustodialAssetWalletSource from './model/TransactionCustodialAssetWalletSource';
@@ -260,6 +281,8 @@ import TransactionRequestUtxoFee from './model/TransactionRequestUtxoFee';
 import TransactionResend from './model/TransactionResend';
 import TransactionResult from './model/TransactionResult';
 import TransactionResultType from './model/TransactionResultType';
+import TransactionRoleApprovalDetail from './model/TransactionRoleApprovalDetail';
+import TransactionSelectedUtxo from './model/TransactionSelectedUtxo';
 import TransactionSignatureResult from './model/TransactionSignatureResult';
 import TransactionSigner from './model/TransactionSigner';
 import TransactionSmartContractSafeWalletSource from './model/TransactionSmartContractSafeWalletSource';
@@ -275,6 +298,7 @@ import TransactionTransferToAddressDestinationAccountOutput from './model/Transa
 import TransactionTransferToAddressDestinationUtxoOutputsInner from './model/TransactionTransferToAddressDestinationUtxoOutputsInner';
 import TransactionTransferToWalletDestination from './model/TransactionTransferToWalletDestination';
 import TransactionType from './model/TransactionType';
+import TransactionUserApprovalDetail from './model/TransactionUserApprovalDetail';
 import TransactionUtxo from './model/TransactionUtxo';
 import TransactionUtxoFee from './model/TransactionUtxoFee';
 import TransactionWebhookEventData from './model/TransactionWebhookEventData';
@@ -282,6 +306,18 @@ import TransferDestination from './model/TransferDestination';
 import TransferDestinationType from './model/TransferDestinationType';
 import TransferParams from './model/TransferParams';
 import TransferSource from './model/TransferSource';
+import TravelRuleDepositExchangesOrVASP from './model/TravelRuleDepositExchangesOrVASP';
+import TravelRuleDepositExchangesOrVASPEntityInfo from './model/TravelRuleDepositExchangesOrVASPEntityInfo';
+import TravelRuleDepositLegalEntity from './model/TravelRuleDepositLegalEntity';
+import TravelRuleDepositNaturalEntity from './model/TravelRuleDepositNaturalEntity';
+import TravelRuleDepositRequest from './model/TravelRuleDepositRequest';
+import TravelRuleDepositRequestTravelRuleInfo from './model/TravelRuleDepositRequestTravelRuleInfo';
+import TravelRuleWithdrawExchangesOrVASP from './model/TravelRuleWithdrawExchangesOrVASP';
+import TravelRuleWithdrawExchangesOrVASPEntityInfo from './model/TravelRuleWithdrawExchangesOrVASPEntityInfo';
+import TravelRuleWithdrawLegalEntity from './model/TravelRuleWithdrawLegalEntity';
+import TravelRuleWithdrawNaturalEntity from './model/TravelRuleWithdrawNaturalEntity';
+import TravelRuleWithdrawRequest from './model/TravelRuleWithdrawRequest';
+import TravelRuleWithdrawRequestTravelRuleInfo from './model/TravelRuleWithdrawRequestTravelRuleInfo';
 import TriggerTestWebhookEvent201Response from './model/TriggerTestWebhookEvent201Response';
 import TriggerTestWebhookEventRequest from './model/TriggerTestWebhookEventRequest';
 import UTXO from './model/UTXO';
@@ -297,7 +333,9 @@ import UpdateWalletParams from './model/UpdateWalletParams';
 import UpdateWebhookEndpointByIdRequest from './model/UpdateWebhookEndpointByIdRequest';
 import UtxoFeeBasePrice from './model/UtxoFeeBasePrice';
 import UtxoFeeRate from './model/UtxoFeeRate';
+import Vasp from './model/Vasp';
 import WalletInfo from './model/WalletInfo';
+import WalletInfoEventData from './model/WalletInfoEventData';
 import WalletSubtype from './model/WalletSubtype';
 import WalletType from './model/WalletType';
 import WebhookEndpoint from './model/WebhookEndpoint';
@@ -314,6 +352,7 @@ import DevelopersWebhooksApi from './api/DevelopersWebhooksApi';
 import OAuthApi from './api/OAuthApi';
 import StakingsApi from './api/StakingsApi';
 import TransactionsApi from './api/TransactionsApi';
+import TravelRuleApi from './api/TravelRuleApi';
 import WalletsApi from './api/WalletsApi';
 import WalletsExchangeWalletApi from './api/WalletsExchangeWalletApi';
 import WalletsMPCWalletsApi from './api/WalletsMPCWalletsApi';
@@ -322,7 +361,7 @@ import WalletsSmartContractWalletsApi from './api/WalletsSmartContractWalletsApi
 
 /**
 
-* The Cobo Wallet-as-a-Service (WaaS) 2.0 API is the latest version of Cobo’s WaaS API offering. It enables you to access Cobo’s full suite of crypto wallet technologies with powerful and flexible access controls. By encapsulating complex security protocols and streamlining blockchain interactions, this API allows you to concentrate on your core business activities without worrying about the safety of your assets. The WaaS 2.0 API presents the following key features:  - A unified API for Cobo’s [all four wallet types](https://manuals.cobo.com/en/portal/introduction#an-all-in-one-wallet-platform) - Support for 80+ chains and 3000+ tokens - A comprehensive selection of webhook events - Flexible usage models for MPC Wallets, including [Organization-Controlled Wallets](https://manuals.cobo.com/en/portal/mpc-wallets/ocw/introduction) and [User-Controlled Wallets](https://manuals.cobo.com/en/portal/mpc-wallets/ucw/introduction) - Programmatic control of smart contract wallets such as Safe{Wallet} with fine-grained access controls - Seamlessly transfer funds across multiple exchanges, including Binance, OKX, Bybit, Deribit, and more  For more information about the WaaS 2.0 API, see [Introduction to WaaS 2.0](/v2/guides/overview/introduction). .<br>
+* The Cobo Wallet-as-a-Service (WaaS) 2.0 API is the latest version of Cobo’s WaaS API offering. It enables you to access Cobo’s full suite of crypto wallet technologies with powerful and flexible access controls. By encapsulating complex security protocols and streamlining blockchain interactions, this API allows you to concentrate on your core business activities without worrying about the safety of your assets. The WaaS 2.0 API presents the following key features:  - A unified API for Cobo’s [all four wallet types](https://manuals.cobo.com/en/portal/introduction#an-all-in-one-wallet-platform) - Support for 80+ chains and 3000+ tokens - A comprehensive selection of webhook events - Flexible usage models for MPC Wallets, including [Organization-Controlled Wallets](https://manuals.cobo.com/en/portal/mpc-wallets/ocw/introduction) and [User-Controlled Wallets](https://manuals.cobo.com/en/portal/mpc-wallets/ucw/introduction) - Programmatic control of smart contract wallets such as Safe{Wallet} with fine-grained access controls - Seamlessly transfer funds across multiple exchanges, including Binance, OKX, Bybit, Deribit, and more  For more information about the WaaS 2.0 API, see [Introduction to WaaS 2.0](https://www.cobo.com/developers/v2/guides/overview/introduction). .<br>
 * The <code>index</code> module provides access to constructors for all the classes which comprise the public API.
 * <p>
 * An AMD (recommended!) or CommonJS application will generally do something equivalent to the following:
@@ -350,7 +389,7 @@ import WalletsSmartContractWalletsApi from './api/WalletsSmartContractWalletsApi
 * </pre>
 * </p>
 * @module index
-* @version 1.7.0
+* @version 1.8.0
 */
 export {
     Env,
@@ -373,6 +412,12 @@ export {
      * @property {module:model/ActivityAction}
      */
     ActivityAction,
+
+    /**
+     * The ActivityExtra model constructor.
+     * @property {module:model/ActivityExtra}
+     */
+    ActivityExtra,
 
     /**
      * The ActivityInitiator model constructor.
@@ -435,6 +480,12 @@ export {
     AddressTransferDestinationUtxoOutputsInner,
 
     /**
+     * The AddressesEventData model constructor.
+     * @property {module:model/AddressesEventData}
+     */
+    AddressesEventData,
+
+    /**
      * The AmountDetailsInner model constructor.
      * @property {module:model/AmountDetailsInner}
      */
@@ -489,6 +540,12 @@ export {
     BabylonStakeExtra,
 
     /**
+     * The BabylonStakingActivityDetailExtra model constructor.
+     * @property {module:model/BabylonStakingActivityDetailExtra}
+     */
+    BabylonStakingActivityDetailExtra,
+
+    /**
      * The BabylonStakingExtra model constructor.
      * @property {module:model/BabylonStakingExtra}
      */
@@ -535,6 +592,12 @@ export {
      * @property {module:model/BroadcastSignedTransactionsRequest}
      */
     BroadcastSignedTransactionsRequest,
+
+    /**
+     * The CallbackMessage model constructor.
+     * @property {module:model/CallbackMessage}
+     */
+    CallbackMessage,
 
     /**
      * The ChainInfo model constructor.
@@ -613,6 +676,12 @@ export {
      * @property {module:model/CoreStakeExtra}
      */
     CoreStakeExtra,
+
+    /**
+     * The CoreStakingActivityDetailExtra model constructor.
+     * @property {module:model/CoreStakingActivityDetailExtra}
+     */
+    CoreStakingActivityDetailExtra,
 
     /**
      * The CoreStakingExtra model constructor.
@@ -807,6 +876,12 @@ export {
     DeleteWalletById201Response,
 
     /**
+     * The DestinationWalletType model constructor.
+     * @property {module:model/DestinationWalletType}
+     */
+    DestinationWalletType,
+
+    /**
      * The EigenLayerLstStakeExtra model constructor.
      * @property {module:model/EigenLayerLstStakeExtra}
      */
@@ -937,6 +1012,12 @@ export {
      * @property {module:model/EthStakeExtra}
      */
     EthStakeExtra,
+
+    /**
+     * The EthStakingActivityDetailExtra model constructor.
+     * @property {module:model/EthStakingActivityDetailExtra}
+     */
+    EthStakingActivityDetailExtra,
 
     /**
      * The EthStakingExtra model constructor.
@@ -1089,6 +1170,12 @@ export {
     GetToken4XXResponse,
 
     /**
+     * The GetTransactionLimitation200Response model constructor.
+     * @property {module:model/GetTransactionLimitation200Response}
+     */
+    GetTransactionLimitation200Response,
+
+    /**
      * The KeyShareHolder model constructor.
      * @property {module:model/KeyShareHolder}
      */
@@ -1143,6 +1230,12 @@ export {
     ListAssetBalancesForExchangeWallet200Response,
 
     /**
+     * The ListCallbackMessages200Response model constructor.
+     * @property {module:model/ListCallbackMessages200Response}
+     */
+    ListCallbackMessages200Response,
+
+    /**
      * The ListExchanges200ResponseInner model constructor.
      * @property {module:model/ListExchanges200ResponseInner}
      */
@@ -1195,6 +1288,12 @@ export {
      * @property {module:model/ListSupportedChains200Response}
      */
     ListSupportedChains200Response,
+
+    /**
+     * The ListSupportedCountries200ResponseInner model constructor.
+     * @property {module:model/ListSupportedCountries200ResponseInner}
+     */
+    ListSupportedCountries200ResponseInner,
 
     /**
      * The ListSupportedTokens200Response model constructor.
@@ -1293,6 +1392,12 @@ export {
     MPCVault,
 
     /**
+     * The MPCVaultEventData model constructor.
+     * @property {module:model/MPCVaultEventData}
+     */
+    MPCVaultEventData,
+
+    /**
      * The MPCVaultType model constructor.
      * @property {module:model/MPCVaultType}
      */
@@ -1377,6 +1482,12 @@ export {
     MpcTransferSource,
 
     /**
+     * The OrgInfo model constructor.
+     * @property {module:model/OrgInfo}
+     */
+    OrgInfo,
+
+    /**
      * The Pagination model constructor.
      * @property {module:model/Pagination}
      */
@@ -1423,6 +1534,12 @@ export {
      * @property {module:model/ReplaceType}
      */
     ReplaceType,
+
+    /**
+     * The RetryCallbackMessage201Response model constructor.
+     * @property {module:model/RetryCallbackMessage201Response}
+     */
+    RetryCallbackMessage201Response,
 
     /**
      * The RetryWebhookEventById201Response model constructor.
@@ -1483,6 +1600,18 @@ export {
      * @property {module:model/Scopes}
      */
     Scopes,
+
+    /**
+     * The SelectedEntityType model constructor.
+     * @property {module:model/SelectedEntityType}
+     */
+    SelectedEntityType,
+
+    /**
+     * The SelfCustodyWallet model constructor.
+     * @property {module:model/SelfCustodyWallet}
+     */
+    SelfCustodyWallet,
 
     /**
      * The SmartContractInitiator model constructor.
@@ -1557,6 +1686,30 @@ export {
     SubWalletAssetBalance,
 
     /**
+     * The SubmitDepositTravelRuleInfo201Response model constructor.
+     * @property {module:model/SubmitDepositTravelRuleInfo201Response}
+     */
+    SubmitDepositTravelRuleInfo201Response,
+
+    /**
+     * The SwapActivity model constructor.
+     * @property {module:model/SwapActivity}
+     */
+    SwapActivity,
+
+    /**
+     * The SwapSummary model constructor.
+     * @property {module:model/SwapSummary}
+     */
+    SwapSummary,
+
+    /**
+     * The SwapTokenPair model constructor.
+     * @property {module:model/SwapTokenPair}
+     */
+    SwapTokenPair,
+
+    /**
      * The TSSGroups model constructor.
      * @property {module:model/TSSGroups}
      */
@@ -1615,6 +1768,18 @@ export {
      * @property {module:model/Transaction}
      */
     Transaction,
+
+    /**
+     * The TransactionApprovalDetail model constructor.
+     * @property {module:model/TransactionApprovalDetail}
+     */
+    TransactionApprovalDetail,
+
+    /**
+     * The TransactionApprovalResult model constructor.
+     * @property {module:model/TransactionApprovalResult}
+     */
+    TransactionApprovalResult,
 
     /**
      * The TransactionApprover model constructor.
@@ -1845,6 +2010,18 @@ export {
     TransactionResultType,
 
     /**
+     * The TransactionRoleApprovalDetail model constructor.
+     * @property {module:model/TransactionRoleApprovalDetail}
+     */
+    TransactionRoleApprovalDetail,
+
+    /**
+     * The TransactionSelectedUtxo model constructor.
+     * @property {module:model/TransactionSelectedUtxo}
+     */
+    TransactionSelectedUtxo,
+
+    /**
      * The TransactionSignatureResult model constructor.
      * @property {module:model/TransactionSignatureResult}
      */
@@ -1935,6 +2112,12 @@ export {
     TransactionType,
 
     /**
+     * The TransactionUserApprovalDetail model constructor.
+     * @property {module:model/TransactionUserApprovalDetail}
+     */
+    TransactionUserApprovalDetail,
+
+    /**
      * The TransactionUtxo model constructor.
      * @property {module:model/TransactionUtxo}
      */
@@ -1975,6 +2158,78 @@ export {
      * @property {module:model/TransferSource}
      */
     TransferSource,
+
+    /**
+     * The TravelRuleDepositExchangesOrVASP model constructor.
+     * @property {module:model/TravelRuleDepositExchangesOrVASP}
+     */
+    TravelRuleDepositExchangesOrVASP,
+
+    /**
+     * The TravelRuleDepositExchangesOrVASPEntityInfo model constructor.
+     * @property {module:model/TravelRuleDepositExchangesOrVASPEntityInfo}
+     */
+    TravelRuleDepositExchangesOrVASPEntityInfo,
+
+    /**
+     * The TravelRuleDepositLegalEntity model constructor.
+     * @property {module:model/TravelRuleDepositLegalEntity}
+     */
+    TravelRuleDepositLegalEntity,
+
+    /**
+     * The TravelRuleDepositNaturalEntity model constructor.
+     * @property {module:model/TravelRuleDepositNaturalEntity}
+     */
+    TravelRuleDepositNaturalEntity,
+
+    /**
+     * The TravelRuleDepositRequest model constructor.
+     * @property {module:model/TravelRuleDepositRequest}
+     */
+    TravelRuleDepositRequest,
+
+    /**
+     * The TravelRuleDepositRequestTravelRuleInfo model constructor.
+     * @property {module:model/TravelRuleDepositRequestTravelRuleInfo}
+     */
+    TravelRuleDepositRequestTravelRuleInfo,
+
+    /**
+     * The TravelRuleWithdrawExchangesOrVASP model constructor.
+     * @property {module:model/TravelRuleWithdrawExchangesOrVASP}
+     */
+    TravelRuleWithdrawExchangesOrVASP,
+
+    /**
+     * The TravelRuleWithdrawExchangesOrVASPEntityInfo model constructor.
+     * @property {module:model/TravelRuleWithdrawExchangesOrVASPEntityInfo}
+     */
+    TravelRuleWithdrawExchangesOrVASPEntityInfo,
+
+    /**
+     * The TravelRuleWithdrawLegalEntity model constructor.
+     * @property {module:model/TravelRuleWithdrawLegalEntity}
+     */
+    TravelRuleWithdrawLegalEntity,
+
+    /**
+     * The TravelRuleWithdrawNaturalEntity model constructor.
+     * @property {module:model/TravelRuleWithdrawNaturalEntity}
+     */
+    TravelRuleWithdrawNaturalEntity,
+
+    /**
+     * The TravelRuleWithdrawRequest model constructor.
+     * @property {module:model/TravelRuleWithdrawRequest}
+     */
+    TravelRuleWithdrawRequest,
+
+    /**
+     * The TravelRuleWithdrawRequestTravelRuleInfo model constructor.
+     * @property {module:model/TravelRuleWithdrawRequestTravelRuleInfo}
+     */
+    TravelRuleWithdrawRequestTravelRuleInfo,
 
     /**
      * The TriggerTestWebhookEvent201Response model constructor.
@@ -2067,10 +2322,22 @@ export {
     UtxoFeeRate,
 
     /**
+     * The Vasp model constructor.
+     * @property {module:model/Vasp}
+     */
+    Vasp,
+
+    /**
      * The WalletInfo model constructor.
      * @property {module:model/WalletInfo}
      */
     WalletInfo,
+
+    /**
+     * The WalletInfoEventData model constructor.
+     * @property {module:model/WalletInfoEventData}
+     */
+    WalletInfoEventData,
 
     /**
      * The WalletSubtype model constructor.
@@ -2167,6 +2434,12 @@ export {
     * @property {module:api/TransactionsApi}
     */
     TransactionsApi,
+
+    /**
+    * The TravelRuleApi service constructor.
+    * @property {module:api/TravelRuleApi}
+    */
+    TravelRuleApi,
 
     /**
     * The WalletsApi service constructor.

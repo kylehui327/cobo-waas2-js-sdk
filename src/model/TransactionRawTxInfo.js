@@ -10,7 +10,7 @@
  */
 
 import ApiClient from '../ApiClient';
-import TransactionUtxo from './TransactionUtxo';
+import TransactionSelectedUtxo from './TransactionSelectedUtxo';
 
 /**
  * The TransactionRawTxInfo model module.
@@ -50,7 +50,7 @@ class TransactionRawTxInfo {
                 obj['used_nonce'] = ApiClient.convertToType(data['used_nonce'], 'Number');
             }
             if (data.hasOwnProperty('selected_utxos')) {
-                obj['selected_utxos'] = ApiClient.convertToType(data['selected_utxos'], [TransactionUtxo]);
+                obj['selected_utxos'] = ApiClient.convertToType(data['selected_utxos'], [TransactionSelectedUtxo]);
             }
             if (data.hasOwnProperty('raw_tx')) {
                 obj['raw_tx'] = ApiClient.convertToType(data['raw_tx'], 'String');
@@ -72,7 +72,7 @@ class TransactionRawTxInfo {
             }
             // validate the optional field `selected_utxos` (array)
             for (const item of data['selected_utxos']) {
-                TransactionUtxo.validateJSON(item);
+                TransactionSelectedUtxo.validateJSON(item);
             };
         }
         // ensure the json data is a string
@@ -96,7 +96,7 @@ TransactionRawTxInfo.prototype['used_nonce'] = undefined;
 
 /**
  * The selected UTXOs to be consumed in the transaction.
- * @member {Array.<module:model/TransactionUtxo>} selected_utxos
+ * @member {Array.<module:model/TransactionSelectedUtxo>} selected_utxos
  */
 TransactionRawTxInfo.prototype['selected_utxos'] = undefined;
 

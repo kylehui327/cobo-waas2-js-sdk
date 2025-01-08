@@ -21,56 +21,77 @@ export default class WebhookEventType {
          * value: "wallets.transaction.created"
          * @const
          */
-        "transaction.created" = "wallets.transaction.created";
+        "wallets.transaction.created" = "wallets.transaction.created";
 
     
         /**
          * value: "wallets.transaction.updated"
          * @const
          */
-        "transaction.updated" = "wallets.transaction.updated";
+        "wallets.transaction.updated" = "wallets.transaction.updated";
 
     
         /**
          * value: "wallets.transaction.failed"
          * @const
          */
-        "transaction.failed" = "wallets.transaction.failed";
+        "wallets.transaction.failed" = "wallets.transaction.failed";
 
     
         /**
          * value: "wallets.transaction.succeeded"
          * @const
          */
-        "transaction.succeeded" = "wallets.transaction.succeeded";
+        "wallets.transaction.succeeded" = "wallets.transaction.succeeded";
 
     
         /**
          * value: "wallets.mpc.tss_request.created"
          * @const
          */
-        "mpc.tss_request.created" = "wallets.mpc.tss_request.created";
+        "wallets.mpc.tss_request.created" = "wallets.mpc.tss_request.created";
 
     
         /**
          * value: "wallets.mpc.tss_request.updated"
          * @const
          */
-        "mpc.tss_request.updated" = "wallets.mpc.tss_request.updated";
+        "wallets.mpc.tss_request.updated" = "wallets.mpc.tss_request.updated";
 
     
         /**
          * value: "wallets.mpc.tss_request.failed"
          * @const
          */
-        "mpc.tss_request.failed" = "wallets.mpc.tss_request.failed";
+        "wallets.mpc.tss_request.failed" = "wallets.mpc.tss_request.failed";
 
     
         /**
          * value: "wallets.mpc.tss_request.succeeded"
          * @const
          */
-        "mpc.tss_request.succeeded" = "wallets.mpc.tss_request.succeeded";
+        "wallets.mpc.tss_request.succeeded" = "wallets.mpc.tss_request.succeeded";
+
+    
+        /**
+         * value: "wallets.addresses.created"
+         * @const
+         */
+        "wallets.addresses.created" = "wallets.addresses.created";
+
+    
+        /**
+         * value: "wallets.created"
+         * @const
+         */
+        "wallets.created" = "wallets.created";
+
+    
+        /**
+         * value: "mpc_vaults.created"
+         * @const
+         */
+        "mpc_vaults.created" = "mpc_vaults.created";
 
     
         /**

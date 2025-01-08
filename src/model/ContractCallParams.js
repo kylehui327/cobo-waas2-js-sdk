@@ -25,7 +25,7 @@ class ContractCallParams {
      * The information about a transaction that interacts with a smart contract
      * @alias module:model/ContractCallParams
      * @param request_id {String} The request ID that is used to track a transaction request. The request ID is provided by you and must be unique within your organization.
-     * @param chain_id {String} The chain ID, which is the unique identifier of a blockchain. You can retrieve the IDs of all the chains you can use by calling [List enabled chains](/v2/api-references/wallets/list-enabled-chains).
+     * @param chain_id {String} The chain ID, which is the unique identifier of a blockchain. You can retrieve the IDs of all the chains you can use by calling [List enabled chains](https://www.cobo.com/developers/v2/api-references/wallets/list-enabled-chains).
      * @param source {module:model/ContractCallSource} 
      * @param destination {module:model/ContractCallDestination} 
      */
@@ -147,7 +147,7 @@ ContractCallParams.RequiredProperties = ["request_id", "chain_id", "source", "de
 ContractCallParams.prototype['request_id'] = undefined;
 
 /**
- * The chain ID, which is the unique identifier of a blockchain. You can retrieve the IDs of all the chains you can use by calling [List enabled chains](/v2/api-references/wallets/list-enabled-chains).
+ * The chain ID, which is the unique identifier of a blockchain. You can retrieve the IDs of all the chains you can use by calling [List enabled chains](https://www.cobo.com/developers/v2/api-references/wallets/list-enabled-chains).
  * @member {String} chain_id
  */
 ContractCallParams.prototype['chain_id'] = undefined;

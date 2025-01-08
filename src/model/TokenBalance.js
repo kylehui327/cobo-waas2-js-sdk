@@ -21,7 +21,7 @@ class TokenBalance {
      * Constructs a new <code>TokenBalance</code>.
      * The balance information.
      * @alias module:model/TokenBalance
-     * @param token_id {String} The token ID, which is the unique identifier of a token. You can retrieve the IDs of all the tokens you can use by calling [List enabled tokens](/v2/api-references/wallets/list-enabled-tokens).
+     * @param token_id {String} The token ID, which is the unique identifier of a token. You can retrieve the IDs of all the tokens you can use by calling [List enabled tokens](https://www.cobo.com/developers/v2/api-references/wallets/list-enabled-tokens).
      * @param balance {module:model/TokenBalanceBalance} 
      */
     constructor(token_id, balance) { 
@@ -92,7 +92,7 @@ class TokenBalance {
 TokenBalance.RequiredProperties = ["token_id", "balance"];
 
 /**
- * The token ID, which is the unique identifier of a token. You can retrieve the IDs of all the tokens you can use by calling [List enabled tokens](/v2/api-references/wallets/list-enabled-tokens).
+ * The token ID, which is the unique identifier of a token. You can retrieve the IDs of all the tokens you can use by calling [List enabled tokens](https://www.cobo.com/developers/v2/api-references/wallets/list-enabled-tokens).
  * @member {String} token_id
  */
 TokenBalance.prototype['token_id'] = undefined;

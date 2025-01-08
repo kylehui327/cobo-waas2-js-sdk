@@ -24,7 +24,7 @@ class CreateClaimActivityRequest {
      * @alias module:model/CreateClaimActivityRequest
      * @implements module:model/CreateClaimActivity
      * @implements module:model/ActivityInitiator
-     * @param staking_id {String} The ID of the staking position. You can retrieve a list of staking positions by calling [List staking positions](/v2/api-references/stakings/list-staking-positions).
+     * @param staking_id {String} The ID of the staking position. You can retrieve a list of staking positions by calling [List staking positions](https://www.cobo.com/developers/v2/api-references/stakings/list-staking-positions).
      */
     constructor(staking_id) { 
         CreateClaimActivity.initialize(this, staking_id);ActivityInitiator.initialize(this);
@@ -115,7 +115,7 @@ CreateClaimActivityRequest.RequiredProperties = ["staking_id"];
 CreateClaimActivityRequest.prototype['request_id'] = undefined;
 
 /**
- * The ID of the staking position. You can retrieve a list of staking positions by calling [List staking positions](/v2/api-references/stakings/list-staking-positions).
+ * The ID of the staking position. You can retrieve a list of staking positions by calling [List staking positions](https://www.cobo.com/developers/v2/api-references/stakings/list-staking-positions).
  * @member {String} staking_id
  */
 CreateClaimActivityRequest.prototype['staking_id'] = undefined;
@@ -139,7 +139,7 @@ CreateClaimActivityRequest.prototype['app_initiator'] = undefined;
  */
 CreateClaimActivity.prototype['request_id'] = undefined;
 /**
- * The ID of the staking position. You can retrieve a list of staking positions by calling [List staking positions](/v2/api-references/stakings/list-staking-positions).
+ * The ID of the staking position. You can retrieve a list of staking positions by calling [List staking positions](https://www.cobo.com/developers/v2/api-references/stakings/list-staking-positions).
  * @member {String} staking_id
  */
 CreateClaimActivity.prototype['staking_id'] = undefined;

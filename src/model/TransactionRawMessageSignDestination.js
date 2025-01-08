@@ -19,7 +19,7 @@ import TransactionDestinationType from './TransactionDestinationType';
 class TransactionRawMessageSignDestination {
     /**
      * Constructs a new <code>TransactionRawMessageSignDestination</code>.
-     * The information about the destination &#x60;Raw_Message_Signature&#x60;. Refer to [Transaction sources and destinations](/v2/guides/transactions/sources-and-destinations) for a detailed introduction about the supported sources and destinations for each transaction type.  Switch between the tabs to display the properties for different transaction destinations. 
+     * The information about the destination &#x60;Raw_Message_Signature&#x60;. Refer to [Transaction sources and destinations](https://www.cobo.com/developers/v2/guides/transactions/sources-and-destinations) for a detailed introduction about the supported sources and destinations for each transaction type.  Switch between the tabs to display the properties for different transaction destinations. 
      * @alias module:model/TransactionRawMessageSignDestination
      * @param destination_type {module:model/TransactionDestinationType} 
      */

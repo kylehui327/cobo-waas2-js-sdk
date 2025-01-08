@@ -26,7 +26,7 @@ class ApiLogDetails {
      * @param status_code {Number} The HTTP status code returned by the API request.
      * @param ip_address {String} The client's IP address that made the API request.
      * @param request_timestamp {Number} The time when the API request was created, in Unix timestamp format, measured in milliseconds.
-     * @param api_key {String} The API key used to call the API. For more details, refer to [API key](/v2/guides/overview/cobo-auth#api-key).
+     * @param api_key {String} The API key used to call the API. For more details, refer to [API key](https://www.cobo.com/developers/v2/guides/overview/cobo-auth#api-key).
      * @param response_body {String} The response body of the API request.
      * @param query_params {String} The query parameters of the API request.
      * @param request_body {String} The request body of the API request.
@@ -189,7 +189,7 @@ ApiLogDetails.prototype['ip_address'] = undefined;
 ApiLogDetails.prototype['request_timestamp'] = undefined;
 
 /**
- * The API key used to call the API. For more details, refer to [API key](/v2/guides/overview/cobo-auth#api-key).
+ * The API key used to call the API. For more details, refer to [API key](https://www.cobo.com/developers/v2/guides/overview/cobo-auth#api-key).
  * @member {String} api_key
  */
 ApiLogDetails.prototype['api_key'] = undefined;

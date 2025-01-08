@@ -177,6 +177,12 @@ GetStakingEstimationFee201Response.prototype['fee'] = undefined;
 GetStakingEstimationFee201Response.prototype['validator_pubkeys'] = undefined;
 
 /**
+ * P2WSH address generated for this staking operation(If the estimated fee is for core BTC staking).
+ * @member {String} core_btc_staking_address
+ */
+GetStakingEstimationFee201Response.prototype['core_btc_staking_address'] = undefined;
+
+/**
  * @member {module:model/FeeType} fee_type
  */
 GetStakingEstimationFee201Response.prototype['fee_type'] = undefined;

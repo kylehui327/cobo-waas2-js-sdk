@@ -22,7 +22,7 @@ class TransactionTokeApproval {
      * Constructs a new <code>TransactionTokeApproval</code>.
      * @alias module:model/TransactionTokeApproval
      * @implements module:model/TokenInfo
-     * @param token_id {String} The token ID, which is the unique identifier of a token. You can retrieve the IDs of all the tokens you can use by calling [List enabled tokens](/v2/api-references/wallets/list-enabled-tokens).
+     * @param token_id {String} The token ID, which is the unique identifier of a token. You can retrieve the IDs of all the tokens you can use by calling [List enabled tokens](https://www.cobo.com/developers/v2/api-references/wallets/list-enabled-tokens).
      * @param chain_id {String} The ID of the chain on which the token operates.
      */
     constructor(token_id, chain_id) { 
@@ -170,7 +170,7 @@ class TransactionTokeApproval {
 TransactionTokeApproval.RequiredProperties = ["token_id", "chain_id"];
 
 /**
- * The token ID, which is the unique identifier of a token. You can retrieve the IDs of all the tokens you can use by calling [List enabled tokens](/v2/api-references/wallets/list-enabled-tokens).
+ * The token ID, which is the unique identifier of a token. You can retrieve the IDs of all the tokens you can use by calling [List enabled tokens](https://www.cobo.com/developers/v2/api-references/wallets/list-enabled-tokens).
  * @member {String} token_id
  */
 TransactionTokeApproval.prototype['token_id'] = undefined;
@@ -267,7 +267,7 @@ TransactionTokeApproval.prototype['spender'] = undefined;
 
 // Implement TokenInfo interface:
 /**
- * The token ID, which is the unique identifier of a token. You can retrieve the IDs of all the tokens you can use by calling [List enabled tokens](/v2/api-references/wallets/list-enabled-tokens).
+ * The token ID, which is the unique identifier of a token. You can retrieve the IDs of all the tokens you can use by calling [List enabled tokens](https://www.cobo.com/developers/v2/api-references/wallets/list-enabled-tokens).
  * @member {String} token_id
  */
 TokenInfo.prototype['token_id'] = undefined;

@@ -60,6 +60,13 @@ export default class StakingPoolId {
 
     
         /**
+         * value: "sky_farm_eth_usdc"
+         * @const
+         */
+        "sky_farm_eth_usdc" = "sky_farm_eth_usdc";
+
+    
+        /**
          * value: "unknown_default_open_api"
          * @const
          */

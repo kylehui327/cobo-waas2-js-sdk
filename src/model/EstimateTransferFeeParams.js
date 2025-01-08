@@ -26,7 +26,7 @@ class EstimateTransferFeeParams {
      * @alias module:model/EstimateTransferFeeParams
      * @param request_type {module:model/EstimateFeeRequestType} 
      * @param source {module:model/TransferSource} 
-     * @param token_id {String} The token ID of the transferred token. You can retrieve the IDs of all the tokens you can use by calling [List enabled tokens](/v2/api-references/wallets/list-enabled-tokens).
+     * @param token_id {String} The token ID of the transferred token. You can retrieve the IDs of all the tokens you can use by calling [List enabled tokens](https://www.cobo.com/developers/v2/api-references/wallets/list-enabled-tokens).
      */
     constructor(request_type, source, token_id) { 
         
@@ -135,7 +135,7 @@ EstimateTransferFeeParams.prototype['request_type'] = undefined;
 EstimateTransferFeeParams.prototype['source'] = undefined;
 
 /**
- * The token ID of the transferred token. You can retrieve the IDs of all the tokens you can use by calling [List enabled tokens](/v2/api-references/wallets/list-enabled-tokens).
+ * The token ID of the transferred token. You can retrieve the IDs of all the tokens you can use by calling [List enabled tokens](https://www.cobo.com/developers/v2/api-references/wallets/list-enabled-tokens).
  * @member {String} token_id
  */
 EstimateTransferFeeParams.prototype['token_id'] = undefined;

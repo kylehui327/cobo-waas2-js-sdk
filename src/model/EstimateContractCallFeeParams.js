@@ -25,7 +25,7 @@ class EstimateContractCallFeeParams {
      * The information about a transaction that interacts with a smart contract
      * @alias module:model/EstimateContractCallFeeParams
      * @param request_type {module:model/EstimateFeeRequestType} 
-     * @param chain_id {String} The chain ID of the chain on which the smart contract is deployed. You can retrieve the IDs of all the chains you can use by calling [List enabled chains](/v2/api-references/wallets/list-enabled-chains).
+     * @param chain_id {String} The chain ID of the chain on which the smart contract is deployed. You can retrieve the IDs of all the chains you can use by calling [List enabled chains](https://www.cobo.com/developers/v2/api-references/wallets/list-enabled-chains).
      * @param source {module:model/ContractCallSource} 
      * @param destination {module:model/ContractCallDestination} 
      */
@@ -132,7 +132,7 @@ EstimateContractCallFeeParams.prototype['request_id'] = undefined;
 EstimateContractCallFeeParams.prototype['request_type'] = undefined;
 
 /**
- * The chain ID of the chain on which the smart contract is deployed. You can retrieve the IDs of all the chains you can use by calling [List enabled chains](/v2/api-references/wallets/list-enabled-chains).
+ * The chain ID of the chain on which the smart contract is deployed. You can retrieve the IDs of all the chains you can use by calling [List enabled chains](https://www.cobo.com/developers/v2/api-references/wallets/list-enabled-chains).
  * @member {String} chain_id
  */
 EstimateContractCallFeeParams.prototype['chain_id'] = undefined;

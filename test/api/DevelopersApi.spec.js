@@ -46,6 +46,26 @@ import {ApiClient, Env} from "../../src/index.js";
         //});
       });
     });
+    describe('listCallbackMessages', function() {
+      it('should call listCallbackMessages successfully', function() {
+        //uncomment below and update the code to test listCallbackMessages
+        //instance.listCallbackMessages().then(function(data) {
+        //    console.log(data);
+        //}, function(error) {
+        //    console.error(error);
+        //});
+      });
+    });
+    describe('retryCallbackMessage', function() {
+      it('should call retryCallbackMessage successfully', function() {
+        //uncomment below and update the code to test retryCallbackMessage
+        //instance.retryCallbackMessage().then(function(data) {
+        //    console.log(data);
+        //}, function(error) {
+        //    console.error(error);
+        //});
+      });
+    });
   });
 
 }));

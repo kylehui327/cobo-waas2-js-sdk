@@ -26,7 +26,7 @@ class TransferParams {
      * @alias module:model/TransferParams
      * @param request_id {String} The request ID that is used to track a transaction request. The request ID is provided by you and must be unique within your organization.
      * @param source {module:model/TransferSource} 
-     * @param token_id {String} The token ID of the transferred token. You can retrieve the IDs of all the tokens you can use by calling [List enabled tokens](/v2/api-references/wallets/list-enabled-tokens). For transfers from Exchange Wallets, this property value represents the asset ID.
+     * @param token_id {String} The token ID of the transferred token. You can retrieve the IDs of all the tokens you can use by calling [List enabled tokens](https://www.cobo.com/developers/v2/api-references/wallets/list-enabled-tokens). For transfers from Exchange Wallets, this property value represents the asset ID.
      * @param destination {module:model/TransferDestination} 
      */
     constructor(request_id, source, token_id, destination) { 
@@ -152,7 +152,7 @@ TransferParams.prototype['request_id'] = undefined;
 TransferParams.prototype['source'] = undefined;
 
 /**
- * The token ID of the transferred token. You can retrieve the IDs of all the tokens you can use by calling [List enabled tokens](/v2/api-references/wallets/list-enabled-tokens). For transfers from Exchange Wallets, this property value represents the asset ID.
+ * The token ID of the transferred token. You can retrieve the IDs of all the tokens you can use by calling [List enabled tokens](https://www.cobo.com/developers/v2/api-references/wallets/list-enabled-tokens). For transfers from Exchange Wallets, this property value represents the asset ID.
  * @member {String} token_id
  */
 TransferParams.prototype['token_id'] = undefined;

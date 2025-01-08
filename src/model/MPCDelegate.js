@@ -19,7 +19,7 @@ import CoboSafeDelegateType from './CoboSafeDelegateType';
 class MPCDelegate {
     /**
      * Constructs a new <code>MPCDelegate</code>.
-     * The information about the MPC Wallet as the Delegate. You can call the [List Delegates](/v2/api-references/wallets--smart-contract-wallets/list-delegates) operation to retrieve the applicable Delegates.
+     * The information about the MPC Wallet as the Delegate. You can call the [List Delegates](https://www.cobo.com/developers/v2/api-references/wallets--smart-contract-wallets/list-delegates) operation to retrieve the applicable Delegates.
      * @alias module:model/MPCDelegate
      * @param delegate_type {module:model/CoboSafeDelegateType} 
      * @param wallet_id {String} The wallet ID of the Delegate. This is required when initiating a transfer or contract call from Smart Contract Wallets (Safe{Wallet}).

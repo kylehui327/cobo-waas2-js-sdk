@@ -21,7 +21,7 @@ import WalletType from './WalletType';
 class TransactionDepositFromAddressSource {
     /**
      * Constructs a new <code>TransactionDepositFromAddressSource</code>.
-     * Information about the transaction source type &#x60;DepositFromAddress&#x60;. Refer to [Transaction sources and destinations](/v2/guides/transactions/sources-and-destinations) for a detailed introduction about the supported sources and destinations for each transaction type.  Switch between the tabs to display the properties for different transaction sources. 
+     * Information about the transaction source type &#x60;DepositFromAddress&#x60;. Refer to [Transaction sources and destinations](https://www.cobo.com/developers/v2/guides/transactions/sources-and-destinations) for a detailed introduction about the supported sources and destinations for each transaction type.  Switch between the tabs to display the properties for different transaction sources. 
      * @alias module:model/TransactionDepositFromAddressSource
      * @param source_type {module:model/TransactionSourceType} 
      * @param addresses {Array.<String>} A list of addresses.

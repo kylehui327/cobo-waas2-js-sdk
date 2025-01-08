@@ -20,7 +20,7 @@ import WalletSubtype from './WalletSubtype';
 class MpcTransferSource {
     /**
      * Constructs a new <code>MpcTransferSource</code>.
-     * The information about the transaction source types &#x60;Org-Controlled&#x60; and &#x60;User-Controlled&#x60;. Refer to [Transaction sources and destinations](/v2/guides/transactions/sources-and-destinations) for a detailed introduction about the supported sources and destinations for each transaction type.  You need to provide either the &#x60;address&#x60; or &#x60;included_utxos&#x60; property. If neither property is provided, the transfer will fail.  Switch between the tabs to display the properties for different transaction sources. 
+     * The information about the transaction source types &#x60;Org-Controlled&#x60; and &#x60;User-Controlled&#x60;. Refer to [Transaction sources and destinations](https://www.cobo.com/developers/v2/guides/transactions/sources-and-destinations) for a detailed introduction about the supported sources and destinations for each transaction type.  You need to provide either the &#x60;address&#x60; or &#x60;included_utxos&#x60; property. If neither property is provided, the transfer will fail.  Switch between the tabs to display the properties for different transaction sources. 
      * @alias module:model/MpcTransferSource
      * @param source_type {module:model/WalletSubtype} 
      * @param wallet_id {String} The wallet ID.

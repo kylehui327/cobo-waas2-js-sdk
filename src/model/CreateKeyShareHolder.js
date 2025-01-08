@@ -97,7 +97,7 @@ CreateKeyShareHolder.prototype['name'] = undefined;
 CreateKeyShareHolder.prototype['type'] = undefined;
 
 /**
- * Key share holder's TSS Node ID. You can obtain the TSS Node ID using either mobile co-signer or API co-signer. See the \"Primary Purposes\" row on the table in [Create a Main Group](https://manuals.cobo.com/en/portal/mpc-wallets/ocw/create-key-share-groups#create-a-main-group).
+ * Key share holder's TSS Node ID. You can obtain the TSS Node ID using either mobile co-signer or server co-signer. See the \"Primary Purposes\" row on the table in [Create a Main Group](https://manuals.cobo.com/en/portal/mpc-wallets/ocw/create-key-share-groups#create-a-main-group).
  * @member {String} tss_node_id
  */
 CreateKeyShareHolder.prototype['tss_node_id'] = undefined;

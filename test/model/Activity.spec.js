@@ -106,6 +106,12 @@
       //expect(instance).to.be();
     });
 
+    it('should have the property request_ids (base name: "request_ids")', function() {
+      // uncomment below and update the code to test the property request_ids
+      //var instance = new CoboWaas2.Activity();
+      //expect(instance).to.be();
+    });
+
     it('should have the property amount (base name: "amount")', function() {
       // uncomment below and update the code to test the property amount
       //var instance = new CoboWaas2.Activity();
@@ -132,6 +138,12 @@
 
     it('should have the property status (base name: "status")', function() {
       // uncomment below and update the code to test the property status
+      //var instance = new CoboWaas2.Activity();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property extra (base name: "extra")', function() {
+      // uncomment below and update the code to test the property extra
       //var instance = new CoboWaas2.Activity();
       //expect(instance).to.be();
     });

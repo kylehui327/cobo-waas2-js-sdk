@@ -19,7 +19,7 @@ class LockUtxosRequestUtxosInner {
     /**
      * Constructs a new <code>LockUtxosRequestUtxosInner</code>.
      * @alias module:model/LockUtxosRequestUtxosInner
-     * @param token_id {String} The token ID, which is the unique identifier of a token. You can retrieve the IDs of all the tokens you can use by calling [List enabled tokens](/v2/api-references/wallets/list-enabled-tokens).
+     * @param token_id {String} The token ID, which is the unique identifier of a token. You can retrieve the IDs of all the tokens you can use by calling [List enabled tokens](https://www.cobo.com/developers/v2/api-references/wallets/list-enabled-tokens).
      * @param tx_hash {String} The transaction hash.
      * @param vout_n {Number} The output index of the UTXO.
      */
@@ -93,7 +93,7 @@ class LockUtxosRequestUtxosInner {
 LockUtxosRequestUtxosInner.RequiredProperties = ["token_id", "tx_hash", "vout_n"];
 
 /**
- * The token ID, which is the unique identifier of a token. You can retrieve the IDs of all the tokens you can use by calling [List enabled tokens](/v2/api-references/wallets/list-enabled-tokens).
+ * The token ID, which is the unique identifier of a token. You can retrieve the IDs of all the tokens you can use by calling [List enabled tokens](https://www.cobo.com/developers/v2/api-references/wallets/list-enabled-tokens).
  * @member {String} token_id
  */
 LockUtxosRequestUtxosInner.prototype['token_id'] = undefined;

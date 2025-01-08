@@ -10,9 +10,13 @@
  */
 
 import ApiClient from '../ApiClient';
+import AddressInfo from './AddressInfo';
+import AddressesEventData from './AddressesEventData';
+import MPCVaultEventData from './MPCVaultEventData';
+import MPCVaultType from './MPCVaultType';
+import RootPubkey from './RootPubkey';
 import SourceGroup from './SourceGroup';
 import TSSRequestStatus from './TSSRequestStatus';
-import TSSRequestType from './TSSRequestType';
 import TSSRequestWebhookEventData from './TSSRequestWebhookEventData';
 import TransactionBlockInfo from './TransactionBlockInfo';
 import TransactionDestination from './TransactionDestination';
@@ -24,6 +28,8 @@ import TransactionResult from './TransactionResult';
 import TransactionSource from './TransactionSource';
 import TransactionSubStatus from './TransactionSubStatus';
 import TransactionWebhookEventData from './TransactionWebhookEventData';
+import WalletInfo from './WalletInfo';
+import WalletInfoEventData from './WalletInfoEventData';
 
 /**
  * The WebhookEventData model module.
@@ -33,7 +39,7 @@ class WebhookEventData {
     /**
      * Constructs a new <code>WebhookEventData</code>.
      * @alias module:model/WebhookEventData
-     * @param {(module:model/TSSRequestWebhookEventData|module:model/TransactionWebhookEventData)} instance The actual instance to initialize WebhookEventData.
+     * @param {(module:model/AddressesEventData|module:model/MPCVaultEventData|module:model/TSSRequestWebhookEventData|module:model/TransactionWebhookEventData|module:model/WalletInfoEventData)} instance The actual instance to initialize WebhookEventData.
      */
     constructor(instance = null) {
         if (instance === null) {
@@ -46,12 +52,24 @@ class WebhookEventData {
 
         if (discriminatorValue) {
             switch(discriminatorValue) {
+                case "Addresses":
+                    this.actualInstance = AddressesEventData.constructFromObject(instance);
+                    match++;
+                    break;
+                case "MPCVault":
+                    this.actualInstance = MPCVaultEventData.constructFromObject(instance);
+                    match++;
+                    break;
                 case "TSSRequest":
                     this.actualInstance = TSSRequestWebhookEventData.constructFromObject(instance);
                     match++;
                     break;
                 case "Transaction":
                     this.actualInstance = TransactionWebhookEventData.constructFromObject(instance);
+                    match++;
+                    break;
+                case "WalletInfo":
+                    this.actualInstance = WalletInfoEventData.constructFromObject(instance);
                     match++;
                     break;
                 default:
@@ -111,12 +129,87 @@ class WebhookEventData {
             errorMessages.push("Failed to construct TSSRequestWebhookEventData: " + err)
         }
 
+        try {
+            if (instance instanceof AddressesEventData) {
+                this.actualInstance = instance;
+            } else if(!!AddressesEventData.validateJSON && AddressesEventData.validateJSON(instance)){
+                // plain JS object
+                // create AddressesEventData from JS object
+                this.actualInstance = AddressesEventData.constructFromObject(instance);
+            } else {
+                if(AddressesEventData.constructFromObject(instance)) {
+                    if (!!AddressesEventData.constructFromObject(instance).toJSON) {
+                        if (AddressesEventData.constructFromObject(instance).toJSON()) {
+                            this.actualInstance = AddressesEventData.constructFromObject(instance);
+                        }
+                    } else {
+                        this.actualInstance = AddressesEventData.constructFromObject(instance);
+                    }
+                }
+
+            }
+            match++;
+        } catch(err) {
+            // json data failed to deserialize into AddressesEventData
+            errorMessages.push("Failed to construct AddressesEventData: " + err)
+        }
+
+        try {
+            if (instance instanceof WalletInfoEventData) {
+                this.actualInstance = instance;
+            } else if(!!WalletInfoEventData.validateJSON && WalletInfoEventData.validateJSON(instance)){
+                // plain JS object
+                // create WalletInfoEventData from JS object
+                this.actualInstance = WalletInfoEventData.constructFromObject(instance);
+            } else {
+                if(WalletInfoEventData.constructFromObject(instance)) {
+                    if (!!WalletInfoEventData.constructFromObject(instance).toJSON) {
+                        if (WalletInfoEventData.constructFromObject(instance).toJSON()) {
+                            this.actualInstance = WalletInfoEventData.constructFromObject(instance);
+                        }
+                    } else {
+                        this.actualInstance = WalletInfoEventData.constructFromObject(instance);
+                    }
+                }
+
+            }
+            match++;
+        } catch(err) {
+            // json data failed to deserialize into WalletInfoEventData
+            errorMessages.push("Failed to construct WalletInfoEventData: " + err)
+        }
+
+        try {
+            if (instance instanceof MPCVaultEventData) {
+                this.actualInstance = instance;
+            } else if(!!MPCVaultEventData.validateJSON && MPCVaultEventData.validateJSON(instance)){
+                // plain JS object
+                // create MPCVaultEventData from JS object
+                this.actualInstance = MPCVaultEventData.constructFromObject(instance);
+            } else {
+                if(MPCVaultEventData.constructFromObject(instance)) {
+                    if (!!MPCVaultEventData.constructFromObject(instance).toJSON) {
+                        if (MPCVaultEventData.constructFromObject(instance).toJSON()) {
+                            this.actualInstance = MPCVaultEventData.constructFromObject(instance);
+                        }
+                    } else {
+                        this.actualInstance = MPCVaultEventData.constructFromObject(instance);
+                    }
+                }
+
+            }
+            match++;
+        } catch(err) {
+            // json data failed to deserialize into MPCVaultEventData
+            errorMessages.push("Failed to construct MPCVaultEventData: " + err)
+        }
+
         // if (match > 1) {
-        //    throw new Error("Multiple matches found constructing `WebhookEventData` with oneOf schemas TSSRequestWebhookEventData, TransactionWebhookEventData. Input: " + JSON.stringify(instance));
+        //    throw new Error("Multiple matches found constructing `WebhookEventData` with oneOf schemas AddressesEventData, MPCVaultEventData, TSSRequestWebhookEventData, TransactionWebhookEventData, WalletInfoEventData. Input: " + JSON.stringify(instance));
         // } else
         if (match === 0) {
         //    this.actualInstance = null; // clear the actual instance in case there are multiple matches
-        //    throw new Error("No match found constructing `WebhookEventData` with oneOf schemas TSSRequestWebhookEventData, TransactionWebhookEventData. Details: " +
+        //    throw new Error("No match found constructing `WebhookEventData` with oneOf schemas AddressesEventData, MPCVaultEventData, TSSRequestWebhookEventData, TransactionWebhookEventData, WalletInfoEventData. Details: " +
         //                    errorMessages.join(", "));
         return;
         } else { // only 1 match
@@ -136,16 +229,16 @@ class WebhookEventData {
     }
 
     /**
-     * Gets the actual instance, which can be <code>TSSRequestWebhookEventData</code>, <code>TransactionWebhookEventData</code>.
-     * @return {(module:model/TSSRequestWebhookEventData|module:model/TransactionWebhookEventData)} The actual instance.
+     * Gets the actual instance, which can be <code>AddressesEventData</code>, <code>MPCVaultEventData</code>, <code>TSSRequestWebhookEventData</code>, <code>TransactionWebhookEventData</code>, <code>WalletInfoEventData</code>.
+     * @return {(module:model/AddressesEventData|module:model/MPCVaultEventData|module:model/TSSRequestWebhookEventData|module:model/TransactionWebhookEventData|module:model/WalletInfoEventData)} The actual instance.
      */
     getActualInstance() {
         return this.actualInstance;
     }
 
     /**
-     * Sets the actual instance, which can be <code>TSSRequestWebhookEventData</code>, <code>TransactionWebhookEventData</code>.
-     * @param {(module:model/TSSRequestWebhookEventData|module:model/TransactionWebhookEventData)} obj The actual instance.
+     * Sets the actual instance, which can be <code>AddressesEventData</code>, <code>MPCVaultEventData</code>, <code>TSSRequestWebhookEventData</code>, <code>TransactionWebhookEventData</code>, <code>WalletInfoEventData</code>.
+     * @param {(module:model/AddressesEventData|module:model/MPCVaultEventData|module:model/TSSRequestWebhookEventData|module:model/TransactionWebhookEventData|module:model/WalletInfoEventData)} obj The actual instance.
      */
     setActualInstance(obj) {
        this.actualInstance = WebhookEventData.constructFromObject(obj).getActualInstance();
@@ -170,7 +263,7 @@ class WebhookEventData {
 }
 
 /**
- *  The data type of the event. - `Transaction`: The transaction event data. - `TSSRequest`: The TSS request event data.
+ *  The data type of the event. - `Transaction`: The transaction event data. - `TSSRequest`: The TSS request event data. - `Addresses`: The addresses event data. - `WalletInfo`: The wallet information event data. - `MPCVault`: The MPC vault event data.
  * @member {module:model/WebhookEventData.DataTypeEnum} data_type
  */
 WebhookEventData.prototype['data_type'] = undefined;
@@ -200,7 +293,7 @@ WebhookEventData.prototype['request_id'] = undefined;
 WebhookEventData.prototype['wallet_id'] = undefined;
 
 /**
- * @member {module:model/TSSRequestType} type
+ * @member {module:model/MPCVaultType} type
  */
 WebhookEventData.prototype['type'] = undefined;
 
@@ -221,13 +314,13 @@ WebhookEventData.prototype['sub_status'] = undefined;
 WebhookEventData.prototype['failed_reason'] = undefined;
 
 /**
- * The chain ID, which is the unique identifier of a blockchain. You can retrieve the IDs of all the chains you can use by calling [List enabled chains](/v2/api-references/wallets/list-enabled-chains).
+ * The chain ID, which is the unique identifier of a blockchain. You can retrieve the IDs of all the chains you can use by calling [List enabled chains](https://www.cobo.com/developers/v2/api-references/wallets/list-enabled-chains).
  * @member {String} chain_id
  */
 WebhookEventData.prototype['chain_id'] = undefined;
 
 /**
- * The token ID, which is the unique identifier of a token. You can retrieve the IDs of all the tokens you can use by calling [List enabled tokens](/v2/api-references/wallets/list-enabled-tokens).
+ * The token ID, which is the unique identifier of a token. You can retrieve the IDs of all the tokens you can use by calling [List enabled tokens](https://www.cobo.com/developers/v2/api-references/wallets/list-enabled-tokens).
  * @member {String} token_id
  */
 WebhookEventData.prototype['token_id'] = undefined;
@@ -321,7 +414,7 @@ WebhookEventData.prototype['description'] = undefined;
 WebhookEventData.prototype['is_loop'] = undefined;
 
 /**
- * The TSS request's creation time in Unix timestamp format, measured in milliseconds.
+ * The vault's creation time in Unix timestamp format, measured in milliseconds.
  * @member {Number} created_timestamp
  */
 WebhookEventData.prototype['created_timestamp'] = undefined;
@@ -349,8 +442,42 @@ WebhookEventData.prototype['source_key_share_holder_group'] = undefined;
  */
 WebhookEventData.prototype['target_key_share_holder_group_id'] = undefined;
 
+/**
+ * A list of addresses.
+ * @member {Array.<module:model/AddressInfo>} addresses
+ */
+WebhookEventData.prototype['addresses'] = undefined;
 
-WebhookEventData.OneOf = ["TSSRequestWebhookEventData", "TransactionWebhookEventData"];
+/**
+ * @member {module:model/WalletInfo} wallet
+ */
+WebhookEventData.prototype['wallet'] = undefined;
+
+/**
+ * The vault ID.
+ * @member {String} vault_id
+ */
+WebhookEventData.prototype['vault_id'] = undefined;
+
+/**
+ * The project ID.
+ * @member {String} project_id
+ */
+WebhookEventData.prototype['project_id'] = undefined;
+
+/**
+ * The vault name.
+ * @member {String} name
+ */
+WebhookEventData.prototype['name'] = undefined;
+
+/**
+ * @member {Array.<module:model/RootPubkey>} root_pubkeys
+ */
+WebhookEventData.prototype['root_pubkeys'] = undefined;
+
+
+WebhookEventData.OneOf = ["AddressesEventData", "MPCVaultEventData", "TSSRequestWebhookEventData", "TransactionWebhookEventData", "WalletInfoEventData"];
 
 export default WebhookEventData;
 
