@@ -165,7 +165,7 @@ class TravelRuleDepositRequestTravelRuleInfo {
 TravelRuleDepositRequestTravelRuleInfo.prototype['destination_wallet_type'] = undefined;
 
 /**
- * The vendor code for exchanges or VASPs.
+ * The vendor code of the VASP.
  * @member {String} vendor_code
  */
 TravelRuleDepositRequestTravelRuleInfo.prototype['vendor_code'] = undefined;
@@ -177,7 +177,7 @@ TravelRuleDepositRequestTravelRuleInfo.prototype['vendor_code'] = undefined;
 TravelRuleDepositRequestTravelRuleInfo.prototype['vendor_vasp_id'] = undefined;
 
 /**
- * The vendor name to be provided when selecting \"Others\" as the VASP case. This field allows customers to specify the name of a vendor not listed.
+ * The vendor name. Use this field to specify the name of a vendor not listed.
  * @member {String} vendor_vasp_name
  */
 TravelRuleDepositRequestTravelRuleInfo.prototype['vendor_vasp_name'] = undefined;
@@ -188,19 +188,19 @@ TravelRuleDepositRequestTravelRuleInfo.prototype['vendor_vasp_name'] = undefined
 TravelRuleDepositRequestTravelRuleInfo.prototype['entity_info'] = undefined;
 
 /**
- * The challenge obtained from a previous operation.
+ * The message obtained from the `Retrieve transaction limitations` operation. This message is used to verify wallet ownership through signing.
  * @member {String} self_custody_wallet_challenge
  */
 TravelRuleDepositRequestTravelRuleInfo.prototype['self_custody_wallet_challenge'] = undefined;
 
 /**
- * The address of the self-custodial wallet.
+ * The address of the self-custody wallet.
  * @member {String} self_custody_wallet_address
  */
 TravelRuleDepositRequestTravelRuleInfo.prototype['self_custody_wallet_address'] = undefined;
 
 /**
- * The signed message from the self-custodial wallet.
+ * The signature created by signing the challenge message with the wallet's private key.
  * @member {String} self_custody_wallet_sign
  */
 TravelRuleDepositRequestTravelRuleInfo.prototype['self_custody_wallet_sign'] = undefined;

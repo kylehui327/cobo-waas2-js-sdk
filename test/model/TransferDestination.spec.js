@@ -76,6 +76,12 @@
       //expect(instance).to.be();
     });
 
+    it('should have the property change_output_type (base name: "change_output_type")', function() {
+      // uncomment below and update the code to test the property change_output_type
+      //var instance = new CoboWaas2.TransferDestination();
+      //expect(instance).to.be();
+    });
+
     it('should have the property force_internal (base name: "force_internal")', function() {
       // uncomment below and update the code to test the property force_internal
       //var instance = new CoboWaas2.TransferDestination();

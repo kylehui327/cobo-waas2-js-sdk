@@ -19,12 +19,12 @@ import DestinationWalletType from './DestinationWalletType';
 class SelfCustodyWallet {
     /**
      * Constructs a new <code>SelfCustodyWallet</code>.
-     * Required fields for &#x60;SELF_CUSTODY_WALLET&#x60;.
+     * Required information when depositing from or withdrawing to a self-custody wallet.
      * @alias module:model/SelfCustodyWallet
      * @param destination_wallet_type {module:model/DestinationWalletType} 
-     * @param self_custody_wallet_challenge {String} The challenge obtained from a previous operation.
-     * @param self_custody_wallet_address {String} The address of the self-custodial wallet.
-     * @param self_custody_wallet_sign {String} The signed message from the self-custodial wallet.
+     * @param self_custody_wallet_challenge {String} The message obtained from the `Retrieve transaction limitations` operation. This message is used to verify wallet ownership through signing.
+     * @param self_custody_wallet_address {String} The address of the self-custody wallet.
+     * @param self_custody_wallet_sign {String} The signature created by signing the challenge message with the wallet's private key.
      */
     constructor(destination_wallet_type, self_custody_wallet_challenge, self_custody_wallet_address, self_custody_wallet_sign) { 
         
@@ -109,19 +109,19 @@ SelfCustodyWallet.RequiredProperties = ["destination_wallet_type", "self_custody
 SelfCustodyWallet.prototype['destination_wallet_type'] = undefined;
 
 /**
- * The challenge obtained from a previous operation.
+ * The message obtained from the `Retrieve transaction limitations` operation. This message is used to verify wallet ownership through signing.
  * @member {String} self_custody_wallet_challenge
  */
 SelfCustodyWallet.prototype['self_custody_wallet_challenge'] = undefined;
 
 /**
- * The address of the self-custodial wallet.
+ * The address of the self-custody wallet.
  * @member {String} self_custody_wallet_address
  */
 SelfCustodyWallet.prototype['self_custody_wallet_address'] = undefined;
 
 /**
- * The signed message from the self-custodial wallet.
+ * The signature created by signing the challenge message with the wallet's private key.
  * @member {String} self_custody_wallet_sign
  */
 SelfCustodyWallet.prototype['self_custody_wallet_sign'] = undefined;

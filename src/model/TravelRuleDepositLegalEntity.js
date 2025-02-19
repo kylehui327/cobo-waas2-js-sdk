@@ -18,9 +18,9 @@ import ApiClient from '../ApiClient';
 class TravelRuleDepositLegalEntity {
     /**
      * Constructs a new <code>TravelRuleDepositLegalEntity</code>.
-     * Required fields for LEGAL entities.
+     * The required information of a legal entity.
      * @alias module:model/TravelRuleDepositLegalEntity
-     * @param selected_entity_type {module:model/TravelRuleDepositLegalEntity.SelectedEntityTypeEnum} Specifies the type of entity associated with the transaction.
+     * @param selected_entity_type {module:model/TravelRuleDepositLegalEntity.SelectedEntityTypeEnum} The entity type. Possible values include: - `LEGAL`: Legal entity. - `NATURAL`: Natural person. 
      * @param legal_name {String} The legal name of the entity.
      */
     constructor(selected_entity_type, legal_name) { 
@@ -99,7 +99,7 @@ class TravelRuleDepositLegalEntity {
 TravelRuleDepositLegalEntity.RequiredProperties = ["selected_entity_type", "legal_name"];
 
 /**
- * Specifies the type of entity associated with the transaction.
+ * The entity type. Possible values include: - `LEGAL`: Legal entity. - `NATURAL`: Natural person. 
  * @member {module:model/TravelRuleDepositLegalEntity.SelectedEntityTypeEnum} selected_entity_type
  */
 TravelRuleDepositLegalEntity.prototype['selected_entity_type'] = undefined;
@@ -111,13 +111,13 @@ TravelRuleDepositLegalEntity.prototype['selected_entity_type'] = undefined;
 TravelRuleDepositLegalEntity.prototype['legal_name'] = undefined;
 
 /**
- * The incorporation date of the entity. This field is required when: - **Calling**: `travel_rule/transaction/limitation` API returns `is_threshold_reached = true`. - **Entity Type**: LEGAL. Otherwise, this field can be omitted. 
+ * The date of incorporation of the entity. This field is required when either of the following conditions is met: - `is_threshold_reached` is `true` in the response of the [Retrieve transaction limitations](https://www.cobo.com/developers/v2/api-references/travelrule/retrieve-transaction-limitations) operation. - `selected_entity_type` is `LEGAL`. 
  * @member {Date} date_of_incorporation
  */
 TravelRuleDepositLegalEntity.prototype['date_of_incorporation'] = undefined;
 
 /**
- * The place of incorporation of the entity. This field is required when: - **Calling**: `travel_rule/transaction/limitation` API returns `is_threshold_reached = true`. - **Entity Type**: LEGAL. Otherwise, this field can be omitted. 
+ * The place of incorporation of the entity. This field is required when either of the following conditions is met: - `is_threshold_reached` is `true` in the response of the [Retrieve transaction limitations](https://www.cobo.com/developers/v2/api-references/travelrule/retrieve-transaction-limitations) operation. - `selected_entity_type` is `LEGAL`. 
  * @member {String} place_of_incorporation
  */
 TravelRuleDepositLegalEntity.prototype['place_of_incorporation'] = undefined;

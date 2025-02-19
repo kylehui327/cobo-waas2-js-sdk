@@ -207,7 +207,7 @@ ActivityExtra.prototype['finality_provider_public_key'] = undefined;
 ActivityExtra.prototype['stake_block_time'] = undefined;
 
 /**
- * Whether to automatically broadcast the transaction.  - `true`: Automatically broadcast the transaction. - `false`: The transaction will not be submitted to the blockchain automatically. You can call [Broadcast signed transactions](/v2/api-references/transactions/broadcast-signed-transactions) to broadcast the transaction to the blockchain, or retrieve the signed raw transaction data `raw_tx` by calling [Get transaction information](/v2/api-references/transactions/get-transaction-information) and broadcast it yourself. 
+ * Whether to automatically broadcast the transaction.  - `true`: Automatically broadcast the transaction. - `false`: The transaction will not be submitted to the blockchain automatically. You can call [Broadcast signed transactions](https://www.cobo.com/developers/v2/api-references/transactions/broadcast-signed-transactions) to broadcast the transaction to the blockchain, or retrieve the signed raw transaction data `raw_tx` by calling [Get transaction information](https://www.cobo.com/developers/v2/api-references/transactions/get-transaction-information) and broadcast it yourself. 
  * @member {Boolean} auto_broadcast
  */
 ActivityExtra.prototype['auto_broadcast'] = undefined;
@@ -230,7 +230,7 @@ ActivityExtra.prototype['withdraw_from_type'] = undefined;
 ActivityExtra.prototype['provider_name'] = undefined;
 
 /**
- * A list of public keys identifying the validators to unstake from the Ethereum Beacon Chain.
+ * A list of public keys associated with the Ethereum validators for this unstaking operation.
  * @member {Array.<String>} validator_pubkeys
  */
 ActivityExtra.prototype['validator_pubkeys'] = undefined;
@@ -242,19 +242,19 @@ ActivityExtra.prototype['validator_pubkeys'] = undefined;
 ActivityExtra.prototype['timelock'] = undefined;
 
 /**
- * The change bitcoin address. If not provided, the source wallet's address will be used as the change address.
+ * The change address on the Bitcoin chain. If not provided, the source wallet's address will be used as the change address.
  * @member {String} change_address
  */
 ActivityExtra.prototype['change_address'] = undefined;
 
 /**
- * The validator evm address.
+ * The validator's EVM address.
  * @member {String} validator_address
  */
 ActivityExtra.prototype['validator_address'] = undefined;
 
 /**
- * The reward evm address.
+ * The EVM address to receive staking rewards.
  * @member {String} reward_address
  */
 ActivityExtra.prototype['reward_address'] = undefined;

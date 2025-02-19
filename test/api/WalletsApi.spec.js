@@ -136,6 +136,16 @@ import {ApiClient, Env} from "../../src/index.js";
         //});
       });
     });
+    describe('listAddressBalancesForToken', function() {
+      it('should call listAddressBalancesForToken successfully', function() {
+        //uncomment below and update the code to test listAddressBalancesForToken
+        //instance.listAddressBalancesForToken().then(function(data) {
+        //    console.log(data);
+        //}, function(error) {
+        //    console.error(error);
+        //});
+      });
+    });
     describe('listAddresses', function() {
       it('should call listAddresses successfully', function() {
         //uncomment below and update the code to test listAddresses

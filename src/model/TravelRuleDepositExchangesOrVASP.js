@@ -20,10 +20,10 @@ import TravelRuleDepositExchangesOrVASPEntityInfo from './TravelRuleDepositExcha
 class TravelRuleDepositExchangesOrVASP {
     /**
      * Constructs a new <code>TravelRuleDepositExchangesOrVASP</code>.
-     * Required fields for &#x60;EXCHANGES_OR_VASP&#x60;.
+     * Required information when depositing from an exchange or other virtual asset service providers (VASP).
      * @alias module:model/TravelRuleDepositExchangesOrVASP
      * @param destination_wallet_type {module:model/DestinationWalletType} 
-     * @param vendor_code {String} The vendor code for exchanges or VASPs.
+     * @param vendor_code {String} The vendor code of the VASP.
      * @param vendor_vasp_id {String} The unique identifier of the VASP.
      * @param entity_info {module:model/TravelRuleDepositExchangesOrVASPEntityInfo} 
      */
@@ -119,7 +119,7 @@ TravelRuleDepositExchangesOrVASP.RequiredProperties = ["destination_wallet_type"
 TravelRuleDepositExchangesOrVASP.prototype['destination_wallet_type'] = undefined;
 
 /**
- * The vendor code for exchanges or VASPs.
+ * The vendor code of the VASP.
  * @member {String} vendor_code
  */
 TravelRuleDepositExchangesOrVASP.prototype['vendor_code'] = undefined;
@@ -131,7 +131,7 @@ TravelRuleDepositExchangesOrVASP.prototype['vendor_code'] = undefined;
 TravelRuleDepositExchangesOrVASP.prototype['vendor_vasp_id'] = undefined;
 
 /**
- * The vendor name to be provided when selecting \"Others\" as the VASP case. This field allows customers to specify the name of a vendor not listed.
+ * The vendor name. Use this field to specify the name of a vendor not listed.
  * @member {String} vendor_vasp_name
  */
 TravelRuleDepositExchangesOrVASP.prototype['vendor_vasp_name'] = undefined;

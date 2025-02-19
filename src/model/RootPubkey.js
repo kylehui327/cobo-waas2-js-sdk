@@ -76,7 +76,7 @@ class RootPubkey {
 
 
 /**
- * The vault's [root extended public key](https://manuals.cobo.com/en/portal/mpc-wallets/ocw/tss-node-deployment#tss-node-on-cobo-portal-and-mpc-root-extended-public-key).
+ * The vault's [root extended public key](https://www.cobo.com/developers/v2/guides/mpc-wallets/get-started-ocw#root-extended-public-keys).
  * @member {String} root_pubkey
  */
 RootPubkey.prototype['root_pubkey'] = undefined;

@@ -170,7 +170,7 @@ TravelRuleWithdrawExchangesOrVASPEntityInfo.prototype['selected_entity_type'] = 
 TravelRuleWithdrawExchangesOrVASPEntityInfo.prototype['legal_name'] = undefined;
 
 /**
- * The incorporation date of the entity.
+ * The date of incorporation of the entity.
  * @member {Date} date_of_incorporation
  */
 TravelRuleWithdrawExchangesOrVASPEntityInfo.prototype['date_of_incorporation'] = undefined;
@@ -182,25 +182,25 @@ TravelRuleWithdrawExchangesOrVASPEntityInfo.prototype['date_of_incorporation'] =
 TravelRuleWithdrawExchangesOrVASPEntityInfo.prototype['place_of_incorporation'] = undefined;
 
 /**
- * The first name of the user.
+ * The first name of the natural person.
  * @member {String} first_name
  */
 TravelRuleWithdrawExchangesOrVASPEntityInfo.prototype['first_name'] = undefined;
 
 /**
- * The last name of the user.
+ * The last name of the natural person.
  * @member {String} last_name
  */
 TravelRuleWithdrawExchangesOrVASPEntityInfo.prototype['last_name'] = undefined;
 
 /**
- * The date of birth of the user.
+ * The date of birth of the natural person.
  * @member {Date} date_of_birth
  */
 TravelRuleWithdrawExchangesOrVASPEntityInfo.prototype['date_of_birth'] = undefined;
 
 /**
- * The place of birth of the user.
+ * The place of birth of the natural person.
  * @member {String} place_of_birth
  */
 TravelRuleWithdrawExchangesOrVASPEntityInfo.prototype['place_of_birth'] = undefined;

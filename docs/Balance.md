@@ -1,4 +1,4 @@
-# CoboWaas2.TokenBalanceBalance
+# CoboWaas2.Balance
 
 ## Properties
 

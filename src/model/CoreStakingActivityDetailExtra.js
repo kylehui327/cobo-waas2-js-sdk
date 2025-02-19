@@ -114,19 +114,19 @@ CoreStakingActivityDetailExtra.prototype['pool_type'] = undefined;
 CoreStakingActivityDetailExtra.prototype['timelock'] = undefined;
 
 /**
- * The change bitcoin address. If not provided, the source wallet's address will be used as the change address.
+ * The change address on the Bitcoin chain. If not provided, the source wallet's address will be used as the change address.
  * @member {String} change_address
  */
 CoreStakingActivityDetailExtra.prototype['change_address'] = undefined;
 
 /**
- * The validator evm address.
+ * The validator's EVM address.
  * @member {String} validator_address
  */
 CoreStakingActivityDetailExtra.prototype['validator_address'] = undefined;
 
 /**
- * The reward evm address.
+ * The EVM address to receive staking rewards.
  * @member {String} reward_address
  */
 CoreStakingActivityDetailExtra.prototype['reward_address'] = undefined;

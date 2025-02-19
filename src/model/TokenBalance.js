@@ -10,7 +10,7 @@
  */
 
 import ApiClient from '../ApiClient';
-import TokenBalanceBalance from './TokenBalanceBalance';
+import Balance from './Balance';
 
 /**
  * The TokenBalance model module.
@@ -22,7 +22,7 @@ class TokenBalance {
      * The balance information.
      * @alias module:model/TokenBalance
      * @param token_id {String} The token ID, which is the unique identifier of a token. You can retrieve the IDs of all the tokens you can use by calling [List enabled tokens](https://www.cobo.com/developers/v2/api-references/wallets/list-enabled-tokens).
-     * @param balance {module:model/TokenBalanceBalance} 
+     * @param balance {module:model/Balance} 
      */
     constructor(token_id, balance) { 
         
@@ -54,7 +54,7 @@ class TokenBalance {
                 obj['token_id'] = ApiClient.convertToType(data['token_id'], 'String');
             }
             if (data.hasOwnProperty('balance')) {
-                obj['balance'] = TokenBalanceBalance.constructFromObject(data['balance']);
+                obj['balance'] = Balance.constructFromObject(data['balance']);
             }
         }
         return obj;
@@ -78,8 +78,8 @@ class TokenBalance {
         }
         // validate the optional field `balance`
         if (data['balance']) { // data not null
-          if (!!TokenBalanceBalance.validateJSON) {
-            TokenBalanceBalance.validateJSON(data['balance']);
+          if (!!Balance.validateJSON) {
+            Balance.validateJSON(data['balance']);
           }
         }
 
@@ -98,7 +98,7 @@ TokenBalance.RequiredProperties = ["token_id", "balance"];
 TokenBalance.prototype['token_id'] = undefined;
 
 /**
- * @member {module:model/TokenBalanceBalance} balance
+ * @member {module:model/Balance} balance
  */
 TokenBalance.prototype['balance'] = undefined;
 

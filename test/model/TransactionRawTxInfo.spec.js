@@ -70,6 +70,12 @@
       //expect(instance).to.be();
     });
 
+    it('should have the property unsigned_raw_tx (base name: "unsigned_raw_tx")', function() {
+      // uncomment below and update the code to test the property unsigned_raw_tx
+      //var instance = new CoboWaas2.TransactionRawTxInfo();
+      //expect(instance).to.be();
+    });
+
   });
 
 }));

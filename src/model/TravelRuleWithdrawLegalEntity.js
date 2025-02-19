@@ -19,7 +19,7 @@ import SelectedEntityType from './SelectedEntityType';
 class TravelRuleWithdrawLegalEntity {
     /**
      * Constructs a new <code>TravelRuleWithdrawLegalEntity</code>.
-     * Required fields for LEGAL entities.
+     * The required information of a legal entity.
      * @alias module:model/TravelRuleWithdrawLegalEntity
      * @param selected_entity_type {module:model/SelectedEntityType} 
      * @param legal_name {String} The legal name of the entity.
@@ -107,7 +107,7 @@ TravelRuleWithdrawLegalEntity.prototype['selected_entity_type'] = undefined;
 TravelRuleWithdrawLegalEntity.prototype['legal_name'] = undefined;
 
 /**
- * The incorporation date of the entity.
+ * The date of incorporation of the entity.
  * @member {Date} date_of_incorporation
  */
 TravelRuleWithdrawLegalEntity.prototype['date_of_incorporation'] = undefined;

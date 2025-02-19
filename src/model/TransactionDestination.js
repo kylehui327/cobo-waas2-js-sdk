@@ -12,6 +12,7 @@
 import ApiClient from '../ApiClient';
 import ExchangeId from './ExchangeId';
 import TransactionDepositToAddressDestination from './TransactionDepositToAddressDestination';
+import TransactionDepositToAddressDestinationTxInfo from './TransactionDepositToAddressDestinationTxInfo';
 import TransactionDepositToWalletDestination from './TransactionDepositToWalletDestination';
 import TransactionDestinationType from './TransactionDestinationType';
 import TransactionEvmCalldataInfo from './TransactionEvmCalldataInfo';
@@ -456,6 +457,11 @@ TransactionDestination.prototype['wallet_subtype'] = undefined;
  * @member {String} memo
  */
 TransactionDestination.prototype['memo'] = undefined;
+
+/**
+ * @member {module:model/TransactionDepositToAddressDestinationTxInfo} tx_info
+ */
+TransactionDestination.prototype['tx_info'] = undefined;
 
 
 TransactionDestination.OneOf = ["TransactionDepositToAddressDestination", "TransactionDepositToWalletDestination", "TransactionEvmContractDestination", "TransactionMessageSignEIP191Destination", "TransactionMessageSignEIP712Destination", "TransactionRawMessageSignDestination", "TransactionTransferToAddressDestination", "TransactionTransferToWalletDestination"];

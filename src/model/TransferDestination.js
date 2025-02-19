@@ -182,6 +182,12 @@ TransferDestination.prototype['utxo_outputs'] = undefined;
 TransferDestination.prototype['change_address'] = undefined;
 
 /**
+ * The type of change output: **Last** means the change output is located at the end of the transaction's outputs, **Last** is the default value. while **First** means it is located at the beginning of the transaction's outputs. 
+ * @member {module:model/TransferDestination.ChangeOutputTypeEnum} change_output_type
+ */
+TransferDestination.prototype['change_output_type'] = undefined;
+
+/**
  * Whether the transaction request must be executed as a [Cobo Loop](https://manuals.cobo.com/en/portal/custodial-wallets/cobo-loop) transfer.   - `true`: The transaction request must be executed as a Cobo Loop transfer.   - `false`: The transaction request may not be executed as a Cobo Loop transfer.    Please do not set both `force_internal` and `force_external` as `true`. 
  * @member {Boolean} force_internal
  */

@@ -10,7 +10,7 @@
  */
 
 import ApiClient from '../ApiClient';
-import TokenBalanceBalance from './TokenBalanceBalance';
+import Balance from './Balance';
 
 /**
  * The SubWalletAssetBalance model module.
@@ -22,7 +22,7 @@ class SubWalletAssetBalance {
      * The information about the asset balance of a trading account.
      * @alias module:model/SubWalletAssetBalance
      * @param asset_id {String} The asset ID. An asset ID is the unique identifier of the asset held within your linked exchange account.
-     * @param balance {module:model/TokenBalanceBalance} 
+     * @param balance {module:model/Balance} 
      */
     constructor(asset_id, balance) { 
         
@@ -57,7 +57,7 @@ class SubWalletAssetBalance {
                 obj['asset_id'] = ApiClient.convertToType(data['asset_id'], 'String');
             }
             if (data.hasOwnProperty('balance')) {
-                obj['balance'] = TokenBalanceBalance.constructFromObject(data['balance']);
+                obj['balance'] = Balance.constructFromObject(data['balance']);
             }
         }
         return obj;
@@ -85,8 +85,8 @@ class SubWalletAssetBalance {
         }
         // validate the optional field `balance`
         if (data['balance']) { // data not null
-          if (!!TokenBalanceBalance.validateJSON) {
-            TokenBalanceBalance.validateJSON(data['balance']);
+          if (!!Balance.validateJSON) {
+            Balance.validateJSON(data['balance']);
           }
         }
 
@@ -111,7 +111,7 @@ SubWalletAssetBalance.prototype['trading_account_type'] = undefined;
 SubWalletAssetBalance.prototype['asset_id'] = undefined;
 
 /**
- * @member {module:model/TokenBalanceBalance} balance
+ * @member {module:model/Balance} balance
  */
 SubWalletAssetBalance.prototype['balance'] = undefined;
 

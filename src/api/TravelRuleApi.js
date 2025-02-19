@@ -39,9 +39,9 @@ export default class TravelRuleApi {
 
     /**
      * Retrieve transaction limitations
-     * This endpoint retrieves transaction-related limitations based on the provided `transaction_type` and `transaction_id`.  The response includes the following information: - **`vasp_list`**: A list of Virtual Asset Service Providers (VASPs) associated with the transaction token. - **`is_threshold_reached`**: Indicates whether the transaction amount has exceeded the predefined threshold.    - If `true`: Additional Travel Rule information may be required for processing. - **`self_custody_wallet_challenge`**: A challenge string for verifying ownership of self-custody wallets. - **`connect_wallet_list`**: A list of supported wallet integrations for the transaction, such as MetaMask or WalletConnect.  Use this endpoint to ensure compliance with Travel Rule requirements and to retrieve supported options for completing the transaction. 
+     * This operation retrieves Travel Rule requirements and available options for a transaction based on its transaction type and ID.  Use this endpoint before submitting Travel Rule information to understand the requirements and available options for your transaction. 
      * @param {module:model/String} transaction_type The transaction type. Possible values include:    - `DEPOSIT`: A deposit transaction.   - `WITHDRAW`: A withdrawal transaction. 
-     * @param {String} transaction_id The transaction ID
+     * @param {String} transaction_id The transaction ID.
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/GetTransactionLimitation200Response} and HTTP response
      */
     getTransactionLimitationWithHttpInfo(transaction_type, transaction_id) {
@@ -69,7 +69,7 @@ export default class TravelRuleApi {
       let formParams = {
       };
 
-      let authNames = ['OAuth2', 'CoboAuth'];
+      let authNames = ['OAuth2'];
       let contentTypes = [];
       let accepts = ['application/json'];
       let returnType = GetTransactionLimitation200Response;
@@ -82,9 +82,9 @@ export default class TravelRuleApi {
 
     /**
      * Retrieve transaction limitations
-     * This endpoint retrieves transaction-related limitations based on the provided `transaction_type` and `transaction_id`.  The response includes the following information: - **`vasp_list`**: A list of Virtual Asset Service Providers (VASPs) associated with the transaction token. - **`is_threshold_reached`**: Indicates whether the transaction amount has exceeded the predefined threshold.    - If `true`: Additional Travel Rule information may be required for processing. - **`self_custody_wallet_challenge`**: A challenge string for verifying ownership of self-custody wallets. - **`connect_wallet_list`**: A list of supported wallet integrations for the transaction, such as MetaMask or WalletConnect.  Use this endpoint to ensure compliance with Travel Rule requirements and to retrieve supported options for completing the transaction. 
+     * This operation retrieves Travel Rule requirements and available options for a transaction based on its transaction type and ID.  Use this endpoint before submitting Travel Rule information to understand the requirements and available options for your transaction. 
      * @param {module:model/String} transaction_type The transaction type. Possible values include:    - `DEPOSIT`: A deposit transaction.   - `WITHDRAW`: A withdrawal transaction. 
-     * @param {String} transaction_id The transaction ID
+     * @param {String} transaction_id The transaction ID.
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/GetTransactionLimitation200Response}
      */
     getTransactionLimitation(transaction_type, transaction_id) {
@@ -97,7 +97,7 @@ export default class TravelRuleApi {
 
     /**
      * List supported countries
-     * This operation retrieves all countries supported.
+     * This operation retrieves a list of supported countries that can be used when submitting Travel Rule information.  Use this endpoint to obtain valid country values for:   - Place of incorporation of a legal entity   - Place of birth of a natural person 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link Array.<module:model/ListSupportedCountries200ResponseInner>} and HTTP response
      */
     listSupportedCountriesWithHttpInfo() {
@@ -115,7 +115,7 @@ export default class TravelRuleApi {
       let formParams = {
       };
 
-      let authNames = ['OAuth2', 'CoboAuth'];
+      let authNames = ['OAuth2'];
       let contentTypes = [];
       let accepts = ['application/json'];
       let returnType = [ListSupportedCountries200ResponseInner];
@@ -128,7 +128,7 @@ export default class TravelRuleApi {
 
     /**
      * List supported countries
-     * This operation retrieves all countries supported.
+     * This operation retrieves a list of supported countries that can be used when submitting Travel Rule information.  Use this endpoint to obtain valid country values for:   - Place of incorporation of a legal entity   - Place of birth of a natural person 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link Array.<module:model/ListSupportedCountries200ResponseInner>}
      */
     listSupportedCountries() {
@@ -140,8 +140,8 @@ export default class TravelRuleApi {
 
 
     /**
-     * Submit Deposit Transaction Travel Rule information
-     * This operation allows you to submit the required Travel Rule information based on the transaction details. It supports both self-custody wallets and exchanges/VASPs, ensuring compliance with Travel Rule requirements.   - **Destination Wallet Type (`destination_wallet_type`)**:   - `SELF_CUSTODY_WALLET`: A self-custodial wallet (e.g., plugin wallet). Requires `self_custody_wallet_sign`, `self_custody_wallet_address`, and `self_custody_wallet_challenge`.   - `EXCHANGES_OR_VASP`: A wallet associated with an exchange or VASP. Requires `vendor_vasp_id` and information depending on `selected_entity_type`.  - **Entity Types (`selected_entity_type`)**:   - `LEGAL`: For legal entities, provide `legal_name`, `date_of_incorporation`, and `place_of_incorporation`.   - `NATURAL`: For natural persons, provide `date_of_birth`, `place_of_birth`, `first_name`, and `last_name`. 
+     * Submit Travel Rule information for deposits
+     * This operation submits Travel Rule information for a deposit transaction. 
      * @param {Object} opts Optional parameters
      * @param {module:model/TravelRuleDepositRequest} [TravelRuleDepositRequest] 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/SubmitDepositTravelRuleInfo201Response} and HTTP response
@@ -162,7 +162,7 @@ export default class TravelRuleApi {
       let formParams = {
       };
 
-      let authNames = ['OAuth2', 'CoboAuth'];
+      let authNames = ['OAuth2'];
       let contentTypes = ['application/json'];
       let accepts = ['application/json'];
       let returnType = SubmitDepositTravelRuleInfo201Response;
@@ -174,8 +174,8 @@ export default class TravelRuleApi {
     }
 
     /**
-     * Submit Deposit Transaction Travel Rule information
-     * This operation allows you to submit the required Travel Rule information based on the transaction details. It supports both self-custody wallets and exchanges/VASPs, ensuring compliance with Travel Rule requirements.   - **Destination Wallet Type (`destination_wallet_type`)**:   - `SELF_CUSTODY_WALLET`: A self-custodial wallet (e.g., plugin wallet). Requires `self_custody_wallet_sign`, `self_custody_wallet_address`, and `self_custody_wallet_challenge`.   - `EXCHANGES_OR_VASP`: A wallet associated with an exchange or VASP. Requires `vendor_vasp_id` and information depending on `selected_entity_type`.  - **Entity Types (`selected_entity_type`)**:   - `LEGAL`: For legal entities, provide `legal_name`, `date_of_incorporation`, and `place_of_incorporation`.   - `NATURAL`: For natural persons, provide `date_of_birth`, `place_of_birth`, `first_name`, and `last_name`. 
+     * Submit Travel Rule information for deposits
+     * This operation submits Travel Rule information for a deposit transaction. 
      * @param {Object} opts Optional parameters
      * @param {module:model/TravelRuleDepositRequest} opts.TravelRuleDepositRequest 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/SubmitDepositTravelRuleInfo201Response}
@@ -189,8 +189,8 @@ export default class TravelRuleApi {
 
 
     /**
-     * Submit Withdraw Transaction Travel Rule information
-     * This operation allows you to submit the required Travel Rule information based on the transaction details. It supports both self-custody wallets and exchanges/VASPs, ensuring compliance with Travel Rule requirements.   - **Destination Wallet Type (`destination_wallet_type`)**:   - `SELF_CUSTODY_WALLET`: A self-custodial wallet (e.g., plugin wallet). Requires `self_custody_wallet_sign`, `self_custody_wallet_address`, and `self_custody_wallet_challenge`.   - `EXCHANGES_OR_VASP`: A wallet associated with an exchange or VASP. Requires `vendor_vasp_id` and information depending on `selected_entity_type`.  - **Entity Types (`selected_entity_type`)**:   - `LEGAL`: For legal entities, provide `legal_name`.   - `NATURAL`: For natural persons, provide `date_of_birth`, `place_of_birth`, `first_name`, and `last_name`. 
+     * Submit Travel Rule information for withdrawals
+     * This operation submits Travel Rule information for a withdrawal transaction. 
      * @param {Object} opts Optional parameters
      * @param {module:model/TravelRuleWithdrawRequest} [TravelRuleWithdrawRequest] 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/SubmitDepositTravelRuleInfo201Response} and HTTP response
@@ -211,7 +211,7 @@ export default class TravelRuleApi {
       let formParams = {
       };
 
-      let authNames = ['OAuth2', 'CoboAuth'];
+      let authNames = ['OAuth2'];
       let contentTypes = ['application/json'];
       let accepts = ['application/json'];
       let returnType = SubmitDepositTravelRuleInfo201Response;
@@ -223,8 +223,8 @@ export default class TravelRuleApi {
     }
 
     /**
-     * Submit Withdraw Transaction Travel Rule information
-     * This operation allows you to submit the required Travel Rule information based on the transaction details. It supports both self-custody wallets and exchanges/VASPs, ensuring compliance with Travel Rule requirements.   - **Destination Wallet Type (`destination_wallet_type`)**:   - `SELF_CUSTODY_WALLET`: A self-custodial wallet (e.g., plugin wallet). Requires `self_custody_wallet_sign`, `self_custody_wallet_address`, and `self_custody_wallet_challenge`.   - `EXCHANGES_OR_VASP`: A wallet associated with an exchange or VASP. Requires `vendor_vasp_id` and information depending on `selected_entity_type`.  - **Entity Types (`selected_entity_type`)**:   - `LEGAL`: For legal entities, provide `legal_name`.   - `NATURAL`: For natural persons, provide `date_of_birth`, `place_of_birth`, `first_name`, and `last_name`. 
+     * Submit Travel Rule information for withdrawals
+     * This operation submits Travel Rule information for a withdrawal transaction. 
      * @param {Object} opts Optional parameters
      * @param {module:model/TravelRuleWithdrawRequest} opts.TravelRuleWithdrawRequest 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/SubmitDepositTravelRuleInfo201Response}

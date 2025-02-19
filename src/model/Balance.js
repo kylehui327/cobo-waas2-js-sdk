@@ -12,20 +12,20 @@
 import ApiClient from '../ApiClient';
 
 /**
- * The TokenBalanceBalance model module.
- * @module model/TokenBalanceBalance
+ * The Balance model module.
+ * @module model/Balance
  */
-class TokenBalanceBalance {
+class Balance {
     /**
-     * Constructs a new <code>TokenBalanceBalance</code>.
+     * Constructs a new <code>Balance</code>.
      * The balance details.
-     * @alias module:model/TokenBalanceBalance
+     * @alias module:model/Balance
      * @param total {String} The current amount of tokens in an address, which is retrieved directly from the network. To learn more, see [Balances and transaction amounts for MPC Wallets](https://www.cobo.com/developers/v2/guides/mpc-wallets/balance-amounts) for more details.
      * @param available {String} The amount of tokens ready to be spent. To learn more, see [Balances and transaction amounts for MPC Wallets](https://www.cobo.com/developers/v2/guides/mpc-wallets/balance-amounts) for more details.
      */
     constructor(total, available) { 
         
-        TokenBalanceBalance.initialize(this, total, available);
+        Balance.initialize(this, total, available);
     }
 
     /**
@@ -39,15 +39,15 @@ class TokenBalanceBalance {
     }
 
     /**
-     * Constructs a <code>TokenBalanceBalance</code> from a plain JavaScript object, optionally creating a new instance.
+     * Constructs a <code>Balance</code> from a plain JavaScript object, optionally creating a new instance.
      * Copies all relevant properties from <code>data</code> to <code>obj</code> if supplied or a new instance if not.
      * @param {Object} data The plain JavaScript object bearing properties of interest.
-     * @param {module:model/TokenBalanceBalance} obj Optional instance to populate.
-     * @return {module:model/TokenBalanceBalance} The populated <code>TokenBalanceBalance</code> instance.
+     * @param {module:model/Balance} obj Optional instance to populate.
+     * @return {module:model/Balance} The populated <code>Balance</code> instance.
      */
     static constructFromObject(data, obj) {
         if (data) {
-            obj = obj || new TokenBalanceBalance();
+            obj = obj || new Balance();
 
             if (data.hasOwnProperty('total')) {
                 obj['total'] = ApiClient.convertToType(data['total'], 'String');
@@ -66,13 +66,13 @@ class TokenBalanceBalance {
     }
 
     /**
-     * Validates the JSON data with respect to <code>TokenBalanceBalance</code>.
+     * Validates the JSON data with respect to <code>Balance</code>.
      * @param {Object} data The plain JavaScript object bearing properties of interest.
-     * @return {boolean} to indicate whether the JSON data is valid with respect to <code>TokenBalanceBalance</code>.
+     * @return {boolean} to indicate whether the JSON data is valid with respect to <code>Balance</code>.
      */
     static validateJSON(data) {
         // check to make sure all required properties are present in the JSON string
-        for (const property of TokenBalanceBalance.RequiredProperties) {
+        for (const property of Balance.RequiredProperties) {
             if (!data.hasOwnProperty(property)) {
                 throw new Error("The required field `" + property + "` is not found in the JSON data: " + JSON.stringify(data));
             }
@@ -100,38 +100,38 @@ class TokenBalanceBalance {
 
 }
 
-TokenBalanceBalance.RequiredProperties = ["total", "available"];
+Balance.RequiredProperties = ["total", "available"];
 
 /**
  * The current amount of tokens in an address, which is retrieved directly from the network. To learn more, see [Balances and transaction amounts for MPC Wallets](https://www.cobo.com/developers/v2/guides/mpc-wallets/balance-amounts) for more details.
  * @member {String} total
  */
-TokenBalanceBalance.prototype['total'] = undefined;
+Balance.prototype['total'] = undefined;
 
 /**
  * The amount of tokens ready to be spent. To learn more, see [Balances and transaction amounts for MPC Wallets](https://www.cobo.com/developers/v2/guides/mpc-wallets/balance-amounts) for more details.
  * @member {String} available
  */
-TokenBalanceBalance.prototype['available'] = undefined;
+Balance.prototype['available'] = undefined;
 
 /**
  * The total amount being sent in a transaction, which is calculated as the withdrawal amount plus the transaction fee. To learn more, see [Balances and transaction amounts for MPC Wallets](https://www.cobo.com/developers/v2/guides/mpc-wallets/balance-amounts) for more details.
  * @member {String} pending
  * @default '0'
  */
-TokenBalanceBalance.prototype['pending'] = '0';
+Balance.prototype['pending'] = '0';
 
 /**
  * For UTXO chains, this is the combined value of the selected UTXOs for the transaction. For other chains, it is equal to the Pending amount. To learn more, see [Balances and transaction amounts for MPC Wallets](https://www.cobo.com/developers/v2/guides/mpc-wallets/balance-amounts) for more details.
  * @member {String} locked
  * @default '0'
  */
-TokenBalanceBalance.prototype['locked'] = '0';
+Balance.prototype['locked'] = '0';
 
 
 
 
 
 
-export default TokenBalanceBalance;
+export default Balance;
 

@@ -102,6 +102,13 @@ export default class TransactionSubStatus {
 
     
         /**
+         * value: "Built"
+         * @const
+         */
+        "Built" = "Built";
+
+    
+        /**
          * value: "PendingWaitSigner"
          * @const
          */

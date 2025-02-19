@@ -11,6 +11,20 @@ Name | Type | Description | Notes
 **description** | **String** | The description of the contract call transaction. | [optional] 
 **category_names** | **[String]** | The custom category for you to identify your transactions. | [optional] 
 **fee** | [**TransactionRequestFee**](TransactionRequestFee.md) |  | [optional] 
+**transaction_process_type** | **String** | Transaction processing type: **AutoProcess** means that after the transaction is constructed, it will be automatically signed and broadcasted. **AutoProcess** is the default vault. **BuildOnly** means that after the transaction is constructed, you need to manually call an interface to sign and broadcast it.  | [optional] 
 **auto_fuel** | [**AutoFuelType**](AutoFuelType.md) |  | [optional] 
+
+
+
+## Enum: TransactionProcessTypeEnum
+
+
+* `AutoProcess` (value: `"AutoProcess"`)
+
+* `BuildOnly` (value: `"BuildOnly"`)
+
+* `unknown_default_open_api` (value: `"unknown_default_open_api"`)
+
+
 
 

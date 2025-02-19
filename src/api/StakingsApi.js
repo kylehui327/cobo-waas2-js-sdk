@@ -71,7 +71,7 @@ export default class StakingsApi {
       let formParams = {
       };
 
-      let authNames = ['CoboAuth'];
+      let authNames = ['OAuth2'];
       let contentTypes = ['application/json'];
       let accepts = ['application/json'];
       let returnType = CreateStakeActivity201Response;
@@ -120,7 +120,7 @@ export default class StakingsApi {
       let formParams = {
       };
 
-      let authNames = ['CoboAuth'];
+      let authNames = ['OAuth2'];
       let contentTypes = ['application/json'];
       let accepts = ['application/json'];
       let returnType = CreateStakeActivity201Response;
@@ -169,7 +169,7 @@ export default class StakingsApi {
       let formParams = {
       };
 
-      let authNames = ['CoboAuth'];
+      let authNames = ['OAuth2'];
       let contentTypes = ['application/json'];
       let accepts = ['application/json'];
       let returnType = CreateStakeActivity201Response;
@@ -218,7 +218,7 @@ export default class StakingsApi {
       let formParams = {
       };
 
-      let authNames = ['CoboAuth'];
+      let authNames = ['OAuth2'];
       let contentTypes = ['application/json'];
       let accepts = ['application/json'];
       let returnType = CreateStakeActivity201Response;
@@ -270,7 +270,7 @@ export default class StakingsApi {
       let formParams = {
       };
 
-      let authNames = ['CoboAuth'];
+      let authNames = ['OAuth2'];
       let contentTypes = [];
       let accepts = ['application/json'];
       let returnType = Activity;
@@ -321,7 +321,7 @@ export default class StakingsApi {
       let formParams = {
       };
 
-      let authNames = ['CoboAuth'];
+      let authNames = ['OAuth2'];
       let contentTypes = [];
       let accepts = ['application/json'];
       let returnType = Stakings;
@@ -369,7 +369,7 @@ export default class StakingsApi {
       let formParams = {
       };
 
-      let authNames = ['CoboAuth'];
+      let authNames = ['OAuth2'];
       let contentTypes = ['application/json'];
       let accepts = ['application/json'];
       let returnType = GetStakingEstimationFee201Response;
@@ -418,7 +418,7 @@ export default class StakingsApi {
       let formParams = {
       };
 
-      let authNames = ['CoboAuth'];
+      let authNames = ['OAuth2'];
       let contentTypes = ['application/json'];
       let accepts = ['application/json'];
       let returnType = EthStakeEstimatedFee;
@@ -470,7 +470,7 @@ export default class StakingsApi {
       let formParams = {
       };
 
-      let authNames = ['CoboAuth'];
+      let authNames = ['OAuth2'];
       let contentTypes = [];
       let accepts = ['application/json'];
       let returnType = PoolDetails;
@@ -539,7 +539,7 @@ export default class StakingsApi {
       let formParams = {
       };
 
-      let authNames = ['CoboAuth'];
+      let authNames = ['OAuth2'];
       let contentTypes = [];
       let accepts = ['application/json'];
       let returnType = ListStakingActivities200Response;
@@ -607,7 +607,7 @@ export default class StakingsApi {
       let formParams = {
       };
 
-      let authNames = ['CoboAuth'];
+      let authNames = ['OAuth2'];
       let contentTypes = [];
       let accepts = ['application/json'];
       let returnType = ListStakingPools200Response;
@@ -673,7 +673,7 @@ export default class StakingsApi {
       let formParams = {
       };
 
-      let authNames = ['CoboAuth'];
+      let authNames = ['OAuth2'];
       let contentTypes = [];
       let accepts = ['application/json'];
       let returnType = ListStakings200Response;

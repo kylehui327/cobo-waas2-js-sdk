@@ -18,11 +18,11 @@ import ApiClient from '../ApiClient';
 class TravelRuleDepositNaturalEntity {
     /**
      * Constructs a new <code>TravelRuleDepositNaturalEntity</code>.
-     * Required fields for NATURAL entities.
+     * The required information of a natural person.
      * @alias module:model/TravelRuleDepositNaturalEntity
-     * @param selected_entity_type {module:model/TravelRuleDepositNaturalEntity.SelectedEntityTypeEnum} Specifies the type of entity associated with the transaction.
-     * @param first_name {String} The first name of the user.
-     * @param last_name {String} The last name of the user.
+     * @param selected_entity_type {module:model/TravelRuleDepositNaturalEntity.SelectedEntityTypeEnum} Specifies the type of entity associated with the transaction. - `LEGAL`: Legal entity. - `NATURAL`: Natural person. 
+     * @param first_name {String} The first name of the natural person.
+     * @param last_name {String} The last name of the natural person.
      */
     constructor(selected_entity_type, first_name, last_name) { 
         
@@ -108,31 +108,31 @@ class TravelRuleDepositNaturalEntity {
 TravelRuleDepositNaturalEntity.RequiredProperties = ["selected_entity_type", "first_name", "last_name"];
 
 /**
- * Specifies the type of entity associated with the transaction.
+ * Specifies the type of entity associated with the transaction. - `LEGAL`: Legal entity. - `NATURAL`: Natural person. 
  * @member {module:model/TravelRuleDepositNaturalEntity.SelectedEntityTypeEnum} selected_entity_type
  */
 TravelRuleDepositNaturalEntity.prototype['selected_entity_type'] = undefined;
 
 /**
- * The first name of the user.
+ * The first name of the natural person.
  * @member {String} first_name
  */
 TravelRuleDepositNaturalEntity.prototype['first_name'] = undefined;
 
 /**
- * The last name of the user.
+ * The last name of the natural person.
  * @member {String} last_name
  */
 TravelRuleDepositNaturalEntity.prototype['last_name'] = undefined;
 
 /**
- * The date of birth of the user. This field is required when: - **Calling**: `travel_rule/transaction/limitation` API returns `is_threshold_reached = true`. - **Entity Type**: NATURAL. Otherwise, this field can be omitted. 
+ * The date of birth of the natural person. This field is required when either of the following conditions is met: - `is_threshold_reached` is `true` in the response of the [Retrieve transaction limitations](https://www.cobo.com/developers/v2/api-references/travelrule/retrieve-transaction-limitations) operation. - `selected_entity_type` is `NATURAL`. 
  * @member {Date} date_of_birth
  */
 TravelRuleDepositNaturalEntity.prototype['date_of_birth'] = undefined;
 
 /**
- * The place of birth of the user. This field is required when: - **Calling**: `travel_rule/transaction/limitation` API returns `is_threshold_reached = true`. - **Entity Type**: NATURAL. Otherwise, this field can be omitted. 
+ * The place of birth of the natural person. This field is required when either of the following conditions is met: - `is_threshold_reached` is `true` in the response of the [Retrieve transaction limitations](https://www.cobo.com/developers/v2/api-references/travelrule/retrieve-transaction-limitations) operation. - `selected_entity_type` is `NATURAL`. 
  * @member {String} place_of_birth
  */
 TravelRuleDepositNaturalEntity.prototype['place_of_birth'] = undefined;

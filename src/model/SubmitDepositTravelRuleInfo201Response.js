@@ -67,7 +67,7 @@ class SubmitDepositTravelRuleInfo201Response {
 
 
 /**
- * Whether the submitted Travel Rule info has been successfully executed. - `true`: The operation has been successfully executed. - `false`: The operation has not been executed. 
+ * Whether the Travel Rule information has been successfully submitted. - `true`: The information has been successfully submitted. - `false`: The information has not been submitted. 
  * @member {Boolean} submitted
  */
 SubmitDepositTravelRuleInfo201Response.prototype['submitted'] = undefined;

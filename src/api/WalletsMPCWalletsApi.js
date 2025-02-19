@@ -21,6 +21,7 @@ import KeyShareHolder from '../model/KeyShareHolder';
 import KeyShareHolderGroup from '../model/KeyShareHolderGroup';
 import KeyShareHolderGroupType from '../model/KeyShareHolderGroupType';
 import ListKeyShareHolderGroups200Response from '../model/ListKeyShareHolderGroups200Response';
+import ListKeyShareHolders200Response from '../model/ListKeyShareHolders200Response';
 import ListMpcProjects200Response from '../model/ListMpcProjects200Response';
 import ListMpcVaults200Response from '../model/ListMpcVaults200Response';
 import ListTssRequests200Response from '../model/ListTssRequests200Response';
@@ -54,7 +55,7 @@ export default class WalletsMPCWalletsApi {
     /**
      * Cancel TSS request
      * This operation cancels a TSS request. 
-     * @param {String} vault_id The vault ID, which you can retrieve by calling [List all vaults](https://www.cobo.com/developers/v2/api-references/wallets--mpc-wallet/list-all-mpc-vaults).
+     * @param {String} vault_id The vault ID, which you can retrieve by calling [List all vaults](https://www.cobo.com/developers/v2/api-references/wallets--mpc-wallets/list-all-vaults).
      * @param {String} tss_request_id The TSS request ID, which you can retrieve by calling [List TSS requests](https://www.cobo.com/developers/v2/api-references/wallets--mpc-wallets/list-tss-requests).
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/TSSRequest} and HTTP response
      */
@@ -83,7 +84,7 @@ export default class WalletsMPCWalletsApi {
       let formParams = {
       };
 
-      let authNames = ['OAuth2', 'CoboAuth'];
+      let authNames = ['OAuth2'];
       let contentTypes = [];
       let accepts = ['application/json'];
       let returnType = TSSRequest;
@@ -97,7 +98,7 @@ export default class WalletsMPCWalletsApi {
     /**
      * Cancel TSS request
      * This operation cancels a TSS request. 
-     * @param {String} vault_id The vault ID, which you can retrieve by calling [List all vaults](https://www.cobo.com/developers/v2/api-references/wallets--mpc-wallet/list-all-mpc-vaults).
+     * @param {String} vault_id The vault ID, which you can retrieve by calling [List all vaults](https://www.cobo.com/developers/v2/api-references/wallets--mpc-wallets/list-all-vaults).
      * @param {String} tss_request_id The TSS request ID, which you can retrieve by calling [List TSS requests](https://www.cobo.com/developers/v2/api-references/wallets--mpc-wallets/list-tss-requests).
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/TSSRequest}
      */
@@ -112,7 +113,7 @@ export default class WalletsMPCWalletsApi {
     /**
      * Create key share holder group
      * This operation creates a key share holder group for a specified vault. <Note>This operation will not return the `tss_key_share_groups` property until key shares have been created using the [Create TSS request](https://www.cobo.com/developers/v2/api-references/wallets--mpc-wallets/create-tss-request) operation. Creating a wallet with the [Create wallet](https://www.cobo.com/developers/v2/api-references/wallets/create-wallet) operation is only possible after you've completed the previous actions.</Note> 
-     * @param {String} vault_id The vault ID, which you can retrieve by calling [List all vaults](https://www.cobo.com/developers/v2/api-references/wallets--mpc-wallet/list-all-mpc-vaults).
+     * @param {String} vault_id The vault ID, which you can retrieve by calling [List all vaults](https://www.cobo.com/developers/v2/api-references/wallets--mpc-wallets/list-all-vaults).
      * @param {Object} opts Optional parameters
      * @param {module:model/CreateKeyShareHolderGroupRequest} [CreateKeyShareHolderGroupRequest] The request body to create a key share holder group.
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/KeyShareHolderGroup} and HTTP response
@@ -138,7 +139,7 @@ export default class WalletsMPCWalletsApi {
       let formParams = {
       };
 
-      let authNames = ['OAuth2', 'CoboAuth'];
+      let authNames = ['OAuth2'];
       let contentTypes = ['application/json'];
       let accepts = ['application/json'];
       let returnType = KeyShareHolderGroup;
@@ -152,7 +153,7 @@ export default class WalletsMPCWalletsApi {
     /**
      * Create key share holder group
      * This operation creates a key share holder group for a specified vault. <Note>This operation will not return the `tss_key_share_groups` property until key shares have been created using the [Create TSS request](https://www.cobo.com/developers/v2/api-references/wallets--mpc-wallets/create-tss-request) operation. Creating a wallet with the [Create wallet](https://www.cobo.com/developers/v2/api-references/wallets/create-wallet) operation is only possible after you've completed the previous actions.</Note> 
-     * @param {String} vault_id The vault ID, which you can retrieve by calling [List all vaults](https://www.cobo.com/developers/v2/api-references/wallets--mpc-wallet/list-all-mpc-vaults).
+     * @param {String} vault_id The vault ID, which you can retrieve by calling [List all vaults](https://www.cobo.com/developers/v2/api-references/wallets--mpc-wallets/list-all-vaults).
      * @param {Object} opts Optional parameters
      * @param {module:model/CreateKeyShareHolderGroupRequest} opts.CreateKeyShareHolderGroupRequest The request body to create a key share holder group.
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/KeyShareHolderGroup}
@@ -188,7 +189,7 @@ export default class WalletsMPCWalletsApi {
       let formParams = {
       };
 
-      let authNames = ['OAuth2', 'CoboAuth'];
+      let authNames = ['OAuth2'];
       let contentTypes = ['application/json'];
       let accepts = ['application/json'];
       let returnType = MPCProject;
@@ -237,7 +238,7 @@ export default class WalletsMPCWalletsApi {
       let formParams = {
       };
 
-      let authNames = ['OAuth2', 'CoboAuth'];
+      let authNames = ['OAuth2'];
       let contentTypes = ['application/json'];
       let accepts = ['application/json'];
       let returnType = MPCVault;
@@ -266,7 +267,7 @@ export default class WalletsMPCWalletsApi {
     /**
      * Create TSS request
      * This operation creates a TSS request under a specified vault. You can use this operation to perform actions such as key generation and recovery. 
-     * @param {String} vault_id The vault ID, which you can retrieve by calling [List all vaults](https://www.cobo.com/developers/v2/api-references/wallets--mpc-wallet/list-all-mpc-vaults).
+     * @param {String} vault_id The vault ID, which you can retrieve by calling [List all vaults](https://www.cobo.com/developers/v2/api-references/wallets--mpc-wallets/list-all-vaults).
      * @param {Object} opts Optional parameters
      * @param {module:model/CreateTssRequestRequest} [CreateTssRequestRequest] The request body to create a TSS request.
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/TSSRequest} and HTTP response
@@ -292,7 +293,7 @@ export default class WalletsMPCWalletsApi {
       let formParams = {
       };
 
-      let authNames = ['OAuth2', 'CoboAuth'];
+      let authNames = ['OAuth2'];
       let contentTypes = ['application/json'];
       let accepts = ['application/json'];
       let returnType = TSSRequest;
@@ -306,7 +307,7 @@ export default class WalletsMPCWalletsApi {
     /**
      * Create TSS request
      * This operation creates a TSS request under a specified vault. You can use this operation to perform actions such as key generation and recovery. 
-     * @param {String} vault_id The vault ID, which you can retrieve by calling [List all vaults](https://www.cobo.com/developers/v2/api-references/wallets--mpc-wallet/list-all-mpc-vaults).
+     * @param {String} vault_id The vault ID, which you can retrieve by calling [List all vaults](https://www.cobo.com/developers/v2/api-references/wallets--mpc-wallets/list-all-vaults).
      * @param {Object} opts Optional parameters
      * @param {module:model/CreateTssRequestRequest} opts.CreateTssRequestRequest The request body to create a TSS request.
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/TSSRequest}
@@ -322,7 +323,7 @@ export default class WalletsMPCWalletsApi {
     /**
      * Delete key share holder group
      * This operation deletes a specified key share holder group.
-     * @param {String} vault_id The vault ID, which you can retrieve by calling [List all vaults](https://www.cobo.com/developers/v2/api-references/wallets--mpc-wallet/list-all-mpc-vaults).
+     * @param {String} vault_id The vault ID, which you can retrieve by calling [List all vaults](https://www.cobo.com/developers/v2/api-references/wallets--mpc-wallets/list-all-vaults).
      * @param {String} key_share_holder_group_id The key share holder group ID.
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/DeleteKeyShareHolderGroupById201Response} and HTTP response
      */
@@ -351,7 +352,7 @@ export default class WalletsMPCWalletsApi {
       let formParams = {
       };
 
-      let authNames = ['OAuth2', 'CoboAuth'];
+      let authNames = ['OAuth2'];
       let contentTypes = [];
       let accepts = ['application/json'];
       let returnType = DeleteKeyShareHolderGroupById201Response;
@@ -365,7 +366,7 @@ export default class WalletsMPCWalletsApi {
     /**
      * Delete key share holder group
      * This operation deletes a specified key share holder group.
-     * @param {String} vault_id The vault ID, which you can retrieve by calling [List all vaults](https://www.cobo.com/developers/v2/api-references/wallets--mpc-wallet/list-all-mpc-vaults).
+     * @param {String} vault_id The vault ID, which you can retrieve by calling [List all vaults](https://www.cobo.com/developers/v2/api-references/wallets--mpc-wallets/list-all-vaults).
      * @param {String} key_share_holder_group_id The key share holder group ID.
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/DeleteKeyShareHolderGroupById201Response}
      */
@@ -378,9 +379,67 @@ export default class WalletsMPCWalletsApi {
 
 
     /**
+     * Get key share holder by tss node id
+     * This operation retrieves detailed information about a specified key holder. 
+     * @param {String} vault_id The vault ID, which you can retrieve by calling [List all vaults](https://www.cobo.com/developers/v2/api-references/wallets--mpc-wallets/list-all-vaults).
+     * @param {String} tss_node_id The TSS Node ID.
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/KeyShareHolder} and HTTP response
+     */
+    getKeyShareHolderByTssNodeIdWithHttpInfo(vault_id, tss_node_id) {
+      let postBody = null;
+      if (postBody && postBody.toJSON) {
+          postBody = postBody.toJSON()
+      }
+      // verify the required parameter 'vault_id' is set
+      if (vault_id === undefined || vault_id === null) {
+        throw new Error("Missing the required parameter 'vault_id' when calling getKeyShareHolderByTssNodeId");
+      }
+      // verify the required parameter 'tss_node_id' is set
+      if (tss_node_id === undefined || tss_node_id === null) {
+        throw new Error("Missing the required parameter 'tss_node_id' when calling getKeyShareHolderByTssNodeId");
+      }
+
+      let pathParams = {
+        'vault_id': vault_id,
+        'tss_node_id': tss_node_id
+      };
+      let queryParams = {
+      };
+      let headerParams = {
+      };
+      let formParams = {
+      };
+
+      let authNames = ['CoboAuth'];
+      let contentTypes = [];
+      let accepts = ['application/json'];
+      let returnType = KeyShareHolder;
+      return this.apiClient.callApi(
+        '/wallets/mpc/vaults/{vault_id}/key_share_holders/{tss_node_id}', 'GET',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, null
+      );
+    }
+
+    /**
+     * Get key share holder by tss node id
+     * This operation retrieves detailed information about a specified key holder. 
+     * @param {String} vault_id The vault ID, which you can retrieve by calling [List all vaults](https://www.cobo.com/developers/v2/api-references/wallets--mpc-wallets/list-all-vaults).
+     * @param {String} tss_node_id The TSS Node ID.
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/KeyShareHolder}
+     */
+    getKeyShareHolderByTssNodeId(vault_id, tss_node_id) {
+      return this.getKeyShareHolderByTssNodeIdWithHttpInfo(vault_id, tss_node_id)
+        .then(function(response_and_data) {
+          return response_and_data.data;
+        });
+    }
+
+
+    /**
      * Get key share holder group information
      * This operation retrieves detailed information about a specified key share holder group. 
-     * @param {String} vault_id The vault ID, which you can retrieve by calling [List all vaults](https://www.cobo.com/developers/v2/api-references/wallets--mpc-wallet/list-all-mpc-vaults).
+     * @param {String} vault_id The vault ID, which you can retrieve by calling [List all vaults](https://www.cobo.com/developers/v2/api-references/wallets--mpc-wallets/list-all-vaults).
      * @param {String} key_share_holder_group_id The key share holder group ID.
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/KeyShareHolderGroup} and HTTP response
      */
@@ -409,7 +468,7 @@ export default class WalletsMPCWalletsApi {
       let formParams = {
       };
 
-      let authNames = ['CoboAuth'];
+      let authNames = ['OAuth2'];
       let contentTypes = [];
       let accepts = ['application/json'];
       let returnType = KeyShareHolderGroup;
@@ -423,7 +482,7 @@ export default class WalletsMPCWalletsApi {
     /**
      * Get key share holder group information
      * This operation retrieves detailed information about a specified key share holder group. 
-     * @param {String} vault_id The vault ID, which you can retrieve by calling [List all vaults](https://www.cobo.com/developers/v2/api-references/wallets--mpc-wallet/list-all-mpc-vaults).
+     * @param {String} vault_id The vault ID, which you can retrieve by calling [List all vaults](https://www.cobo.com/developers/v2/api-references/wallets--mpc-wallets/list-all-vaults).
      * @param {String} key_share_holder_group_id The key share holder group ID.
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/KeyShareHolderGroup}
      */
@@ -461,7 +520,7 @@ export default class WalletsMPCWalletsApi {
       let formParams = {
       };
 
-      let authNames = ['CoboAuth'];
+      let authNames = ['OAuth2'];
       let contentTypes = [];
       let accepts = ['application/json'];
       let returnType = MPCProject;
@@ -489,7 +548,7 @@ export default class WalletsMPCWalletsApi {
     /**
      * Get vault information
      * This operation retrieves detailed information about a vault.  <Info>To learn what a vault is and how it relates to MPC Wallets, see [Get started with MPC Wallets](https://www.cobo.com/developers/v2/guides/mpc-wallets/get-started-ocw#technical-architecture).</Info> 
-     * @param {String} vault_id The vault ID, which you can retrieve by calling [List all vaults](https://www.cobo.com/developers/v2/api-references/wallets--mpc-wallet/list-all-mpc-vaults).
+     * @param {String} vault_id The vault ID, which you can retrieve by calling [List all vaults](https://www.cobo.com/developers/v2/api-references/wallets--mpc-wallets/list-all-vaults).
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/MPCVault} and HTTP response
      */
     getMpcVaultByIdWithHttpInfo(vault_id) {
@@ -512,7 +571,7 @@ export default class WalletsMPCWalletsApi {
       let formParams = {
       };
 
-      let authNames = ['CoboAuth'];
+      let authNames = ['OAuth2'];
       let contentTypes = [];
       let accepts = ['application/json'];
       let returnType = MPCVault;
@@ -526,7 +585,7 @@ export default class WalletsMPCWalletsApi {
     /**
      * Get vault information
      * This operation retrieves detailed information about a vault.  <Info>To learn what a vault is and how it relates to MPC Wallets, see [Get started with MPC Wallets](https://www.cobo.com/developers/v2/guides/mpc-wallets/get-started-ocw#technical-architecture).</Info> 
-     * @param {String} vault_id The vault ID, which you can retrieve by calling [List all vaults](https://www.cobo.com/developers/v2/api-references/wallets--mpc-wallet/list-all-mpc-vaults).
+     * @param {String} vault_id The vault ID, which you can retrieve by calling [List all vaults](https://www.cobo.com/developers/v2/api-references/wallets--mpc-wallets/list-all-vaults).
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/MPCVault}
      */
     getMpcVaultById(vault_id) {
@@ -540,7 +599,7 @@ export default class WalletsMPCWalletsApi {
     /**
      * Get TSS request
      * This operation retrieves detailed information about a TSS request. 
-     * @param {String} vault_id The vault ID, which you can retrieve by calling [List all vaults](https://www.cobo.com/developers/v2/api-references/wallets--mpc-wallet/list-all-mpc-vaults).
+     * @param {String} vault_id The vault ID, which you can retrieve by calling [List all vaults](https://www.cobo.com/developers/v2/api-references/wallets--mpc-wallets/list-all-vaults).
      * @param {String} tss_request_id The TSS request ID, which you can retrieve by calling [List TSS requests](https://www.cobo.com/developers/v2/api-references/wallets--mpc-wallets/list-tss-requests).
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/TSSRequest} and HTTP response
      */
@@ -569,7 +628,7 @@ export default class WalletsMPCWalletsApi {
       let formParams = {
       };
 
-      let authNames = ['OAuth2', 'CoboAuth'];
+      let authNames = ['OAuth2'];
       let contentTypes = [];
       let accepts = ['application/json'];
       let returnType = TSSRequest;
@@ -583,7 +642,7 @@ export default class WalletsMPCWalletsApi {
     /**
      * Get TSS request
      * This operation retrieves detailed information about a TSS request. 
-     * @param {String} vault_id The vault ID, which you can retrieve by calling [List all vaults](https://www.cobo.com/developers/v2/api-references/wallets--mpc-wallet/list-all-mpc-vaults).
+     * @param {String} vault_id The vault ID, which you can retrieve by calling [List all vaults](https://www.cobo.com/developers/v2/api-references/wallets--mpc-wallets/list-all-vaults).
      * @param {String} tss_request_id The TSS request ID, which you can retrieve by calling [List TSS requests](https://www.cobo.com/developers/v2/api-references/wallets--mpc-wallets/list-tss-requests).
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/TSSRequest}
      */
@@ -642,7 +701,7 @@ export default class WalletsMPCWalletsApi {
     /**
      * List all key share holder groups
      * This operation retrieves all key share holder groups under a specified vault. You can filter the result by group type. 
-     * @param {String} vault_id The vault ID, which you can retrieve by calling [List all vaults](https://www.cobo.com/developers/v2/api-references/wallets--mpc-wallet/list-all-mpc-vaults).
+     * @param {String} vault_id The vault ID, which you can retrieve by calling [List all vaults](https://www.cobo.com/developers/v2/api-references/wallets--mpc-wallets/list-all-vaults).
      * @param {Object} opts Optional parameters
      * @param {module:model/KeyShareHolderGroupType} [key_share_holder_group_type] The key share holder group type. Possible values include: - `MainGroup`: The [Main Group](https://manuals.cobo.com/en/portal/mpc-wallets/ocw/create-key-share-groups#main-group).  - `SigningGroup`: The [Signing Group](https://manuals.cobo.com/en/portal/mpc-wallets/ocw/create-key-share-groups#signing-group).  - `RecoveryGroup`: The [Recovery Group](https://manuals.cobo.com/en/portal/mpc-wallets/ocw/create-key-share-groups#recovery-group).  **Note**: If this parameter is left empty, all key share holder group types will be retrieved. 
      * @param {Number} [limit = 10)] The maximum number of objects to return. For most operations, the value range is [1, 50].
@@ -675,7 +734,7 @@ export default class WalletsMPCWalletsApi {
       let formParams = {
       };
 
-      let authNames = ['CoboAuth'];
+      let authNames = ['OAuth2'];
       let contentTypes = [];
       let accepts = ['application/json'];
       let returnType = ListKeyShareHolderGroups200Response;
@@ -689,7 +748,7 @@ export default class WalletsMPCWalletsApi {
     /**
      * List all key share holder groups
      * This operation retrieves all key share holder groups under a specified vault. You can filter the result by group type. 
-     * @param {String} vault_id The vault ID, which you can retrieve by calling [List all vaults](https://www.cobo.com/developers/v2/api-references/wallets--mpc-wallet/list-all-mpc-vaults).
+     * @param {String} vault_id The vault ID, which you can retrieve by calling [List all vaults](https://www.cobo.com/developers/v2/api-references/wallets--mpc-wallets/list-all-vaults).
      * @param {Object} opts Optional parameters
      * @param {module:model/KeyShareHolderGroupType} opts.key_share_holder_group_type The key share holder group type. Possible values include: - `MainGroup`: The [Main Group](https://manuals.cobo.com/en/portal/mpc-wallets/ocw/create-key-share-groups#main-group).  - `SigningGroup`: The [Signing Group](https://manuals.cobo.com/en/portal/mpc-wallets/ocw/create-key-share-groups#signing-group).  - `RecoveryGroup`: The [Recovery Group](https://manuals.cobo.com/en/portal/mpc-wallets/ocw/create-key-share-groups#recovery-group).  **Note**: If this parameter is left empty, all key share holder group types will be retrieved. 
      * @param {Number} opts.limit The maximum number of objects to return. For most operations, the value range is [1, 50]. (default to 10)
@@ -699,6 +758,72 @@ export default class WalletsMPCWalletsApi {
      */
     listKeyShareHolderGroups(vault_id, opts) {
       return this.listKeyShareHolderGroupsWithHttpInfo(vault_id, opts)
+        .then(function(response_and_data) {
+          return response_and_data.data;
+        });
+    }
+
+
+    /**
+     * List all key share holders
+     * This operation retrieves all key share holders under a specified vault. You can filter the result by key share holder group id. 
+     * @param {String} vault_id The vault ID, which you can retrieve by calling [List all vaults](https://www.cobo.com/developers/v2/api-references/wallets--mpc-wallets/list-all-vaults).
+     * @param {Object} opts Optional parameters
+     * @param {String} [key_share_holder_group_ids] A list of key_share_holder_group_ids, separated by comma.
+     * @param {Number} [limit = 10)] The maximum number of objects to return. For most operations, the value range is [1, 50].
+     * @param {String} [before] This parameter specifies an object ID as a starting point for pagination, retrieving data before the specified object relative to the current dataset.    Suppose the current data is ordered as Object A, Object B, and Object C.  If you set `before` to the ID of Object C (`RqeEoTkgKG5rpzqYzg2Hd3szmPoj2cE7w5jWwShz3C1vyGSAk`), the response will include Object B and Object A.    **Notes**:   - If you set both `after` and `before`, an error will occur. - If you leave both `before` and `after` empty, the first page of data is returned. - If you set it to `infinity`, the last page of data is returned. 
+     * @param {String} [after] This parameter specifies an object ID as a starting point for pagination, retrieving data after the specified object relative to the current dataset.    Suppose the current data is ordered as Object A, Object B, and Object C. If you set `after` to the ID of Object A (`RqeEoTkgKG5rpzqYzg2Hd3szmPoj2cE7w5jWwShz3C1vyGSAk`), the response will include Object B and Object C.    **Notes**:   - If you set both `after` and `before`, an error will occur. - If you leave both `before` and `after` empty, the first page of data is returned. 
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/ListKeyShareHolders200Response} and HTTP response
+     */
+    listKeyShareHoldersWithHttpInfo(vault_id, opts) {
+      opts = opts || {};
+      let postBody = null;
+      if (postBody && postBody.toJSON) {
+          postBody = postBody.toJSON()
+      }
+      // verify the required parameter 'vault_id' is set
+      if (vault_id === undefined || vault_id === null) {
+        throw new Error("Missing the required parameter 'vault_id' when calling listKeyShareHolders");
+      }
+
+      let pathParams = {
+        'vault_id': vault_id
+      };
+      let queryParams = {
+        'key_share_holder_group_ids': opts['key_share_holder_group_ids'],
+        'limit': opts['limit'],
+        'before': opts['before'],
+        'after': opts['after']
+      };
+      let headerParams = {
+      };
+      let formParams = {
+      };
+
+      let authNames = ['CoboAuth'];
+      let contentTypes = [];
+      let accepts = ['application/json'];
+      let returnType = ListKeyShareHolders200Response;
+      return this.apiClient.callApi(
+        '/wallets/mpc/vaults/{vault_id}/key_share_holders', 'GET',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, null
+      );
+    }
+
+    /**
+     * List all key share holders
+     * This operation retrieves all key share holders under a specified vault. You can filter the result by key share holder group id. 
+     * @param {String} vault_id The vault ID, which you can retrieve by calling [List all vaults](https://www.cobo.com/developers/v2/api-references/wallets--mpc-wallets/list-all-vaults).
+     * @param {Object} opts Optional parameters
+     * @param {String} opts.key_share_holder_group_ids A list of key_share_holder_group_ids, separated by comma.
+     * @param {Number} opts.limit The maximum number of objects to return. For most operations, the value range is [1, 50]. (default to 10)
+     * @param {String} opts.before This parameter specifies an object ID as a starting point for pagination, retrieving data before the specified object relative to the current dataset.    Suppose the current data is ordered as Object A, Object B, and Object C.  If you set `before` to the ID of Object C (`RqeEoTkgKG5rpzqYzg2Hd3szmPoj2cE7w5jWwShz3C1vyGSAk`), the response will include Object B and Object A.    **Notes**:   - If you set both `after` and `before`, an error will occur. - If you leave both `before` and `after` empty, the first page of data is returned. - If you set it to `infinity`, the last page of data is returned. 
+     * @param {String} opts.after This parameter specifies an object ID as a starting point for pagination, retrieving data after the specified object relative to the current dataset.    Suppose the current data is ordered as Object A, Object B, and Object C. If you set `after` to the ID of Object A (`RqeEoTkgKG5rpzqYzg2Hd3szmPoj2cE7w5jWwShz3C1vyGSAk`), the response will include Object B and Object C.    **Notes**:   - If you set both `after` and `before`, an error will occur. - If you leave both `before` and `after` empty, the first page of data is returned. 
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/ListKeyShareHolders200Response}
+     */
+    listKeyShareHolders(vault_id, opts) {
+      return this.listKeyShareHoldersWithHttpInfo(vault_id, opts)
         .then(function(response_and_data) {
           return response_and_data.data;
         });
@@ -733,7 +858,7 @@ export default class WalletsMPCWalletsApi {
       let formParams = {
       };
 
-      let authNames = ['CoboAuth'];
+      let authNames = ['OAuth2'];
       let contentTypes = [];
       let accepts = ['application/json'];
       let returnType = ListMpcProjects200Response;
@@ -797,7 +922,7 @@ export default class WalletsMPCWalletsApi {
       let formParams = {
       };
 
-      let authNames = ['CoboAuth'];
+      let authNames = ['OAuth2'];
       let contentTypes = [];
       let accepts = ['application/json'];
       let returnType = ListMpcVaults200Response;
@@ -830,7 +955,7 @@ export default class WalletsMPCWalletsApi {
     /**
      * List TSS requests
      * This operation retrieves a list of TSS requests and their details. 
-     * @param {String} vault_id The vault ID, which you can retrieve by calling [List all vaults](https://www.cobo.com/developers/v2/api-references/wallets--mpc-wallet/list-all-mpc-vaults).
+     * @param {String} vault_id The vault ID, which you can retrieve by calling [List all vaults](https://www.cobo.com/developers/v2/api-references/wallets--mpc-wallets/list-all-vaults).
      * @param {String} key_share_holder_group_id The key share holder group ID of the TSS request, which you can retrieve by calling [List all key share holder groups](https://www.cobo.com/developers/v2/api-references/wallets--mpc-wallets/list-all-key-share-holder-groups).
      * @param {Object} opts Optional parameters
      * @param {Number} [limit = 10)] The maximum number of objects to return. For most operations, the value range is [1, 50].
@@ -867,7 +992,7 @@ export default class WalletsMPCWalletsApi {
       let formParams = {
       };
 
-      let authNames = ['CoboAuth'];
+      let authNames = ['OAuth2'];
       let contentTypes = [];
       let accepts = ['application/json'];
       let returnType = ListTssRequests200Response;
@@ -881,7 +1006,7 @@ export default class WalletsMPCWalletsApi {
     /**
      * List TSS requests
      * This operation retrieves a list of TSS requests and their details. 
-     * @param {String} vault_id The vault ID, which you can retrieve by calling [List all vaults](https://www.cobo.com/developers/v2/api-references/wallets--mpc-wallet/list-all-mpc-vaults).
+     * @param {String} vault_id The vault ID, which you can retrieve by calling [List all vaults](https://www.cobo.com/developers/v2/api-references/wallets--mpc-wallets/list-all-vaults).
      * @param {String} key_share_holder_group_id The key share holder group ID of the TSS request, which you can retrieve by calling [List all key share holder groups](https://www.cobo.com/developers/v2/api-references/wallets--mpc-wallets/list-all-key-share-holder-groups).
      * @param {Object} opts Optional parameters
      * @param {Number} opts.limit The maximum number of objects to return. For most operations, the value range is [1, 50]. (default to 10)
@@ -900,7 +1025,7 @@ export default class WalletsMPCWalletsApi {
     /**
      * Update key share holder group
      * This operation updates a specified active [Signing Group](https://manuals.cobo.com/en/portal/mpc-wallets/ocw/create-key-share-groups). For example, you can use this operation to upgrade a Signing Group to the [Main Group](https://manuals.cobo.com/en/portal/mpc-wallets/ocw/create-key-share-groups). 
-     * @param {String} vault_id The vault ID, which you can retrieve by calling [List all vaults](https://www.cobo.com/developers/v2/api-references/wallets--mpc-wallet/list-all-mpc-vaults).
+     * @param {String} vault_id The vault ID, which you can retrieve by calling [List all vaults](https://www.cobo.com/developers/v2/api-references/wallets--mpc-wallets/list-all-vaults).
      * @param {String} key_share_holder_group_id The key share holder group ID.
      * @param {Object} opts Optional parameters
      * @param {module:model/UpdateKeyShareHolderGroupByIdRequest} [UpdateKeyShareHolderGroupByIdRequest] 
@@ -932,7 +1057,7 @@ export default class WalletsMPCWalletsApi {
       let formParams = {
       };
 
-      let authNames = ['OAuth2', 'CoboAuth'];
+      let authNames = ['OAuth2'];
       let contentTypes = ['application/json'];
       let accepts = ['application/json'];
       let returnType = KeyShareHolderGroup;
@@ -946,7 +1071,7 @@ export default class WalletsMPCWalletsApi {
     /**
      * Update key share holder group
      * This operation updates a specified active [Signing Group](https://manuals.cobo.com/en/portal/mpc-wallets/ocw/create-key-share-groups). For example, you can use this operation to upgrade a Signing Group to the [Main Group](https://manuals.cobo.com/en/portal/mpc-wallets/ocw/create-key-share-groups). 
-     * @param {String} vault_id The vault ID, which you can retrieve by calling [List all vaults](https://www.cobo.com/developers/v2/api-references/wallets--mpc-wallet/list-all-mpc-vaults).
+     * @param {String} vault_id The vault ID, which you can retrieve by calling [List all vaults](https://www.cobo.com/developers/v2/api-references/wallets--mpc-wallets/list-all-vaults).
      * @param {String} key_share_holder_group_id The key share holder group ID.
      * @param {Object} opts Optional parameters
      * @param {module:model/UpdateKeyShareHolderGroupByIdRequest} opts.UpdateKeyShareHolderGroupByIdRequest 
@@ -989,7 +1114,7 @@ export default class WalletsMPCWalletsApi {
       let formParams = {
       };
 
-      let authNames = ['OAuth2', 'CoboAuth'];
+      let authNames = ['OAuth2'];
       let contentTypes = ['application/json'];
       let accepts = ['application/json'];
       let returnType = MPCProject;
@@ -1019,7 +1144,7 @@ export default class WalletsMPCWalletsApi {
     /**
      * Update vault name
      * This operation updates a vault's name.  <Info>To learn what a vault is and how it relates to MPC Wallets, see [Get started with MPC Wallets](https://www.cobo.com/developers/v2/guides/mpc-wallets/get-started-ocw#technical-architecture).</Info> 
-     * @param {String} vault_id The vault ID, which you can retrieve by calling [List all vaults](https://www.cobo.com/developers/v2/api-references/wallets--mpc-wallet/list-all-mpc-vaults).
+     * @param {String} vault_id The vault ID, which you can retrieve by calling [List all vaults](https://www.cobo.com/developers/v2/api-references/wallets--mpc-wallets/list-all-vaults).
      * @param {Object} opts Optional parameters
      * @param {module:model/UpdateMpcVaultByIdRequest} [UpdateMpcVaultByIdRequest] The request body to update a vault's name.
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/MPCVault} and HTTP response
@@ -1045,7 +1170,7 @@ export default class WalletsMPCWalletsApi {
       let formParams = {
       };
 
-      let authNames = ['OAuth2', 'CoboAuth'];
+      let authNames = ['OAuth2'];
       let contentTypes = ['application/json'];
       let accepts = ['application/json'];
       let returnType = MPCVault;
@@ -1059,7 +1184,7 @@ export default class WalletsMPCWalletsApi {
     /**
      * Update vault name
      * This operation updates a vault's name.  <Info>To learn what a vault is and how it relates to MPC Wallets, see [Get started with MPC Wallets](https://www.cobo.com/developers/v2/guides/mpc-wallets/get-started-ocw#technical-architecture).</Info> 
-     * @param {String} vault_id The vault ID, which you can retrieve by calling [List all vaults](https://www.cobo.com/developers/v2/api-references/wallets--mpc-wallet/list-all-mpc-vaults).
+     * @param {String} vault_id The vault ID, which you can retrieve by calling [List all vaults](https://www.cobo.com/developers/v2/api-references/wallets--mpc-wallets/list-all-vaults).
      * @param {Object} opts Optional parameters
      * @param {module:model/UpdateMpcVaultByIdRequest} opts.UpdateMpcVaultByIdRequest The request body to update a vault's name.
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/MPCVault}

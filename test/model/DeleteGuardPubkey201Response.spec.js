@@ -26,7 +26,7 @@
   var instance;
 
   beforeEach(function() {
-    instance = new CoboWaas2.TokenBalanceBalance();
+    instance = new CoboWaas2.DeleteGuardPubkey201Response();
   });
 
   var getProperty = function(object, getter, property) {
@@ -45,34 +45,16 @@
       object[property] = value;
   }
 
-  describe('TokenBalanceBalance', function() {
-    it('should create an instance of TokenBalanceBalance', function() {
-      // uncomment below and update the code to test TokenBalanceBalance
-      //var instance = new CoboWaas2.TokenBalanceBalance();
-      //expect(instance).to.be.a(CoboWaas2.TokenBalanceBalance);
+  describe('DeleteGuardPubkey201Response', function() {
+    it('should create an instance of DeleteGuardPubkey201Response', function() {
+      // uncomment below and update the code to test DeleteGuardPubkey201Response
+      //var instance = new CoboWaas2.DeleteGuardPubkey201Response();
+      //expect(instance).to.be.a(CoboWaas2.DeleteGuardPubkey201Response);
     });
 
-    it('should have the property total (base name: "total")', function() {
-      // uncomment below and update the code to test the property total
-      //var instance = new CoboWaas2.TokenBalanceBalance();
-      //expect(instance).to.be();
-    });
-
-    it('should have the property available (base name: "available")', function() {
-      // uncomment below and update the code to test the property available
-      //var instance = new CoboWaas2.TokenBalanceBalance();
-      //expect(instance).to.be();
-    });
-
-    it('should have the property pending (base name: "pending")', function() {
-      // uncomment below and update the code to test the property pending
-      //var instance = new CoboWaas2.TokenBalanceBalance();
-      //expect(instance).to.be();
-    });
-
-    it('should have the property locked (base name: "locked")', function() {
-      // uncomment below and update the code to test the property locked
-      //var instance = new CoboWaas2.TokenBalanceBalance();
+    it('should have the property statement_id (base name: "statement_id")', function() {
+      // uncomment below and update the code to test the property statement_id
+      //var instance = new CoboWaas2.DeleteGuardPubkey201Response();
       //expect(instance).to.be();
     });
 
