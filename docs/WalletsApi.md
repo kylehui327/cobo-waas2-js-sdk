@@ -14,7 +14,7 @@ Method | HTTP request | Description
 [**getMaxTransferableValue**](WalletsApi.md#getMaxTransferableValue) | **GET** /wallets/{wallet_id}/max_transferable_value | Get maximum transferable value
 [**getTokenById**](WalletsApi.md#getTokenById) | **GET** /wallets/tokens/{token_id} | Get token information
 [**getWalletById**](WalletsApi.md#getWalletById) | **GET** /wallets/{wallet_id} | Get wallet information
-[**listAddressBalancesForToken**](WalletsApi.md#listAddressBalancesForToken) | **GET** /wallets/{wallet_id}/tokens/{token_id} | List address balances for token
+[**listAddressBalancesByToken**](WalletsApi.md#listAddressBalancesByToken) | **GET** /wallets/{wallet_id}/tokens/{token_id} | List address balances by token
 [**listAddresses**](WalletsApi.md#listAddresses) | **GET** /wallets/{wallet_id}/addresses | List wallet addresses
 [**listEnabledChains**](WalletsApi.md#listEnabledChains) | **GET** /wallets/enabled_chains | List enabled chains
 [**listEnabledTokens**](WalletsApi.md#listEnabledTokens) | **GET** /wallets/enabled_tokens | List enabled tokens
@@ -552,13 +552,13 @@ Name | Type | Description  | Notes
 - **Accept**: application/json
 
 
-## listAddressBalancesForToken
+## listAddressBalancesByToken
 
-> ListAddressBalancesForToken200Response listAddressBalancesForToken(wallet_id, token_id, opts)
+> ListAddressBalancesByToken200Response listAddressBalancesByToken(wallet_id, token_id, opts)
 
-List address balances for token
+List address balances by token
 
-The operation retrieves a list of address balances for a specified token within a wallet.   &lt;Note&gt;This operation is applicable to MPC Wallets only.&lt;/Note&gt; 
+This operation retrieves a list of address balances for a specified token within a wallet.  &lt;Note&gt;This operation is applicable to MPC Wallets only.&lt;/Note&gt; 
 
 ### Example
 
@@ -580,7 +580,7 @@ const opts = {
   'before': "RqeEoTkgKG5rpzqYzg2Hd3szmPoj2cE7w5jWwShz3C1vyGmk1",
   'after': "RqeEoTkgKG5rpzqYzg2Hd3szmPoj2cE7w5jWwShz3C1vyGSAk"
 };
-apiInstance.listAddressBalancesForToken(wallet_id, token_id, opts).then((data) => {
+apiInstance.listAddressBalancesByToken(wallet_id, token_id, opts).then((data) => {
   console.log('API called successfully. Returned data: ' + data);
 }, (error) => {
   console.error(error);
@@ -602,7 +602,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**ListAddressBalancesForToken200Response**](ListAddressBalancesForToken200Response.md)
+[**ListAddressBalancesByToken200Response**](ListAddressBalancesByToken200Response.md)
 
 ### Authorization
 

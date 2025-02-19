@@ -187,7 +187,7 @@ ContractCallParams.prototype['category_names'] = undefined;
 ContractCallParams.prototype['fee'] = undefined;
 
 /**
- * Transaction processing type: **AutoProcess** means that after the transaction is constructed, it will be automatically signed and broadcasted. **AutoProcess** is the default vault. **BuildOnly** means that after the transaction is constructed, you need to manually call an interface to sign and broadcast it. 
+ * Transaction processing type. Possible values are: - `AutoProcess` (default): After the transaction is constructed, it will be automatically signed and broadcast.   - `BuildOnly`: Set to this value if you want to build the transaction first without automatically signing and broadcasting it. You can manually call the [Sign and broadcast transaction](https://www.cobo.com/developers/v2/api-references/transactions/sign-and-broadcast-transaction) operation to complete the signing and broadcasting process. 
  * @member {module:model/ContractCallParams.TransactionProcessTypeEnum} transaction_process_type
  */
 ContractCallParams.prototype['transaction_process_type'] = undefined;

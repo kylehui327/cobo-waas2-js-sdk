@@ -157,7 +157,7 @@ import KeyShareHolderGroupStatus from './model/KeyShareHolderGroupStatus';
 import KeyShareHolderGroupType from './model/KeyShareHolderGroupType';
 import KeyShareHolderStatus from './model/KeyShareHolderStatus';
 import KeyShareHolderType from './model/KeyShareHolderType';
-import ListAddressBalancesForToken200Response from './model/ListAddressBalancesForToken200Response';
+import ListAddressBalancesByToken200Response from './model/ListAddressBalancesByToken200Response';
 import ListAddressBooks200Response from './model/ListAddressBooks200Response';
 import ListAddresses200Response from './model/ListAddresses200Response';
 import ListAssetBalancesForExchangeWallet200Response from './model/ListAssetBalancesForExchangeWallet200Response';
@@ -1281,10 +1281,10 @@ export {
     KeyShareHolderType,
 
     /**
-     * The ListAddressBalancesForToken200Response model constructor.
-     * @property {module:model/ListAddressBalancesForToken200Response}
+     * The ListAddressBalancesByToken200Response model constructor.
+     * @property {module:model/ListAddressBalancesByToken200Response}
      */
-    ListAddressBalancesForToken200Response,
+    ListAddressBalancesByToken200Response,
 
     /**
      * The ListAddressBooks200Response model constructor.

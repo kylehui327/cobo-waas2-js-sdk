@@ -20,7 +20,7 @@ class CreatePrimeBrokerAddress201Response {
     /**
      * Constructs a new <code>CreatePrimeBrokerAddress201Response</code>.
      * @alias module:model/CreatePrimeBrokerAddress201Response
-     * @param pubkey {String} guard's pubkey.
+     * @param pubkey {String} The Cobo Guard's public key.
      */
     constructor(pubkey) { 
         
@@ -93,7 +93,7 @@ class CreatePrimeBrokerAddress201Response {
 CreatePrimeBrokerAddress201Response.RequiredProperties = ["pubkey"];
 
 /**
- * guard's pubkey.
+ * The Cobo Guard's public key.
  * @member {String} pubkey
  */
 CreatePrimeBrokerAddress201Response.prototype['pubkey'] = undefined;

@@ -14,17 +14,17 @@ import AddressBalance from './AddressBalance';
 import Pagination from './Pagination';
 
 /**
- * The ListAddressBalancesForToken200Response model module.
- * @module model/ListAddressBalancesForToken200Response
+ * The ListAddressBalancesByToken200Response model module.
+ * @module model/ListAddressBalancesByToken200Response
  */
-class ListAddressBalancesForToken200Response {
+class ListAddressBalancesByToken200Response {
     /**
-     * Constructs a new <code>ListAddressBalancesForToken200Response</code>.
-     * @alias module:model/ListAddressBalancesForToken200Response
+     * Constructs a new <code>ListAddressBalancesByToken200Response</code>.
+     * @alias module:model/ListAddressBalancesByToken200Response
      */
     constructor() { 
         
-        ListAddressBalancesForToken200Response.initialize(this);
+        ListAddressBalancesByToken200Response.initialize(this);
     }
 
     /**
@@ -36,15 +36,15 @@ class ListAddressBalancesForToken200Response {
     }
 
     /**
-     * Constructs a <code>ListAddressBalancesForToken200Response</code> from a plain JavaScript object, optionally creating a new instance.
+     * Constructs a <code>ListAddressBalancesByToken200Response</code> from a plain JavaScript object, optionally creating a new instance.
      * Copies all relevant properties from <code>data</code> to <code>obj</code> if supplied or a new instance if not.
      * @param {Object} data The plain JavaScript object bearing properties of interest.
-     * @param {module:model/ListAddressBalancesForToken200Response} obj Optional instance to populate.
-     * @return {module:model/ListAddressBalancesForToken200Response} The populated <code>ListAddressBalancesForToken200Response</code> instance.
+     * @param {module:model/ListAddressBalancesByToken200Response} obj Optional instance to populate.
+     * @return {module:model/ListAddressBalancesByToken200Response} The populated <code>ListAddressBalancesByToken200Response</code> instance.
      */
     static constructFromObject(data, obj) {
         if (data) {
-            obj = obj || new ListAddressBalancesForToken200Response();
+            obj = obj || new ListAddressBalancesByToken200Response();
 
             if (data.hasOwnProperty('data')) {
                 obj['data'] = ApiClient.convertToType(data['data'], [AddressBalance]);
@@ -57,9 +57,9 @@ class ListAddressBalancesForToken200Response {
     }
 
     /**
-     * Validates the JSON data with respect to <code>ListAddressBalancesForToken200Response</code>.
+     * Validates the JSON data with respect to <code>ListAddressBalancesByToken200Response</code>.
      * @param {Object} data The plain JavaScript object bearing properties of interest.
-     * @return {boolean} to indicate whether the JSON data is valid with respect to <code>ListAddressBalancesForToken200Response</code>.
+     * @return {boolean} to indicate whether the JSON data is valid with respect to <code>ListAddressBalancesByToken200Response</code>.
      */
     static validateJSON(data) {
         if (data['data']) { // data not null
@@ -90,17 +90,17 @@ class ListAddressBalancesForToken200Response {
 /**
  * @member {Array.<module:model/AddressBalance>} data
  */
-ListAddressBalancesForToken200Response.prototype['data'] = undefined;
+ListAddressBalancesByToken200Response.prototype['data'] = undefined;
 
 /**
  * @member {module:model/Pagination} pagination
  */
-ListAddressBalancesForToken200Response.prototype['pagination'] = undefined;
+ListAddressBalancesByToken200Response.prototype['pagination'] = undefined;
 
 
 
 
 
 
-export default ListAddressBalancesForToken200Response;
+export default ListAddressBalancesByToken200Response;
 

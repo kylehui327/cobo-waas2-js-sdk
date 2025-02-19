@@ -379,8 +379,8 @@ export default class WalletsMPCWalletsApi {
 
 
     /**
-     * Get key share holder by tss node id
-     * This operation retrieves detailed information about a specified key holder. 
+     * Get key share holder information
+     * This operation retrieves detailed information about a specified key share holder. 
      * @param {String} vault_id The vault ID, which you can retrieve by calling [List all vaults](https://www.cobo.com/developers/v2/api-references/wallets--mpc-wallets/list-all-vaults).
      * @param {String} tss_node_id The TSS Node ID.
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/KeyShareHolder} and HTTP response
@@ -422,8 +422,8 @@ export default class WalletsMPCWalletsApi {
     }
 
     /**
-     * Get key share holder by tss node id
-     * This operation retrieves detailed information about a specified key holder. 
+     * Get key share holder information
+     * This operation retrieves detailed information about a specified key share holder. 
      * @param {String} vault_id The vault ID, which you can retrieve by calling [List all vaults](https://www.cobo.com/developers/v2/api-references/wallets--mpc-wallets/list-all-vaults).
      * @param {String} tss_node_id The TSS Node ID.
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/KeyShareHolder}
@@ -766,10 +766,10 @@ export default class WalletsMPCWalletsApi {
 
     /**
      * List all key share holders
-     * This operation retrieves all key share holders under a specified vault. You can filter the result by key share holder group id. 
+     * This operation retrieves a list of all key share holders under a specified vault. You can filter the result by key share holder group ID. 
      * @param {String} vault_id The vault ID, which you can retrieve by calling [List all vaults](https://www.cobo.com/developers/v2/api-references/wallets--mpc-wallets/list-all-vaults).
      * @param {Object} opts Optional parameters
-     * @param {String} [key_share_holder_group_ids] A list of key_share_holder_group_ids, separated by comma.
+     * @param {String} [key_share_holder_group_ids] A list of key share holder group IDs, separated by comma. You can retrieve the IDs of all the key share holder groups by calling [List all key share holder groups](https://www.cobo.com/developers/v2/api-references/wallets--mpc-wallets/list-all-key-share-holder-groups).
      * @param {Number} [limit = 10)] The maximum number of objects to return. For most operations, the value range is [1, 50].
      * @param {String} [before] This parameter specifies an object ID as a starting point for pagination, retrieving data before the specified object relative to the current dataset.    Suppose the current data is ordered as Object A, Object B, and Object C.  If you set `before` to the ID of Object C (`RqeEoTkgKG5rpzqYzg2Hd3szmPoj2cE7w5jWwShz3C1vyGSAk`), the response will include Object B and Object A.    **Notes**:   - If you set both `after` and `before`, an error will occur. - If you leave both `before` and `after` empty, the first page of data is returned. - If you set it to `infinity`, the last page of data is returned. 
      * @param {String} [after] This parameter specifies an object ID as a starting point for pagination, retrieving data after the specified object relative to the current dataset.    Suppose the current data is ordered as Object A, Object B, and Object C. If you set `after` to the ID of Object A (`RqeEoTkgKG5rpzqYzg2Hd3szmPoj2cE7w5jWwShz3C1vyGSAk`), the response will include Object B and Object C.    **Notes**:   - If you set both `after` and `before`, an error will occur. - If you leave both `before` and `after` empty, the first page of data is returned. 
@@ -813,10 +813,10 @@ export default class WalletsMPCWalletsApi {
 
     /**
      * List all key share holders
-     * This operation retrieves all key share holders under a specified vault. You can filter the result by key share holder group id. 
+     * This operation retrieves a list of all key share holders under a specified vault. You can filter the result by key share holder group ID. 
      * @param {String} vault_id The vault ID, which you can retrieve by calling [List all vaults](https://www.cobo.com/developers/v2/api-references/wallets--mpc-wallets/list-all-vaults).
      * @param {Object} opts Optional parameters
-     * @param {String} opts.key_share_holder_group_ids A list of key_share_holder_group_ids, separated by comma.
+     * @param {String} opts.key_share_holder_group_ids A list of key share holder group IDs, separated by comma. You can retrieve the IDs of all the key share holder groups by calling [List all key share holder groups](https://www.cobo.com/developers/v2/api-references/wallets--mpc-wallets/list-all-key-share-holder-groups).
      * @param {Number} opts.limit The maximum number of objects to return. For most operations, the value range is [1, 50]. (default to 10)
      * @param {String} opts.before This parameter specifies an object ID as a starting point for pagination, retrieving data before the specified object relative to the current dataset.    Suppose the current data is ordered as Object A, Object B, and Object C.  If you set `before` to the ID of Object C (`RqeEoTkgKG5rpzqYzg2Hd3szmPoj2cE7w5jWwShz3C1vyGSAk`), the response will include Object B and Object A.    **Notes**:   - If you set both `after` and `before`, an error will occur. - If you leave both `before` and `after` empty, the first page of data is returned. - If you set it to `infinity`, the last page of data is returned. 
      * @param {String} opts.after This parameter specifies an object ID as a starting point for pagination, retrieving data after the specified object relative to the current dataset.    Suppose the current data is ordered as Object A, Object B, and Object C. If you set `after` to the ID of Object A (`RqeEoTkgKG5rpzqYzg2Hd3szmPoj2cE7w5jWwShz3C1vyGSAk`), the response will include Object B and Object C.    **Notes**:   - If you set both `after` and `before`, an error will occur. - If you leave both `before` and `after` empty, the first page of data is returned. 

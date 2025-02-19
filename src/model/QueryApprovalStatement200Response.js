@@ -89,19 +89,19 @@ class QueryApprovalStatement200Response {
 
 
 /**
- * approval statement id.
+ * The approval statement ID.
  * @member {String} id
  */
 QueryApprovalStatement200Response.prototype['id'] = undefined;
 
 /**
- * approver user id.
+ * The user ID of the approver.
  * @member {String} user_id
  */
 QueryApprovalStatement200Response.prototype['user_id'] = undefined;
 
 /**
- * approver user pubkey.
+ * The Cobo Guard public key of the approver.
  * @member {String} pubkey
  */
 QueryApprovalStatement200Response.prototype['pubkey'] = undefined;

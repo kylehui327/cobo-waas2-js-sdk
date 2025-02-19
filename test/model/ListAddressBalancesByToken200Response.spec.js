@@ -26,7 +26,7 @@
   var instance;
 
   beforeEach(function() {
-    instance = new CoboWaas2.ListAddressBalancesForToken200Response();
+    instance = new CoboWaas2.ListAddressBalancesByToken200Response();
   });
 
   var getProperty = function(object, getter, property) {
@@ -45,22 +45,22 @@
       object[property] = value;
   }
 
-  describe('ListAddressBalancesForToken200Response', function() {
-    it('should create an instance of ListAddressBalancesForToken200Response', function() {
-      // uncomment below and update the code to test ListAddressBalancesForToken200Response
-      //var instance = new CoboWaas2.ListAddressBalancesForToken200Response();
-      //expect(instance).to.be.a(CoboWaas2.ListAddressBalancesForToken200Response);
+  describe('ListAddressBalancesByToken200Response', function() {
+    it('should create an instance of ListAddressBalancesByToken200Response', function() {
+      // uncomment below and update the code to test ListAddressBalancesByToken200Response
+      //var instance = new CoboWaas2.ListAddressBalancesByToken200Response();
+      //expect(instance).to.be.a(CoboWaas2.ListAddressBalancesByToken200Response);
     });
 
     it('should have the property data (base name: "data")', function() {
       // uncomment below and update the code to test the property data
-      //var instance = new CoboWaas2.ListAddressBalancesForToken200Response();
+      //var instance = new CoboWaas2.ListAddressBalancesByToken200Response();
       //expect(instance).to.be();
     });
 
     it('should have the property pagination (base name: "pagination")', function() {
       // uncomment below and update the code to test the property pagination
-      //var instance = new CoboWaas2.ListAddressBalancesForToken200Response();
+      //var instance = new CoboWaas2.ListAddressBalancesByToken200Response();
       //expect(instance).to.be();
     });
 

@@ -39,9 +39,9 @@ export default class PrimeBrokerApi {
 
 
     /**
-     * change a user guard pubkey
-     * This operation change a user guard pubkey. 
-     * @param {String} user_id user id.
+     * Change Guard pubkey binding
+     * This operation updates an existing binding to associate a broker user ID with a new Cobo Guard public key. 
+     * @param {String} user_id The user ID.
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/ChangeGuardPubkey200Response} and HTTP response
      */
     changeGuardPubkeyWithHttpInfo(user_id) {
@@ -76,9 +76,9 @@ export default class PrimeBrokerApi {
     }
 
     /**
-     * change a user guard pubkey
-     * This operation change a user guard pubkey. 
-     * @param {String} user_id user id.
+     * Change Guard pubkey binding
+     * This operation updates an existing binding to associate a broker user ID with a new Cobo Guard public key. 
+     * @param {String} user_id The user ID.
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/ChangeGuardPubkey200Response}
      */
     changeGuardPubkey(user_id) {
@@ -90,9 +90,9 @@ export default class PrimeBrokerApi {
 
 
     /**
-     * create a guard pubkey binding
-     * This operation create a guard pubkey binding. 
-     * @param {String} user_id user id.
+     * Create Guard pubkey binding
+     * This operation creates a binding between a broker user ID and a Cobo Guard public key.  
+     * @param {String} user_id The user ID.
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/ChangeGuardPubkey200Response} and HTTP response
      */
     createGuardPubkeyWithHttpInfo(user_id) {
@@ -127,9 +127,9 @@ export default class PrimeBrokerApi {
     }
 
     /**
-     * create a guard pubkey binding
-     * This operation create a guard pubkey binding. 
-     * @param {String} user_id user id.
+     * Create Guard pubkey binding
+     * This operation creates a binding between a broker user ID and a Cobo Guard public key.  
+     * @param {String} user_id The user ID.
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/ChangeGuardPubkey200Response}
      */
     createGuardPubkey(user_id) {
@@ -141,11 +141,11 @@ export default class PrimeBrokerApi {
 
 
     /**
-     * bind addresses to a broker user
-     * This operation bind addresses to a broker user. 
-     * @param {String} user_id user id.
+     * Bind addresses to a broker user
+     * This operation binds addresses to a broker user. 
+     * @param {String} user_id The user ID.
      * @param {Object} opts Optional parameters
-     * @param {module:model/CreatePrimeBrokerAddressRequest} [CreatePrimeBrokerAddressRequest] The request body to binding addresses to a broker user.
+     * @param {module:model/CreatePrimeBrokerAddressRequest} [CreatePrimeBrokerAddressRequest] The request body to bind addresses to a broker user.
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/CreatePrimeBrokerAddress201Response} and HTTP response
      */
     createPrimeBrokerAddressWithHttpInfo(user_id, opts) {
@@ -181,11 +181,11 @@ export default class PrimeBrokerApi {
     }
 
     /**
-     * bind addresses to a broker user
-     * This operation bind addresses to a broker user. 
-     * @param {String} user_id user id.
+     * Bind addresses to a broker user
+     * This operation binds addresses to a broker user. 
+     * @param {String} user_id The user ID.
      * @param {Object} opts Optional parameters
-     * @param {module:model/CreatePrimeBrokerAddressRequest} opts.CreatePrimeBrokerAddressRequest The request body to binding addresses to a broker user.
+     * @param {module:model/CreatePrimeBrokerAddressRequest} opts.CreatePrimeBrokerAddressRequest The request body to bind addresses to a broker user.
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/CreatePrimeBrokerAddress201Response}
      */
     createPrimeBrokerAddress(user_id, opts) {
@@ -197,9 +197,9 @@ export default class PrimeBrokerApi {
 
 
     /**
-     * delete a user guard pubkey
-     * This operation delete a user guard pubkey. 
-     * @param {String} user_id user id.
+     * Delete Guard pubkey binding
+     * This operation deletes a binding between a broker user ID and a Cobo Guard public key. 
+     * @param {String} user_id The user ID.
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/DeleteGuardPubkey201Response} and HTTP response
      */
     deleteGuardPubkeyWithHttpInfo(user_id) {
@@ -234,9 +234,9 @@ export default class PrimeBrokerApi {
     }
 
     /**
-     * delete a user guard pubkey
-     * This operation delete a user guard pubkey. 
-     * @param {String} user_id user id.
+     * Delete Guard pubkey binding
+     * This operation deletes a binding between a broker user ID and a Cobo Guard public key. 
+     * @param {String} user_id The user ID.
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/DeleteGuardPubkey201Response}
      */
     deleteGuardPubkey(user_id) {
@@ -248,9 +248,9 @@ export default class PrimeBrokerApi {
 
 
     /**
-     * query a approval statement
-     * This operation query a approval statement. 
-     * @param {String} statement_id approval statement id.
+     * Query approval statement
+     * This operation queries an approval statement. 
+     * @param {String} statement_id The approval statement ID.
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/QueryApprovalStatement200Response} and HTTP response
      */
     queryApprovalStatementWithHttpInfo(statement_id) {
@@ -285,9 +285,9 @@ export default class PrimeBrokerApi {
     }
 
     /**
-     * query a approval statement
-     * This operation query a approval statement. 
-     * @param {String} statement_id approval statement id.
+     * Query approval statement
+     * This operation queries an approval statement. 
+     * @param {String} statement_id The approval statement ID.
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/QueryApprovalStatement200Response}
      */
     queryApprovalStatement(statement_id) {
@@ -299,9 +299,9 @@ export default class PrimeBrokerApi {
 
 
     /**
-     * query a user guard pubkey
-     * This operation query a user guard pubkey 
-     * @param {String} user_id user id.
+     * Query a Guard pubkey
+     * This operation retrieves the current Cobo Guard public key binding details for a broker user. 
+     * @param {String} user_id The user ID.
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/QueryGuardPubkey200Response} and HTTP response
      */
     queryGuardPubkeyWithHttpInfo(user_id) {
@@ -336,9 +336,9 @@ export default class PrimeBrokerApi {
     }
 
     /**
-     * query a user guard pubkey
-     * This operation query a user guard pubkey 
-     * @param {String} user_id user id.
+     * Query a Guard pubkey
+     * This operation retrieves the current Cobo Guard public key binding details for a broker user. 
+     * @param {String} user_id The user ID.
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/QueryGuardPubkey200Response}
      */
     queryGuardPubkey(user_id) {

@@ -151,7 +151,7 @@ docs/KeyShareHolderGroupStatus.md
 docs/KeyShareHolderGroupType.md
 docs/KeyShareHolderStatus.md
 docs/KeyShareHolderType.md
-docs/ListAddressBalancesForToken200Response.md
+docs/ListAddressBalancesByToken200Response.md
 docs/ListAddressBooks200Response.md
 docs/ListAddresses200Response.md
 docs/ListAssetBalancesForExchangeWallet200Response.md
@@ -530,7 +530,7 @@ src/model/KeyShareHolderGroupStatus.js
 src/model/KeyShareHolderGroupType.js
 src/model/KeyShareHolderStatus.js
 src/model/KeyShareHolderType.js
-src/model/ListAddressBalancesForToken200Response.js
+src/model/ListAddressBalancesByToken200Response.js
 src/model/ListAddressBooks200Response.js
 src/model/ListAddresses200Response.js
 src/model/ListAssetBalancesForExchangeWallet200Response.js
@@ -889,7 +889,7 @@ test/model/KeyShareHolderGroupStatus.spec.js
 test/model/KeyShareHolderGroupType.spec.js
 test/model/KeyShareHolderStatus.spec.js
 test/model/KeyShareHolderType.spec.js
-test/model/ListAddressBalancesForToken200Response.spec.js
+test/model/ListAddressBalancesByToken200Response.spec.js
 test/model/ListAddressBooks200Response.spec.js
 test/model/ListAddresses200Response.spec.js
 test/model/ListAssetBalancesForExchangeWallet200Response.spec.js

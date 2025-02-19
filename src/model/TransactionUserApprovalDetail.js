@@ -111,7 +111,7 @@ class TransactionUserApprovalDetail {
 
 
 /**
- * The gaurd pubkey of the user who audited the message.
+ * The Cobo Guard public key of the user who audited this message.
  * @member {String} pubkey
  */
 TransactionUserApprovalDetail.prototype['pubkey'] = undefined;
@@ -122,7 +122,7 @@ TransactionUserApprovalDetail.prototype['pubkey'] = undefined;
 TransactionUserApprovalDetail.prototype['result'] = undefined;
 
 /**
- * Signature of the audited message.
+ * The signature of the audited message.
  * @member {String} signature
  */
 TransactionUserApprovalDetail.prototype['signature'] = undefined;
@@ -134,7 +134,7 @@ TransactionUserApprovalDetail.prototype['signature'] = undefined;
 TransactionUserApprovalDetail.prototype['language'] = undefined;
 
 /**
- * Version of the audited message.
+ * The version of the audited message.
  * @member {String} message_version
  */
 TransactionUserApprovalDetail.prototype['message_version'] = undefined;

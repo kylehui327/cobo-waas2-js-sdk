@@ -39,6 +39,13 @@ export default class MessageSignDestinationType {
 
     
         /**
+         * value: "Raw_Message_Signature"
+         * @const
+         */
+        "Raw_Message_Signature" = "Raw_Message_Signature";
+
+    
+        /**
          * value: "unknown_default_open_api"
          * @const
          */

@@ -142,7 +142,7 @@ AddressTransferDestination.prototype['utxo_outputs'] = undefined;
 AddressTransferDestination.prototype['change_address'] = undefined;
 
 /**
- * The type of change output: **Last** means the change output is located at the end of the transaction's outputs, **Last** is the default value. while **First** means it is located at the beginning of the transaction's outputs. 
+ * The position of the change output in the transaction's outputs. Possible values are: - `Last`: The change output is placed at the end of the transaction's outputs.   - `First`: The change output is placed at the beginning of the transaction's outputs. 
  * @member {module:model/AddressTransferDestination.ChangeOutputTypeEnum} change_output_type
  */
 AddressTransferDestination.prototype['change_output_type'] = undefined;

@@ -19,7 +19,7 @@ import Balance from './Balance';
 class AddressBalance {
     /**
      * Constructs a new <code>AddressBalance</code>.
-     * The balances of a specific token under address.
+     * The token balance for a specific wallet address.
      * @alias module:model/AddressBalance
      * @param address {String} The wallet address.
      * @param balance {module:model/Balance} 

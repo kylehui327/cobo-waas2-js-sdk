@@ -9,6 +9,8 @@
 
 * `BTC_EIP_191_Signature` (value: `"BTC_EIP_191_Signature"`)
 
+* `Raw_Message_Signature` (value: `"Raw_Message_Signature"`)
+
 * `unknown_default_open_api` (value: `"unknown_default_open_api"`)
 
 

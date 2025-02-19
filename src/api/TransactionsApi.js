@@ -464,7 +464,7 @@ export default class TransactionsApi {
 
 
     /**
-     * Get transaction approval information
+     * Get transaction approval details
      * This operation retrieves approval detailed information about a specified transaction. 
      * @param {String} transaction_id The transaction ID.
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/TransactionApprovalDetail} and HTTP response
@@ -501,7 +501,7 @@ export default class TransactionsApi {
     }
 
     /**
-     * Get transaction approval information
+     * Get transaction approval details
      * This operation retrieves approval detailed information about a specified transaction. 
      * @param {String} transaction_id The transaction ID.
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/TransactionApprovalDetail}
@@ -721,7 +721,7 @@ export default class TransactionsApi {
 
     /**
      * Sign and broadcast transaction
-     * This operation sign and broadcast a specified transaction. 
+     * This operation signs and broadcasts a specified transaction.  To call this operation, the following conditions must be met: - The `transaction_process_type` of the transaction must be set to `BuildOnly` when you call the [Transfer token](https://www.cobo.com/developers/v2/api-references/transactions/transfer-token) or [Call smart contract](https://www.cobo.com/developers/v2/api-references/transactions/call-smart-contract) operation.   - The transaction status must be `Built`. 
      * @param {String} transaction_id The transaction ID.
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/CreateTransferTransaction201Response} and HTTP response
      */
@@ -758,7 +758,7 @@ export default class TransactionsApi {
 
     /**
      * Sign and broadcast transaction
-     * This operation sign and broadcast a specified transaction. 
+     * This operation signs and broadcasts a specified transaction.  To call this operation, the following conditions must be met: - The `transaction_process_type` of the transaction must be set to `BuildOnly` when you call the [Transfer token](https://www.cobo.com/developers/v2/api-references/transactions/transfer-token) or [Call smart contract](https://www.cobo.com/developers/v2/api-references/transactions/call-smart-contract) operation.   - The transaction status must be `Built`. 
      * @param {String} transaction_id The transaction ID.
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/CreateTransferTransaction201Response}
      */

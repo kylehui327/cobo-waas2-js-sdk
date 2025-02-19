@@ -1,4 +1,4 @@
-# CoboWaas2.ListAddressBalancesForToken200Response
+# CoboWaas2.ListAddressBalancesByToken200Response
 
 ## Properties
 

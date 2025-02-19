@@ -4,12 +4,12 @@ All URIs are relative to *https://api.dev.cobo.com/v2*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**changeGuardPubkey**](PrimeBrokerApi.md#changeGuardPubkey) | **PUT** /prime_broker/user/{user_id}/guard_pubkey | change a user guard pubkey
-[**createGuardPubkey**](PrimeBrokerApi.md#createGuardPubkey) | **POST** /prime_broker/user/{user_id}/guard_pubkey | create a guard pubkey binding
-[**createPrimeBrokerAddress**](PrimeBrokerApi.md#createPrimeBrokerAddress) | **POST** /prime_broker/user/{user_id}/addresses | bind addresses to a broker user
-[**deleteGuardPubkey**](PrimeBrokerApi.md#deleteGuardPubkey) | **POST** /prime_broker/user/{user_id}/guard_pubkey/delete | delete a user guard pubkey
-[**queryApprovalStatement**](PrimeBrokerApi.md#queryApprovalStatement) | **GET** /prime_broker/approval_statement/{statement_id} | query a approval statement
-[**queryGuardPubkey**](PrimeBrokerApi.md#queryGuardPubkey) | **GET** /prime_broker/user/{user_id}/guard_pubkey | query a user guard pubkey
+[**changeGuardPubkey**](PrimeBrokerApi.md#changeGuardPubkey) | **PUT** /prime_broker/user/{user_id}/guard_pubkey | Change Guard pubkey binding
+[**createGuardPubkey**](PrimeBrokerApi.md#createGuardPubkey) | **POST** /prime_broker/user/{user_id}/guard_pubkey | Create Guard pubkey binding
+[**createPrimeBrokerAddress**](PrimeBrokerApi.md#createPrimeBrokerAddress) | **POST** /prime_broker/user/{user_id}/addresses | Bind addresses to a broker user
+[**deleteGuardPubkey**](PrimeBrokerApi.md#deleteGuardPubkey) | **POST** /prime_broker/user/{user_id}/guard_pubkey/delete | Delete Guard pubkey binding
+[**queryApprovalStatement**](PrimeBrokerApi.md#queryApprovalStatement) | **GET** /prime_broker/approval_statement/{statement_id} | Query approval statement
+[**queryGuardPubkey**](PrimeBrokerApi.md#queryGuardPubkey) | **GET** /prime_broker/user/{user_id}/guard_pubkey | Query a Guard pubkey
 
 
 
@@ -17,9 +17,9 @@ Method | HTTP request | Description
 
 > ChangeGuardPubkey200Response changeGuardPubkey(user_id)
 
-change a user guard pubkey
+Change Guard pubkey binding
 
-This operation change a user guard pubkey. 
+This operation updates an existing binding to associate a broker user ID with a new Cobo Guard public key. 
 
 ### Example
 
@@ -47,7 +47,7 @@ apiInstance.changeGuardPubkey(user_id).then((data) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **user_id** | **String**| user id. | 
+ **user_id** | **String**| The user ID. | 
 
 ### Return type
 
@@ -67,9 +67,9 @@ Name | Type | Description  | Notes
 
 > ChangeGuardPubkey200Response createGuardPubkey(user_id)
 
-create a guard pubkey binding
+Create Guard pubkey binding
 
-This operation create a guard pubkey binding. 
+This operation creates a binding between a broker user ID and a Cobo Guard public key.  
 
 ### Example
 
@@ -97,7 +97,7 @@ apiInstance.createGuardPubkey(user_id).then((data) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **user_id** | **String**| user id. | 
+ **user_id** | **String**| The user ID. | 
 
 ### Return type
 
@@ -117,9 +117,9 @@ Name | Type | Description  | Notes
 
 > CreatePrimeBrokerAddress201Response createPrimeBrokerAddress(user_id, opts)
 
-bind addresses to a broker user
+Bind addresses to a broker user
 
-This operation bind addresses to a broker user. 
+This operation binds addresses to a broker user. 
 
 ### Example
 
@@ -150,8 +150,8 @@ apiInstance.createPrimeBrokerAddress(user_id, opts).then((data) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **user_id** | **String**| user id. | 
- **CreatePrimeBrokerAddressRequest** | [**CreatePrimeBrokerAddressRequest**](CreatePrimeBrokerAddressRequest.md)| The request body to binding addresses to a broker user. | [optional] 
+ **user_id** | **String**| The user ID. | 
+ **CreatePrimeBrokerAddressRequest** | [**CreatePrimeBrokerAddressRequest**](CreatePrimeBrokerAddressRequest.md)| The request body to bind addresses to a broker user. | [optional] 
 
 ### Return type
 
@@ -171,9 +171,9 @@ Name | Type | Description  | Notes
 
 > DeleteGuardPubkey201Response deleteGuardPubkey(user_id)
 
-delete a user guard pubkey
+Delete Guard pubkey binding
 
-This operation delete a user guard pubkey. 
+This operation deletes a binding between a broker user ID and a Cobo Guard public key. 
 
 ### Example
 
@@ -201,7 +201,7 @@ apiInstance.deleteGuardPubkey(user_id).then((data) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **user_id** | **String**| user id. | 
+ **user_id** | **String**| The user ID. | 
 
 ### Return type
 
@@ -221,9 +221,9 @@ Name | Type | Description  | Notes
 
 > QueryApprovalStatement200Response queryApprovalStatement(statement_id)
 
-query a approval statement
+Query approval statement
 
-This operation query a approval statement. 
+This operation queries an approval statement. 
 
 ### Example
 
@@ -251,7 +251,7 @@ apiInstance.queryApprovalStatement(statement_id).then((data) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **statement_id** | **String**| approval statement id. | 
+ **statement_id** | **String**| The approval statement ID. | 
 
 ### Return type
 
@@ -271,9 +271,9 @@ Name | Type | Description  | Notes
 
 > QueryGuardPubkey200Response queryGuardPubkey(user_id)
 
-query a user guard pubkey
+Query a Guard pubkey
 
-This operation query a user guard pubkey 
+This operation retrieves the current Cobo Guard public key binding details for a broker user. 
 
 ### Example
 
@@ -301,7 +301,7 @@ apiInstance.queryGuardPubkey(user_id).then((data) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **user_id** | **String**| user id. | 
+ **user_id** | **String**| The user ID. | 
 
 ### Return type
 
