@@ -18,11 +18,11 @@ import ApiClient from '../ApiClient';
 class Vasp {
     /**
      * Constructs a new <code>Vasp</code>.
-     * The information of an vasp.
+     * The information of a virtual asset service provider (VASP).
      * @alias module:model/Vasp
-     * @param name {String} The name of the vasp.
-     * @param vendor_code {String} The symbol.
-     * @param vendor_vasp_id {String} The vasp str id.
+     * @param name {String} The VASP name.
+     * @param vendor_code {String} The vendor code of the VASP.
+     * @param vendor_vasp_id {String} The VASP ID.
      */
     constructor(name, vendor_code, vendor_vasp_id) { 
         
@@ -98,19 +98,19 @@ class Vasp {
 Vasp.RequiredProperties = ["name", "vendor_code", "vendor_vasp_id"];
 
 /**
- * The name of the vasp.
+ * The VASP name.
  * @member {String} name
  */
 Vasp.prototype['name'] = undefined;
 
 /**
- * The symbol.
+ * The vendor code of the VASP.
  * @member {String} vendor_code
  */
 Vasp.prototype['vendor_code'] = undefined;
 
 /**
- * The vasp str id.
+ * The VASP ID.
  * @member {String} vendor_vasp_id
  */
 Vasp.prototype['vendor_vasp_id'] = undefined;

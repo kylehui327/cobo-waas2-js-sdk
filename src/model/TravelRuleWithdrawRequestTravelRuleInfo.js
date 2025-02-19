@@ -165,25 +165,25 @@ class TravelRuleWithdrawRequestTravelRuleInfo {
 TravelRuleWithdrawRequestTravelRuleInfo.prototype['destination_wallet_type'] = undefined;
 
 /**
- * The challenge obtained from a previous operation.
+ * The message obtained from the `Retrieve transaction limitations` operation. This message is used to verify wallet ownership through signing.
  * @member {String} self_custody_wallet_challenge
  */
 TravelRuleWithdrawRequestTravelRuleInfo.prototype['self_custody_wallet_challenge'] = undefined;
 
 /**
- * The address of the self-custodial wallet.
+ * The address of the self-custody wallet.
  * @member {String} self_custody_wallet_address
  */
 TravelRuleWithdrawRequestTravelRuleInfo.prototype['self_custody_wallet_address'] = undefined;
 
 /**
- * The signed message from the self-custodial wallet.
+ * The signature created by signing the challenge message with the wallet's private key.
  * @member {String} self_custody_wallet_sign
  */
 TravelRuleWithdrawRequestTravelRuleInfo.prototype['self_custody_wallet_sign'] = undefined;
 
 /**
- * The vendor code for exchanges or VASPs.
+ * The vendor code of the exchange or virtual asset service provider (VASP).
  * @member {String} vendor_code
  */
 TravelRuleWithdrawRequestTravelRuleInfo.prototype['vendor_code'] = undefined;

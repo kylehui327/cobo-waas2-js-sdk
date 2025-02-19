@@ -158,7 +158,7 @@ class TravelRuleDepositExchangesOrVASPEntityInfo {
 }
 
 /**
- * Specifies the type of entity associated with the transaction.
+ * Specifies the type of entity associated with the transaction. - `LEGAL`: Legal entity. - `NATURAL`: Natural person. 
  * @member {module:model/TravelRuleDepositExchangesOrVASPEntityInfo.SelectedEntityTypeEnum} selected_entity_type
  */
 TravelRuleDepositExchangesOrVASPEntityInfo.prototype['selected_entity_type'] = undefined;
@@ -170,37 +170,37 @@ TravelRuleDepositExchangesOrVASPEntityInfo.prototype['selected_entity_type'] = u
 TravelRuleDepositExchangesOrVASPEntityInfo.prototype['legal_name'] = undefined;
 
 /**
- * The incorporation date of the entity. This field is required when: - **Calling**: `travel_rule/transaction/limitation` API returns `is_threshold_reached = true`. - **Entity Type**: LEGAL. Otherwise, this field can be omitted. 
+ * The date of incorporation of the entity. This field is required when either of the following conditions is met: - `is_threshold_reached` is `true` in the response of the [Retrieve transaction limitations](https://www.cobo.com/developers/v2/api-references/travelrule/retrieve-transaction-limitations) operation. - `selected_entity_type` is `LEGAL`. 
  * @member {Date} date_of_incorporation
  */
 TravelRuleDepositExchangesOrVASPEntityInfo.prototype['date_of_incorporation'] = undefined;
 
 /**
- * The place of incorporation of the entity. This field is required when: - **Calling**: `travel_rule/transaction/limitation` API returns `is_threshold_reached = true`. - **Entity Type**: LEGAL. Otherwise, this field can be omitted. 
+ * The place of incorporation of the entity. This field is required when either of the following conditions is met: - `is_threshold_reached` is `true` in the response of the [Retrieve transaction limitations](https://www.cobo.com/developers/v2/api-references/travelrule/retrieve-transaction-limitations) operation. - `selected_entity_type` is `LEGAL`. 
  * @member {String} place_of_incorporation
  */
 TravelRuleDepositExchangesOrVASPEntityInfo.prototype['place_of_incorporation'] = undefined;
 
 /**
- * The first name of the user.
+ * The first name of the natural person.
  * @member {String} first_name
  */
 TravelRuleDepositExchangesOrVASPEntityInfo.prototype['first_name'] = undefined;
 
 /**
- * The last name of the user.
+ * The last name of the natural person.
  * @member {String} last_name
  */
 TravelRuleDepositExchangesOrVASPEntityInfo.prototype['last_name'] = undefined;
 
 /**
- * The date of birth of the user. This field is required when: - **Calling**: `travel_rule/transaction/limitation` API returns `is_threshold_reached = true`. - **Entity Type**: NATURAL. Otherwise, this field can be omitted. 
+ * The date of birth of the natural person. This field is required when either of the following conditions is met: - `is_threshold_reached` is `true` in the response of the [Retrieve transaction limitations](https://www.cobo.com/developers/v2/api-references/travelrule/retrieve-transaction-limitations) operation. - `selected_entity_type` is `NATURAL`. 
  * @member {Date} date_of_birth
  */
 TravelRuleDepositExchangesOrVASPEntityInfo.prototype['date_of_birth'] = undefined;
 
 /**
- * The place of birth of the user. This field is required when: - **Calling**: `travel_rule/transaction/limitation` API returns `is_threshold_reached = true`. - **Entity Type**: NATURAL. Otherwise, this field can be omitted. 
+ * The place of birth of the natural person. This field is required when either of the following conditions is met: - `is_threshold_reached` is `true` in the response of the [Retrieve transaction limitations](https://www.cobo.com/developers/v2/api-references/travelrule/retrieve-transaction-limitations) operation. - `selected_entity_type` is `NATURAL`. 
  * @member {String} place_of_birth
  */
 TravelRuleDepositExchangesOrVASPEntityInfo.prototype['place_of_birth'] = undefined;

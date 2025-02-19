@@ -26,7 +26,7 @@
   var instance;
 
   beforeEach(function() {
-    instance = new CoboWaas2.TokenBalanceBalance();
+    instance = new CoboWaas2.ListAddressBalancesByToken200Response();
   });
 
   var getProperty = function(object, getter, property) {
@@ -45,34 +45,22 @@
       object[property] = value;
   }
 
-  describe('TokenBalanceBalance', function() {
-    it('should create an instance of TokenBalanceBalance', function() {
-      // uncomment below and update the code to test TokenBalanceBalance
-      //var instance = new CoboWaas2.TokenBalanceBalance();
-      //expect(instance).to.be.a(CoboWaas2.TokenBalanceBalance);
+  describe('ListAddressBalancesByToken200Response', function() {
+    it('should create an instance of ListAddressBalancesByToken200Response', function() {
+      // uncomment below and update the code to test ListAddressBalancesByToken200Response
+      //var instance = new CoboWaas2.ListAddressBalancesByToken200Response();
+      //expect(instance).to.be.a(CoboWaas2.ListAddressBalancesByToken200Response);
     });
 
-    it('should have the property total (base name: "total")', function() {
-      // uncomment below and update the code to test the property total
-      //var instance = new CoboWaas2.TokenBalanceBalance();
+    it('should have the property data (base name: "data")', function() {
+      // uncomment below and update the code to test the property data
+      //var instance = new CoboWaas2.ListAddressBalancesByToken200Response();
       //expect(instance).to.be();
     });
 
-    it('should have the property available (base name: "available")', function() {
-      // uncomment below and update the code to test the property available
-      //var instance = new CoboWaas2.TokenBalanceBalance();
-      //expect(instance).to.be();
-    });
-
-    it('should have the property pending (base name: "pending")', function() {
-      // uncomment below and update the code to test the property pending
-      //var instance = new CoboWaas2.TokenBalanceBalance();
-      //expect(instance).to.be();
-    });
-
-    it('should have the property locked (base name: "locked")', function() {
-      // uncomment below and update the code to test the property locked
-      //var instance = new CoboWaas2.TokenBalanceBalance();
+    it('should have the property pagination (base name: "pagination")', function() {
+      // uncomment below and update the code to test the property pagination
+      //var instance = new CoboWaas2.ListAddressBalancesByToken200Response();
       //expect(instance).to.be();
     });
 

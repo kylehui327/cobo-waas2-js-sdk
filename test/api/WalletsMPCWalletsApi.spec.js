@@ -96,6 +96,16 @@ import {ApiClient, Env} from "../../src/index.js";
         //});
       });
     });
+    describe('getKeyShareHolderByTssNodeId', function() {
+      it('should call getKeyShareHolderByTssNodeId successfully', function() {
+        //uncomment below and update the code to test getKeyShareHolderByTssNodeId
+        //instance.getKeyShareHolderByTssNodeId().then(function(data) {
+        //    console.log(data);
+        //}, function(error) {
+        //    console.error(error);
+        //});
+      });
+    });
     describe('getKeyShareHolderGroupById', function() {
       it('should call getKeyShareHolderGroupById successfully', function() {
         //uncomment below and update the code to test getKeyShareHolderGroupById
@@ -150,6 +160,16 @@ import {ApiClient, Env} from "../../src/index.js";
       it('should call listKeyShareHolderGroups successfully', function() {
         //uncomment below and update the code to test listKeyShareHolderGroups
         //instance.listKeyShareHolderGroups().then(function(data) {
+        //    console.log(data);
+        //}, function(error) {
+        //    console.error(error);
+        //});
+      });
+    });
+    describe('listKeyShareHolders', function() {
+      it('should call listKeyShareHolders successfully', function() {
+        //uncomment below and update the code to test listKeyShareHolders
+        //instance.listKeyShareHolders().then(function(data) {
         //    console.log(data);
         //}, function(error) {
         //    console.error(error);

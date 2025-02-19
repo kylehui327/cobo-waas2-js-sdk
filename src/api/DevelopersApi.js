@@ -55,7 +55,7 @@ export default class DevelopersApi {
       let formParams = {
       };
 
-      let authNames = ['CoboAuth'];
+      let authNames = ['OAuth2'];
       let contentTypes = [];
       let accepts = ['application/json'];
       let returnType = GetApiKeyInfo200Response;
@@ -117,7 +117,7 @@ export default class DevelopersApi {
       let formParams = {
       };
 
-      let authNames = ['CoboAuth'];
+      let authNames = ['OAuth2'];
       let contentTypes = [];
       let accepts = ['application/json'];
       let returnType = ListCallbackMessages200Response;
@@ -176,7 +176,7 @@ export default class DevelopersApi {
       let formParams = {
       };
 
-      let authNames = ['CoboAuth'];
+      let authNames = ['OAuth2'];
       let contentTypes = [];
       let accepts = ['application/json'];
       let returnType = RetryCallbackMessage201Response;

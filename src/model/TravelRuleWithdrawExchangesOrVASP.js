@@ -20,10 +20,10 @@ import TravelRuleWithdrawExchangesOrVASPEntityInfo from './TravelRuleWithdrawExc
 class TravelRuleWithdrawExchangesOrVASP {
     /**
      * Constructs a new <code>TravelRuleWithdrawExchangesOrVASP</code>.
-     * Required fields for &#x60;EXCHANGES_OR_VASP&#x60;.
+     * Required information when withdrawing tokens to an exchange or other virtual asset service providers (VASP).
      * @alias module:model/TravelRuleWithdrawExchangesOrVASP
      * @param destination_wallet_type {module:model/DestinationWalletType} 
-     * @param vendor_code {String} The vendor code for exchanges or VASPs.
+     * @param vendor_code {String} The vendor code of the exchange or virtual asset service provider (VASP).
      * @param vendor_vasp_id {String} The unique identifier of the VASP.
      * @param entity_info {module:model/TravelRuleWithdrawExchangesOrVASPEntityInfo} 
      */
@@ -112,7 +112,7 @@ TravelRuleWithdrawExchangesOrVASP.RequiredProperties = ["destination_wallet_type
 TravelRuleWithdrawExchangesOrVASP.prototype['destination_wallet_type'] = undefined;
 
 /**
- * The vendor code for exchanges or VASPs.
+ * The vendor code of the exchange or virtual asset service provider (VASP).
  * @member {String} vendor_code
  */
 TravelRuleWithdrawExchangesOrVASP.prototype['vendor_code'] = undefined;

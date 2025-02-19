@@ -104,7 +104,7 @@ EthStakingActivityDetailExtra.prototype['pool_type'] = undefined;
 EthStakingActivityDetailExtra.prototype['provider_name'] = undefined;
 
 /**
- * A list of public keys identifying the validators to unstake from the Ethereum Beacon Chain.
+ * A list of public keys associated with the Ethereum validators for this unstaking operation.
  * @member {Array.<String>} validator_pubkeys
  */
 EthStakingActivityDetailExtra.prototype['validator_pubkeys'] = undefined;

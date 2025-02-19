@@ -22,6 +22,7 @@ import CreatedWalletInfo from '../model/CreatedWalletInfo';
 import DeleteWalletById201Response from '../model/DeleteWalletById201Response';
 import ErrorResponse from '../model/ErrorResponse';
 import ExtendedTokenInfo from '../model/ExtendedTokenInfo';
+import ListAddressBalancesByToken200Response from '../model/ListAddressBalancesByToken200Response';
 import ListAddresses200Response from '../model/ListAddresses200Response';
 import ListSupportedChains200Response from '../model/ListSupportedChains200Response';
 import ListSupportedTokens200Response from '../model/ListSupportedTokens200Response';
@@ -258,7 +259,7 @@ export default class WalletsApi {
       let formParams = {
       };
 
-      let authNames = ['OAuth2', 'CoboAuth'];
+      let authNames = ['OAuth2'];
       let contentTypes = ['application/json'];
       let accepts = ['application/json'];
       let returnType = [AddressInfo];
@@ -308,7 +309,7 @@ export default class WalletsApi {
       let formParams = {
       };
 
-      let authNames = ['OAuth2', 'CoboAuth'];
+      let authNames = ['OAuth2'];
       let contentTypes = ['application/json'];
       let accepts = ['application/json'];
       let returnType = CreatedWalletInfo;
@@ -360,7 +361,7 @@ export default class WalletsApi {
       let formParams = {
       };
 
-      let authNames = ['CoboAuth'];
+      let authNames = ['OAuth2'];
       let contentTypes = [];
       let accepts = ['application/json'];
       let returnType = DeleteWalletById201Response;
@@ -484,7 +485,7 @@ export default class WalletsApi {
       let formParams = {
       };
 
-      let authNames = ['CoboAuth'];
+      let authNames = ['OAuth2'];
       let contentTypes = [];
       let accepts = ['application/json'];
       let returnType = MaxTransferableValue;
@@ -591,7 +592,7 @@ export default class WalletsApi {
       let formParams = {
       };
 
-      let authNames = ['CoboAuth'];
+      let authNames = ['OAuth2'];
       let contentTypes = [];
       let accepts = ['application/json'];
       let returnType = WalletInfo;
@@ -610,6 +611,79 @@ export default class WalletsApi {
      */
     getWalletById(wallet_id) {
       return this.getWalletByIdWithHttpInfo(wallet_id)
+        .then(function(response_and_data) {
+          return response_and_data.data;
+        });
+    }
+
+
+    /**
+     * List address balances by token
+     * This operation retrieves a list of address balances for a specified token within a wallet.  <Note>This operation is applicable to MPC Wallets only.</Note> 
+     * @param {String} wallet_id The wallet ID.
+     * @param {String} token_id The token ID, which is the unique identifier of a token. You can retrieve the IDs of all the tokens you can use by calling [List enabled tokens](https://www.cobo.com/developers/v2/api-references/wallets/list-enabled-tokens).
+     * @param {Object} opts Optional parameters
+     * @param {String} [addresses] A list of wallet addresses, separated by comma. For addresses requiring a memo, append the memo after the address using the '|' separator (e.g., \"address|memo\").
+     * @param {Number} [limit = 10)] The maximum number of objects to return. For most operations, the value range is [1, 50].
+     * @param {String} [before] This parameter specifies an object ID as a starting point for pagination, retrieving data before the specified object relative to the current dataset.    Suppose the current data is ordered as Object A, Object B, and Object C.  If you set `before` to the ID of Object C (`RqeEoTkgKG5rpzqYzg2Hd3szmPoj2cE7w5jWwShz3C1vyGSAk`), the response will include Object B and Object A.    **Notes**:   - If you set both `after` and `before`, an error will occur. - If you leave both `before` and `after` empty, the first page of data is returned. - If you set it to `infinity`, the last page of data is returned. 
+     * @param {String} [after] This parameter specifies an object ID as a starting point for pagination, retrieving data after the specified object relative to the current dataset.    Suppose the current data is ordered as Object A, Object B, and Object C. If you set `after` to the ID of Object A (`RqeEoTkgKG5rpzqYzg2Hd3szmPoj2cE7w5jWwShz3C1vyGSAk`), the response will include Object B and Object C.    **Notes**:   - If you set both `after` and `before`, an error will occur. - If you leave both `before` and `after` empty, the first page of data is returned. 
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/ListAddressBalancesByToken200Response} and HTTP response
+     */
+    listAddressBalancesByTokenWithHttpInfo(wallet_id, token_id, opts) {
+      opts = opts || {};
+      let postBody = null;
+      if (postBody && postBody.toJSON) {
+          postBody = postBody.toJSON()
+      }
+      // verify the required parameter 'wallet_id' is set
+      if (wallet_id === undefined || wallet_id === null) {
+        throw new Error("Missing the required parameter 'wallet_id' when calling listAddressBalancesByToken");
+      }
+      // verify the required parameter 'token_id' is set
+      if (token_id === undefined || token_id === null) {
+        throw new Error("Missing the required parameter 'token_id' when calling listAddressBalancesByToken");
+      }
+
+      let pathParams = {
+        'wallet_id': wallet_id,
+        'token_id': token_id
+      };
+      let queryParams = {
+        'addresses': opts['addresses'],
+        'limit': opts['limit'],
+        'before': opts['before'],
+        'after': opts['after']
+      };
+      let headerParams = {
+      };
+      let formParams = {
+      };
+
+      let authNames = ['OAuth2'];
+      let contentTypes = [];
+      let accepts = ['application/json'];
+      let returnType = ListAddressBalancesByToken200Response;
+      return this.apiClient.callApi(
+        '/wallets/{wallet_id}/tokens/{token_id}', 'GET',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, null
+      );
+    }
+
+    /**
+     * List address balances by token
+     * This operation retrieves a list of address balances for a specified token within a wallet.  <Note>This operation is applicable to MPC Wallets only.</Note> 
+     * @param {String} wallet_id The wallet ID.
+     * @param {String} token_id The token ID, which is the unique identifier of a token. You can retrieve the IDs of all the tokens you can use by calling [List enabled tokens](https://www.cobo.com/developers/v2/api-references/wallets/list-enabled-tokens).
+     * @param {Object} opts Optional parameters
+     * @param {String} opts.addresses A list of wallet addresses, separated by comma. For addresses requiring a memo, append the memo after the address using the '|' separator (e.g., \"address|memo\").
+     * @param {Number} opts.limit The maximum number of objects to return. For most operations, the value range is [1, 50]. (default to 10)
+     * @param {String} opts.before This parameter specifies an object ID as a starting point for pagination, retrieving data before the specified object relative to the current dataset.    Suppose the current data is ordered as Object A, Object B, and Object C.  If you set `before` to the ID of Object C (`RqeEoTkgKG5rpzqYzg2Hd3szmPoj2cE7w5jWwShz3C1vyGSAk`), the response will include Object B and Object A.    **Notes**:   - If you set both `after` and `before`, an error will occur. - If you leave both `before` and `after` empty, the first page of data is returned. - If you set it to `infinity`, the last page of data is returned. 
+     * @param {String} opts.after This parameter specifies an object ID as a starting point for pagination, retrieving data after the specified object relative to the current dataset.    Suppose the current data is ordered as Object A, Object B, and Object C. If you set `after` to the ID of Object A (`RqeEoTkgKG5rpzqYzg2Hd3szmPoj2cE7w5jWwShz3C1vyGSAk`), the response will include Object B and Object C.    **Notes**:   - If you set both `after` and `before`, an error will occur. - If you leave both `before` and `after` empty, the first page of data is returned. 
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/ListAddressBalancesByToken200Response}
+     */
+    listAddressBalancesByToken(wallet_id, token_id, opts) {
+      return this.listAddressBalancesByTokenWithHttpInfo(wallet_id, token_id, opts)
         .then(function(response_and_data) {
           return response_and_data.data;
         });
@@ -654,7 +728,7 @@ export default class WalletsApi {
       let formParams = {
       };
 
-      let authNames = ['CoboAuth'];
+      let authNames = ['OAuth2'];
       let contentTypes = [];
       let accepts = ['application/json'];
       let returnType = ListAddresses200Response;
@@ -987,7 +1061,7 @@ export default class WalletsApi {
       let formParams = {
       };
 
-      let authNames = ['CoboAuth'];
+      let authNames = ['OAuth2'];
       let contentTypes = [];
       let accepts = ['application/json'];
       let returnType = ListTokenBalancesForAddress200Response;
@@ -1054,7 +1128,7 @@ export default class WalletsApi {
       let formParams = {
       };
 
-      let authNames = ['CoboAuth'];
+      let authNames = ['OAuth2'];
       let contentTypes = [];
       let accepts = ['application/json'];
       let returnType = ListTokenBalancesForAddress200Response;
@@ -1091,6 +1165,7 @@ export default class WalletsApi {
      * @param {String} token_id The token ID, which is the unique identifier of a token. You can retrieve the IDs of all the tokens you can use by calling [List enabled tokens](https://www.cobo.com/developers/v2/api-references/wallets/list-enabled-tokens).
      * @param {Object} opts Optional parameters
      * @param {String} [address] The wallet address.
+     * @param {String} [tx_hash] 
      * @param {Number} [limit = 10)] The maximum number of objects to return. For most operations, the value range is [1, 50].
      * @param {String} [before] This parameter specifies an object ID as a starting point for pagination, retrieving data before the specified object relative to the current dataset.    Suppose the current data is ordered as Object A, Object B, and Object C.  If you set `before` to the ID of Object C (`RqeEoTkgKG5rpzqYzg2Hd3szmPoj2cE7w5jWwShz3C1vyGSAk`), the response will include Object B and Object A.    **Notes**:   - If you set both `after` and `before`, an error will occur. - If you leave both `before` and `after` empty, the first page of data is returned. - If you set it to `infinity`, the last page of data is returned. 
      * @param {String} [after] This parameter specifies an object ID as a starting point for pagination, retrieving data after the specified object relative to the current dataset.    Suppose the current data is ordered as Object A, Object B, and Object C. If you set `after` to the ID of Object A (`RqeEoTkgKG5rpzqYzg2Hd3szmPoj2cE7w5jWwShz3C1vyGSAk`), the response will include Object B and Object C.    **Notes**:   - If you set both `after` and `before`, an error will occur. - If you leave both `before` and `after` empty, the first page of data is returned. 
@@ -1117,6 +1192,7 @@ export default class WalletsApi {
       let queryParams = {
         'token_id': token_id,
         'address': opts['address'],
+        'tx_hash': opts['tx_hash'],
         'limit': opts['limit'],
         'before': opts['before'],
         'after': opts['after']
@@ -1126,7 +1202,7 @@ export default class WalletsApi {
       let formParams = {
       };
 
-      let authNames = ['CoboAuth'];
+      let authNames = ['OAuth2'];
       let contentTypes = [];
       let accepts = ['application/json'];
       let returnType = ListUtxos200Response;
@@ -1144,6 +1220,7 @@ export default class WalletsApi {
      * @param {String} token_id The token ID, which is the unique identifier of a token. You can retrieve the IDs of all the tokens you can use by calling [List enabled tokens](https://www.cobo.com/developers/v2/api-references/wallets/list-enabled-tokens).
      * @param {Object} opts Optional parameters
      * @param {String} opts.address The wallet address.
+     * @param {String} opts.tx_hash 
      * @param {Number} opts.limit The maximum number of objects to return. For most operations, the value range is [1, 50]. (default to 10)
      * @param {String} opts.before This parameter specifies an object ID as a starting point for pagination, retrieving data before the specified object relative to the current dataset.    Suppose the current data is ordered as Object A, Object B, and Object C.  If you set `before` to the ID of Object C (`RqeEoTkgKG5rpzqYzg2Hd3szmPoj2cE7w5jWwShz3C1vyGSAk`), the response will include Object B and Object A.    **Notes**:   - If you set both `after` and `before`, an error will occur. - If you leave both `before` and `after` empty, the first page of data is returned. - If you set it to `infinity`, the last page of data is returned. 
      * @param {String} opts.after This parameter specifies an object ID as a starting point for pagination, retrieving data after the specified object relative to the current dataset.    Suppose the current data is ordered as Object A, Object B, and Object C. If you set `after` to the ID of Object A (`RqeEoTkgKG5rpzqYzg2Hd3szmPoj2cE7w5jWwShz3C1vyGSAk`), the response will include Object B and Object C.    **Notes**:   - If you set both `after` and `before`, an error will occur. - If you leave both `before` and `after` empty, the first page of data is returned. 
@@ -1193,7 +1270,7 @@ export default class WalletsApi {
       let formParams = {
       };
 
-      let authNames = ['CoboAuth'];
+      let authNames = ['OAuth2'];
       let contentTypes = [];
       let accepts = ['application/json'];
       let returnType = ListWallets200Response;
@@ -1254,7 +1331,7 @@ export default class WalletsApi {
       let formParams = {
       };
 
-      let authNames = ['OAuth2', 'CoboAuth'];
+      let authNames = ['OAuth2'];
       let contentTypes = ['application/json'];
       let accepts = ['application/json'];
       let returnType = LockUtxos201Response;
@@ -1310,7 +1387,7 @@ export default class WalletsApi {
       let formParams = {
       };
 
-      let authNames = ['OAuth2', 'CoboAuth'];
+      let authNames = ['OAuth2'];
       let contentTypes = ['application/json'];
       let accepts = ['application/json'];
       let returnType = LockUtxos201Response;
@@ -1366,7 +1443,7 @@ export default class WalletsApi {
       let formParams = {
       };
 
-      let authNames = ['OAuth2', 'CoboAuth'];
+      let authNames = ['OAuth2'];
       let contentTypes = ['application/json'];
       let accepts = ['application/json'];
       let returnType = WalletInfo;

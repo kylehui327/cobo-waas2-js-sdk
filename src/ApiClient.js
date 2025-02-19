@@ -59,6 +59,8 @@ class ApiClient {
          */
         this.authentications = {
             'CoboAuth': {type: 'apiKey', 'in': 'header', name: 'BIZ-API-KEY'},
+            'CoboSignature': {type: 'apiKey', 'in': 'header', name: 'BIZ-API-SIGNATURE'},
+            'CoboNonce': {type: 'apiKey', 'in': 'header', name: 'BIZ-API-NONCE'},
             'OAuth2': {type: 'oauth2'}
         }
 
@@ -68,7 +70,7 @@ class ApiClient {
          * @default {}
          */
         this.defaultHeaders = {
-            'User-Agent': 'cobo-waas2-js-sdk/1.8.0'
+            'User-Agent': 'cobo-waas2-js-sdk/1.9.0'
         };
 
         /**

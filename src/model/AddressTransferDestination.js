@@ -62,6 +62,9 @@ class AddressTransferDestination {
             if (data.hasOwnProperty('change_address')) {
                 obj['change_address'] = ApiClient.convertToType(data['change_address'], 'String');
             }
+            if (data.hasOwnProperty('change_output_type')) {
+                obj['change_output_type'] = ApiClient.convertToType(data['change_output_type'], 'String');
+            }
             if (data.hasOwnProperty('force_internal')) {
                 obj['force_internal'] = ApiClient.convertToType(data['force_internal'], 'Boolean');
             }
@@ -104,6 +107,10 @@ class AddressTransferDestination {
         if (data['change_address'] && !(typeof data['change_address'] === 'string' || data['change_address'] instanceof String)) {
             throw new Error("Expected the field `change_address` to be a primitive type in the JSON string but got " + data['change_address']);
         }
+        // ensure the json data is a string
+        if (data['change_output_type'] && !(typeof data['change_output_type'] === 'string' || data['change_output_type'] instanceof String)) {
+            throw new Error("Expected the field `change_output_type` to be a primitive type in the JSON string but got " + data['change_output_type']);
+        }
 
         return true;
     }
@@ -135,6 +142,12 @@ AddressTransferDestination.prototype['utxo_outputs'] = undefined;
 AddressTransferDestination.prototype['change_address'] = undefined;
 
 /**
+ * The position of the change output in the transaction's outputs. Possible values are: - `Last`: The change output is placed at the end of the transaction's outputs.   - `First`: The change output is placed at the beginning of the transaction's outputs. 
+ * @member {module:model/AddressTransferDestination.ChangeOutputTypeEnum} change_output_type
+ */
+AddressTransferDestination.prototype['change_output_type'] = undefined;
+
+/**
  * Whether the transaction request must be executed as a [Cobo Loop](https://manuals.cobo.com/en/portal/custodial-wallets/cobo-loop) transfer.   - `true`: The transaction request must be executed as a Cobo Loop transfer.   - `false`: The transaction request may not be executed as a Cobo Loop transfer.    Please do not set both `force_internal` and `force_external` as `true`. 
  * @member {Boolean} force_internal
  */
@@ -148,6 +161,33 @@ AddressTransferDestination.prototype['force_external'] = undefined;
 
 
 
+
+
+/**
+ * Allowed values for the <code>change_output_type</code> property.
+ * @enum {String}
+ * @readonly
+ */
+AddressTransferDestination['ChangeOutputTypeEnum'] = {
+
+    /**
+     * value: "Last"
+     * @const
+     */
+    "Last": "Last",
+
+    /**
+     * value: "First"
+     * @const
+     */
+    "First": "First",
+
+    /**
+     * value: "unknown_default_open_api"
+     * @const
+     */
+    "unknown_default_open_api": "unknown_default_open_api"
+};
 
 
 

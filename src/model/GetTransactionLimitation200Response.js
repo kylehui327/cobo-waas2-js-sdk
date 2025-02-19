@@ -95,25 +95,25 @@ class GetTransactionLimitation200Response {
 
 
 /**
- * A list of VASPs (Virtual Asset Service Providers) associated with the token.
+ * A list of virtual asset service providers (VASP) you can select as the transaction source or destination.
  * @member {Array.<module:model/Vasp>} vasp_list
  */
 GetTransactionLimitation200Response.prototype['vasp_list'] = undefined;
 
 /**
- * Indicates whether the transaction amount exceeds a predefined threshold. - **If `true`**: Additional information is required when filling Travel Rule details:   - For deposits: `date_of_incorporation` and `place_of_incorporation`. - **If `false`**: No extra fields are required. 
+ * Indicates whether the transaction amount exceeds a predefined threshold. If exceeded, additional information is required when filling Travel Rule details. - `true`: Threshold exceeded. - `false`: Threshold not exceeded. 
  * @member {Boolean} is_threshold_reached
  */
 GetTransactionLimitation200Response.prototype['is_threshold_reached'] = undefined;
 
 /**
- * A human-readable, time-sensitive message to be signed by the wallet owner.  The message contains key details including the wallet address, a unique nonce, and a timestamp. Signing this message confirms ownership of the wallet and allows the operation to proceed. 
+ * A human-readable, time-sensitive message to be signed by the wallet owner. The message contains key information including the wallet address, a unique nonce, and a timestamp. Signing this message confirms ownership of the wallet and allows the operation to proceed. 
  * @member {String} self_custody_wallet_challenge
  */
 GetTransactionLimitation200Response.prototype['self_custody_wallet_challenge'] = undefined;
 
 /**
- * A list of wallets connected to the system for transactions.
+ * A list of self-custody wallet providers you can select as the transaction source or destination.
  * @member {Array.<String>} connect_wallet_list
  */
 GetTransactionLimitation200Response.prototype['connect_wallet_list'] = undefined;

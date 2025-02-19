@@ -64,6 +64,18 @@
       //expect(instance).to.be();
     });
 
+    it('should have the property taproot_script_tree_hashes (base name: "taproot_script_tree_hashes")', function() {
+      // uncomment below and update the code to test the property taproot_script_tree_hashes
+      //var instance = new CoboWaas2.CreateAddressRequest();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property taproot_internal_address (base name: "taproot_internal_address")', function() {
+      // uncomment below and update the code to test the property taproot_internal_address
+      //var instance = new CoboWaas2.CreateAddressRequest();
+      //expect(instance).to.be();
+    });
+
     it('should have the property encoding (base name: "encoding")', function() {
       // uncomment below and update the code to test the property encoding
       //var instance = new CoboWaas2.CreateAddressRequest();

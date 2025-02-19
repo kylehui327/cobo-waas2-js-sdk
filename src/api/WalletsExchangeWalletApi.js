@@ -75,7 +75,7 @@ export default class WalletsExchangeWalletApi {
       let formParams = {
       };
 
-      let authNames = ['CoboAuth'];
+      let authNames = ['OAuth2'];
       let contentTypes = [];
       let accepts = ['application/json'];
       let returnType = ListAssetBalancesForExchangeWallet200Response;

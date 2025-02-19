@@ -10,6 +10,7 @@
  */
 
 import ApiClient from '../ApiClient';
+import TransactionDepositToAddressDestinationTxInfo from './TransactionDepositToAddressDestinationTxInfo';
 import TransactionDestinationType from './TransactionDestinationType';
 import WalletSubtype from './WalletSubtype';
 import WalletType from './WalletType';
@@ -79,6 +80,9 @@ class TransactionDepositToAddressDestination {
             if (data.hasOwnProperty('amount')) {
                 obj['amount'] = ApiClient.convertToType(data['amount'], 'String');
             }
+            if (data.hasOwnProperty('tx_info')) {
+                obj['tx_info'] = TransactionDepositToAddressDestinationTxInfo.constructFromObject(data['tx_info']);
+            }
         }
         return obj;
     }
@@ -110,6 +114,12 @@ class TransactionDepositToAddressDestination {
         // ensure the json data is a string
         if (data['amount'] && !(typeof data['amount'] === 'string' || data['amount'] instanceof String)) {
             throw new Error("Expected the field `amount` to be a primitive type in the JSON string but got " + data['amount']);
+        }
+        // validate the optional field `tx_info`
+        if (data['tx_info']) { // data not null
+          if (!!TransactionDepositToAddressDestinationTxInfo.validateJSON) {
+            TransactionDepositToAddressDestinationTxInfo.validateJSON(data['tx_info']);
+          }
         }
 
         return true;
@@ -158,6 +168,11 @@ TransactionDepositToAddressDestination.prototype['memo'] = undefined;
  * @member {String} amount
  */
 TransactionDepositToAddressDestination.prototype['amount'] = undefined;
+
+/**
+ * @member {module:model/TransactionDepositToAddressDestinationTxInfo} tx_info
+ */
+TransactionDepositToAddressDestination.prototype['tx_info'] = undefined;
 
 
 

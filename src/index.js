@@ -20,6 +20,7 @@ import ActivityInitiator from './model/ActivityInitiator';
 import ActivityStatus from './model/ActivityStatus';
 import ActivityTimeline from './model/ActivityTimeline';
 import ActivityType from './model/ActivityType';
+import AddressBalance from './model/AddressBalance';
 import AddressBook from './model/AddressBook';
 import AddressEncoding from './model/AddressEncoding';
 import AddressInfo from './model/AddressInfo';
@@ -31,14 +32,17 @@ import AmountDetailsInner from './model/AmountDetailsInner';
 import AmountStatus from './model/AmountStatus';
 import ApiLogDetails from './model/ApiLogDetails';
 import ApiLogSummary from './model/ApiLogSummary';
+import ApprovalStatementStatus from './model/ApprovalStatementStatus';
 import AssetBalance from './model/AssetBalance';
 import AssetInfo from './model/AssetInfo';
 import AutoFuelType from './model/AutoFuelType';
+import BTCEIP191MessageSignDestination from './model/BTCEIP191MessageSignDestination';
 import BabylonStakeEstimatedFee from './model/BabylonStakeEstimatedFee';
 import BabylonStakeExtra from './model/BabylonStakeExtra';
 import BabylonStakingActivityDetailExtra from './model/BabylonStakingActivityDetailExtra';
 import BabylonStakingExtra from './model/BabylonStakingExtra';
 import BabylonValidator from './model/BabylonValidator';
+import Balance from './model/Balance';
 import BaseContractCallSource from './model/BaseContractCallSource';
 import BaseEstimateStakingFee from './model/BaseEstimateStakingFee';
 import BaseStakeExtra from './model/BaseStakeExtra';
@@ -47,6 +51,7 @@ import BroadcastSignedTransactions201ResponseInner from './model/BroadcastSigned
 import BroadcastSignedTransactionsRequest from './model/BroadcastSignedTransactionsRequest';
 import CallbackMessage from './model/CallbackMessage';
 import ChainInfo from './model/ChainInfo';
+import ChangeGuardPubkey200Response from './model/ChangeGuardPubkey200Response';
 import CheckAddressChainsValidity200ResponseInner from './model/CheckAddressChainsValidity200ResponseInner';
 import CheckAddressValidity200Response from './model/CheckAddressValidity200Response';
 import CheckAddressesValidity200ResponseInner from './model/CheckAddressesValidity200ResponseInner';
@@ -71,6 +76,8 @@ import CreateKeyShareHolderGroupRequest from './model/CreateKeyShareHolderGroupR
 import CreateMpcProjectRequest from './model/CreateMpcProjectRequest';
 import CreateMpcVaultRequest from './model/CreateMpcVaultRequest';
 import CreateMpcWalletParams from './model/CreateMpcWalletParams';
+import CreatePrimeBrokerAddress201Response from './model/CreatePrimeBrokerAddress201Response';
+import CreatePrimeBrokerAddressRequest from './model/CreatePrimeBrokerAddressRequest';
 import CreateSafeWalletParams from './model/CreateSafeWalletParams';
 import CreateSmartContractWalletParams from './model/CreateSmartContractWalletParams';
 import CreateStakeActivity from './model/CreateStakeActivity';
@@ -90,6 +97,7 @@ import CreatedWalletInfo from './model/CreatedWalletInfo';
 import CurveType from './model/CurveType';
 import CustodialTransferSource from './model/CustodialTransferSource';
 import CustodialWalletInfo from './model/CustodialWalletInfo';
+import DeleteGuardPubkey201Response from './model/DeleteGuardPubkey201Response';
 import DeleteKeyShareHolderGroupById201Response from './model/DeleteKeyShareHolderGroupById201Response';
 import DeleteWalletById201Response from './model/DeleteWalletById201Response';
 import DestinationWalletType from './model/DestinationWalletType';
@@ -142,18 +150,21 @@ import GetStakingEstimationFeeRequest from './model/GetStakingEstimationFeeReque
 import GetToken2XXResponse from './model/GetToken2XXResponse';
 import GetToken4XXResponse from './model/GetToken4XXResponse';
 import GetTransactionLimitation200Response from './model/GetTransactionLimitation200Response';
+import GuardPubkeyStatus from './model/GuardPubkeyStatus';
 import KeyShareHolder from './model/KeyShareHolder';
 import KeyShareHolderGroup from './model/KeyShareHolderGroup';
 import KeyShareHolderGroupStatus from './model/KeyShareHolderGroupStatus';
 import KeyShareHolderGroupType from './model/KeyShareHolderGroupType';
 import KeyShareHolderStatus from './model/KeyShareHolderStatus';
 import KeyShareHolderType from './model/KeyShareHolderType';
+import ListAddressBalancesByToken200Response from './model/ListAddressBalancesByToken200Response';
 import ListAddressBooks200Response from './model/ListAddressBooks200Response';
 import ListAddresses200Response from './model/ListAddresses200Response';
 import ListAssetBalancesForExchangeWallet200Response from './model/ListAssetBalancesForExchangeWallet200Response';
 import ListCallbackMessages200Response from './model/ListCallbackMessages200Response';
 import ListExchanges200ResponseInner from './model/ListExchanges200ResponseInner';
 import ListKeyShareHolderGroups200Response from './model/ListKeyShareHolderGroups200Response';
+import ListKeyShareHolders200Response from './model/ListKeyShareHolders200Response';
 import ListMpcProjects200Response from './model/ListMpcProjects200Response';
 import ListMpcVaults200Response from './model/ListMpcVaults200Response';
 import ListStakingActivities200Response from './model/ListStakingActivities200Response';
@@ -198,6 +209,9 @@ import Pagination from './model/Pagination';
 import PoolDetails from './model/PoolDetails';
 import PoolDetailsAllOfValidatorsInfo from './model/PoolDetailsAllOfValidatorsInfo';
 import PoolSummary from './model/PoolSummary';
+import QueryApprovalStatement200Response from './model/QueryApprovalStatement200Response';
+import QueryGuardPubkey200Response from './model/QueryGuardPubkey200Response';
+import QueryGuardPubkey200ResponseAddressesInner from './model/QueryGuardPubkey200ResponseAddressesInner';
 import RawMessageSignDestination from './model/RawMessageSignDestination';
 import RefreshToken2XXResponse from './model/RefreshToken2XXResponse';
 import RefreshTokenRequest from './model/RefreshTokenRequest';
@@ -238,7 +252,6 @@ import TSSRequestType from './model/TSSRequestType';
 import TSSRequestWebhookEventData from './model/TSSRequestWebhookEventData';
 import TokenAssetModelType from './model/TokenAssetModelType';
 import TokenBalance from './model/TokenBalance';
-import TokenBalanceBalance from './model/TokenBalanceBalance';
 import TokenInfo from './model/TokenInfo';
 import Transaction from './model/Transaction';
 import TransactionApprovalDetail from './model/TransactionApprovalDetail';
@@ -250,6 +263,7 @@ import TransactionDepositFromAddressSource from './model/TransactionDepositFromA
 import TransactionDepositFromLoopSource from './model/TransactionDepositFromLoopSource';
 import TransactionDepositFromWalletSource from './model/TransactionDepositFromWalletSource';
 import TransactionDepositToAddressDestination from './model/TransactionDepositToAddressDestination';
+import TransactionDepositToAddressDestinationTxInfo from './model/TransactionDepositToAddressDestinationTxInfo';
 import TransactionDepositToWalletDestination from './model/TransactionDepositToWalletDestination';
 import TransactionDestination from './model/TransactionDestination';
 import TransactionDestinationType from './model/TransactionDestinationType';
@@ -350,6 +364,7 @@ import AddressBooksApi from './api/AddressBooksApi';
 import DevelopersApi from './api/DevelopersApi';
 import DevelopersWebhooksApi from './api/DevelopersWebhooksApi';
 import OAuthApi from './api/OAuthApi';
+import PrimeBrokerApi from './api/PrimeBrokerApi';
 import StakingsApi from './api/StakingsApi';
 import TransactionsApi from './api/TransactionsApi';
 import TravelRuleApi from './api/TravelRuleApi';
@@ -389,7 +404,7 @@ import WalletsSmartContractWalletsApi from './api/WalletsSmartContractWalletsApi
 * </pre>
 * </p>
 * @module index
-* @version 1.8.0
+* @version 1.9.0
 */
 export {
     Env,
@@ -442,6 +457,12 @@ export {
      * @property {module:model/ActivityType}
      */
     ActivityType,
+
+    /**
+     * The AddressBalance model constructor.
+     * @property {module:model/AddressBalance}
+     */
+    AddressBalance,
 
     /**
      * The AddressBook model constructor.
@@ -510,6 +531,12 @@ export {
     ApiLogSummary,
 
     /**
+     * The ApprovalStatementStatus model constructor.
+     * @property {module:model/ApprovalStatementStatus}
+     */
+    ApprovalStatementStatus,
+
+    /**
      * The AssetBalance model constructor.
      * @property {module:model/AssetBalance}
      */
@@ -526,6 +553,12 @@ export {
      * @property {module:model/AutoFuelType}
      */
     AutoFuelType,
+
+    /**
+     * The BTCEIP191MessageSignDestination model constructor.
+     * @property {module:model/BTCEIP191MessageSignDestination}
+     */
+    BTCEIP191MessageSignDestination,
 
     /**
      * The BabylonStakeEstimatedFee model constructor.
@@ -556,6 +589,12 @@ export {
      * @property {module:model/BabylonValidator}
      */
     BabylonValidator,
+
+    /**
+     * The Balance model constructor.
+     * @property {module:model/Balance}
+     */
+    Balance,
 
     /**
      * The BaseContractCallSource model constructor.
@@ -604,6 +643,12 @@ export {
      * @property {module:model/ChainInfo}
      */
     ChainInfo,
+
+    /**
+     * The ChangeGuardPubkey200Response model constructor.
+     * @property {module:model/ChangeGuardPubkey200Response}
+     */
+    ChangeGuardPubkey200Response,
 
     /**
      * The CheckAddressChainsValidity200ResponseInner model constructor.
@@ -750,6 +795,18 @@ export {
     CreateMpcWalletParams,
 
     /**
+     * The CreatePrimeBrokerAddress201Response model constructor.
+     * @property {module:model/CreatePrimeBrokerAddress201Response}
+     */
+    CreatePrimeBrokerAddress201Response,
+
+    /**
+     * The CreatePrimeBrokerAddressRequest model constructor.
+     * @property {module:model/CreatePrimeBrokerAddressRequest}
+     */
+    CreatePrimeBrokerAddressRequest,
+
+    /**
      * The CreateSafeWalletParams model constructor.
      * @property {module:model/CreateSafeWalletParams}
      */
@@ -862,6 +919,12 @@ export {
      * @property {module:model/CustodialWalletInfo}
      */
     CustodialWalletInfo,
+
+    /**
+     * The DeleteGuardPubkey201Response model constructor.
+     * @property {module:model/DeleteGuardPubkey201Response}
+     */
+    DeleteGuardPubkey201Response,
 
     /**
      * The DeleteKeyShareHolderGroupById201Response model constructor.
@@ -1176,6 +1239,12 @@ export {
     GetTransactionLimitation200Response,
 
     /**
+     * The GuardPubkeyStatus model constructor.
+     * @property {module:model/GuardPubkeyStatus}
+     */
+    GuardPubkeyStatus,
+
+    /**
      * The KeyShareHolder model constructor.
      * @property {module:model/KeyShareHolder}
      */
@@ -1212,6 +1281,12 @@ export {
     KeyShareHolderType,
 
     /**
+     * The ListAddressBalancesByToken200Response model constructor.
+     * @property {module:model/ListAddressBalancesByToken200Response}
+     */
+    ListAddressBalancesByToken200Response,
+
+    /**
      * The ListAddressBooks200Response model constructor.
      * @property {module:model/ListAddressBooks200Response}
      */
@@ -1246,6 +1321,12 @@ export {
      * @property {module:model/ListKeyShareHolderGroups200Response}
      */
     ListKeyShareHolderGroups200Response,
+
+    /**
+     * The ListKeyShareHolders200Response model constructor.
+     * @property {module:model/ListKeyShareHolders200Response}
+     */
+    ListKeyShareHolders200Response,
 
     /**
      * The ListMpcProjects200Response model constructor.
@@ -1512,6 +1593,24 @@ export {
     PoolSummary,
 
     /**
+     * The QueryApprovalStatement200Response model constructor.
+     * @property {module:model/QueryApprovalStatement200Response}
+     */
+    QueryApprovalStatement200Response,
+
+    /**
+     * The QueryGuardPubkey200Response model constructor.
+     * @property {module:model/QueryGuardPubkey200Response}
+     */
+    QueryGuardPubkey200Response,
+
+    /**
+     * The QueryGuardPubkey200ResponseAddressesInner model constructor.
+     * @property {module:model/QueryGuardPubkey200ResponseAddressesInner}
+     */
+    QueryGuardPubkey200ResponseAddressesInner,
+
+    /**
      * The RawMessageSignDestination model constructor.
      * @property {module:model/RawMessageSignDestination}
      */
@@ -1752,12 +1851,6 @@ export {
     TokenBalance,
 
     /**
-     * The TokenBalanceBalance model constructor.
-     * @property {module:model/TokenBalanceBalance}
-     */
-    TokenBalanceBalance,
-
-    /**
      * The TokenInfo model constructor.
      * @property {module:model/TokenInfo}
      */
@@ -1822,6 +1915,12 @@ export {
      * @property {module:model/TransactionDepositToAddressDestination}
      */
     TransactionDepositToAddressDestination,
+
+    /**
+     * The TransactionDepositToAddressDestinationTxInfo model constructor.
+     * @property {module:model/TransactionDepositToAddressDestinationTxInfo}
+     */
+    TransactionDepositToAddressDestinationTxInfo,
 
     /**
      * The TransactionDepositToWalletDestination model constructor.
@@ -2422,6 +2521,12 @@ export {
     * @property {module:api/OAuthApi}
     */
     OAuthApi,
+
+    /**
+    * The PrimeBrokerApi service constructor.
+    * @property {module:api/PrimeBrokerApi}
+    */
+    PrimeBrokerApi,
 
     /**
     * The StakingsApi service constructor.

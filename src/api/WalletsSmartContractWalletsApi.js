@@ -63,7 +63,7 @@ export default class WalletsSmartContractWalletsApi {
       let formParams = {
       };
 
-      let authNames = ['CoboAuth'];
+      let authNames = ['OAuth2'];
       let contentTypes = ['application/json'];
       let accepts = ['application/json'];
       let returnType = [CoboSafeDelegate];

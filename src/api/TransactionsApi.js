@@ -69,7 +69,7 @@ export default class TransactionsApi {
       let formParams = {
       };
 
-      let authNames = ['CoboAuth'];
+      let authNames = ['OAuth2'];
       let contentTypes = ['application/json'];
       let accepts = ['application/json'];
       let returnType = [BroadcastSignedTransactions201ResponseInner];
@@ -121,7 +121,7 @@ export default class TransactionsApi {
       let formParams = {
       };
 
-      let authNames = ['CoboAuth'];
+      let authNames = ['OAuth2'];
       let contentTypes = [];
       let accepts = ['application/json'];
       let returnType = CreateTransferTransaction201Response;
@@ -184,7 +184,7 @@ export default class TransactionsApi {
       let formParams = {
       };
 
-      let authNames = ['CoboAuth'];
+      let authNames = ['OAuth2'];
       let contentTypes = [];
       let accepts = ['application/json'];
       let returnType = [CheckLoopTransfers200ResponseInner];
@@ -234,7 +234,7 @@ export default class TransactionsApi {
       let formParams = {
       };
 
-      let authNames = ['OAuth2', 'CoboAuth'];
+      let authNames = ['OAuth2'];
       let contentTypes = ['application/json'];
       let accepts = ['application/json'];
       let returnType = CreateTransferTransaction201Response;
@@ -283,7 +283,7 @@ export default class TransactionsApi {
       let formParams = {
       };
 
-      let authNames = ['OAuth2', 'CoboAuth'];
+      let authNames = ['OAuth2'];
       let contentTypes = ['application/json'];
       let accepts = ['application/json'];
       let returnType = CreateTransferTransaction201Response;
@@ -311,7 +311,7 @@ export default class TransactionsApi {
 
     /**
      * Transfer token
-     * The operation transfers your assets from a wallet created on Cobo Portal to another address.  You need to specify details such as the sender address and recipient address, token ID, and the amount to transfer. You can specify the fee-related properties to limit the transaction fee. A transaction request for tracking is returned upon successful operation.  <Note>If you make transfers from Custodial Wallets, do not set the fee-related properties. Otherwise, the transaction will fail.</Note>  <Note>You can transfer tokens to multiple addresses only if you use MPC Wallets as the transaction source. You should use the <code>utxo_outputs</code> property to specify the destination addresses.</Note>  <Info>If you initiate a transaction from a Smart Contract Wallet, a relevant transaction will be triggered from the Delegate to the Cobo Safe's address of the Smart Contract Wallet, with a transfer amount of <code>0</code>.</Info> 
+     * The operation transfers your assets from a wallet created on Cobo Portal to another address.  You need to specify details such as the sender address and recipient address, token ID, and the amount to transfer. You can specify the fee-related properties to limit the transaction fee. A transaction request for tracking is returned upon successful operation.  <Note>If you make transfers from Custodial Wallets (Asset Wallets) and Exchange Wallets, do not set the fee-related properties, as they will not take effects.</Note>  <Note>You can transfer tokens to multiple addresses only if you use MPC Wallets as the transaction source. You should use the <code>utxo_outputs</code> property to specify the destination addresses.</Note>  <Info>If you initiate a transaction from a Smart Contract Wallet, a relevant transaction will be triggered from the Delegate to the Cobo Safe's address of the Smart Contract Wallet, with a transfer amount of <code>0</code>.</Info> 
      * @param {Object} opts Optional parameters
      * @param {module:model/TransferParams} [TransferParams] The request body to create a transfer transaction
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/CreateTransferTransaction201Response} and HTTP response
@@ -332,7 +332,7 @@ export default class TransactionsApi {
       let formParams = {
       };
 
-      let authNames = ['OAuth2', 'CoboAuth'];
+      let authNames = ['OAuth2'];
       let contentTypes = ['application/json'];
       let accepts = ['application/json'];
       let returnType = CreateTransferTransaction201Response;
@@ -345,7 +345,7 @@ export default class TransactionsApi {
 
     /**
      * Transfer token
-     * The operation transfers your assets from a wallet created on Cobo Portal to another address.  You need to specify details such as the sender address and recipient address, token ID, and the amount to transfer. You can specify the fee-related properties to limit the transaction fee. A transaction request for tracking is returned upon successful operation.  <Note>If you make transfers from Custodial Wallets, do not set the fee-related properties. Otherwise, the transaction will fail.</Note>  <Note>You can transfer tokens to multiple addresses only if you use MPC Wallets as the transaction source. You should use the <code>utxo_outputs</code> property to specify the destination addresses.</Note>  <Info>If you initiate a transaction from a Smart Contract Wallet, a relevant transaction will be triggered from the Delegate to the Cobo Safe's address of the Smart Contract Wallet, with a transfer amount of <code>0</code>.</Info> 
+     * The operation transfers your assets from a wallet created on Cobo Portal to another address.  You need to specify details such as the sender address and recipient address, token ID, and the amount to transfer. You can specify the fee-related properties to limit the transaction fee. A transaction request for tracking is returned upon successful operation.  <Note>If you make transfers from Custodial Wallets (Asset Wallets) and Exchange Wallets, do not set the fee-related properties, as they will not take effects.</Note>  <Note>You can transfer tokens to multiple addresses only if you use MPC Wallets as the transaction source. You should use the <code>utxo_outputs</code> property to specify the destination addresses.</Note>  <Info>If you initiate a transaction from a Smart Contract Wallet, a relevant transaction will be triggered from the Delegate to the Cobo Safe's address of the Smart Contract Wallet, with a transfer amount of <code>0</code>.</Info> 
      * @param {Object} opts Optional parameters
      * @param {module:model/TransferParams} opts.TransferParams The request body to create a transfer transaction
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/CreateTransferTransaction201Response}
@@ -387,7 +387,7 @@ export default class TransactionsApi {
       let formParams = {
       };
 
-      let authNames = ['CoboAuth'];
+      let authNames = ['OAuth2'];
       let contentTypes = ['application/json'];
       let accepts = ['application/json'];
       let returnType = CreateTransferTransaction201Response;
@@ -437,7 +437,7 @@ export default class TransactionsApi {
       let formParams = {
       };
 
-      let authNames = ['CoboAuth'];
+      let authNames = ['OAuth2'];
       let contentTypes = ['application/json'];
       let accepts = ['application/json'];
       let returnType = EstimatedFee;
@@ -464,7 +464,7 @@ export default class TransactionsApi {
 
 
     /**
-     * Get transaction approval information
+     * Get transaction approval details
      * This operation retrieves approval detailed information about a specified transaction. 
      * @param {String} transaction_id The transaction ID.
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/TransactionApprovalDetail} and HTTP response
@@ -501,7 +501,7 @@ export default class TransactionsApi {
     }
 
     /**
-     * Get transaction approval information
+     * Get transaction approval details
      * This operation retrieves approval detailed information about a specified transaction. 
      * @param {String} transaction_id The transaction ID.
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/TransactionApprovalDetail}
@@ -540,7 +540,7 @@ export default class TransactionsApi {
       let formParams = {
       };
 
-      let authNames = ['CoboAuth'];
+      let authNames = ['OAuth2'];
       let contentTypes = [];
       let accepts = ['application/json'];
       let returnType = TransactionDetail;
@@ -621,7 +621,7 @@ export default class TransactionsApi {
       let formParams = {
       };
 
-      let authNames = ['CoboAuth'];
+      let authNames = ['OAuth2'];
       let contentTypes = [];
       let accepts = ['application/json'];
       let returnType = ListTransactions200Response;
@@ -692,7 +692,7 @@ export default class TransactionsApi {
       let formParams = {
       };
 
-      let authNames = ['CoboAuth'];
+      let authNames = ['OAuth2'];
       let contentTypes = ['application/json'];
       let accepts = ['application/json'];
       let returnType = CreateTransferTransaction201Response;
@@ -713,6 +713,57 @@ export default class TransactionsApi {
      */
     resendTransactionById(transaction_id, opts) {
       return this.resendTransactionByIdWithHttpInfo(transaction_id, opts)
+        .then(function(response_and_data) {
+          return response_and_data.data;
+        });
+    }
+
+
+    /**
+     * Sign and broadcast transaction
+     * This operation signs and broadcasts a specified transaction.  To call this operation, the following conditions must be met: - The `transaction_process_type` of the transaction must be set to `BuildOnly` when you call the [Transfer token](https://www.cobo.com/developers/v2/api-references/transactions/transfer-token) or [Call smart contract](https://www.cobo.com/developers/v2/api-references/transactions/call-smart-contract) operation.   - The transaction status must be `Built`. 
+     * @param {String} transaction_id The transaction ID.
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/CreateTransferTransaction201Response} and HTTP response
+     */
+    signAndBroadcastTransactionByIdWithHttpInfo(transaction_id) {
+      let postBody = null;
+      if (postBody && postBody.toJSON) {
+          postBody = postBody.toJSON()
+      }
+      // verify the required parameter 'transaction_id' is set
+      if (transaction_id === undefined || transaction_id === null) {
+        throw new Error("Missing the required parameter 'transaction_id' when calling signAndBroadcastTransactionById");
+      }
+
+      let pathParams = {
+        'transaction_id': transaction_id
+      };
+      let queryParams = {
+      };
+      let headerParams = {
+      };
+      let formParams = {
+      };
+
+      let authNames = ['CoboAuth'];
+      let contentTypes = [];
+      let accepts = ['application/json'];
+      let returnType = CreateTransferTransaction201Response;
+      return this.apiClient.callApi(
+        '/transactions/{transaction_id}/sign_and_broadcast', 'POST',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, null
+      );
+    }
+
+    /**
+     * Sign and broadcast transaction
+     * This operation signs and broadcasts a specified transaction.  To call this operation, the following conditions must be met: - The `transaction_process_type` of the transaction must be set to `BuildOnly` when you call the [Transfer token](https://www.cobo.com/developers/v2/api-references/transactions/transfer-token) or [Call smart contract](https://www.cobo.com/developers/v2/api-references/transactions/call-smart-contract) operation.   - The transaction status must be `Built`. 
+     * @param {String} transaction_id The transaction ID.
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/CreateTransferTransaction201Response}
+     */
+    signAndBroadcastTransactionById(transaction_id) {
+      return this.signAndBroadcastTransactionByIdWithHttpInfo(transaction_id)
         .then(function(response_and_data) {
           return response_and_data.data;
         });
@@ -748,7 +799,7 @@ export default class TransactionsApi {
       let formParams = {
       };
 
-      let authNames = ['CoboAuth'];
+      let authNames = ['OAuth2'];
       let contentTypes = ['application/json'];
       let accepts = ['application/json'];
       let returnType = CreateTransferTransaction201Response;

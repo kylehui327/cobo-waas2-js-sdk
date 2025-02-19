@@ -172,6 +172,12 @@
       //expect(instance).to.be();
     });
 
+    it('should have the property tx_info (base name: "tx_info")', function() {
+      // uncomment below and update the code to test the property tx_info
+      //var instance = new CoboWaas2.TransactionDestination();
+      //expect(instance).to.be();
+    });
+
   });
 
 }));

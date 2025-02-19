@@ -19,11 +19,11 @@ import SelectedEntityType from './SelectedEntityType';
 class TravelRuleWithdrawNaturalEntity {
     /**
      * Constructs a new <code>TravelRuleWithdrawNaturalEntity</code>.
-     * Required fields for NATURAL entities.
+     * The required information of a natural person.
      * @alias module:model/TravelRuleWithdrawNaturalEntity
      * @param selected_entity_type {module:model/SelectedEntityType} 
-     * @param first_name {String} The first name of the user.
-     * @param last_name {String} The last name of the user.
+     * @param first_name {String} The first name of the natural person.
+     * @param last_name {String} The last name of the natural person.
      */
     constructor(selected_entity_type, first_name, last_name) { 
         
@@ -110,25 +110,25 @@ TravelRuleWithdrawNaturalEntity.RequiredProperties = ["selected_entity_type", "f
 TravelRuleWithdrawNaturalEntity.prototype['selected_entity_type'] = undefined;
 
 /**
- * The first name of the user.
+ * The first name of the natural person.
  * @member {String} first_name
  */
 TravelRuleWithdrawNaturalEntity.prototype['first_name'] = undefined;
 
 /**
- * The last name of the user.
+ * The last name of the natural person.
  * @member {String} last_name
  */
 TravelRuleWithdrawNaturalEntity.prototype['last_name'] = undefined;
 
 /**
- * The date of birth of the user.
+ * The date of birth of the natural person.
  * @member {Date} date_of_birth
  */
 TravelRuleWithdrawNaturalEntity.prototype['date_of_birth'] = undefined;
 
 /**
- * The place of birth of the user.
+ * The place of birth of the natural person.
  * @member {String} place_of_birth
  */
 TravelRuleWithdrawNaturalEntity.prototype['place_of_birth'] = undefined;

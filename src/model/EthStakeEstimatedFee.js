@@ -108,7 +108,7 @@ EthStakeEstimatedFee.prototype['fee'] = undefined;
 EthStakeEstimatedFee.prototype['validator_pubkeys'] = undefined;
 
 /**
- * P2WSH address generated for this staking operation(If the estimated fee is for core BTC staking).
+ * The P2WSH address generated for this staking operation (only applicable if the estimated fee is for CORE staking).
  * @member {String} core_btc_staking_address
  */
 EthStakeEstimatedFee.prototype['core_btc_staking_address'] = undefined;

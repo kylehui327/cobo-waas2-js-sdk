@@ -10,7 +10,7 @@
  */
 
 import ApiClient from '../ApiClient';
-import TokenBalanceBalance from './TokenBalanceBalance';
+import Balance from './Balance';
 
 /**
  * The AssetBalance model module.
@@ -22,7 +22,7 @@ class AssetBalance {
      * The data for asset balance information.
      * @alias module:model/AssetBalance
      * @param asset_id {String} (This concept applies to Exchange Wallets only) The asset ID. An asset ID is the unique identifier of the asset held within your linked exchange account.
-     * @param balance {module:model/TokenBalanceBalance} 
+     * @param balance {module:model/Balance} 
      */
     constructor(asset_id, balance) { 
         
@@ -54,7 +54,7 @@ class AssetBalance {
                 obj['asset_id'] = ApiClient.convertToType(data['asset_id'], 'String');
             }
             if (data.hasOwnProperty('balance')) {
-                obj['balance'] = TokenBalanceBalance.constructFromObject(data['balance']);
+                obj['balance'] = Balance.constructFromObject(data['balance']);
             }
         }
         return obj;
@@ -78,8 +78,8 @@ class AssetBalance {
         }
         // validate the optional field `balance`
         if (data['balance']) { // data not null
-          if (!!TokenBalanceBalance.validateJSON) {
-            TokenBalanceBalance.validateJSON(data['balance']);
+          if (!!Balance.validateJSON) {
+            Balance.validateJSON(data['balance']);
           }
         }
 
@@ -98,7 +98,7 @@ AssetBalance.RequiredProperties = ["asset_id", "balance"];
 AssetBalance.prototype['asset_id'] = undefined;
 
 /**
- * @member {module:model/TokenBalanceBalance} balance
+ * @member {module:model/Balance} balance
  */
 AssetBalance.prototype['balance'] = undefined;
 

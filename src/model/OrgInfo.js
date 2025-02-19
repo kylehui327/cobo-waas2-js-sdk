@@ -18,9 +18,9 @@ import ApiClient from '../ApiClient';
 class OrgInfo {
     /**
      * Constructs a new <code>OrgInfo</code>.
-     * [organization](https://manuals.cobo.com/en/portal/organization/introduction). 
+     * The information of an organization. To learn more about organizations, see [Introduction to Organization](https://manuals.cobo.com/en/portal/organization/introduction). 
      * @alias module:model/OrgInfo
-     * @param org_id {String} The ID of the owning organization.
+     * @param org_id {String} The organization ID.
      */
     constructor(org_id) { 
         
@@ -90,7 +90,7 @@ class OrgInfo {
 OrgInfo.RequiredProperties = ["org_id"];
 
 /**
- * The ID of the owning organization.
+ * The organization ID.
  * @member {String} org_id
  */
 OrgInfo.prototype['org_id'] = undefined;
