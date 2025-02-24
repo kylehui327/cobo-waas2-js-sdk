@@ -46,6 +46,27 @@ export default class StakingPoolType {
 
     
         /**
+         * value: "BitHive"
+         * @const
+         */
+        "BitHive" = "BitHive";
+
+    
+        /**
+         * value: "BERABeacon"
+         * @const
+         */
+        "BERABeacon" = "BERABeacon";
+
+    
+        /**
+         * value: "BeraChainBGT"
+         * @const
+         */
+        "BeraChainBGT" = "BeraChainBGT";
+
+    
+        /**
          * value: "unknown_default_open_api"
          * @const
          */

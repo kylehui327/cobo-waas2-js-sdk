@@ -8,5 +8,6 @@ Name | Type | Description | Notes
 **selected_utxos** | [**[TransactionSelectedUtxo]**](TransactionSelectedUtxo.md) | The selected UTXOs to be consumed in the transaction. | [optional] 
 **raw_tx** | **String** | The raw transaction data. | [optional] 
 **unsigned_raw_tx** | **String** | The unsigned raw transaction data. | [optional] 
+**utxo_change** | [**TransactionUtxoChange**](TransactionUtxoChange.md) |  | [optional] 
 
 

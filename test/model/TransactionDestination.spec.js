@@ -136,6 +136,12 @@
       //expect(instance).to.be();
     });
 
+    it('should have the property instructions (base name: "instructions")', function() {
+      // uncomment below and update the code to test the property instructions
+      //var instance = new CoboWaas2.TransactionDestination();
+      //expect(instance).to.be();
+    });
+
     it('should have the property message (base name: "message")', function() {
       // uncomment below and update the code to test the property message
       //var instance = new CoboWaas2.TransactionDestination();

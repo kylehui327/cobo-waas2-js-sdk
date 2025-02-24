@@ -11,6 +11,12 @@
 
 * `SkyFarm` (value: `"SkyFarm"`)
 
+* `BitHive` (value: `"BitHive"`)
+
+* `BERABeacon` (value: `"BERABeacon"`)
+
+* `BeraChainBGT` (value: `"BeraChainBGT"`)
+
 * `unknown_default_open_api` (value: `"unknown_default_open_api"`)
 
 

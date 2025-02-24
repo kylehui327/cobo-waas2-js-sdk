@@ -67,6 +67,48 @@ export default class StakingPoolId {
 
     
         /**
+         * value: "bithive_signet"
+         * @const
+         */
+        "bithive_signet" = "bithive_signet";
+
+    
+        /**
+         * value: "bithive"
+         * @const
+         */
+        "bithive" = "bithive";
+
+    
+        /**
+         * value: "beacon_bera"
+         * @const
+         */
+        "beacon_bera" = "beacon_bera";
+
+    
+        /**
+         * value: "beacon_bera_testnet"
+         * @const
+         */
+        "beacon_bera_testnet" = "beacon_bera_testnet";
+
+    
+        /**
+         * value: "berachain_bgt"
+         * @const
+         */
+        "berachain_bgt" = "berachain_bgt";
+
+    
+        /**
+         * value: "berachain_bgt_testnet"
+         * @const
+         */
+        "berachain_bgt_testnet" = "berachain_bgt_testnet";
+
+    
+        /**
          * value: "unknown_default_open_api"
          * @const
          */
