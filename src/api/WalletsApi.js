@@ -619,7 +619,7 @@ export default class WalletsApi {
 
     /**
      * List address balances by token
-     * This operation retrieves a list of address balances for a specified token within a wallet.  <Note>This operation is applicable to MPC Wallets only.</Note> 
+     * The operation retrieves a list of address balances for a specified token within a wallet.   <Note>This operation is applicable to MPC Wallets only.</Note> 
      * @param {String} wallet_id The wallet ID.
      * @param {String} token_id The token ID, which is the unique identifier of a token. You can retrieve the IDs of all the tokens you can use by calling [List enabled tokens](https://www.cobo.com/developers/v2/api-references/wallets/list-enabled-tokens).
      * @param {Object} opts Optional parameters
@@ -672,7 +672,7 @@ export default class WalletsApi {
 
     /**
      * List address balances by token
-     * This operation retrieves a list of address balances for a specified token within a wallet.  <Note>This operation is applicable to MPC Wallets only.</Note> 
+     * The operation retrieves a list of address balances for a specified token within a wallet.   <Note>This operation is applicable to MPC Wallets only.</Note> 
      * @param {String} wallet_id The wallet ID.
      * @param {String} token_id The token ID, which is the unique identifier of a token. You can retrieve the IDs of all the tokens you can use by calling [List enabled tokens](https://www.cobo.com/developers/v2/api-references/wallets/list-enabled-tokens).
      * @param {Object} opts Optional parameters

@@ -12,6 +12,8 @@
 import ApiClient from '../ApiClient';
 import ContractCallDestinationType from './ContractCallDestinationType';
 import EvmContractCallDestination from './EvmContractCallDestination';
+import SolContractCallDestination from './SolContractCallDestination';
+import SolContractCallInstruction from './SolContractCallInstruction';
 
 /**
  * The ContractCallDestination model module.
@@ -21,7 +23,7 @@ class ContractCallDestination {
     /**
      * Constructs a new <code>ContractCallDestination</code>.
      * @alias module:model/ContractCallDestination
-     * @param {(module:model/EvmContractCallDestination)} instance The actual instance to initialize ContractCallDestination.
+     * @param {(module:model/EvmContractCallDestination|module:model/SolContractCallDestination)} instance The actual instance to initialize ContractCallDestination.
      */
     constructor(instance = null) {
         if (instance === null) {
@@ -36,6 +38,10 @@ class ContractCallDestination {
             switch(discriminatorValue) {
                 case "EVM_Contract":
                     this.actualInstance = EvmContractCallDestination.constructFromObject(instance);
+                    match++;
+                    break;
+                case "SOL_Contract":
+                    this.actualInstance = SolContractCallDestination.constructFromObject(instance);
                     match++;
                     break;
                 default:
@@ -70,12 +76,37 @@ class ContractCallDestination {
             errorMessages.push("Failed to construct EvmContractCallDestination: " + err)
         }
 
+        try {
+            if (instance instanceof SolContractCallDestination) {
+                this.actualInstance = instance;
+            } else if(!!SolContractCallDestination.validateJSON && SolContractCallDestination.validateJSON(instance)){
+                // plain JS object
+                // create SolContractCallDestination from JS object
+                this.actualInstance = SolContractCallDestination.constructFromObject(instance);
+            } else {
+                if(SolContractCallDestination.constructFromObject(instance)) {
+                    if (!!SolContractCallDestination.constructFromObject(instance).toJSON) {
+                        if (SolContractCallDestination.constructFromObject(instance).toJSON()) {
+                            this.actualInstance = SolContractCallDestination.constructFromObject(instance);
+                        }
+                    } else {
+                        this.actualInstance = SolContractCallDestination.constructFromObject(instance);
+                    }
+                }
+
+            }
+            match++;
+        } catch(err) {
+            // json data failed to deserialize into SolContractCallDestination
+            errorMessages.push("Failed to construct SolContractCallDestination: " + err)
+        }
+
         // if (match > 1) {
-        //    throw new Error("Multiple matches found constructing `ContractCallDestination` with oneOf schemas EvmContractCallDestination. Input: " + JSON.stringify(instance));
+        //    throw new Error("Multiple matches found constructing `ContractCallDestination` with oneOf schemas EvmContractCallDestination, SolContractCallDestination. Input: " + JSON.stringify(instance));
         // } else
         if (match === 0) {
         //    this.actualInstance = null; // clear the actual instance in case there are multiple matches
-        //    throw new Error("No match found constructing `ContractCallDestination` with oneOf schemas EvmContractCallDestination. Details: " +
+        //    throw new Error("No match found constructing `ContractCallDestination` with oneOf schemas EvmContractCallDestination, SolContractCallDestination. Details: " +
         //                    errorMessages.join(", "));
         return;
         } else { // only 1 match
@@ -95,16 +126,16 @@ class ContractCallDestination {
     }
 
     /**
-     * Gets the actual instance, which can be <code>EvmContractCallDestination</code>.
-     * @return {(module:model/EvmContractCallDestination)} The actual instance.
+     * Gets the actual instance, which can be <code>EvmContractCallDestination</code>, <code>SolContractCallDestination</code>.
+     * @return {(module:model/EvmContractCallDestination|module:model/SolContractCallDestination)} The actual instance.
      */
     getActualInstance() {
         return this.actualInstance;
     }
 
     /**
-     * Sets the actual instance, which can be <code>EvmContractCallDestination</code>.
-     * @param {(module:model/EvmContractCallDestination)} obj The actual instance.
+     * Sets the actual instance, which can be <code>EvmContractCallDestination</code>, <code>SolContractCallDestination</code>.
+     * @param {(module:model/EvmContractCallDestination|module:model/SolContractCallDestination)} obj The actual instance.
      */
     setActualInstance(obj) {
        this.actualInstance = ContractCallDestination.constructFromObject(obj).getActualInstance();
@@ -151,8 +182,13 @@ ContractCallDestination.prototype['value'] = undefined;
  */
 ContractCallDestination.prototype['calldata'] = undefined;
 
+/**
+ * @member {Array.<module:model/SolContractCallInstruction>} instructions
+ */
+ContractCallDestination.prototype['instructions'] = undefined;
 
-ContractCallDestination.OneOf = ["EvmContractCallDestination"];
+
+ContractCallDestination.OneOf = ["EvmContractCallDestination", "SolContractCallDestination"];
 
 export default ContractCallDestination;
 

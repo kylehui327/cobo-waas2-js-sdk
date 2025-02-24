@@ -21,7 +21,7 @@ class CreateAddressRequest {
      * Constructs a new <code>CreateAddressRequest</code>.
      * @alias module:model/CreateAddressRequest
      * @param chain_id {String} The chain ID, which is the unique identifier of a blockchain. You can retrieve the IDs of all the chains you can use by calling [List enabled chains](https://www.cobo.com/developers/v2/api-references/wallets/list-enabled-chains).
-     * @param count {Number} The number of addresses to create. This property will be ignored if you are generating tweaked Taproot addresses.
+     * @param count {Number} The number of addresses to create. This property will be ignored if you are tweaking Taproot address(es).
      */
     constructor(chain_id, count) { 
         
@@ -108,20 +108,20 @@ CreateAddressRequest.RequiredProperties = ["chain_id", "count"];
 CreateAddressRequest.prototype['chain_id'] = undefined;
 
 /**
- * The number of addresses to create. This property will be ignored if you are generating tweaked Taproot addresses.
+ * The number of addresses to create. This property will be ignored if you are tweaking Taproot address(es).
  * @member {Number} count
  * @default 1
  */
 CreateAddressRequest.prototype['count'] = 1;
 
 /**
- * A list of script tree hashes used to generate a tweaked Taproot address. This property is required only if you want to generate tweaked Taproot addresses.
+ * The information about the new address. This parameter is required only if you want to generate a tweaked address.
  * @member {Array.<String>} taproot_script_tree_hashes
  */
 CreateAddressRequest.prototype['taproot_script_tree_hashes'] = undefined;
 
 /**
- * The original Taproot address to be tweaked. This property is required only if you want to generate tweaked Taproot addresses.
+ * The address you want to tweak. This parameter is required only if you want to generate a tweaked address.
  * @member {String} taproot_internal_address
  */
 CreateAddressRequest.prototype['taproot_internal_address'] = undefined;

@@ -36,6 +36,26 @@ import {ApiClient, Env} from "../../src/index.js";
   });
 
   describe('StakingsApi', function() {
+    describe('createBabylonAirdropRegistration', function() {
+      it('should call createBabylonAirdropRegistration successfully', function() {
+        //uncomment below and update the code to test createBabylonAirdropRegistration
+        //instance.createBabylonAirdropRegistration().then(function(data) {
+        //    console.log(data);
+        //}, function(error) {
+        //    console.error(error);
+        //});
+      });
+    });
+    describe('createBabylonStakingRegistration', function() {
+      it('should call createBabylonStakingRegistration successfully', function() {
+        //uncomment below and update the code to test createBabylonStakingRegistration
+        //instance.createBabylonStakingRegistration().then(function(data) {
+        //    console.log(data);
+        //}, function(error) {
+        //    console.error(error);
+        //});
+      });
+    });
     describe('createClaimActivity', function() {
       it('should call createClaimActivity successfully', function() {
         //uncomment below and update the code to test createClaimActivity
@@ -70,6 +90,26 @@ import {ApiClient, Env} from "../../src/index.js";
       it('should call createWithdrawActivity successfully', function() {
         //uncomment below and update the code to test createWithdrawActivity
         //instance.createWithdrawActivity().then(function(data) {
+        //    console.log(data);
+        //}, function(error) {
+        //    console.error(error);
+        //});
+      });
+    });
+    describe('getBabylonAirdropRegistrationById', function() {
+      it('should call getBabylonAirdropRegistrationById successfully', function() {
+        //uncomment below and update the code to test getBabylonAirdropRegistrationById
+        //instance.getBabylonAirdropRegistrationById().then(function(data) {
+        //    console.log(data);
+        //}, function(error) {
+        //    console.error(error);
+        //});
+      });
+    });
+    describe('getBabylonStakingRegistrationById', function() {
+      it('should call getBabylonStakingRegistrationById successfully', function() {
+        //uncomment below and update the code to test getBabylonStakingRegistrationById
+        //instance.getBabylonStakingRegistrationById().then(function(data) {
         //    console.log(data);
         //}, function(error) {
         //    console.error(error);
@@ -120,6 +160,46 @@ import {ApiClient, Env} from "../../src/index.js";
       it('should call getStakingPoolById successfully', function() {
         //uncomment below and update the code to test getStakingPoolById
         //instance.getStakingPoolById().then(function(data) {
+        //    console.log(data);
+        //}, function(error) {
+        //    console.error(error);
+        //});
+      });
+    });
+    describe('listBabylonAirdropRegistrations', function() {
+      it('should call listBabylonAirdropRegistrations successfully', function() {
+        //uncomment below and update the code to test listBabylonAirdropRegistrations
+        //instance.listBabylonAirdropRegistrations().then(function(data) {
+        //    console.log(data);
+        //}, function(error) {
+        //    console.error(error);
+        //});
+      });
+    });
+    describe('listBabylonEligibleAirdrops', function() {
+      it('should call listBabylonEligibleAirdrops successfully', function() {
+        //uncomment below and update the code to test listBabylonEligibleAirdrops
+        //instance.listBabylonEligibleAirdrops().then(function(data) {
+        //    console.log(data);
+        //}, function(error) {
+        //    console.error(error);
+        //});
+      });
+    });
+    describe('listBabylonEligibleStakings', function() {
+      it('should call listBabylonEligibleStakings successfully', function() {
+        //uncomment below and update the code to test listBabylonEligibleStakings
+        //instance.listBabylonEligibleStakings().then(function(data) {
+        //    console.log(data);
+        //}, function(error) {
+        //    console.error(error);
+        //});
+      });
+    });
+    describe('listBabylonStakingRegistrations', function() {
+      it('should call listBabylonStakingRegistrations successfully', function() {
+        //uncomment below and update the code to test listBabylonStakingRegistrations
+        //instance.listBabylonStakingRegistrations().then(function(data) {
         //    console.log(data);
         //}, function(error) {
         //    console.error(error);

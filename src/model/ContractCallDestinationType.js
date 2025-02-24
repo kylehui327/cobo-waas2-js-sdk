@@ -25,6 +25,13 @@ export default class ContractCallDestinationType {
 
     
         /**
+         * value: "SOL_Contract"
+         * @const
+         */
+        "SOL_Contract" = "SOL_Contract";
+
+    
+        /**
          * value: "unknown_default_open_api"
          * @const
          */

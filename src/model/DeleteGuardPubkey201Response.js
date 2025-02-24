@@ -19,7 +19,7 @@ class DeleteGuardPubkey201Response {
     /**
      * Constructs a new <code>DeleteGuardPubkey201Response</code>.
      * @alias module:model/DeleteGuardPubkey201Response
-     * @param statement_id {String} The deleted Cobo Guard binding statement ID.
+     * @param statement_id {String} The delete guard binding statement ID.
      */
     constructor(statement_id) { 
         
@@ -79,7 +79,7 @@ class DeleteGuardPubkey201Response {
 DeleteGuardPubkey201Response.RequiredProperties = ["statement_id"];
 
 /**
- * The deleted Cobo Guard binding statement ID.
+ * The delete guard binding statement ID.
  * @member {String} statement_id
  */
 DeleteGuardPubkey201Response.prototype['statement_id'] = undefined;

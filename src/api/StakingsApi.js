@@ -14,6 +14,12 @@ import ApiClient from "../ApiClient";
 import Activity from '../model/Activity';
 import ActivityStatus from '../model/ActivityStatus';
 import ActivityType from '../model/ActivityType';
+import BabylonAirdropRegistration from '../model/BabylonAirdropRegistration';
+import BabylonStakingRegistration from '../model/BabylonStakingRegistration';
+import CreateBabylonAirdropRegistration201Response from '../model/CreateBabylonAirdropRegistration201Response';
+import CreateBabylonAirdropRegistrationRequest from '../model/CreateBabylonAirdropRegistrationRequest';
+import CreateBabylonStakingRegistration201Response from '../model/CreateBabylonStakingRegistration201Response';
+import CreateBabylonStakingRegistrationRequest from '../model/CreateBabylonStakingRegistrationRequest';
 import CreateClaimActivityRequest from '../model/CreateClaimActivityRequest';
 import CreateStakeActivity201Response from '../model/CreateStakeActivity201Response';
 import CreateStakeActivityRequest from '../model/CreateStakeActivityRequest';
@@ -23,6 +29,10 @@ import ErrorResponse from '../model/ErrorResponse';
 import EthStakeEstimatedFee from '../model/EthStakeEstimatedFee';
 import GetStakingEstimationFee201Response from '../model/GetStakingEstimationFee201Response';
 import GetStakingEstimationFeeRequest from '../model/GetStakingEstimationFeeRequest';
+import ListBabylonAirdropRegistrations200Response from '../model/ListBabylonAirdropRegistrations200Response';
+import ListBabylonEligibleAirdrops200Response from '../model/ListBabylonEligibleAirdrops200Response';
+import ListBabylonEligibleStakings200Response from '../model/ListBabylonEligibleStakings200Response';
+import ListBabylonStakingRegistrations200Response from '../model/ListBabylonStakingRegistrations200Response';
 import ListStakingActivities200Response from '../model/ListStakingActivities200Response';
 import ListStakingPools200Response from '../model/ListStakingPools200Response';
 import ListStakings200Response from '../model/ListStakings200Response';
@@ -46,6 +56,104 @@ export default class StakingsApi {
         this.apiClient = apiClient || ApiClient.instance;
     }
 
+
+
+    /**
+     * Create Babylon airdrop registration
+     * Creates a new airdrop registration request.  The registration process involves: 1. Validating the address eligibility 2. Creating a registration record with unique ID 3. Initiating the async registration process 4. Returning the registration ID for status tracking  Important notes: - This is an asynchronous operation - Use the status endpoint to track the registration progress - Each address can only register once 
+     * @param {Object} opts Optional parameters
+     * @param {module:model/CreateBabylonAirdropRegistrationRequest} [CreateBabylonAirdropRegistrationRequest] The request body to register for the Babylon airdrop.
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/CreateBabylonAirdropRegistration201Response} and HTTP response
+     */
+    createBabylonAirdropRegistrationWithHttpInfo(opts) {
+      opts = opts || {};
+      let postBody = opts['CreateBabylonAirdropRegistrationRequest'];
+      if (postBody && postBody.toJSON) {
+          postBody = postBody.toJSON()
+      }
+
+      let pathParams = {
+      };
+      let queryParams = {
+      };
+      let headerParams = {
+      };
+      let formParams = {
+      };
+
+      let authNames = ['CoboAuth'];
+      let contentTypes = ['application/json'];
+      let accepts = ['application/json'];
+      let returnType = CreateBabylonAirdropRegistration201Response;
+      return this.apiClient.callApi(
+        '/stakings/protocols/babylon/airdrops/registrations', 'POST',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, null
+      );
+    }
+
+    /**
+     * Create Babylon airdrop registration
+     * Creates a new airdrop registration request.  The registration process involves: 1. Validating the address eligibility 2. Creating a registration record with unique ID 3. Initiating the async registration process 4. Returning the registration ID for status tracking  Important notes: - This is an asynchronous operation - Use the status endpoint to track the registration progress - Each address can only register once 
+     * @param {Object} opts Optional parameters
+     * @param {module:model/CreateBabylonAirdropRegistrationRequest} opts.CreateBabylonAirdropRegistrationRequest The request body to register for the Babylon airdrop.
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/CreateBabylonAirdropRegistration201Response}
+     */
+    createBabylonAirdropRegistration(opts) {
+      return this.createBabylonAirdropRegistrationWithHttpInfo(opts)
+        .then(function(response_and_data) {
+          return response_and_data.data;
+        });
+    }
+
+
+    /**
+     * Create Babylon staking registration request
+     * Creates a new request to register BTC staking for babylon phase 2.  The registration process involves: 1. Validating the staking eligibility 2. Creating a registration record 3. Initiating the async registration process 4. Returning the registration ID for status tracking  Important notes: - This is an asynchronous operation - Use the status endpoint to track the registration progress 
+     * @param {Object} opts Optional parameters
+     * @param {module:model/CreateBabylonStakingRegistrationRequest} [CreateBabylonStakingRegistrationRequest] The request body to transit Babylon BTC staking to phase 2
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/CreateBabylonStakingRegistration201Response} and HTTP response
+     */
+    createBabylonStakingRegistrationWithHttpInfo(opts) {
+      opts = opts || {};
+      let postBody = opts['CreateBabylonStakingRegistrationRequest'];
+      if (postBody && postBody.toJSON) {
+          postBody = postBody.toJSON()
+      }
+
+      let pathParams = {
+      };
+      let queryParams = {
+      };
+      let headerParams = {
+      };
+      let formParams = {
+      };
+
+      let authNames = ['CoboAuth'];
+      let contentTypes = ['application/json'];
+      let accepts = ['application/json'];
+      let returnType = CreateBabylonStakingRegistration201Response;
+      return this.apiClient.callApi(
+        '/stakings/protocols/babylon/stakings/registrations', 'POST',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, null
+      );
+    }
+
+    /**
+     * Create Babylon staking registration request
+     * Creates a new request to register BTC staking for babylon phase 2.  The registration process involves: 1. Validating the staking eligibility 2. Creating a registration record 3. Initiating the async registration process 4. Returning the registration ID for status tracking  Important notes: - This is an asynchronous operation - Use the status endpoint to track the registration progress 
+     * @param {Object} opts Optional parameters
+     * @param {module:model/CreateBabylonStakingRegistrationRequest} opts.CreateBabylonStakingRegistrationRequest The request body to transit Babylon BTC staking to phase 2
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/CreateBabylonStakingRegistration201Response}
+     */
+    createBabylonStakingRegistration(opts) {
+      return this.createBabylonStakingRegistrationWithHttpInfo(opts)
+        .then(function(response_and_data) {
+          return response_and_data.data;
+        });
+    }
 
 
     /**
@@ -238,6 +346,108 @@ export default class StakingsApi {
      */
     createWithdrawActivity(opts) {
       return this.createWithdrawActivityWithHttpInfo(opts)
+        .then(function(response_and_data) {
+          return response_and_data.data;
+        });
+    }
+
+
+    /**
+     * Get Babylon airdrop registration details
+     * Returns the current status and details of a specific airdrop registration.  The response includes: - Registration status (processing/completed/failed) - Source and destination addresses - Error message if failed 
+     * @param {String} registration_id ID of the post staking registration request
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/BabylonAirdropRegistration} and HTTP response
+     */
+    getBabylonAirdropRegistrationByIdWithHttpInfo(registration_id) {
+      let postBody = null;
+      if (postBody && postBody.toJSON) {
+          postBody = postBody.toJSON()
+      }
+      // verify the required parameter 'registration_id' is set
+      if (registration_id === undefined || registration_id === null) {
+        throw new Error("Missing the required parameter 'registration_id' when calling getBabylonAirdropRegistrationById");
+      }
+
+      let pathParams = {
+        'registration_id': registration_id
+      };
+      let queryParams = {
+      };
+      let headerParams = {
+      };
+      let formParams = {
+      };
+
+      let authNames = ['CoboAuth'];
+      let contentTypes = [];
+      let accepts = ['application/json'];
+      let returnType = BabylonAirdropRegistration;
+      return this.apiClient.callApi(
+        '/stakings/protocols/babylon/airdrops/registrations/{registration_id}', 'GET',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, null
+      );
+    }
+
+    /**
+     * Get Babylon airdrop registration details
+     * Returns the current status and details of a specific airdrop registration.  The response includes: - Registration status (processing/completed/failed) - Source and destination addresses - Error message if failed 
+     * @param {String} registration_id ID of the post staking registration request
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/BabylonAirdropRegistration}
+     */
+    getBabylonAirdropRegistrationById(registration_id) {
+      return this.getBabylonAirdropRegistrationByIdWithHttpInfo(registration_id)
+        .then(function(response_and_data) {
+          return response_and_data.data;
+        });
+    }
+
+
+    /**
+     * Get post staking registration operation status
+     * Gets the current status of a post staking registration operation.  The status can be: - Processing: Registration transaction is being processed on-chain - Completed: Registration successfully completed - Failed: Registration failed (check error message for details)  Important notes: - Registration may take several minutes to complete - Status should be polled periodically - Once completed, the staking will be registered for post staking 
+     * @param {String} registration_id ID of the post staking registration request
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/BabylonStakingRegistration} and HTTP response
+     */
+    getBabylonStakingRegistrationByIdWithHttpInfo(registration_id) {
+      let postBody = null;
+      if (postBody && postBody.toJSON) {
+          postBody = postBody.toJSON()
+      }
+      // verify the required parameter 'registration_id' is set
+      if (registration_id === undefined || registration_id === null) {
+        throw new Error("Missing the required parameter 'registration_id' when calling getBabylonStakingRegistrationById");
+      }
+
+      let pathParams = {
+        'registration_id': registration_id
+      };
+      let queryParams = {
+      };
+      let headerParams = {
+      };
+      let formParams = {
+      };
+
+      let authNames = ['CoboAuth'];
+      let contentTypes = [];
+      let accepts = ['application/json'];
+      let returnType = BabylonStakingRegistration;
+      return this.apiClient.callApi(
+        '/stakings/protocols/babylon/stakings/registrations/{registration_id}', 'GET',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, null
+      );
+    }
+
+    /**
+     * Get post staking registration operation status
+     * Gets the current status of a post staking registration operation.  The status can be: - Processing: Registration transaction is being processed on-chain - Completed: Registration successfully completed - Failed: Registration failed (check error message for details)  Important notes: - Registration may take several minutes to complete - Status should be polled periodically - Once completed, the staking will be registered for post staking 
+     * @param {String} registration_id ID of the post staking registration request
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/BabylonStakingRegistration}
+     */
+    getBabylonStakingRegistrationById(registration_id) {
+      return this.getBabylonStakingRegistrationByIdWithHttpInfo(registration_id)
         .then(function(response_and_data) {
           return response_and_data.data;
         });
@@ -489,6 +699,248 @@ export default class StakingsApi {
      */
     getStakingPoolById(pool_id) {
       return this.getStakingPoolByIdWithHttpInfo(pool_id)
+        .then(function(response_and_data) {
+          return response_and_data.data;
+        });
+    }
+
+
+    /**
+     * List Babylon airdrop registrations
+     * Returns a list of airdrop registration records.  The response includes: - Registration details and current status - Transaction information - Pagination support 
+     * @param {Object} opts Optional parameters
+     * @param {module:model/String} [status] Filter by registration request status
+     * @param {String} [btc_address] The BTC address.
+     * @param {Number} [limit = 10)] The maximum number of objects to return. For most operations, the value range is [1, 50].
+     * @param {String} [before] This parameter specifies an object ID as a starting point for pagination, retrieving data before the specified object relative to the current dataset.    Suppose the current data is ordered as Object A, Object B, and Object C.  If you set `before` to the ID of Object C (`RqeEoTkgKG5rpzqYzg2Hd3szmPoj2cE7w5jWwShz3C1vyGSAk`), the response will include Object B and Object A.    **Notes**:   - If you set both `after` and `before`, an error will occur. - If you leave both `before` and `after` empty, the first page of data is returned. - If you set it to `infinity`, the last page of data is returned. 
+     * @param {String} [after] This parameter specifies an object ID as a starting point for pagination, retrieving data after the specified object relative to the current dataset.    Suppose the current data is ordered as Object A, Object B, and Object C. If you set `after` to the ID of Object A (`RqeEoTkgKG5rpzqYzg2Hd3szmPoj2cE7w5jWwShz3C1vyGSAk`), the response will include Object B and Object C.    **Notes**:   - If you set both `after` and `before`, an error will occur. - If you leave both `before` and `after` empty, the first page of data is returned. 
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/ListBabylonAirdropRegistrations200Response} and HTTP response
+     */
+    listBabylonAirdropRegistrationsWithHttpInfo(opts) {
+      opts = opts || {};
+      let postBody = null;
+      if (postBody && postBody.toJSON) {
+          postBody = postBody.toJSON()
+      }
+
+      let pathParams = {
+      };
+      let queryParams = {
+        'status': opts['status'],
+        'btc_address': opts['btc_address'],
+        'limit': opts['limit'],
+        'before': opts['before'],
+        'after': opts['after']
+      };
+      let headerParams = {
+      };
+      let formParams = {
+      };
+
+      let authNames = ['CoboAuth'];
+      let contentTypes = [];
+      let accepts = ['application/json'];
+      let returnType = ListBabylonAirdropRegistrations200Response;
+      return this.apiClient.callApi(
+        '/stakings/protocols/babylon/airdrops/registrations', 'GET',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, null
+      );
+    }
+
+    /**
+     * List Babylon airdrop registrations
+     * Returns a list of airdrop registration records.  The response includes: - Registration details and current status - Transaction information - Pagination support 
+     * @param {Object} opts Optional parameters
+     * @param {module:model/String} opts.status Filter by registration request status
+     * @param {String} opts.btc_address The BTC address.
+     * @param {Number} opts.limit The maximum number of objects to return. For most operations, the value range is [1, 50]. (default to 10)
+     * @param {String} opts.before This parameter specifies an object ID as a starting point for pagination, retrieving data before the specified object relative to the current dataset.    Suppose the current data is ordered as Object A, Object B, and Object C.  If you set `before` to the ID of Object C (`RqeEoTkgKG5rpzqYzg2Hd3szmPoj2cE7w5jWwShz3C1vyGSAk`), the response will include Object B and Object A.    **Notes**:   - If you set both `after` and `before`, an error will occur. - If you leave both `before` and `after` empty, the first page of data is returned. - If you set it to `infinity`, the last page of data is returned. 
+     * @param {String} opts.after This parameter specifies an object ID as a starting point for pagination, retrieving data after the specified object relative to the current dataset.    Suppose the current data is ordered as Object A, Object B, and Object C. If you set `after` to the ID of Object A (`RqeEoTkgKG5rpzqYzg2Hd3szmPoj2cE7w5jWwShz3C1vyGSAk`), the response will include Object B and Object C.    **Notes**:   - If you set both `after` and `before`, an error will occur. - If you leave both `before` and `after` empty, the first page of data is returned. 
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/ListBabylonAirdropRegistrations200Response}
+     */
+    listBabylonAirdropRegistrations(opts) {
+      return this.listBabylonAirdropRegistrationsWithHttpInfo(opts)
+        .then(function(response_and_data) {
+          return response_and_data.data;
+        });
+    }
+
+
+    /**
+     * List wallets eligible for Babylon airdrop
+     * Returns a list of wallets that are eligible for the Babylon airdrop.  Use this API to: 1. Check which wallets can post airdrop registration 2. Get estimated airdrop amounts before claiming 3. Monitor available airdrops  The response includes: - Eligibility status and criteria - Estimated airdrop amounts - Claim status and history 
+     * @param {Object} opts Optional parameters
+     * @param {module:model/String} [status] Filter by registration status
+     * @param {Number} [limit = 10)] The maximum number of objects to return. For most operations, the value range is [1, 50].
+     * @param {String} [before] This parameter specifies an object ID as a starting point for pagination, retrieving data before the specified object relative to the current dataset.    Suppose the current data is ordered as Object A, Object B, and Object C.  If you set `before` to the ID of Object C (`RqeEoTkgKG5rpzqYzg2Hd3szmPoj2cE7w5jWwShz3C1vyGSAk`), the response will include Object B and Object A.    **Notes**:   - If you set both `after` and `before`, an error will occur. - If you leave both `before` and `after` empty, the first page of data is returned. - If you set it to `infinity`, the last page of data is returned. 
+     * @param {String} [after] This parameter specifies an object ID as a starting point for pagination, retrieving data after the specified object relative to the current dataset.    Suppose the current data is ordered as Object A, Object B, and Object C. If you set `after` to the ID of Object A (`RqeEoTkgKG5rpzqYzg2Hd3szmPoj2cE7w5jWwShz3C1vyGSAk`), the response will include Object B and Object C.    **Notes**:   - If you set both `after` and `before`, an error will occur. - If you leave both `before` and `after` empty, the first page of data is returned. 
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/ListBabylonEligibleAirdrops200Response} and HTTP response
+     */
+    listBabylonEligibleAirdropsWithHttpInfo(opts) {
+      opts = opts || {};
+      let postBody = null;
+      if (postBody && postBody.toJSON) {
+          postBody = postBody.toJSON()
+      }
+
+      let pathParams = {
+      };
+      let queryParams = {
+        'status': opts['status'],
+        'limit': opts['limit'],
+        'before': opts['before'],
+        'after': opts['after']
+      };
+      let headerParams = {
+      };
+      let formParams = {
+      };
+
+      let authNames = ['CoboAuth'];
+      let contentTypes = [];
+      let accepts = ['application/json'];
+      let returnType = ListBabylonEligibleAirdrops200Response;
+      return this.apiClient.callApi(
+        '/stakings/protocols/babylon/airdrops/eligibles', 'GET',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, null
+      );
+    }
+
+    /**
+     * List wallets eligible for Babylon airdrop
+     * Returns a list of wallets that are eligible for the Babylon airdrop.  Use this API to: 1. Check which wallets can post airdrop registration 2. Get estimated airdrop amounts before claiming 3. Monitor available airdrops  The response includes: - Eligibility status and criteria - Estimated airdrop amounts - Claim status and history 
+     * @param {Object} opts Optional parameters
+     * @param {module:model/String} opts.status Filter by registration status
+     * @param {Number} opts.limit The maximum number of objects to return. For most operations, the value range is [1, 50]. (default to 10)
+     * @param {String} opts.before This parameter specifies an object ID as a starting point for pagination, retrieving data before the specified object relative to the current dataset.    Suppose the current data is ordered as Object A, Object B, and Object C.  If you set `before` to the ID of Object C (`RqeEoTkgKG5rpzqYzg2Hd3szmPoj2cE7w5jWwShz3C1vyGSAk`), the response will include Object B and Object A.    **Notes**:   - If you set both `after` and `before`, an error will occur. - If you leave both `before` and `after` empty, the first page of data is returned. - If you set it to `infinity`, the last page of data is returned. 
+     * @param {String} opts.after This parameter specifies an object ID as a starting point for pagination, retrieving data after the specified object relative to the current dataset.    Suppose the current data is ordered as Object A, Object B, and Object C. If you set `after` to the ID of Object A (`RqeEoTkgKG5rpzqYzg2Hd3szmPoj2cE7w5jWwShz3C1vyGSAk`), the response will include Object B and Object C.    **Notes**:   - If you set both `after` and `before`, an error will occur. - If you leave both `before` and `after` empty, the first page of data is returned. 
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/ListBabylonEligibleAirdrops200Response}
+     */
+    listBabylonEligibleAirdrops(opts) {
+      return this.listBabylonEligibleAirdropsWithHttpInfo(opts)
+        .then(function(response_and_data) {
+          return response_and_data.data;
+        });
+    }
+
+
+    /**
+     * List stakings eligible for post staking registration
+     * Returns a list of staking positions that are eligible for Babylon staking registration.  The response includes: - Staking details and current status - Babylon staking registration eligibility information  Use this API to: 1. Check which staking positions can be registered 2. Get staking details before initiating registration 3. Monitor available positions for post staking registration 
+     * @param {Object} opts Optional parameters
+     * @param {module:model/String} [status] Filter by registration status
+     * @param {Number} [limit = 10)] The maximum number of objects to return. For most operations, the value range is [1, 50].
+     * @param {String} [before] This parameter specifies an object ID as a starting point for pagination, retrieving data before the specified object relative to the current dataset.    Suppose the current data is ordered as Object A, Object B, and Object C.  If you set `before` to the ID of Object C (`RqeEoTkgKG5rpzqYzg2Hd3szmPoj2cE7w5jWwShz3C1vyGSAk`), the response will include Object B and Object A.    **Notes**:   - If you set both `after` and `before`, an error will occur. - If you leave both `before` and `after` empty, the first page of data is returned. - If you set it to `infinity`, the last page of data is returned. 
+     * @param {String} [after] This parameter specifies an object ID as a starting point for pagination, retrieving data after the specified object relative to the current dataset.    Suppose the current data is ordered as Object A, Object B, and Object C. If you set `after` to the ID of Object A (`RqeEoTkgKG5rpzqYzg2Hd3szmPoj2cE7w5jWwShz3C1vyGSAk`), the response will include Object B and Object C.    **Notes**:   - If you set both `after` and `before`, an error will occur. - If you leave both `before` and `after` empty, the first page of data is returned. 
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/ListBabylonEligibleStakings200Response} and HTTP response
+     */
+    listBabylonEligibleStakingsWithHttpInfo(opts) {
+      opts = opts || {};
+      let postBody = null;
+      if (postBody && postBody.toJSON) {
+          postBody = postBody.toJSON()
+      }
+
+      let pathParams = {
+      };
+      let queryParams = {
+        'status': opts['status'],
+        'limit': opts['limit'],
+        'before': opts['before'],
+        'after': opts['after']
+      };
+      let headerParams = {
+      };
+      let formParams = {
+      };
+
+      let authNames = ['CoboAuth'];
+      let contentTypes = [];
+      let accepts = ['application/json'];
+      let returnType = ListBabylonEligibleStakings200Response;
+      return this.apiClient.callApi(
+        '/stakings/protocols/babylon/stakings/eligibles', 'GET',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, null
+      );
+    }
+
+    /**
+     * List stakings eligible for post staking registration
+     * Returns a list of staking positions that are eligible for Babylon staking registration.  The response includes: - Staking details and current status - Babylon staking registration eligibility information  Use this API to: 1. Check which staking positions can be registered 2. Get staking details before initiating registration 3. Monitor available positions for post staking registration 
+     * @param {Object} opts Optional parameters
+     * @param {module:model/String} opts.status Filter by registration status
+     * @param {Number} opts.limit The maximum number of objects to return. For most operations, the value range is [1, 50]. (default to 10)
+     * @param {String} opts.before This parameter specifies an object ID as a starting point for pagination, retrieving data before the specified object relative to the current dataset.    Suppose the current data is ordered as Object A, Object B, and Object C.  If you set `before` to the ID of Object C (`RqeEoTkgKG5rpzqYzg2Hd3szmPoj2cE7w5jWwShz3C1vyGSAk`), the response will include Object B and Object A.    **Notes**:   - If you set both `after` and `before`, an error will occur. - If you leave both `before` and `after` empty, the first page of data is returned. - If you set it to `infinity`, the last page of data is returned. 
+     * @param {String} opts.after This parameter specifies an object ID as a starting point for pagination, retrieving data after the specified object relative to the current dataset.    Suppose the current data is ordered as Object A, Object B, and Object C. If you set `after` to the ID of Object A (`RqeEoTkgKG5rpzqYzg2Hd3szmPoj2cE7w5jWwShz3C1vyGSAk`), the response will include Object B and Object C.    **Notes**:   - If you set both `after` and `before`, an error will occur. - If you leave both `before` and `after` empty, the first page of data is returned. 
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/ListBabylonEligibleStakings200Response}
+     */
+    listBabylonEligibleStakings(opts) {
+      return this.listBabylonEligibleStakingsWithHttpInfo(opts)
+        .then(function(response_and_data) {
+          return response_and_data.data;
+        });
+    }
+
+
+    /**
+     * List Babylon phase 2 staking registration requests
+     * Returns a list of babylon phase 2 staking registration request records.  The response includes: - Registration details and current status - Transaction information - Pagination support 
+     * @param {Object} opts Optional parameters
+     * @param {module:model/String} [status] Filter by registration request status
+     * @param {String} [staking_id] The position ID.
+     * @param {Number} [limit = 10)] The maximum number of objects to return. For most operations, the value range is [1, 50].
+     * @param {String} [before] This parameter specifies an object ID as a starting point for pagination, retrieving data before the specified object relative to the current dataset.    Suppose the current data is ordered as Object A, Object B, and Object C.  If you set `before` to the ID of Object C (`RqeEoTkgKG5rpzqYzg2Hd3szmPoj2cE7w5jWwShz3C1vyGSAk`), the response will include Object B and Object A.    **Notes**:   - If you set both `after` and `before`, an error will occur. - If you leave both `before` and `after` empty, the first page of data is returned. - If you set it to `infinity`, the last page of data is returned. 
+     * @param {String} [after] This parameter specifies an object ID as a starting point for pagination, retrieving data after the specified object relative to the current dataset.    Suppose the current data is ordered as Object A, Object B, and Object C. If you set `after` to the ID of Object A (`RqeEoTkgKG5rpzqYzg2Hd3szmPoj2cE7w5jWwShz3C1vyGSAk`), the response will include Object B and Object C.    **Notes**:   - If you set both `after` and `before`, an error will occur. - If you leave both `before` and `after` empty, the first page of data is returned. 
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/ListBabylonStakingRegistrations200Response} and HTTP response
+     */
+    listBabylonStakingRegistrationsWithHttpInfo(opts) {
+      opts = opts || {};
+      let postBody = null;
+      if (postBody && postBody.toJSON) {
+          postBody = postBody.toJSON()
+      }
+
+      let pathParams = {
+      };
+      let queryParams = {
+        'status': opts['status'],
+        'staking_id': opts['staking_id'],
+        'limit': opts['limit'],
+        'before': opts['before'],
+        'after': opts['after']
+      };
+      let headerParams = {
+      };
+      let formParams = {
+      };
+
+      let authNames = ['CoboAuth'];
+      let contentTypes = [];
+      let accepts = ['application/json'];
+      let returnType = ListBabylonStakingRegistrations200Response;
+      return this.apiClient.callApi(
+        '/stakings/protocols/babylon/stakings/registrations', 'GET',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, null
+      );
+    }
+
+    /**
+     * List Babylon phase 2 staking registration requests
+     * Returns a list of babylon phase 2 staking registration request records.  The response includes: - Registration details and current status - Transaction information - Pagination support 
+     * @param {Object} opts Optional parameters
+     * @param {module:model/String} opts.status Filter by registration request status
+     * @param {String} opts.staking_id The position ID.
+     * @param {Number} opts.limit The maximum number of objects to return. For most operations, the value range is [1, 50]. (default to 10)
+     * @param {String} opts.before This parameter specifies an object ID as a starting point for pagination, retrieving data before the specified object relative to the current dataset.    Suppose the current data is ordered as Object A, Object B, and Object C.  If you set `before` to the ID of Object C (`RqeEoTkgKG5rpzqYzg2Hd3szmPoj2cE7w5jWwShz3C1vyGSAk`), the response will include Object B and Object A.    **Notes**:   - If you set both `after` and `before`, an error will occur. - If you leave both `before` and `after` empty, the first page of data is returned. - If you set it to `infinity`, the last page of data is returned. 
+     * @param {String} opts.after This parameter specifies an object ID as a starting point for pagination, retrieving data after the specified object relative to the current dataset.    Suppose the current data is ordered as Object A, Object B, and Object C. If you set `after` to the ID of Object A (`RqeEoTkgKG5rpzqYzg2Hd3szmPoj2cE7w5jWwShz3C1vyGSAk`), the response will include Object B and Object C.    **Notes**:   - If you set both `after` and `before`, an error will occur. - If you leave both `before` and `after` empty, the first page of data is returned. 
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/ListBabylonStakingRegistrations200Response}
+     */
+    listBabylonStakingRegistrations(opts) {
+      return this.listBabylonStakingRegistrationsWithHttpInfo(opts)
         .then(function(response_and_data) {
           return response_and_data.data;
         });

@@ -89,7 +89,7 @@ class QueryGuardPubkey200Response {
 
 
 /**
- * The Cobo Guard's public key.
+ * guard's pubkey.
  * @member {String} pubkey
  */
 QueryGuardPubkey200Response.prototype['pubkey'] = undefined;

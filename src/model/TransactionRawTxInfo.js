@@ -11,6 +11,7 @@
 
 import ApiClient from '../ApiClient';
 import TransactionSelectedUtxo from './TransactionSelectedUtxo';
+import TransactionUtxoChange from './TransactionUtxoChange';
 
 /**
  * The TransactionRawTxInfo model module.
@@ -58,6 +59,9 @@ class TransactionRawTxInfo {
             if (data.hasOwnProperty('unsigned_raw_tx')) {
                 obj['unsigned_raw_tx'] = ApiClient.convertToType(data['unsigned_raw_tx'], 'String');
             }
+            if (data.hasOwnProperty('utxo_change')) {
+                obj['utxo_change'] = TransactionUtxoChange.constructFromObject(data['utxo_change']);
+            }
         }
         return obj;
     }
@@ -85,6 +89,12 @@ class TransactionRawTxInfo {
         // ensure the json data is a string
         if (data['unsigned_raw_tx'] && !(typeof data['unsigned_raw_tx'] === 'string' || data['unsigned_raw_tx'] instanceof String)) {
             throw new Error("Expected the field `unsigned_raw_tx` to be a primitive type in the JSON string but got " + data['unsigned_raw_tx']);
+        }
+        // validate the optional field `utxo_change`
+        if (data['utxo_change']) { // data not null
+          if (!!TransactionUtxoChange.validateJSON) {
+            TransactionUtxoChange.validateJSON(data['utxo_change']);
+          }
         }
 
         return true;
@@ -118,6 +128,11 @@ TransactionRawTxInfo.prototype['raw_tx'] = undefined;
  * @member {String} unsigned_raw_tx
  */
 TransactionRawTxInfo.prototype['unsigned_raw_tx'] = undefined;
+
+/**
+ * @member {module:model/TransactionUtxoChange} utxo_change
+ */
+TransactionRawTxInfo.prototype['utxo_change'] = undefined;
 
 
 

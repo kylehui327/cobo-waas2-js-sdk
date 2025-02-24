@@ -10,7 +10,7 @@ Method | HTTP request | Description
 [**createMpcVault**](WalletsMPCWalletsApi.md#createMpcVault) | **POST** /wallets/mpc/vaults | Create vault
 [**createTssRequest**](WalletsMPCWalletsApi.md#createTssRequest) | **POST** /wallets/mpc/vaults/{vault_id}/tss_requests | Create TSS request
 [**deleteKeyShareHolderGroupById**](WalletsMPCWalletsApi.md#deleteKeyShareHolderGroupById) | **POST** /wallets/mpc/vaults/{vault_id}/key_share_holder_groups/{key_share_holder_group_id}/delete | Delete key share holder group
-[**getKeyShareHolderByTssNodeId**](WalletsMPCWalletsApi.md#getKeyShareHolderByTssNodeId) | **GET** /wallets/mpc/vaults/{vault_id}/key_share_holders/{tss_node_id} | Get key share holder information
+[**getKeyShareHolderByTssNodeId**](WalletsMPCWalletsApi.md#getKeyShareHolderByTssNodeId) | **GET** /wallets/mpc/vaults/{vault_id}/key_share_holders/{tss_node_id} | Get key share holder by tss node id
 [**getKeyShareHolderGroupById**](WalletsMPCWalletsApi.md#getKeyShareHolderGroupById) | **GET** /wallets/mpc/vaults/{vault_id}/key_share_holder_groups/{key_share_holder_group_id} | Get key share holder group information
 [**getMpcProjectById**](WalletsMPCWalletsApi.md#getMpcProjectById) | **GET** /wallets/mpc/projects/{project_id} | Get project information
 [**getMpcVaultById**](WalletsMPCWalletsApi.md#getMpcVaultById) | **GET** /wallets/mpc/vaults/{vault_id} | Get vault information
@@ -347,9 +347,9 @@ Name | Type | Description  | Notes
 
 > KeyShareHolder getKeyShareHolderByTssNodeId(vault_id, tss_node_id)
 
-Get key share holder information
+Get key share holder by tss node id
 
-This operation retrieves detailed information about a specified key share holder. 
+This operation retrieves detailed information about a specified key holder. 
 
 ### Example
 
@@ -711,7 +711,7 @@ Name | Type | Description  | Notes
 
 List all key share holders
 
-This operation retrieves a list of all key share holders under a specified vault. You can filter the result by key share holder group ID. 
+This operation retrieves all key share holders under a specified vault. You can filter the result by key share holder group id. 
 
 ### Example
 
@@ -746,7 +746,7 @@ apiInstance.listKeyShareHolders(vault_id, opts).then((data) => {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **vault_id** | **String**| The vault ID, which you can retrieve by calling [List all vaults](https://www.cobo.com/developers/v2/api-references/wallets--mpc-wallets/list-all-vaults). | 
- **key_share_holder_group_ids** | **String**| A list of key share holder group IDs, separated by comma. You can retrieve the IDs of all the key share holder groups by calling [List all key share holder groups](https://www.cobo.com/developers/v2/api-references/wallets--mpc-wallets/list-all-key-share-holder-groups). | [optional] 
+ **key_share_holder_group_ids** | **String**| A list of key_share_holder_group_ids, separated by comma. | [optional] 
  **limit** | **Number**| The maximum number of objects to return. For most operations, the value range is [1, 50]. | [optional] [default to 10]
  **before** | **String**| This parameter specifies an object ID as a starting point for pagination, retrieving data before the specified object relative to the current dataset.    Suppose the current data is ordered as Object A, Object B, and Object C.  If you set &#x60;before&#x60; to the ID of Object C (&#x60;RqeEoTkgKG5rpzqYzg2Hd3szmPoj2cE7w5jWwShz3C1vyGSAk&#x60;), the response will include Object B and Object A.    **Notes**:   - If you set both &#x60;after&#x60; and &#x60;before&#x60;, an error will occur. - If you leave both &#x60;before&#x60; and &#x60;after&#x60; empty, the first page of data is returned. - If you set it to &#x60;infinity&#x60;, the last page of data is returned.  | [optional] 
  **after** | **String**| This parameter specifies an object ID as a starting point for pagination, retrieving data after the specified object relative to the current dataset.    Suppose the current data is ordered as Object A, Object B, and Object C. If you set &#x60;after&#x60; to the ID of Object A (&#x60;RqeEoTkgKG5rpzqYzg2Hd3szmPoj2cE7w5jWwShz3C1vyGSAk&#x60;), the response will include Object B and Object C.    **Notes**:   - If you set both &#x60;after&#x60; and &#x60;before&#x60;, an error will occur. - If you leave both &#x60;before&#x60; and &#x60;after&#x60; empty, the first page of data is returned.  | [optional] 

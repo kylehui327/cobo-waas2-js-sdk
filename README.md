@@ -1,9 +1,9 @@
 # cobo-waas2-js-sdk
 
 CoboWaas2 - JavaScript client for cobo-waas2-js-sdk
-The Cobo Wallet-as-a-Service (WaaS) 2.0 API is the latest version of Cobo’s WaaS API offering. It enables you to access Cobo’s full suite of crypto wallet technologies with powerful and flexible access controls. By encapsulating complex security protocols and streamlining blockchain interactions, this API allows you to concentrate on your core business activities without worrying about the safety of your assets. The WaaS 2.0 API presents the following key features:
+The Cobo Wallet-as-a-Service (WaaS) 2.0 API is the latest version of Cobo's WaaS API offering. It enables you to access Cobo's full suite of crypto wallet technologies with powerful and flexible access controls. By encapsulating complex security protocols and streamlining blockchain interactions, this API allows you to concentrate on your core business activities without worrying about the safety of your assets. The WaaS 2.0 API presents the following key features:
 
-- A unified API for Cobo’s [all four wallet types](https://manuals.cobo.com/en/portal/introduction#an-all-in-one-wallet-platform)
+- A unified API for Cobo's [all four wallet types](https://manuals.cobo.com/en/portal/introduction#an-all-in-one-wallet-platform)
 - Support for 80+ chains and 3000+ tokens
 - A comprehensive selection of webhook events
 - Flexible usage models for MPC Wallets, including [Organization-Controlled Wallets](https://manuals.cobo.com/en/portal/mpc-wallets/ocw/introduction) and [User-Controlled Wallets](https://manuals.cobo.com/en/portal/mpc-wallets/ucw/introduction)
@@ -83,24 +83,38 @@ Class | Method | HTTP request | Description
 *CoboWaas2.DevelopersWebhooksApi* | [**updateWebhookEndpointById**](docs/DevelopersWebhooksApi.md#updateWebhookEndpointById) | **PUT** /webhooks/endpoints/{endpoint_id} | Update webhook endpoint
 *CoboWaas2.OAuthApi* | [**getToken**](docs/OAuthApi.md#getToken) | **GET** /oauth/token | Get Org Access Token
 *CoboWaas2.OAuthApi* | [**refreshToken**](docs/OAuthApi.md#refreshToken) | **POST** /oauth/token | Refresh Org Access Token
-*CoboWaas2.PrimeBrokerApi* | [**changeGuardPubkey**](docs/PrimeBrokerApi.md#changeGuardPubkey) | **PUT** /prime_broker/user/{user_id}/guard_pubkey | Change Guard pubkey binding
-*CoboWaas2.PrimeBrokerApi* | [**createGuardPubkey**](docs/PrimeBrokerApi.md#createGuardPubkey) | **POST** /prime_broker/user/{user_id}/guard_pubkey | Create Guard pubkey binding
-*CoboWaas2.PrimeBrokerApi* | [**createPrimeBrokerAddress**](docs/PrimeBrokerApi.md#createPrimeBrokerAddress) | **POST** /prime_broker/user/{user_id}/addresses | Bind addresses to a broker user
-*CoboWaas2.PrimeBrokerApi* | [**deleteGuardPubkey**](docs/PrimeBrokerApi.md#deleteGuardPubkey) | **POST** /prime_broker/user/{user_id}/guard_pubkey/delete | Delete Guard pubkey binding
-*CoboWaas2.PrimeBrokerApi* | [**queryApprovalStatement**](docs/PrimeBrokerApi.md#queryApprovalStatement) | **GET** /prime_broker/approval_statement/{statement_id} | Query approval statement
-*CoboWaas2.PrimeBrokerApi* | [**queryGuardPubkey**](docs/PrimeBrokerApi.md#queryGuardPubkey) | **GET** /prime_broker/user/{user_id}/guard_pubkey | Query a Guard pubkey
+*CoboWaas2.PrimeBrokerApi* | [**changeGuardPubkey**](docs/PrimeBrokerApi.md#changeGuardPubkey) | **PUT** /prime_broker/user/{user_id}/guard_pubkey | change a user guard pubkey
+*CoboWaas2.PrimeBrokerApi* | [**createGuardPubkey**](docs/PrimeBrokerApi.md#createGuardPubkey) | **POST** /prime_broker/user/{user_id}/guard_pubkey | create a guard pubkey binding
+*CoboWaas2.PrimeBrokerApi* | [**createPrimeBrokerAddress**](docs/PrimeBrokerApi.md#createPrimeBrokerAddress) | **POST** /prime_broker/user/{user_id}/addresses | bind addresses to a broker user
+*CoboWaas2.PrimeBrokerApi* | [**deleteGuardPubkey**](docs/PrimeBrokerApi.md#deleteGuardPubkey) | **POST** /prime_broker/user/{user_id}/guard_pubkey/delete | delete a user guard pubkey
+*CoboWaas2.PrimeBrokerApi* | [**queryApprovalStatement**](docs/PrimeBrokerApi.md#queryApprovalStatement) | **GET** /prime_broker/approval_statement/{statement_id} | query a approval statement
+*CoboWaas2.PrimeBrokerApi* | [**queryGuardPubkey**](docs/PrimeBrokerApi.md#queryGuardPubkey) | **GET** /prime_broker/user/{user_id}/guard_pubkey | query a user guard pubkey
+*CoboWaas2.StakingsApi* | [**createBabylonAirdropRegistration**](docs/StakingsApi.md#createBabylonAirdropRegistration) | **POST** /stakings/protocols/babylon/airdrops/registrations | Create Babylon airdrop registration
+*CoboWaas2.StakingsApi* | [**createBabylonStakingRegistration**](docs/StakingsApi.md#createBabylonStakingRegistration) | **POST** /stakings/protocols/babylon/stakings/registrations | Create Babylon staking registration request
 *CoboWaas2.StakingsApi* | [**createClaimActivity**](docs/StakingsApi.md#createClaimActivity) | **POST** /stakings/activities/claim | Create claim activity
 *CoboWaas2.StakingsApi* | [**createStakeActivity**](docs/StakingsApi.md#createStakeActivity) | **POST** /stakings/activities/stake | Create stake activity
 *CoboWaas2.StakingsApi* | [**createUnstakeActivity**](docs/StakingsApi.md#createUnstakeActivity) | **POST** /stakings/activities/unstake | Create unstake activity
 *CoboWaas2.StakingsApi* | [**createWithdrawActivity**](docs/StakingsApi.md#createWithdrawActivity) | **POST** /stakings/activities/withdraw | Create withdraw activity
+*CoboWaas2.StakingsApi* | [**getBabylonAirdropRegistrationById**](docs/StakingsApi.md#getBabylonAirdropRegistrationById) | **GET** /stakings/protocols/babylon/airdrops/registrations/{registration_id} | Get Babylon airdrop registration details
+*CoboWaas2.StakingsApi* | [**getBabylonStakingRegistrationById**](docs/StakingsApi.md#getBabylonStakingRegistrationById) | **GET** /stakings/protocols/babylon/stakings/registrations/{registration_id} | Get post staking registration operation status
 *CoboWaas2.StakingsApi* | [**getStakingActivityById**](docs/StakingsApi.md#getStakingActivityById) | **GET** /stakings/activities/{activity_id} | Get staking activity details
 *CoboWaas2.StakingsApi* | [**getStakingById**](docs/StakingsApi.md#getStakingById) | **GET** /stakings/{staking_id} | Get staking position details
 *CoboWaas2.StakingsApi* | [**getStakingEstimationFee**](docs/StakingsApi.md#getStakingEstimationFee) | **POST** /stakings/estimate_fee | Estimate staking fees
 *CoboWaas2.StakingsApi* | [**getStakingEstimationFeeV2**](docs/StakingsApi.md#getStakingEstimationFeeV2) | **POST** /stakings/estimate_fee_v2 | Estimate staking fees v2
 *CoboWaas2.StakingsApi* | [**getStakingPoolById**](docs/StakingsApi.md#getStakingPoolById) | **GET** /stakings/pools/{pool_id} | Get staking pool details
+*CoboWaas2.StakingsApi* | [**listBabylonAirdropRegistrations**](docs/StakingsApi.md#listBabylonAirdropRegistrations) | **GET** /stakings/protocols/babylon/airdrops/registrations | List Babylon airdrop registrations
+*CoboWaas2.StakingsApi* | [**listBabylonEligibleAirdrops**](docs/StakingsApi.md#listBabylonEligibleAirdrops) | **GET** /stakings/protocols/babylon/airdrops/eligibles | List wallets eligible for Babylon airdrop
+*CoboWaas2.StakingsApi* | [**listBabylonEligibleStakings**](docs/StakingsApi.md#listBabylonEligibleStakings) | **GET** /stakings/protocols/babylon/stakings/eligibles | List stakings eligible for post staking registration
+*CoboWaas2.StakingsApi* | [**listBabylonStakingRegistrations**](docs/StakingsApi.md#listBabylonStakingRegistrations) | **GET** /stakings/protocols/babylon/stakings/registrations | List Babylon phase 2 staking registration requests
 *CoboWaas2.StakingsApi* | [**listStakingActivities**](docs/StakingsApi.md#listStakingActivities) | **GET** /stakings/activities | List staking activities
 *CoboWaas2.StakingsApi* | [**listStakingPools**](docs/StakingsApi.md#listStakingPools) | **GET** /stakings/pools | List staking pools
 *CoboWaas2.StakingsApi* | [**listStakings**](docs/StakingsApi.md#listStakings) | **GET** /stakings | List staking positions
+*CoboWaas2.SwapsApi* | [**createSwapActivity**](docs/SwapsApi.md#createSwapActivity) | **POST** /swaps/swap | Create Swap Activity
+*CoboWaas2.SwapsApi* | [**createSwapQuote**](docs/SwapsApi.md#createSwapQuote) | **POST** /swaps/quote | Create Swap Quote
+*CoboWaas2.SwapsApi* | [**getSwapActivity**](docs/SwapsApi.md#getSwapActivity) | **GET** /swaps/activities/{activity_id} | Get Swap Activity Details
+*CoboWaas2.SwapsApi* | [**getSwapQuote**](docs/SwapsApi.md#getSwapQuote) | **GET** /swaps/quote | Get Current Swap Rate
+*CoboWaas2.SwapsApi* | [**listEnableTokenPairs**](docs/SwapsApi.md#listEnableTokenPairs) | **GET** /swaps/enabled_pairs | List Supported Token Pairs
+*CoboWaas2.SwapsApi* | [**listSwapActivities**](docs/SwapsApi.md#listSwapActivities) | **GET** /swaps/activities | List Swap Activities
 *CoboWaas2.TransactionsApi* | [**broadcastSignedTransactions**](docs/TransactionsApi.md#broadcastSignedTransactions) | **POST** /transactions/broadcast | Broadcast signed transactions
 *CoboWaas2.TransactionsApi* | [**cancelTransactionById**](docs/TransactionsApi.md#cancelTransactionById) | **POST** /transactions/{transaction_id}/cancel | Cancel transaction
 *CoboWaas2.TransactionsApi* | [**checkLoopTransfers**](docs/TransactionsApi.md#checkLoopTransfers) | **GET** /transactions/check_loop_transfers | Check Cobo Loop transfers
@@ -109,7 +123,7 @@ Class | Method | HTTP request | Description
 *CoboWaas2.TransactionsApi* | [**createTransferTransaction**](docs/TransactionsApi.md#createTransferTransaction) | **POST** /transactions/transfer | Transfer token
 *CoboWaas2.TransactionsApi* | [**dropTransactionById**](docs/TransactionsApi.md#dropTransactionById) | **POST** /transactions/{transaction_id}/drop | Drop transaction
 *CoboWaas2.TransactionsApi* | [**estimateFee**](docs/TransactionsApi.md#estimateFee) | **POST** /transactions/estimate_fee | Estimate transaction fee
-*CoboWaas2.TransactionsApi* | [**getTransactionApprovalDetail**](docs/TransactionsApi.md#getTransactionApprovalDetail) | **GET** /transactions/{transaction_id}/approval_detail | Get transaction approval details
+*CoboWaas2.TransactionsApi* | [**getTransactionApprovalDetail**](docs/TransactionsApi.md#getTransactionApprovalDetail) | **GET** /transactions/{transaction_id}/approval_detail | Get transaction approval information
 *CoboWaas2.TransactionsApi* | [**getTransactionById**](docs/TransactionsApi.md#getTransactionById) | **GET** /transactions/{transaction_id} | Get transaction information
 *CoboWaas2.TransactionsApi* | [**listTransactions**](docs/TransactionsApi.md#listTransactions) | **GET** /transactions | List all transactions
 *CoboWaas2.TransactionsApi* | [**resendTransactionById**](docs/TransactionsApi.md#resendTransactionById) | **POST** /transactions/{transaction_id}/resend | Resend transaction
@@ -152,7 +166,7 @@ Class | Method | HTTP request | Description
 *CoboWaas2.WalletsMPCWalletsApi* | [**createMpcVault**](docs/WalletsMPCWalletsApi.md#createMpcVault) | **POST** /wallets/mpc/vaults | Create vault
 *CoboWaas2.WalletsMPCWalletsApi* | [**createTssRequest**](docs/WalletsMPCWalletsApi.md#createTssRequest) | **POST** /wallets/mpc/vaults/{vault_id}/tss_requests | Create TSS request
 *CoboWaas2.WalletsMPCWalletsApi* | [**deleteKeyShareHolderGroupById**](docs/WalletsMPCWalletsApi.md#deleteKeyShareHolderGroupById) | **POST** /wallets/mpc/vaults/{vault_id}/key_share_holder_groups/{key_share_holder_group_id}/delete | Delete key share holder group
-*CoboWaas2.WalletsMPCWalletsApi* | [**getKeyShareHolderByTssNodeId**](docs/WalletsMPCWalletsApi.md#getKeyShareHolderByTssNodeId) | **GET** /wallets/mpc/vaults/{vault_id}/key_share_holders/{tss_node_id} | Get key share holder information
+*CoboWaas2.WalletsMPCWalletsApi* | [**getKeyShareHolderByTssNodeId**](docs/WalletsMPCWalletsApi.md#getKeyShareHolderByTssNodeId) | **GET** /wallets/mpc/vaults/{vault_id}/key_share_holders/{tss_node_id} | Get key share holder by tss node id
 *CoboWaas2.WalletsMPCWalletsApi* | [**getKeyShareHolderGroupById**](docs/WalletsMPCWalletsApi.md#getKeyShareHolderGroupById) | **GET** /wallets/mpc/vaults/{vault_id}/key_share_holder_groups/{key_share_holder_group_id} | Get key share holder group information
 *CoboWaas2.WalletsMPCWalletsApi* | [**getMpcProjectById**](docs/WalletsMPCWalletsApi.md#getMpcProjectById) | **GET** /wallets/mpc/projects/{project_id} | Get project information
 *CoboWaas2.WalletsMPCWalletsApi* | [**getMpcVaultById**](docs/WalletsMPCWalletsApi.md#getMpcVaultById) | **GET** /wallets/mpc/vaults/{vault_id} | Get vault information
@@ -195,10 +209,16 @@ Class | Method | HTTP request | Description
  - [CoboWaas2.AssetInfo](docs/AssetInfo.md)
  - [CoboWaas2.AutoFuelType](docs/AutoFuelType.md)
  - [CoboWaas2.BTCEIP191MessageSignDestination](docs/BTCEIP191MessageSignDestination.md)
+ - [CoboWaas2.BabylonAirdropPop](docs/BabylonAirdropPop.md)
+ - [CoboWaas2.BabylonAirdropRegistration](docs/BabylonAirdropRegistration.md)
+ - [CoboWaas2.BabylonEligibleAirdrop](docs/BabylonEligibleAirdrop.md)
+ - [CoboWaas2.BabylonRegistrationRequestStatus](docs/BabylonRegistrationRequestStatus.md)
+ - [CoboWaas2.BabylonRegistrationStatus](docs/BabylonRegistrationStatus.md)
  - [CoboWaas2.BabylonStakeEstimatedFee](docs/BabylonStakeEstimatedFee.md)
  - [CoboWaas2.BabylonStakeExtra](docs/BabylonStakeExtra.md)
  - [CoboWaas2.BabylonStakingActivityDetailExtra](docs/BabylonStakingActivityDetailExtra.md)
  - [CoboWaas2.BabylonStakingExtra](docs/BabylonStakingExtra.md)
+ - [CoboWaas2.BabylonStakingRegistration](docs/BabylonStakingRegistration.md)
  - [CoboWaas2.BabylonValidator](docs/BabylonValidator.md)
  - [CoboWaas2.Balance](docs/Balance.md)
  - [CoboWaas2.BaseContractCallSource](docs/BaseContractCallSource.md)
@@ -225,6 +245,10 @@ Class | Method | HTTP request | Description
  - [CoboWaas2.CoreStakingActivityDetailExtra](docs/CoreStakingActivityDetailExtra.md)
  - [CoboWaas2.CoreStakingExtra](docs/CoreStakingExtra.md)
  - [CoboWaas2.CreateAddressRequest](docs/CreateAddressRequest.md)
+ - [CoboWaas2.CreateBabylonAirdropRegistration201Response](docs/CreateBabylonAirdropRegistration201Response.md)
+ - [CoboWaas2.CreateBabylonAirdropRegistrationRequest](docs/CreateBabylonAirdropRegistrationRequest.md)
+ - [CoboWaas2.CreateBabylonStakingRegistration201Response](docs/CreateBabylonStakingRegistration201Response.md)
+ - [CoboWaas2.CreateBabylonStakingRegistrationRequest](docs/CreateBabylonStakingRegistrationRequest.md)
  - [CoboWaas2.CreateClaimActivity](docs/CreateClaimActivity.md)
  - [CoboWaas2.CreateClaimActivityRequest](docs/CreateClaimActivityRequest.md)
  - [CoboWaas2.CreateCustodialWalletParams](docs/CreateCustodialWalletParams.md)
@@ -242,6 +266,9 @@ Class | Method | HTTP request | Description
  - [CoboWaas2.CreateStakeActivity201Response](docs/CreateStakeActivity201Response.md)
  - [CoboWaas2.CreateStakeActivityExtra](docs/CreateStakeActivityExtra.md)
  - [CoboWaas2.CreateStakeActivityRequest](docs/CreateStakeActivityRequest.md)
+ - [CoboWaas2.CreateSwapActivityRequest](docs/CreateSwapActivityRequest.md)
+ - [CoboWaas2.CreateSwapQuote201Response](docs/CreateSwapQuote201Response.md)
+ - [CoboWaas2.CreateSwapQuoteRequest](docs/CreateSwapQuoteRequest.md)
  - [CoboWaas2.CreateTransferTransaction201Response](docs/CreateTransferTransaction201Response.md)
  - [CoboWaas2.CreateTssRequestRequest](docs/CreateTssRequestRequest.md)
  - [CoboWaas2.CreateUnstakeActivity](docs/CreateUnstakeActivity.md)
@@ -319,7 +346,13 @@ Class | Method | HTTP request | Description
  - [CoboWaas2.ListAddressBooks200Response](docs/ListAddressBooks200Response.md)
  - [CoboWaas2.ListAddresses200Response](docs/ListAddresses200Response.md)
  - [CoboWaas2.ListAssetBalancesForExchangeWallet200Response](docs/ListAssetBalancesForExchangeWallet200Response.md)
+ - [CoboWaas2.ListBabylonAirdropRegistrations200Response](docs/ListBabylonAirdropRegistrations200Response.md)
+ - [CoboWaas2.ListBabylonEligibleAirdrops200Response](docs/ListBabylonEligibleAirdrops200Response.md)
+ - [CoboWaas2.ListBabylonEligibleStakings200Response](docs/ListBabylonEligibleStakings200Response.md)
+ - [CoboWaas2.ListBabylonEligibleStakings200ResponseDataInner](docs/ListBabylonEligibleStakings200ResponseDataInner.md)
+ - [CoboWaas2.ListBabylonStakingRegistrations200Response](docs/ListBabylonStakingRegistrations200Response.md)
  - [CoboWaas2.ListCallbackMessages200Response](docs/ListCallbackMessages200Response.md)
+ - [CoboWaas2.ListEnableTokenPairs200Response](docs/ListEnableTokenPairs200Response.md)
  - [CoboWaas2.ListExchanges200ResponseInner](docs/ListExchanges200ResponseInner.md)
  - [CoboWaas2.ListKeyShareHolderGroups200Response](docs/ListKeyShareHolderGroups200Response.md)
  - [CoboWaas2.ListKeyShareHolders200Response](docs/ListKeyShareHolders200Response.md)
@@ -332,6 +365,7 @@ Class | Method | HTTP request | Description
  - [CoboWaas2.ListSupportedChains200Response](docs/ListSupportedChains200Response.md)
  - [CoboWaas2.ListSupportedCountries200ResponseInner](docs/ListSupportedCountries200ResponseInner.md)
  - [CoboWaas2.ListSupportedTokens200Response](docs/ListSupportedTokens200Response.md)
+ - [CoboWaas2.ListSwapActivities200Response](docs/ListSwapActivities200Response.md)
  - [CoboWaas2.ListTokenBalancesForAddress200Response](docs/ListTokenBalancesForAddress200Response.md)
  - [CoboWaas2.ListTransactions200Response](docs/ListTransactions200Response.md)
  - [CoboWaas2.ListTssRequests200Response](docs/ListTssRequests200Response.md)
@@ -391,6 +425,9 @@ Class | Method | HTTP request | Description
  - [CoboWaas2.SmartContractWalletInfo](docs/SmartContractWalletInfo.md)
  - [CoboWaas2.SmartContractWalletOperationType](docs/SmartContractWalletOperationType.md)
  - [CoboWaas2.SmartContractWalletType](docs/SmartContractWalletType.md)
+ - [CoboWaas2.SolContractCallAccount](docs/SolContractCallAccount.md)
+ - [CoboWaas2.SolContractCallDestination](docs/SolContractCallDestination.md)
+ - [CoboWaas2.SolContractCallInstruction](docs/SolContractCallInstruction.md)
  - [CoboWaas2.SourceGroup](docs/SourceGroup.md)
  - [CoboWaas2.StakeSourceType](docs/StakeSourceType.md)
  - [CoboWaas2.StakingPoolId](docs/StakingPoolId.md)
@@ -401,7 +438,7 @@ Class | Method | HTTP request | Description
  - [CoboWaas2.SubWalletAssetBalance](docs/SubWalletAssetBalance.md)
  - [CoboWaas2.SubmitDepositTravelRuleInfo201Response](docs/SubmitDepositTravelRuleInfo201Response.md)
  - [CoboWaas2.SwapActivity](docs/SwapActivity.md)
- - [CoboWaas2.SwapSummary](docs/SwapSummary.md)
+ - [CoboWaas2.SwapQuote](docs/SwapQuote.md)
  - [CoboWaas2.SwapTokenPair](docs/SwapTokenPair.md)
  - [CoboWaas2.TSSGroups](docs/TSSGroups.md)
  - [CoboWaas2.TSSRequest](docs/TSSRequest.md)
@@ -458,6 +495,9 @@ Class | Method | HTTP request | Description
  - [CoboWaas2.TransactionSignatureResult](docs/TransactionSignatureResult.md)
  - [CoboWaas2.TransactionSigner](docs/TransactionSigner.md)
  - [CoboWaas2.TransactionSmartContractSafeWalletSource](docs/TransactionSmartContractSafeWalletSource.md)
+ - [CoboWaas2.TransactionSolContractAccount](docs/TransactionSolContractAccount.md)
+ - [CoboWaas2.TransactionSolContractDestination](docs/TransactionSolContractDestination.md)
+ - [CoboWaas2.TransactionSolContractInstruction](docs/TransactionSolContractInstruction.md)
  - [CoboWaas2.TransactionSource](docs/TransactionSource.md)
  - [CoboWaas2.TransactionSourceType](docs/TransactionSourceType.md)
  - [CoboWaas2.TransactionStatus](docs/TransactionStatus.md)
@@ -472,6 +512,7 @@ Class | Method | HTTP request | Description
  - [CoboWaas2.TransactionType](docs/TransactionType.md)
  - [CoboWaas2.TransactionUserApprovalDetail](docs/TransactionUserApprovalDetail.md)
  - [CoboWaas2.TransactionUtxo](docs/TransactionUtxo.md)
+ - [CoboWaas2.TransactionUtxoChange](docs/TransactionUtxoChange.md)
  - [CoboWaas2.TransactionUtxoFee](docs/TransactionUtxoFee.md)
  - [CoboWaas2.TransactionWebhookEventData](docs/TransactionWebhookEventData.md)
  - [CoboWaas2.TransferDestination](docs/TransferDestination.md)
@@ -553,26 +594,26 @@ Authentication schemes defined for the API:
 - **Authorization URL**: https://auth.cobo.com/authorize
 - **Scopes**: 
   - address_book.read: Read address book
-  - api_key.read: Read API key information
+  - api_key.read: Read API key info
   - callback.read: Read callback message
   - callback.resend: Resend callback message
   - wallet.create: Create wallet
-  - wallet.read: Read wallet information
-  - wallet.update: Update wallet information
-  - wallet.delete: Delete wallet information
+  - wallet.read: Read wallet info
+  - wallet.update: Update wallet info
+  - wallet.delete: Delete wallet info
   - wallet.create_address: Create wallet address
   - wallet.manage_utxo: Manage UTXO
   - mpc_project.create: Create MPC project
-  - mpc_project.read: Read MPC project information
-  - mpc_project.update: Update MPC project information
-  - mpc_vault.create: Create MPC Vault
-  - mpc_vault.read: Read MPC Vault information
-  - mpc_vault.update: Update MPC Vault information
+  - mpc_project.read: Read MPC project info
+  - mpc_project.update: Update MPC project info
+  - mpc_vault.create: Create MPC vault
+  - mpc_vault.read: Read MPC vault info
+  - mpc_vault.update: Update MPC vault info
   - mpc_key_group.create: Create MPC key group
-  - mpc_key_group.read: Read MPC key group information
-  - mpc_key_group.update: Update MPC key group information
-  - mpc_key_group.delete: Delete MPC key group information
-  - transaction.read: Read transaction information
+  - mpc_key_group.read: Read MPC key group info
+  - mpc_key_group.update: Update MPC key group info
+  - mpc_key_group.delete: Delete MPC key group info
+  - transaction.read: Read transaction info
   - transaction.withdraw: Make withdrawals
   - transaction.estimate_fee: Estimate transaction fee
   - transaction.contract_call: Initiate contract calls
@@ -582,8 +623,8 @@ Authentication schemes defined for the API:
   - transaction.unstake_withdraw: Withdraw unstaked assets
   - transaction.manage: Manage ongoing transactions
   - transaction.update: Update transaction notes
-  - travel_rule.read: Read travel rule information
-  - travel_rule.edit: Edit travel rule information
+  - travel_rule.read: Read travel rule info
+  - travel_rule.edit: Edit travel rule info
   - webhook.read: Read webhook URLs/events
   - webhook.edit: Edit webhook URLs
   - webhook.resend: Resend webhook events

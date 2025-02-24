@@ -39,6 +39,13 @@ export default class TransactionDestinationType {
 
     
         /**
+         * value: "SOL_Contract"
+         * @const
+         */
+        "SOL_Contract" = "SOL_Contract";
+
+    
+        /**
          * value: "EVM_EIP_191_Signature"
          * @const
          */
