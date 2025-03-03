@@ -10,7 +10,7 @@
  */
 
 import ApiClient from '../ApiClient';
-import AddressInfo from './AddressInfo';
+import AddressesEventDataAllOfAddresses from './AddressesEventDataAllOfAddresses';
 import WebhookEventDataType from './WebhookEventDataType';
 
 /**
@@ -54,7 +54,7 @@ class AddressesEventData {
                 obj['data_type'] = ApiClient.convertToType(data['data_type'], 'String');
             }
             if (data.hasOwnProperty('addresses')) {
-                obj['addresses'] = ApiClient.convertToType(data['addresses'], [AddressInfo]);
+                obj['addresses'] = ApiClient.convertToType(data['addresses'], [AddressesEventDataAllOfAddresses]);
             }
         }
         return obj;
@@ -83,7 +83,7 @@ class AddressesEventData {
             }
             // validate the optional field `addresses` (array)
             for (const item of data['addresses']) {
-                AddressInfo.validateJSON(item);
+                AddressesEventDataAllOfAddresses.validateJSON(item);
             };
         }
 
@@ -103,7 +103,7 @@ AddressesEventData.prototype['data_type'] = undefined;
 
 /**
  * A list of addresses.
- * @member {Array.<module:model/AddressInfo>} addresses
+ * @member {Array.<module:model/AddressesEventDataAllOfAddresses>} addresses
  */
 AddressesEventData.prototype['addresses'] = undefined;
 

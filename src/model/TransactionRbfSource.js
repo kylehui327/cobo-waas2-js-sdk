@@ -10,6 +10,7 @@
  */
 
 import ApiClient from '../ApiClient';
+import MpcSigningGroup from './MpcSigningGroup';
 import MpcTransferSource from './MpcTransferSource';
 import TransactionUtxo from './TransactionUtxo';
 import WalletSubtype from './WalletSubtype';
@@ -159,6 +160,11 @@ TransactionRbfSource.prototype['included_utxos'] = undefined;
  * @member {Array.<module:model/TransactionUtxo>} excluded_utxos
  */
 TransactionRbfSource.prototype['excluded_utxos'] = undefined;
+
+/**
+ * @member {module:model/MpcSigningGroup} mpc_used_key_share_holder_group
+ */
+TransactionRbfSource.prototype['mpc_used_key_share_holder_group'] = undefined;
 
 
 TransactionRbfSource.OneOf = ["MpcTransferSource"];

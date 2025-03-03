@@ -20,7 +20,7 @@ class QueryGuardPubkey200ResponseAddressesInner {
      * Constructs a new <code>QueryGuardPubkey200ResponseAddressesInner</code>.
      * @alias module:model/QueryGuardPubkey200ResponseAddressesInner
      * @param address {String} The wallet address.
-     * @param chain_id {String} The chain ID, which is the unique identifier of a blockchain. You can retrieve the IDs of all the chains you can use by calling [List enabled chains](/v2/api-references/wallets/list-enabled-chains).
+     * @param chain_id {String} The chain ID, which is the unique identifier of a blockchain. You can retrieve the IDs of all the chains you can use by calling [List enabled chains](https://www.cobo.com/developers/v2/api-references/wallets/list-enabled-chains).
      */
     constructor(address, chain_id) { 
         
@@ -94,7 +94,7 @@ QueryGuardPubkey200ResponseAddressesInner.RequiredProperties = ["address", "chai
 QueryGuardPubkey200ResponseAddressesInner.prototype['address'] = undefined;
 
 /**
- * The chain ID, which is the unique identifier of a blockchain. You can retrieve the IDs of all the chains you can use by calling [List enabled chains](/v2/api-references/wallets/list-enabled-chains).
+ * The chain ID, which is the unique identifier of a blockchain. You can retrieve the IDs of all the chains you can use by calling [List enabled chains](https://www.cobo.com/developers/v2/api-references/wallets/list-enabled-chains).
  * @member {String} chain_id
  */
 QueryGuardPubkey200ResponseAddressesInner.prototype['chain_id'] = undefined;

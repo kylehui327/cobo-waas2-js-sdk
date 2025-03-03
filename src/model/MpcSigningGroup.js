@@ -20,10 +20,11 @@ class MpcSigningGroup {
      * Constructs a new <code>MpcSigningGroup</code>.
      * The information about the Signing Group of an MPC Wallet.
      * @alias module:model/MpcSigningGroup
+     * @param used_key_share_holder_group_id {String} The ID of the Signing Group.
      */
-    constructor() { 
+    constructor(used_key_share_holder_group_id) { 
         
-        MpcSigningGroup.initialize(this);
+        MpcSigningGroup.initialize(this, used_key_share_holder_group_id);
     }
 
     /**
@@ -31,7 +32,8 @@ class MpcSigningGroup {
      * This method is used by the constructors of any subclasses, in order to implement multiple inheritance (mix-ins).
      * Only for internal use.
      */
-    static initialize(obj) { 
+    static initialize(obj, used_key_share_holder_group_id) { 
+        obj['used_key_share_holder_group_id'] = used_key_share_holder_group_id;
     }
 
     /**
@@ -61,6 +63,12 @@ class MpcSigningGroup {
      * @return {boolean} to indicate whether the JSON data is valid with respect to <code>MpcSigningGroup</code>.
      */
     static validateJSON(data) {
+        // check to make sure all required properties are present in the JSON string
+        for (const property of MpcSigningGroup.RequiredProperties) {
+            if (!data.hasOwnProperty(property)) {
+                throw new Error("The required field `" + property + "` is not found in the JSON data: " + JSON.stringify(data));
+            }
+        }
         // ensure the json data is a string
         if (data['used_key_share_holder_group_id'] && !(typeof data['used_key_share_holder_group_id'] === 'string' || data['used_key_share_holder_group_id'] instanceof String)) {
             throw new Error("Expected the field `used_key_share_holder_group_id` to be a primitive type in the JSON string but got " + data['used_key_share_holder_group_id']);
@@ -76,7 +84,7 @@ class MpcSigningGroup {
 
 }
 
-
+MpcSigningGroup.RequiredProperties = ["used_key_share_holder_group_id"];
 
 /**
  * The ID of the Signing Group.

@@ -70,6 +70,12 @@
       //expect(instance).to.be();
     });
 
+    it('should have the property mpc_used_key_share_holder_group (base name: "mpc_used_key_share_holder_group")', function() {
+      // uncomment below and update the code to test the property mpc_used_key_share_holder_group
+      //var instance = new CoboWaas2.MpcMessageSignSource();
+      //expect(instance).to.be();
+    });
+
   });
 
 }));

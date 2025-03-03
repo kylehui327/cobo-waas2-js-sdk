@@ -26,7 +26,7 @@
   var instance;
 
   beforeEach(function() {
-    instance = new CoboWaas2.SwapSummary();
+    instance = new CoboWaas2.ListEnableTokenPairs200Response();
   });
 
   var getProperty = function(object, getter, property) {
@@ -45,22 +45,22 @@
       object[property] = value;
   }
 
-  describe('SwapSummary', function() {
-    it('should create an instance of SwapSummary', function() {
-      // uncomment below and update the code to test SwapSummary
-      //var instance = new CoboWaas2.SwapSummary();
-      //expect(instance).to.be.a(CoboWaas2.SwapSummary);
+  describe('ListEnableTokenPairs200Response', function() {
+    it('should create an instance of ListEnableTokenPairs200Response', function() {
+      // uncomment below and update the code to test ListEnableTokenPairs200Response
+      //var instance = new CoboWaas2.ListEnableTokenPairs200Response();
+      //expect(instance).to.be.a(CoboWaas2.ListEnableTokenPairs200Response);
     });
 
-    it('should have the property total_usd_value (base name: "total_usd_value")', function() {
-      // uncomment below and update the code to test the property total_usd_value
-      //var instance = new CoboWaas2.SwapSummary();
+    it('should have the property data (base name: "data")', function() {
+      // uncomment below and update the code to test the property data
+      //var instance = new CoboWaas2.ListEnableTokenPairs200Response();
       //expect(instance).to.be();
     });
 
-    it('should have the property activity_count (base name: "activity_count")', function() {
-      // uncomment below and update the code to test the property activity_count
-      //var instance = new CoboWaas2.SwapSummary();
+    it('should have the property pagination (base name: "pagination")', function() {
+      // uncomment below and update the code to test the property pagination
+      //var instance = new CoboWaas2.ListEnableTokenPairs200Response();
       //expect(instance).to.be();
     });
 

@@ -12,6 +12,7 @@
 import ApiClient from '../ApiClient';
 import BaseContractCallSource from './BaseContractCallSource';
 import ContractCallSourceType from './ContractCallSourceType';
+import MpcSigningGroup from './MpcSigningGroup';
 
 /**
  * The MpcContractCallSource model module.
@@ -63,6 +64,9 @@ class MpcContractCallSource {
             if (data.hasOwnProperty('address')) {
                 obj['address'] = ApiClient.convertToType(data['address'], 'String');
             }
+            if (data.hasOwnProperty('mpc_used_key_share_holder_group')) {
+                obj['mpc_used_key_share_holder_group'] = MpcSigningGroup.constructFromObject(data['mpc_used_key_share_holder_group']);
+            }
         }
         return obj;
     }
@@ -86,6 +90,12 @@ class MpcContractCallSource {
         // ensure the json data is a string
         if (data['address'] && !(typeof data['address'] === 'string' || data['address'] instanceof String)) {
             throw new Error("Expected the field `address` to be a primitive type in the JSON string but got " + data['address']);
+        }
+        // validate the optional field `mpc_used_key_share_holder_group`
+        if (data['mpc_used_key_share_holder_group']) { // data not null
+          if (!!MpcSigningGroup.validateJSON) {
+            MpcSigningGroup.validateJSON(data['mpc_used_key_share_holder_group']);
+          }
         }
 
         return true;
@@ -112,6 +122,11 @@ MpcContractCallSource.prototype['wallet_id'] = undefined;
  * @member {String} address
  */
 MpcContractCallSource.prototype['address'] = undefined;
+
+/**
+ * @member {module:model/MpcSigningGroup} mpc_used_key_share_holder_group
+ */
+MpcContractCallSource.prototype['mpc_used_key_share_holder_group'] = undefined;
 
 
 // Implement BaseContractCallSource interface:

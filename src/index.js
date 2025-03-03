@@ -28,6 +28,7 @@ import AddressTransferDestination from './model/AddressTransferDestination';
 import AddressTransferDestinationAccountOutput from './model/AddressTransferDestinationAccountOutput';
 import AddressTransferDestinationUtxoOutputsInner from './model/AddressTransferDestinationUtxoOutputsInner';
 import AddressesEventData from './model/AddressesEventData';
+import AddressesEventDataAllOfAddresses from './model/AddressesEventDataAllOfAddresses';
 import AmountDetailsInner from './model/AmountDetailsInner';
 import AmountStatus from './model/AmountStatus';
 import ApiLogDetails from './model/ApiLogDetails';
@@ -37,10 +38,16 @@ import AssetBalance from './model/AssetBalance';
 import AssetInfo from './model/AssetInfo';
 import AutoFuelType from './model/AutoFuelType';
 import BTCEIP191MessageSignDestination from './model/BTCEIP191MessageSignDestination';
+import BabylonAirdropPop from './model/BabylonAirdropPop';
+import BabylonAirdropRegistration from './model/BabylonAirdropRegistration';
+import BabylonEligibleAirdrop from './model/BabylonEligibleAirdrop';
+import BabylonRegistrationRequestStatus from './model/BabylonRegistrationRequestStatus';
+import BabylonRegistrationStatus from './model/BabylonRegistrationStatus';
 import BabylonStakeEstimatedFee from './model/BabylonStakeEstimatedFee';
 import BabylonStakeExtra from './model/BabylonStakeExtra';
 import BabylonStakingActivityDetailExtra from './model/BabylonStakingActivityDetailExtra';
 import BabylonStakingExtra from './model/BabylonStakingExtra';
+import BabylonStakingRegistration from './model/BabylonStakingRegistration';
 import BabylonValidator from './model/BabylonValidator';
 import Balance from './model/Balance';
 import BaseContractCallSource from './model/BaseContractCallSource';
@@ -67,6 +74,10 @@ import CoreStakeExtra from './model/CoreStakeExtra';
 import CoreStakingActivityDetailExtra from './model/CoreStakingActivityDetailExtra';
 import CoreStakingExtra from './model/CoreStakingExtra';
 import CreateAddressRequest from './model/CreateAddressRequest';
+import CreateBabylonAirdropRegistration201Response from './model/CreateBabylonAirdropRegistration201Response';
+import CreateBabylonAirdropRegistrationRequest from './model/CreateBabylonAirdropRegistrationRequest';
+import CreateBabylonStakingRegistration201Response from './model/CreateBabylonStakingRegistration201Response';
+import CreateBabylonStakingRegistrationRequest from './model/CreateBabylonStakingRegistrationRequest';
 import CreateClaimActivity from './model/CreateClaimActivity';
 import CreateClaimActivityRequest from './model/CreateClaimActivityRequest';
 import CreateCustodialWalletParams from './model/CreateCustodialWalletParams';
@@ -84,6 +95,9 @@ import CreateStakeActivity from './model/CreateStakeActivity';
 import CreateStakeActivity201Response from './model/CreateStakeActivity201Response';
 import CreateStakeActivityExtra from './model/CreateStakeActivityExtra';
 import CreateStakeActivityRequest from './model/CreateStakeActivityRequest';
+import CreateSwapActivityRequest from './model/CreateSwapActivityRequest';
+import CreateSwapQuote201Response from './model/CreateSwapQuote201Response';
+import CreateSwapQuoteRequest from './model/CreateSwapQuoteRequest';
 import CreateTransferTransaction201Response from './model/CreateTransferTransaction201Response';
 import CreateTssRequestRequest from './model/CreateTssRequestRequest';
 import CreateUnstakeActivity from './model/CreateUnstakeActivity';
@@ -161,7 +175,13 @@ import ListAddressBalancesByToken200Response from './model/ListAddressBalancesBy
 import ListAddressBooks200Response from './model/ListAddressBooks200Response';
 import ListAddresses200Response from './model/ListAddresses200Response';
 import ListAssetBalancesForExchangeWallet200Response from './model/ListAssetBalancesForExchangeWallet200Response';
+import ListBabylonAirdropRegistrations200Response from './model/ListBabylonAirdropRegistrations200Response';
+import ListBabylonEligibleAirdrops200Response from './model/ListBabylonEligibleAirdrops200Response';
+import ListBabylonEligibleStakings200Response from './model/ListBabylonEligibleStakings200Response';
+import ListBabylonEligibleStakings200ResponseDataInner from './model/ListBabylonEligibleStakings200ResponseDataInner';
+import ListBabylonStakingRegistrations200Response from './model/ListBabylonStakingRegistrations200Response';
 import ListCallbackMessages200Response from './model/ListCallbackMessages200Response';
+import ListEnableTokenPairs200Response from './model/ListEnableTokenPairs200Response';
 import ListExchanges200ResponseInner from './model/ListExchanges200ResponseInner';
 import ListKeyShareHolderGroups200Response from './model/ListKeyShareHolderGroups200Response';
 import ListKeyShareHolders200Response from './model/ListKeyShareHolders200Response';
@@ -174,6 +194,7 @@ import ListSupportedAssetsForExchange200Response from './model/ListSupportedAsse
 import ListSupportedChains200Response from './model/ListSupportedChains200Response';
 import ListSupportedCountries200ResponseInner from './model/ListSupportedCountries200ResponseInner';
 import ListSupportedTokens200Response from './model/ListSupportedTokens200Response';
+import ListSwapActivities200Response from './model/ListSwapActivities200Response';
 import ListTokenBalancesForAddress200Response from './model/ListTokenBalancesForAddress200Response';
 import ListTransactions200Response from './model/ListTransactions200Response';
 import ListTssRequests200Response from './model/ListTssRequests200Response';
@@ -243,7 +264,7 @@ import StakingsExtra from './model/StakingsExtra';
 import SubWalletAssetBalance from './model/SubWalletAssetBalance';
 import SubmitDepositTravelRuleInfo201Response from './model/SubmitDepositTravelRuleInfo201Response';
 import SwapActivity from './model/SwapActivity';
-import SwapSummary from './model/SwapSummary';
+import SwapQuote from './model/SwapQuote';
 import SwapTokenPair from './model/SwapTokenPair';
 import TSSGroups from './model/TSSGroups';
 import TSSRequest from './model/TSSRequest';
@@ -314,6 +335,7 @@ import TransactionTransferToWalletDestination from './model/TransactionTransferT
 import TransactionType from './model/TransactionType';
 import TransactionUserApprovalDetail from './model/TransactionUserApprovalDetail';
 import TransactionUtxo from './model/TransactionUtxo';
+import TransactionUtxoChange from './model/TransactionUtxoChange';
 import TransactionUtxoFee from './model/TransactionUtxoFee';
 import TransactionWebhookEventData from './model/TransactionWebhookEventData';
 import TransferDestination from './model/TransferDestination';
@@ -366,6 +388,7 @@ import DevelopersWebhooksApi from './api/DevelopersWebhooksApi';
 import OAuthApi from './api/OAuthApi';
 import PrimeBrokerApi from './api/PrimeBrokerApi';
 import StakingsApi from './api/StakingsApi';
+import SwapsApi from './api/SwapsApi';
 import TransactionsApi from './api/TransactionsApi';
 import TravelRuleApi from './api/TravelRuleApi';
 import WalletsApi from './api/WalletsApi';
@@ -376,7 +399,7 @@ import WalletsSmartContractWalletsApi from './api/WalletsSmartContractWalletsApi
 
 /**
 
-* The Cobo Wallet-as-a-Service (WaaS) 2.0 API is the latest version of Cobo’s WaaS API offering. It enables you to access Cobo’s full suite of crypto wallet technologies with powerful and flexible access controls. By encapsulating complex security protocols and streamlining blockchain interactions, this API allows you to concentrate on your core business activities without worrying about the safety of your assets. The WaaS 2.0 API presents the following key features:  - A unified API for Cobo’s [all four wallet types](https://manuals.cobo.com/en/portal/introduction#an-all-in-one-wallet-platform) - Support for 80+ chains and 3000+ tokens - A comprehensive selection of webhook events - Flexible usage models for MPC Wallets, including [Organization-Controlled Wallets](https://manuals.cobo.com/en/portal/mpc-wallets/ocw/introduction) and [User-Controlled Wallets](https://manuals.cobo.com/en/portal/mpc-wallets/ucw/introduction) - Programmatic control of smart contract wallets such as Safe{Wallet} with fine-grained access controls - Seamlessly transfer funds across multiple exchanges, including Binance, OKX, Bybit, Deribit, and more  For more information about the WaaS 2.0 API, see [Introduction to WaaS 2.0](https://www.cobo.com/developers/v2/guides/overview/introduction). .<br>
+* The Cobo Wallet-as-a-Service (WaaS) 2.0 API is the latest version of Cobo&#39;s WaaS API offering. It enables you to access Cobo&#39;s full suite of crypto wallet technologies with powerful and flexible access controls. By encapsulating complex security protocols and streamlining blockchain interactions, this API allows you to concentrate on your core business activities without worrying about the safety of your assets. The WaaS 2.0 API presents the following key features:  - A unified API for Cobo&#39;s [all four wallet types](https://manuals.cobo.com/en/portal/introduction#an-all-in-one-wallet-platform) - Support for 80+ chains and 3000+ tokens - A comprehensive selection of webhook events - Flexible usage models for MPC Wallets, including [Organization-Controlled Wallets](https://manuals.cobo.com/en/portal/mpc-wallets/ocw/introduction) and [User-Controlled Wallets](https://manuals.cobo.com/en/portal/mpc-wallets/ucw/introduction) - Programmatic control of smart contract wallets such as Safe{Wallet} with fine-grained access controls - Seamlessly transfer funds across multiple exchanges, including Binance, OKX, Bybit, Deribit, and more  For more information about the WaaS 2.0 API, see [Introduction to WaaS 2.0](https://www.cobo.com/developers/v2/guides/overview/introduction). .<br>
 * The <code>index</code> module provides access to constructors for all the classes which comprise the public API.
 * <p>
 * An AMD (recommended!) or CommonJS application will generally do something equivalent to the following:
@@ -404,7 +427,7 @@ import WalletsSmartContractWalletsApi from './api/WalletsSmartContractWalletsApi
 * </pre>
 * </p>
 * @module index
-* @version 1.9.0
+* @version 1.10.0
 */
 export {
     Env,
@@ -507,6 +530,12 @@ export {
     AddressesEventData,
 
     /**
+     * The AddressesEventDataAllOfAddresses model constructor.
+     * @property {module:model/AddressesEventDataAllOfAddresses}
+     */
+    AddressesEventDataAllOfAddresses,
+
+    /**
      * The AmountDetailsInner model constructor.
      * @property {module:model/AmountDetailsInner}
      */
@@ -561,6 +590,36 @@ export {
     BTCEIP191MessageSignDestination,
 
     /**
+     * The BabylonAirdropPop model constructor.
+     * @property {module:model/BabylonAirdropPop}
+     */
+    BabylonAirdropPop,
+
+    /**
+     * The BabylonAirdropRegistration model constructor.
+     * @property {module:model/BabylonAirdropRegistration}
+     */
+    BabylonAirdropRegistration,
+
+    /**
+     * The BabylonEligibleAirdrop model constructor.
+     * @property {module:model/BabylonEligibleAirdrop}
+     */
+    BabylonEligibleAirdrop,
+
+    /**
+     * The BabylonRegistrationRequestStatus model constructor.
+     * @property {module:model/BabylonRegistrationRequestStatus}
+     */
+    BabylonRegistrationRequestStatus,
+
+    /**
+     * The BabylonRegistrationStatus model constructor.
+     * @property {module:model/BabylonRegistrationStatus}
+     */
+    BabylonRegistrationStatus,
+
+    /**
      * The BabylonStakeEstimatedFee model constructor.
      * @property {module:model/BabylonStakeEstimatedFee}
      */
@@ -583,6 +642,12 @@ export {
      * @property {module:model/BabylonStakingExtra}
      */
     BabylonStakingExtra,
+
+    /**
+     * The BabylonStakingRegistration model constructor.
+     * @property {module:model/BabylonStakingRegistration}
+     */
+    BabylonStakingRegistration,
 
     /**
      * The BabylonValidator model constructor.
@@ -741,6 +806,30 @@ export {
     CreateAddressRequest,
 
     /**
+     * The CreateBabylonAirdropRegistration201Response model constructor.
+     * @property {module:model/CreateBabylonAirdropRegistration201Response}
+     */
+    CreateBabylonAirdropRegistration201Response,
+
+    /**
+     * The CreateBabylonAirdropRegistrationRequest model constructor.
+     * @property {module:model/CreateBabylonAirdropRegistrationRequest}
+     */
+    CreateBabylonAirdropRegistrationRequest,
+
+    /**
+     * The CreateBabylonStakingRegistration201Response model constructor.
+     * @property {module:model/CreateBabylonStakingRegistration201Response}
+     */
+    CreateBabylonStakingRegistration201Response,
+
+    /**
+     * The CreateBabylonStakingRegistrationRequest model constructor.
+     * @property {module:model/CreateBabylonStakingRegistrationRequest}
+     */
+    CreateBabylonStakingRegistrationRequest,
+
+    /**
      * The CreateClaimActivity model constructor.
      * @property {module:model/CreateClaimActivity}
      */
@@ -841,6 +930,24 @@ export {
      * @property {module:model/CreateStakeActivityRequest}
      */
     CreateStakeActivityRequest,
+
+    /**
+     * The CreateSwapActivityRequest model constructor.
+     * @property {module:model/CreateSwapActivityRequest}
+     */
+    CreateSwapActivityRequest,
+
+    /**
+     * The CreateSwapQuote201Response model constructor.
+     * @property {module:model/CreateSwapQuote201Response}
+     */
+    CreateSwapQuote201Response,
+
+    /**
+     * The CreateSwapQuoteRequest model constructor.
+     * @property {module:model/CreateSwapQuoteRequest}
+     */
+    CreateSwapQuoteRequest,
 
     /**
      * The CreateTransferTransaction201Response model constructor.
@@ -1305,10 +1412,46 @@ export {
     ListAssetBalancesForExchangeWallet200Response,
 
     /**
+     * The ListBabylonAirdropRegistrations200Response model constructor.
+     * @property {module:model/ListBabylonAirdropRegistrations200Response}
+     */
+    ListBabylonAirdropRegistrations200Response,
+
+    /**
+     * The ListBabylonEligibleAirdrops200Response model constructor.
+     * @property {module:model/ListBabylonEligibleAirdrops200Response}
+     */
+    ListBabylonEligibleAirdrops200Response,
+
+    /**
+     * The ListBabylonEligibleStakings200Response model constructor.
+     * @property {module:model/ListBabylonEligibleStakings200Response}
+     */
+    ListBabylonEligibleStakings200Response,
+
+    /**
+     * The ListBabylonEligibleStakings200ResponseDataInner model constructor.
+     * @property {module:model/ListBabylonEligibleStakings200ResponseDataInner}
+     */
+    ListBabylonEligibleStakings200ResponseDataInner,
+
+    /**
+     * The ListBabylonStakingRegistrations200Response model constructor.
+     * @property {module:model/ListBabylonStakingRegistrations200Response}
+     */
+    ListBabylonStakingRegistrations200Response,
+
+    /**
      * The ListCallbackMessages200Response model constructor.
      * @property {module:model/ListCallbackMessages200Response}
      */
     ListCallbackMessages200Response,
+
+    /**
+     * The ListEnableTokenPairs200Response model constructor.
+     * @property {module:model/ListEnableTokenPairs200Response}
+     */
+    ListEnableTokenPairs200Response,
 
     /**
      * The ListExchanges200ResponseInner model constructor.
@@ -1381,6 +1524,12 @@ export {
      * @property {module:model/ListSupportedTokens200Response}
      */
     ListSupportedTokens200Response,
+
+    /**
+     * The ListSwapActivities200Response model constructor.
+     * @property {module:model/ListSwapActivities200Response}
+     */
+    ListSwapActivities200Response,
 
     /**
      * The ListTokenBalancesForAddress200Response model constructor.
@@ -1797,10 +1946,10 @@ export {
     SwapActivity,
 
     /**
-     * The SwapSummary model constructor.
-     * @property {module:model/SwapSummary}
+     * The SwapQuote model constructor.
+     * @property {module:model/SwapQuote}
      */
-    SwapSummary,
+    SwapQuote,
 
     /**
      * The SwapTokenPair model constructor.
@@ -2223,6 +2372,12 @@ export {
     TransactionUtxo,
 
     /**
+     * The TransactionUtxoChange model constructor.
+     * @property {module:model/TransactionUtxoChange}
+     */
+    TransactionUtxoChange,
+
+    /**
      * The TransactionUtxoFee model constructor.
      * @property {module:model/TransactionUtxoFee}
      */
@@ -2533,6 +2688,12 @@ export {
     * @property {module:api/StakingsApi}
     */
     StakingsApi,
+
+    /**
+    * The SwapsApi service constructor.
+    * @property {module:api/SwapsApi}
+    */
+    SwapsApi,
 
     /**
     * The TransactionsApi service constructor.
