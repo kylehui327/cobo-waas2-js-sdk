@@ -12,6 +12,7 @@
 import ApiClient from '../ApiClient';
 import MessageSignSourceType from './MessageSignSourceType';
 import MpcMessageSignSource from './MpcMessageSignSource';
+import MpcSigningGroup from './MpcSigningGroup';
 
 /**
  * The MessageSignSource model module.
@@ -148,6 +149,11 @@ MessageSignSource.prototype['wallet_id'] = undefined;
  * @member {String} address
  */
 MessageSignSource.prototype['address'] = undefined;
+
+/**
+ * @member {module:model/MpcSigningGroup} mpc_used_key_share_holder_group
+ */
+MessageSignSource.prototype['mpc_used_key_share_holder_group'] = undefined;
 
 
 MessageSignSource.OneOf = ["MpcMessageSignSource"];

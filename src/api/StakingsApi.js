@@ -14,6 +14,12 @@ import ApiClient from "../ApiClient";
 import Activity from '../model/Activity';
 import ActivityStatus from '../model/ActivityStatus';
 import ActivityType from '../model/ActivityType';
+import BabylonAirdropRegistration from '../model/BabylonAirdropRegistration';
+import BabylonStakingRegistration from '../model/BabylonStakingRegistration';
+import CreateBabylonAirdropRegistration201Response from '../model/CreateBabylonAirdropRegistration201Response';
+import CreateBabylonAirdropRegistrationRequest from '../model/CreateBabylonAirdropRegistrationRequest';
+import CreateBabylonStakingRegistration201Response from '../model/CreateBabylonStakingRegistration201Response';
+import CreateBabylonStakingRegistrationRequest from '../model/CreateBabylonStakingRegistrationRequest';
 import CreateClaimActivityRequest from '../model/CreateClaimActivityRequest';
 import CreateStakeActivity201Response from '../model/CreateStakeActivity201Response';
 import CreateStakeActivityRequest from '../model/CreateStakeActivityRequest';
@@ -23,6 +29,10 @@ import ErrorResponse from '../model/ErrorResponse';
 import EthStakeEstimatedFee from '../model/EthStakeEstimatedFee';
 import GetStakingEstimationFee201Response from '../model/GetStakingEstimationFee201Response';
 import GetStakingEstimationFeeRequest from '../model/GetStakingEstimationFeeRequest';
+import ListBabylonAirdropRegistrations200Response from '../model/ListBabylonAirdropRegistrations200Response';
+import ListBabylonEligibleAirdrops200Response from '../model/ListBabylonEligibleAirdrops200Response';
+import ListBabylonEligibleStakings200Response from '../model/ListBabylonEligibleStakings200Response';
+import ListBabylonStakingRegistrations200Response from '../model/ListBabylonStakingRegistrations200Response';
 import ListStakingActivities200Response from '../model/ListStakingActivities200Response';
 import ListStakingPools200Response from '../model/ListStakingPools200Response';
 import ListStakings200Response from '../model/ListStakings200Response';
@@ -46,6 +56,104 @@ export default class StakingsApi {
         this.apiClient = apiClient || ApiClient.instance;
     }
 
+
+
+    /**
+     * Register for Babylon airdrop
+     * This operation initiates a Babylon airdrop registration request.   Before calling this operation, please ensure the following: - The Bitcoin (BTC) address is eligible for the Babylon airdrop and has not been registered. You can call the [List wallets eligible for Babylon airdrop](https://www.cobo.com/developers/v2/api-references/stakings/list-wallets-eligible-for-babylon-airdrop) operation to check the registration status. - The Babylon address has enough asset to pay for the registration fee. - The Babylon address must be a Babylon address in an MPC Wallet in your organization.  The system first checks whether the provided address is eligible for the Babylon airdrop. If eligible, it creates a unique registration ID, which can be used to track the status.   The registration is processed asynchronously and may take some time to complete. It is recommended that you regularly call the [Get Babylon airdrop registration details](https://www.cobo.com/developers/v2/api-references/stakings/get-babylon-airdrop-registration-details) operation to check the status and handle registration accordingly.  For more information, refer to [Babylon's official doc](https://github.com/babylonlabs-io/babylon/tree/main/docs). 
+     * @param {Object} opts Optional parameters
+     * @param {module:model/CreateBabylonAirdropRegistrationRequest} [CreateBabylonAirdropRegistrationRequest] The request body to register for the Babylon airdrop.
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/CreateBabylonAirdropRegistration201Response} and HTTP response
+     */
+    createBabylonAirdropRegistrationWithHttpInfo(opts) {
+      opts = opts || {};
+      let postBody = opts['CreateBabylonAirdropRegistrationRequest'];
+      if (postBody && postBody.toJSON) {
+          postBody = postBody.toJSON()
+      }
+
+      let pathParams = {
+      };
+      let queryParams = {
+      };
+      let headerParams = {
+      };
+      let formParams = {
+      };
+
+      let authNames = ['CoboAuth'];
+      let contentTypes = ['application/json'];
+      let accepts = ['application/json'];
+      let returnType = CreateBabylonAirdropRegistration201Response;
+      return this.apiClient.callApi(
+        '/stakings/protocols/babylon/airdrops/registrations', 'POST',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, null
+      );
+    }
+
+    /**
+     * Register for Babylon airdrop
+     * This operation initiates a Babylon airdrop registration request.   Before calling this operation, please ensure the following: - The Bitcoin (BTC) address is eligible for the Babylon airdrop and has not been registered. You can call the [List wallets eligible for Babylon airdrop](https://www.cobo.com/developers/v2/api-references/stakings/list-wallets-eligible-for-babylon-airdrop) operation to check the registration status. - The Babylon address has enough asset to pay for the registration fee. - The Babylon address must be a Babylon address in an MPC Wallet in your organization.  The system first checks whether the provided address is eligible for the Babylon airdrop. If eligible, it creates a unique registration ID, which can be used to track the status.   The registration is processed asynchronously and may take some time to complete. It is recommended that you regularly call the [Get Babylon airdrop registration details](https://www.cobo.com/developers/v2/api-references/stakings/get-babylon-airdrop-registration-details) operation to check the status and handle registration accordingly.  For more information, refer to [Babylon's official doc](https://github.com/babylonlabs-io/babylon/tree/main/docs). 
+     * @param {Object} opts Optional parameters
+     * @param {module:model/CreateBabylonAirdropRegistrationRequest} opts.CreateBabylonAirdropRegistrationRequest The request body to register for the Babylon airdrop.
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/CreateBabylonAirdropRegistration201Response}
+     */
+    createBabylonAirdropRegistration(opts) {
+      return this.createBabylonAirdropRegistrationWithHttpInfo(opts)
+        .then(function(response_and_data) {
+          return response_and_data.data;
+        });
+    }
+
+
+    /**
+     * Register for Babylon Phase-2
+     * This operation initiates a Babylon Phase-2 registration request.   Before calling this operation, please ensure the following: - The staking position is eligible for the Babylon Phase-2 and has not been registered. You can call the [List staking positions eligible for Babylon Phase-2](https://www.cobo.com/developers/v2/api-references/stakings/list-eligible-staking-positions-for-babylon-phase-2) operation to check the registration status. - The Babylon address has enough asset to pay for the registration fee. - The Babylon address must be a Babylon address in an MPC Wallet in your organization.  The system first checks whether the provided address is eligible for Phase-2. If eligible, it creates a unique registration ID, which can be used to track the status.   The registration is processed asynchronously and may take some time to complete. It is recommended that you regularly call the [Get Babylon Phase-2 registration details](https://www.cobo.com/developers/v2/api-references/stakings/get-babylon-phase-2-registration-details) operation to check the status and handle registration accordingly.  For more information, refer to [Babylon's official doc](https://github.com/babylonlabs-io/babylon/tree/main/docs). 
+     * @param {Object} opts Optional parameters
+     * @param {module:model/CreateBabylonStakingRegistrationRequest} [CreateBabylonStakingRegistrationRequest] The request body to transit Babylon BTC staking to phase 2
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/CreateBabylonStakingRegistration201Response} and HTTP response
+     */
+    createBabylonStakingRegistrationWithHttpInfo(opts) {
+      opts = opts || {};
+      let postBody = opts['CreateBabylonStakingRegistrationRequest'];
+      if (postBody && postBody.toJSON) {
+          postBody = postBody.toJSON()
+      }
+
+      let pathParams = {
+      };
+      let queryParams = {
+      };
+      let headerParams = {
+      };
+      let formParams = {
+      };
+
+      let authNames = ['CoboAuth'];
+      let contentTypes = ['application/json'];
+      let accepts = ['application/json'];
+      let returnType = CreateBabylonStakingRegistration201Response;
+      return this.apiClient.callApi(
+        '/stakings/protocols/babylon/stakings/registrations', 'POST',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, null
+      );
+    }
+
+    /**
+     * Register for Babylon Phase-2
+     * This operation initiates a Babylon Phase-2 registration request.   Before calling this operation, please ensure the following: - The staking position is eligible for the Babylon Phase-2 and has not been registered. You can call the [List staking positions eligible for Babylon Phase-2](https://www.cobo.com/developers/v2/api-references/stakings/list-eligible-staking-positions-for-babylon-phase-2) operation to check the registration status. - The Babylon address has enough asset to pay for the registration fee. - The Babylon address must be a Babylon address in an MPC Wallet in your organization.  The system first checks whether the provided address is eligible for Phase-2. If eligible, it creates a unique registration ID, which can be used to track the status.   The registration is processed asynchronously and may take some time to complete. It is recommended that you regularly call the [Get Babylon Phase-2 registration details](https://www.cobo.com/developers/v2/api-references/stakings/get-babylon-phase-2-registration-details) operation to check the status and handle registration accordingly.  For more information, refer to [Babylon's official doc](https://github.com/babylonlabs-io/babylon/tree/main/docs). 
+     * @param {Object} opts Optional parameters
+     * @param {module:model/CreateBabylonStakingRegistrationRequest} opts.CreateBabylonStakingRegistrationRequest The request body to transit Babylon BTC staking to phase 2
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/CreateBabylonStakingRegistration201Response}
+     */
+    createBabylonStakingRegistration(opts) {
+      return this.createBabylonStakingRegistrationWithHttpInfo(opts)
+        .then(function(response_and_data) {
+          return response_and_data.data;
+        });
+    }
 
 
     /**
@@ -238,6 +346,108 @@ export default class StakingsApi {
      */
     createWithdrawActivity(opts) {
       return this.createWithdrawActivityWithHttpInfo(opts)
+        .then(function(response_and_data) {
+          return response_and_data.data;
+        });
+    }
+
+
+    /**
+     * Get Babylon airdrop registration details
+     * This operation returns the details of a specific Babylon airdrop registration, including registration status, Bitcoin (BTC) and Babylon addresses, airdrop amount, and error messages (if any).  Please note that registration is an asynchronous process and may take several minutes to complete. It is recommended to call this operation at regular intervals to track the status.  If the registration request fails, please check the error message and resolve the issues before resubmitting the registration request.  For more information, refer to [Babylon's official doc](https://github.com/babylonlabs-io/babylon/tree/main/docs). 
+     * @param {String} registration_id The Babylon airdrop or Babylon Phase-2 registration ID. You can use the [Register for Babylon airdrop](https://www.cobo.com/developers/v2/api-references/stakings/register-for-babylon-airdrop) or the [Register for Babylon Phase-2](https://www.cobo.com/developers/v2/api-references/stakings/register-for-babylon-phase-2) operation to get this information.
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/BabylonAirdropRegistration} and HTTP response
+     */
+    getBabylonAirdropRegistrationByIdWithHttpInfo(registration_id) {
+      let postBody = null;
+      if (postBody && postBody.toJSON) {
+          postBody = postBody.toJSON()
+      }
+      // verify the required parameter 'registration_id' is set
+      if (registration_id === undefined || registration_id === null) {
+        throw new Error("Missing the required parameter 'registration_id' when calling getBabylonAirdropRegistrationById");
+      }
+
+      let pathParams = {
+        'registration_id': registration_id
+      };
+      let queryParams = {
+      };
+      let headerParams = {
+      };
+      let formParams = {
+      };
+
+      let authNames = ['CoboAuth'];
+      let contentTypes = [];
+      let accepts = ['application/json'];
+      let returnType = BabylonAirdropRegistration;
+      return this.apiClient.callApi(
+        '/stakings/protocols/babylon/airdrops/registrations/{registration_id}', 'GET',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, null
+      );
+    }
+
+    /**
+     * Get Babylon airdrop registration details
+     * This operation returns the details of a specific Babylon airdrop registration, including registration status, Bitcoin (BTC) and Babylon addresses, airdrop amount, and error messages (if any).  Please note that registration is an asynchronous process and may take several minutes to complete. It is recommended to call this operation at regular intervals to track the status.  If the registration request fails, please check the error message and resolve the issues before resubmitting the registration request.  For more information, refer to [Babylon's official doc](https://github.com/babylonlabs-io/babylon/tree/main/docs). 
+     * @param {String} registration_id The Babylon airdrop or Babylon Phase-2 registration ID. You can use the [Register for Babylon airdrop](https://www.cobo.com/developers/v2/api-references/stakings/register-for-babylon-airdrop) or the [Register for Babylon Phase-2](https://www.cobo.com/developers/v2/api-references/stakings/register-for-babylon-phase-2) operation to get this information.
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/BabylonAirdropRegistration}
+     */
+    getBabylonAirdropRegistrationById(registration_id) {
+      return this.getBabylonAirdropRegistrationByIdWithHttpInfo(registration_id)
+        .then(function(response_and_data) {
+          return response_and_data.data;
+        });
+    }
+
+
+    /**
+     * Get Babylon Phase-2 registration details
+     * This operation returns the details of a specific Babylon Phase-2 registration, including registration status, Bitcoin (BTC) and Babylon addresses, staked amount, and error messages (if any).  Please note that registration is an asynchronous process and may take several minutes to complete. It is recommended to call this operation at regular intervals to track the status.  If the registration request fails, please check the error message and resolve the issues before resubmitting the registration request.  For more information, refer to [Babylon's official doc](https://github.com/babylonlabs-io/babylon/tree/main/docs). 
+     * @param {String} registration_id The Babylon airdrop or Babylon Phase-2 registration ID. You can use the [Register for Babylon airdrop](https://www.cobo.com/developers/v2/api-references/stakings/register-for-babylon-airdrop) or the [Register for Babylon Phase-2](https://www.cobo.com/developers/v2/api-references/stakings/register-for-babylon-phase-2) operation to get this information.
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/BabylonStakingRegistration} and HTTP response
+     */
+    getBabylonStakingRegistrationByIdWithHttpInfo(registration_id) {
+      let postBody = null;
+      if (postBody && postBody.toJSON) {
+          postBody = postBody.toJSON()
+      }
+      // verify the required parameter 'registration_id' is set
+      if (registration_id === undefined || registration_id === null) {
+        throw new Error("Missing the required parameter 'registration_id' when calling getBabylonStakingRegistrationById");
+      }
+
+      let pathParams = {
+        'registration_id': registration_id
+      };
+      let queryParams = {
+      };
+      let headerParams = {
+      };
+      let formParams = {
+      };
+
+      let authNames = ['CoboAuth'];
+      let contentTypes = [];
+      let accepts = ['application/json'];
+      let returnType = BabylonStakingRegistration;
+      return this.apiClient.callApi(
+        '/stakings/protocols/babylon/stakings/registrations/{registration_id}', 'GET',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, null
+      );
+    }
+
+    /**
+     * Get Babylon Phase-2 registration details
+     * This operation returns the details of a specific Babylon Phase-2 registration, including registration status, Bitcoin (BTC) and Babylon addresses, staked amount, and error messages (if any).  Please note that registration is an asynchronous process and may take several minutes to complete. It is recommended to call this operation at regular intervals to track the status.  If the registration request fails, please check the error message and resolve the issues before resubmitting the registration request.  For more information, refer to [Babylon's official doc](https://github.com/babylonlabs-io/babylon/tree/main/docs). 
+     * @param {String} registration_id The Babylon airdrop or Babylon Phase-2 registration ID. You can use the [Register for Babylon airdrop](https://www.cobo.com/developers/v2/api-references/stakings/register-for-babylon-airdrop) or the [Register for Babylon Phase-2](https://www.cobo.com/developers/v2/api-references/stakings/register-for-babylon-phase-2) operation to get this information.
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/BabylonStakingRegistration}
+     */
+    getBabylonStakingRegistrationById(registration_id) {
+      return this.getBabylonStakingRegistrationByIdWithHttpInfo(registration_id)
         .then(function(response_and_data) {
           return response_and_data.data;
         });
@@ -496,11 +706,253 @@ export default class StakingsApi {
 
 
     /**
+     * List Babylon airdrop registrations
+     * This operation lists all Babylon airdrop registration records within your organization. You can filter the results by request status and Bitcoin (BTC) address.  The registration is processed asynchronously and may take some time to complete. It is recommended to implement automatic monitoring and handle the registration on time.  If the registration request fails, please check the error message and resolve the issues before resubmitting the registration request.  For more information, refer to [Babylon's official doc](https://github.com/babylonlabs-io/babylon/tree/main/docs). 
+     * @param {Object} opts Optional parameters
+     * @param {module:model/String} [status] The registration request status.
+     * @param {String} [btc_address] The Bitcoin (BTC) address used for staking.
+     * @param {Number} [limit = 10)] The maximum number of objects to return. For most operations, the value range is [1, 50].
+     * @param {String} [before] This parameter specifies an object ID as a starting point for pagination, retrieving data before the specified object relative to the current dataset.    Suppose the current data is ordered as Object A, Object B, and Object C.  If you set `before` to the ID of Object C (`RqeEoTkgKG5rpzqYzg2Hd3szmPoj2cE7w5jWwShz3C1vyGSAk`), the response will include Object B and Object A.    **Notes**:   - If you set both `after` and `before`, an error will occur. - If you leave both `before` and `after` empty, the first page of data is returned. - If you set it to `infinity`, the last page of data is returned. 
+     * @param {String} [after] This parameter specifies an object ID as a starting point for pagination, retrieving data after the specified object relative to the current dataset.    Suppose the current data is ordered as Object A, Object B, and Object C. If you set `after` to the ID of Object A (`RqeEoTkgKG5rpzqYzg2Hd3szmPoj2cE7w5jWwShz3C1vyGSAk`), the response will include Object B and Object C.    **Notes**:   - If you set both `after` and `before`, an error will occur. - If you leave both `before` and `after` empty, the first page of data is returned. 
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/ListBabylonAirdropRegistrations200Response} and HTTP response
+     */
+    listBabylonAirdropRegistrationsWithHttpInfo(opts) {
+      opts = opts || {};
+      let postBody = null;
+      if (postBody && postBody.toJSON) {
+          postBody = postBody.toJSON()
+      }
+
+      let pathParams = {
+      };
+      let queryParams = {
+        'status': opts['status'],
+        'btc_address': opts['btc_address'],
+        'limit': opts['limit'],
+        'before': opts['before'],
+        'after': opts['after']
+      };
+      let headerParams = {
+      };
+      let formParams = {
+      };
+
+      let authNames = ['CoboAuth'];
+      let contentTypes = [];
+      let accepts = ['application/json'];
+      let returnType = ListBabylonAirdropRegistrations200Response;
+      return this.apiClient.callApi(
+        '/stakings/protocols/babylon/airdrops/registrations', 'GET',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, null
+      );
+    }
+
+    /**
+     * List Babylon airdrop registrations
+     * This operation lists all Babylon airdrop registration records within your organization. You can filter the results by request status and Bitcoin (BTC) address.  The registration is processed asynchronously and may take some time to complete. It is recommended to implement automatic monitoring and handle the registration on time.  If the registration request fails, please check the error message and resolve the issues before resubmitting the registration request.  For more information, refer to [Babylon's official doc](https://github.com/babylonlabs-io/babylon/tree/main/docs). 
+     * @param {Object} opts Optional parameters
+     * @param {module:model/String} opts.status The registration request status.
+     * @param {String} opts.btc_address The Bitcoin (BTC) address used for staking.
+     * @param {Number} opts.limit The maximum number of objects to return. For most operations, the value range is [1, 50]. (default to 10)
+     * @param {String} opts.before This parameter specifies an object ID as a starting point for pagination, retrieving data before the specified object relative to the current dataset.    Suppose the current data is ordered as Object A, Object B, and Object C.  If you set `before` to the ID of Object C (`RqeEoTkgKG5rpzqYzg2Hd3szmPoj2cE7w5jWwShz3C1vyGSAk`), the response will include Object B and Object A.    **Notes**:   - If you set both `after` and `before`, an error will occur. - If you leave both `before` and `after` empty, the first page of data is returned. - If you set it to `infinity`, the last page of data is returned. 
+     * @param {String} opts.after This parameter specifies an object ID as a starting point for pagination, retrieving data after the specified object relative to the current dataset.    Suppose the current data is ordered as Object A, Object B, and Object C. If you set `after` to the ID of Object A (`RqeEoTkgKG5rpzqYzg2Hd3szmPoj2cE7w5jWwShz3C1vyGSAk`), the response will include Object B and Object C.    **Notes**:   - If you set both `after` and `before`, an error will occur. - If you leave both `before` and `after` empty, the first page of data is returned. 
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/ListBabylonAirdropRegistrations200Response}
+     */
+    listBabylonAirdropRegistrations(opts) {
+      return this.listBabylonAirdropRegistrationsWithHttpInfo(opts)
+        .then(function(response_and_data) {
+          return response_and_data.data;
+        });
+    }
+
+
+    /**
+     * List wallets eligible for Babylon airdrop
+     * This operation lists all wallets that are eligible for the Babylon airdrop. If an eligible wallet's status is `Unregistered`, you can initiate an airdrop registration for it. You can filter the results by airdrop registration status.  You can use this operation to: - Check which wallets are eligible for airdrop registrations - Estimate airdrop amounts before claiming - Monitor available airdrop  As registration is an asynchronous process and might take some time to complete, it is recommended that you regularly call this operation to check wallet eligibility and register eligible wallets on time.  For more information, refer to [Babylon's official doc](https://github.com/babylonlabs-io/babylon/tree/main/docs). 
+     * @param {Object} opts Optional parameters
+     * @param {module:model/String} [status] The status of Babylon airdrop or Phase-2 registration. Possible values are: - `Registered`: Registered for Babylon airdrop or Phase-2. - `Unregistered`: Not registered for any Babylon airdrop or Phase-2. - `Registering`: The Babylon airdrop or Phase-2 registration is in progress but not yet completed. 
+     * @param {Number} [limit = 10)] The maximum number of objects to return. For most operations, the value range is [1, 50].
+     * @param {String} [before] This parameter specifies an object ID as a starting point for pagination, retrieving data before the specified object relative to the current dataset.    Suppose the current data is ordered as Object A, Object B, and Object C.  If you set `before` to the ID of Object C (`RqeEoTkgKG5rpzqYzg2Hd3szmPoj2cE7w5jWwShz3C1vyGSAk`), the response will include Object B and Object A.    **Notes**:   - If you set both `after` and `before`, an error will occur. - If you leave both `before` and `after` empty, the first page of data is returned. - If you set it to `infinity`, the last page of data is returned. 
+     * @param {String} [after] This parameter specifies an object ID as a starting point for pagination, retrieving data after the specified object relative to the current dataset.    Suppose the current data is ordered as Object A, Object B, and Object C. If you set `after` to the ID of Object A (`RqeEoTkgKG5rpzqYzg2Hd3szmPoj2cE7w5jWwShz3C1vyGSAk`), the response will include Object B and Object C.    **Notes**:   - If you set both `after` and `before`, an error will occur. - If you leave both `before` and `after` empty, the first page of data is returned. 
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/ListBabylonEligibleAirdrops200Response} and HTTP response
+     */
+    listBabylonEligibleAirdropsWithHttpInfo(opts) {
+      opts = opts || {};
+      let postBody = null;
+      if (postBody && postBody.toJSON) {
+          postBody = postBody.toJSON()
+      }
+
+      let pathParams = {
+      };
+      let queryParams = {
+        'status': opts['status'],
+        'limit': opts['limit'],
+        'before': opts['before'],
+        'after': opts['after']
+      };
+      let headerParams = {
+      };
+      let formParams = {
+      };
+
+      let authNames = ['CoboAuth'];
+      let contentTypes = [];
+      let accepts = ['application/json'];
+      let returnType = ListBabylonEligibleAirdrops200Response;
+      return this.apiClient.callApi(
+        '/stakings/protocols/babylon/airdrops/eligibles', 'GET',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, null
+      );
+    }
+
+    /**
+     * List wallets eligible for Babylon airdrop
+     * This operation lists all wallets that are eligible for the Babylon airdrop. If an eligible wallet's status is `Unregistered`, you can initiate an airdrop registration for it. You can filter the results by airdrop registration status.  You can use this operation to: - Check which wallets are eligible for airdrop registrations - Estimate airdrop amounts before claiming - Monitor available airdrop  As registration is an asynchronous process and might take some time to complete, it is recommended that you regularly call this operation to check wallet eligibility and register eligible wallets on time.  For more information, refer to [Babylon's official doc](https://github.com/babylonlabs-io/babylon/tree/main/docs). 
+     * @param {Object} opts Optional parameters
+     * @param {module:model/String} opts.status The status of Babylon airdrop or Phase-2 registration. Possible values are: - `Registered`: Registered for Babylon airdrop or Phase-2. - `Unregistered`: Not registered for any Babylon airdrop or Phase-2. - `Registering`: The Babylon airdrop or Phase-2 registration is in progress but not yet completed. 
+     * @param {Number} opts.limit The maximum number of objects to return. For most operations, the value range is [1, 50]. (default to 10)
+     * @param {String} opts.before This parameter specifies an object ID as a starting point for pagination, retrieving data before the specified object relative to the current dataset.    Suppose the current data is ordered as Object A, Object B, and Object C.  If you set `before` to the ID of Object C (`RqeEoTkgKG5rpzqYzg2Hd3szmPoj2cE7w5jWwShz3C1vyGSAk`), the response will include Object B and Object A.    **Notes**:   - If you set both `after` and `before`, an error will occur. - If you leave both `before` and `after` empty, the first page of data is returned. - If you set it to `infinity`, the last page of data is returned. 
+     * @param {String} opts.after This parameter specifies an object ID as a starting point for pagination, retrieving data after the specified object relative to the current dataset.    Suppose the current data is ordered as Object A, Object B, and Object C. If you set `after` to the ID of Object A (`RqeEoTkgKG5rpzqYzg2Hd3szmPoj2cE7w5jWwShz3C1vyGSAk`), the response will include Object B and Object C.    **Notes**:   - If you set both `after` and `before`, an error will occur. - If you leave both `before` and `after` empty, the first page of data is returned. 
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/ListBabylonEligibleAirdrops200Response}
+     */
+    listBabylonEligibleAirdrops(opts) {
+      return this.listBabylonEligibleAirdropsWithHttpInfo(opts)
+        .then(function(response_and_data) {
+          return response_and_data.data;
+        });
+    }
+
+
+    /**
+     * List staking positions eligible for Babylon Phase-2
+     * This operation lists all staking positions that are eligible for Babylon Phase-2. If an eligible staking position's status is `Unregistered`, you can initiate a registration for it. You can filter the results by registration status.  You can use this operation to: - Check which staking positions can be registered - Get staking details before initiating registration - Monitor available positions for registration  As registration is an asynchronous process and might take some time to complete, it is recommended that you regularly call this operation to check staking position eligibility and register eligible positions on time.  For more information, refer to [Babylon's official doc](https://github.com/babylonlabs-io/babylon/tree/main/docs). 
+     * @param {Object} opts Optional parameters
+     * @param {module:model/String} [status] The status of Babylon airdrop or Phase-2 registration. Possible values are: - `Registered`: Registered for Babylon airdrop or Phase-2. - `Unregistered`: Not registered for any Babylon airdrop or Phase-2. - `Registering`: The Babylon airdrop or Phase-2 registration is in progress but not yet completed. 
+     * @param {Number} [limit = 10)] The maximum number of objects to return. For most operations, the value range is [1, 50].
+     * @param {String} [before] This parameter specifies an object ID as a starting point for pagination, retrieving data before the specified object relative to the current dataset.    Suppose the current data is ordered as Object A, Object B, and Object C.  If you set `before` to the ID of Object C (`RqeEoTkgKG5rpzqYzg2Hd3szmPoj2cE7w5jWwShz3C1vyGSAk`), the response will include Object B and Object A.    **Notes**:   - If you set both `after` and `before`, an error will occur. - If you leave both `before` and `after` empty, the first page of data is returned. - If you set it to `infinity`, the last page of data is returned. 
+     * @param {String} [after] This parameter specifies an object ID as a starting point for pagination, retrieving data after the specified object relative to the current dataset.    Suppose the current data is ordered as Object A, Object B, and Object C. If you set `after` to the ID of Object A (`RqeEoTkgKG5rpzqYzg2Hd3szmPoj2cE7w5jWwShz3C1vyGSAk`), the response will include Object B and Object C.    **Notes**:   - If you set both `after` and `before`, an error will occur. - If you leave both `before` and `after` empty, the first page of data is returned. 
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/ListBabylonEligibleStakings200Response} and HTTP response
+     */
+    listBabylonEligibleStakingsWithHttpInfo(opts) {
+      opts = opts || {};
+      let postBody = null;
+      if (postBody && postBody.toJSON) {
+          postBody = postBody.toJSON()
+      }
+
+      let pathParams = {
+      };
+      let queryParams = {
+        'status': opts['status'],
+        'limit': opts['limit'],
+        'before': opts['before'],
+        'after': opts['after']
+      };
+      let headerParams = {
+      };
+      let formParams = {
+      };
+
+      let authNames = ['CoboAuth'];
+      let contentTypes = [];
+      let accepts = ['application/json'];
+      let returnType = ListBabylonEligibleStakings200Response;
+      return this.apiClient.callApi(
+        '/stakings/protocols/babylon/stakings/eligibles', 'GET',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, null
+      );
+    }
+
+    /**
+     * List staking positions eligible for Babylon Phase-2
+     * This operation lists all staking positions that are eligible for Babylon Phase-2. If an eligible staking position's status is `Unregistered`, you can initiate a registration for it. You can filter the results by registration status.  You can use this operation to: - Check which staking positions can be registered - Get staking details before initiating registration - Monitor available positions for registration  As registration is an asynchronous process and might take some time to complete, it is recommended that you regularly call this operation to check staking position eligibility and register eligible positions on time.  For more information, refer to [Babylon's official doc](https://github.com/babylonlabs-io/babylon/tree/main/docs). 
+     * @param {Object} opts Optional parameters
+     * @param {module:model/String} opts.status The status of Babylon airdrop or Phase-2 registration. Possible values are: - `Registered`: Registered for Babylon airdrop or Phase-2. - `Unregistered`: Not registered for any Babylon airdrop or Phase-2. - `Registering`: The Babylon airdrop or Phase-2 registration is in progress but not yet completed. 
+     * @param {Number} opts.limit The maximum number of objects to return. For most operations, the value range is [1, 50]. (default to 10)
+     * @param {String} opts.before This parameter specifies an object ID as a starting point for pagination, retrieving data before the specified object relative to the current dataset.    Suppose the current data is ordered as Object A, Object B, and Object C.  If you set `before` to the ID of Object C (`RqeEoTkgKG5rpzqYzg2Hd3szmPoj2cE7w5jWwShz3C1vyGSAk`), the response will include Object B and Object A.    **Notes**:   - If you set both `after` and `before`, an error will occur. - If you leave both `before` and `after` empty, the first page of data is returned. - If you set it to `infinity`, the last page of data is returned. 
+     * @param {String} opts.after This parameter specifies an object ID as a starting point for pagination, retrieving data after the specified object relative to the current dataset.    Suppose the current data is ordered as Object A, Object B, and Object C. If you set `after` to the ID of Object A (`RqeEoTkgKG5rpzqYzg2Hd3szmPoj2cE7w5jWwShz3C1vyGSAk`), the response will include Object B and Object C.    **Notes**:   - If you set both `after` and `before`, an error will occur. - If you leave both `before` and `after` empty, the first page of data is returned. 
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/ListBabylonEligibleStakings200Response}
+     */
+    listBabylonEligibleStakings(opts) {
+      return this.listBabylonEligibleStakingsWithHttpInfo(opts)
+        .then(function(response_and_data) {
+          return response_and_data.data;
+        });
+    }
+
+
+    /**
+     * List Babylon Phase-2 registrations
+     * This operation lists all Babylon Phase-2 registration records within your organization. You can filter the results by request status and staking position ID.  The registration is processed asynchronously and may take some time to complete. It is recommended to implement automatic monitoring and handle the registration on time.  If the registration request fails, please check the error message and resolve the issues before resubmitting the registration request.  For more information, refer to [Babylon's official doc](https://github.com/babylonlabs-io/babylon/tree/main/docs). 
+     * @param {Object} opts Optional parameters
+     * @param {module:model/String} [status] The registration request status.
+     * @param {String} [staking_id] The ID of the Phase-1 BTC staking position.
+     * @param {Number} [limit = 10)] The maximum number of objects to return. For most operations, the value range is [1, 50].
+     * @param {String} [before] This parameter specifies an object ID as a starting point for pagination, retrieving data before the specified object relative to the current dataset.    Suppose the current data is ordered as Object A, Object B, and Object C.  If you set `before` to the ID of Object C (`RqeEoTkgKG5rpzqYzg2Hd3szmPoj2cE7w5jWwShz3C1vyGSAk`), the response will include Object B and Object A.    **Notes**:   - If you set both `after` and `before`, an error will occur. - If you leave both `before` and `after` empty, the first page of data is returned. - If you set it to `infinity`, the last page of data is returned. 
+     * @param {String} [after] This parameter specifies an object ID as a starting point for pagination, retrieving data after the specified object relative to the current dataset.    Suppose the current data is ordered as Object A, Object B, and Object C. If you set `after` to the ID of Object A (`RqeEoTkgKG5rpzqYzg2Hd3szmPoj2cE7w5jWwShz3C1vyGSAk`), the response will include Object B and Object C.    **Notes**:   - If you set both `after` and `before`, an error will occur. - If you leave both `before` and `after` empty, the first page of data is returned. 
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/ListBabylonStakingRegistrations200Response} and HTTP response
+     */
+    listBabylonStakingRegistrationsWithHttpInfo(opts) {
+      opts = opts || {};
+      let postBody = null;
+      if (postBody && postBody.toJSON) {
+          postBody = postBody.toJSON()
+      }
+
+      let pathParams = {
+      };
+      let queryParams = {
+        'status': opts['status'],
+        'staking_id': opts['staking_id'],
+        'limit': opts['limit'],
+        'before': opts['before'],
+        'after': opts['after']
+      };
+      let headerParams = {
+      };
+      let formParams = {
+      };
+
+      let authNames = ['CoboAuth'];
+      let contentTypes = [];
+      let accepts = ['application/json'];
+      let returnType = ListBabylonStakingRegistrations200Response;
+      return this.apiClient.callApi(
+        '/stakings/protocols/babylon/stakings/registrations', 'GET',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, null
+      );
+    }
+
+    /**
+     * List Babylon Phase-2 registrations
+     * This operation lists all Babylon Phase-2 registration records within your organization. You can filter the results by request status and staking position ID.  The registration is processed asynchronously and may take some time to complete. It is recommended to implement automatic monitoring and handle the registration on time.  If the registration request fails, please check the error message and resolve the issues before resubmitting the registration request.  For more information, refer to [Babylon's official doc](https://github.com/babylonlabs-io/babylon/tree/main/docs). 
+     * @param {Object} opts Optional parameters
+     * @param {module:model/String} opts.status The registration request status.
+     * @param {String} opts.staking_id The ID of the Phase-1 BTC staking position.
+     * @param {Number} opts.limit The maximum number of objects to return. For most operations, the value range is [1, 50]. (default to 10)
+     * @param {String} opts.before This parameter specifies an object ID as a starting point for pagination, retrieving data before the specified object relative to the current dataset.    Suppose the current data is ordered as Object A, Object B, and Object C.  If you set `before` to the ID of Object C (`RqeEoTkgKG5rpzqYzg2Hd3szmPoj2cE7w5jWwShz3C1vyGSAk`), the response will include Object B and Object A.    **Notes**:   - If you set both `after` and `before`, an error will occur. - If you leave both `before` and `after` empty, the first page of data is returned. - If you set it to `infinity`, the last page of data is returned. 
+     * @param {String} opts.after This parameter specifies an object ID as a starting point for pagination, retrieving data after the specified object relative to the current dataset.    Suppose the current data is ordered as Object A, Object B, and Object C. If you set `after` to the ID of Object A (`RqeEoTkgKG5rpzqYzg2Hd3szmPoj2cE7w5jWwShz3C1vyGSAk`), the response will include Object B and Object C.    **Notes**:   - If you set both `after` and `before`, an error will occur. - If you leave both `before` and `after` empty, the first page of data is returned. 
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/ListBabylonStakingRegistrations200Response}
+     */
+    listBabylonStakingRegistrations(opts) {
+      return this.listBabylonStakingRegistrationsWithHttpInfo(opts)
+        .then(function(response_and_data) {
+          return response_and_data.data;
+        });
+    }
+
+
+    /**
      * List staking activities
      * This operation retrieves a list of staking activities. 
      * @param {Object} opts Optional parameters
      * @param {String} [pool_id] The ID of the staking pool. A staking pool is a pairing of a staking protocol and a specific type of token. You can call [List staking pools](https://www.cobo.com/developers/v2/api-references/stakings/list-staking-pools) to retrieve a list of staking pools.
-     * @param {String} [staking_id] The position ID.
+     * @param {String} [staking_id] The ID of the Phase-1 BTC staking position.
      * @param {module:model/ActivityType} [activity_type] 
      * @param {module:model/ActivityStatus} [activity_status] 
      * @param {Number} [min_modified_timestamp] The start time of the query. All staking activities updated after the specified time will be retrieved. The time is in Unix timestamp format, measured in milliseconds.
@@ -555,7 +1007,7 @@ export default class StakingsApi {
      * This operation retrieves a list of staking activities. 
      * @param {Object} opts Optional parameters
      * @param {String} opts.pool_id The ID of the staking pool. A staking pool is a pairing of a staking protocol and a specific type of token. You can call [List staking pools](https://www.cobo.com/developers/v2/api-references/stakings/list-staking-pools) to retrieve a list of staking pools.
-     * @param {String} opts.staking_id The position ID.
+     * @param {String} opts.staking_id The ID of the Phase-1 BTC staking position.
      * @param {module:model/ActivityType} opts.activity_type 
      * @param {module:model/ActivityStatus} opts.activity_status 
      * @param {Number} opts.min_modified_timestamp The start time of the query. All staking activities updated after the specified time will be retrieved. The time is in Unix timestamp format, measured in milliseconds.

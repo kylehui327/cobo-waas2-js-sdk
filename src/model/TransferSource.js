@@ -13,6 +13,7 @@ import ApiClient from '../ApiClient';
 import CoboSafeDelegate from './CoboSafeDelegate';
 import CustodialTransferSource from './CustodialTransferSource';
 import ExchangeTransferSource from './ExchangeTransferSource';
+import MpcSigningGroup from './MpcSigningGroup';
 import MpcTransferSource from './MpcTransferSource';
 import SafeTransferSource from './SafeTransferSource';
 import TransactionUtxo from './TransactionUtxo';
@@ -254,6 +255,11 @@ TransferSource.prototype['included_utxos'] = undefined;
  * @member {Array.<module:model/TransactionUtxo>} excluded_utxos
  */
 TransferSource.prototype['excluded_utxos'] = undefined;
+
+/**
+ * @member {module:model/MpcSigningGroup} mpc_used_key_share_holder_group
+ */
+TransferSource.prototype['mpc_used_key_share_holder_group'] = undefined;
 
 /**
  * @member {module:model/CoboSafeDelegate} delegate

@@ -72,12 +72,12 @@ class TransactionDestination {
                     this.actualInstance = TransactionMessageSignEIP712Destination.constructFromObject(instance);
                     match++;
                     break;
-                case "EVM_Raw_Message_Signature":
-                    this.actualInstance = TransactionRawMessageSignDestination.constructFromObject(instance);
-                    match++;
-                    break;
                 case "ExchangeWallet":
                     this.actualInstance = TransactionTransferToWalletDestination.constructFromObject(instance);
+                    match++;
+                    break;
+                case "Raw_Message_Signature":
+                    this.actualInstance = TransactionRawMessageSignDestination.constructFromObject(instance);
                     match++;
                     break;
                 default:

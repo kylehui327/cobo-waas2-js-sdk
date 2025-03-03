@@ -13,6 +13,7 @@ import ApiClient from '../ApiClient';
 import CoboSafeDelegate from './CoboSafeDelegate';
 import ContractCallSourceType from './ContractCallSourceType';
 import MpcContractCallSource from './MpcContractCallSource';
+import MpcSigningGroup from './MpcSigningGroup';
 import SafeContractCallSource from './SafeContractCallSource';
 
 /**
@@ -179,6 +180,11 @@ ContractCallSource.prototype['wallet_id'] = undefined;
  * @member {String} address
  */
 ContractCallSource.prototype['address'] = undefined;
+
+/**
+ * @member {module:model/MpcSigningGroup} mpc_used_key_share_holder_group
+ */
+ContractCallSource.prototype['mpc_used_key_share_holder_group'] = undefined;
 
 /**
  * @member {module:model/CoboSafeDelegate} delegate

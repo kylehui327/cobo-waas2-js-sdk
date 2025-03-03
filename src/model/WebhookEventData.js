@@ -10,8 +10,8 @@
  */
 
 import ApiClient from '../ApiClient';
-import AddressInfo from './AddressInfo';
 import AddressesEventData from './AddressesEventData';
+import AddressesEventDataAllOfAddresses from './AddressesEventDataAllOfAddresses';
 import MPCVaultEventData from './MPCVaultEventData';
 import MPCVaultType from './MPCVaultType';
 import RootPubkey from './RootPubkey';
@@ -444,7 +444,7 @@ WebhookEventData.prototype['target_key_share_holder_group_id'] = undefined;
 
 /**
  * A list of addresses.
- * @member {Array.<module:model/AddressInfo>} addresses
+ * @member {Array.<module:model/AddressesEventDataAllOfAddresses>} addresses
  */
 WebhookEventData.prototype['addresses'] = undefined;
 

@@ -10,6 +10,7 @@
  */
 
 import ApiClient from '../ApiClient';
+import MpcSigningGroup from './MpcSigningGroup';
 import TransactionUtxo from './TransactionUtxo';
 import WalletSubtype from './WalletSubtype';
 
@@ -66,6 +67,9 @@ class MpcTransferSource {
             if (data.hasOwnProperty('excluded_utxos')) {
                 obj['excluded_utxos'] = ApiClient.convertToType(data['excluded_utxos'], [TransactionUtxo]);
             }
+            if (data.hasOwnProperty('mpc_used_key_share_holder_group')) {
+                obj['mpc_used_key_share_holder_group'] = MpcSigningGroup.constructFromObject(data['mpc_used_key_share_holder_group']);
+            }
         }
         return obj;
     }
@@ -110,6 +114,12 @@ class MpcTransferSource {
                 TransactionUtxo.validateJSON(item);
             };
         }
+        // validate the optional field `mpc_used_key_share_holder_group`
+        if (data['mpc_used_key_share_holder_group']) { // data not null
+          if (!!MpcSigningGroup.validateJSON) {
+            MpcSigningGroup.validateJSON(data['mpc_used_key_share_holder_group']);
+          }
+        }
 
         return true;
     }
@@ -145,6 +155,11 @@ MpcTransferSource.prototype['included_utxos'] = undefined;
  * @member {Array.<module:model/TransactionUtxo>} excluded_utxos
  */
 MpcTransferSource.prototype['excluded_utxos'] = undefined;
+
+/**
+ * @member {module:model/MpcSigningGroup} mpc_used_key_share_holder_group
+ */
+MpcTransferSource.prototype['mpc_used_key_share_holder_group'] = undefined;
 
 
 
