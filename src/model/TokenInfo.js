@@ -21,7 +21,7 @@ class TokenInfo {
      * Constructs a new <code>TokenInfo</code>.
      * The token information.
      * @alias module:model/TokenInfo
-     * @param token_id {String} The token ID, which is the unique identifier of a token. You can retrieve the IDs of all the tokens you can use by calling [List enabled tokens](https://www.cobo.com/developers/v2/api-references/wallets/list-enabled-tokens).
+     * @param token_id {String} The token ID, which is the unique identifier of a token.
      * @param chain_id {String} The ID of the chain on which the token operates.
      */
     constructor(token_id, chain_id) { 
@@ -158,7 +158,7 @@ class TokenInfo {
 TokenInfo.RequiredProperties = ["token_id", "chain_id"];
 
 /**
- * The token ID, which is the unique identifier of a token. You can retrieve the IDs of all the tokens you can use by calling [List enabled tokens](https://www.cobo.com/developers/v2/api-references/wallets/list-enabled-tokens).
+ * The token ID, which is the unique identifier of a token.
  * @member {String} token_id
  */
 TokenInfo.prototype['token_id'] = undefined;

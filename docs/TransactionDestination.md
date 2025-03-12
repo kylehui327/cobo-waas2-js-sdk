@@ -18,6 +18,7 @@ Name | Type | Description | Notes
 **value** | **String** | The transfer amount. For example, if you trade 1.5 ETH, then the value is &#x60;1.5&#x60;.  | [optional] 
 **calldata** | **String** | The data that is used to invoke a specific function or method within the specified contract at the destination address.  | 
 **calldata_info** | [**TransactionEvmCalldataInfo**](TransactionEvmCalldataInfo.md) |  | [optional] 
+**instructions** | [**[TransactionSolContractInstruction]**](TransactionSolContractInstruction.md) |  | [optional] 
 **message** | **String** | The raw data of the message to be signed, encoded in Base64 format. | 
 **structured_data** | **{String: Object}** | The structured data to be signed, formatted as a JSON object according to the EIP-712 standard. | 
 **msg_hash** | **String** | Message hash to be signed, in hexadecimal format. | [optional] 
