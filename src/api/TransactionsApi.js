@@ -69,7 +69,7 @@ export default class TransactionsApi {
       let formParams = {
       };
 
-      let authNames = ['OAuth2'];
+      let authNames = ['OAuth2', 'CoboAuth'];
       let contentTypes = ['application/json'];
       let accepts = ['application/json'];
       let returnType = [BroadcastSignedTransactions201ResponseInner];
@@ -121,7 +121,7 @@ export default class TransactionsApi {
       let formParams = {
       };
 
-      let authNames = ['OAuth2'];
+      let authNames = ['OAuth2', 'CoboAuth'];
       let contentTypes = [];
       let accepts = ['application/json'];
       let returnType = CreateTransferTransaction201Response;
@@ -184,7 +184,7 @@ export default class TransactionsApi {
       let formParams = {
       };
 
-      let authNames = ['OAuth2'];
+      let authNames = ['OAuth2', 'CoboAuth'];
       let contentTypes = [];
       let accepts = ['application/json'];
       let returnType = [CheckLoopTransfers200ResponseInner];
@@ -234,7 +234,7 @@ export default class TransactionsApi {
       let formParams = {
       };
 
-      let authNames = ['OAuth2'];
+      let authNames = ['OAuth2', 'CoboAuth'];
       let contentTypes = ['application/json'];
       let accepts = ['application/json'];
       let returnType = CreateTransferTransaction201Response;
@@ -283,7 +283,7 @@ export default class TransactionsApi {
       let formParams = {
       };
 
-      let authNames = ['OAuth2'];
+      let authNames = ['OAuth2', 'CoboAuth'];
       let contentTypes = ['application/json'];
       let accepts = ['application/json'];
       let returnType = CreateTransferTransaction201Response;
@@ -332,7 +332,7 @@ export default class TransactionsApi {
       let formParams = {
       };
 
-      let authNames = ['OAuth2'];
+      let authNames = ['OAuth2', 'CoboAuth'];
       let contentTypes = ['application/json'];
       let accepts = ['application/json'];
       let returnType = CreateTransferTransaction201Response;
@@ -387,7 +387,7 @@ export default class TransactionsApi {
       let formParams = {
       };
 
-      let authNames = ['OAuth2'];
+      let authNames = ['OAuth2', 'CoboAuth'];
       let contentTypes = ['application/json'];
       let accepts = ['application/json'];
       let returnType = CreateTransferTransaction201Response;
@@ -437,7 +437,7 @@ export default class TransactionsApi {
       let formParams = {
       };
 
-      let authNames = ['OAuth2'];
+      let authNames = ['OAuth2', 'CoboAuth'];
       let contentTypes = ['application/json'];
       let accepts = ['application/json'];
       let returnType = EstimatedFee;
@@ -489,7 +489,7 @@ export default class TransactionsApi {
       let formParams = {
       };
 
-      let authNames = ['CoboAuth'];
+      let authNames = ['OAuth2', 'CoboAuth'];
       let contentTypes = [];
       let accepts = ['application/json'];
       let returnType = TransactionApprovalDetail;
@@ -540,7 +540,7 @@ export default class TransactionsApi {
       let formParams = {
       };
 
-      let authNames = ['OAuth2'];
+      let authNames = ['OAuth2', 'CoboAuth'];
       let contentTypes = [];
       let accepts = ['application/json'];
       let returnType = TransactionDetail;
@@ -621,7 +621,7 @@ export default class TransactionsApi {
       let formParams = {
       };
 
-      let authNames = ['OAuth2'];
+      let authNames = ['OAuth2', 'CoboAuth'];
       let contentTypes = [];
       let accepts = ['application/json'];
       let returnType = ListTransactions200Response;
@@ -692,7 +692,7 @@ export default class TransactionsApi {
       let formParams = {
       };
 
-      let authNames = ['OAuth2'];
+      let authNames = ['OAuth2', 'CoboAuth'];
       let contentTypes = ['application/json'];
       let accepts = ['application/json'];
       let returnType = CreateTransferTransaction201Response;
@@ -745,7 +745,7 @@ export default class TransactionsApi {
       let formParams = {
       };
 
-      let authNames = ['CoboAuth'];
+      let authNames = ['OAuth2', 'CoboAuth'];
       let contentTypes = [];
       let accepts = ['application/json'];
       let returnType = CreateTransferTransaction201Response;
@@ -799,7 +799,7 @@ export default class TransactionsApi {
       let formParams = {
       };
 
-      let authNames = ['OAuth2'];
+      let authNames = ['OAuth2', 'CoboAuth'];
       let contentTypes = ['application/json'];
       let accepts = ['application/json'];
       let returnType = CreateTransferTransaction201Response;

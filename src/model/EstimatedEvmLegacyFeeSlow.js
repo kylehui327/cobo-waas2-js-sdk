@@ -12,6 +12,7 @@
 import ApiClient from '../ApiClient';
 import EvmLegacyFeeBasePrice from './EvmLegacyFeeBasePrice';
 import FeeGasLimit from './FeeGasLimit';
+import FeeReserved from './FeeReserved';
 
 /**
  * The EstimatedEvmLegacyFeeSlow model module.
@@ -23,11 +24,12 @@ class EstimatedEvmLegacyFeeSlow {
      * @alias module:model/EstimatedEvmLegacyFeeSlow
      * @implements module:model/EvmLegacyFeeBasePrice
      * @implements module:model/FeeGasLimit
+     * @implements module:model/FeeReserved
      * @param gas_price {String} The gas price, in wei. The gas price represents the amount of ETH that must be paid to validators for processing transactions per gas unit used.
      * @param gas_limit {String} The gas limit. It represents the maximum number of gas units that you are willing to pay for the execution of a transaction or Ethereum Virtual Machine (EVM) operation. The gas unit cost of each operation varies.
      */
     constructor(gas_price, gas_limit) { 
-        EvmLegacyFeeBasePrice.initialize(this);FeeGasLimit.initialize(this);
+        EvmLegacyFeeBasePrice.initialize(this);FeeGasLimit.initialize(this);FeeReserved.initialize(this);
         EstimatedEvmLegacyFeeSlow.initialize(this, gas_price, gas_limit);
     }
 
@@ -53,12 +55,16 @@ class EstimatedEvmLegacyFeeSlow {
             obj = obj || new EstimatedEvmLegacyFeeSlow();
             EvmLegacyFeeBasePrice.constructFromObject(data, obj);
             FeeGasLimit.constructFromObject(data, obj);
+            FeeReserved.constructFromObject(data, obj);
 
             if (data.hasOwnProperty('gas_price')) {
                 obj['gas_price'] = ApiClient.convertToType(data['gas_price'], 'String');
             }
             if (data.hasOwnProperty('gas_limit')) {
                 obj['gas_limit'] = ApiClient.convertToType(data['gas_limit'], 'String');
+            }
+            if (data.hasOwnProperty('reserved_fee')) {
+                obj['reserved_fee'] = ApiClient.convertToType(data['reserved_fee'], 'String');
             }
         }
         return obj;
@@ -84,6 +90,10 @@ class EstimatedEvmLegacyFeeSlow {
         if (data['gas_limit'] && !(typeof data['gas_limit'] === 'string' || data['gas_limit'] instanceof String)) {
             throw new Error("Expected the field `gas_limit` to be a primitive type in the JSON string but got " + data['gas_limit']);
         }
+        // ensure the json data is a string
+        if (data['reserved_fee'] && !(typeof data['reserved_fee'] === 'string' || data['reserved_fee'] instanceof String)) {
+            throw new Error("Expected the field `reserved_fee` to be a primitive type in the JSON string but got " + data['reserved_fee']);
+        }
 
         return true;
     }
@@ -105,6 +115,12 @@ EstimatedEvmLegacyFeeSlow.prototype['gas_price'] = undefined;
  */
 EstimatedEvmLegacyFeeSlow.prototype['gas_limit'] = undefined;
 
+/**
+ * The estimated fee required for submitting the transaction data to L1 (Layer 1), measured in wei.
+ * @member {String} reserved_fee
+ */
+EstimatedEvmLegacyFeeSlow.prototype['reserved_fee'] = undefined;
+
 
 // Implement EvmLegacyFeeBasePrice interface:
 /**
@@ -118,6 +134,12 @@ EvmLegacyFeeBasePrice.prototype['gas_price'] = undefined;
  * @member {String} gas_limit
  */
 FeeGasLimit.prototype['gas_limit'] = undefined;
+// Implement FeeReserved interface:
+/**
+ * The estimated fee required for submitting the transaction data to L1 (Layer 1), measured in wei.
+ * @member {String} reserved_fee
+ */
+FeeReserved.prototype['reserved_fee'] = undefined;
 
 
 

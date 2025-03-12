@@ -156,6 +156,7 @@ import ExtendedTokenInfo from './model/ExtendedTokenInfo';
 import FeeAmount from './model/FeeAmount';
 import FeeGasLimit from './model/FeeGasLimit';
 import FeeRate from './model/FeeRate';
+import FeeReserved from './model/FeeReserved';
 import FeeType from './model/FeeType';
 import FixedFeeRate from './model/FixedFeeRate';
 import GetApiKeyInfo200Response from './model/GetApiKeyInfo200Response';
@@ -254,6 +255,9 @@ import SmartContractInitiator from './model/SmartContractInitiator';
 import SmartContractWalletInfo from './model/SmartContractWalletInfo';
 import SmartContractWalletOperationType from './model/SmartContractWalletOperationType';
 import SmartContractWalletType from './model/SmartContractWalletType';
+import SolContractCallAccount from './model/SolContractCallAccount';
+import SolContractCallDestination from './model/SolContractCallDestination';
+import SolContractCallInstruction from './model/SolContractCallInstruction';
 import SourceGroup from './model/SourceGroup';
 import StakeSourceType from './model/StakeSourceType';
 import StakingPoolId from './model/StakingPoolId';
@@ -321,6 +325,9 @@ import TransactionSelectedUtxo from './model/TransactionSelectedUtxo';
 import TransactionSignatureResult from './model/TransactionSignatureResult';
 import TransactionSigner from './model/TransactionSigner';
 import TransactionSmartContractSafeWalletSource from './model/TransactionSmartContractSafeWalletSource';
+import TransactionSolContractAccount from './model/TransactionSolContractAccount';
+import TransactionSolContractDestination from './model/TransactionSolContractDestination';
+import TransactionSolContractInstruction from './model/TransactionSolContractInstruction';
 import TransactionSource from './model/TransactionSource';
 import TransactionSourceType from './model/TransactionSourceType';
 import TransactionStatus from './model/TransactionStatus';
@@ -427,7 +434,7 @@ import WalletsSmartContractWalletsApi from './api/WalletsSmartContractWalletsApi
 * </pre>
 * </p>
 * @module index
-* @version 1.10.0
+* @version 1.11.0
 */
 export {
     Env,
@@ -1298,6 +1305,12 @@ export {
     FeeRate,
 
     /**
+     * The FeeReserved model constructor.
+     * @property {module:model/FeeReserved}
+     */
+    FeeReserved,
+
+    /**
      * The FeeType model constructor.
      * @property {module:model/FeeType}
      */
@@ -1886,6 +1899,24 @@ export {
     SmartContractWalletType,
 
     /**
+     * The SolContractCallAccount model constructor.
+     * @property {module:model/SolContractCallAccount}
+     */
+    SolContractCallAccount,
+
+    /**
+     * The SolContractCallDestination model constructor.
+     * @property {module:model/SolContractCallDestination}
+     */
+    SolContractCallDestination,
+
+    /**
+     * The SolContractCallInstruction model constructor.
+     * @property {module:model/SolContractCallInstruction}
+     */
+    SolContractCallInstruction,
+
+    /**
      * The SourceGroup model constructor.
      * @property {module:model/SourceGroup}
      */
@@ -2286,6 +2317,24 @@ export {
      * @property {module:model/TransactionSmartContractSafeWalletSource}
      */
     TransactionSmartContractSafeWalletSource,
+
+    /**
+     * The TransactionSolContractAccount model constructor.
+     * @property {module:model/TransactionSolContractAccount}
+     */
+    TransactionSolContractAccount,
+
+    /**
+     * The TransactionSolContractDestination model constructor.
+     * @property {module:model/TransactionSolContractDestination}
+     */
+    TransactionSolContractDestination,
+
+    /**
+     * The TransactionSolContractInstruction model constructor.
+     * @property {module:model/TransactionSolContractInstruction}
+     */
+    TransactionSolContractInstruction,
 
     /**
      * The TransactionSource model constructor.

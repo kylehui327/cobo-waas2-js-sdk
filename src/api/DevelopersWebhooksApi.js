@@ -69,7 +69,7 @@ export default class DevelopersWebhooksApi {
       let formParams = {
       };
 
-      let authNames = ['OAuth2'];
+      let authNames = ['OAuth2', 'CoboAuth'];
       let contentTypes = ['application/json'];
       let accepts = ['application/json'];
       let returnType = WebhookEndpoint;
@@ -121,7 +121,7 @@ export default class DevelopersWebhooksApi {
       let formParams = {
       };
 
-      let authNames = ['OAuth2'];
+      let authNames = ['OAuth2', 'CoboAuth'];
       let contentTypes = [];
       let accepts = ['application/json'];
       let returnType = WebhookEndpoint;
@@ -178,7 +178,7 @@ export default class DevelopersWebhooksApi {
       let formParams = {
       };
 
-      let authNames = ['OAuth2'];
+      let authNames = ['OAuth2', 'CoboAuth'];
       let contentTypes = [];
       let accepts = ['application/json'];
       let returnType = WebhookEvent;
@@ -236,7 +236,7 @@ export default class DevelopersWebhooksApi {
       let formParams = {
       };
 
-      let authNames = ['OAuth2'];
+      let authNames = ['OAuth2', 'CoboAuth'];
       let contentTypes = [];
       let accepts = ['application/json'];
       let returnType = ListWebhookEndpoints200Response;
@@ -350,7 +350,7 @@ export default class DevelopersWebhooksApi {
       let formParams = {
       };
 
-      let authNames = ['OAuth2'];
+      let authNames = ['OAuth2', 'CoboAuth'];
       let contentTypes = [];
       let accepts = ['application/json'];
       let returnType = ListWebhookEventLogs200Response;
@@ -418,7 +418,7 @@ export default class DevelopersWebhooksApi {
       let formParams = {
       };
 
-      let authNames = ['OAuth2'];
+      let authNames = ['OAuth2', 'CoboAuth'];
       let contentTypes = [];
       let accepts = ['application/json'];
       let returnType = ListWebhookEvents200Response;
@@ -481,7 +481,7 @@ export default class DevelopersWebhooksApi {
       let formParams = {
       };
 
-      let authNames = ['OAuth2'];
+      let authNames = ['OAuth2', 'CoboAuth'];
       let contentTypes = [];
       let accepts = ['application/json'];
       let returnType = RetryWebhookEventById201Response;
@@ -585,7 +585,7 @@ export default class DevelopersWebhooksApi {
       let formParams = {
       };
 
-      let authNames = ['OAuth2'];
+      let authNames = ['OAuth2', 'CoboAuth'];
       let contentTypes = ['application/json'];
       let accepts = ['application/json'];
       let returnType = WebhookEndpoint;

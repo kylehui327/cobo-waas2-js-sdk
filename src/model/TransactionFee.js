@@ -272,7 +272,7 @@ TransactionFee.prototype['gas_limit'] = undefined;
 TransactionFee.prototype['gas_price'] = undefined;
 
 /**
- * The maximum fee that you are willing to pay for the transaction. The transaction will fail if the transaction fee exceeds the maximum fee.
+ * The maximum fee that you are willing to pay for the transaction. Provide the value without applying precision. The transaction will fail if the transaction fee exceeds the maximum fee.
  * @member {String} max_fee_amount
  */
 TransactionFee.prototype['max_fee_amount'] = undefined;

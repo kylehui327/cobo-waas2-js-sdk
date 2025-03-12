@@ -12,6 +12,7 @@
 import ApiClient from '../ApiClient';
 import EvmEip1559FeeBasePrice from './EvmEip1559FeeBasePrice';
 import FeeGasLimit from './FeeGasLimit';
+import FeeReserved from './FeeReserved';
 
 /**
  * The EstimatedEvmEip1559FeeSlow model module.
@@ -23,12 +24,13 @@ class EstimatedEvmEip1559FeeSlow {
      * @alias module:model/EstimatedEvmEip1559FeeSlow
      * @implements module:model/EvmEip1559FeeBasePrice
      * @implements module:model/FeeGasLimit
+     * @implements module:model/FeeReserved
      * @param max_fee_per_gas {String} The maximum gas fee per gas unit used on the chain, in wei.
      * @param max_priority_fee_per_gas {String} The maximum priority fee per gas unit used, in wei. The maximum priority fee represents the highest amount of miner tips that you are willing to pay for your transaction.
      * @param gas_limit {String} The gas limit. It represents the maximum number of gas units that you are willing to pay for the execution of a transaction or Ethereum Virtual Machine (EVM) operation. The gas unit cost of each operation varies.
      */
     constructor(max_fee_per_gas, max_priority_fee_per_gas, gas_limit) { 
-        EvmEip1559FeeBasePrice.initialize(this);FeeGasLimit.initialize(this);
+        EvmEip1559FeeBasePrice.initialize(this);FeeGasLimit.initialize(this);FeeReserved.initialize(this);
         EstimatedEvmEip1559FeeSlow.initialize(this, max_fee_per_gas, max_priority_fee_per_gas, gas_limit);
     }
 
@@ -55,6 +57,7 @@ class EstimatedEvmEip1559FeeSlow {
             obj = obj || new EstimatedEvmEip1559FeeSlow();
             EvmEip1559FeeBasePrice.constructFromObject(data, obj);
             FeeGasLimit.constructFromObject(data, obj);
+            FeeReserved.constructFromObject(data, obj);
 
             if (data.hasOwnProperty('max_fee_per_gas')) {
                 obj['max_fee_per_gas'] = ApiClient.convertToType(data['max_fee_per_gas'], 'String');
@@ -64,6 +67,9 @@ class EstimatedEvmEip1559FeeSlow {
             }
             if (data.hasOwnProperty('gas_limit')) {
                 obj['gas_limit'] = ApiClient.convertToType(data['gas_limit'], 'String');
+            }
+            if (data.hasOwnProperty('reserved_fee')) {
+                obj['reserved_fee'] = ApiClient.convertToType(data['reserved_fee'], 'String');
             }
         }
         return obj;
@@ -93,6 +99,10 @@ class EstimatedEvmEip1559FeeSlow {
         if (data['gas_limit'] && !(typeof data['gas_limit'] === 'string' || data['gas_limit'] instanceof String)) {
             throw new Error("Expected the field `gas_limit` to be a primitive type in the JSON string but got " + data['gas_limit']);
         }
+        // ensure the json data is a string
+        if (data['reserved_fee'] && !(typeof data['reserved_fee'] === 'string' || data['reserved_fee'] instanceof String)) {
+            throw new Error("Expected the field `reserved_fee` to be a primitive type in the JSON string but got " + data['reserved_fee']);
+        }
 
         return true;
     }
@@ -120,6 +130,12 @@ EstimatedEvmEip1559FeeSlow.prototype['max_priority_fee_per_gas'] = undefined;
  */
 EstimatedEvmEip1559FeeSlow.prototype['gas_limit'] = undefined;
 
+/**
+ * The estimated fee required for submitting the transaction data to L1 (Layer 1), measured in wei.
+ * @member {String} reserved_fee
+ */
+EstimatedEvmEip1559FeeSlow.prototype['reserved_fee'] = undefined;
+
 
 // Implement EvmEip1559FeeBasePrice interface:
 /**
@@ -138,6 +154,12 @@ EvmEip1559FeeBasePrice.prototype['max_priority_fee_per_gas'] = undefined;
  * @member {String} gas_limit
  */
 FeeGasLimit.prototype['gas_limit'] = undefined;
+// Implement FeeReserved interface:
+/**
+ * The estimated fee required for submitting the transaction data to L1 (Layer 1), measured in wei.
+ * @member {String} reserved_fee
+ */
+FeeReserved.prototype['reserved_fee'] = undefined;
 
 
 

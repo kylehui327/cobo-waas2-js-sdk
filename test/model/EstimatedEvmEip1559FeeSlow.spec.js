@@ -70,6 +70,12 @@
       //expect(instance).to.be();
     });
 
+    it('should have the property reserved_fee (base name: "reserved_fee")', function() {
+      // uncomment below and update the code to test the property reserved_fee
+      //var instance = new CoboWaas2.EstimatedEvmEip1559FeeSlow();
+      //expect(instance).to.be();
+    });
+
   });
 
 }));

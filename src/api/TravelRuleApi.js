@@ -69,7 +69,7 @@ export default class TravelRuleApi {
       let formParams = {
       };
 
-      let authNames = ['OAuth2'];
+      let authNames = ['OAuth2', 'CoboAuth'];
       let contentTypes = [];
       let accepts = ['application/json'];
       let returnType = GetTransactionLimitation200Response;
@@ -115,7 +115,7 @@ export default class TravelRuleApi {
       let formParams = {
       };
 
-      let authNames = ['OAuth2'];
+      let authNames = ['OAuth2', 'CoboAuth'];
       let contentTypes = [];
       let accepts = ['application/json'];
       let returnType = [ListSupportedCountries200ResponseInner];
@@ -162,7 +162,7 @@ export default class TravelRuleApi {
       let formParams = {
       };
 
-      let authNames = ['OAuth2'];
+      let authNames = ['OAuth2', 'CoboAuth'];
       let contentTypes = ['application/json'];
       let accepts = ['application/json'];
       let returnType = SubmitDepositTravelRuleInfo201Response;
@@ -211,7 +211,7 @@ export default class TravelRuleApi {
       let formParams = {
       };
 
-      let authNames = ['OAuth2'];
+      let authNames = ['OAuth2', 'CoboAuth'];
       let contentTypes = ['application/json'];
       let accepts = ['application/json'];
       let returnType = SubmitDepositTravelRuleInfo201Response;

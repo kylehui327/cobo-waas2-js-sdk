@@ -84,7 +84,7 @@ export default class WalletsMPCWalletsApi {
       let formParams = {
       };
 
-      let authNames = ['OAuth2'];
+      let authNames = ['OAuth2', 'CoboAuth'];
       let contentTypes = [];
       let accepts = ['application/json'];
       let returnType = TSSRequest;
@@ -139,7 +139,7 @@ export default class WalletsMPCWalletsApi {
       let formParams = {
       };
 
-      let authNames = ['OAuth2'];
+      let authNames = ['OAuth2', 'CoboAuth'];
       let contentTypes = ['application/json'];
       let accepts = ['application/json'];
       let returnType = KeyShareHolderGroup;
@@ -189,7 +189,7 @@ export default class WalletsMPCWalletsApi {
       let formParams = {
       };
 
-      let authNames = ['OAuth2'];
+      let authNames = ['OAuth2', 'CoboAuth'];
       let contentTypes = ['application/json'];
       let accepts = ['application/json'];
       let returnType = MPCProject;
@@ -238,7 +238,7 @@ export default class WalletsMPCWalletsApi {
       let formParams = {
       };
 
-      let authNames = ['OAuth2'];
+      let authNames = ['OAuth2', 'CoboAuth'];
       let contentTypes = ['application/json'];
       let accepts = ['application/json'];
       let returnType = MPCVault;
@@ -293,7 +293,7 @@ export default class WalletsMPCWalletsApi {
       let formParams = {
       };
 
-      let authNames = ['OAuth2'];
+      let authNames = ['OAuth2', 'CoboAuth'];
       let contentTypes = ['application/json'];
       let accepts = ['application/json'];
       let returnType = TSSRequest;
@@ -352,7 +352,7 @@ export default class WalletsMPCWalletsApi {
       let formParams = {
       };
 
-      let authNames = ['OAuth2'];
+      let authNames = ['OAuth2', 'CoboAuth'];
       let contentTypes = [];
       let accepts = ['application/json'];
       let returnType = DeleteKeyShareHolderGroupById201Response;
@@ -410,7 +410,7 @@ export default class WalletsMPCWalletsApi {
       let formParams = {
       };
 
-      let authNames = ['CoboAuth'];
+      let authNames = ['OAuth2', 'CoboAuth'];
       let contentTypes = [];
       let accepts = ['application/json'];
       let returnType = KeyShareHolder;
@@ -468,7 +468,7 @@ export default class WalletsMPCWalletsApi {
       let formParams = {
       };
 
-      let authNames = ['OAuth2'];
+      let authNames = ['OAuth2', 'CoboAuth'];
       let contentTypes = [];
       let accepts = ['application/json'];
       let returnType = KeyShareHolderGroup;
@@ -520,7 +520,7 @@ export default class WalletsMPCWalletsApi {
       let formParams = {
       };
 
-      let authNames = ['OAuth2'];
+      let authNames = ['OAuth2', 'CoboAuth'];
       let contentTypes = [];
       let accepts = ['application/json'];
       let returnType = MPCProject;
@@ -571,7 +571,7 @@ export default class WalletsMPCWalletsApi {
       let formParams = {
       };
 
-      let authNames = ['OAuth2'];
+      let authNames = ['OAuth2', 'CoboAuth'];
       let contentTypes = [];
       let accepts = ['application/json'];
       let returnType = MPCVault;
@@ -628,7 +628,7 @@ export default class WalletsMPCWalletsApi {
       let formParams = {
       };
 
-      let authNames = ['OAuth2'];
+      let authNames = ['OAuth2', 'CoboAuth'];
       let contentTypes = [];
       let accepts = ['application/json'];
       let returnType = TSSRequest;
@@ -734,7 +734,7 @@ export default class WalletsMPCWalletsApi {
       let formParams = {
       };
 
-      let authNames = ['OAuth2'];
+      let authNames = ['OAuth2', 'CoboAuth'];
       let contentTypes = [];
       let accepts = ['application/json'];
       let returnType = ListKeyShareHolderGroups200Response;
@@ -800,7 +800,7 @@ export default class WalletsMPCWalletsApi {
       let formParams = {
       };
 
-      let authNames = ['CoboAuth'];
+      let authNames = ['OAuth2', 'CoboAuth'];
       let contentTypes = [];
       let accepts = ['application/json'];
       let returnType = ListKeyShareHolders200Response;
@@ -858,7 +858,7 @@ export default class WalletsMPCWalletsApi {
       let formParams = {
       };
 
-      let authNames = ['OAuth2'];
+      let authNames = ['OAuth2', 'CoboAuth'];
       let contentTypes = [];
       let accepts = ['application/json'];
       let returnType = ListMpcProjects200Response;
@@ -922,7 +922,7 @@ export default class WalletsMPCWalletsApi {
       let formParams = {
       };
 
-      let authNames = ['OAuth2'];
+      let authNames = ['OAuth2', 'CoboAuth'];
       let contentTypes = [];
       let accepts = ['application/json'];
       let returnType = ListMpcVaults200Response;
@@ -992,7 +992,7 @@ export default class WalletsMPCWalletsApi {
       let formParams = {
       };
 
-      let authNames = ['OAuth2'];
+      let authNames = ['OAuth2', 'CoboAuth'];
       let contentTypes = [];
       let accepts = ['application/json'];
       let returnType = ListTssRequests200Response;
@@ -1057,7 +1057,7 @@ export default class WalletsMPCWalletsApi {
       let formParams = {
       };
 
-      let authNames = ['OAuth2'];
+      let authNames = ['OAuth2', 'CoboAuth'];
       let contentTypes = ['application/json'];
       let accepts = ['application/json'];
       let returnType = KeyShareHolderGroup;
@@ -1114,7 +1114,7 @@ export default class WalletsMPCWalletsApi {
       let formParams = {
       };
 
-      let authNames = ['OAuth2'];
+      let authNames = ['OAuth2', 'CoboAuth'];
       let contentTypes = ['application/json'];
       let accepts = ['application/json'];
       let returnType = MPCProject;
@@ -1170,7 +1170,7 @@ export default class WalletsMPCWalletsApi {
       let formParams = {
       };
 
-      let authNames = ['OAuth2'];
+      let authNames = ['OAuth2', 'CoboAuth'];
       let contentTypes = ['application/json'];
       let accepts = ['application/json'];
       let returnType = MPCVault;

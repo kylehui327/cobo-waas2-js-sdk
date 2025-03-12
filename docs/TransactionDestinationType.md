@@ -9,6 +9,8 @@
 
 * `EVM_Contract` (value: `"EVM_Contract"`)
 
+* `SOL_Contract` (value: `"SOL_Contract"`)
+
 * `EVM_EIP_191_Signature` (value: `"EVM_EIP_191_Signature"`)
 
 * `EVM_EIP_712_Signature` (value: `"EVM_EIP_712_Signature"`)

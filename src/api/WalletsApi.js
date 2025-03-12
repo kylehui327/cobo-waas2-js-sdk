@@ -259,7 +259,7 @@ export default class WalletsApi {
       let formParams = {
       };
 
-      let authNames = ['OAuth2'];
+      let authNames = ['OAuth2', 'CoboAuth'];
       let contentTypes = ['application/json'];
       let accepts = ['application/json'];
       let returnType = [AddressInfo];
@@ -309,7 +309,7 @@ export default class WalletsApi {
       let formParams = {
       };
 
-      let authNames = ['OAuth2'];
+      let authNames = ['OAuth2', 'CoboAuth'];
       let contentTypes = ['application/json'];
       let accepts = ['application/json'];
       let returnType = CreatedWalletInfo;
@@ -361,7 +361,7 @@ export default class WalletsApi {
       let formParams = {
       };
 
-      let authNames = ['OAuth2'];
+      let authNames = ['OAuth2', 'CoboAuth'];
       let contentTypes = [];
       let accepts = ['application/json'];
       let returnType = DeleteWalletById201Response;
@@ -389,7 +389,7 @@ export default class WalletsApi {
     /**
      * Get chain information
      * This operation retrieves the detailed information about a specified chain. 
-     * @param {String} chain_id The chain ID, which is the unique identifier of a blockchain. You can retrieve the IDs of all the chains you can use by calling [List enabled chains](https://www.cobo.com/developers/v2/api-references/wallets/list-enabled-chains).
+     * @param {String} chain_id The chain ID, which is the unique identifier of a blockchain.
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/ChainInfo} and HTTP response
      */
     getChainByIdWithHttpInfo(chain_id) {
@@ -426,7 +426,7 @@ export default class WalletsApi {
     /**
      * Get chain information
      * This operation retrieves the detailed information about a specified chain. 
-     * @param {String} chain_id The chain ID, which is the unique identifier of a blockchain. You can retrieve the IDs of all the chains you can use by calling [List enabled chains](https://www.cobo.com/developers/v2/api-references/wallets/list-enabled-chains).
+     * @param {String} chain_id The chain ID, which is the unique identifier of a blockchain.
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/ChainInfo}
      */
     getChainById(chain_id) {
@@ -485,7 +485,7 @@ export default class WalletsApi {
       let formParams = {
       };
 
-      let authNames = ['OAuth2'];
+      let authNames = ['OAuth2', 'CoboAuth'];
       let contentTypes = [];
       let accepts = ['application/json'];
       let returnType = MaxTransferableValue;
@@ -518,7 +518,7 @@ export default class WalletsApi {
     /**
      * Get token information
      * This operation retrieves the detailed information about a specified token. 
-     * @param {String} token_id The token ID, which is the unique identifier of a token. You can retrieve the IDs of all the tokens you can use by calling [List enabled tokens](https://www.cobo.com/developers/v2/api-references/wallets/list-enabled-tokens).
+     * @param {String} token_id The token ID, which is the unique identifier of a token.
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/ExtendedTokenInfo} and HTTP response
      */
     getTokenByIdWithHttpInfo(token_id) {
@@ -555,7 +555,7 @@ export default class WalletsApi {
     /**
      * Get token information
      * This operation retrieves the detailed information about a specified token. 
-     * @param {String} token_id The token ID, which is the unique identifier of a token. You can retrieve the IDs of all the tokens you can use by calling [List enabled tokens](https://www.cobo.com/developers/v2/api-references/wallets/list-enabled-tokens).
+     * @param {String} token_id The token ID, which is the unique identifier of a token.
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/ExtendedTokenInfo}
      */
     getTokenById(token_id) {
@@ -592,7 +592,7 @@ export default class WalletsApi {
       let formParams = {
       };
 
-      let authNames = ['OAuth2'];
+      let authNames = ['OAuth2', 'CoboAuth'];
       let contentTypes = [];
       let accepts = ['application/json'];
       let returnType = WalletInfo;
@@ -621,7 +621,7 @@ export default class WalletsApi {
      * List address balances by token
      * This operation retrieves a list of address balances for a specified token within a wallet.  <Note>This operation is applicable to MPC Wallets only.</Note> 
      * @param {String} wallet_id The wallet ID.
-     * @param {String} token_id The token ID, which is the unique identifier of a token. You can retrieve the IDs of all the tokens you can use by calling [List enabled tokens](https://www.cobo.com/developers/v2/api-references/wallets/list-enabled-tokens).
+     * @param {String} token_id The token ID, which is the unique identifier of a token.
      * @param {Object} opts Optional parameters
      * @param {String} [addresses] A list of wallet addresses, separated by comma. For addresses requiring a memo, append the memo after the address using the '|' separator (e.g., \"address|memo\").
      * @param {Number} [limit = 10)] The maximum number of objects to return. For most operations, the value range is [1, 50].
@@ -659,7 +659,7 @@ export default class WalletsApi {
       let formParams = {
       };
 
-      let authNames = ['OAuth2'];
+      let authNames = ['OAuth2', 'CoboAuth'];
       let contentTypes = [];
       let accepts = ['application/json'];
       let returnType = ListAddressBalancesByToken200Response;
@@ -674,7 +674,7 @@ export default class WalletsApi {
      * List address balances by token
      * This operation retrieves a list of address balances for a specified token within a wallet.  <Note>This operation is applicable to MPC Wallets only.</Note> 
      * @param {String} wallet_id The wallet ID.
-     * @param {String} token_id The token ID, which is the unique identifier of a token. You can retrieve the IDs of all the tokens you can use by calling [List enabled tokens](https://www.cobo.com/developers/v2/api-references/wallets/list-enabled-tokens).
+     * @param {String} token_id The token ID, which is the unique identifier of a token.
      * @param {Object} opts Optional parameters
      * @param {String} opts.addresses A list of wallet addresses, separated by comma. For addresses requiring a memo, append the memo after the address using the '|' separator (e.g., \"address|memo\").
      * @param {Number} opts.limit The maximum number of objects to return. For most operations, the value range is [1, 50]. (default to 10)
@@ -728,7 +728,7 @@ export default class WalletsApi {
       let formParams = {
       };
 
-      let authNames = ['OAuth2'];
+      let authNames = ['OAuth2', 'CoboAuth'];
       let contentTypes = [];
       let accepts = ['application/json'];
       let returnType = ListAddresses200Response;
@@ -1061,7 +1061,7 @@ export default class WalletsApi {
       let formParams = {
       };
 
-      let authNames = ['OAuth2'];
+      let authNames = ['OAuth2', 'CoboAuth'];
       let contentTypes = [];
       let accepts = ['application/json'];
       let returnType = ListTokenBalancesForAddress200Response;
@@ -1128,7 +1128,7 @@ export default class WalletsApi {
       let formParams = {
       };
 
-      let authNames = ['OAuth2'];
+      let authNames = ['OAuth2', 'CoboAuth'];
       let contentTypes = [];
       let accepts = ['application/json'];
       let returnType = ListTokenBalancesForAddress200Response;
@@ -1202,7 +1202,7 @@ export default class WalletsApi {
       let formParams = {
       };
 
-      let authNames = ['OAuth2'];
+      let authNames = ['OAuth2', 'CoboAuth'];
       let contentTypes = [];
       let accepts = ['application/json'];
       let returnType = ListUtxos200Response;
@@ -1270,7 +1270,7 @@ export default class WalletsApi {
       let formParams = {
       };
 
-      let authNames = ['OAuth2'];
+      let authNames = ['OAuth2', 'CoboAuth'];
       let contentTypes = [];
       let accepts = ['application/json'];
       let returnType = ListWallets200Response;
@@ -1331,7 +1331,7 @@ export default class WalletsApi {
       let formParams = {
       };
 
-      let authNames = ['OAuth2'];
+      let authNames = ['OAuth2', 'CoboAuth'];
       let contentTypes = ['application/json'];
       let accepts = ['application/json'];
       let returnType = LockUtxos201Response;
@@ -1387,7 +1387,7 @@ export default class WalletsApi {
       let formParams = {
       };
 
-      let authNames = ['OAuth2'];
+      let authNames = ['OAuth2', 'CoboAuth'];
       let contentTypes = ['application/json'];
       let accepts = ['application/json'];
       let returnType = LockUtxos201Response;
