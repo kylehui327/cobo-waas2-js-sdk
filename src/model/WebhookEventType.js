@@ -95,6 +95,48 @@ export default class WebhookEventType {
 
     
         /**
+         * value: "fee_station.transaction.created"
+         * @const
+         */
+        "fee_station.transaction.created" = "fee_station.transaction.created";
+
+    
+        /**
+         * value: "fee_station.transaction.updated"
+         * @const
+         */
+        "fee_station.transaction.updated" = "fee_station.transaction.updated";
+
+    
+        /**
+         * value: "fee_station.transaction.failed"
+         * @const
+         */
+        "fee_station.transaction.failed" = "fee_station.transaction.failed";
+
+    
+        /**
+         * value: "fee_station.transaction.succeeded"
+         * @const
+         */
+        "fee_station.transaction.succeeded" = "fee_station.transaction.succeeded";
+
+    
+        /**
+         * value: "wallet.token.enabled"
+         * @const
+         */
+        "wallet.token.enabled" = "wallet.token.enabled";
+
+    
+        /**
+         * value: "wallet.chain.enabled"
+         * @const
+         */
+        "wallet.chain.enabled" = "wallet.chain.enabled";
+
+    
+        /**
          * value: "unknown_default_open_api"
          * @const
          */

@@ -13,6 +13,7 @@ import ApiClient from '../ApiClient';
 import CoboSafeDelegate from './CoboSafeDelegate';
 import ExchangeId from './ExchangeId';
 import TransactionCustodialAssetWalletSource from './TransactionCustodialAssetWalletSource';
+import TransactionCustodialWeb3WalletSource from './TransactionCustodialWeb3WalletSource';
 import TransactionDepositFromAddressSource from './TransactionDepositFromAddressSource';
 import TransactionDepositFromLoopSource from './TransactionDepositFromLoopSource';
 import TransactionDepositFromWalletSource from './TransactionDepositFromWalletSource';
@@ -32,7 +33,7 @@ class TransactionSource {
     /**
      * Constructs a new <code>TransactionSource</code>.
      * @alias module:model/TransactionSource
-     * @param {(module:model/TransactionCustodialAssetWalletSource|module:model/TransactionDepositFromAddressSource|module:model/TransactionDepositFromLoopSource|module:model/TransactionDepositFromWalletSource|module:model/TransactionExchangeWalletSource|module:model/TransactionMPCWalletSource|module:model/TransactionSmartContractSafeWalletSource)} instance The actual instance to initialize TransactionSource.
+     * @param {(module:model/TransactionCustodialAssetWalletSource|module:model/TransactionCustodialWeb3WalletSource|module:model/TransactionDepositFromAddressSource|module:model/TransactionDepositFromLoopSource|module:model/TransactionDepositFromWalletSource|module:model/TransactionExchangeWalletSource|module:model/TransactionMPCWalletSource|module:model/TransactionSmartContractSafeWalletSource)} instance The actual instance to initialize TransactionSource.
      */
     constructor(instance = null) {
         if (instance === null) {
@@ -81,6 +82,10 @@ class TransactionSource {
                     this.actualInstance = TransactionMPCWalletSource.constructFromObject(instance);
                     match++;
                     break;
+                case "Web3":
+                    this.actualInstance = TransactionCustodialWeb3WalletSource.constructFromObject(instance);
+                    match++;
+                    break;
                 default:
                     errorMessages.push("Unrecognized discriminator value: " + discriminatorValue);
                     break;
@@ -111,6 +116,31 @@ class TransactionSource {
         } catch(err) {
             // json data failed to deserialize into TransactionCustodialAssetWalletSource
             errorMessages.push("Failed to construct TransactionCustodialAssetWalletSource: " + err)
+        }
+
+        try {
+            if (instance instanceof TransactionCustodialWeb3WalletSource) {
+                this.actualInstance = instance;
+            } else if(!!TransactionCustodialWeb3WalletSource.validateJSON && TransactionCustodialWeb3WalletSource.validateJSON(instance)){
+                // plain JS object
+                // create TransactionCustodialWeb3WalletSource from JS object
+                this.actualInstance = TransactionCustodialWeb3WalletSource.constructFromObject(instance);
+            } else {
+                if(TransactionCustodialWeb3WalletSource.constructFromObject(instance)) {
+                    if (!!TransactionCustodialWeb3WalletSource.constructFromObject(instance).toJSON) {
+                        if (TransactionCustodialWeb3WalletSource.constructFromObject(instance).toJSON()) {
+                            this.actualInstance = TransactionCustodialWeb3WalletSource.constructFromObject(instance);
+                        }
+                    } else {
+                        this.actualInstance = TransactionCustodialWeb3WalletSource.constructFromObject(instance);
+                    }
+                }
+
+            }
+            match++;
+        } catch(err) {
+            // json data failed to deserialize into TransactionCustodialWeb3WalletSource
+            errorMessages.push("Failed to construct TransactionCustodialWeb3WalletSource: " + err)
         }
 
         try {
@@ -264,11 +294,11 @@ class TransactionSource {
         }
 
         // if (match > 1) {
-        //    throw new Error("Multiple matches found constructing `TransactionSource` with oneOf schemas TransactionCustodialAssetWalletSource, TransactionDepositFromAddressSource, TransactionDepositFromLoopSource, TransactionDepositFromWalletSource, TransactionExchangeWalletSource, TransactionMPCWalletSource, TransactionSmartContractSafeWalletSource. Input: " + JSON.stringify(instance));
+        //    throw new Error("Multiple matches found constructing `TransactionSource` with oneOf schemas TransactionCustodialAssetWalletSource, TransactionCustodialWeb3WalletSource, TransactionDepositFromAddressSource, TransactionDepositFromLoopSource, TransactionDepositFromWalletSource, TransactionExchangeWalletSource, TransactionMPCWalletSource, TransactionSmartContractSafeWalletSource. Input: " + JSON.stringify(instance));
         // } else
         if (match === 0) {
         //    this.actualInstance = null; // clear the actual instance in case there are multiple matches
-        //    throw new Error("No match found constructing `TransactionSource` with oneOf schemas TransactionCustodialAssetWalletSource, TransactionDepositFromAddressSource, TransactionDepositFromLoopSource, TransactionDepositFromWalletSource, TransactionExchangeWalletSource, TransactionMPCWalletSource, TransactionSmartContractSafeWalletSource. Details: " +
+        //    throw new Error("No match found constructing `TransactionSource` with oneOf schemas TransactionCustodialAssetWalletSource, TransactionCustodialWeb3WalletSource, TransactionDepositFromAddressSource, TransactionDepositFromLoopSource, TransactionDepositFromWalletSource, TransactionExchangeWalletSource, TransactionMPCWalletSource, TransactionSmartContractSafeWalletSource. Details: " +
         //                    errorMessages.join(", "));
         return;
         } else { // only 1 match
@@ -288,16 +318,16 @@ class TransactionSource {
     }
 
     /**
-     * Gets the actual instance, which can be <code>TransactionCustodialAssetWalletSource</code>, <code>TransactionDepositFromAddressSource</code>, <code>TransactionDepositFromLoopSource</code>, <code>TransactionDepositFromWalletSource</code>, <code>TransactionExchangeWalletSource</code>, <code>TransactionMPCWalletSource</code>, <code>TransactionSmartContractSafeWalletSource</code>.
-     * @return {(module:model/TransactionCustodialAssetWalletSource|module:model/TransactionDepositFromAddressSource|module:model/TransactionDepositFromLoopSource|module:model/TransactionDepositFromWalletSource|module:model/TransactionExchangeWalletSource|module:model/TransactionMPCWalletSource|module:model/TransactionSmartContractSafeWalletSource)} The actual instance.
+     * Gets the actual instance, which can be <code>TransactionCustodialAssetWalletSource</code>, <code>TransactionCustodialWeb3WalletSource</code>, <code>TransactionDepositFromAddressSource</code>, <code>TransactionDepositFromLoopSource</code>, <code>TransactionDepositFromWalletSource</code>, <code>TransactionExchangeWalletSource</code>, <code>TransactionMPCWalletSource</code>, <code>TransactionSmartContractSafeWalletSource</code>.
+     * @return {(module:model/TransactionCustodialAssetWalletSource|module:model/TransactionCustodialWeb3WalletSource|module:model/TransactionDepositFromAddressSource|module:model/TransactionDepositFromLoopSource|module:model/TransactionDepositFromWalletSource|module:model/TransactionExchangeWalletSource|module:model/TransactionMPCWalletSource|module:model/TransactionSmartContractSafeWalletSource)} The actual instance.
      */
     getActualInstance() {
         return this.actualInstance;
     }
 
     /**
-     * Sets the actual instance, which can be <code>TransactionCustodialAssetWalletSource</code>, <code>TransactionDepositFromAddressSource</code>, <code>TransactionDepositFromLoopSource</code>, <code>TransactionDepositFromWalletSource</code>, <code>TransactionExchangeWalletSource</code>, <code>TransactionMPCWalletSource</code>, <code>TransactionSmartContractSafeWalletSource</code>.
-     * @param {(module:model/TransactionCustodialAssetWalletSource|module:model/TransactionDepositFromAddressSource|module:model/TransactionDepositFromLoopSource|module:model/TransactionDepositFromWalletSource|module:model/TransactionExchangeWalletSource|module:model/TransactionMPCWalletSource|module:model/TransactionSmartContractSafeWalletSource)} obj The actual instance.
+     * Sets the actual instance, which can be <code>TransactionCustodialAssetWalletSource</code>, <code>TransactionCustodialWeb3WalletSource</code>, <code>TransactionDepositFromAddressSource</code>, <code>TransactionDepositFromLoopSource</code>, <code>TransactionDepositFromWalletSource</code>, <code>TransactionExchangeWalletSource</code>, <code>TransactionMPCWalletSource</code>, <code>TransactionSmartContractSafeWalletSource</code>.
+     * @param {(module:model/TransactionCustodialAssetWalletSource|module:model/TransactionCustodialWeb3WalletSource|module:model/TransactionDepositFromAddressSource|module:model/TransactionDepositFromLoopSource|module:model/TransactionDepositFromWalletSource|module:model/TransactionExchangeWalletSource|module:model/TransactionMPCWalletSource|module:model/TransactionSmartContractSafeWalletSource)} obj The actual instance.
      */
     setActualInstance(obj) {
        this.actualInstance = TransactionSource.constructFromObject(obj).getActualInstance();
@@ -387,7 +417,7 @@ TransactionSource.prototype['wallet_subtype'] = undefined;
 TransactionSource.prototype['addresses'] = undefined;
 
 
-TransactionSource.OneOf = ["TransactionCustodialAssetWalletSource", "TransactionDepositFromAddressSource", "TransactionDepositFromLoopSource", "TransactionDepositFromWalletSource", "TransactionExchangeWalletSource", "TransactionMPCWalletSource", "TransactionSmartContractSafeWalletSource"];
+TransactionSource.OneOf = ["TransactionCustodialAssetWalletSource", "TransactionCustodialWeb3WalletSource", "TransactionDepositFromAddressSource", "TransactionDepositFromLoopSource", "TransactionDepositFromWalletSource", "TransactionExchangeWalletSource", "TransactionMPCWalletSource", "TransactionSmartContractSafeWalletSource"];
 
 export default TransactionSource;
 

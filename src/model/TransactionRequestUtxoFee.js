@@ -23,13 +23,12 @@ class TransactionRequestUtxoFee {
      * The preset properties to limit transaction fee.  In the UTXO fee model, the transaction fee is calculated by multiplying the fee rate by the transaction size. This can be expressed as: Transaction fee &#x3D; fee rate * transaction size. For more information about the UTXO fee model, see [Fee models](https://www.cobo.com/developers/v2/guides/transactions/estimate-fees#fee-models).  You can specify the maximum fee amount to limit the transaction fee. The transaction will fail if the transaction fee exceeds the specified maximum fee amount.  Switch between the tabs to display the properties for different transaction fee models. 
      * @alias module:model/TransactionRequestUtxoFee
      * @implements module:model/UtxoFeeBasePrice
-     * @param fee_rate {String} The fee rate in sat/vByte. The fee rate represents the satoshis you are willing to pay for each byte of data that your transaction will consume on the blockchain.
      * @param fee_type {module:model/FeeType} 
      * @param token_id {String} The token ID of the transaction fee.
      */
-    constructor(fee_rate, fee_type, token_id) { 
+    constructor(fee_type, token_id) { 
         UtxoFeeBasePrice.initialize(this);
-        TransactionRequestUtxoFee.initialize(this, fee_rate, fee_type, token_id);
+        TransactionRequestUtxoFee.initialize(this, fee_type, token_id);
     }
 
     /**
@@ -37,8 +36,7 @@ class TransactionRequestUtxoFee {
      * This method is used by the constructors of any subclasses, in order to implement multiple inheritance (mix-ins).
      * Only for internal use.
      */
-    static initialize(obj, fee_rate, fee_type, token_id) { 
-        obj['fee_rate'] = fee_rate;
+    static initialize(obj, fee_type, token_id) { 
         obj['fee_type'] = fee_type;
         obj['token_id'] = token_id;
     }
@@ -102,7 +100,7 @@ class TransactionRequestUtxoFee {
 
 }
 
-TransactionRequestUtxoFee.RequiredProperties = ["fee_rate", "fee_type", "token_id"];
+TransactionRequestUtxoFee.RequiredProperties = ["fee_type", "token_id"];
 
 /**
  * The fee rate in sat/vByte. The fee rate represents the satoshis you are willing to pay for each byte of data that your transaction will consume on the blockchain.

@@ -46,6 +46,15 @@ class TransactionApprovalDetail {
         if (data) {
             obj = obj || new TransactionApprovalDetail();
 
+            if (data.hasOwnProperty('transaction_id')) {
+                obj['transaction_id'] = ApiClient.convertToType(data['transaction_id'], 'String');
+            }
+            if (data.hasOwnProperty('cobo_id')) {
+                obj['cobo_id'] = ApiClient.convertToType(data['cobo_id'], 'String');
+            }
+            if (data.hasOwnProperty('request_id')) {
+                obj['request_id'] = ApiClient.convertToType(data['request_id'], 'String');
+            }
             if (data.hasOwnProperty('spender')) {
                 obj['spender'] = TransactionRoleApprovalDetail.constructFromObject(data['spender']);
             }
@@ -65,6 +74,18 @@ class TransactionApprovalDetail {
      * @return {boolean} to indicate whether the JSON data is valid with respect to <code>TransactionApprovalDetail</code>.
      */
     static validateJSON(data) {
+        // ensure the json data is a string
+        if (data['transaction_id'] && !(typeof data['transaction_id'] === 'string' || data['transaction_id'] instanceof String)) {
+            throw new Error("Expected the field `transaction_id` to be a primitive type in the JSON string but got " + data['transaction_id']);
+        }
+        // ensure the json data is a string
+        if (data['cobo_id'] && !(typeof data['cobo_id'] === 'string' || data['cobo_id'] instanceof String)) {
+            throw new Error("Expected the field `cobo_id` to be a primitive type in the JSON string but got " + data['cobo_id']);
+        }
+        // ensure the json data is a string
+        if (data['request_id'] && !(typeof data['request_id'] === 'string' || data['request_id'] instanceof String)) {
+            throw new Error("Expected the field `request_id` to be a primitive type in the JSON string but got " + data['request_id']);
+        }
         // validate the optional field `spender`
         if (data['spender']) { // data not null
           if (!!TransactionRoleApprovalDetail.validateJSON) {
@@ -91,6 +112,24 @@ class TransactionApprovalDetail {
 }
 
 
+
+/**
+ * The transaction ID.
+ * @member {String} transaction_id
+ */
+TransactionApprovalDetail.prototype['transaction_id'] = undefined;
+
+/**
+ * The Cobo ID, which can be used to track a transaction.
+ * @member {String} cobo_id
+ */
+TransactionApprovalDetail.prototype['cobo_id'] = undefined;
+
+/**
+ * The request ID that is used to track a transaction request. The request ID is provided by you and must be unique within your organization.
+ * @member {String} request_id
+ */
+TransactionApprovalDetail.prototype['request_id'] = undefined;
 
 /**
  * @member {module:model/TransactionRoleApprovalDetail} spender

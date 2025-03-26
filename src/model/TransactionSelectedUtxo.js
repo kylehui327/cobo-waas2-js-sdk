@@ -57,6 +57,12 @@ class TransactionSelectedUtxo {
             if (data.hasOwnProperty('value')) {
                 obj['value'] = ApiClient.convertToType(data['value'], 'String');
             }
+            if (data.hasOwnProperty('redeem_script')) {
+                obj['redeem_script'] = ApiClient.convertToType(data['redeem_script'], 'String');
+            }
+            if (data.hasOwnProperty('revealed_script')) {
+                obj['revealed_script'] = ApiClient.convertToType(data['revealed_script'], 'String');
+            }
         }
         return obj;
     }
@@ -78,6 +84,14 @@ class TransactionSelectedUtxo {
         // ensure the json data is a string
         if (data['value'] && !(typeof data['value'] === 'string' || data['value'] instanceof String)) {
             throw new Error("Expected the field `value` to be a primitive type in the JSON string but got " + data['value']);
+        }
+        // ensure the json data is a string
+        if (data['redeem_script'] && !(typeof data['redeem_script'] === 'string' || data['redeem_script'] instanceof String)) {
+            throw new Error("Expected the field `redeem_script` to be a primitive type in the JSON string but got " + data['redeem_script']);
+        }
+        // ensure the json data is a string
+        if (data['revealed_script'] && !(typeof data['revealed_script'] === 'string' || data['revealed_script'] instanceof String)) {
+            throw new Error("Expected the field `revealed_script` to be a primitive type in the JSON string but got " + data['revealed_script']);
         }
 
         return true;
@@ -111,6 +125,18 @@ TransactionSelectedUtxo.prototype['address'] = undefined;
  * @member {String} value
  */
 TransactionSelectedUtxo.prototype['value'] = undefined;
+
+/**
+ * Redeem script is used in P2SH and P2WSH transactions.
+ * @member {String} redeem_script
+ */
+TransactionSelectedUtxo.prototype['redeem_script'] = undefined;
+
+/**
+ * Revealed script is used for script path spending in Taproot transactions.
+ * @member {String} revealed_script
+ */
+TransactionSelectedUtxo.prototype['revealed_script'] = undefined;
 
 
 

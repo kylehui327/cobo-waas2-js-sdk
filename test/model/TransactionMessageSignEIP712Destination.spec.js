@@ -58,8 +58,20 @@
       //expect(instance).to.be();
     });
 
+    it('should have the property raw_structured_data (base name: "raw_structured_data")', function() {
+      // uncomment below and update the code to test the property raw_structured_data
+      //var instance = new CoboWaas2.TransactionMessageSignEIP712Destination();
+      //expect(instance).to.be();
+    });
+
     it('should have the property structured_data (base name: "structured_data")', function() {
       // uncomment below and update the code to test the property structured_data
+      //var instance = new CoboWaas2.TransactionMessageSignEIP712Destination();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property safe_tx_extra_data (base name: "safe_tx_extra_data")', function() {
+      // uncomment below and update the code to test the property safe_tx_extra_data
       //var instance = new CoboWaas2.TransactionMessageSignEIP712Destination();
       //expect(instance).to.be();
     });

@@ -214,6 +214,18 @@
       //expect(instance).to.be();
     });
 
+    it('should have the property cobo_category (base name: "cobo_category")', function() {
+      // uncomment below and update the code to test the property cobo_category
+      //var instance = new CoboWaas2.TransactionWebhookEventData();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property fueling_info (base name: "fueling_info")', function() {
+      // uncomment below and update the code to test the property fueling_info
+      //var instance = new CoboWaas2.TransactionWebhookEventData();
+      //expect(instance).to.be();
+    });
+
     it('should have the property created_timestamp (base name: "created_timestamp")', function() {
       // uncomment below and update the code to test the property created_timestamp
       //var instance = new CoboWaas2.TransactionWebhookEventData();

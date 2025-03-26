@@ -58,6 +58,7 @@ import BroadcastSignedTransactions201ResponseInner from './model/BroadcastSigned
 import BroadcastSignedTransactionsRequest from './model/BroadcastSignedTransactionsRequest';
 import CallbackMessage from './model/CallbackMessage';
 import ChainInfo from './model/ChainInfo';
+import ChainsEventData from './model/ChainsEventData';
 import ChangeGuardPubkey200Response from './model/ChangeGuardPubkey200Response';
 import CheckAddressChainsValidity200ResponseInner from './model/CheckAddressChainsValidity200ResponseInner';
 import CheckAddressValidity200Response from './model/CheckAddressValidity200Response';
@@ -111,6 +112,9 @@ import CreatedWalletInfo from './model/CreatedWalletInfo';
 import CurveType from './model/CurveType';
 import CustodialTransferSource from './model/CustodialTransferSource';
 import CustodialWalletInfo from './model/CustodialWalletInfo';
+import CustodialWeb3ContractCallSource from './model/CustodialWeb3ContractCallSource';
+import CustodialWeb3MessageSignSource from './model/CustodialWeb3MessageSignSource';
+import CustodialWeb3TransferSource from './model/CustodialWeb3TransferSource';
 import DeleteGuardPubkey201Response from './model/DeleteGuardPubkey201Response';
 import DeleteKeyShareHolderGroupById201Response from './model/DeleteKeyShareHolderGroupById201Response';
 import DeleteWalletById201Response from './model/DeleteWalletById201Response';
@@ -157,6 +161,7 @@ import FeeAmount from './model/FeeAmount';
 import FeeGasLimit from './model/FeeGasLimit';
 import FeeRate from './model/FeeRate';
 import FeeReserved from './model/FeeReserved';
+import FeeStationTransactionType from './model/FeeStationTransactionType';
 import FeeType from './model/FeeType';
 import FixedFeeRate from './model/FixedFeeRate';
 import GetApiKeyInfo200Response from './model/GetApiKeyInfo200Response';
@@ -197,6 +202,7 @@ import ListSupportedCountries200ResponseInner from './model/ListSupportedCountri
 import ListSupportedTokens200Response from './model/ListSupportedTokens200Response';
 import ListSwapActivities200Response from './model/ListSwapActivities200Response';
 import ListTokenBalancesForAddress200Response from './model/ListTokenBalancesForAddress200Response';
+import ListTransactionApprovalDetails200Response from './model/ListTransactionApprovalDetails200Response';
 import ListTransactions200Response from './model/ListTransactions200Response';
 import ListTssRequests200Response from './model/ListTssRequests200Response';
 import ListUtxos200Response from './model/ListUtxos200Response';
@@ -244,6 +250,10 @@ import RoleScopes from './model/RoleScopes';
 import RootPubkey from './model/RootPubkey';
 import SafeContractCallSource from './model/SafeContractCallSource';
 import SafeTransferSource from './model/SafeTransferSource';
+import SafeTxDecodedData from './model/SafeTxDecodedData';
+import SafeTxDecodedDataParameters from './model/SafeTxDecodedDataParameters';
+import SafeTxExtraData from './model/SafeTxExtraData';
+import SafeTxSubTransaction from './model/SafeTxSubTransaction';
 import SafeWallet from './model/SafeWallet';
 import SafeWalletDelegates from './model/SafeWalletDelegates';
 import SafeWalletDelegatesContractCall from './model/SafeWalletDelegatesContractCall';
@@ -278,12 +288,15 @@ import TSSRequestWebhookEventData from './model/TSSRequestWebhookEventData';
 import TokenAssetModelType from './model/TokenAssetModelType';
 import TokenBalance from './model/TokenBalance';
 import TokenInfo from './model/TokenInfo';
+import TokensEventData from './model/TokensEventData';
 import Transaction from './model/Transaction';
 import TransactionApprovalDetail from './model/TransactionApprovalDetail';
 import TransactionApprovalResult from './model/TransactionApprovalResult';
 import TransactionApprover from './model/TransactionApprover';
 import TransactionBlockInfo from './model/TransactionBlockInfo';
+import TransactionCoboCategory from './model/TransactionCoboCategory';
 import TransactionCustodialAssetWalletSource from './model/TransactionCustodialAssetWalletSource';
+import TransactionCustodialWeb3WalletSource from './model/TransactionCustodialWeb3WalletSource';
 import TransactionDepositFromAddressSource from './model/TransactionDepositFromAddressSource';
 import TransactionDepositFromLoopSource from './model/TransactionDepositFromLoopSource';
 import TransactionDepositFromWalletSource from './model/TransactionDepositFromWalletSource';
@@ -303,10 +316,12 @@ import TransactionExchangeWalletSource from './model/TransactionExchangeWalletSo
 import TransactionFee from './model/TransactionFee';
 import TransactionFeeStationWalletSource from './model/TransactionFeeStationWalletSource';
 import TransactionFixedFee from './model/TransactionFixedFee';
+import TransactionFuelingInfo from './model/TransactionFuelingInfo';
 import TransactionInitiatorType from './model/TransactionInitiatorType';
 import TransactionMPCWalletSource from './model/TransactionMPCWalletSource';
 import TransactionMessageSignEIP191Destination from './model/TransactionMessageSignEIP191Destination';
 import TransactionMessageSignEIP712Destination from './model/TransactionMessageSignEIP712Destination';
+import TransactionProcessType from './model/TransactionProcessType';
 import TransactionRawMessageSignDestination from './model/TransactionRawMessageSignDestination';
 import TransactionRawTxInfo from './model/TransactionRawTxInfo';
 import TransactionRbf from './model/TransactionRbf';
@@ -392,6 +407,7 @@ import WebhookEventType from './model/WebhookEventType';
 import AddressBooksApi from './api/AddressBooksApi';
 import DevelopersApi from './api/DevelopersApi';
 import DevelopersWebhooksApi from './api/DevelopersWebhooksApi';
+import FeeStationApi from './api/FeeStationApi';
 import OAuthApi from './api/OAuthApi';
 import PrimeBrokerApi from './api/PrimeBrokerApi';
 import StakingsApi from './api/StakingsApi';
@@ -434,7 +450,7 @@ import WalletsSmartContractWalletsApi from './api/WalletsSmartContractWalletsApi
 * </pre>
 * </p>
 * @module index
-* @version 1.11.0
+* @version 1.12.0
 */
 export {
     Env,
@@ -715,6 +731,12 @@ export {
      * @property {module:model/ChainInfo}
      */
     ChainInfo,
+
+    /**
+     * The ChainsEventData model constructor.
+     * @property {module:model/ChainsEventData}
+     */
+    ChainsEventData,
 
     /**
      * The ChangeGuardPubkey200Response model constructor.
@@ -1035,6 +1057,24 @@ export {
     CustodialWalletInfo,
 
     /**
+     * The CustodialWeb3ContractCallSource model constructor.
+     * @property {module:model/CustodialWeb3ContractCallSource}
+     */
+    CustodialWeb3ContractCallSource,
+
+    /**
+     * The CustodialWeb3MessageSignSource model constructor.
+     * @property {module:model/CustodialWeb3MessageSignSource}
+     */
+    CustodialWeb3MessageSignSource,
+
+    /**
+     * The CustodialWeb3TransferSource model constructor.
+     * @property {module:model/CustodialWeb3TransferSource}
+     */
+    CustodialWeb3TransferSource,
+
+    /**
      * The DeleteGuardPubkey201Response model constructor.
      * @property {module:model/DeleteGuardPubkey201Response}
      */
@@ -1311,6 +1351,12 @@ export {
     FeeReserved,
 
     /**
+     * The FeeStationTransactionType model constructor.
+     * @property {module:model/FeeStationTransactionType}
+     */
+    FeeStationTransactionType,
+
+    /**
      * The FeeType model constructor.
      * @property {module:model/FeeType}
      */
@@ -1549,6 +1595,12 @@ export {
      * @property {module:model/ListTokenBalancesForAddress200Response}
      */
     ListTokenBalancesForAddress200Response,
+
+    /**
+     * The ListTransactionApprovalDetails200Response model constructor.
+     * @property {module:model/ListTransactionApprovalDetails200Response}
+     */
+    ListTransactionApprovalDetails200Response,
 
     /**
      * The ListTransactions200Response model constructor.
@@ -1833,6 +1885,30 @@ export {
     SafeTransferSource,
 
     /**
+     * The SafeTxDecodedData model constructor.
+     * @property {module:model/SafeTxDecodedData}
+     */
+    SafeTxDecodedData,
+
+    /**
+     * The SafeTxDecodedDataParameters model constructor.
+     * @property {module:model/SafeTxDecodedDataParameters}
+     */
+    SafeTxDecodedDataParameters,
+
+    /**
+     * The SafeTxExtraData model constructor.
+     * @property {module:model/SafeTxExtraData}
+     */
+    SafeTxExtraData,
+
+    /**
+     * The SafeTxSubTransaction model constructor.
+     * @property {module:model/SafeTxSubTransaction}
+     */
+    SafeTxSubTransaction,
+
+    /**
      * The SafeWallet model constructor.
      * @property {module:model/SafeWallet}
      */
@@ -2037,6 +2113,12 @@ export {
     TokenInfo,
 
     /**
+     * The TokensEventData model constructor.
+     * @property {module:model/TokensEventData}
+     */
+    TokensEventData,
+
+    /**
      * The Transaction model constructor.
      * @property {module:model/Transaction}
      */
@@ -2067,10 +2149,22 @@ export {
     TransactionBlockInfo,
 
     /**
+     * The TransactionCoboCategory model constructor.
+     * @property {module:model/TransactionCoboCategory}
+     */
+    TransactionCoboCategory,
+
+    /**
      * The TransactionCustodialAssetWalletSource model constructor.
      * @property {module:model/TransactionCustodialAssetWalletSource}
      */
     TransactionCustodialAssetWalletSource,
+
+    /**
+     * The TransactionCustodialWeb3WalletSource model constructor.
+     * @property {module:model/TransactionCustodialWeb3WalletSource}
+     */
+    TransactionCustodialWeb3WalletSource,
 
     /**
      * The TransactionDepositFromAddressSource model constructor.
@@ -2187,6 +2281,12 @@ export {
     TransactionFixedFee,
 
     /**
+     * The TransactionFuelingInfo model constructor.
+     * @property {module:model/TransactionFuelingInfo}
+     */
+    TransactionFuelingInfo,
+
+    /**
      * The TransactionInitiatorType model constructor.
      * @property {module:model/TransactionInitiatorType}
      */
@@ -2209,6 +2309,12 @@ export {
      * @property {module:model/TransactionMessageSignEIP712Destination}
      */
     TransactionMessageSignEIP712Destination,
+
+    /**
+     * The TransactionProcessType model constructor.
+     * @property {module:model/TransactionProcessType}
+     */
+    TransactionProcessType,
 
     /**
      * The TransactionRawMessageSignDestination model constructor.
@@ -2719,6 +2825,12 @@ export {
     * @property {module:api/DevelopersWebhooksApi}
     */
     DevelopersWebhooksApi,
+
+    /**
+    * The FeeStationApi service constructor.
+    * @property {module:api/FeeStationApi}
+    */
+    FeeStationApi,
 
     /**
     * The OAuthApi service constructor.

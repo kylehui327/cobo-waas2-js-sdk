@@ -18,6 +18,13 @@ import ApiClient from '../ApiClient';
 export default class MessageSignSourceType {
     
         /**
+         * value: "Web3"
+         * @const
+         */
+        "Web3" = "Web3";
+
+    
+        /**
          * value: "Org-Controlled"
          * @const
          */

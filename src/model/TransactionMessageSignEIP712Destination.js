@@ -10,6 +10,7 @@
  */
 
 import ApiClient from '../ApiClient';
+import SafeTxExtraData from './SafeTxExtraData';
 import TransactionDestinationType from './TransactionDestinationType';
 
 /**
@@ -53,8 +54,14 @@ class TransactionMessageSignEIP712Destination {
             if (data.hasOwnProperty('destination_type')) {
                 obj['destination_type'] = TransactionDestinationType.constructFromObject(data['destination_type']);
             }
+            if (data.hasOwnProperty('raw_structured_data')) {
+                obj['raw_structured_data'] = ApiClient.convertToType(data['raw_structured_data'], 'String');
+            }
             if (data.hasOwnProperty('structured_data')) {
                 obj['structured_data'] = ApiClient.convertToType(data['structured_data'], {'String': Object});
+            }
+            if (data.hasOwnProperty('safe_tx_extra_data')) {
+                obj['safe_tx_extra_data'] = SafeTxExtraData.constructFromObject(data['safe_tx_extra_data']);
             }
         }
         return obj;
@@ -72,6 +79,16 @@ class TransactionMessageSignEIP712Destination {
                 throw new Error("The required field `" + property + "` is not found in the JSON data: " + JSON.stringify(data));
             }
         }
+        // ensure the json data is a string
+        if (data['raw_structured_data'] && !(typeof data['raw_structured_data'] === 'string' || data['raw_structured_data'] instanceof String)) {
+            throw new Error("Expected the field `raw_structured_data` to be a primitive type in the JSON string but got " + data['raw_structured_data']);
+        }
+        // validate the optional field `safe_tx_extra_data`
+        if (data['safe_tx_extra_data']) { // data not null
+          if (!!SafeTxExtraData.validateJSON) {
+            SafeTxExtraData.validateJSON(data['safe_tx_extra_data']);
+          }
+        }
 
         return true;
     }
@@ -87,10 +104,21 @@ TransactionMessageSignEIP712Destination.RequiredProperties = ["destination_type"
 TransactionMessageSignEIP712Destination.prototype['destination_type'] = undefined;
 
 /**
+ * The raw structured data to be signed, formatted as a JSON string.
+ * @member {String} raw_structured_data
+ */
+TransactionMessageSignEIP712Destination.prototype['raw_structured_data'] = undefined;
+
+/**
  * The structured data to be signed, formatted as a JSON object according to the EIP-712 standard.
  * @member {Object.<String, Object>} structured_data
  */
 TransactionMessageSignEIP712Destination.prototype['structured_data'] = undefined;
+
+/**
+ * @member {module:model/SafeTxExtraData} safe_tx_extra_data
+ */
+TransactionMessageSignEIP712Destination.prototype['safe_tx_extra_data'] = undefined;
 
 
 

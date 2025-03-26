@@ -214,6 +214,18 @@
       //expect(instance).to.be();
     });
 
+    it('should have the property cobo_category (base name: "cobo_category")', function() {
+      // uncomment below and update the code to test the property cobo_category
+      //var instance = new CoboWaas2.WebhookEventData();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property fueling_info (base name: "fueling_info")', function() {
+      // uncomment below and update the code to test the property fueling_info
+      //var instance = new CoboWaas2.WebhookEventData();
+      //expect(instance).to.be();
+    });
+
     it('should have the property created_timestamp (base name: "created_timestamp")', function() {
       // uncomment below and update the code to test the property created_timestamp
       //var instance = new CoboWaas2.WebhookEventData();
@@ -276,6 +288,18 @@
 
     it('should have the property root_pubkeys (base name: "root_pubkeys")', function() {
       // uncomment below and update the code to test the property root_pubkeys
+      //var instance = new CoboWaas2.WebhookEventData();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property chains (base name: "chains")', function() {
+      // uncomment below and update the code to test the property chains
+      //var instance = new CoboWaas2.WebhookEventData();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property tokens (base name: "tokens")', function() {
+      // uncomment below and update the code to test the property tokens
       //var instance = new CoboWaas2.WebhookEventData();
       //expect(instance).to.be();
     });
