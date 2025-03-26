@@ -88,6 +88,18 @@
       //expect(instance).to.be();
     });
 
+    it('should have the property slash_from_type (base name: "slash_from_type")', function() {
+      // uncomment below and update the code to test the property slash_from_type
+      //var instance = new CoboWaas2.BabylonStakingActivityDetailExtra();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property stake_amount (base name: "stake_amount")', function() {
+      // uncomment below and update the code to test the property stake_amount
+      //var instance = new CoboWaas2.BabylonStakingActivityDetailExtra();
+      //expect(instance).to.be();
+    });
+
   });
 
 }));

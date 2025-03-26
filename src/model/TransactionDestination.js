@@ -11,6 +11,7 @@
 
 import ApiClient from '../ApiClient';
 import ExchangeId from './ExchangeId';
+import SafeTxExtraData from './SafeTxExtraData';
 import TransactionDepositToAddressDestination from './TransactionDepositToAddressDestination';
 import TransactionDepositToAddressDestinationTxInfo from './TransactionDepositToAddressDestinationTxInfo';
 import TransactionDepositToWalletDestination from './TransactionDepositToWalletDestination';
@@ -467,10 +468,21 @@ TransactionDestination.prototype['instructions'] = undefined;
 TransactionDestination.prototype['message'] = undefined;
 
 /**
+ * The raw structured data to be signed, formatted as a JSON string.
+ * @member {String} raw_structured_data
+ */
+TransactionDestination.prototype['raw_structured_data'] = undefined;
+
+/**
  * The structured data to be signed, formatted as a JSON object according to the EIP-712 standard.
  * @member {Object.<String, Object>} structured_data
  */
 TransactionDestination.prototype['structured_data'] = undefined;
+
+/**
+ * @member {module:model/SafeTxExtraData} safe_tx_extra_data
+ */
+TransactionDestination.prototype['safe_tx_extra_data'] = undefined;
 
 /**
  * Message hash to be signed, in hexadecimal format.

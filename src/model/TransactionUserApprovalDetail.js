@@ -46,6 +46,12 @@ class TransactionUserApprovalDetail {
         if (data) {
             obj = obj || new TransactionUserApprovalDetail();
 
+            if (data.hasOwnProperty('name')) {
+                obj['name'] = ApiClient.convertToType(data['name'], 'String');
+            }
+            if (data.hasOwnProperty('email')) {
+                obj['email'] = ApiClient.convertToType(data['email'], 'String');
+            }
             if (data.hasOwnProperty('pubkey')) {
                 obj['pubkey'] = ApiClient.convertToType(data['pubkey'], 'String');
             }
@@ -78,6 +84,14 @@ class TransactionUserApprovalDetail {
      */
     static validateJSON(data) {
         // ensure the json data is a string
+        if (data['name'] && !(typeof data['name'] === 'string' || data['name'] instanceof String)) {
+            throw new Error("Expected the field `name` to be a primitive type in the JSON string but got " + data['name']);
+        }
+        // ensure the json data is a string
+        if (data['email'] && !(typeof data['email'] === 'string' || data['email'] instanceof String)) {
+            throw new Error("Expected the field `email` to be a primitive type in the JSON string but got " + data['email']);
+        }
+        // ensure the json data is a string
         if (data['pubkey'] && !(typeof data['pubkey'] === 'string' || data['pubkey'] instanceof String)) {
             throw new Error("Expected the field `pubkey` to be a primitive type in the JSON string but got " + data['pubkey']);
         }
@@ -109,6 +123,18 @@ class TransactionUserApprovalDetail {
 }
 
 
+
+/**
+ * The name the user who audited this message.
+ * @member {String} name
+ */
+TransactionUserApprovalDetail.prototype['name'] = undefined;
+
+/**
+ * The email the user who audited this message.
+ * @member {String} email
+ */
+TransactionUserApprovalDetail.prototype['email'] = undefined;
 
 /**
  * The Cobo Guard public key of the user who audited this message.

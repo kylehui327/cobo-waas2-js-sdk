@@ -11,6 +11,7 @@
 
 import ApiClient from '../ApiClient';
 import AutoFuelType from './AutoFuelType';
+import TransactionProcessType from './TransactionProcessType';
 import TransactionRequestFee from './TransactionRequestFee';
 import TransferDestination from './TransferDestination';
 import TransferSource from './TransferSource';
@@ -79,7 +80,7 @@ class TransferParams {
                 obj['fee'] = TransactionRequestFee.constructFromObject(data['fee']);
             }
             if (data.hasOwnProperty('transaction_process_type')) {
-                obj['transaction_process_type'] = ApiClient.convertToType(data['transaction_process_type'], 'String');
+                obj['transaction_process_type'] = TransactionProcessType.constructFromObject(data['transaction_process_type']);
             }
             if (data.hasOwnProperty('auto_fuel')) {
                 obj['auto_fuel'] = AutoFuelType.constructFromObject(data['auto_fuel']);
@@ -134,10 +135,6 @@ class TransferParams {
             TransactionRequestFee.validateJSON(data['fee']);
           }
         }
-        // ensure the json data is a string
-        if (data['transaction_process_type'] && !(typeof data['transaction_process_type'] === 'string' || data['transaction_process_type'] instanceof String)) {
-            throw new Error("Expected the field `transaction_process_type` to be a primitive type in the JSON string but got " + data['transaction_process_type']);
-        }
 
         return true;
     }
@@ -187,8 +184,7 @@ TransferParams.prototype['description'] = undefined;
 TransferParams.prototype['fee'] = undefined;
 
 /**
- * Transaction processing type. Possible values are: - `AutoProcess` (default): After the transaction is constructed, it will be automatically signed and broadcast.   - `BuildOnly`: Set to this value if you want to build the transaction first without automatically signing and broadcasting it. You can manually call the [Sign and broadcast transaction](https://www.cobo.com/developers/v2/api-references/transactions/sign-and-broadcast-transaction) operation to complete the signing and broadcasting process. 
- * @member {module:model/TransferParams.TransactionProcessTypeEnum} transaction_process_type
+ * @member {module:model/TransactionProcessType} transaction_process_type
  */
 TransferParams.prototype['transaction_process_type'] = undefined;
 
@@ -199,33 +195,6 @@ TransferParams.prototype['auto_fuel'] = undefined;
 
 
 
-
-
-/**
- * Allowed values for the <code>transaction_process_type</code> property.
- * @enum {String}
- * @readonly
- */
-TransferParams['TransactionProcessTypeEnum'] = {
-
-    /**
-     * value: "AutoProcess"
-     * @const
-     */
-    "AutoProcess": "AutoProcess",
-
-    /**
-     * value: "BuildOnly"
-     * @const
-     */
-    "BuildOnly": "BuildOnly",
-
-    /**
-     * value: "unknown_default_open_api"
-     * @const
-     */
-    "unknown_default_open_api": "unknown_default_open_api"
-};
 
 
 

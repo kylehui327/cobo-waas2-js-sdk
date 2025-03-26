@@ -10,6 +10,7 @@
  */
 
 import ApiClient from '../ApiClient';
+import CustodialWeb3MessageSignSource from './CustodialWeb3MessageSignSource';
 import MessageSignSourceType from './MessageSignSourceType';
 import MpcMessageSignSource from './MpcMessageSignSource';
 import MpcSigningGroup from './MpcSigningGroup';
@@ -22,7 +23,7 @@ class MessageSignSource {
     /**
      * Constructs a new <code>MessageSignSource</code>.
      * @alias module:model/MessageSignSource
-     * @param {(module:model/MpcMessageSignSource)} instance The actual instance to initialize MessageSignSource.
+     * @param {(module:model/CustodialWeb3MessageSignSource|module:model/MpcMessageSignSource)} instance The actual instance to initialize MessageSignSource.
      */
     constructor(instance = null) {
         if (instance === null) {
@@ -41,6 +42,10 @@ class MessageSignSource {
                     break;
                 case "User-Controlled":
                     this.actualInstance = MpcMessageSignSource.constructFromObject(instance);
+                    match++;
+                    break;
+                case "Web3":
+                    this.actualInstance = CustodialWeb3MessageSignSource.constructFromObject(instance);
                     match++;
                     break;
                 default:
@@ -75,12 +80,37 @@ class MessageSignSource {
             errorMessages.push("Failed to construct MpcMessageSignSource: " + err)
         }
 
+        try {
+            if (instance instanceof CustodialWeb3MessageSignSource) {
+                this.actualInstance = instance;
+            } else if(!!CustodialWeb3MessageSignSource.validateJSON && CustodialWeb3MessageSignSource.validateJSON(instance)){
+                // plain JS object
+                // create CustodialWeb3MessageSignSource from JS object
+                this.actualInstance = CustodialWeb3MessageSignSource.constructFromObject(instance);
+            } else {
+                if(CustodialWeb3MessageSignSource.constructFromObject(instance)) {
+                    if (!!CustodialWeb3MessageSignSource.constructFromObject(instance).toJSON) {
+                        if (CustodialWeb3MessageSignSource.constructFromObject(instance).toJSON()) {
+                            this.actualInstance = CustodialWeb3MessageSignSource.constructFromObject(instance);
+                        }
+                    } else {
+                        this.actualInstance = CustodialWeb3MessageSignSource.constructFromObject(instance);
+                    }
+                }
+
+            }
+            match++;
+        } catch(err) {
+            // json data failed to deserialize into CustodialWeb3MessageSignSource
+            errorMessages.push("Failed to construct CustodialWeb3MessageSignSource: " + err)
+        }
+
         // if (match > 1) {
-        //    throw new Error("Multiple matches found constructing `MessageSignSource` with oneOf schemas MpcMessageSignSource. Input: " + JSON.stringify(instance));
+        //    throw new Error("Multiple matches found constructing `MessageSignSource` with oneOf schemas CustodialWeb3MessageSignSource, MpcMessageSignSource. Input: " + JSON.stringify(instance));
         // } else
         if (match === 0) {
         //    this.actualInstance = null; // clear the actual instance in case there are multiple matches
-        //    throw new Error("No match found constructing `MessageSignSource` with oneOf schemas MpcMessageSignSource. Details: " +
+        //    throw new Error("No match found constructing `MessageSignSource` with oneOf schemas CustodialWeb3MessageSignSource, MpcMessageSignSource. Details: " +
         //                    errorMessages.join(", "));
         return;
         } else { // only 1 match
@@ -100,16 +130,16 @@ class MessageSignSource {
     }
 
     /**
-     * Gets the actual instance, which can be <code>MpcMessageSignSource</code>.
-     * @return {(module:model/MpcMessageSignSource)} The actual instance.
+     * Gets the actual instance, which can be <code>CustodialWeb3MessageSignSource</code>, <code>MpcMessageSignSource</code>.
+     * @return {(module:model/CustodialWeb3MessageSignSource|module:model/MpcMessageSignSource)} The actual instance.
      */
     getActualInstance() {
         return this.actualInstance;
     }
 
     /**
-     * Sets the actual instance, which can be <code>MpcMessageSignSource</code>.
-     * @param {(module:model/MpcMessageSignSource)} obj The actual instance.
+     * Sets the actual instance, which can be <code>CustodialWeb3MessageSignSource</code>, <code>MpcMessageSignSource</code>.
+     * @param {(module:model/CustodialWeb3MessageSignSource|module:model/MpcMessageSignSource)} obj The actual instance.
      */
     setActualInstance(obj) {
        this.actualInstance = MessageSignSource.constructFromObject(obj).getActualInstance();
@@ -156,7 +186,7 @@ MessageSignSource.prototype['address'] = undefined;
 MessageSignSource.prototype['mpc_used_key_share_holder_group'] = undefined;
 
 
-MessageSignSource.OneOf = ["MpcMessageSignSource"];
+MessageSignSource.OneOf = ["CustodialWeb3MessageSignSource", "MpcMessageSignSource"];
 
 export default MessageSignSource;
 

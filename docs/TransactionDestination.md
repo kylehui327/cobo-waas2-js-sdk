@@ -20,7 +20,9 @@ Name | Type | Description | Notes
 **calldata_info** | [**TransactionEvmCalldataInfo**](TransactionEvmCalldataInfo.md) |  | [optional] 
 **instructions** | [**[TransactionSolContractInstruction]**](TransactionSolContractInstruction.md) |  | [optional] 
 **message** | **String** | The raw data of the message to be signed, encoded in Base64 format. | 
+**raw_structured_data** | **String** | The raw structured data to be signed, formatted as a JSON string. | [optional] 
 **structured_data** | **{String: Object}** | The structured data to be signed, formatted as a JSON object according to the EIP-712 standard. | 
+**safe_tx_extra_data** | [**SafeTxExtraData**](SafeTxExtraData.md) |  | [optional] 
 **msg_hash** | **String** | Message hash to be signed, in hexadecimal format. | [optional] 
 **wallet_type** | [**WalletType**](WalletType.md) |  | 
 **wallet_subtype** | [**WalletSubtype**](WalletSubtype.md) |  | 

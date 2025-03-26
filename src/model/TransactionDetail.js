@@ -14,6 +14,7 @@ import Transaction from './Transaction';
 import TransactionBlockInfo from './TransactionBlockInfo';
 import TransactionDestination from './TransactionDestination';
 import TransactionFee from './TransactionFee';
+import TransactionFuelingInfo from './TransactionFuelingInfo';
 import TransactionInitiatorType from './TransactionInitiatorType';
 import TransactionRawTxInfo from './TransactionRawTxInfo';
 import TransactionReplacement from './TransactionReplacement';
@@ -149,6 +150,12 @@ class TransactionDetail {
             if (data.hasOwnProperty('is_loop')) {
                 obj['is_loop'] = ApiClient.convertToType(data['is_loop'], 'Boolean');
             }
+            if (data.hasOwnProperty('cobo_category')) {
+                obj['cobo_category'] = ApiClient.convertToType(data['cobo_category'], ['String']);
+            }
+            if (data.hasOwnProperty('fueling_info')) {
+                obj['fueling_info'] = TransactionFuelingInfo.constructFromObject(data['fueling_info']);
+            }
             if (data.hasOwnProperty('created_timestamp')) {
                 obj['created_timestamp'] = ApiClient.convertToType(data['created_timestamp'], 'Number');
             }
@@ -263,6 +270,16 @@ class TransactionDetail {
         // ensure the json data is a string
         if (data['description'] && !(typeof data['description'] === 'string' || data['description'] instanceof String)) {
             throw new Error("Expected the field `description` to be a primitive type in the JSON string but got " + data['description']);
+        }
+        // ensure the json data is an array
+        if (!Array.isArray(data['cobo_category'])) {
+            throw new Error("Expected the field `cobo_category` to be an array in the JSON data but got " + data['cobo_category']);
+        }
+        // validate the optional field `fueling_info`
+        if (data['fueling_info']) { // data not null
+          if (!!TransactionFuelingInfo.validateJSON) {
+            TransactionFuelingInfo.validateJSON(data['fueling_info']);
+          }
         }
         if (data['timeline']) { // data not null
             // ensure the json data is an array
@@ -429,6 +446,17 @@ TransactionDetail.prototype['description'] = undefined;
 TransactionDetail.prototype['is_loop'] = undefined;
 
 /**
+ * A transaction category for cobo to identify your transactions.
+ * @member {Array.<String>} cobo_category
+ */
+TransactionDetail.prototype['cobo_category'] = undefined;
+
+/**
+ * @member {module:model/TransactionFuelingInfo} fueling_info
+ */
+TransactionDetail.prototype['fueling_info'] = undefined;
+
+/**
  * The time when the transaction was created, in Unix timestamp format, measured in milliseconds.
  * @member {Number} created_timestamp
  */
@@ -566,6 +594,15 @@ Transaction.prototype['description'] = undefined;
  * @member {Boolean} is_loop
  */
 Transaction.prototype['is_loop'] = undefined;
+/**
+ * A transaction category for cobo to identify your transactions.
+ * @member {Array.<String>} cobo_category
+ */
+Transaction.prototype['cobo_category'] = undefined;
+/**
+ * @member {module:model/TransactionFuelingInfo} fueling_info
+ */
+Transaction.prototype['fueling_info'] = undefined;
 /**
  * The time when the transaction was created, in Unix timestamp format, measured in milliseconds.
  * @member {Number} created_timestamp

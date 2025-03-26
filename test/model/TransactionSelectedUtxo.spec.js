@@ -76,6 +76,18 @@
       //expect(instance).to.be();
     });
 
+    it('should have the property redeem_script (base name: "redeem_script")', function() {
+      // uncomment below and update the code to test the property redeem_script
+      //var instance = new CoboWaas2.TransactionSelectedUtxo();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property revealed_script (base name: "revealed_script")', function() {
+      // uncomment below and update the code to test the property revealed_script
+      //var instance = new CoboWaas2.TransactionSelectedUtxo();
+      //expect(instance).to.be();
+    });
+
   });
 
 }));

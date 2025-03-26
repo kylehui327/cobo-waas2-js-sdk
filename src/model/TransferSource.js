@@ -12,6 +12,7 @@
 import ApiClient from '../ApiClient';
 import CoboSafeDelegate from './CoboSafeDelegate';
 import CustodialTransferSource from './CustodialTransferSource';
+import CustodialWeb3TransferSource from './CustodialWeb3TransferSource';
 import ExchangeTransferSource from './ExchangeTransferSource';
 import MpcSigningGroup from './MpcSigningGroup';
 import MpcTransferSource from './MpcTransferSource';
@@ -27,7 +28,7 @@ class TransferSource {
     /**
      * Constructs a new <code>TransferSource</code>.
      * @alias module:model/TransferSource
-     * @param {(module:model/CustodialTransferSource|module:model/ExchangeTransferSource|module:model/MpcTransferSource|module:model/SafeTransferSource)} instance The actual instance to initialize TransferSource.
+     * @param {(module:model/CustodialTransferSource|module:model/CustodialWeb3TransferSource|module:model/ExchangeTransferSource|module:model/MpcTransferSource|module:model/SafeTransferSource)} instance The actual instance to initialize TransferSource.
      */
     constructor(instance = null) {
         if (instance === null) {
@@ -64,6 +65,10 @@ class TransferSource {
                     this.actualInstance = MpcTransferSource.constructFromObject(instance);
                     match++;
                     break;
+                case "Web3":
+                    this.actualInstance = CustodialWeb3TransferSource.constructFromObject(instance);
+                    match++;
+                    break;
                 default:
                     errorMessages.push("Unrecognized discriminator value: " + discriminatorValue);
                     break;
@@ -94,6 +99,31 @@ class TransferSource {
         } catch(err) {
             // json data failed to deserialize into CustodialTransferSource
             errorMessages.push("Failed to construct CustodialTransferSource: " + err)
+        }
+
+        try {
+            if (instance instanceof CustodialWeb3TransferSource) {
+                this.actualInstance = instance;
+            } else if(!!CustodialWeb3TransferSource.validateJSON && CustodialWeb3TransferSource.validateJSON(instance)){
+                // plain JS object
+                // create CustodialWeb3TransferSource from JS object
+                this.actualInstance = CustodialWeb3TransferSource.constructFromObject(instance);
+            } else {
+                if(CustodialWeb3TransferSource.constructFromObject(instance)) {
+                    if (!!CustodialWeb3TransferSource.constructFromObject(instance).toJSON) {
+                        if (CustodialWeb3TransferSource.constructFromObject(instance).toJSON()) {
+                            this.actualInstance = CustodialWeb3TransferSource.constructFromObject(instance);
+                        }
+                    } else {
+                        this.actualInstance = CustodialWeb3TransferSource.constructFromObject(instance);
+                    }
+                }
+
+            }
+            match++;
+        } catch(err) {
+            // json data failed to deserialize into CustodialWeb3TransferSource
+            errorMessages.push("Failed to construct CustodialWeb3TransferSource: " + err)
         }
 
         try {
@@ -172,11 +202,11 @@ class TransferSource {
         }
 
         // if (match > 1) {
-        //    throw new Error("Multiple matches found constructing `TransferSource` with oneOf schemas CustodialTransferSource, ExchangeTransferSource, MpcTransferSource, SafeTransferSource. Input: " + JSON.stringify(instance));
+        //    throw new Error("Multiple matches found constructing `TransferSource` with oneOf schemas CustodialTransferSource, CustodialWeb3TransferSource, ExchangeTransferSource, MpcTransferSource, SafeTransferSource. Input: " + JSON.stringify(instance));
         // } else
         if (match === 0) {
         //    this.actualInstance = null; // clear the actual instance in case there are multiple matches
-        //    throw new Error("No match found constructing `TransferSource` with oneOf schemas CustodialTransferSource, ExchangeTransferSource, MpcTransferSource, SafeTransferSource. Details: " +
+        //    throw new Error("No match found constructing `TransferSource` with oneOf schemas CustodialTransferSource, CustodialWeb3TransferSource, ExchangeTransferSource, MpcTransferSource, SafeTransferSource. Details: " +
         //                    errorMessages.join(", "));
         return;
         } else { // only 1 match
@@ -196,16 +226,16 @@ class TransferSource {
     }
 
     /**
-     * Gets the actual instance, which can be <code>CustodialTransferSource</code>, <code>ExchangeTransferSource</code>, <code>MpcTransferSource</code>, <code>SafeTransferSource</code>.
-     * @return {(module:model/CustodialTransferSource|module:model/ExchangeTransferSource|module:model/MpcTransferSource|module:model/SafeTransferSource)} The actual instance.
+     * Gets the actual instance, which can be <code>CustodialTransferSource</code>, <code>CustodialWeb3TransferSource</code>, <code>ExchangeTransferSource</code>, <code>MpcTransferSource</code>, <code>SafeTransferSource</code>.
+     * @return {(module:model/CustodialTransferSource|module:model/CustodialWeb3TransferSource|module:model/ExchangeTransferSource|module:model/MpcTransferSource|module:model/SafeTransferSource)} The actual instance.
      */
     getActualInstance() {
         return this.actualInstance;
     }
 
     /**
-     * Sets the actual instance, which can be <code>CustodialTransferSource</code>, <code>ExchangeTransferSource</code>, <code>MpcTransferSource</code>, <code>SafeTransferSource</code>.
-     * @param {(module:model/CustodialTransferSource|module:model/ExchangeTransferSource|module:model/MpcTransferSource|module:model/SafeTransferSource)} obj The actual instance.
+     * Sets the actual instance, which can be <code>CustodialTransferSource</code>, <code>CustodialWeb3TransferSource</code>, <code>ExchangeTransferSource</code>, <code>MpcTransferSource</code>, <code>SafeTransferSource</code>.
+     * @param {(module:model/CustodialTransferSource|module:model/CustodialWeb3TransferSource|module:model/ExchangeTransferSource|module:model/MpcTransferSource|module:model/SafeTransferSource)} obj The actual instance.
      */
     setActualInstance(obj) {
        this.actualInstance = TransferSource.constructFromObject(obj).getActualInstance();
@@ -273,7 +303,7 @@ TransferSource.prototype['delegate'] = undefined;
 TransferSource.prototype['trading_account_type'] = undefined;
 
 
-TransferSource.OneOf = ["CustodialTransferSource", "ExchangeTransferSource", "MpcTransferSource", "SafeTransferSource"];
+TransferSource.OneOf = ["CustodialTransferSource", "CustodialWeb3TransferSource", "ExchangeTransferSource", "MpcTransferSource", "SafeTransferSource"];
 
 export default TransferSource;
 

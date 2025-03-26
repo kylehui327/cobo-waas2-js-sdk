@@ -224,6 +224,17 @@ ActivityExtra.prototype['param_version'] = undefined;
 ActivityExtra.prototype['withdraw_from_type'] = undefined;
 
 /**
+ * @member {module:model/ActivityType} slash_from_type
+ */
+ActivityExtra.prototype['slash_from_type'] = undefined;
+
+/**
+ * The origin staking amount.
+ * @member {String} stake_amount
+ */
+ActivityExtra.prototype['stake_amount'] = undefined;
+
+/**
  * The name of the provider.
  * @member {String} provider_name
  */

@@ -25,6 +25,13 @@ export default class TransactionSourceType {
 
     
         /**
+         * value: "Web3"
+         * @const
+         */
+        "Web3" = "Web3";
+
+    
+        /**
          * value: "Org-Controlled"
          * @const
          */

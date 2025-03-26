@@ -52,6 +52,24 @@
       //expect(instance).to.be.a(CoboWaas2.TransactionApprovalDetail);
     });
 
+    it('should have the property transaction_id (base name: "transaction_id")', function() {
+      // uncomment below and update the code to test the property transaction_id
+      //var instance = new CoboWaas2.TransactionApprovalDetail();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property cobo_id (base name: "cobo_id")', function() {
+      // uncomment below and update the code to test the property cobo_id
+      //var instance = new CoboWaas2.TransactionApprovalDetail();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property request_id (base name: "request_id")', function() {
+      // uncomment below and update the code to test the property request_id
+      //var instance = new CoboWaas2.TransactionApprovalDetail();
+      //expect(instance).to.be();
+    });
+
     it('should have the property spender (base name: "spender")', function() {
       // uncomment below and update the code to test the property spender
       //var instance = new CoboWaas2.TransactionApprovalDetail();

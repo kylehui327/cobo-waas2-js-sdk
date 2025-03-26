@@ -52,6 +52,18 @@
       //expect(instance).to.be.a(CoboWaas2.TransactionUserApprovalDetail);
     });
 
+    it('should have the property name (base name: "name")', function() {
+      // uncomment below and update the code to test the property name
+      //var instance = new CoboWaas2.TransactionUserApprovalDetail();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property email (base name: "email")', function() {
+      // uncomment below and update the code to test the property email
+      //var instance = new CoboWaas2.TransactionUserApprovalDetail();
+      //expect(instance).to.be();
+    });
+
     it('should have the property pubkey (base name: "pubkey")', function() {
       // uncomment below and update the code to test the property pubkey
       //var instance = new CoboWaas2.TransactionUserApprovalDetail();
