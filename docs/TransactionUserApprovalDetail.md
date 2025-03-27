@@ -4,8 +4,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**name** | **String** | The name the user who audited this message. | [optional] 
-**email** | **String** | The email the user who audited this message. | [optional] 
+**name** | **String** | The name of the user who audited this message. | [optional] 
+**email** | **String** | The email of the user who audited this message. | [optional] 
 **pubkey** | **String** | The Cobo Guard public key of the user who audited this message. | [optional] 
 **result** | [**TransactionApprovalResult**](TransactionApprovalResult.md) |  | [optional] 
 **signature** | **String** | The signature of the audited message. | [optional] 

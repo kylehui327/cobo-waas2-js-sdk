@@ -241,6 +241,8 @@ import QueryApprovalStatement200Response from './model/QueryApprovalStatement200
 import QueryGuardPubkey200Response from './model/QueryGuardPubkey200Response';
 import QueryGuardPubkey200ResponseAddressesInner from './model/QueryGuardPubkey200ResponseAddressesInner';
 import RawMessageSignDestination from './model/RawMessageSignDestination';
+import RefreshAddressBalancesByToken200Response from './model/RefreshAddressBalancesByToken200Response';
+import RefreshAddressBalancesByTokenRequest from './model/RefreshAddressBalancesByTokenRequest';
 import RefreshToken2XXResponse from './model/RefreshToken2XXResponse';
 import RefreshTokenRequest from './model/RefreshTokenRequest';
 import ReplaceType from './model/ReplaceType';
@@ -1829,6 +1831,18 @@ export {
      * @property {module:model/RawMessageSignDestination}
      */
     RawMessageSignDestination,
+
+    /**
+     * The RefreshAddressBalancesByToken200Response model constructor.
+     * @property {module:model/RefreshAddressBalancesByToken200Response}
+     */
+    RefreshAddressBalancesByToken200Response,
+
+    /**
+     * The RefreshAddressBalancesByTokenRequest model constructor.
+     * @property {module:model/RefreshAddressBalancesByTokenRequest}
+     */
+    RefreshAddressBalancesByTokenRequest,
 
     /**
      * The RefreshToken2XXResponse model constructor.

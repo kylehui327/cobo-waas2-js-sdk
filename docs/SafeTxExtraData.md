@@ -4,23 +4,23 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**to** | **String** | The recipient address of the transaction | 
-**value** | **String** | Readable transaction value (e.g., 1 ETH) | 
-**data** | **String** | The transaction data | 
-**domain_hash** | **String** | EIP712 structured data domain hash | 
-**message_hash** | **String** | Hash of the structured message | 
-**safe_address** | **String** | Address of the Safe contract | 
-**safe_tx_hash** | **String** | Hash of the Safe transaction | 
-**safe_nonce** | **Number** | Safe transaction nonce | 
-**operation** | **String** | Type of operation performed in the transaction | 
-**gas_token_addr** | **String** | Address of the gas token | [optional] 
-**safe_tx_gas** | **Number** | Gas used for the Safe transaction | [optional] 
-**base_gas** | **Number** | Base gas for the transaction | [optional] 
-**gas_price** | **String** | Gas price used in the transaction | [optional] 
-**refund_receiver** | **String** | Address to receive the gas refund | [optional] 
-**to_contract_name** | **String** | Name of the recipient contract (if available) | [optional] 
+**to** | **String** | The recipient address of the transaction. | 
+**value** | **String** | The human-readable transaction value, for example, &#x60;1 ETH&#x60;. | 
+**data** | **String** | The transaction call data. | 
+**domain_hash** | **String** | The EIP-712 domain separator hash. | 
+**message_hash** | **String** | The hash of the structured message to be signed. | 
+**safe_address** | **String** | The address of the Safe contract. | 
+**safe_tx_hash** | **String** | The hash of the transaction. | 
+**safe_nonce** | **Number** | The nonce of the transaction. | 
+**operation** | **String** | The operation type for the transaction. | 
+**gas_token_addr** | **String** | The address of the token used to pay gas. | [optional] 
+**safe_tx_gas** | **Number** | The gas limit used for the transaction. | [optional] 
+**base_gas** | **Number** | The base gas for the transaction. | [optional] 
+**gas_price** | **String** | The gas price used in the transaction. | [optional] 
+**refund_receiver** | **String** | The address used to receive the gas refund. | [optional] 
+**to_contract_name** | **String** | The name of the recipient contract (if available). | [optional] 
 **decoded_data** | [**SafeTxDecodedData**](SafeTxDecodedData.md) |  | [optional] 
-**signature** | **String** | Signature of the transaction (if signed by Cobo Signer) | [optional] 
-**wei** | **String** | Transaction amount in Wei | [optional] 
+**signature** | **String** | The signature of the transaction (if signed by Cobo Signer). | [optional] 
+**wei** | **String** | The transaction amount in Wei. | [optional] 
 
 

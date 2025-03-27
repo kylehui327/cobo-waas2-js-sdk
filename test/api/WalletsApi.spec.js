@@ -246,6 +246,16 @@ import {ApiClient, Env} from "../../src/index.js";
         //});
       });
     });
+    describe('refreshAddressBalancesByToken', function() {
+      it('should call refreshAddressBalancesByToken successfully', function() {
+        //uncomment below and update the code to test refreshAddressBalancesByToken
+        //instance.refreshAddressBalancesByToken().then(function(data) {
+        //    console.log(data);
+        //}, function(error) {
+        //    console.error(error);
+        //});
+      });
+    });
     describe('unlockUtxos', function() {
       it('should call unlockUtxos successfully', function() {
         //uncomment below and update the code to test unlockUtxos

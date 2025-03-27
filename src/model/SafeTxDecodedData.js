@@ -86,13 +86,13 @@ class SafeTxDecodedData {
 
 
 /**
- * Name of the decoded method
+ * The name of the method decoded from the transaction data.
  * @member {String} method
  */
 SafeTxDecodedData.prototype['method'] = undefined;
 
 /**
- * List of method parameters
+ * The list of parameters decoded from the transaction data.
  * @member {Array.<module:model/SafeTxDecodedDataParameters>} parameters
  */
 SafeTxDecodedData.prototype['parameters'] = undefined;

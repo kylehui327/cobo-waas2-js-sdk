@@ -238,6 +238,8 @@ docs/QueryApprovalStatement200Response.md
 docs/QueryGuardPubkey200Response.md
 docs/QueryGuardPubkey200ResponseAddressesInner.md
 docs/RawMessageSignDestination.md
+docs/RefreshAddressBalancesByToken200Response.md
+docs/RefreshAddressBalancesByTokenRequest.md
 docs/RefreshToken2XXResponse.md
 docs/RefreshTokenRequest.md
 docs/ReplaceType.md
@@ -662,6 +664,8 @@ src/model/QueryApprovalStatement200Response.js
 src/model/QueryGuardPubkey200Response.js
 src/model/QueryGuardPubkey200ResponseAddressesInner.js
 src/model/RawMessageSignDestination.js
+src/model/RefreshAddressBalancesByToken200Response.js
+src/model/RefreshAddressBalancesByTokenRequest.js
 src/model/RefreshToken2XXResponse.js
 src/model/RefreshTokenRequest.js
 src/model/ReplaceType.js
@@ -1067,6 +1071,8 @@ test/model/QueryApprovalStatement200Response.spec.js
 test/model/QueryGuardPubkey200Response.spec.js
 test/model/QueryGuardPubkey200ResponseAddressesInner.spec.js
 test/model/RawMessageSignDestination.spec.js
+test/model/RefreshAddressBalancesByToken200Response.spec.js
+test/model/RefreshAddressBalancesByTokenRequest.spec.js
 test/model/RefreshToken2XXResponse.spec.js
 test/model/RefreshTokenRequest.spec.js
 test/model/ReplaceType.spec.js

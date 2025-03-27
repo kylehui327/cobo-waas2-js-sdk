@@ -25,6 +25,7 @@ Method | HTTP request | Description
 [**listUtxos**](WalletsApi.md#listUtxos) | **GET** /wallets/{wallet_id}/utxos | List UTXOs
 [**listWallets**](WalletsApi.md#listWallets) | **GET** /wallets | List all wallets
 [**lockUtxos**](WalletsApi.md#lockUtxos) | **POST** /wallets/{wallet_id}/utxos/lock | Lock UTXOs
+[**refreshAddressBalancesByToken**](WalletsApi.md#refreshAddressBalancesByToken) | **PUT** /wallets/{wallet_id}/tokens/{token_id}/refresh_address_balances | refresh address balances by token
 [**unlockUtxos**](WalletsApi.md#unlockUtxos) | **POST** /wallets/{wallet_id}/utxos/unlock | Unlock UTXOs
 [**updateWalletById**](WalletsApi.md#updateWalletById) | **PUT** /wallets/{wallet_id} | Update wallet
 
@@ -1217,6 +1218,62 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**LockUtxos201Response**](LockUtxos201Response.md)
+
+### Authorization
+
+[OAuth2](../README.md#OAuth2), [CoboAuth](../README.md#CoboAuth)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
+## refreshAddressBalancesByToken
+
+> RefreshAddressBalancesByToken200Response refreshAddressBalancesByToken(wallet_id, token_id, opts)
+
+refresh address balances by token
+
+The operation refresh the balance of the given address list for a specified token within a wallet. The successful return of the request only means that the refresh request has been submitted.  &lt;Note&gt;This operation is applicable to MPC Wallets only.&lt;/Note&gt; 
+
+### Example
+
+```javascript
+const CoboWaas2 = require('@cobo/cobo-waas2');
+// Initialize the API client
+const apiClient = CoboWaas2.ApiClient.instance
+// Select the development environment. To use the production environment, replace `Env.DEV` with `Env.PROD`
+apiClient.setEnv(CoboWaas2.Env.DEV);
+// Replace `<YOUR_PRIVATE_KEY>` with your private key
+apiClient.setPrivateKey("<YOUR_PRIVATE_KEY>");
+// Call the API
+const apiInstance = new CoboWaas2.WalletsApi();
+const wallet_id = "f47ac10b-58cc-4372-a567-0e02b2c3d479";
+const token_id = "ETH_USDT";
+const opts = {
+  'RefreshAddressBalancesByTokenRequest': new CoboWaas2.RefreshAddressBalancesByTokenRequest()
+};
+apiInstance.refreshAddressBalancesByToken(wallet_id, token_id, opts).then((data) => {
+  console.log('API called successfully. Returned data: ' + data);
+}, (error) => {
+  console.error(error);
+});
+
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **wallet_id** | **String**| The wallet ID. | 
+ **token_id** | **String**| The token ID, which is the unique identifier of a token. | 
+ **RefreshAddressBalancesByTokenRequest** | [**RefreshAddressBalancesByTokenRequest**](RefreshAddressBalancesByTokenRequest.md)| The request body to refresh the addresses balance by  specified token within a specified wallet | [optional] 
+
+### Return type
+
+[**RefreshAddressBalancesByToken200Response**](RefreshAddressBalancesByToken200Response.md)
 
 ### Authorization
 

@@ -100,25 +100,25 @@ class SafeTxDecodedDataParameters {
 
 
 /**
- * Name of the parameter
+ * The name of the parameter.
  * @member {String} name
  */
 SafeTxDecodedDataParameters.prototype['name'] = undefined;
 
 /**
- * Type of the parameter
+ * The data type of the parameter.
  * @member {String} type
  */
 SafeTxDecodedDataParameters.prototype['type'] = undefined;
 
 /**
- * Value of the parameter
+ * The value of the parameter.
  * @member {String} value
  */
 SafeTxDecodedDataParameters.prototype['value'] = undefined;
 
 /**
- * Decoded value if applicable
+ * The decoded value of the parameter (if applicable).
  * @member {Array.<module:model/SafeTxSubTransaction>} value_decoded
  */
 SafeTxDecodedDataParameters.prototype['value_decoded'] = undefined;
