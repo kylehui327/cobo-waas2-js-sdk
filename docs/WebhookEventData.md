@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**data_type** | **String** |  The data type of the event. - &#x60;Transaction&#x60;: The transaction event data. - &#x60;TSSRequest&#x60;: The TSS request event data. - &#x60;Addresses&#x60;: The addresses event data. - &#x60;WalletInfo&#x60;: The wallet information event data. - &#x60;MPCVault&#x60;: The MPC vault event data. - &#x60;Chains&#x60;: The Chain enabled event data. - &#x60;Tokens&#x60;: The Token enabled event data. | 
+**data_type** | **String** |  The data type of the event. - &#x60;Transaction&#x60;: The transaction event data. - &#x60;TSSRequest&#x60;: The TSS request event data. - &#x60;Addresses&#x60;: The addresses event data. - &#x60;WalletInfo&#x60;: The wallet information event data. - &#x60;MPCVault&#x60;: The MPC vault event data. - &#x60;Chains&#x60;: The enabled chain event data. - &#x60;Tokens&#x60;: The enabled token event data. | 
 **transaction_id** | **String** | The transaction ID. | 
 **cobo_id** | **String** | The Cobo ID, which can be used to track a transaction. | [optional] 
 **request_id** | **String** | The request ID that is used to track a transaction request. The request ID is provided by you and must be unique within your organization. | [optional] 
@@ -44,8 +44,8 @@ Name | Type | Description | Notes
 **project_id** | **String** | The project ID. | [optional] 
 **name** | **String** | The vault name. | [optional] 
 **root_pubkeys** | [**[RootPubkey]**](RootPubkey.md) |  | [optional] 
-**chains** | [**[ChainInfo]**](ChainInfo.md) | The chains. | 
-**tokens** | [**[TokenInfo]**](TokenInfo.md) | The tokens. | 
+**chains** | [**[ChainInfo]**](ChainInfo.md) | The enabled chains. | 
+**tokens** | [**[TokenInfo]**](TokenInfo.md) | The enabled tokens. | 
 
 
 

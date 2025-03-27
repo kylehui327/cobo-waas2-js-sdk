@@ -117,25 +117,25 @@ class SafeTxSubTransaction {
 
 
 /**
- * Type of operation in the sub-transaction
+ * The type of operation in the sub-transaction.
  * @member {String} operation
  */
 SafeTxSubTransaction.prototype['operation'] = undefined;
 
 /**
- * Address the transaction is sent to
+ * The destination address of the sub-transaction.
  * @member {String} to
  */
 SafeTxSubTransaction.prototype['to'] = undefined;
 
 /**
- * Readable transaction value (e.g., 1 ETH)
+ * The human-readable transaction value, for example, `1 ETH`.
  * @member {String} value
  */
 SafeTxSubTransaction.prototype['value'] = undefined;
 
 /**
- * Transaction amount in Wei
+ * The transaction amount in Wei
  * @member {String} wei
  */
 SafeTxSubTransaction.prototype['wei'] = undefined;
@@ -152,7 +152,7 @@ SafeTxSubTransaction.prototype['data'] = undefined;
 SafeTxSubTransaction.prototype['data_decoded'] = undefined;
 
 /**
- * Name of the recipient contract (if available)
+ * The name of the recipient contract (if available).
  * @member {String} to_contract_name
  */
 SafeTxSubTransaction.prototype['to_contract_name'] = undefined;

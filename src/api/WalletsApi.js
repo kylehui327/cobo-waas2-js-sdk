@@ -32,6 +32,8 @@ import ListWallets200Response from '../model/ListWallets200Response';
 import LockUtxos201Response from '../model/LockUtxos201Response';
 import LockUtxosRequest from '../model/LockUtxosRequest';
 import MaxTransferableValue from '../model/MaxTransferableValue';
+import RefreshAddressBalancesByToken200Response from '../model/RefreshAddressBalancesByToken200Response';
+import RefreshAddressBalancesByTokenRequest from '../model/RefreshAddressBalancesByTokenRequest';
 import UpdateWalletParams from '../model/UpdateWalletParams';
 import WalletInfo from '../model/WalletInfo';
 import WalletSubtype from '../model/WalletSubtype';
@@ -1352,6 +1354,69 @@ export default class WalletsApi {
      */
     lockUtxos(wallet_id, opts) {
       return this.lockUtxosWithHttpInfo(wallet_id, opts)
+        .then(function(response_and_data) {
+          return response_and_data.data;
+        });
+    }
+
+
+    /**
+     * refresh address balances by token
+     * The operation refresh the balance of the given address list for a specified token within a wallet. The successful return of the request only means that the refresh request has been submitted.  <Note>This operation is applicable to MPC Wallets only.</Note> 
+     * @param {String} wallet_id The wallet ID.
+     * @param {String} token_id The token ID, which is the unique identifier of a token.
+     * @param {Object} opts Optional parameters
+     * @param {module:model/RefreshAddressBalancesByTokenRequest} [RefreshAddressBalancesByTokenRequest] The request body to refresh the addresses balance by  specified token within a specified wallet
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/RefreshAddressBalancesByToken200Response} and HTTP response
+     */
+    refreshAddressBalancesByTokenWithHttpInfo(wallet_id, token_id, opts) {
+      opts = opts || {};
+      let postBody = opts['RefreshAddressBalancesByTokenRequest'];
+      if (postBody && postBody.toJSON) {
+          postBody = postBody.toJSON()
+      }
+      // verify the required parameter 'wallet_id' is set
+      if (wallet_id === undefined || wallet_id === null) {
+        throw new Error("Missing the required parameter 'wallet_id' when calling refreshAddressBalancesByToken");
+      }
+      // verify the required parameter 'token_id' is set
+      if (token_id === undefined || token_id === null) {
+        throw new Error("Missing the required parameter 'token_id' when calling refreshAddressBalancesByToken");
+      }
+
+      let pathParams = {
+        'wallet_id': wallet_id,
+        'token_id': token_id
+      };
+      let queryParams = {
+      };
+      let headerParams = {
+      };
+      let formParams = {
+      };
+
+      let authNames = ['OAuth2', 'CoboAuth'];
+      let contentTypes = ['application/json'];
+      let accepts = ['application/json'];
+      let returnType = RefreshAddressBalancesByToken200Response;
+      return this.apiClient.callApi(
+        '/wallets/{wallet_id}/tokens/{token_id}/refresh_address_balances', 'PUT',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, null
+      );
+    }
+
+    /**
+     * refresh address balances by token
+     * The operation refresh the balance of the given address list for a specified token within a wallet. The successful return of the request only means that the refresh request has been submitted.  <Note>This operation is applicable to MPC Wallets only.</Note> 
+     * @param {String} wallet_id The wallet ID.
+     * @param {String} token_id The token ID, which is the unique identifier of a token.
+     * @param {Object} opts Optional parameters
+     * @param {module:model/RefreshAddressBalancesByTokenRequest} opts.RefreshAddressBalancesByTokenRequest The request body to refresh the addresses balance by  specified token within a specified wallet
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/RefreshAddressBalancesByToken200Response}
+     */
+    refreshAddressBalancesByToken(wallet_id, token_id, opts) {
+      return this.refreshAddressBalancesByTokenWithHttpInfo(wallet_id, token_id, opts)
         .then(function(response_and_data) {
           return response_and_data.data;
         });

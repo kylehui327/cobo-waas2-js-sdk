@@ -4,9 +4,9 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**name** | **String** | Name of the parameter | [optional] 
-**type** | **String** | Type of the parameter | [optional] 
-**value** | **String** | Value of the parameter | [optional] 
-**value_decoded** | [**[SafeTxSubTransaction]**](SafeTxSubTransaction.md) | Decoded value if applicable | [optional] 
+**name** | **String** | The name of the parameter. | [optional] 
+**type** | **String** | The data type of the parameter. | [optional] 
+**value** | **String** | The value of the parameter. | [optional] 
+**value_decoded** | [**[SafeTxSubTransaction]**](SafeTxSubTransaction.md) | The decoded value of the parameter (if applicable). | [optional] 
 
 

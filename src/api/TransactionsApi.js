@@ -466,7 +466,7 @@ export default class TransactionsApi {
 
     /**
      * Get transaction approval details
-     * This operation retrieves approval detailed information about a specified transaction. 
+     * This operation retrieves detailed approval information about a specified transaction. 
      * @param {String} transaction_id The transaction ID.
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/TransactionApprovalDetail} and HTTP response
      */
@@ -503,7 +503,7 @@ export default class TransactionsApi {
 
     /**
      * Get transaction approval details
-     * This operation retrieves approval detailed information about a specified transaction. 
+     * This operation retrieves detailed approval information about a specified transaction. 
      * @param {String} transaction_id The transaction ID.
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/TransactionApprovalDetail}
      */
@@ -568,7 +568,7 @@ export default class TransactionsApi {
 
     /**
      * List transaction approval details
-     * This operation retrieves approval detailed information about multi specified transaction. 
+     * This operation retrieves detailed approval information for all transactions. 
      * @param {Object} opts Optional parameters
      * @param {String} [transaction_ids] A list of transaction IDs, separated by comma.
      * @param {String} [cobo_ids] A list of Cobo IDs, separated by comma. A Cobo ID can be used to track a transaction.
@@ -605,7 +605,7 @@ export default class TransactionsApi {
 
     /**
      * List transaction approval details
-     * This operation retrieves approval detailed information about multi specified transaction. 
+     * This operation retrieves detailed approval information for all transactions. 
      * @param {Object} opts Optional parameters
      * @param {String} opts.transaction_ids A list of transaction IDs, separated by comma.
      * @param {String} opts.cobo_ids A list of Cobo IDs, separated by comma. A Cobo ID can be used to track a transaction.

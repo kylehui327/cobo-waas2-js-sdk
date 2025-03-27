@@ -159,6 +159,7 @@ Class | Method | HTTP request | Description
 *CoboWaas2.WalletsApi* | [**listUtxos**](docs/WalletsApi.md#listUtxos) | **GET** /wallets/{wallet_id}/utxos | List UTXOs
 *CoboWaas2.WalletsApi* | [**listWallets**](docs/WalletsApi.md#listWallets) | **GET** /wallets | List all wallets
 *CoboWaas2.WalletsApi* | [**lockUtxos**](docs/WalletsApi.md#lockUtxos) | **POST** /wallets/{wallet_id}/utxos/lock | Lock UTXOs
+*CoboWaas2.WalletsApi* | [**refreshAddressBalancesByToken**](docs/WalletsApi.md#refreshAddressBalancesByToken) | **PUT** /wallets/{wallet_id}/tokens/{token_id}/refresh_address_balances | refresh address balances by token
 *CoboWaas2.WalletsApi* | [**unlockUtxos**](docs/WalletsApi.md#unlockUtxos) | **POST** /wallets/{wallet_id}/utxos/unlock | Unlock UTXOs
 *CoboWaas2.WalletsApi* | [**updateWalletById**](docs/WalletsApi.md#updateWalletById) | **PUT** /wallets/{wallet_id} | Update wallet
 *CoboWaas2.WalletsExchangeWalletApi* | [**listAssetBalancesForExchangeWallet**](docs/WalletsExchangeWalletApi.md#listAssetBalancesForExchangeWallet) | **GET** /wallets/{wallet_id}/exchanges/assets | List asset balances
@@ -418,6 +419,8 @@ Class | Method | HTTP request | Description
  - [CoboWaas2.QueryGuardPubkey200Response](docs/QueryGuardPubkey200Response.md)
  - [CoboWaas2.QueryGuardPubkey200ResponseAddressesInner](docs/QueryGuardPubkey200ResponseAddressesInner.md)
  - [CoboWaas2.RawMessageSignDestination](docs/RawMessageSignDestination.md)
+ - [CoboWaas2.RefreshAddressBalancesByToken200Response](docs/RefreshAddressBalancesByToken200Response.md)
+ - [CoboWaas2.RefreshAddressBalancesByTokenRequest](docs/RefreshAddressBalancesByTokenRequest.md)
  - [CoboWaas2.RefreshToken2XXResponse](docs/RefreshToken2XXResponse.md)
  - [CoboWaas2.RefreshTokenRequest](docs/RefreshTokenRequest.md)
  - [CoboWaas2.ReplaceType](docs/ReplaceType.md)

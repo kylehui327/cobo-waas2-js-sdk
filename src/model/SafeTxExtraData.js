@@ -19,17 +19,17 @@ import SafeTxDecodedData from './SafeTxDecodedData';
 class SafeTxExtraData {
     /**
      * Constructs a new <code>SafeTxExtraData</code>.
-     * The information about the extra data of the Safe{Wallet} tx message transaction.
+     * The information used to construct and sign Safe{Wallet} transactions using the EIP-712 standard.
      * @alias module:model/SafeTxExtraData
-     * @param to {String} The recipient address of the transaction
-     * @param value {String} Readable transaction value (e.g., 1 ETH)
-     * @param data {String} The transaction data
-     * @param domain_hash {String} EIP712 structured data domain hash
-     * @param message_hash {String} Hash of the structured message
-     * @param safe_address {String} Address of the Safe contract
-     * @param safe_tx_hash {String} Hash of the Safe transaction
-     * @param safe_nonce {Number} Safe transaction nonce
-     * @param operation {String} Type of operation performed in the transaction
+     * @param to {String} The recipient address of the transaction.
+     * @param value {String} The human-readable transaction value, for example, `1 ETH`.
+     * @param data {String} The transaction call data.
+     * @param domain_hash {String} The EIP-712 domain separator hash.
+     * @param message_hash {String} The hash of the structured message to be signed.
+     * @param safe_address {String} The address of the Safe contract.
+     * @param safe_tx_hash {String} The hash of the transaction.
+     * @param safe_nonce {Number} The nonce of the transaction.
+     * @param operation {String} The operation type for the transaction.
      */
     constructor(to, value, data, domain_hash, message_hash, safe_address, safe_tx_hash, safe_nonce, operation) { 
         
@@ -206,91 +206,91 @@ class SafeTxExtraData {
 SafeTxExtraData.RequiredProperties = ["to", "value", "data", "domain_hash", "message_hash", "safe_address", "safe_tx_hash", "safe_nonce", "operation"];
 
 /**
- * The recipient address of the transaction
+ * The recipient address of the transaction.
  * @member {String} to
  */
 SafeTxExtraData.prototype['to'] = undefined;
 
 /**
- * Readable transaction value (e.g., 1 ETH)
+ * The human-readable transaction value, for example, `1 ETH`.
  * @member {String} value
  */
 SafeTxExtraData.prototype['value'] = undefined;
 
 /**
- * The transaction data
+ * The transaction call data.
  * @member {String} data
  */
 SafeTxExtraData.prototype['data'] = undefined;
 
 /**
- * EIP712 structured data domain hash
+ * The EIP-712 domain separator hash.
  * @member {String} domain_hash
  */
 SafeTxExtraData.prototype['domain_hash'] = undefined;
 
 /**
- * Hash of the structured message
+ * The hash of the structured message to be signed.
  * @member {String} message_hash
  */
 SafeTxExtraData.prototype['message_hash'] = undefined;
 
 /**
- * Address of the Safe contract
+ * The address of the Safe contract.
  * @member {String} safe_address
  */
 SafeTxExtraData.prototype['safe_address'] = undefined;
 
 /**
- * Hash of the Safe transaction
+ * The hash of the transaction.
  * @member {String} safe_tx_hash
  */
 SafeTxExtraData.prototype['safe_tx_hash'] = undefined;
 
 /**
- * Safe transaction nonce
+ * The nonce of the transaction.
  * @member {Number} safe_nonce
  */
 SafeTxExtraData.prototype['safe_nonce'] = undefined;
 
 /**
- * Type of operation performed in the transaction
+ * The operation type for the transaction.
  * @member {String} operation
  */
 SafeTxExtraData.prototype['operation'] = undefined;
 
 /**
- * Address of the gas token
+ * The address of the token used to pay gas.
  * @member {String} gas_token_addr
  */
 SafeTxExtraData.prototype['gas_token_addr'] = undefined;
 
 /**
- * Gas used for the Safe transaction
+ * The gas limit used for the transaction.
  * @member {Number} safe_tx_gas
  */
 SafeTxExtraData.prototype['safe_tx_gas'] = undefined;
 
 /**
- * Base gas for the transaction
+ * The base gas for the transaction.
  * @member {Number} base_gas
  */
 SafeTxExtraData.prototype['base_gas'] = undefined;
 
 /**
- * Gas price used in the transaction
+ * The gas price used in the transaction.
  * @member {String} gas_price
  */
 SafeTxExtraData.prototype['gas_price'] = undefined;
 
 /**
- * Address to receive the gas refund
+ * The address used to receive the gas refund.
  * @member {String} refund_receiver
  */
 SafeTxExtraData.prototype['refund_receiver'] = undefined;
 
 /**
- * Name of the recipient contract (if available)
+ * The name of the recipient contract (if available).
  * @member {String} to_contract_name
  */
 SafeTxExtraData.prototype['to_contract_name'] = undefined;
@@ -301,13 +301,13 @@ SafeTxExtraData.prototype['to_contract_name'] = undefined;
 SafeTxExtraData.prototype['decoded_data'] = undefined;
 
 /**
- * Signature of the transaction (if signed by Cobo Signer)
+ * The signature of the transaction (if signed by Cobo Signer).
  * @member {String} signature
  */
 SafeTxExtraData.prototype['signature'] = undefined;
 
 /**
- * Transaction amount in Wei
+ * The transaction amount in Wei.
  * @member {String} wei
  */
 SafeTxExtraData.prototype['wei'] = undefined;

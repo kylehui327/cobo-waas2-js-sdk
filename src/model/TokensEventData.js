@@ -22,8 +22,8 @@ class TokensEventData {
      * Constructs a new <code>TokensEventData</code>.
      * @alias module:model/TokensEventData
      * @implements module:model/WebhookEventDataType
-     * @param data_type {module:model/TokensEventData.DataTypeEnum}  The data type of the event. - `Transaction`: The transaction event data. - `TSSRequest`: The TSS request event data. - `Addresses`: The addresses event data. - `WalletInfo`: The wallet information event data. - `MPCVault`: The MPC vault event data. - `Chains`: The Chain enabled event data. - `Tokens`: The Token enabled event data.
-     * @param tokens {Array.<module:model/TokenInfo>} The tokens.
+     * @param data_type {module:model/TokensEventData.DataTypeEnum}  The data type of the event. - `Transaction`: The transaction event data. - `TSSRequest`: The TSS request event data. - `Addresses`: The addresses event data. - `WalletInfo`: The wallet information event data. - `MPCVault`: The MPC vault event data. - `Chains`: The enabled chain event data. - `Tokens`: The enabled token event data.
+     * @param tokens {Array.<module:model/TokenInfo>} The enabled tokens.
      */
     constructor(data_type, tokens) { 
         WebhookEventDataType.initialize(this, data_type);
@@ -98,13 +98,13 @@ class TokensEventData {
 TokensEventData.RequiredProperties = ["data_type", "tokens"];
 
 /**
- *  The data type of the event. - `Transaction`: The transaction event data. - `TSSRequest`: The TSS request event data. - `Addresses`: The addresses event data. - `WalletInfo`: The wallet information event data. - `MPCVault`: The MPC vault event data. - `Chains`: The Chain enabled event data. - `Tokens`: The Token enabled event data.
+ *  The data type of the event. - `Transaction`: The transaction event data. - `TSSRequest`: The TSS request event data. - `Addresses`: The addresses event data. - `WalletInfo`: The wallet information event data. - `MPCVault`: The MPC vault event data. - `Chains`: The enabled chain event data. - `Tokens`: The enabled token event data.
  * @member {module:model/TokensEventData.DataTypeEnum} data_type
  */
 TokensEventData.prototype['data_type'] = undefined;
 
 /**
- * The tokens.
+ * The enabled tokens.
  * @member {Array.<module:model/TokenInfo>} tokens
  */
 TokensEventData.prototype['tokens'] = undefined;
@@ -112,7 +112,7 @@ TokensEventData.prototype['tokens'] = undefined;
 
 // Implement WebhookEventDataType interface:
 /**
- *  The data type of the event. - `Transaction`: The transaction event data. - `TSSRequest`: The TSS request event data. - `Addresses`: The addresses event data. - `WalletInfo`: The wallet information event data. - `MPCVault`: The MPC vault event data. - `Chains`: The Chain enabled event data. - `Tokens`: The Token enabled event data.
+ *  The data type of the event. - `Transaction`: The transaction event data. - `TSSRequest`: The TSS request event data. - `Addresses`: The addresses event data. - `WalletInfo`: The wallet information event data. - `MPCVault`: The MPC vault event data. - `Chains`: The enabled chain event data. - `Tokens`: The enabled token event data.
  * @member {module:model/WebhookEventDataType.DataTypeEnum} data_type
  */
 WebhookEventDataType.prototype['data_type'] = undefined;

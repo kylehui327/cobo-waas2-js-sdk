@@ -326,7 +326,7 @@ class WebhookEventData {
 }
 
 /**
- *  The data type of the event. - `Transaction`: The transaction event data. - `TSSRequest`: The TSS request event data. - `Addresses`: The addresses event data. - `WalletInfo`: The wallet information event data. - `MPCVault`: The MPC vault event data. - `Chains`: The Chain enabled event data. - `Tokens`: The Token enabled event data.
+ *  The data type of the event. - `Transaction`: The transaction event data. - `TSSRequest`: The TSS request event data. - `Addresses`: The addresses event data. - `WalletInfo`: The wallet information event data. - `MPCVault`: The MPC vault event data. - `Chains`: The enabled chain event data. - `Tokens`: The enabled token event data.
  * @member {module:model/WebhookEventData.DataTypeEnum} data_type
  */
 WebhookEventData.prototype['data_type'] = undefined;
@@ -551,13 +551,13 @@ WebhookEventData.prototype['name'] = undefined;
 WebhookEventData.prototype['root_pubkeys'] = undefined;
 
 /**
- * The chains.
+ * The enabled chains.
  * @member {Array.<module:model/ChainInfo>} chains
  */
 WebhookEventData.prototype['chains'] = undefined;
 
 /**
- * The tokens.
+ * The enabled tokens.
  * @member {Array.<module:model/TokenInfo>} tokens
  */
 WebhookEventData.prototype['tokens'] = undefined;

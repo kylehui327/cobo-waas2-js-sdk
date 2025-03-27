@@ -125,13 +125,13 @@ class TransactionUserApprovalDetail {
 
 
 /**
- * The name the user who audited this message.
+ * The name of the user who audited this message.
  * @member {String} name
  */
 TransactionUserApprovalDetail.prototype['name'] = undefined;
 
 /**
- * The email the user who audited this message.
+ * The email of the user who audited this message.
  * @member {String} email
  */
 TransactionUserApprovalDetail.prototype['email'] = undefined;
