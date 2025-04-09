@@ -39,6 +39,27 @@ export default class MessageSignDestinationType {
 
     
         /**
+         * value: "BTC_BIP_137_Signature"
+         * @const
+         */
+        "BTC_BIP_137_Signature" = "BTC_BIP_137_Signature";
+
+    
+        /**
+         * value: "BTC_BIP_322_Signature"
+         * @const
+         */
+        "BTC_BIP_322_Signature" = "BTC_BIP_322_Signature";
+
+    
+        /**
+         * value: "COSMOS_ADR_36_Signature"
+         * @const
+         */
+        "COSMOS_ADR_36_Signature" = "COSMOS_ADR_36_Signature";
+
+    
+        /**
          * value: "Raw_Message_Signature"
          * @const
          */

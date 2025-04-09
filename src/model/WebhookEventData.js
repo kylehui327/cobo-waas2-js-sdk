@@ -18,9 +18,11 @@ import MPCVaultEventData from './MPCVaultEventData';
 import MPCVaultType from './MPCVaultType';
 import RootPubkey from './RootPubkey';
 import SourceGroup from './SourceGroup';
-import TSSRequestStatus from './TSSRequestStatus';
 import TSSRequestWebhookEventData from './TSSRequestWebhookEventData';
 import TokenInfo from './TokenInfo';
+import TokenListingEventData from './TokenListingEventData';
+import TokenListingRequestSource from './TokenListingRequestSource';
+import TokenListingRequestStatus from './TokenListingRequestStatus';
 import TokensEventData from './TokensEventData';
 import TransactionBlockInfo from './TransactionBlockInfo';
 import TransactionDestination from './TransactionDestination';
@@ -30,11 +32,12 @@ import TransactionInitiatorType from './TransactionInitiatorType';
 import TransactionRawTxInfo from './TransactionRawTxInfo';
 import TransactionReplacement from './TransactionReplacement';
 import TransactionResult from './TransactionResult';
-import TransactionSource from './TransactionSource';
 import TransactionSubStatus from './TransactionSubStatus';
 import TransactionWebhookEventData from './TransactionWebhookEventData';
 import WalletInfo from './WalletInfo';
 import WalletInfoEventData from './WalletInfoEventData';
+import WalletSubtype from './WalletSubtype';
+import WalletType from './WalletType';
 
 /**
  * The WebhookEventData model module.
@@ -44,7 +47,7 @@ class WebhookEventData {
     /**
      * Constructs a new <code>WebhookEventData</code>.
      * @alias module:model/WebhookEventData
-     * @param {(module:model/AddressesEventData|module:model/ChainsEventData|module:model/MPCVaultEventData|module:model/TSSRequestWebhookEventData|module:model/TokensEventData|module:model/TransactionWebhookEventData|module:model/WalletInfoEventData)} instance The actual instance to initialize WebhookEventData.
+     * @param {(module:model/AddressesEventData|module:model/ChainsEventData|module:model/MPCVaultEventData|module:model/TSSRequestWebhookEventData|module:model/TokenListingEventData|module:model/TokensEventData|module:model/TransactionWebhookEventData|module:model/WalletInfoEventData)} instance The actual instance to initialize WebhookEventData.
      */
     constructor(instance = null) {
         if (instance === null) {
@@ -71,6 +74,10 @@ class WebhookEventData {
                     break;
                 case "TSSRequest":
                     this.actualInstance = TSSRequestWebhookEventData.constructFromObject(instance);
+                    match++;
+                    break;
+                case "TokenListing":
+                    this.actualInstance = TokenListingEventData.constructFromObject(instance);
                     match++;
                     break;
                 case "Tokens":
@@ -267,12 +274,37 @@ class WebhookEventData {
             errorMessages.push("Failed to construct TokensEventData: " + err)
         }
 
+        try {
+            if (instance instanceof TokenListingEventData) {
+                this.actualInstance = instance;
+            } else if(!!TokenListingEventData.validateJSON && TokenListingEventData.validateJSON(instance)){
+                // plain JS object
+                // create TokenListingEventData from JS object
+                this.actualInstance = TokenListingEventData.constructFromObject(instance);
+            } else {
+                if(TokenListingEventData.constructFromObject(instance)) {
+                    if (!!TokenListingEventData.constructFromObject(instance).toJSON) {
+                        if (TokenListingEventData.constructFromObject(instance).toJSON()) {
+                            this.actualInstance = TokenListingEventData.constructFromObject(instance);
+                        }
+                    } else {
+                        this.actualInstance = TokenListingEventData.constructFromObject(instance);
+                    }
+                }
+
+            }
+            match++;
+        } catch(err) {
+            // json data failed to deserialize into TokenListingEventData
+            errorMessages.push("Failed to construct TokenListingEventData: " + err)
+        }
+
         // if (match > 1) {
-        //    throw new Error("Multiple matches found constructing `WebhookEventData` with oneOf schemas AddressesEventData, ChainsEventData, MPCVaultEventData, TSSRequestWebhookEventData, TokensEventData, TransactionWebhookEventData, WalletInfoEventData. Input: " + JSON.stringify(instance));
+        //    throw new Error("Multiple matches found constructing `WebhookEventData` with oneOf schemas AddressesEventData, ChainsEventData, MPCVaultEventData, TSSRequestWebhookEventData, TokenListingEventData, TokensEventData, TransactionWebhookEventData, WalletInfoEventData. Input: " + JSON.stringify(instance));
         // } else
         if (match === 0) {
         //    this.actualInstance = null; // clear the actual instance in case there are multiple matches
-        //    throw new Error("No match found constructing `WebhookEventData` with oneOf schemas AddressesEventData, ChainsEventData, MPCVaultEventData, TSSRequestWebhookEventData, TokensEventData, TransactionWebhookEventData, WalletInfoEventData. Details: " +
+        //    throw new Error("No match found constructing `WebhookEventData` with oneOf schemas AddressesEventData, ChainsEventData, MPCVaultEventData, TSSRequestWebhookEventData, TokenListingEventData, TokensEventData, TransactionWebhookEventData, WalletInfoEventData. Details: " +
         //                    errorMessages.join(", "));
         return;
         } else { // only 1 match
@@ -292,16 +324,16 @@ class WebhookEventData {
     }
 
     /**
-     * Gets the actual instance, which can be <code>AddressesEventData</code>, <code>ChainsEventData</code>, <code>MPCVaultEventData</code>, <code>TSSRequestWebhookEventData</code>, <code>TokensEventData</code>, <code>TransactionWebhookEventData</code>, <code>WalletInfoEventData</code>.
-     * @return {(module:model/AddressesEventData|module:model/ChainsEventData|module:model/MPCVaultEventData|module:model/TSSRequestWebhookEventData|module:model/TokensEventData|module:model/TransactionWebhookEventData|module:model/WalletInfoEventData)} The actual instance.
+     * Gets the actual instance, which can be <code>AddressesEventData</code>, <code>ChainsEventData</code>, <code>MPCVaultEventData</code>, <code>TSSRequestWebhookEventData</code>, <code>TokenListingEventData</code>, <code>TokensEventData</code>, <code>TransactionWebhookEventData</code>, <code>WalletInfoEventData</code>.
+     * @return {(module:model/AddressesEventData|module:model/ChainsEventData|module:model/MPCVaultEventData|module:model/TSSRequestWebhookEventData|module:model/TokenListingEventData|module:model/TokensEventData|module:model/TransactionWebhookEventData|module:model/WalletInfoEventData)} The actual instance.
      */
     getActualInstance() {
         return this.actualInstance;
     }
 
     /**
-     * Sets the actual instance, which can be <code>AddressesEventData</code>, <code>ChainsEventData</code>, <code>MPCVaultEventData</code>, <code>TSSRequestWebhookEventData</code>, <code>TokensEventData</code>, <code>TransactionWebhookEventData</code>, <code>WalletInfoEventData</code>.
-     * @param {(module:model/AddressesEventData|module:model/ChainsEventData|module:model/MPCVaultEventData|module:model/TSSRequestWebhookEventData|module:model/TokensEventData|module:model/TransactionWebhookEventData|module:model/WalletInfoEventData)} obj The actual instance.
+     * Sets the actual instance, which can be <code>AddressesEventData</code>, <code>ChainsEventData</code>, <code>MPCVaultEventData</code>, <code>TSSRequestWebhookEventData</code>, <code>TokenListingEventData</code>, <code>TokensEventData</code>, <code>TransactionWebhookEventData</code>, <code>WalletInfoEventData</code>.
+     * @param {(module:model/AddressesEventData|module:model/ChainsEventData|module:model/MPCVaultEventData|module:model/TSSRequestWebhookEventData|module:model/TokenListingEventData|module:model/TokensEventData|module:model/TransactionWebhookEventData|module:model/WalletInfoEventData)} obj The actual instance.
      */
     setActualInstance(obj) {
        this.actualInstance = WebhookEventData.constructFromObject(obj).getActualInstance();
@@ -326,7 +358,7 @@ class WebhookEventData {
 }
 
 /**
- *  The data type of the event. - `Transaction`: The transaction event data. - `TSSRequest`: The TSS request event data. - `Addresses`: The addresses event data. - `WalletInfo`: The wallet information event data. - `MPCVault`: The MPC vault event data. - `Chains`: The enabled chain event data. - `Tokens`: The enabled token event data.
+ *  The data type of the event. - `Transaction`: The transaction event data. - `TSSRequest`: The TSS request event data. - `Addresses`: The addresses event data. - `WalletInfo`: The wallet information event data. - `MPCVault`: The MPC vault event data. - `Chains`: The enabled chain event data. - `Tokens`: The enabled token event data. - `TokenListing`: The token listing event data.
  * @member {module:model/WebhookEventData.DataTypeEnum} data_type
  */
 WebhookEventData.prototype['data_type'] = undefined;
@@ -344,7 +376,7 @@ WebhookEventData.prototype['transaction_id'] = undefined;
 WebhookEventData.prototype['cobo_id'] = undefined;
 
 /**
- * The request ID that is used to track a transaction request. The request ID is provided by you and must be unique within your organization.
+ * Unique identifier of the token listing request
  * @member {String} request_id
  */
 WebhookEventData.prototype['request_id'] = undefined;
@@ -361,7 +393,7 @@ WebhookEventData.prototype['wallet_id'] = undefined;
 WebhookEventData.prototype['type'] = undefined;
 
 /**
- * @member {module:model/TSSRequestStatus} status
+ * @member {module:model/TokenListingRequestStatus} status
  */
 WebhookEventData.prototype['status'] = undefined;
 
@@ -377,7 +409,7 @@ WebhookEventData.prototype['sub_status'] = undefined;
 WebhookEventData.prototype['failed_reason'] = undefined;
 
 /**
- * The chain ID, which is the unique identifier of a blockchain. You can retrieve the IDs of all the chains you can use by calling [List enabled chains](https://www.cobo.com/developers/v2/api-references/wallets/list-enabled-chains).
+ * chain_id of the blockchain where the token exists
  * @member {String} chain_id
  */
 WebhookEventData.prototype['chain_id'] = undefined;
@@ -395,7 +427,7 @@ WebhookEventData.prototype['token_id'] = undefined;
 WebhookEventData.prototype['asset_id'] = undefined;
 
 /**
- * @member {module:model/TransactionSource} source
+ * @member {module:model/TokenListingRequestSource} source
  */
 WebhookEventData.prototype['source'] = undefined;
 
@@ -477,10 +509,16 @@ WebhookEventData.prototype['description'] = undefined;
 WebhookEventData.prototype['is_loop'] = undefined;
 
 /**
- * A transaction category for cobo to identify your transactions.
+ * The transaction category defined by Cobo. Possible values include:  - `AutoSweep`: An auto-sweep transaction. - `AutoFueling`: A transaction where Fee Station pays transaction fees to an address within your wallet. - `AutoFuelingRefund`: A refund for an auto-fueling transaction. - `SafeTxMessage`: A message signing transaction to authorize a Smart Contract Wallet (Safe\\{Wallet\\}) transaction. - `BillPayment`: A transaction to pay Cobo bills through Fee Station. - `BillRefund`: A refund for a previously made bill payment. - `CommissionFeeCharge`: A transaction to charge commission fees via Fee Station. - `CommissionFeeRefund`: A refund of previously charged commission fees. 
  * @member {Array.<String>} cobo_category
  */
 WebhookEventData.prototype['cobo_category'] = undefined;
+
+/**
+ * The transaction extra information.
+ * @member {Array.<String>} extra
+ */
+WebhookEventData.prototype['extra'] = undefined;
 
 /**
  * @member {module:model/TransactionFuelingInfo} fueling_info
@@ -488,13 +526,13 @@ WebhookEventData.prototype['cobo_category'] = undefined;
 WebhookEventData.prototype['fueling_info'] = undefined;
 
 /**
- * The vault's creation time in Unix timestamp format, measured in milliseconds.
+ * Timestamp when the request was created (in milliseconds since Unix epoch)
  * @member {Number} created_timestamp
  */
 WebhookEventData.prototype['created_timestamp'] = undefined;
 
 /**
- * The time when the transaction was updated, in Unix timestamp format, measured in milliseconds.
+ * Timestamp when the request was last updated (in milliseconds since Unix epoch)
  * @member {Number} updated_timestamp
  */
 WebhookEventData.prototype['updated_timestamp'] = undefined;
@@ -562,8 +600,35 @@ WebhookEventData.prototype['chains'] = undefined;
  */
 WebhookEventData.prototype['tokens'] = undefined;
 
+/**
+ * Contract address of the token
+ * @member {String} contract_address
+ */
+WebhookEventData.prototype['contract_address'] = undefined;
 
-WebhookEventData.OneOf = ["AddressesEventData", "ChainsEventData", "MPCVaultEventData", "TSSRequestWebhookEventData", "TokensEventData", "TransactionWebhookEventData", "WalletInfoEventData"];
+/**
+ * @member {module:model/WalletType} wallet_type
+ */
+WebhookEventData.prototype['wallet_type'] = undefined;
+
+/**
+ * @member {module:model/WalletSubtype} wallet_subtype
+ */
+WebhookEventData.prototype['wallet_subtype'] = undefined;
+
+/**
+ * @member {module:model/TokenInfo} token
+ */
+WebhookEventData.prototype['token'] = undefined;
+
+/**
+ * Feedback provided by the admin for rejected requests
+ * @member {String} feedback
+ */
+WebhookEventData.prototype['feedback'] = undefined;
+
+
+WebhookEventData.OneOf = ["AddressesEventData", "ChainsEventData", "MPCVaultEventData", "TSSRequestWebhookEventData", "TokenListingEventData", "TokensEventData", "TransactionWebhookEventData", "WalletInfoEventData"];
 
 export default WebhookEventData;
 

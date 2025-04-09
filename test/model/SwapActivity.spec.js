@@ -58,8 +58,20 @@
       //expect(instance).to.be();
     });
 
+    it('should have the property activity_type (base name: "activity_type")', function() {
+      // uncomment below and update the code to test the property activity_type
+      //var instance = new CoboWaas2.SwapActivity();
+      //expect(instance).to.be();
+    });
+
     it('should have the property status (base name: "status")', function() {
       // uncomment below and update the code to test the property status
+      //var instance = new CoboWaas2.SwapActivity();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property request_id (base name: "request_id")', function() {
+      // uncomment below and update the code to test the property request_id
       //var instance = new CoboWaas2.SwapActivity();
       //expect(instance).to.be();
     });
@@ -108,6 +120,12 @@
 
     it('should have the property initiator_type (base name: "initiator_type")', function() {
       // uncomment below and update the code to test the property initiator_type
+      //var instance = new CoboWaas2.SwapActivity();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property description (base name: "description")', function() {
+      // uncomment below and update the code to test the property description
       //var instance = new CoboWaas2.SwapActivity();
       //expect(instance).to.be();
     });

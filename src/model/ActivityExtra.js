@@ -10,7 +10,6 @@
  */
 
 import ApiClient from '../ApiClient';
-import ActivityType from './ActivityType';
 import BabylonStakingActivityDetailExtra from './BabylonStakingActivityDetailExtra';
 import CoreStakingActivityDetailExtra from './CoreStakingActivityDetailExtra';
 import EthStakingActivityDetailExtra from './EthStakingActivityDetailExtra';
@@ -211,28 +210,6 @@ ActivityExtra.prototype['stake_block_time'] = undefined;
  * @member {Boolean} auto_broadcast
  */
 ActivityExtra.prototype['auto_broadcast'] = undefined;
-
-/**
- * The version of babylon global parameters.
- * @member {Number} param_version
- */
-ActivityExtra.prototype['param_version'] = undefined;
-
-/**
- * @member {module:model/ActivityType} withdraw_from_type
- */
-ActivityExtra.prototype['withdraw_from_type'] = undefined;
-
-/**
- * @member {module:model/ActivityType} slash_from_type
- */
-ActivityExtra.prototype['slash_from_type'] = undefined;
-
-/**
- * The origin staking amount.
- * @member {String} stake_amount
- */
-ActivityExtra.prototype['stake_amount'] = undefined;
 
 /**
  * The name of the provider.

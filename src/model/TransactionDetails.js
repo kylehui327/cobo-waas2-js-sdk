@@ -43,10 +43,12 @@ class TransactionDetails {
      * @param source {module:model/TransactionSource} 
      * @param destination {module:model/TransactionDestination} 
      * @param initiator_type {module:model/TransactionInitiatorType} 
+     * @param created_timestamp {Number} The time when the transaction was created, in Unix timestamp format, measured in milliseconds.
+     * @param updated_timestamp {Number} The time when the transaction was updated, in Unix timestamp format, measured in milliseconds.
      */
-    constructor(transaction_id, wallet_id, status, source, destination, initiator_type) { 
-        Transaction.initialize(this, transaction_id, wallet_id, status, source, destination, initiator_type);
-        TransactionDetails.initialize(this, transaction_id, wallet_id, status, source, destination, initiator_type);
+    constructor(transaction_id, wallet_id, status, source, destination, initiator_type, created_timestamp, updated_timestamp) { 
+        Transaction.initialize(this, transaction_id, wallet_id, status, source, destination, initiator_type, created_timestamp, updated_timestamp);
+        TransactionDetails.initialize(this, transaction_id, wallet_id, status, source, destination, initiator_type, created_timestamp, updated_timestamp);
     }
 
     /**
@@ -54,13 +56,15 @@ class TransactionDetails {
      * This method is used by the constructors of any subclasses, in order to implement multiple inheritance (mix-ins).
      * Only for internal use.
      */
-    static initialize(obj, transaction_id, wallet_id, status, source, destination, initiator_type) { 
+    static initialize(obj, transaction_id, wallet_id, status, source, destination, initiator_type, created_timestamp, updated_timestamp) { 
         obj['transaction_id'] = transaction_id;
         obj['wallet_id'] = wallet_id;
         obj['status'] = status;
         obj['source'] = source;
         obj['destination'] = destination;
         obj['initiator_type'] = initiator_type;
+        obj['created_timestamp'] = created_timestamp;
+        obj['updated_timestamp'] = updated_timestamp;
     }
 
     /**
@@ -155,6 +159,9 @@ class TransactionDetails {
             }
             if (data.hasOwnProperty('cobo_category')) {
                 obj['cobo_category'] = ApiClient.convertToType(data['cobo_category'], ['String']);
+            }
+            if (data.hasOwnProperty('extra')) {
+                obj['extra'] = ApiClient.convertToType(data['extra'], ['String']);
             }
             if (data.hasOwnProperty('fueling_info')) {
                 obj['fueling_info'] = TransactionFuelingInfo.constructFromObject(data['fueling_info']);
@@ -302,6 +309,10 @@ class TransactionDetails {
         if (!Array.isArray(data['cobo_category'])) {
             throw new Error("Expected the field `cobo_category` to be an array in the JSON data but got " + data['cobo_category']);
         }
+        // ensure the json data is an array
+        if (!Array.isArray(data['extra'])) {
+            throw new Error("Expected the field `extra` to be an array in the JSON data but got " + data['extra']);
+        }
         // validate the optional field `fueling_info`
         if (data['fueling_info']) { // data not null
           if (!!TransactionFuelingInfo.validateJSON) {
@@ -367,7 +378,7 @@ class TransactionDetails {
 
 }
 
-TransactionDetails.RequiredProperties = ["transaction_id", "wallet_id", "status", "source", "destination", "initiator_type"];
+TransactionDetails.RequiredProperties = ["transaction_id", "wallet_id", "status", "source", "destination", "initiator_type", "created_timestamp", "updated_timestamp"];
 
 /**
  * The transaction ID.
@@ -515,10 +526,16 @@ TransactionDetails.prototype['description'] = undefined;
 TransactionDetails.prototype['is_loop'] = undefined;
 
 /**
- * A transaction category for cobo to identify your transactions.
+ * The transaction category defined by Cobo. Possible values include:  - `AutoSweep`: An auto-sweep transaction. - `AutoFueling`: A transaction where Fee Station pays transaction fees to an address within your wallet. - `AutoFuelingRefund`: A refund for an auto-fueling transaction. - `SafeTxMessage`: A message signing transaction to authorize a Smart Contract Wallet (Safe\\{Wallet\\}) transaction. - `BillPayment`: A transaction to pay Cobo bills through Fee Station. - `BillRefund`: A refund for a previously made bill payment. - `CommissionFeeCharge`: A transaction to charge commission fees via Fee Station. - `CommissionFeeRefund`: A refund of previously charged commission fees. 
  * @member {Array.<String>} cobo_category
  */
 TransactionDetails.prototype['cobo_category'] = undefined;
+
+/**
+ * The transaction extra information.
+ * @member {Array.<String>} extra
+ */
+TransactionDetails.prototype['extra'] = undefined;
 
 /**
  * @member {module:model/TransactionFuelingInfo} fueling_info
@@ -709,10 +726,15 @@ Transaction.prototype['description'] = undefined;
  */
 Transaction.prototype['is_loop'] = undefined;
 /**
- * A transaction category for cobo to identify your transactions.
+ * The transaction category defined by Cobo. Possible values include:  - `AutoSweep`: An auto-sweep transaction. - `AutoFueling`: A transaction where Fee Station pays transaction fees to an address within your wallet. - `AutoFuelingRefund`: A refund for an auto-fueling transaction. - `SafeTxMessage`: A message signing transaction to authorize a Smart Contract Wallet (Safe\\{Wallet\\}) transaction. - `BillPayment`: A transaction to pay Cobo bills through Fee Station. - `BillRefund`: A refund for a previously made bill payment. - `CommissionFeeCharge`: A transaction to charge commission fees via Fee Station. - `CommissionFeeRefund`: A refund of previously charged commission fees. 
  * @member {Array.<String>} cobo_category
  */
 Transaction.prototype['cobo_category'] = undefined;
+/**
+ * The transaction extra information.
+ * @member {Array.<String>} extra
+ */
+Transaction.prototype['extra'] = undefined;
 /**
  * @member {module:model/TransactionFuelingInfo} fueling_info
  */

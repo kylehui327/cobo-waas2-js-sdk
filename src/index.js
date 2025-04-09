@@ -37,6 +37,8 @@ import ApprovalStatementStatus from './model/ApprovalStatementStatus';
 import AssetBalance from './model/AssetBalance';
 import AssetInfo from './model/AssetInfo';
 import AutoFuelType from './model/AutoFuelType';
+import BTCBIP137MessageSignDestination from './model/BTCBIP137MessageSignDestination';
+import BTCBIP322MessageSignDestination from './model/BTCBIP322MessageSignDestination';
 import BTCEIP191MessageSignDestination from './model/BTCEIP191MessageSignDestination';
 import BabylonAirdropPop from './model/BabylonAirdropPop';
 import BabylonAirdropRegistration from './model/BabylonAirdropRegistration';
@@ -50,6 +52,7 @@ import BabylonStakingExtra from './model/BabylonStakingExtra';
 import BabylonStakingRegistration from './model/BabylonStakingRegistration';
 import BabylonValidator from './model/BabylonValidator';
 import Balance from './model/Balance';
+import BankAccount from './model/BankAccount';
 import BaseContractCallSource from './model/BaseContractCallSource';
 import BaseEstimateStakingFee from './model/BaseEstimateStakingFee';
 import BaseStakeExtra from './model/BaseStakeExtra';
@@ -74,6 +77,9 @@ import ContractCallSourceType from './model/ContractCallSourceType';
 import CoreStakeExtra from './model/CoreStakeExtra';
 import CoreStakingActivityDetailExtra from './model/CoreStakingActivityDetailExtra';
 import CoreStakingExtra from './model/CoreStakingExtra';
+import CosmosAdr36MessageSignDestination from './model/CosmosAdr36MessageSignDestination';
+import CosmosContractCallDestination from './model/CosmosContractCallDestination';
+import CosmosContractCallMessage from './model/CosmosContractCallMessage';
 import CreateAddressRequest from './model/CreateAddressRequest';
 import CreateBabylonAirdropRegistration201Response from './model/CreateBabylonAirdropRegistration201Response';
 import CreateBabylonAirdropRegistrationRequest from './model/CreateBabylonAirdropRegistrationRequest';
@@ -91,14 +97,12 @@ import CreateMpcWalletParams from './model/CreateMpcWalletParams';
 import CreatePrimeBrokerAddress201Response from './model/CreatePrimeBrokerAddress201Response';
 import CreatePrimeBrokerAddressRequest from './model/CreatePrimeBrokerAddressRequest';
 import CreateSafeWalletParams from './model/CreateSafeWalletParams';
+import CreateSettlement from './model/CreateSettlement';
 import CreateSmartContractWalletParams from './model/CreateSmartContractWalletParams';
 import CreateStakeActivity from './model/CreateStakeActivity';
 import CreateStakeActivity201Response from './model/CreateStakeActivity201Response';
 import CreateStakeActivityExtra from './model/CreateStakeActivityExtra';
 import CreateStakeActivityRequest from './model/CreateStakeActivityRequest';
-import CreateSwapActivityRequest from './model/CreateSwapActivityRequest';
-import CreateSwapQuote201Response from './model/CreateSwapQuote201Response';
-import CreateSwapQuoteRequest from './model/CreateSwapQuoteRequest';
 import CreateTransferTransaction201Response from './model/CreateTransferTransaction201Response';
 import CreateTssRequestRequest from './model/CreateTssRequestRequest';
 import CreateUnstakeActivity from './model/CreateUnstakeActivity';
@@ -187,7 +191,6 @@ import ListBabylonEligibleStakings200Response from './model/ListBabylonEligibleS
 import ListBabylonEligibleStakings200ResponseDataInner from './model/ListBabylonEligibleStakings200ResponseDataInner';
 import ListBabylonStakingRegistrations200Response from './model/ListBabylonStakingRegistrations200Response';
 import ListCallbackMessages200Response from './model/ListCallbackMessages200Response';
-import ListEnableTokenPairs200Response from './model/ListEnableTokenPairs200Response';
 import ListExchanges200ResponseInner from './model/ListExchanges200ResponseInner';
 import ListKeyShareHolderGroups200Response from './model/ListKeyShareHolderGroups200Response';
 import ListKeyShareHolders200Response from './model/ListKeyShareHolders200Response';
@@ -200,7 +203,6 @@ import ListSupportedAssetsForExchange200Response from './model/ListSupportedAsse
 import ListSupportedChains200Response from './model/ListSupportedChains200Response';
 import ListSupportedCountries200ResponseInner from './model/ListSupportedCountries200ResponseInner';
 import ListSupportedTokens200Response from './model/ListSupportedTokens200Response';
-import ListSwapActivities200Response from './model/ListSwapActivities200Response';
 import ListTokenBalancesForAddress200Response from './model/ListTokenBalancesForAddress200Response';
 import ListTransactionApprovalDetails200Response from './model/ListTransactionApprovalDetails200Response';
 import ListTransactions200Response from './model/ListTransactions200Response';
@@ -222,6 +224,7 @@ import MPCVaultType from './model/MPCVaultType';
 import MPCWalletInfo from './model/MPCWalletInfo';
 import MaxFeeAmount from './model/MaxFeeAmount';
 import MaxTransferableValue from './model/MaxTransferableValue';
+import Merchant from './model/Merchant';
 import MessageSignDestination from './model/MessageSignDestination';
 import MessageSignDestinationType from './model/MessageSignDestinationType';
 import MessageSignParams from './model/MessageSignParams';
@@ -232,8 +235,11 @@ import MpcMessageSignSource from './model/MpcMessageSignSource';
 import MpcSigningGroup from './model/MpcSigningGroup';
 import MpcStakeSource from './model/MpcStakeSource';
 import MpcTransferSource from './model/MpcTransferSource';
+import Order from './model/Order';
+import OrderStatus from './model/OrderStatus';
 import OrgInfo from './model/OrgInfo';
 import Pagination from './model/Pagination';
+import PaymentTransaction from './model/PaymentTransaction';
 import PoolDetails from './model/PoolDetails';
 import PoolDetailsAllOfValidatorsInfo from './model/PoolDetailsAllOfValidatorsInfo';
 import PoolSummary from './model/PoolSummary';
@@ -245,6 +251,9 @@ import RefreshAddressBalancesByToken200Response from './model/RefreshAddressBala
 import RefreshAddressBalancesByTokenRequest from './model/RefreshAddressBalancesByTokenRequest';
 import RefreshToken2XXResponse from './model/RefreshToken2XXResponse';
 import RefreshTokenRequest from './model/RefreshTokenRequest';
+import Refund from './model/Refund';
+import RefundStatus from './model/RefundStatus';
+import RefundType from './model/RefundType';
 import ReplaceType from './model/ReplaceType';
 import RetryCallbackMessage201Response from './model/RetryCallbackMessage201Response';
 import RetryWebhookEventById201Response from './model/RetryWebhookEventById201Response';
@@ -263,6 +272,12 @@ import SafeWalletDelegatesTransfer from './model/SafeWalletDelegatesTransfer';
 import Scopes from './model/Scopes';
 import SelectedEntityType from './model/SelectedEntityType';
 import SelfCustodyWallet from './model/SelfCustodyWallet';
+import SettleRequestStatus from './model/SettleRequestStatus';
+import SettleStatus from './model/SettleStatus';
+import Settlement from './model/Settlement';
+import SettlementDetail from './model/SettlementDetail';
+import SettlementInfo from './model/SettlementInfo';
+import SettlementType from './model/SettlementType';
 import SmartContractInitiator from './model/SmartContractInitiator';
 import SmartContractWalletInfo from './model/SmartContractWalletInfo';
 import SmartContractWalletOperationType from './model/SmartContractWalletOperationType';
@@ -280,8 +295,10 @@ import StakingsExtra from './model/StakingsExtra';
 import SubWalletAssetBalance from './model/SubWalletAssetBalance';
 import SubmitDepositTravelRuleInfo201Response from './model/SubmitDepositTravelRuleInfo201Response';
 import SwapActivity from './model/SwapActivity';
+import SwapActivityStatus from './model/SwapActivityStatus';
+import SwapActivityType from './model/SwapActivityType';
 import SwapQuote from './model/SwapQuote';
-import SwapTokenPair from './model/SwapTokenPair';
+import SwapToken from './model/SwapToken';
 import TSSGroups from './model/TSSGroups';
 import TSSRequest from './model/TSSRequest';
 import TSSRequestStatus from './model/TSSRequestStatus';
@@ -290,13 +307,25 @@ import TSSRequestWebhookEventData from './model/TSSRequestWebhookEventData';
 import TokenAssetModelType from './model/TokenAssetModelType';
 import TokenBalance from './model/TokenBalance';
 import TokenInfo from './model/TokenInfo';
+import TokenListing from './model/TokenListing';
+import TokenListingEventData from './model/TokenListingEventData';
+import TokenListingRequestSource from './model/TokenListingRequestSource';
+import TokenListingRequestStatus from './model/TokenListingRequestStatus';
 import TokensEventData from './model/TokensEventData';
 import Transaction from './model/Transaction';
 import TransactionApprovalDetail from './model/TransactionApprovalDetail';
 import TransactionApprovalResult from './model/TransactionApprovalResult';
 import TransactionApprover from './model/TransactionApprover';
+import TransactionBIP137Destination from './model/TransactionBIP137Destination';
+import TransactionBIP322Destination from './model/TransactionBIP322Destination';
+import TransactionBabylonBusinessInfo from './model/TransactionBabylonBusinessInfo';
+import TransactionBabylonTxParameters from './model/TransactionBabylonTxParameters';
 import TransactionBlockInfo from './model/TransactionBlockInfo';
 import TransactionCoboCategory from './model/TransactionCoboCategory';
+import TransactionCoreStakeInfo from './model/TransactionCoreStakeInfo';
+import TransactionCosmosAdr36Destination from './model/TransactionCosmosAdr36Destination';
+import TransactionCosmosContractDestination from './model/TransactionCosmosContractDestination';
+import TransactionCosmosMessage from './model/TransactionCosmosMessage';
 import TransactionCustodialAssetWalletSource from './model/TransactionCustodialAssetWalletSource';
 import TransactionCustodialWeb3WalletSource from './model/TransactionCustodialWeb3WalletSource';
 import TransactionDepositFromAddressSource from './model/TransactionDepositFromAddressSource';
@@ -315,12 +344,15 @@ import TransactionEvmContractMethod from './model/TransactionEvmContractMethod';
 import TransactionEvmEip1559Fee from './model/TransactionEvmEip1559Fee';
 import TransactionEvmLegacyFee from './model/TransactionEvmLegacyFee';
 import TransactionExchangeWalletSource from './model/TransactionExchangeWalletSource';
+import TransactionExtra from './model/TransactionExtra';
+import TransactionExtraType from './model/TransactionExtraType';
 import TransactionFee from './model/TransactionFee';
 import TransactionFeeStationWalletSource from './model/TransactionFeeStationWalletSource';
 import TransactionFixedFee from './model/TransactionFixedFee';
 import TransactionFuelingInfo from './model/TransactionFuelingInfo';
 import TransactionInitiatorType from './model/TransactionInitiatorType';
 import TransactionMPCWalletSource from './model/TransactionMPCWalletSource';
+import TransactionMessageSignBTCEIP191Destination from './model/TransactionMessageSignBTCEIP191Destination';
 import TransactionMessageSignEIP191Destination from './model/TransactionMessageSignEIP191Destination';
 import TransactionMessageSignEIP712Destination from './model/TransactionMessageSignEIP712Destination';
 import TransactionProcessType from './model/TransactionProcessType';
@@ -413,7 +445,6 @@ import FeeStationApi from './api/FeeStationApi';
 import OAuthApi from './api/OAuthApi';
 import PrimeBrokerApi from './api/PrimeBrokerApi';
 import StakingsApi from './api/StakingsApi';
-import SwapsApi from './api/SwapsApi';
 import TransactionsApi from './api/TransactionsApi';
 import TravelRuleApi from './api/TravelRuleApi';
 import WalletsApi from './api/WalletsApi';
@@ -452,7 +483,7 @@ import WalletsSmartContractWalletsApi from './api/WalletsSmartContractWalletsApi
 * </pre>
 * </p>
 * @module index
-* @version 1.12.0
+* @version 1.13.0
 */
 export {
     Env,
@@ -609,6 +640,18 @@ export {
     AutoFuelType,
 
     /**
+     * The BTCBIP137MessageSignDestination model constructor.
+     * @property {module:model/BTCBIP137MessageSignDestination}
+     */
+    BTCBIP137MessageSignDestination,
+
+    /**
+     * The BTCBIP322MessageSignDestination model constructor.
+     * @property {module:model/BTCBIP322MessageSignDestination}
+     */
+    BTCBIP322MessageSignDestination,
+
+    /**
      * The BTCEIP191MessageSignDestination model constructor.
      * @property {module:model/BTCEIP191MessageSignDestination}
      */
@@ -685,6 +728,12 @@ export {
      * @property {module:model/Balance}
      */
     Balance,
+
+    /**
+     * The BankAccount model constructor.
+     * @property {module:model/BankAccount}
+     */
+    BankAccount,
 
     /**
      * The BaseContractCallSource model constructor.
@@ -831,6 +880,24 @@ export {
     CoreStakingExtra,
 
     /**
+     * The CosmosAdr36MessageSignDestination model constructor.
+     * @property {module:model/CosmosAdr36MessageSignDestination}
+     */
+    CosmosAdr36MessageSignDestination,
+
+    /**
+     * The CosmosContractCallDestination model constructor.
+     * @property {module:model/CosmosContractCallDestination}
+     */
+    CosmosContractCallDestination,
+
+    /**
+     * The CosmosContractCallMessage model constructor.
+     * @property {module:model/CosmosContractCallMessage}
+     */
+    CosmosContractCallMessage,
+
+    /**
      * The CreateAddressRequest model constructor.
      * @property {module:model/CreateAddressRequest}
      */
@@ -933,6 +1000,12 @@ export {
     CreateSafeWalletParams,
 
     /**
+     * The CreateSettlement model constructor.
+     * @property {module:model/CreateSettlement}
+     */
+    CreateSettlement,
+
+    /**
      * The CreateSmartContractWalletParams model constructor.
      * @property {module:model/CreateSmartContractWalletParams}
      */
@@ -961,24 +1034,6 @@ export {
      * @property {module:model/CreateStakeActivityRequest}
      */
     CreateStakeActivityRequest,
-
-    /**
-     * The CreateSwapActivityRequest model constructor.
-     * @property {module:model/CreateSwapActivityRequest}
-     */
-    CreateSwapActivityRequest,
-
-    /**
-     * The CreateSwapQuote201Response model constructor.
-     * @property {module:model/CreateSwapQuote201Response}
-     */
-    CreateSwapQuote201Response,
-
-    /**
-     * The CreateSwapQuoteRequest model constructor.
-     * @property {module:model/CreateSwapQuoteRequest}
-     */
-    CreateSwapQuoteRequest,
 
     /**
      * The CreateTransferTransaction201Response model constructor.
@@ -1509,12 +1564,6 @@ export {
     ListCallbackMessages200Response,
 
     /**
-     * The ListEnableTokenPairs200Response model constructor.
-     * @property {module:model/ListEnableTokenPairs200Response}
-     */
-    ListEnableTokenPairs200Response,
-
-    /**
      * The ListExchanges200ResponseInner model constructor.
      * @property {module:model/ListExchanges200ResponseInner}
      */
@@ -1585,12 +1634,6 @@ export {
      * @property {module:model/ListSupportedTokens200Response}
      */
     ListSupportedTokens200Response,
-
-    /**
-     * The ListSwapActivities200Response model constructor.
-     * @property {module:model/ListSwapActivities200Response}
-     */
-    ListSwapActivities200Response,
 
     /**
      * The ListTokenBalancesForAddress200Response model constructor.
@@ -1719,6 +1762,12 @@ export {
     MaxTransferableValue,
 
     /**
+     * The Merchant model constructor.
+     * @property {module:model/Merchant}
+     */
+    Merchant,
+
+    /**
      * The MessageSignDestination model constructor.
      * @property {module:model/MessageSignDestination}
      */
@@ -1779,6 +1828,18 @@ export {
     MpcTransferSource,
 
     /**
+     * The Order model constructor.
+     * @property {module:model/Order}
+     */
+    Order,
+
+    /**
+     * The OrderStatus model constructor.
+     * @property {module:model/OrderStatus}
+     */
+    OrderStatus,
+
+    /**
      * The OrgInfo model constructor.
      * @property {module:model/OrgInfo}
      */
@@ -1789,6 +1850,12 @@ export {
      * @property {module:model/Pagination}
      */
     Pagination,
+
+    /**
+     * The PaymentTransaction model constructor.
+     * @property {module:model/PaymentTransaction}
+     */
+    PaymentTransaction,
 
     /**
      * The PoolDetails model constructor.
@@ -1855,6 +1922,24 @@ export {
      * @property {module:model/RefreshTokenRequest}
      */
     RefreshTokenRequest,
+
+    /**
+     * The Refund model constructor.
+     * @property {module:model/Refund}
+     */
+    Refund,
+
+    /**
+     * The RefundStatus model constructor.
+     * @property {module:model/RefundStatus}
+     */
+    RefundStatus,
+
+    /**
+     * The RefundType model constructor.
+     * @property {module:model/RefundType}
+     */
+    RefundType,
 
     /**
      * The ReplaceType model constructor.
@@ -1965,6 +2050,42 @@ export {
     SelfCustodyWallet,
 
     /**
+     * The SettleRequestStatus model constructor.
+     * @property {module:model/SettleRequestStatus}
+     */
+    SettleRequestStatus,
+
+    /**
+     * The SettleStatus model constructor.
+     * @property {module:model/SettleStatus}
+     */
+    SettleStatus,
+
+    /**
+     * The Settlement model constructor.
+     * @property {module:model/Settlement}
+     */
+    Settlement,
+
+    /**
+     * The SettlementDetail model constructor.
+     * @property {module:model/SettlementDetail}
+     */
+    SettlementDetail,
+
+    /**
+     * The SettlementInfo model constructor.
+     * @property {module:model/SettlementInfo}
+     */
+    SettlementInfo,
+
+    /**
+     * The SettlementType model constructor.
+     * @property {module:model/SettlementType}
+     */
+    SettlementType,
+
+    /**
      * The SmartContractInitiator model constructor.
      * @property {module:model/SmartContractInitiator}
      */
@@ -2067,16 +2188,28 @@ export {
     SwapActivity,
 
     /**
+     * The SwapActivityStatus model constructor.
+     * @property {module:model/SwapActivityStatus}
+     */
+    SwapActivityStatus,
+
+    /**
+     * The SwapActivityType model constructor.
+     * @property {module:model/SwapActivityType}
+     */
+    SwapActivityType,
+
+    /**
      * The SwapQuote model constructor.
      * @property {module:model/SwapQuote}
      */
     SwapQuote,
 
     /**
-     * The SwapTokenPair model constructor.
-     * @property {module:model/SwapTokenPair}
+     * The SwapToken model constructor.
+     * @property {module:model/SwapToken}
      */
-    SwapTokenPair,
+    SwapToken,
 
     /**
      * The TSSGroups model constructor.
@@ -2127,6 +2260,30 @@ export {
     TokenInfo,
 
     /**
+     * The TokenListing model constructor.
+     * @property {module:model/TokenListing}
+     */
+    TokenListing,
+
+    /**
+     * The TokenListingEventData model constructor.
+     * @property {module:model/TokenListingEventData}
+     */
+    TokenListingEventData,
+
+    /**
+     * The TokenListingRequestSource model constructor.
+     * @property {module:model/TokenListingRequestSource}
+     */
+    TokenListingRequestSource,
+
+    /**
+     * The TokenListingRequestStatus model constructor.
+     * @property {module:model/TokenListingRequestStatus}
+     */
+    TokenListingRequestStatus,
+
+    /**
      * The TokensEventData model constructor.
      * @property {module:model/TokensEventData}
      */
@@ -2157,6 +2314,30 @@ export {
     TransactionApprover,
 
     /**
+     * The TransactionBIP137Destination model constructor.
+     * @property {module:model/TransactionBIP137Destination}
+     */
+    TransactionBIP137Destination,
+
+    /**
+     * The TransactionBIP322Destination model constructor.
+     * @property {module:model/TransactionBIP322Destination}
+     */
+    TransactionBIP322Destination,
+
+    /**
+     * The TransactionBabylonBusinessInfo model constructor.
+     * @property {module:model/TransactionBabylonBusinessInfo}
+     */
+    TransactionBabylonBusinessInfo,
+
+    /**
+     * The TransactionBabylonTxParameters model constructor.
+     * @property {module:model/TransactionBabylonTxParameters}
+     */
+    TransactionBabylonTxParameters,
+
+    /**
      * The TransactionBlockInfo model constructor.
      * @property {module:model/TransactionBlockInfo}
      */
@@ -2167,6 +2348,30 @@ export {
      * @property {module:model/TransactionCoboCategory}
      */
     TransactionCoboCategory,
+
+    /**
+     * The TransactionCoreStakeInfo model constructor.
+     * @property {module:model/TransactionCoreStakeInfo}
+     */
+    TransactionCoreStakeInfo,
+
+    /**
+     * The TransactionCosmosAdr36Destination model constructor.
+     * @property {module:model/TransactionCosmosAdr36Destination}
+     */
+    TransactionCosmosAdr36Destination,
+
+    /**
+     * The TransactionCosmosContractDestination model constructor.
+     * @property {module:model/TransactionCosmosContractDestination}
+     */
+    TransactionCosmosContractDestination,
+
+    /**
+     * The TransactionCosmosMessage model constructor.
+     * @property {module:model/TransactionCosmosMessage}
+     */
+    TransactionCosmosMessage,
 
     /**
      * The TransactionCustodialAssetWalletSource model constructor.
@@ -2277,6 +2482,18 @@ export {
     TransactionExchangeWalletSource,
 
     /**
+     * The TransactionExtra model constructor.
+     * @property {module:model/TransactionExtra}
+     */
+    TransactionExtra,
+
+    /**
+     * The TransactionExtraType model constructor.
+     * @property {module:model/TransactionExtraType}
+     */
+    TransactionExtraType,
+
+    /**
      * The TransactionFee model constructor.
      * @property {module:model/TransactionFee}
      */
@@ -2311,6 +2528,12 @@ export {
      * @property {module:model/TransactionMPCWalletSource}
      */
     TransactionMPCWalletSource,
+
+    /**
+     * The TransactionMessageSignBTCEIP191Destination model constructor.
+     * @property {module:model/TransactionMessageSignBTCEIP191Destination}
+     */
+    TransactionMessageSignBTCEIP191Destination,
 
     /**
      * The TransactionMessageSignEIP191Destination model constructor.
@@ -2863,12 +3086,6 @@ export {
     * @property {module:api/StakingsApi}
     */
     StakingsApi,
-
-    /**
-    * The SwapsApi service constructor.
-    * @property {module:api/SwapsApi}
-    */
-    SwapsApi,
 
     /**
     * The TransactionsApi service constructor.

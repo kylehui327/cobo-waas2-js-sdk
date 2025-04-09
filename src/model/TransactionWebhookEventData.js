@@ -35,17 +35,19 @@ class TransactionWebhookEventData {
      * @alias module:model/TransactionWebhookEventData
      * @implements module:model/WebhookEventDataType
      * @implements module:model/Transaction
-     * @param data_type {module:model/TransactionWebhookEventData.DataTypeEnum}  The data type of the event. - `Transaction`: The transaction event data. - `TSSRequest`: The TSS request event data. - `Addresses`: The addresses event data. - `WalletInfo`: The wallet information event data. - `MPCVault`: The MPC vault event data. - `Chains`: The enabled chain event data. - `Tokens`: The enabled token event data.
+     * @param data_type {module:model/TransactionWebhookEventData.DataTypeEnum}  The data type of the event. - `Transaction`: The transaction event data. - `TSSRequest`: The TSS request event data. - `Addresses`: The addresses event data. - `WalletInfo`: The wallet information event data. - `MPCVault`: The MPC vault event data. - `Chains`: The enabled chain event data. - `Tokens`: The enabled token event data. - `TokenListing`: The token listing event data.
      * @param transaction_id {String} The transaction ID.
      * @param wallet_id {String} For deposit transactions, this property represents the wallet ID of the transaction destination. For transactions of other types, this property represents the wallet ID of the transaction source.
      * @param status {module:model/TransactionStatus} 
      * @param source {module:model/TransactionSource} 
      * @param destination {module:model/TransactionDestination} 
      * @param initiator_type {module:model/TransactionInitiatorType} 
+     * @param created_timestamp {Number} The time when the transaction was created, in Unix timestamp format, measured in milliseconds.
+     * @param updated_timestamp {Number} The time when the transaction was updated, in Unix timestamp format, measured in milliseconds.
      */
-    constructor(data_type, transaction_id, wallet_id, status, source, destination, initiator_type) { 
-        WebhookEventDataType.initialize(this, data_type);Transaction.initialize(this, transaction_id, wallet_id, status, source, destination, initiator_type);
-        TransactionWebhookEventData.initialize(this, data_type, transaction_id, wallet_id, status, source, destination, initiator_type);
+    constructor(data_type, transaction_id, wallet_id, status, source, destination, initiator_type, created_timestamp, updated_timestamp) { 
+        WebhookEventDataType.initialize(this, data_type);Transaction.initialize(this, transaction_id, wallet_id, status, source, destination, initiator_type, created_timestamp, updated_timestamp);
+        TransactionWebhookEventData.initialize(this, data_type, transaction_id, wallet_id, status, source, destination, initiator_type, created_timestamp, updated_timestamp);
     }
 
     /**
@@ -53,7 +55,7 @@ class TransactionWebhookEventData {
      * This method is used by the constructors of any subclasses, in order to implement multiple inheritance (mix-ins).
      * Only for internal use.
      */
-    static initialize(obj, data_type, transaction_id, wallet_id, status, source, destination, initiator_type) { 
+    static initialize(obj, data_type, transaction_id, wallet_id, status, source, destination, initiator_type, created_timestamp, updated_timestamp) { 
         obj['data_type'] = data_type;
         obj['transaction_id'] = transaction_id;
         obj['wallet_id'] = wallet_id;
@@ -61,6 +63,8 @@ class TransactionWebhookEventData {
         obj['source'] = source;
         obj['destination'] = destination;
         obj['initiator_type'] = initiator_type;
+        obj['created_timestamp'] = created_timestamp;
+        obj['updated_timestamp'] = updated_timestamp;
     }
 
     /**
@@ -159,6 +163,9 @@ class TransactionWebhookEventData {
             }
             if (data.hasOwnProperty('cobo_category')) {
                 obj['cobo_category'] = ApiClient.convertToType(data['cobo_category'], ['String']);
+            }
+            if (data.hasOwnProperty('extra')) {
+                obj['extra'] = ApiClient.convertToType(data['extra'], ['String']);
             }
             if (data.hasOwnProperty('fueling_info')) {
                 obj['fueling_info'] = TransactionFuelingInfo.constructFromObject(data['fueling_info']);
@@ -283,6 +290,10 @@ class TransactionWebhookEventData {
         if (!Array.isArray(data['cobo_category'])) {
             throw new Error("Expected the field `cobo_category` to be an array in the JSON data but got " + data['cobo_category']);
         }
+        // ensure the json data is an array
+        if (!Array.isArray(data['extra'])) {
+            throw new Error("Expected the field `extra` to be an array in the JSON data but got " + data['extra']);
+        }
         // validate the optional field `fueling_info`
         if (data['fueling_info']) { // data not null
           if (!!TransactionFuelingInfo.validateJSON) {
@@ -296,10 +307,10 @@ class TransactionWebhookEventData {
 
 }
 
-TransactionWebhookEventData.RequiredProperties = ["data_type", "transaction_id", "wallet_id", "status", "source", "destination", "initiator_type"];
+TransactionWebhookEventData.RequiredProperties = ["data_type", "transaction_id", "wallet_id", "status", "source", "destination", "initiator_type", "created_timestamp", "updated_timestamp"];
 
 /**
- *  The data type of the event. - `Transaction`: The transaction event data. - `TSSRequest`: The TSS request event data. - `Addresses`: The addresses event data. - `WalletInfo`: The wallet information event data. - `MPCVault`: The MPC vault event data. - `Chains`: The enabled chain event data. - `Tokens`: The enabled token event data.
+ *  The data type of the event. - `Transaction`: The transaction event data. - `TSSRequest`: The TSS request event data. - `Addresses`: The addresses event data. - `WalletInfo`: The wallet information event data. - `MPCVault`: The MPC vault event data. - `Chains`: The enabled chain event data. - `Tokens`: The enabled token event data. - `TokenListing`: The token listing event data.
  * @member {module:model/TransactionWebhookEventData.DataTypeEnum} data_type
  */
 TransactionWebhookEventData.prototype['data_type'] = undefined;
@@ -450,10 +461,16 @@ TransactionWebhookEventData.prototype['description'] = undefined;
 TransactionWebhookEventData.prototype['is_loop'] = undefined;
 
 /**
- * A transaction category for cobo to identify your transactions.
+ * The transaction category defined by Cobo. Possible values include:  - `AutoSweep`: An auto-sweep transaction. - `AutoFueling`: A transaction where Fee Station pays transaction fees to an address within your wallet. - `AutoFuelingRefund`: A refund for an auto-fueling transaction. - `SafeTxMessage`: A message signing transaction to authorize a Smart Contract Wallet (Safe\\{Wallet\\}) transaction. - `BillPayment`: A transaction to pay Cobo bills through Fee Station. - `BillRefund`: A refund for a previously made bill payment. - `CommissionFeeCharge`: A transaction to charge commission fees via Fee Station. - `CommissionFeeRefund`: A refund of previously charged commission fees. 
  * @member {Array.<String>} cobo_category
  */
 TransactionWebhookEventData.prototype['cobo_category'] = undefined;
+
+/**
+ * The transaction extra information.
+ * @member {Array.<String>} extra
+ */
+TransactionWebhookEventData.prototype['extra'] = undefined;
 
 /**
  * @member {module:model/TransactionFuelingInfo} fueling_info
@@ -475,7 +492,7 @@ TransactionWebhookEventData.prototype['updated_timestamp'] = undefined;
 
 // Implement WebhookEventDataType interface:
 /**
- *  The data type of the event. - `Transaction`: The transaction event data. - `TSSRequest`: The TSS request event data. - `Addresses`: The addresses event data. - `WalletInfo`: The wallet information event data. - `MPCVault`: The MPC vault event data. - `Chains`: The enabled chain event data. - `Tokens`: The enabled token event data.
+ *  The data type of the event. - `Transaction`: The transaction event data. - `TSSRequest`: The TSS request event data. - `Addresses`: The addresses event data. - `WalletInfo`: The wallet information event data. - `MPCVault`: The MPC vault event data. - `Chains`: The enabled chain event data. - `Tokens`: The enabled token event data. - `TokenListing`: The token listing event data.
  * @member {module:model/WebhookEventDataType.DataTypeEnum} data_type
  */
 WebhookEventDataType.prototype['data_type'] = undefined;
@@ -600,10 +617,15 @@ Transaction.prototype['description'] = undefined;
  */
 Transaction.prototype['is_loop'] = undefined;
 /**
- * A transaction category for cobo to identify your transactions.
+ * The transaction category defined by Cobo. Possible values include:  - `AutoSweep`: An auto-sweep transaction. - `AutoFueling`: A transaction where Fee Station pays transaction fees to an address within your wallet. - `AutoFuelingRefund`: A refund for an auto-fueling transaction. - `SafeTxMessage`: A message signing transaction to authorize a Smart Contract Wallet (Safe\\{Wallet\\}) transaction. - `BillPayment`: A transaction to pay Cobo bills through Fee Station. - `BillRefund`: A refund for a previously made bill payment. - `CommissionFeeCharge`: A transaction to charge commission fees via Fee Station. - `CommissionFeeRefund`: A refund of previously charged commission fees. 
  * @member {Array.<String>} cobo_category
  */
 Transaction.prototype['cobo_category'] = undefined;
+/**
+ * The transaction extra information.
+ * @member {Array.<String>} extra
+ */
+Transaction.prototype['extra'] = undefined;
 /**
  * @member {module:model/TransactionFuelingInfo} fueling_info
  */
@@ -669,6 +691,12 @@ TransactionWebhookEventData['DataTypeEnum'] = {
      * @const
      */
     "Tokens": "Tokens",
+
+    /**
+     * value: "TokenListing"
+     * @const
+     */
+    "TokenListing": "TokenListing",
 
     /**
      * value: "unknown_default_open_api"

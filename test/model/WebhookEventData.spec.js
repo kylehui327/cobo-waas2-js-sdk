@@ -220,6 +220,12 @@
       //expect(instance).to.be();
     });
 
+    it('should have the property extra (base name: "extra")', function() {
+      // uncomment below and update the code to test the property extra
+      //var instance = new CoboWaas2.WebhookEventData();
+      //expect(instance).to.be();
+    });
+
     it('should have the property fueling_info (base name: "fueling_info")', function() {
       // uncomment below and update the code to test the property fueling_info
       //var instance = new CoboWaas2.WebhookEventData();
@@ -300,6 +306,36 @@
 
     it('should have the property tokens (base name: "tokens")', function() {
       // uncomment below and update the code to test the property tokens
+      //var instance = new CoboWaas2.WebhookEventData();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property contract_address (base name: "contract_address")', function() {
+      // uncomment below and update the code to test the property contract_address
+      //var instance = new CoboWaas2.WebhookEventData();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property wallet_type (base name: "wallet_type")', function() {
+      // uncomment below and update the code to test the property wallet_type
+      //var instance = new CoboWaas2.WebhookEventData();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property wallet_subtype (base name: "wallet_subtype")', function() {
+      // uncomment below and update the code to test the property wallet_subtype
+      //var instance = new CoboWaas2.WebhookEventData();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property token (base name: "token")', function() {
+      // uncomment below and update the code to test the property token
+      //var instance = new CoboWaas2.WebhookEventData();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property feedback (base name: "feedback")', function() {
+      // uncomment below and update the code to test the property feedback
       //var instance = new CoboWaas2.WebhookEventData();
       //expect(instance).to.be();
     });

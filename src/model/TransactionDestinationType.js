@@ -46,6 +46,13 @@ export default class TransactionDestinationType {
 
     
         /**
+         * value: "COSMOS_Contract"
+         * @const
+         */
+        "COSMOS_Contract" = "COSMOS_Contract";
+
+    
+        /**
          * value: "EVM_EIP_191_Signature"
          * @const
          */
@@ -57,6 +64,27 @@ export default class TransactionDestinationType {
          * @const
          */
         "EVM_EIP_712_Signature" = "EVM_EIP_712_Signature";
+
+    
+        /**
+         * value: "BTC_BIP_137_Signature"
+         * @const
+         */
+        "BTC_BIP_137_Signature" = "BTC_BIP_137_Signature";
+
+    
+        /**
+         * value: "BTC_BIP_322_Signature"
+         * @const
+         */
+        "BTC_BIP_322_Signature" = "BTC_BIP_322_Signature";
+
+    
+        /**
+         * value: "COSMOS_ADR_36_Signature"
+         * @const
+         */
+        "COSMOS_ADR_36_Signature" = "COSMOS_ADR_36_Signature";
 
     
         /**

@@ -12,12 +12,18 @@
 import ApiClient from '../ApiClient';
 import ExchangeId from './ExchangeId';
 import SafeTxExtraData from './SafeTxExtraData';
+import TransactionBIP137Destination from './TransactionBIP137Destination';
+import TransactionBIP322Destination from './TransactionBIP322Destination';
+import TransactionCosmosAdr36Destination from './TransactionCosmosAdr36Destination';
+import TransactionCosmosContractDestination from './TransactionCosmosContractDestination';
+import TransactionCosmosMessage from './TransactionCosmosMessage';
 import TransactionDepositToAddressDestination from './TransactionDepositToAddressDestination';
 import TransactionDepositToAddressDestinationTxInfo from './TransactionDepositToAddressDestinationTxInfo';
 import TransactionDepositToWalletDestination from './TransactionDepositToWalletDestination';
 import TransactionDestinationType from './TransactionDestinationType';
 import TransactionEvmCalldataInfo from './TransactionEvmCalldataInfo';
 import TransactionEvmContractDestination from './TransactionEvmContractDestination';
+import TransactionMessageSignBTCEIP191Destination from './TransactionMessageSignBTCEIP191Destination';
 import TransactionMessageSignEIP191Destination from './TransactionMessageSignEIP191Destination';
 import TransactionMessageSignEIP712Destination from './TransactionMessageSignEIP712Destination';
 import TransactionRawMessageSignDestination from './TransactionRawMessageSignDestination';
@@ -38,7 +44,7 @@ class TransactionDestination {
     /**
      * Constructs a new <code>TransactionDestination</code>.
      * @alias module:model/TransactionDestination
-     * @param {(module:model/TransactionDepositToAddressDestination|module:model/TransactionDepositToWalletDestination|module:model/TransactionEvmContractDestination|module:model/TransactionMessageSignEIP191Destination|module:model/TransactionMessageSignEIP712Destination|module:model/TransactionRawMessageSignDestination|module:model/TransactionSolContractDestination|module:model/TransactionTransferToAddressDestination|module:model/TransactionTransferToWalletDestination)} instance The actual instance to initialize TransactionDestination.
+     * @param {(module:model/TransactionBIP137Destination|module:model/TransactionBIP322Destination|module:model/TransactionCosmosAdr36Destination|module:model/TransactionCosmosContractDestination|module:model/TransactionDepositToAddressDestination|module:model/TransactionDepositToWalletDestination|module:model/TransactionEvmContractDestination|module:model/TransactionMessageSignBTCEIP191Destination|module:model/TransactionMessageSignEIP191Destination|module:model/TransactionMessageSignEIP712Destination|module:model/TransactionRawMessageSignDestination|module:model/TransactionSolContractDestination|module:model/TransactionTransferToAddressDestination|module:model/TransactionTransferToWalletDestination)} instance The actual instance to initialize TransactionDestination.
      */
     constructor(instance = null) {
         if (instance === null) {
@@ -53,6 +59,26 @@ class TransactionDestination {
             switch(discriminatorValue) {
                 case "Address":
                     this.actualInstance = TransactionTransferToAddressDestination.constructFromObject(instance);
+                    match++;
+                    break;
+                case "BTC_BIP_137_Signature":
+                    this.actualInstance = TransactionBIP137Destination.constructFromObject(instance);
+                    match++;
+                    break;
+                case "BTC_BIP_322_Signature":
+                    this.actualInstance = TransactionBIP322Destination.constructFromObject(instance);
+                    match++;
+                    break;
+                case "BTC_EIP_191_Signature":
+                    this.actualInstance = TransactionMessageSignBTCEIP191Destination.constructFromObject(instance);
+                    match++;
+                    break;
+                case "COSMOS_ADR_36_Signature":
+                    this.actualInstance = TransactionCosmosAdr36Destination.constructFromObject(instance);
+                    match++;
+                    break;
+                case "COSMOS_Contract":
+                    this.actualInstance = TransactionCosmosContractDestination.constructFromObject(instance);
                     match++;
                     break;
                 case "DepositToAddress":
@@ -195,6 +221,31 @@ class TransactionDestination {
         }
 
         try {
+            if (instance instanceof TransactionCosmosContractDestination) {
+                this.actualInstance = instance;
+            } else if(!!TransactionCosmosContractDestination.validateJSON && TransactionCosmosContractDestination.validateJSON(instance)){
+                // plain JS object
+                // create TransactionCosmosContractDestination from JS object
+                this.actualInstance = TransactionCosmosContractDestination.constructFromObject(instance);
+            } else {
+                if(TransactionCosmosContractDestination.constructFromObject(instance)) {
+                    if (!!TransactionCosmosContractDestination.constructFromObject(instance).toJSON) {
+                        if (TransactionCosmosContractDestination.constructFromObject(instance).toJSON()) {
+                            this.actualInstance = TransactionCosmosContractDestination.constructFromObject(instance);
+                        }
+                    } else {
+                        this.actualInstance = TransactionCosmosContractDestination.constructFromObject(instance);
+                    }
+                }
+
+            }
+            match++;
+        } catch(err) {
+            // json data failed to deserialize into TransactionCosmosContractDestination
+            errorMessages.push("Failed to construct TransactionCosmosContractDestination: " + err)
+        }
+
+        try {
             if (instance instanceof TransactionMessageSignEIP191Destination) {
                 this.actualInstance = instance;
             } else if(!!TransactionMessageSignEIP191Destination.validateJSON && TransactionMessageSignEIP191Destination.validateJSON(instance)){
@@ -242,6 +293,31 @@ class TransactionDestination {
         } catch(err) {
             // json data failed to deserialize into TransactionMessageSignEIP712Destination
             errorMessages.push("Failed to construct TransactionMessageSignEIP712Destination: " + err)
+        }
+
+        try {
+            if (instance instanceof TransactionMessageSignBTCEIP191Destination) {
+                this.actualInstance = instance;
+            } else if(!!TransactionMessageSignBTCEIP191Destination.validateJSON && TransactionMessageSignBTCEIP191Destination.validateJSON(instance)){
+                // plain JS object
+                // create TransactionMessageSignBTCEIP191Destination from JS object
+                this.actualInstance = TransactionMessageSignBTCEIP191Destination.constructFromObject(instance);
+            } else {
+                if(TransactionMessageSignBTCEIP191Destination.constructFromObject(instance)) {
+                    if (!!TransactionMessageSignBTCEIP191Destination.constructFromObject(instance).toJSON) {
+                        if (TransactionMessageSignBTCEIP191Destination.constructFromObject(instance).toJSON()) {
+                            this.actualInstance = TransactionMessageSignBTCEIP191Destination.constructFromObject(instance);
+                        }
+                    } else {
+                        this.actualInstance = TransactionMessageSignBTCEIP191Destination.constructFromObject(instance);
+                    }
+                }
+
+            }
+            match++;
+        } catch(err) {
+            // json data failed to deserialize into TransactionMessageSignBTCEIP191Destination
+            errorMessages.push("Failed to construct TransactionMessageSignBTCEIP191Destination: " + err)
         }
 
         try {
@@ -319,12 +395,87 @@ class TransactionDestination {
             errorMessages.push("Failed to construct TransactionDepositToWalletDestination: " + err)
         }
 
+        try {
+            if (instance instanceof TransactionBIP137Destination) {
+                this.actualInstance = instance;
+            } else if(!!TransactionBIP137Destination.validateJSON && TransactionBIP137Destination.validateJSON(instance)){
+                // plain JS object
+                // create TransactionBIP137Destination from JS object
+                this.actualInstance = TransactionBIP137Destination.constructFromObject(instance);
+            } else {
+                if(TransactionBIP137Destination.constructFromObject(instance)) {
+                    if (!!TransactionBIP137Destination.constructFromObject(instance).toJSON) {
+                        if (TransactionBIP137Destination.constructFromObject(instance).toJSON()) {
+                            this.actualInstance = TransactionBIP137Destination.constructFromObject(instance);
+                        }
+                    } else {
+                        this.actualInstance = TransactionBIP137Destination.constructFromObject(instance);
+                    }
+                }
+
+            }
+            match++;
+        } catch(err) {
+            // json data failed to deserialize into TransactionBIP137Destination
+            errorMessages.push("Failed to construct TransactionBIP137Destination: " + err)
+        }
+
+        try {
+            if (instance instanceof TransactionBIP322Destination) {
+                this.actualInstance = instance;
+            } else if(!!TransactionBIP322Destination.validateJSON && TransactionBIP322Destination.validateJSON(instance)){
+                // plain JS object
+                // create TransactionBIP322Destination from JS object
+                this.actualInstance = TransactionBIP322Destination.constructFromObject(instance);
+            } else {
+                if(TransactionBIP322Destination.constructFromObject(instance)) {
+                    if (!!TransactionBIP322Destination.constructFromObject(instance).toJSON) {
+                        if (TransactionBIP322Destination.constructFromObject(instance).toJSON()) {
+                            this.actualInstance = TransactionBIP322Destination.constructFromObject(instance);
+                        }
+                    } else {
+                        this.actualInstance = TransactionBIP322Destination.constructFromObject(instance);
+                    }
+                }
+
+            }
+            match++;
+        } catch(err) {
+            // json data failed to deserialize into TransactionBIP322Destination
+            errorMessages.push("Failed to construct TransactionBIP322Destination: " + err)
+        }
+
+        try {
+            if (instance instanceof TransactionCosmosAdr36Destination) {
+                this.actualInstance = instance;
+            } else if(!!TransactionCosmosAdr36Destination.validateJSON && TransactionCosmosAdr36Destination.validateJSON(instance)){
+                // plain JS object
+                // create TransactionCosmosAdr36Destination from JS object
+                this.actualInstance = TransactionCosmosAdr36Destination.constructFromObject(instance);
+            } else {
+                if(TransactionCosmosAdr36Destination.constructFromObject(instance)) {
+                    if (!!TransactionCosmosAdr36Destination.constructFromObject(instance).toJSON) {
+                        if (TransactionCosmosAdr36Destination.constructFromObject(instance).toJSON()) {
+                            this.actualInstance = TransactionCosmosAdr36Destination.constructFromObject(instance);
+                        }
+                    } else {
+                        this.actualInstance = TransactionCosmosAdr36Destination.constructFromObject(instance);
+                    }
+                }
+
+            }
+            match++;
+        } catch(err) {
+            // json data failed to deserialize into TransactionCosmosAdr36Destination
+            errorMessages.push("Failed to construct TransactionCosmosAdr36Destination: " + err)
+        }
+
         // if (match > 1) {
-        //    throw new Error("Multiple matches found constructing `TransactionDestination` with oneOf schemas TransactionDepositToAddressDestination, TransactionDepositToWalletDestination, TransactionEvmContractDestination, TransactionMessageSignEIP191Destination, TransactionMessageSignEIP712Destination, TransactionRawMessageSignDestination, TransactionSolContractDestination, TransactionTransferToAddressDestination, TransactionTransferToWalletDestination. Input: " + JSON.stringify(instance));
+        //    throw new Error("Multiple matches found constructing `TransactionDestination` with oneOf schemas TransactionBIP137Destination, TransactionBIP322Destination, TransactionCosmosAdr36Destination, TransactionCosmosContractDestination, TransactionDepositToAddressDestination, TransactionDepositToWalletDestination, TransactionEvmContractDestination, TransactionMessageSignBTCEIP191Destination, TransactionMessageSignEIP191Destination, TransactionMessageSignEIP712Destination, TransactionRawMessageSignDestination, TransactionSolContractDestination, TransactionTransferToAddressDestination, TransactionTransferToWalletDestination. Input: " + JSON.stringify(instance));
         // } else
         if (match === 0) {
         //    this.actualInstance = null; // clear the actual instance in case there are multiple matches
-        //    throw new Error("No match found constructing `TransactionDestination` with oneOf schemas TransactionDepositToAddressDestination, TransactionDepositToWalletDestination, TransactionEvmContractDestination, TransactionMessageSignEIP191Destination, TransactionMessageSignEIP712Destination, TransactionRawMessageSignDestination, TransactionSolContractDestination, TransactionTransferToAddressDestination, TransactionTransferToWalletDestination. Details: " +
+        //    throw new Error("No match found constructing `TransactionDestination` with oneOf schemas TransactionBIP137Destination, TransactionBIP322Destination, TransactionCosmosAdr36Destination, TransactionCosmosContractDestination, TransactionDepositToAddressDestination, TransactionDepositToWalletDestination, TransactionEvmContractDestination, TransactionMessageSignBTCEIP191Destination, TransactionMessageSignEIP191Destination, TransactionMessageSignEIP712Destination, TransactionRawMessageSignDestination, TransactionSolContractDestination, TransactionTransferToAddressDestination, TransactionTransferToWalletDestination. Details: " +
         //                    errorMessages.join(", "));
         return;
         } else { // only 1 match
@@ -344,16 +495,16 @@ class TransactionDestination {
     }
 
     /**
-     * Gets the actual instance, which can be <code>TransactionDepositToAddressDestination</code>, <code>TransactionDepositToWalletDestination</code>, <code>TransactionEvmContractDestination</code>, <code>TransactionMessageSignEIP191Destination</code>, <code>TransactionMessageSignEIP712Destination</code>, <code>TransactionRawMessageSignDestination</code>, <code>TransactionSolContractDestination</code>, <code>TransactionTransferToAddressDestination</code>, <code>TransactionTransferToWalletDestination</code>.
-     * @return {(module:model/TransactionDepositToAddressDestination|module:model/TransactionDepositToWalletDestination|module:model/TransactionEvmContractDestination|module:model/TransactionMessageSignEIP191Destination|module:model/TransactionMessageSignEIP712Destination|module:model/TransactionRawMessageSignDestination|module:model/TransactionSolContractDestination|module:model/TransactionTransferToAddressDestination|module:model/TransactionTransferToWalletDestination)} The actual instance.
+     * Gets the actual instance, which can be <code>TransactionBIP137Destination</code>, <code>TransactionBIP322Destination</code>, <code>TransactionCosmosAdr36Destination</code>, <code>TransactionCosmosContractDestination</code>, <code>TransactionDepositToAddressDestination</code>, <code>TransactionDepositToWalletDestination</code>, <code>TransactionEvmContractDestination</code>, <code>TransactionMessageSignBTCEIP191Destination</code>, <code>TransactionMessageSignEIP191Destination</code>, <code>TransactionMessageSignEIP712Destination</code>, <code>TransactionRawMessageSignDestination</code>, <code>TransactionSolContractDestination</code>, <code>TransactionTransferToAddressDestination</code>, <code>TransactionTransferToWalletDestination</code>.
+     * @return {(module:model/TransactionBIP137Destination|module:model/TransactionBIP322Destination|module:model/TransactionCosmosAdr36Destination|module:model/TransactionCosmosContractDestination|module:model/TransactionDepositToAddressDestination|module:model/TransactionDepositToWalletDestination|module:model/TransactionEvmContractDestination|module:model/TransactionMessageSignBTCEIP191Destination|module:model/TransactionMessageSignEIP191Destination|module:model/TransactionMessageSignEIP712Destination|module:model/TransactionRawMessageSignDestination|module:model/TransactionSolContractDestination|module:model/TransactionTransferToAddressDestination|module:model/TransactionTransferToWalletDestination)} The actual instance.
      */
     getActualInstance() {
         return this.actualInstance;
     }
 
     /**
-     * Sets the actual instance, which can be <code>TransactionDepositToAddressDestination</code>, <code>TransactionDepositToWalletDestination</code>, <code>TransactionEvmContractDestination</code>, <code>TransactionMessageSignEIP191Destination</code>, <code>TransactionMessageSignEIP712Destination</code>, <code>TransactionRawMessageSignDestination</code>, <code>TransactionSolContractDestination</code>, <code>TransactionTransferToAddressDestination</code>, <code>TransactionTransferToWalletDestination</code>.
-     * @param {(module:model/TransactionDepositToAddressDestination|module:model/TransactionDepositToWalletDestination|module:model/TransactionEvmContractDestination|module:model/TransactionMessageSignEIP191Destination|module:model/TransactionMessageSignEIP712Destination|module:model/TransactionRawMessageSignDestination|module:model/TransactionSolContractDestination|module:model/TransactionTransferToAddressDestination|module:model/TransactionTransferToWalletDestination)} obj The actual instance.
+     * Sets the actual instance, which can be <code>TransactionBIP137Destination</code>, <code>TransactionBIP322Destination</code>, <code>TransactionCosmosAdr36Destination</code>, <code>TransactionCosmosContractDestination</code>, <code>TransactionDepositToAddressDestination</code>, <code>TransactionDepositToWalletDestination</code>, <code>TransactionEvmContractDestination</code>, <code>TransactionMessageSignBTCEIP191Destination</code>, <code>TransactionMessageSignEIP191Destination</code>, <code>TransactionMessageSignEIP712Destination</code>, <code>TransactionRawMessageSignDestination</code>, <code>TransactionSolContractDestination</code>, <code>TransactionTransferToAddressDestination</code>, <code>TransactionTransferToWalletDestination</code>.
+     * @param {(module:model/TransactionBIP137Destination|module:model/TransactionBIP322Destination|module:model/TransactionCosmosAdr36Destination|module:model/TransactionCosmosContractDestination|module:model/TransactionDepositToAddressDestination|module:model/TransactionDepositToWalletDestination|module:model/TransactionEvmContractDestination|module:model/TransactionMessageSignBTCEIP191Destination|module:model/TransactionMessageSignEIP191Destination|module:model/TransactionMessageSignEIP712Destination|module:model/TransactionRawMessageSignDestination|module:model/TransactionSolContractDestination|module:model/TransactionTransferToAddressDestination|module:model/TransactionTransferToWalletDestination)} obj The actual instance.
      */
     setActualInstance(obj) {
        this.actualInstance = TransactionDestination.constructFromObject(obj).getActualInstance();
@@ -462,6 +613,11 @@ TransactionDestination.prototype['calldata_info'] = undefined;
 TransactionDestination.prototype['instructions'] = undefined;
 
 /**
+ * @member {Array.<module:model/TransactionCosmosMessage>} cosmos_messages
+ */
+TransactionDestination.prototype['cosmos_messages'] = undefined;
+
+/**
  * The raw data of the message to be signed, encoded in Base64 format.
  * @member {String} message
  */
@@ -511,8 +667,26 @@ TransactionDestination.prototype['memo'] = undefined;
  */
 TransactionDestination.prototype['tx_info'] = undefined;
 
+/**
+ * Message to be signed, in hexadecimal format.
+ * @member {String} message_bip137
+ */
+TransactionDestination.prototype['message_bip137'] = undefined;
 
-TransactionDestination.OneOf = ["TransactionDepositToAddressDestination", "TransactionDepositToWalletDestination", "TransactionEvmContractDestination", "TransactionMessageSignEIP191Destination", "TransactionMessageSignEIP712Destination", "TransactionRawMessageSignDestination", "TransactionSolContractDestination", "TransactionTransferToAddressDestination", "TransactionTransferToWalletDestination"];
+/**
+ * Message to be signed, in hexadecimal format.
+ * @member {String} message_bip322
+ */
+TransactionDestination.prototype['message_bip322'] = undefined;
+
+/**
+ * Message to be signed, in hexadecimal format.
+ * @member {String} message_cosmos_adr36
+ */
+TransactionDestination.prototype['message_cosmos_adr36'] = undefined;
+
+
+TransactionDestination.OneOf = ["TransactionBIP137Destination", "TransactionBIP322Destination", "TransactionCosmosAdr36Destination", "TransactionCosmosContractDestination", "TransactionDepositToAddressDestination", "TransactionDepositToWalletDestination", "TransactionEvmContractDestination", "TransactionMessageSignBTCEIP191Destination", "TransactionMessageSignEIP191Destination", "TransactionMessageSignEIP712Destination", "TransactionRawMessageSignDestination", "TransactionSolContractDestination", "TransactionTransferToAddressDestination", "TransactionTransferToWalletDestination"];
 
 export default TransactionDestination;
 

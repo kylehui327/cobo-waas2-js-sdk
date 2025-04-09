@@ -8,7 +8,7 @@ Name | Type | Description | Notes
 **vout_n** | **Number** | The output index of the UTXO. | [optional] 
 **address** | **String** | The address of the UTXO. | [optional] 
 **value** | **String** | The value of the UTXO. | [optional] 
-**redeem_script** | **String** | Redeem script is used in P2SH and P2WSH transactions. | [optional] 
-**revealed_script** | **String** | Revealed script is used for script path spending in Taproot transactions. | [optional] 
+**redeem_script** | **String** | The redeem script used in P2SH and P2WSH transactions. | [optional] 
+**revealed_script** | **String** | The revealed script used for Taproot script-path spend transaction. | [optional] 
 
 

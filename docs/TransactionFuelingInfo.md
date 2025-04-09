@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**request_id** | **String** | The fuel transaction request ID. | [optional] 
-**transaction_id** | **String** | The fuel transaction ID. | [optional] 
+**request_id** | **String** | The request ID of the transaction. | [optional] 
+**transaction_id** | **String** | The transaction ID. | [optional] 
 
 

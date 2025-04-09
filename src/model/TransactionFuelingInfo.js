@@ -18,7 +18,7 @@ import ApiClient from '../ApiClient';
 class TransactionFuelingInfo {
     /**
      * Constructs a new <code>TransactionFuelingInfo</code>.
-     * The fuel transaction data.
+     * Details of the auto-fueling transaction that provides gas for the current transaction.
      * @alias module:model/TransactionFuelingInfo
      */
     constructor() { 
@@ -79,13 +79,13 @@ class TransactionFuelingInfo {
 
 
 /**
- * The fuel transaction request ID.
+ * The request ID of the transaction.
  * @member {String} request_id
  */
 TransactionFuelingInfo.prototype['request_id'] = undefined;
 
 /**
- * The fuel transaction ID.
+ * The transaction ID.
  * @member {String} transaction_id
  */
 TransactionFuelingInfo.prototype['transaction_id'] = undefined;

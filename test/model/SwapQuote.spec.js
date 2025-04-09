@@ -52,6 +52,12 @@
       //expect(instance).to.be.a(CoboWaas2.SwapQuote);
     });
 
+    it('should have the property quote_id (base name: "quote_id")', function() {
+      // uncomment below and update the code to test the property quote_id
+      //var instance = new CoboWaas2.SwapQuote();
+      //expect(instance).to.be();
+    });
+
     it('should have the property pay_amount (base name: "pay_amount")', function() {
       // uncomment below and update the code to test the property pay_amount
       //var instance = new CoboWaas2.SwapQuote();
@@ -70,26 +76,14 @@
       //expect(instance).to.be();
     });
 
-    it('should have the property min_pay_amount (base name: "min_pay_amount")', function() {
-      // uncomment below and update the code to test the property min_pay_amount
-      //var instance = new CoboWaas2.SwapQuote();
-      //expect(instance).to.be();
-    });
-
-    it('should have the property max_pay_amount (base name: "max_pay_amount")', function() {
-      // uncomment below and update the code to test the property max_pay_amount
-      //var instance = new CoboWaas2.SwapQuote();
-      //expect(instance).to.be();
-    });
-
     it('should have the property min_receive_amount (base name: "min_receive_amount")', function() {
       // uncomment below and update the code to test the property min_receive_amount
       //var instance = new CoboWaas2.SwapQuote();
       //expect(instance).to.be();
     });
 
-    it('should have the property max_receive_amount (base name: "max_receive_amount")', function() {
-      // uncomment below and update the code to test the property max_receive_amount
+    it('should have the property max_pay_amount (base name: "max_pay_amount")', function() {
+      // uncomment below and update the code to test the property max_pay_amount
       //var instance = new CoboWaas2.SwapQuote();
       //expect(instance).to.be();
     });
