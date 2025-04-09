@@ -220,6 +220,12 @@
       //expect(instance).to.be();
     });
 
+    it('should have the property extra (base name: "extra")', function() {
+      // uncomment below and update the code to test the property extra
+      //var instance = new CoboWaas2.TransactionWebhookEventData();
+      //expect(instance).to.be();
+    });
+
     it('should have the property fueling_info (base name: "fueling_info")', function() {
       // uncomment below and update the code to test the property fueling_info
       //var instance = new CoboWaas2.TransactionWebhookEventData();

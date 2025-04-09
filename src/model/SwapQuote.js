@@ -52,6 +52,9 @@ class SwapQuote {
         if (data) {
             obj = obj || new SwapQuote();
 
+            if (data.hasOwnProperty('quote_id')) {
+                obj['quote_id'] = ApiClient.convertToType(data['quote_id'], 'String');
+            }
             if (data.hasOwnProperty('pay_amount')) {
                 obj['pay_amount'] = ApiClient.convertToType(data['pay_amount'], 'String');
             }
@@ -61,17 +64,11 @@ class SwapQuote {
             if (data.hasOwnProperty('fee_amount')) {
                 obj['fee_amount'] = ApiClient.convertToType(data['fee_amount'], 'String');
             }
-            if (data.hasOwnProperty('min_pay_amount')) {
-                obj['min_pay_amount'] = ApiClient.convertToType(data['min_pay_amount'], 'String');
-            }
-            if (data.hasOwnProperty('max_pay_amount')) {
-                obj['max_pay_amount'] = ApiClient.convertToType(data['max_pay_amount'], 'String');
-            }
             if (data.hasOwnProperty('min_receive_amount')) {
                 obj['min_receive_amount'] = ApiClient.convertToType(data['min_receive_amount'], 'String');
             }
-            if (data.hasOwnProperty('max_receive_amount')) {
-                obj['max_receive_amount'] = ApiClient.convertToType(data['max_receive_amount'], 'String');
+            if (data.hasOwnProperty('max_pay_amount')) {
+                obj['max_pay_amount'] = ApiClient.convertToType(data['max_pay_amount'], 'String');
             }
             if (data.hasOwnProperty('quote_expired_timestamp')) {
                 obj['quote_expired_timestamp'] = ApiClient.convertToType(data['quote_expired_timestamp'], 'Number');
@@ -93,6 +90,10 @@ class SwapQuote {
             }
         }
         // ensure the json data is a string
+        if (data['quote_id'] && !(typeof data['quote_id'] === 'string' || data['quote_id'] instanceof String)) {
+            throw new Error("Expected the field `quote_id` to be a primitive type in the JSON string but got " + data['quote_id']);
+        }
+        // ensure the json data is a string
         if (data['pay_amount'] && !(typeof data['pay_amount'] === 'string' || data['pay_amount'] instanceof String)) {
             throw new Error("Expected the field `pay_amount` to be a primitive type in the JSON string but got " + data['pay_amount']);
         }
@@ -105,20 +106,12 @@ class SwapQuote {
             throw new Error("Expected the field `fee_amount` to be a primitive type in the JSON string but got " + data['fee_amount']);
         }
         // ensure the json data is a string
-        if (data['min_pay_amount'] && !(typeof data['min_pay_amount'] === 'string' || data['min_pay_amount'] instanceof String)) {
-            throw new Error("Expected the field `min_pay_amount` to be a primitive type in the JSON string but got " + data['min_pay_amount']);
-        }
-        // ensure the json data is a string
-        if (data['max_pay_amount'] && !(typeof data['max_pay_amount'] === 'string' || data['max_pay_amount'] instanceof String)) {
-            throw new Error("Expected the field `max_pay_amount` to be a primitive type in the JSON string but got " + data['max_pay_amount']);
-        }
-        // ensure the json data is a string
         if (data['min_receive_amount'] && !(typeof data['min_receive_amount'] === 'string' || data['min_receive_amount'] instanceof String)) {
             throw new Error("Expected the field `min_receive_amount` to be a primitive type in the JSON string but got " + data['min_receive_amount']);
         }
         // ensure the json data is a string
-        if (data['max_receive_amount'] && !(typeof data['max_receive_amount'] === 'string' || data['max_receive_amount'] instanceof String)) {
-            throw new Error("Expected the field `max_receive_amount` to be a primitive type in the JSON string but got " + data['max_receive_amount']);
+        if (data['max_pay_amount'] && !(typeof data['max_pay_amount'] === 'string' || data['max_pay_amount'] instanceof String)) {
+            throw new Error("Expected the field `max_pay_amount` to be a primitive type in the JSON string but got " + data['max_pay_amount']);
         }
 
         return true;
@@ -128,6 +121,12 @@ class SwapQuote {
 }
 
 SwapQuote.RequiredProperties = ["pay_amount", "receive_amount", "fee_amount", "quote_expired_timestamp"];
+
+/**
+ * The unique id of quote.
+ * @member {String} quote_id
+ */
+SwapQuote.prototype['quote_id'] = undefined;
 
 /**
  * The amount of tokens to pay.
@@ -148,28 +147,16 @@ SwapQuote.prototype['receive_amount'] = undefined;
 SwapQuote.prototype['fee_amount'] = undefined;
 
 /**
- * The minimum amount of tokens to pay.
- * @member {String} min_pay_amount
- */
-SwapQuote.prototype['min_pay_amount'] = undefined;
-
-/**
- * The maximum amount of tokens to pay.
- * @member {String} max_pay_amount
- */
-SwapQuote.prototype['max_pay_amount'] = undefined;
-
-/**
- * The minimum amount of tokens to receive.
+ * The minimum amount of tokens to receive if the pay amount is specified.
  * @member {String} min_receive_amount
  */
 SwapQuote.prototype['min_receive_amount'] = undefined;
 
 /**
- * The maximum amount of tokens to receive.
- * @member {String} max_receive_amount
+ * The maximum amount of tokens to pay if the receive amount is specified.
+ * @member {String} max_pay_amount
  */
-SwapQuote.prototype['max_receive_amount'] = undefined;
+SwapQuote.prototype['max_pay_amount'] = undefined;
 
 /**
  * The time when the quote will expire, in Unix timestamp format, measured in milliseconds.

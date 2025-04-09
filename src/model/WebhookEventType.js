@@ -88,6 +88,20 @@ export default class WebhookEventType {
 
     
         /**
+         * value: "wallets.token_listing.failed"
+         * @const
+         */
+        "wallets.token_listing.failed" = "wallets.token_listing.failed";
+
+    
+        /**
+         * value: "wallets.token_listing.succeeded"
+         * @const
+         */
+        "wallets.token_listing.succeeded" = "wallets.token_listing.succeeded";
+
+    
+        /**
          * value: "mpc_vaults.created"
          * @const
          */

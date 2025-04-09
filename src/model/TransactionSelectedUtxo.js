@@ -127,13 +127,13 @@ TransactionSelectedUtxo.prototype['address'] = undefined;
 TransactionSelectedUtxo.prototype['value'] = undefined;
 
 /**
- * Redeem script is used in P2SH and P2WSH transactions.
+ * The redeem script used in P2SH and P2WSH transactions.
  * @member {String} redeem_script
  */
 TransactionSelectedUtxo.prototype['redeem_script'] = undefined;
 
 /**
- * Revealed script is used for script path spending in Taproot transactions.
+ * The revealed script used for Taproot script-path spend transaction.
  * @member {String} revealed_script
  */
 TransactionSelectedUtxo.prototype['revealed_script'] = undefined;

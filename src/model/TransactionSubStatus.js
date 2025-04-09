@@ -123,10 +123,38 @@ export default class TransactionSubStatus {
 
     
         /**
+         * value: "PendingSignerApproval"
+         * @const
+         */
+        "PendingSignerApproval" = "PendingSignerApproval";
+
+    
+        /**
+         * value: "PendingSignerProcessing"
+         * @const
+         */
+        "PendingSignerProcessing" = "PendingSignerProcessing";
+
+    
+        /**
+         * value: "RejectedBySigner"
+         * @const
+         */
+        "RejectedBySigner" = "RejectedBySigner";
+
+    
+        /**
          * value: "FailedBySigner"
          * @const
          */
         "FailedBySigner" = "FailedBySigner";
+
+    
+        /**
+         * value: "FailedSignerTimeout"
+         * @const
+         */
+        "FailedSignerTimeout" = "FailedSignerTimeout";
 
     
         /**
@@ -158,10 +186,45 @@ export default class TransactionSubStatus {
 
     
         /**
+         * value: "InsufficientBalance"
+         * @const
+         */
+        "InsufficientBalance" = "InsufficientBalance";
+
+    
+        /**
+         * value: "InsufficientBalanceFundLocked"
+         * @const
+         */
+        "InsufficientBalanceFundLocked" = "InsufficientBalanceFundLocked";
+
+    
+        /**
+         * value: "PendingSystemProcessing"
+         * @const
+         */
+        "PendingSystemProcessing" = "PendingSystemProcessing";
+
+    
+        /**
+         * value: "SystemProcessingOngoing"
+         * @const
+         */
+        "SystemProcessingOngoing" = "SystemProcessingOngoing";
+
+    
+        /**
          * value: "PendingBlockConfirmations"
          * @const
          */
         "PendingBlockConfirmations" = "PendingBlockConfirmations";
+
+    
+        /**
+         * value: "ReOrged"
+         * @const
+         */
+        "ReOrged" = "ReOrged";
 
     
         /**

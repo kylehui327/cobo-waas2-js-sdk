@@ -33,7 +33,15 @@
 
 * `PendingApprovalStart` (value: `"PendingApprovalStart"`)
 
+* `PendingSignerApproval` (value: `"PendingSignerApproval"`)
+
+* `PendingSignerProcessing` (value: `"PendingSignerProcessing"`)
+
+* `RejectedBySigner` (value: `"RejectedBySigner"`)
+
 * `FailedBySigner` (value: `"FailedBySigner"`)
+
+* `FailedSignerTimeout` (value: `"FailedSignerTimeout"`)
 
 * `FailedBroadcasting` (value: `"FailedBroadcasting"`)
 
@@ -43,7 +51,17 @@
 
 * `Queue` (value: `"Queue"`)
 
+* `InsufficientBalance` (value: `"InsufficientBalance"`)
+
+* `InsufficientBalanceFundLocked` (value: `"InsufficientBalanceFundLocked"`)
+
+* `PendingSystemProcessing` (value: `"PendingSystemProcessing"`)
+
+* `SystemProcessingOngoing` (value: `"SystemProcessingOngoing"`)
+
 * `PendingBlockConfirmations` (value: `"PendingBlockConfirmations"`)
+
+* `ReOrged` (value: `"ReOrged"`)
 
 * `ReplacedByNewTransaction` (value: `"ReplacedByNewTransaction"`)
 

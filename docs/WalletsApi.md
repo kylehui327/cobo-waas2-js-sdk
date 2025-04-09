@@ -25,7 +25,7 @@ Method | HTTP request | Description
 [**listUtxos**](WalletsApi.md#listUtxos) | **GET** /wallets/{wallet_id}/utxos | List UTXOs
 [**listWallets**](WalletsApi.md#listWallets) | **GET** /wallets | List all wallets
 [**lockUtxos**](WalletsApi.md#lockUtxos) | **POST** /wallets/{wallet_id}/utxos/lock | Lock UTXOs
-[**refreshAddressBalancesByToken**](WalletsApi.md#refreshAddressBalancesByToken) | **PUT** /wallets/{wallet_id}/tokens/{token_id}/refresh_address_balances | refresh address balances by token
+[**refreshAddressBalancesByToken**](WalletsApi.md#refreshAddressBalancesByToken) | **PUT** /wallets/{wallet_id}/tokens/{token_id}/refresh_address_balances | Refresh address balances by token
 [**unlockUtxos**](WalletsApi.md#unlockUtxos) | **POST** /wallets/{wallet_id}/utxos/unlock | Unlock UTXOs
 [**updateWalletById**](WalletsApi.md#updateWalletById) | **PUT** /wallets/{wallet_id} | Update wallet
 
@@ -1233,9 +1233,9 @@ Name | Type | Description  | Notes
 
 > RefreshAddressBalancesByToken200Response refreshAddressBalancesByToken(wallet_id, token_id, opts)
 
-refresh address balances by token
+Refresh address balances by token
 
-The operation refresh the balance of the given address list for a specified token within a wallet. The successful return of the request only means that the refresh request has been submitted.  &lt;Note&gt;This operation is applicable to MPC Wallets only.&lt;/Note&gt; 
+This operation refreshes the balances of specified addresses for a given token within a wallet.  The successful return of the request only means that the refresh request has been submitted.  &lt;Note&gt;This operation is applicable to MPC Wallets only.&lt;/Note&gt; 
 
 ### Example
 
@@ -1269,7 +1269,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **wallet_id** | **String**| The wallet ID. | 
  **token_id** | **String**| The token ID, which is the unique identifier of a token. | 
- **RefreshAddressBalancesByTokenRequest** | [**RefreshAddressBalancesByTokenRequest**](RefreshAddressBalancesByTokenRequest.md)| The request body to refresh the addresses balance by  specified token within a specified wallet | [optional] 
+ **RefreshAddressBalancesByTokenRequest** | [**RefreshAddressBalancesByTokenRequest**](RefreshAddressBalancesByTokenRequest.md)| The request body to refresh addresses balances. | [optional] 
 
 ### Return type
 
@@ -1345,7 +1345,7 @@ Name | Type | Description  | Notes
 
 Update wallet
 
-This operation updates the information of a specified wallet.  For Exchange Wallets, you can update the API key, API secret, and other information about your exchange accounts with this operation. For other wallet types, you can only update the wallet name. 
+This operation updates the information of a specified wallet. 
 
 ### Example
 

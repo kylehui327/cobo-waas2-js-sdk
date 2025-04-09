@@ -142,6 +142,12 @@
       //expect(instance).to.be();
     });
 
+    it('should have the property cosmos_messages (base name: "cosmos_messages")', function() {
+      // uncomment below and update the code to test the property cosmos_messages
+      //var instance = new CoboWaas2.TransactionDestination();
+      //expect(instance).to.be();
+    });
+
     it('should have the property message (base name: "message")', function() {
       // uncomment below and update the code to test the property message
       //var instance = new CoboWaas2.TransactionDestination();
@@ -192,6 +198,24 @@
 
     it('should have the property tx_info (base name: "tx_info")', function() {
       // uncomment below and update the code to test the property tx_info
+      //var instance = new CoboWaas2.TransactionDestination();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property message_bip137 (base name: "message_bip137")', function() {
+      // uncomment below and update the code to test the property message_bip137
+      //var instance = new CoboWaas2.TransactionDestination();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property message_bip322 (base name: "message_bip322")', function() {
+      // uncomment below and update the code to test the property message_bip322
+      //var instance = new CoboWaas2.TransactionDestination();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property message_cosmos_adr36 (base name: "message_cosmos_adr36")', function() {
+      // uncomment below and update the code to test the property message_cosmos_adr36
       //var instance = new CoboWaas2.TransactionDestination();
       //expect(instance).to.be();
     });

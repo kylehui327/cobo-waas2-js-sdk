@@ -22,10 +22,11 @@ class UpdateCustodialWalletParams {
      * The information of Custodial Wallets.
      * @alias module:model/UpdateCustodialWalletParams
      * @param wallet_type {module:model/WalletType} 
+     * @param name {String} The wallet name.
      */
-    constructor(wallet_type) { 
+    constructor(wallet_type, name) { 
         
-        UpdateCustodialWalletParams.initialize(this, wallet_type);
+        UpdateCustodialWalletParams.initialize(this, wallet_type, name);
     }
 
     /**
@@ -33,8 +34,9 @@ class UpdateCustodialWalletParams {
      * This method is used by the constructors of any subclasses, in order to implement multiple inheritance (mix-ins).
      * Only for internal use.
      */
-    static initialize(obj, wallet_type) { 
+    static initialize(obj, wallet_type, name) { 
         obj['wallet_type'] = wallet_type;
+        obj['name'] = name;
     }
 
     /**
@@ -81,7 +83,7 @@ class UpdateCustodialWalletParams {
 
 }
 
-UpdateCustodialWalletParams.RequiredProperties = ["wallet_type"];
+UpdateCustodialWalletParams.RequiredProperties = ["wallet_type", "name"];
 
 /**
  * @member {module:model/WalletType} wallet_type

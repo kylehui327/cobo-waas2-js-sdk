@@ -11,9 +11,17 @@
 
 * `SOL_Contract` (value: `"SOL_Contract"`)
 
+* `COSMOS_Contract` (value: `"COSMOS_Contract"`)
+
 * `EVM_EIP_191_Signature` (value: `"EVM_EIP_191_Signature"`)
 
 * `EVM_EIP_712_Signature` (value: `"EVM_EIP_712_Signature"`)
+
+* `BTC_BIP_137_Signature` (value: `"BTC_BIP_137_Signature"`)
+
+* `BTC_BIP_322_Signature` (value: `"BTC_BIP_322_Signature"`)
+
+* `COSMOS_ADR_36_Signature` (value: `"COSMOS_ADR_36_Signature"`)
 
 * `Raw_Message_Signature` (value: `"Raw_Message_Signature"`)
 

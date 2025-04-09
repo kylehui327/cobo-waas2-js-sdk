@@ -10,6 +10,7 @@
  */
 
 import ApiClient from '../ApiClient';
+import CustodialWeb3TransferSource from './CustodialWeb3TransferSource';
 import MpcSigningGroup from './MpcSigningGroup';
 import MpcTransferSource from './MpcTransferSource';
 import TransactionUtxo from './TransactionUtxo';
@@ -23,7 +24,7 @@ class TransactionRbfSource {
     /**
      * Constructs a new <code>TransactionRbfSource</code>.
      * @alias module:model/TransactionRbfSource
-     * @param {(module:model/MpcTransferSource)} instance The actual instance to initialize TransactionRbfSource.
+     * @param {(module:model/CustodialWeb3TransferSource|module:model/MpcTransferSource)} instance The actual instance to initialize TransactionRbfSource.
      */
     constructor(instance = null) {
         if (instance === null) {
@@ -42,6 +43,10 @@ class TransactionRbfSource {
                     break;
                 case "User-Controlled":
                     this.actualInstance = MpcTransferSource.constructFromObject(instance);
+                    match++;
+                    break;
+                case "Web3":
+                    this.actualInstance = CustodialWeb3TransferSource.constructFromObject(instance);
                     match++;
                     break;
                 default:
@@ -76,12 +81,37 @@ class TransactionRbfSource {
             errorMessages.push("Failed to construct MpcTransferSource: " + err)
         }
 
+        try {
+            if (instance instanceof CustodialWeb3TransferSource) {
+                this.actualInstance = instance;
+            } else if(!!CustodialWeb3TransferSource.validateJSON && CustodialWeb3TransferSource.validateJSON(instance)){
+                // plain JS object
+                // create CustodialWeb3TransferSource from JS object
+                this.actualInstance = CustodialWeb3TransferSource.constructFromObject(instance);
+            } else {
+                if(CustodialWeb3TransferSource.constructFromObject(instance)) {
+                    if (!!CustodialWeb3TransferSource.constructFromObject(instance).toJSON) {
+                        if (CustodialWeb3TransferSource.constructFromObject(instance).toJSON()) {
+                            this.actualInstance = CustodialWeb3TransferSource.constructFromObject(instance);
+                        }
+                    } else {
+                        this.actualInstance = CustodialWeb3TransferSource.constructFromObject(instance);
+                    }
+                }
+
+            }
+            match++;
+        } catch(err) {
+            // json data failed to deserialize into CustodialWeb3TransferSource
+            errorMessages.push("Failed to construct CustodialWeb3TransferSource: " + err)
+        }
+
         // if (match > 1) {
-        //    throw new Error("Multiple matches found constructing `TransactionRbfSource` with oneOf schemas MpcTransferSource. Input: " + JSON.stringify(instance));
+        //    throw new Error("Multiple matches found constructing `TransactionRbfSource` with oneOf schemas CustodialWeb3TransferSource, MpcTransferSource. Input: " + JSON.stringify(instance));
         // } else
         if (match === 0) {
         //    this.actualInstance = null; // clear the actual instance in case there are multiple matches
-        //    throw new Error("No match found constructing `TransactionRbfSource` with oneOf schemas MpcTransferSource. Details: " +
+        //    throw new Error("No match found constructing `TransactionRbfSource` with oneOf schemas CustodialWeb3TransferSource, MpcTransferSource. Details: " +
         //                    errorMessages.join(", "));
         return;
         } else { // only 1 match
@@ -101,16 +131,16 @@ class TransactionRbfSource {
     }
 
     /**
-     * Gets the actual instance, which can be <code>MpcTransferSource</code>.
-     * @return {(module:model/MpcTransferSource)} The actual instance.
+     * Gets the actual instance, which can be <code>CustodialWeb3TransferSource</code>, <code>MpcTransferSource</code>.
+     * @return {(module:model/CustodialWeb3TransferSource|module:model/MpcTransferSource)} The actual instance.
      */
     getActualInstance() {
         return this.actualInstance;
     }
 
     /**
-     * Sets the actual instance, which can be <code>MpcTransferSource</code>.
-     * @param {(module:model/MpcTransferSource)} obj The actual instance.
+     * Sets the actual instance, which can be <code>CustodialWeb3TransferSource</code>, <code>MpcTransferSource</code>.
+     * @param {(module:model/CustodialWeb3TransferSource|module:model/MpcTransferSource)} obj The actual instance.
      */
     setActualInstance(obj) {
        this.actualInstance = TransactionRbfSource.constructFromObject(obj).getActualInstance();
@@ -146,7 +176,7 @@ TransactionRbfSource.prototype['source_type'] = undefined;
 TransactionRbfSource.prototype['wallet_id'] = undefined;
 
 /**
- * The wallet address. If you want to specify the UTXOs to be used, please provide the `included_utxos` property. If you specify both the `address` and `included_utxos` properties, the specified included UTXOs must belong to the address. It is recommended to specify no more than 100 included UTXOs to ensure optimal transaction processing.  You need to provide either the `address` or `included_utxos` property. If neither property is provided, the transfer will fail. 
+ * The wallet address.  If you want to specify the UTXOs to be used, please provide the `included_utxos` property. If you specify both the `address` and `included_utxos` properties, the specified included UTXOs must belong to the address. It is recommended to specify no more than 100 included UTXOs to ensure optimal transaction processing.  You need to provide either the `address` or `included_utxos` property. If neither property is provided, the transfer will fail. 
  * @member {String} address
  */
 TransactionRbfSource.prototype['address'] = undefined;
@@ -167,7 +197,7 @@ TransactionRbfSource.prototype['excluded_utxos'] = undefined;
 TransactionRbfSource.prototype['mpc_used_key_share_holder_group'] = undefined;
 
 
-TransactionRbfSource.OneOf = ["MpcTransferSource"];
+TransactionRbfSource.OneOf = ["CustodialWeb3TransferSource", "MpcTransferSource"];
 
 export default TransactionRbfSource;
 

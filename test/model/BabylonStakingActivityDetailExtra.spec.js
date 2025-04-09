@@ -76,30 +76,6 @@
       //expect(instance).to.be();
     });
 
-    it('should have the property param_version (base name: "param_version")', function() {
-      // uncomment below and update the code to test the property param_version
-      //var instance = new CoboWaas2.BabylonStakingActivityDetailExtra();
-      //expect(instance).to.be();
-    });
-
-    it('should have the property withdraw_from_type (base name: "withdraw_from_type")', function() {
-      // uncomment below and update the code to test the property withdraw_from_type
-      //var instance = new CoboWaas2.BabylonStakingActivityDetailExtra();
-      //expect(instance).to.be();
-    });
-
-    it('should have the property slash_from_type (base name: "slash_from_type")', function() {
-      // uncomment below and update the code to test the property slash_from_type
-      //var instance = new CoboWaas2.BabylonStakingActivityDetailExtra();
-      //expect(instance).to.be();
-    });
-
-    it('should have the property stake_amount (base name: "stake_amount")', function() {
-      // uncomment below and update the code to test the property stake_amount
-      //var instance = new CoboWaas2.BabylonStakingActivityDetailExtra();
-      //expect(instance).to.be();
-    });
-
   });
 
 }));

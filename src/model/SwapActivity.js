@@ -10,6 +10,8 @@
  */
 
 import ApiClient from '../ApiClient';
+import SwapActivityStatus from './SwapActivityStatus';
+import SwapActivityType from './SwapActivityType';
 import TransactionInitiatorType from './TransactionInitiatorType';
 
 /**
@@ -48,8 +50,14 @@ class SwapActivity {
             if (data.hasOwnProperty('activity_id')) {
                 obj['activity_id'] = ApiClient.convertToType(data['activity_id'], 'String');
             }
+            if (data.hasOwnProperty('activity_type')) {
+                obj['activity_type'] = SwapActivityType.constructFromObject(data['activity_type']);
+            }
             if (data.hasOwnProperty('status')) {
-                obj['status'] = ApiClient.convertToType(data['status'], 'String');
+                obj['status'] = SwapActivityStatus.constructFromObject(data['status']);
+            }
+            if (data.hasOwnProperty('request_id')) {
+                obj['request_id'] = ApiClient.convertToType(data['request_id'], 'String');
             }
             if (data.hasOwnProperty('wallet_id')) {
                 obj['wallet_id'] = ApiClient.convertToType(data['wallet_id'], 'String');
@@ -75,6 +83,9 @@ class SwapActivity {
             if (data.hasOwnProperty('initiator_type')) {
                 obj['initiator_type'] = TransactionInitiatorType.constructFromObject(data['initiator_type']);
             }
+            if (data.hasOwnProperty('description')) {
+                obj['description'] = ApiClient.convertToType(data['description'], 'String');
+            }
             if (data.hasOwnProperty('created_timestamp')) {
                 obj['created_timestamp'] = ApiClient.convertToType(data['created_timestamp'], 'Number');
             }
@@ -96,8 +107,8 @@ class SwapActivity {
             throw new Error("Expected the field `activity_id` to be a primitive type in the JSON string but got " + data['activity_id']);
         }
         // ensure the json data is a string
-        if (data['status'] && !(typeof data['status'] === 'string' || data['status'] instanceof String)) {
-            throw new Error("Expected the field `status` to be a primitive type in the JSON string but got " + data['status']);
+        if (data['request_id'] && !(typeof data['request_id'] === 'string' || data['request_id'] instanceof String)) {
+            throw new Error("Expected the field `request_id` to be a primitive type in the JSON string but got " + data['request_id']);
         }
         // ensure the json data is a string
         if (data['wallet_id'] && !(typeof data['wallet_id'] === 'string' || data['wallet_id'] instanceof String)) {
@@ -127,6 +138,10 @@ class SwapActivity {
         if (data['initiator'] && !(typeof data['initiator'] === 'string' || data['initiator'] instanceof String)) {
             throw new Error("Expected the field `initiator` to be a primitive type in the JSON string but got " + data['initiator']);
         }
+        // ensure the json data is a string
+        if (data['description'] && !(typeof data['description'] === 'string' || data['description'] instanceof String)) {
+            throw new Error("Expected the field `description` to be a primitive type in the JSON string but got " + data['description']);
+        }
 
         return true;
     }
@@ -143,10 +158,20 @@ class SwapActivity {
 SwapActivity.prototype['activity_id'] = undefined;
 
 /**
- * The status of the swap activity.
- * @member {String} status
+ * @member {module:model/SwapActivityType} activity_type
+ */
+SwapActivity.prototype['activity_type'] = undefined;
+
+/**
+ * @member {module:model/SwapActivityStatus} status
  */
 SwapActivity.prototype['status'] = undefined;
+
+/**
+ * The request id of the swap activity.
+ * @member {String} request_id
+ */
+SwapActivity.prototype['request_id'] = undefined;
 
 /**
  * The unique identifier of the wallet.
@@ -194,6 +219,12 @@ SwapActivity.prototype['initiator'] = undefined;
  * @member {module:model/TransactionInitiatorType} initiator_type
  */
 SwapActivity.prototype['initiator_type'] = undefined;
+
+/**
+ * The description of the swap activity.
+ * @member {String} description
+ */
+SwapActivity.prototype['description'] = undefined;
 
 /**
  * The time when the swap activity was created, in Unix timestamp format, measured in milliseconds.

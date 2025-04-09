@@ -18,9 +18,8 @@ import ApiClient from '../ApiClient';
 class RefreshAddressBalancesByTokenRequest {
     /**
      * Constructs a new <code>RefreshAddressBalancesByTokenRequest</code>.
-     * The request body to refresh the addresses balance by  specified token within a specified wallet.
      * @alias module:model/RefreshAddressBalancesByTokenRequest
-     * @param addresses {Array.<String>} A list of  address.
+     * @param addresses {Array.<String>} A list of addresses.
      */
     constructor(addresses) { 
         
@@ -80,7 +79,7 @@ class RefreshAddressBalancesByTokenRequest {
 RefreshAddressBalancesByTokenRequest.RequiredProperties = ["addresses"];
 
 /**
- * A list of  address.
+ * A list of addresses.
  * @member {Array.<String>} addresses
  */
 RefreshAddressBalancesByTokenRequest.prototype['addresses'] = undefined;

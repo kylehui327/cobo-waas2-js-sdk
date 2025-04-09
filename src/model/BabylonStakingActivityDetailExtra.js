@@ -10,7 +10,6 @@
  */
 
 import ApiClient from '../ApiClient';
-import ActivityType from './ActivityType';
 import BaseStakeExtra from './BaseStakeExtra';
 import StakingPoolType from './StakingPoolType';
 
@@ -63,18 +62,6 @@ class BabylonStakingActivityDetailExtra {
             if (data.hasOwnProperty('auto_broadcast')) {
                 obj['auto_broadcast'] = ApiClient.convertToType(data['auto_broadcast'], 'Boolean');
             }
-            if (data.hasOwnProperty('param_version')) {
-                obj['param_version'] = ApiClient.convertToType(data['param_version'], 'Number');
-            }
-            if (data.hasOwnProperty('withdraw_from_type')) {
-                obj['withdraw_from_type'] = ActivityType.constructFromObject(data['withdraw_from_type']);
-            }
-            if (data.hasOwnProperty('slash_from_type')) {
-                obj['slash_from_type'] = ActivityType.constructFromObject(data['slash_from_type']);
-            }
-            if (data.hasOwnProperty('stake_amount')) {
-                obj['stake_amount'] = ApiClient.convertToType(data['stake_amount'], 'String');
-            }
         }
         return obj;
     }
@@ -94,10 +81,6 @@ class BabylonStakingActivityDetailExtra {
         // ensure the json data is a string
         if (data['finality_provider_public_key'] && !(typeof data['finality_provider_public_key'] === 'string' || data['finality_provider_public_key'] instanceof String)) {
             throw new Error("Expected the field `finality_provider_public_key` to be a primitive type in the JSON string but got " + data['finality_provider_public_key']);
-        }
-        // ensure the json data is a string
-        if (data['stake_amount'] && !(typeof data['stake_amount'] === 'string' || data['stake_amount'] instanceof String)) {
-            throw new Error("Expected the field `stake_amount` to be a primitive type in the JSON string but got " + data['stake_amount']);
         }
 
         return true;
@@ -130,28 +113,6 @@ BabylonStakingActivityDetailExtra.prototype['stake_block_time'] = undefined;
  * @member {Boolean} auto_broadcast
  */
 BabylonStakingActivityDetailExtra.prototype['auto_broadcast'] = undefined;
-
-/**
- * The version of babylon global parameters.
- * @member {Number} param_version
- */
-BabylonStakingActivityDetailExtra.prototype['param_version'] = undefined;
-
-/**
- * @member {module:model/ActivityType} withdraw_from_type
- */
-BabylonStakingActivityDetailExtra.prototype['withdraw_from_type'] = undefined;
-
-/**
- * @member {module:model/ActivityType} slash_from_type
- */
-BabylonStakingActivityDetailExtra.prototype['slash_from_type'] = undefined;
-
-/**
- * The origin staking amount.
- * @member {String} stake_amount
- */
-BabylonStakingActivityDetailExtra.prototype['stake_amount'] = undefined;
 
 
 // Implement BaseStakeExtra interface:

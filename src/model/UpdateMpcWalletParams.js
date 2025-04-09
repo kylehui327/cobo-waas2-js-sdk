@@ -22,10 +22,11 @@ class UpdateMpcWalletParams {
      * The information of MPC Wallets.
      * @alias module:model/UpdateMpcWalletParams
      * @param wallet_type {module:model/WalletType} 
+     * @param name {String} The wallet name.
      */
-    constructor(wallet_type) { 
+    constructor(wallet_type, name) { 
         
-        UpdateMpcWalletParams.initialize(this, wallet_type);
+        UpdateMpcWalletParams.initialize(this, wallet_type, name);
     }
 
     /**
@@ -33,8 +34,9 @@ class UpdateMpcWalletParams {
      * This method is used by the constructors of any subclasses, in order to implement multiple inheritance (mix-ins).
      * Only for internal use.
      */
-    static initialize(obj, wallet_type) { 
+    static initialize(obj, wallet_type, name) { 
         obj['wallet_type'] = wallet_type;
+        obj['name'] = name;
     }
 
     /**
@@ -81,7 +83,7 @@ class UpdateMpcWalletParams {
 
 }
 
-UpdateMpcWalletParams.RequiredProperties = ["wallet_type"];
+UpdateMpcWalletParams.RequiredProperties = ["wallet_type", "name"];
 
 /**
  * @member {module:model/WalletType} wallet_type

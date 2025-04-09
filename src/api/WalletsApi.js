@@ -1361,12 +1361,12 @@ export default class WalletsApi {
 
 
     /**
-     * refresh address balances by token
-     * The operation refresh the balance of the given address list for a specified token within a wallet. The successful return of the request only means that the refresh request has been submitted.  <Note>This operation is applicable to MPC Wallets only.</Note> 
+     * Refresh address balances by token
+     * This operation refreshes the balances of specified addresses for a given token within a wallet.  The successful return of the request only means that the refresh request has been submitted.  <Note>This operation is applicable to MPC Wallets only.</Note> 
      * @param {String} wallet_id The wallet ID.
      * @param {String} token_id The token ID, which is the unique identifier of a token.
      * @param {Object} opts Optional parameters
-     * @param {module:model/RefreshAddressBalancesByTokenRequest} [RefreshAddressBalancesByTokenRequest] The request body to refresh the addresses balance by  specified token within a specified wallet
+     * @param {module:model/RefreshAddressBalancesByTokenRequest} [RefreshAddressBalancesByTokenRequest] The request body to refresh addresses balances.
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/RefreshAddressBalancesByToken200Response} and HTTP response
      */
     refreshAddressBalancesByTokenWithHttpInfo(wallet_id, token_id, opts) {
@@ -1407,12 +1407,12 @@ export default class WalletsApi {
     }
 
     /**
-     * refresh address balances by token
-     * The operation refresh the balance of the given address list for a specified token within a wallet. The successful return of the request only means that the refresh request has been submitted.  <Note>This operation is applicable to MPC Wallets only.</Note> 
+     * Refresh address balances by token
+     * This operation refreshes the balances of specified addresses for a given token within a wallet.  The successful return of the request only means that the refresh request has been submitted.  <Note>This operation is applicable to MPC Wallets only.</Note> 
      * @param {String} wallet_id The wallet ID.
      * @param {String} token_id The token ID, which is the unique identifier of a token.
      * @param {Object} opts Optional parameters
-     * @param {module:model/RefreshAddressBalancesByTokenRequest} opts.RefreshAddressBalancesByTokenRequest The request body to refresh the addresses balance by  specified token within a specified wallet
+     * @param {module:model/RefreshAddressBalancesByTokenRequest} opts.RefreshAddressBalancesByTokenRequest The request body to refresh addresses balances.
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/RefreshAddressBalancesByToken200Response}
      */
     refreshAddressBalancesByToken(wallet_id, token_id, opts) {
@@ -1481,7 +1481,7 @@ export default class WalletsApi {
 
     /**
      * Update wallet
-     * This operation updates the information of a specified wallet.  For Exchange Wallets, you can update the API key, API secret, and other information about your exchange accounts with this operation. For other wallet types, you can only update the wallet name. 
+     * This operation updates the information of a specified wallet. 
      * @param {String} wallet_id The wallet ID.
      * @param {Object} opts Optional parameters
      * @param {module:model/UpdateWalletParams} [UpdateWalletParams] The request body.
@@ -1521,7 +1521,7 @@ export default class WalletsApi {
 
     /**
      * Update wallet
-     * This operation updates the information of a specified wallet.  For Exchange Wallets, you can update the API key, API secret, and other information about your exchange accounts with this operation. For other wallet types, you can only update the wallet name. 
+     * This operation updates the information of a specified wallet. 
      * @param {String} wallet_id The wallet ID.
      * @param {Object} opts Optional parameters
      * @param {module:model/UpdateWalletParams} opts.UpdateWalletParams The request body.

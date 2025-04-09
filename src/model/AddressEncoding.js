@@ -67,6 +67,27 @@ export default class AddressEncoding {
 
     
         /**
+         * value: "ENCODING_ADA_BYRON"
+         * @const
+         */
+        "ADA_BYRON" = "ENCODING_ADA_BYRON";
+
+    
+        /**
+         * value: "ENCODING_ADA_SHELLEY"
+         * @const
+         */
+        "ADA_SHELLEY" = "ENCODING_ADA_SHELLEY";
+
+    
+        /**
+         * value: "ENCODING_DEFAULT"
+         * @const
+         */
+        "DEFAULT" = "ENCODING_DEFAULT";
+
+    
+        /**
          * value: "unknown_default_open_api"
          * @const
          */

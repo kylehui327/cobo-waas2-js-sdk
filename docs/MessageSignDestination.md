@@ -8,5 +8,8 @@ Name | Type | Description | Notes
 **message** | **String** | The raw data of the message to be signed, encoded in Base64 format. | 
 **structured_data** | **{String: Object}** | The structured data to be signed, formatted as a JSON object according to the EIP-712 standard. | 
 **msg_hash** | **String** | Message hash to be signed, in hexadecimal format. | 
+**message_bip137** | **String** | Message to be signed, in hexadecimal format. | 
+**message_bip322** | **String** | Message to be signed, in hexadecimal format. | 
+**message_cosmos_adr36** | **String** | Message to be signed, in hexadecimal format. | 
 
 

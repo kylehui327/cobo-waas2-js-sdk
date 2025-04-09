@@ -5,6 +5,6 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **wallet_type** | [**WalletType**](WalletType.md) |  | 
-**name** | **String** | The wallet name. | [optional] 
+**name** | **String** | The wallet name. | 
 
 

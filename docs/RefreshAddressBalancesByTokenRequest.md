@@ -4,6 +4,6 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**addresses** | **[String]** | A list of  address. | 
+**addresses** | **[String]** | A list of addresses. | 
 
 

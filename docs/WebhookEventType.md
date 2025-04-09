@@ -23,6 +23,10 @@
 
 * `wallets.created` (value: `"wallets.created"`)
 
+* `wallets.token_listing.failed` (value: `"wallets.token_listing.failed"`)
+
+* `wallets.token_listing.succeeded` (value: `"wallets.token_listing.succeeded"`)
+
 * `mpc_vaults.created` (value: `"mpc_vaults.created"`)
 
 * `fee_station.transaction.created` (value: `"fee_station.transaction.created"`)

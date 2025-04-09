@@ -10,7 +10,10 @@
  */
 
 import ApiClient from '../ApiClient';
+import BTCBIP137MessageSignDestination from './BTCBIP137MessageSignDestination';
+import BTCBIP322MessageSignDestination from './BTCBIP322MessageSignDestination';
 import BTCEIP191MessageSignDestination from './BTCEIP191MessageSignDestination';
+import CosmosAdr36MessageSignDestination from './CosmosAdr36MessageSignDestination';
 import EvmEIP191MessageSignDestination from './EvmEIP191MessageSignDestination';
 import EvmEIP712MessageSignDestination from './EvmEIP712MessageSignDestination';
 import MessageSignDestinationType from './MessageSignDestinationType';
@@ -24,7 +27,7 @@ class MessageSignDestination {
     /**
      * Constructs a new <code>MessageSignDestination</code>.
      * @alias module:model/MessageSignDestination
-     * @param {(module:model/BTCEIP191MessageSignDestination|module:model/EvmEIP191MessageSignDestination|module:model/EvmEIP712MessageSignDestination|module:model/RawMessageSignDestination)} instance The actual instance to initialize MessageSignDestination.
+     * @param {(module:model/BTCBIP137MessageSignDestination|module:model/BTCBIP322MessageSignDestination|module:model/BTCEIP191MessageSignDestination|module:model/CosmosAdr36MessageSignDestination|module:model/EvmEIP191MessageSignDestination|module:model/EvmEIP712MessageSignDestination|module:model/RawMessageSignDestination)} instance The actual instance to initialize MessageSignDestination.
      */
     constructor(instance = null) {
         if (instance === null) {
@@ -37,8 +40,20 @@ class MessageSignDestination {
 
         if (discriminatorValue) {
             switch(discriminatorValue) {
+                case "BTC_BIP_137_Signature":
+                    this.actualInstance = BTCBIP137MessageSignDestination.constructFromObject(instance);
+                    match++;
+                    break;
+                case "BTC_BIP_322_Signature":
+                    this.actualInstance = BTCBIP322MessageSignDestination.constructFromObject(instance);
+                    match++;
+                    break;
                 case "BTC_EIP_191_Signature":
                     this.actualInstance = BTCEIP191MessageSignDestination.constructFromObject(instance);
+                    match++;
+                    break;
+                case "COSMOS_ADR_36_Signature":
+                    this.actualInstance = CosmosAdr36MessageSignDestination.constructFromObject(instance);
                     match++;
                     break;
                 case "EVM_EIP_191_Signature":
@@ -49,7 +64,7 @@ class MessageSignDestination {
                     this.actualInstance = EvmEIP712MessageSignDestination.constructFromObject(instance);
                     match++;
                     break;
-                case "RAW_MESSAGE":
+                case "Raw_Message_Signature":
                     this.actualInstance = RawMessageSignDestination.constructFromObject(instance);
                     match++;
                     break;
@@ -160,12 +175,87 @@ class MessageSignDestination {
             errorMessages.push("Failed to construct BTCEIP191MessageSignDestination: " + err)
         }
 
+        try {
+            if (instance instanceof BTCBIP137MessageSignDestination) {
+                this.actualInstance = instance;
+            } else if(!!BTCBIP137MessageSignDestination.validateJSON && BTCBIP137MessageSignDestination.validateJSON(instance)){
+                // plain JS object
+                // create BTCBIP137MessageSignDestination from JS object
+                this.actualInstance = BTCBIP137MessageSignDestination.constructFromObject(instance);
+            } else {
+                if(BTCBIP137MessageSignDestination.constructFromObject(instance)) {
+                    if (!!BTCBIP137MessageSignDestination.constructFromObject(instance).toJSON) {
+                        if (BTCBIP137MessageSignDestination.constructFromObject(instance).toJSON()) {
+                            this.actualInstance = BTCBIP137MessageSignDestination.constructFromObject(instance);
+                        }
+                    } else {
+                        this.actualInstance = BTCBIP137MessageSignDestination.constructFromObject(instance);
+                    }
+                }
+
+            }
+            match++;
+        } catch(err) {
+            // json data failed to deserialize into BTCBIP137MessageSignDestination
+            errorMessages.push("Failed to construct BTCBIP137MessageSignDestination: " + err)
+        }
+
+        try {
+            if (instance instanceof BTCBIP322MessageSignDestination) {
+                this.actualInstance = instance;
+            } else if(!!BTCBIP322MessageSignDestination.validateJSON && BTCBIP322MessageSignDestination.validateJSON(instance)){
+                // plain JS object
+                // create BTCBIP322MessageSignDestination from JS object
+                this.actualInstance = BTCBIP322MessageSignDestination.constructFromObject(instance);
+            } else {
+                if(BTCBIP322MessageSignDestination.constructFromObject(instance)) {
+                    if (!!BTCBIP322MessageSignDestination.constructFromObject(instance).toJSON) {
+                        if (BTCBIP322MessageSignDestination.constructFromObject(instance).toJSON()) {
+                            this.actualInstance = BTCBIP322MessageSignDestination.constructFromObject(instance);
+                        }
+                    } else {
+                        this.actualInstance = BTCBIP322MessageSignDestination.constructFromObject(instance);
+                    }
+                }
+
+            }
+            match++;
+        } catch(err) {
+            // json data failed to deserialize into BTCBIP322MessageSignDestination
+            errorMessages.push("Failed to construct BTCBIP322MessageSignDestination: " + err)
+        }
+
+        try {
+            if (instance instanceof CosmosAdr36MessageSignDestination) {
+                this.actualInstance = instance;
+            } else if(!!CosmosAdr36MessageSignDestination.validateJSON && CosmosAdr36MessageSignDestination.validateJSON(instance)){
+                // plain JS object
+                // create CosmosAdr36MessageSignDestination from JS object
+                this.actualInstance = CosmosAdr36MessageSignDestination.constructFromObject(instance);
+            } else {
+                if(CosmosAdr36MessageSignDestination.constructFromObject(instance)) {
+                    if (!!CosmosAdr36MessageSignDestination.constructFromObject(instance).toJSON) {
+                        if (CosmosAdr36MessageSignDestination.constructFromObject(instance).toJSON()) {
+                            this.actualInstance = CosmosAdr36MessageSignDestination.constructFromObject(instance);
+                        }
+                    } else {
+                        this.actualInstance = CosmosAdr36MessageSignDestination.constructFromObject(instance);
+                    }
+                }
+
+            }
+            match++;
+        } catch(err) {
+            // json data failed to deserialize into CosmosAdr36MessageSignDestination
+            errorMessages.push("Failed to construct CosmosAdr36MessageSignDestination: " + err)
+        }
+
         // if (match > 1) {
-        //    throw new Error("Multiple matches found constructing `MessageSignDestination` with oneOf schemas BTCEIP191MessageSignDestination, EvmEIP191MessageSignDestination, EvmEIP712MessageSignDestination, RawMessageSignDestination. Input: " + JSON.stringify(instance));
+        //    throw new Error("Multiple matches found constructing `MessageSignDestination` with oneOf schemas BTCBIP137MessageSignDestination, BTCBIP322MessageSignDestination, BTCEIP191MessageSignDestination, CosmosAdr36MessageSignDestination, EvmEIP191MessageSignDestination, EvmEIP712MessageSignDestination, RawMessageSignDestination. Input: " + JSON.stringify(instance));
         // } else
         if (match === 0) {
         //    this.actualInstance = null; // clear the actual instance in case there are multiple matches
-        //    throw new Error("No match found constructing `MessageSignDestination` with oneOf schemas BTCEIP191MessageSignDestination, EvmEIP191MessageSignDestination, EvmEIP712MessageSignDestination, RawMessageSignDestination. Details: " +
+        //    throw new Error("No match found constructing `MessageSignDestination` with oneOf schemas BTCBIP137MessageSignDestination, BTCBIP322MessageSignDestination, BTCEIP191MessageSignDestination, CosmosAdr36MessageSignDestination, EvmEIP191MessageSignDestination, EvmEIP712MessageSignDestination, RawMessageSignDestination. Details: " +
         //                    errorMessages.join(", "));
         return;
         } else { // only 1 match
@@ -185,16 +275,16 @@ class MessageSignDestination {
     }
 
     /**
-     * Gets the actual instance, which can be <code>BTCEIP191MessageSignDestination</code>, <code>EvmEIP191MessageSignDestination</code>, <code>EvmEIP712MessageSignDestination</code>, <code>RawMessageSignDestination</code>.
-     * @return {(module:model/BTCEIP191MessageSignDestination|module:model/EvmEIP191MessageSignDestination|module:model/EvmEIP712MessageSignDestination|module:model/RawMessageSignDestination)} The actual instance.
+     * Gets the actual instance, which can be <code>BTCBIP137MessageSignDestination</code>, <code>BTCBIP322MessageSignDestination</code>, <code>BTCEIP191MessageSignDestination</code>, <code>CosmosAdr36MessageSignDestination</code>, <code>EvmEIP191MessageSignDestination</code>, <code>EvmEIP712MessageSignDestination</code>, <code>RawMessageSignDestination</code>.
+     * @return {(module:model/BTCBIP137MessageSignDestination|module:model/BTCBIP322MessageSignDestination|module:model/BTCEIP191MessageSignDestination|module:model/CosmosAdr36MessageSignDestination|module:model/EvmEIP191MessageSignDestination|module:model/EvmEIP712MessageSignDestination|module:model/RawMessageSignDestination)} The actual instance.
      */
     getActualInstance() {
         return this.actualInstance;
     }
 
     /**
-     * Sets the actual instance, which can be <code>BTCEIP191MessageSignDestination</code>, <code>EvmEIP191MessageSignDestination</code>, <code>EvmEIP712MessageSignDestination</code>, <code>RawMessageSignDestination</code>.
-     * @param {(module:model/BTCEIP191MessageSignDestination|module:model/EvmEIP191MessageSignDestination|module:model/EvmEIP712MessageSignDestination|module:model/RawMessageSignDestination)} obj The actual instance.
+     * Sets the actual instance, which can be <code>BTCBIP137MessageSignDestination</code>, <code>BTCBIP322MessageSignDestination</code>, <code>BTCEIP191MessageSignDestination</code>, <code>CosmosAdr36MessageSignDestination</code>, <code>EvmEIP191MessageSignDestination</code>, <code>EvmEIP712MessageSignDestination</code>, <code>RawMessageSignDestination</code>.
+     * @param {(module:model/BTCBIP137MessageSignDestination|module:model/BTCBIP322MessageSignDestination|module:model/BTCEIP191MessageSignDestination|module:model/CosmosAdr36MessageSignDestination|module:model/EvmEIP191MessageSignDestination|module:model/EvmEIP712MessageSignDestination|module:model/RawMessageSignDestination)} obj The actual instance.
      */
     setActualInstance(obj) {
        this.actualInstance = MessageSignDestination.constructFromObject(obj).getActualInstance();
@@ -241,8 +331,26 @@ MessageSignDestination.prototype['structured_data'] = undefined;
  */
 MessageSignDestination.prototype['msg_hash'] = undefined;
 
+/**
+ * Message to be signed, in hexadecimal format.
+ * @member {String} message_bip137
+ */
+MessageSignDestination.prototype['message_bip137'] = undefined;
 
-MessageSignDestination.OneOf = ["BTCEIP191MessageSignDestination", "EvmEIP191MessageSignDestination", "EvmEIP712MessageSignDestination", "RawMessageSignDestination"];
+/**
+ * Message to be signed, in hexadecimal format.
+ * @member {String} message_bip322
+ */
+MessageSignDestination.prototype['message_bip322'] = undefined;
+
+/**
+ * Message to be signed, in hexadecimal format.
+ * @member {String} message_cosmos_adr36
+ */
+MessageSignDestination.prototype['message_cosmos_adr36'] = undefined;
+
+
+MessageSignDestination.OneOf = ["BTCBIP137MessageSignDestination", "BTCBIP322MessageSignDestination", "BTCEIP191MessageSignDestination", "CosmosAdr36MessageSignDestination", "EvmEIP191MessageSignDestination", "EvmEIP712MessageSignDestination", "RawMessageSignDestination"];
 
 export default MessageSignDestination;
 

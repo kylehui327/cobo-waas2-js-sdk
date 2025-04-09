@@ -19,6 +19,7 @@ Name | Type | Description | Notes
 **calldata** | **String** | The data that is used to invoke a specific function or method within the specified contract at the destination address.  | 
 **calldata_info** | [**TransactionEvmCalldataInfo**](TransactionEvmCalldataInfo.md) |  | [optional] 
 **instructions** | [**[TransactionSolContractInstruction]**](TransactionSolContractInstruction.md) |  | [optional] 
+**cosmos_messages** | [**[TransactionCosmosMessage]**](TransactionCosmosMessage.md) |  | 
 **message** | **String** | The raw data of the message to be signed, encoded in Base64 format. | 
 **raw_structured_data** | **String** | The raw structured data to be signed, formatted as a JSON string. | [optional] 
 **structured_data** | **{String: Object}** | The structured data to be signed, formatted as a JSON object according to the EIP-712 standard. | 
@@ -28,5 +29,8 @@ Name | Type | Description | Notes
 **wallet_subtype** | [**WalletSubtype**](WalletSubtype.md) |  | 
 **memo** | **String** | The memo that identifies a transaction in order to credit the correct account. For transfers out of Cobo Portal, it is highly recommended to include a memo for the chains such as XRP, EOS, XLM, IOST, BNB_BNB, ATOM, LUNA, and TON. | [optional] 
 **tx_info** | [**TransactionDepositToAddressDestinationTxInfo**](TransactionDepositToAddressDestinationTxInfo.md) |  | [optional] 
+**message_bip137** | **String** | Message to be signed, in hexadecimal format. | 
+**message_bip322** | **String** | Message to be signed, in hexadecimal format. | 
+**message_cosmos_adr36** | **String** | Message to be signed, in hexadecimal format. | 
 
 
