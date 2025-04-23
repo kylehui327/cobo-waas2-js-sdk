@@ -75,6 +75,9 @@ class TransactionEvmEip1559Fee {
             if (data.hasOwnProperty('fee_used')) {
                 obj['fee_used'] = ApiClient.convertToType(data['fee_used'], 'String');
             }
+            if (data.hasOwnProperty('estimated_fee_used')) {
+                obj['estimated_fee_used'] = ApiClient.convertToType(data['estimated_fee_used'], 'String');
+            }
             if (data.hasOwnProperty('gas_used')) {
                 obj['gas_used'] = ApiClient.convertToType(data['gas_used'], 'String');
             }
@@ -117,6 +120,10 @@ class TransactionEvmEip1559Fee {
         // ensure the json data is a string
         if (data['fee_used'] && !(typeof data['fee_used'] === 'string' || data['fee_used'] instanceof String)) {
             throw new Error("Expected the field `fee_used` to be a primitive type in the JSON string but got " + data['fee_used']);
+        }
+        // ensure the json data is a string
+        if (data['estimated_fee_used'] && !(typeof data['estimated_fee_used'] === 'string' || data['estimated_fee_used'] instanceof String)) {
+            throw new Error("Expected the field `estimated_fee_used` to be a primitive type in the JSON string but got " + data['estimated_fee_used']);
         }
         // ensure the json data is a string
         if (data['gas_used'] && !(typeof data['gas_used'] === 'string' || data['gas_used'] instanceof String)) {
@@ -171,6 +178,12 @@ TransactionEvmEip1559Fee.prototype['effective_gas_price'] = undefined;
  * @member {String} fee_used
  */
 TransactionEvmEip1559Fee.prototype['fee_used'] = undefined;
+
+/**
+ * The estimated transaction fee.
+ * @member {String} estimated_fee_used
+ */
+TransactionEvmEip1559Fee.prototype['estimated_fee_used'] = undefined;
 
 /**
  * The number of gas units used in the transaction.

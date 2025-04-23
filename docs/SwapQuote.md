@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**quote_id** | **String** | The unique id of quote. | [optional] 
+**quote_id** | **String** | The unique id of quote. | 
 **pay_amount** | **String** | The amount of tokens to pay. | 
 **receive_amount** | **String** | The amount of tokens to receive. | 
 **fee_amount** | **String** | The amount of tokens to pay for fee. | 

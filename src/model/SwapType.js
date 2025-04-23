@@ -11,11 +11,11 @@
 
 import ApiClient from '../ApiClient';
 /**
-* Enum class SwapActivityType.
+* Enum class SwapType.
 * @enum {}
 * @readonly
 */
-export default class SwapActivityType {
+export default class SwapType {
     
         /**
          * value: "Bridge"
@@ -40,9 +40,9 @@ export default class SwapActivityType {
     
 
     /**
-    * Returns a <code>SwapActivityType</code> enum value from a Javascript object name.
+    * Returns a <code>SwapType</code> enum value from a Javascript object name.
     * @param {Object} data The plain JavaScript object containing the name of the enum value.
-    * @return {module:model/SwapActivityType} The enum <code>SwapActivityType</code> value.
+    * @return {module:model/SwapType} The enum <code>SwapType</code> value.
     */
     static constructFromObject(object) {
         return object;

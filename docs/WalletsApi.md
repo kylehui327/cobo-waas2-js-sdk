@@ -8,11 +8,13 @@ Method | HTTP request | Description
 [**checkAddressValidity**](WalletsApi.md#checkAddressValidity) | **GET** /wallets/check_address_validity | Check address validity
 [**checkAddressesValidity**](WalletsApi.md#checkAddressesValidity) | **GET** /wallets/check_addresses_validity | Check addresses validity
 [**createAddress**](WalletsApi.md#createAddress) | **POST** /wallets/{wallet_id}/addresses | Create addresses in wallet
+[**createTokenListingRequest**](WalletsApi.md#createTokenListingRequest) | **POST** /wallets/tokens/listing_requests | Submit token listing request
 [**createWallet**](WalletsApi.md#createWallet) | **POST** /wallets | Create wallet
 [**deleteWalletById**](WalletsApi.md#deleteWalletById) | **POST** /wallets/{wallet_id}/delete | Delete wallet
 [**getChainById**](WalletsApi.md#getChainById) | **GET** /wallets/chains/{chain_id} | Get chain information
 [**getMaxTransferableValue**](WalletsApi.md#getMaxTransferableValue) | **GET** /wallets/{wallet_id}/max_transferable_value | Get maximum transferable value
 [**getTokenById**](WalletsApi.md#getTokenById) | **GET** /wallets/tokens/{token_id} | Get token information
+[**getTokenListingRequestByRequestId**](WalletsApi.md#getTokenListingRequestByRequestId) | **GET** /wallets/tokens/listing_requests/{request_id} | Get token listing request details
 [**getWalletById**](WalletsApi.md#getWalletById) | **GET** /wallets/{wallet_id} | Get wallet information
 [**listAddressBalancesByToken**](WalletsApi.md#listAddressBalancesByToken) | **GET** /wallets/{wallet_id}/tokens/{token_id} | List address balances by token
 [**listAddresses**](WalletsApi.md#listAddresses) | **GET** /wallets/{wallet_id}/addresses | List wallet addresses
@@ -22,6 +24,7 @@ Method | HTTP request | Description
 [**listSupportedTokens**](WalletsApi.md#listSupportedTokens) | **GET** /wallets/tokens | List supported tokens
 [**listTokenBalancesForAddress**](WalletsApi.md#listTokenBalancesForAddress) | **GET** /wallets/{wallet_id}/addresses/{address}/tokens | List token balances by address
 [**listTokenBalancesForWallet**](WalletsApi.md#listTokenBalancesForWallet) | **GET** /wallets/{wallet_id}/tokens | List token balances by wallet
+[**listTokenListingRequests**](WalletsApi.md#listTokenListingRequests) | **GET** /wallets/tokens/listing_requests | Get all token listing requests
 [**listUtxos**](WalletsApi.md#listUtxos) | **GET** /wallets/{wallet_id}/utxos | List UTXOs
 [**listWallets**](WalletsApi.md#listWallets) | **GET** /wallets | List all wallets
 [**lockUtxos**](WalletsApi.md#lockUtxos) | **POST** /wallets/{wallet_id}/utxos/lock | Lock UTXOs
@@ -230,6 +233,56 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**[AddressInfo]**](AddressInfo.md)
+
+### Authorization
+
+[OAuth2](../README.md#OAuth2), [CoboAuth](../README.md#CoboAuth)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
+## createTokenListingRequest
+
+> CreateTokenListingRequest201Response createTokenListingRequest(CreateTokenListingRequestRequest)
+
+Submit token listing request
+
+Submit a request to add a non-listed token. The token must exist on the specified blockchain with a valid contract address. 
+
+### Example
+
+```javascript
+const CoboWaas2 = require('@cobo/cobo-waas2');
+// Initialize the API client
+const apiClient = CoboWaas2.ApiClient.instance
+// Select the development environment. To use the production environment, replace `Env.DEV` with `Env.PROD`
+apiClient.setEnv(CoboWaas2.Env.DEV);
+// Replace `<YOUR_PRIVATE_KEY>` with your private key
+apiClient.setPrivateKey("<YOUR_PRIVATE_KEY>");
+// Call the API
+const apiInstance = new CoboWaas2.WalletsApi();
+const CreateTokenListingRequestRequest = new CoboWaas2.CreateTokenListingRequestRequest();
+apiInstance.createTokenListingRequest(CreateTokenListingRequestRequest).then((data) => {
+  console.log('API called successfully. Returned data: ' + data);
+}, (error) => {
+  console.error(error);
+});
+
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **CreateTokenListingRequestRequest** | [**CreateTokenListingRequestRequest**](CreateTokenListingRequestRequest.md)| Request body for submitting a token listing request. &lt;note&gt;   wallet_type only supports &#x60;Custodial&#x60; and &#x60;MPC&#x60;.   wallet_subtype only supports &#x60;Asset&#x60;, &#x60;Web3&#x60;, and &#x60;Org-Controlled&#x60;. &lt;/note&gt;  | 
+
+### Return type
+
+[**CreateTokenListingRequest201Response**](CreateTokenListingRequest201Response.md)
 
 ### Authorization
 
@@ -496,6 +549,56 @@ Name | Type | Description  | Notes
 ### Authorization
 
 [CoboAuth](../README.md#CoboAuth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+## getTokenListingRequestByRequestId
+
+> TokenListing getTokenListingRequestByRequestId(request_id)
+
+Get token listing request details
+
+Retrieve detailed information about a specific token listing request including its current status and any admin feedback. 
+
+### Example
+
+```javascript
+const CoboWaas2 = require('@cobo/cobo-waas2');
+// Initialize the API client
+const apiClient = CoboWaas2.ApiClient.instance
+// Select the development environment. To use the production environment, replace `Env.DEV` with `Env.PROD`
+apiClient.setEnv(CoboWaas2.Env.DEV);
+// Replace `<YOUR_PRIVATE_KEY>` with your private key
+apiClient.setPrivateKey("<YOUR_PRIVATE_KEY>");
+// Call the API
+const apiInstance = new CoboWaas2.WalletsApi();
+const request_id = "123e4567e89b12d3a456426614174000";
+apiInstance.getTokenListingRequestByRequestId(request_id).then((data) => {
+  console.log('API called successfully. Returned data: ' + data);
+}, (error) => {
+  console.error(error);
+});
+
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **request_id** | **String**| The unique identifier of the token listing request | 
+
+### Return type
+
+[**TokenListing**](TokenListing.md)
+
+### Authorization
+
+[OAuth2](../README.md#OAuth2), [CoboAuth](../README.md#CoboAuth)
 
 ### HTTP request headers
 
@@ -1036,6 +1139,64 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**ListTokenBalancesForAddress200Response**](ListTokenBalancesForAddress200Response.md)
+
+### Authorization
+
+[OAuth2](../README.md#OAuth2), [CoboAuth](../README.md#CoboAuth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+## listTokenListingRequests
+
+> ListTokenListingRequests200Response listTokenListingRequests(opts)
+
+Get all token listing requests
+
+Retrieve a list of all token listing requests. Results can be filtered and paginated. 
+
+### Example
+
+```javascript
+const CoboWaas2 = require('@cobo/cobo-waas2');
+// Initialize the API client
+const apiClient = CoboWaas2.ApiClient.instance
+// Select the development environment. To use the production environment, replace `Env.DEV` with `Env.PROD`
+apiClient.setEnv(CoboWaas2.Env.DEV);
+// Replace `<YOUR_PRIVATE_KEY>` with your private key
+apiClient.setPrivateKey("<YOUR_PRIVATE_KEY>");
+// Call the API
+const apiInstance = new CoboWaas2.WalletsApi();
+const opts = {
+  'limit': 10,
+  'before': "RqeEoTkgKG5rpzqYzg2Hd3szmPoj2cE7w5jWwShz3C1vyGmk1",
+  'after': "RqeEoTkgKG5rpzqYzg2Hd3szmPoj2cE7w5jWwShz3C1vyGSAk",
+  'status': new CoboWaas2.TokenListingRequestStatus()
+};
+apiInstance.listTokenListingRequests(opts).then((data) => {
+  console.log('API called successfully. Returned data: ' + data);
+}, (error) => {
+  console.error(error);
+});
+
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **limit** | **Number**| The maximum number of objects to return. For most operations, the value range is [1, 50]. | [optional] [default to 10]
+ **before** | **String**| This parameter specifies an object ID as a starting point for pagination, retrieving data before the specified object relative to the current dataset.    Suppose the current data is ordered as Object A, Object B, and Object C.  If you set &#x60;before&#x60; to the ID of Object C (&#x60;RqeEoTkgKG5rpzqYzg2Hd3szmPoj2cE7w5jWwShz3C1vyGSAk&#x60;), the response will include Object B and Object A.    **Notes**:   - If you set both &#x60;after&#x60; and &#x60;before&#x60;, an error will occur. - If you leave both &#x60;before&#x60; and &#x60;after&#x60; empty, the first page of data is returned. - If you set it to &#x60;infinity&#x60;, the last page of data is returned.  | [optional] 
+ **after** | **String**| This parameter specifies an object ID as a starting point for pagination, retrieving data after the specified object relative to the current dataset.    Suppose the current data is ordered as Object A, Object B, and Object C. If you set &#x60;after&#x60; to the ID of Object A (&#x60;RqeEoTkgKG5rpzqYzg2Hd3szmPoj2cE7w5jWwShz3C1vyGSAk&#x60;), the response will include Object B and Object C.    **Notes**:   - If you set both &#x60;after&#x60; and &#x60;before&#x60;, an error will occur. - If you leave both &#x60;before&#x60; and &#x60;after&#x60; empty, the first page of data is returned.  | [optional] 
+ **status** | [**TokenListingRequestStatus**](.md)| Filter by request status | [optional] 
+
+### Return type
+
+[**ListTokenListingRequests200Response**](ListTokenListingRequests200Response.md)
 
 ### Authorization
 

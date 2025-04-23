@@ -12,8 +12,10 @@
 
 import ApiClient from "../ApiClient";
 import ErrorResponse from '../model/ErrorResponse';
+import EstimatedFixedFee from '../model/EstimatedFixedFee';
+import FeeStationTransfer from '../model/FeeStationTransfer';
 import ListAddresses200Response from '../model/ListAddresses200Response';
-import ListTokenBalancesForAddress200Response from '../model/ListTokenBalancesForAddress200Response';
+import ListTokenBalancesForFeeStation200Response from '../model/ListTokenBalancesForFeeStation200Response';
 import ListTransactions200Response from '../model/ListTransactions200Response';
 import TransactionDetail from '../model/TransactionDetail';
 
@@ -34,6 +36,55 @@ export default class FeeStationApi {
         this.apiClient = apiClient || ApiClient.instance;
     }
 
+
+
+    /**
+     * Estimate transaction fee
+     * This operation estimates the transaction fee of a token transfer based on the fee model that the chain uses, considering factors such as network congestion and transaction complexity.  You need to specify the transaction information, including destination address, token ID.  The response can contain different properties based on the transaction fee model used by the chain. For the legacy, EIP-1559, and UTXO fee models, Cobo also supports three different transaction speed levels: slow, recommended, and fast. For more information about estimating transaction fees, refer to [Estimate transaction fee](https://www.cobo.com/developers/v2/guides/transactions/estimate-fees). 
+     * @param {Object} opts Optional parameters
+     * @param {module:model/FeeStationTransfer} [FeeStationTransfer] The information about a token transfer.
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/EstimatedFixedFee} and HTTP response
+     */
+    estimateFeeStationFeeWithHttpInfo(opts) {
+      opts = opts || {};
+      let postBody = opts['FeeStationTransfer'];
+      if (postBody && postBody.toJSON) {
+          postBody = postBody.toJSON()
+      }
+
+      let pathParams = {
+      };
+      let queryParams = {
+      };
+      let headerParams = {
+      };
+      let formParams = {
+      };
+
+      let authNames = ['OAuth2', 'CoboAuth'];
+      let contentTypes = ['application/json'];
+      let accepts = ['application/json'];
+      let returnType = EstimatedFixedFee;
+      return this.apiClient.callApi(
+        '/fee_station/transactions/estimate_fee', 'POST',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, null
+      );
+    }
+
+    /**
+     * Estimate transaction fee
+     * This operation estimates the transaction fee of a token transfer based on the fee model that the chain uses, considering factors such as network congestion and transaction complexity.  You need to specify the transaction information, including destination address, token ID.  The response can contain different properties based on the transaction fee model used by the chain. For the legacy, EIP-1559, and UTXO fee models, Cobo also supports three different transaction speed levels: slow, recommended, and fast. For more information about estimating transaction fees, refer to [Estimate transaction fee](https://www.cobo.com/developers/v2/guides/transactions/estimate-fees). 
+     * @param {Object} opts Optional parameters
+     * @param {module:model/FeeStationTransfer} opts.FeeStationTransfer The information about a token transfer.
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/EstimatedFixedFee}
+     */
+    estimateFeeStationFee(opts) {
+      return this.estimateFeeStationFeeWithHttpInfo(opts)
+        .then(function(response_and_data) {
+          return response_and_data.data;
+        });
+    }
 
 
     /**
@@ -249,7 +300,7 @@ export default class FeeStationApi {
      * @param {Number} [limit = 10)] The maximum number of objects to return. For most operations, the value range is [1, 50].
      * @param {String} [before] This parameter specifies an object ID as a starting point for pagination, retrieving data before the specified object relative to the current dataset.    Suppose the current data is ordered as Object A, Object B, and Object C.  If you set `before` to the ID of Object C (`RqeEoTkgKG5rpzqYzg2Hd3szmPoj2cE7w5jWwShz3C1vyGSAk`), the response will include Object B and Object A.    **Notes**:   - If you set both `after` and `before`, an error will occur. - If you leave both `before` and `after` empty, the first page of data is returned. - If you set it to `infinity`, the last page of data is returned. 
      * @param {String} [after] This parameter specifies an object ID as a starting point for pagination, retrieving data after the specified object relative to the current dataset.    Suppose the current data is ordered as Object A, Object B, and Object C. If you set `after` to the ID of Object A (`RqeEoTkgKG5rpzqYzg2Hd3szmPoj2cE7w5jWwShz3C1vyGSAk`), the response will include Object B and Object C.    **Notes**:   - If you set both `after` and `before`, an error will occur. - If you leave both `before` and `after` empty, the first page of data is returned. 
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/ListTokenBalancesForAddress200Response} and HTTP response
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/ListTokenBalancesForFeeStation200Response} and HTTP response
      */
     listTokenBalancesForFeeStationWithHttpInfo(opts) {
       opts = opts || {};
@@ -274,7 +325,7 @@ export default class FeeStationApi {
       let authNames = ['OAuth2', 'CoboAuth'];
       let contentTypes = [];
       let accepts = ['application/json'];
-      let returnType = ListTokenBalancesForAddress200Response;
+      let returnType = ListTokenBalancesForFeeStation200Response;
       return this.apiClient.callApi(
         '/fee_station/tokens', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -290,7 +341,7 @@ export default class FeeStationApi {
      * @param {Number} opts.limit The maximum number of objects to return. For most operations, the value range is [1, 50]. (default to 10)
      * @param {String} opts.before This parameter specifies an object ID as a starting point for pagination, retrieving data before the specified object relative to the current dataset.    Suppose the current data is ordered as Object A, Object B, and Object C.  If you set `before` to the ID of Object C (`RqeEoTkgKG5rpzqYzg2Hd3szmPoj2cE7w5jWwShz3C1vyGSAk`), the response will include Object B and Object A.    **Notes**:   - If you set both `after` and `before`, an error will occur. - If you leave both `before` and `after` empty, the first page of data is returned. - If you set it to `infinity`, the last page of data is returned. 
      * @param {String} opts.after This parameter specifies an object ID as a starting point for pagination, retrieving data after the specified object relative to the current dataset.    Suppose the current data is ordered as Object A, Object B, and Object C. If you set `after` to the ID of Object A (`RqeEoTkgKG5rpzqYzg2Hd3szmPoj2cE7w5jWwShz3C1vyGSAk`), the response will include Object B and Object C.    **Notes**:   - If you set both `after` and `before`, an error will occur. - If you leave both `before` and `after` empty, the first page of data is returned. 
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/ListTokenBalancesForAddress200Response}
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/ListTokenBalancesForFeeStation200Response}
      */
     listTokenBalancesForFeeStation(opts) {
       return this.listTokenBalancesForFeeStationWithHttpInfo(opts)

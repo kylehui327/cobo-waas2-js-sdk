@@ -11,7 +11,7 @@
 
 import ApiClient from '../ApiClient';
 import SwapActivityStatus from './SwapActivityStatus';
-import SwapActivityType from './SwapActivityType';
+import SwapType from './SwapType';
 import TransactionInitiatorType from './TransactionInitiatorType';
 
 /**
@@ -50,8 +50,8 @@ class SwapActivity {
             if (data.hasOwnProperty('activity_id')) {
                 obj['activity_id'] = ApiClient.convertToType(data['activity_id'], 'String');
             }
-            if (data.hasOwnProperty('activity_type')) {
-                obj['activity_type'] = SwapActivityType.constructFromObject(data['activity_type']);
+            if (data.hasOwnProperty('swap_type')) {
+                obj['swap_type'] = SwapType.constructFromObject(data['swap_type']);
             }
             if (data.hasOwnProperty('status')) {
                 obj['status'] = SwapActivityStatus.constructFromObject(data['status']);
@@ -73,6 +73,9 @@ class SwapActivity {
             }
             if (data.hasOwnProperty('receive_amount')) {
                 obj['receive_amount'] = ApiClient.convertToType(data['receive_amount'], 'String');
+            }
+            if (data.hasOwnProperty('fee_token_id')) {
+                obj['fee_token_id'] = ApiClient.convertToType(data['fee_token_id'], 'String');
             }
             if (data.hasOwnProperty('fee_amount')) {
                 obj['fee_amount'] = ApiClient.convertToType(data['fee_amount'], 'String');
@@ -131,6 +134,10 @@ class SwapActivity {
             throw new Error("Expected the field `receive_amount` to be a primitive type in the JSON string but got " + data['receive_amount']);
         }
         // ensure the json data is a string
+        if (data['fee_token_id'] && !(typeof data['fee_token_id'] === 'string' || data['fee_token_id'] instanceof String)) {
+            throw new Error("Expected the field `fee_token_id` to be a primitive type in the JSON string but got " + data['fee_token_id']);
+        }
+        // ensure the json data is a string
         if (data['fee_amount'] && !(typeof data['fee_amount'] === 'string' || data['fee_amount'] instanceof String)) {
             throw new Error("Expected the field `fee_amount` to be a primitive type in the JSON string but got " + data['fee_amount']);
         }
@@ -158,9 +165,9 @@ class SwapActivity {
 SwapActivity.prototype['activity_id'] = undefined;
 
 /**
- * @member {module:model/SwapActivityType} activity_type
+ * @member {module:model/SwapType} swap_type
  */
-SwapActivity.prototype['activity_type'] = undefined;
+SwapActivity.prototype['swap_type'] = undefined;
 
 /**
  * @member {module:model/SwapActivityStatus} status
@@ -202,6 +209,12 @@ SwapActivity.prototype['pay_amount'] = undefined;
  * @member {String} receive_amount
  */
 SwapActivity.prototype['receive_amount'] = undefined;
+
+/**
+ * The fee token symbol.
+ * @member {String} fee_token_id
+ */
+SwapActivity.prototype['fee_token_id'] = undefined;
 
 /**
  * The amount of fee.

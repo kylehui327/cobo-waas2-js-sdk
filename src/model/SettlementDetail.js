@@ -120,13 +120,13 @@ class SettlementDetail {
 
 
 /**
- * The currency for the settlement.
+ * The fiat currency for the settlement.
  * @member {String} currency
  */
 SettlementDetail.prototype['currency'] = undefined;
 
 /**
- * The ID of the cryptocurrency token settled.
+ * The ID of the cryptocurrency settled.
  * @member {String} token_id
  */
 SettlementDetail.prototype['token_id'] = undefined;
@@ -138,7 +138,7 @@ SettlementDetail.prototype['token_id'] = undefined;
 SettlementDetail.prototype['chain_id'] = undefined;
 
 /**
- * The settled amount. - If `token_id` is specified, this represents the settlement amount in the specified cryptocurrency token. - If `token_id` is not specified, this represents the settlement amount in the specified currency. 
+ * The settlement amount.  - If `token_id` is specified, this represents the settlement amount in the specified cryptocurrency.  - If `token_id` is not specified, this represents the settlement amount in the specified fiat currency. 
  * @member {String} amount
  */
 SettlementDetail.prototype['amount'] = undefined;
@@ -154,6 +154,7 @@ SettlementDetail.prototype['status'] = undefined;
 SettlementDetail.prototype['bank_account'] = undefined;
 
 /**
+ * An array of transactions associated with this settlement request. Each transaction represents a separate blockchain operation related to the settlement process.
  * @member {Array.<module:model/PaymentTransaction>} transactions
  */
 SettlementDetail.prototype['transactions'] = undefined;

@@ -11,6 +11,8 @@
 
 import ApiClient from '../ApiClient';
 import TokenInfo from './TokenInfo';
+import WalletSubtype from './WalletSubtype';
+import WalletType from './WalletType';
 import WebhookEventDataType from './WebhookEventDataType';
 
 /**
@@ -22,7 +24,7 @@ class TokensEventData {
      * Constructs a new <code>TokensEventData</code>.
      * @alias module:model/TokensEventData
      * @implements module:model/WebhookEventDataType
-     * @param data_type {module:model/TokensEventData.DataTypeEnum}  The data type of the event. - `Transaction`: The transaction event data. - `TSSRequest`: The TSS request event data. - `Addresses`: The addresses event data. - `WalletInfo`: The wallet information event data. - `MPCVault`: The MPC vault event data. - `Chains`: The enabled chain event data. - `Tokens`: The enabled token event data. - `TokenListing`: The token listing event data.
+     * @param data_type {module:model/TokensEventData.DataTypeEnum}  The data type of the event. - `Transaction`: The transaction event data. - `TSSRequest`: The TSS request event data. - `Addresses`: The addresses event data. - `WalletInfo`: The wallet information event data. - `MPCVault`: The MPC vault event data. - `Chains`: The enabled chain event data. - `Tokens`: The enabled token event data. - `TokenListing`: The token listing event data.        - `PaymentOrder`: The payment order event data. - `PaymentRefund`: The payment refund event data. - `PaymentSettlement`: The payment settlement event data.
      * @param tokens {Array.<module:model/TokenInfo>} The enabled tokens.
      */
     constructor(data_type, tokens) { 
@@ -58,6 +60,12 @@ class TokensEventData {
             if (data.hasOwnProperty('tokens')) {
                 obj['tokens'] = ApiClient.convertToType(data['tokens'], [TokenInfo]);
             }
+            if (data.hasOwnProperty('wallet_type')) {
+                obj['wallet_type'] = WalletType.constructFromObject(data['wallet_type']);
+            }
+            if (data.hasOwnProperty('wallet_subtypes')) {
+                obj['wallet_subtypes'] = ApiClient.convertToType(data['wallet_subtypes'], [WalletSubtype]);
+            }
         }
         return obj;
     }
@@ -88,6 +96,10 @@ class TokensEventData {
                 TokenInfo.validateJSON(item);
             };
         }
+        // ensure the json data is an array
+        if (!Array.isArray(data['wallet_subtypes'])) {
+            throw new Error("Expected the field `wallet_subtypes` to be an array in the JSON data but got " + data['wallet_subtypes']);
+        }
 
         return true;
     }
@@ -98,7 +110,7 @@ class TokensEventData {
 TokensEventData.RequiredProperties = ["data_type", "tokens"];
 
 /**
- *  The data type of the event. - `Transaction`: The transaction event data. - `TSSRequest`: The TSS request event data. - `Addresses`: The addresses event data. - `WalletInfo`: The wallet information event data. - `MPCVault`: The MPC vault event data. - `Chains`: The enabled chain event data. - `Tokens`: The enabled token event data. - `TokenListing`: The token listing event data.
+ *  The data type of the event. - `Transaction`: The transaction event data. - `TSSRequest`: The TSS request event data. - `Addresses`: The addresses event data. - `WalletInfo`: The wallet information event data. - `MPCVault`: The MPC vault event data. - `Chains`: The enabled chain event data. - `Tokens`: The enabled token event data. - `TokenListing`: The token listing event data.        - `PaymentOrder`: The payment order event data. - `PaymentRefund`: The payment refund event data. - `PaymentSettlement`: The payment settlement event data.
  * @member {module:model/TokensEventData.DataTypeEnum} data_type
  */
 TokensEventData.prototype['data_type'] = undefined;
@@ -109,10 +121,20 @@ TokensEventData.prototype['data_type'] = undefined;
  */
 TokensEventData.prototype['tokens'] = undefined;
 
+/**
+ * @member {module:model/WalletType} wallet_type
+ */
+TokensEventData.prototype['wallet_type'] = undefined;
+
+/**
+ * @member {Array.<module:model/WalletSubtype>} wallet_subtypes
+ */
+TokensEventData.prototype['wallet_subtypes'] = undefined;
+
 
 // Implement WebhookEventDataType interface:
 /**
- *  The data type of the event. - `Transaction`: The transaction event data. - `TSSRequest`: The TSS request event data. - `Addresses`: The addresses event data. - `WalletInfo`: The wallet information event data. - `MPCVault`: The MPC vault event data. - `Chains`: The enabled chain event data. - `Tokens`: The enabled token event data. - `TokenListing`: The token listing event data.
+ *  The data type of the event. - `Transaction`: The transaction event data. - `TSSRequest`: The TSS request event data. - `Addresses`: The addresses event data. - `WalletInfo`: The wallet information event data. - `MPCVault`: The MPC vault event data. - `Chains`: The enabled chain event data. - `Tokens`: The enabled token event data. - `TokenListing`: The token listing event data.        - `PaymentOrder`: The payment order event data. - `PaymentRefund`: The payment refund event data. - `PaymentSettlement`: The payment settlement event data.
  * @member {module:model/WebhookEventDataType.DataTypeEnum} data_type
  */
 WebhookEventDataType.prototype['data_type'] = undefined;
@@ -173,6 +195,24 @@ TokensEventData['DataTypeEnum'] = {
      * @const
      */
     "TokenListing": "TokenListing",
+
+    /**
+     * value: "PaymentOrder"
+     * @const
+     */
+    "PaymentOrder": "PaymentOrder",
+
+    /**
+     * value: "PaymentRefund"
+     * @const
+     */
+    "PaymentRefund": "PaymentRefund",
+
+    /**
+     * value: "PaymentSettlement"
+     * @const
+     */
+    "PaymentSettlement": "PaymentSettlement",
 
     /**
      * value: "unknown_default_open_api"

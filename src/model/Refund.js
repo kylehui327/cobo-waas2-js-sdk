@@ -22,7 +22,7 @@ class Refund {
      * Constructs a new <code>Refund</code>.
      * @alias module:model/Refund
      * @param refund_id {String} The refund order ID.
-     * @param token_id {String} The ID of the cryptocurrency token used for refund.
+     * @param token_id {String} The ID of the cryptocurrency used for refund.
      * @param chain_id {String} The ID of the blockchain network on which the refund transaction occurs.
      * @param amount {String} The amount in cryptocurrency to be returned for this refund order.
      * @param to_address {String} The recipient's wallet address where the refund will be sent.
@@ -149,7 +149,7 @@ class Refund {
 Refund.RequiredProperties = ["refund_id", "token_id", "chain_id", "amount", "to_address", "status"];
 
 /**
- * The request id.
+ * The request ID provided by you when creating the refund request.
  * @member {String} request_id
  */
 Refund.prototype['request_id'] = undefined;
@@ -167,7 +167,7 @@ Refund.prototype['refund_id'] = undefined;
 Refund.prototype['merchant_id'] = undefined;
 
 /**
- * The ID of the cryptocurrency token used for refund.
+ * The ID of the cryptocurrency used for refund.
  * @member {String} token_id
  */
 Refund.prototype['token_id'] = undefined;
@@ -196,6 +196,7 @@ Refund.prototype['to_address'] = undefined;
 Refund.prototype['status'] = undefined;
 
 /**
+ * An array of transactions associated with this refund order. Each transaction represents a separate blockchain operation related to the refund process.
  * @member {Array.<module:model/PaymentTransaction>} transactions
  */
 Refund.prototype['transactions'] = undefined;

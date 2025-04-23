@@ -19,14 +19,15 @@ class SwapQuote {
     /**
      * Constructs a new <code>SwapQuote</code>.
      * @alias module:model/SwapQuote
+     * @param quote_id {String} The unique id of quote.
      * @param pay_amount {String} The amount of tokens to pay.
      * @param receive_amount {String} The amount of tokens to receive.
      * @param fee_amount {String} The amount of tokens to pay for fee.
      * @param quote_expired_timestamp {Number} The time when the quote will expire, in Unix timestamp format, measured in milliseconds.
      */
-    constructor(pay_amount, receive_amount, fee_amount, quote_expired_timestamp) { 
+    constructor(quote_id, pay_amount, receive_amount, fee_amount, quote_expired_timestamp) { 
         
-        SwapQuote.initialize(this, pay_amount, receive_amount, fee_amount, quote_expired_timestamp);
+        SwapQuote.initialize(this, quote_id, pay_amount, receive_amount, fee_amount, quote_expired_timestamp);
     }
 
     /**
@@ -34,7 +35,8 @@ class SwapQuote {
      * This method is used by the constructors of any subclasses, in order to implement multiple inheritance (mix-ins).
      * Only for internal use.
      */
-    static initialize(obj, pay_amount, receive_amount, fee_amount, quote_expired_timestamp) { 
+    static initialize(obj, quote_id, pay_amount, receive_amount, fee_amount, quote_expired_timestamp) { 
+        obj['quote_id'] = quote_id;
         obj['pay_amount'] = pay_amount;
         obj['receive_amount'] = receive_amount;
         obj['fee_amount'] = fee_amount;
@@ -120,7 +122,7 @@ class SwapQuote {
 
 }
 
-SwapQuote.RequiredProperties = ["pay_amount", "receive_amount", "fee_amount", "quote_expired_timestamp"];
+SwapQuote.RequiredProperties = ["quote_id", "pay_amount", "receive_amount", "fee_amount", "quote_expired_timestamp"];
 
 /**
  * The unique id of quote.

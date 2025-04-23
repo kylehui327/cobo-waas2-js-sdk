@@ -11,6 +11,7 @@ Name | Type | Description | Notes
 **token_id** | **String** | The token ID of the transaction fee. | [optional] 
 **effective_gas_price** | **String** | The gas price (gas fee per gas unit) on the chain, in wei. The gas price represents the amount of ETH that must be paid to validators for processing transactions. | [optional] 
 **fee_used** | **String** | The transaction fee. | [optional] 
+**estimated_fee_used** | **String** | The estimated transaction fee. | [optional] 
 **gas_used** | **String** | The number of gas units used in the transaction. | [optional] 
 
 

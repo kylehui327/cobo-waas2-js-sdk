@@ -63,6 +63,9 @@ class TransactionUtxoFee {
             if (data.hasOwnProperty('fee_used')) {
                 obj['fee_used'] = ApiClient.convertToType(data['fee_used'], 'String');
             }
+            if (data.hasOwnProperty('estimated_fee_used')) {
+                obj['estimated_fee_used'] = ApiClient.convertToType(data['estimated_fee_used'], 'String');
+            }
             if (data.hasOwnProperty('max_fee_amount')) {
                 obj['max_fee_amount'] = ApiClient.convertToType(data['max_fee_amount'], 'String');
             }
@@ -93,6 +96,10 @@ class TransactionUtxoFee {
         // ensure the json data is a string
         if (data['fee_used'] && !(typeof data['fee_used'] === 'string' || data['fee_used'] instanceof String)) {
             throw new Error("Expected the field `fee_used` to be a primitive type in the JSON string but got " + data['fee_used']);
+        }
+        // ensure the json data is a string
+        if (data['estimated_fee_used'] && !(typeof data['estimated_fee_used'] === 'string' || data['estimated_fee_used'] instanceof String)) {
+            throw new Error("Expected the field `estimated_fee_used` to be a primitive type in the JSON string but got " + data['estimated_fee_used']);
         }
         // ensure the json data is a string
         if (data['max_fee_amount'] && !(typeof data['max_fee_amount'] === 'string' || data['max_fee_amount'] instanceof String)) {
@@ -129,6 +136,12 @@ TransactionUtxoFee.prototype['token_id'] = undefined;
  * @member {String} fee_used
  */
 TransactionUtxoFee.prototype['fee_used'] = undefined;
+
+/**
+ * The estimated transaction fee.
+ * @member {String} estimated_fee_used
+ */
+TransactionUtxoFee.prototype['estimated_fee_used'] = undefined;
 
 /**
  * The maximum fee that you are willing to pay for the transaction. The transaction will fail if the transaction fee exceeds the maximum fee.

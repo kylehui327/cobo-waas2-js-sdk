@@ -17,6 +17,8 @@ import CheckAddressChainsValidity200ResponseInner from '../model/CheckAddressCha
 import CheckAddressValidity200Response from '../model/CheckAddressValidity200Response';
 import CheckAddressesValidity200ResponseInner from '../model/CheckAddressesValidity200ResponseInner';
 import CreateAddressRequest from '../model/CreateAddressRequest';
+import CreateTokenListingRequest201Response from '../model/CreateTokenListingRequest201Response';
+import CreateTokenListingRequestRequest from '../model/CreateTokenListingRequestRequest';
 import CreateWalletParams from '../model/CreateWalletParams';
 import CreatedWalletInfo from '../model/CreatedWalletInfo';
 import DeleteWalletById201Response from '../model/DeleteWalletById201Response';
@@ -27,6 +29,7 @@ import ListAddresses200Response from '../model/ListAddresses200Response';
 import ListSupportedChains200Response from '../model/ListSupportedChains200Response';
 import ListSupportedTokens200Response from '../model/ListSupportedTokens200Response';
 import ListTokenBalancesForAddress200Response from '../model/ListTokenBalancesForAddress200Response';
+import ListTokenListingRequests200Response from '../model/ListTokenListingRequests200Response';
 import ListUtxos200Response from '../model/ListUtxos200Response';
 import ListWallets200Response from '../model/ListWallets200Response';
 import LockUtxos201Response from '../model/LockUtxos201Response';
@@ -34,6 +37,8 @@ import LockUtxosRequest from '../model/LockUtxosRequest';
 import MaxTransferableValue from '../model/MaxTransferableValue';
 import RefreshAddressBalancesByToken200Response from '../model/RefreshAddressBalancesByToken200Response';
 import RefreshAddressBalancesByTokenRequest from '../model/RefreshAddressBalancesByTokenRequest';
+import TokenListing from '../model/TokenListing';
+import TokenListingRequestStatus from '../model/TokenListingRequestStatus';
 import UpdateWalletParams from '../model/UpdateWalletParams';
 import WalletInfo from '../model/WalletInfo';
 import WalletSubtype from '../model/WalletSubtype';
@@ -282,6 +287,56 @@ export default class WalletsApi {
      */
     createAddress(wallet_id, opts) {
       return this.createAddressWithHttpInfo(wallet_id, opts)
+        .then(function(response_and_data) {
+          return response_and_data.data;
+        });
+    }
+
+
+    /**
+     * Submit token listing request
+     * Submit a request to add a non-listed token. The token must exist on the specified blockchain with a valid contract address. 
+     * @param {module:model/CreateTokenListingRequestRequest} CreateTokenListingRequestRequest Request body for submitting a token listing request. <note>   wallet_type only supports `Custodial` and `MPC`.   wallet_subtype only supports `Asset`, `Web3`, and `Org-Controlled`. </note> 
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/CreateTokenListingRequest201Response} and HTTP response
+     */
+    createTokenListingRequestWithHttpInfo(CreateTokenListingRequestRequest) {
+      let postBody = CreateTokenListingRequestRequest;
+      if (postBody && postBody.toJSON) {
+          postBody = postBody.toJSON()
+      }
+      // verify the required parameter 'CreateTokenListingRequestRequest' is set
+      if (CreateTokenListingRequestRequest === undefined || CreateTokenListingRequestRequest === null) {
+        throw new Error("Missing the required parameter 'CreateTokenListingRequestRequest' when calling createTokenListingRequest");
+      }
+
+      let pathParams = {
+      };
+      let queryParams = {
+      };
+      let headerParams = {
+      };
+      let formParams = {
+      };
+
+      let authNames = ['OAuth2', 'CoboAuth'];
+      let contentTypes = ['application/json'];
+      let accepts = ['application/json'];
+      let returnType = CreateTokenListingRequest201Response;
+      return this.apiClient.callApi(
+        '/wallets/tokens/listing_requests', 'POST',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, null
+      );
+    }
+
+    /**
+     * Submit token listing request
+     * Submit a request to add a non-listed token. The token must exist on the specified blockchain with a valid contract address. 
+     * @param {module:model/CreateTokenListingRequestRequest} CreateTokenListingRequestRequest Request body for submitting a token listing request. <note>   wallet_type only supports `Custodial` and `MPC`.   wallet_subtype only supports `Asset`, `Web3`, and `Org-Controlled`. </note> 
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/CreateTokenListingRequest201Response}
+     */
+    createTokenListingRequest(CreateTokenListingRequestRequest) {
+      return this.createTokenListingRequestWithHttpInfo(CreateTokenListingRequestRequest)
         .then(function(response_and_data) {
           return response_and_data.data;
         });
@@ -562,6 +617,57 @@ export default class WalletsApi {
      */
     getTokenById(token_id) {
       return this.getTokenByIdWithHttpInfo(token_id)
+        .then(function(response_and_data) {
+          return response_and_data.data;
+        });
+    }
+
+
+    /**
+     * Get token listing request details
+     * Retrieve detailed information about a specific token listing request including its current status and any admin feedback. 
+     * @param {String} request_id The unique identifier of the token listing request
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/TokenListing} and HTTP response
+     */
+    getTokenListingRequestByRequestIdWithHttpInfo(request_id) {
+      let postBody = null;
+      if (postBody && postBody.toJSON) {
+          postBody = postBody.toJSON()
+      }
+      // verify the required parameter 'request_id' is set
+      if (request_id === undefined || request_id === null) {
+        throw new Error("Missing the required parameter 'request_id' when calling getTokenListingRequestByRequestId");
+      }
+
+      let pathParams = {
+        'request_id': request_id
+      };
+      let queryParams = {
+      };
+      let headerParams = {
+      };
+      let formParams = {
+      };
+
+      let authNames = ['OAuth2', 'CoboAuth'];
+      let contentTypes = [];
+      let accepts = ['application/json'];
+      let returnType = TokenListing;
+      return this.apiClient.callApi(
+        '/wallets/tokens/listing_requests/{request_id}', 'GET',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, null
+      );
+    }
+
+    /**
+     * Get token listing request details
+     * Retrieve detailed information about a specific token listing request including its current status and any admin feedback. 
+     * @param {String} request_id The unique identifier of the token listing request
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/TokenListing}
+     */
+    getTokenListingRequestByRequestId(request_id) {
+      return this.getTokenListingRequestByRequestIdWithHttpInfo(request_id)
         .then(function(response_and_data) {
           return response_and_data.data;
         });
@@ -1154,6 +1260,65 @@ export default class WalletsApi {
      */
     listTokenBalancesForWallet(wallet_id, opts) {
       return this.listTokenBalancesForWalletWithHttpInfo(wallet_id, opts)
+        .then(function(response_and_data) {
+          return response_and_data.data;
+        });
+    }
+
+
+    /**
+     * Get all token listing requests
+     * Retrieve a list of all token listing requests. Results can be filtered and paginated. 
+     * @param {Object} opts Optional parameters
+     * @param {Number} [limit = 10)] The maximum number of objects to return. For most operations, the value range is [1, 50].
+     * @param {String} [before] This parameter specifies an object ID as a starting point for pagination, retrieving data before the specified object relative to the current dataset.    Suppose the current data is ordered as Object A, Object B, and Object C.  If you set `before` to the ID of Object C (`RqeEoTkgKG5rpzqYzg2Hd3szmPoj2cE7w5jWwShz3C1vyGSAk`), the response will include Object B and Object A.    **Notes**:   - If you set both `after` and `before`, an error will occur. - If you leave both `before` and `after` empty, the first page of data is returned. - If you set it to `infinity`, the last page of data is returned. 
+     * @param {String} [after] This parameter specifies an object ID as a starting point for pagination, retrieving data after the specified object relative to the current dataset.    Suppose the current data is ordered as Object A, Object B, and Object C. If you set `after` to the ID of Object A (`RqeEoTkgKG5rpzqYzg2Hd3szmPoj2cE7w5jWwShz3C1vyGSAk`), the response will include Object B and Object C.    **Notes**:   - If you set both `after` and `before`, an error will occur. - If you leave both `before` and `after` empty, the first page of data is returned. 
+     * @param {module:model/TokenListingRequestStatus} [status] Filter by request status
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/ListTokenListingRequests200Response} and HTTP response
+     */
+    listTokenListingRequestsWithHttpInfo(opts) {
+      opts = opts || {};
+      let postBody = null;
+      if (postBody && postBody.toJSON) {
+          postBody = postBody.toJSON()
+      }
+
+      let pathParams = {
+      };
+      let queryParams = {
+        'limit': opts['limit'],
+        'before': opts['before'],
+        'after': opts['after'],
+        'status': opts['status']
+      };
+      let headerParams = {
+      };
+      let formParams = {
+      };
+
+      let authNames = ['OAuth2', 'CoboAuth'];
+      let contentTypes = [];
+      let accepts = ['application/json'];
+      let returnType = ListTokenListingRequests200Response;
+      return this.apiClient.callApi(
+        '/wallets/tokens/listing_requests', 'GET',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, null
+      );
+    }
+
+    /**
+     * Get all token listing requests
+     * Retrieve a list of all token listing requests. Results can be filtered and paginated. 
+     * @param {Object} opts Optional parameters
+     * @param {Number} opts.limit The maximum number of objects to return. For most operations, the value range is [1, 50]. (default to 10)
+     * @param {String} opts.before This parameter specifies an object ID as a starting point for pagination, retrieving data before the specified object relative to the current dataset.    Suppose the current data is ordered as Object A, Object B, and Object C.  If you set `before` to the ID of Object C (`RqeEoTkgKG5rpzqYzg2Hd3szmPoj2cE7w5jWwShz3C1vyGSAk`), the response will include Object B and Object A.    **Notes**:   - If you set both `after` and `before`, an error will occur. - If you leave both `before` and `after` empty, the first page of data is returned. - If you set it to `infinity`, the last page of data is returned. 
+     * @param {String} opts.after This parameter specifies an object ID as a starting point for pagination, retrieving data after the specified object relative to the current dataset.    Suppose the current data is ordered as Object A, Object B, and Object C. If you set `after` to the ID of Object A (`RqeEoTkgKG5rpzqYzg2Hd3szmPoj2cE7w5jWwShz3C1vyGSAk`), the response will include Object B and Object C.    **Notes**:   - If you set both `after` and `before`, an error will occur. - If you leave both `before` and `after` empty, the first page of data is returned. 
+     * @param {module:model/TokenListingRequestStatus} opts.status Filter by request status
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/ListTokenListingRequests200Response}
+     */
+    listTokenListingRequests(opts) {
+      return this.listTokenListingRequestsWithHttpInfo(opts)
         .then(function(response_and_data) {
           return response_and_data.data;
         });

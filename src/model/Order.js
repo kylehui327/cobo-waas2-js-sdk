@@ -21,17 +21,17 @@ class Order {
      * Constructs a new <code>Order</code>.
      * @alias module:model/Order
      * @param order_id {String} The order ID.
-     * @param token_id {String} The ID of the cryptocurrency token used for payment.
+     * @param token_id {String} The ID of the cryptocurrency used for payment.
      * @param chain_id {String} The ID of the blockchain network where the payment transaction should be made.
      * @param payable_amount {String} The cryptocurrency amount to be paid for this order.
      * @param receive_address {String} The recipient wallet address to be used for the payment transaction.
-     * @param currency {String} The currency of the order.
-     * @param order_amount {String} The base amount in currency to be charged for the payment order, excluding the payment gateway fee (specified in `fee_amount`).
-     * @param fee_amount {String} The payment gateway fee in currency. It is added to the base amount (`order_amount`) to determine the final charge.
-     * @param exchange_rate {String} The exchange rate used to convert between currency and cryptocurrency token. Expressed as the amount of currency per one unit of cryptocurrency. For example, if the token is USDT and the currency is USD, a rate of \"0.99\" means 1 USDT = 0.99 USD.
-     * @param psp_order_code {String} A unique reference code assigned by the payment gateway to identify this order in their system.
+     * @param currency {String} The fiat currency of the order.
+     * @param order_amount {String} The base amount of the order in fiat currency, excluding the developer fee (specified in `fee_amount`).
+     * @param fee_amount {String} The developer fee for the order in fiat currency. It is added to the base amount (`order_amount`) to determine the final charge.
+     * @param exchange_rate {String} The exchange rate between a currency pair. Expressed as the amount of fiat currency per one unit of cryptocurrency. For example, if the cryptocurrency is USDT and the fiat currency is USD, a rate of \"0.99\" means 1 USDT = 0.99 USD.
+     * @param psp_order_code {String} A unique reference code assigned by the developer to identify this order in their system.
      * @param status {module:model/OrderStatus} 
-     * @param received_token_amount {String} The total cryptocurrency amount received for this order. Updates until order expires. Precision matches the token standard (e.g., 6 decimals for USDT).
+     * @param received_token_amount {String} The total cryptocurrency amount received for this order. Updates until the expiration time. Precision matches the token standard (e.g., 6 decimals for USDT).
      */
     constructor(order_id, token_id, chain_id, payable_amount, receive_address, currency, order_amount, fee_amount, exchange_rate, psp_order_code, status, received_token_amount) { 
         
@@ -204,7 +204,7 @@ Order.prototype['order_id'] = undefined;
 Order.prototype['merchant_id'] = undefined;
 
 /**
- * The ID of the cryptocurrency token used for payment.
+ * The ID of the cryptocurrency used for payment.
  * @member {String} token_id
  */
 Order.prototype['token_id'] = undefined;
@@ -228,31 +228,31 @@ Order.prototype['payable_amount'] = undefined;
 Order.prototype['receive_address'] = undefined;
 
 /**
- * The currency of the order.
+ * The fiat currency of the order.
  * @member {String} currency
  */
 Order.prototype['currency'] = undefined;
 
 /**
- * The base amount in currency to be charged for the payment order, excluding the payment gateway fee (specified in `fee_amount`).
+ * The base amount of the order in fiat currency, excluding the developer fee (specified in `fee_amount`).
  * @member {String} order_amount
  */
 Order.prototype['order_amount'] = undefined;
 
 /**
- * The payment gateway fee in currency. It is added to the base amount (`order_amount`) to determine the final charge.
+ * The developer fee for the order in fiat currency. It is added to the base amount (`order_amount`) to determine the final charge.
  * @member {String} fee_amount
  */
 Order.prototype['fee_amount'] = undefined;
 
 /**
- * The exchange rate used to convert between currency and cryptocurrency token. Expressed as the amount of currency per one unit of cryptocurrency. For example, if the token is USDT and the currency is USD, a rate of \"0.99\" means 1 USDT = 0.99 USD.
+ * The exchange rate between a currency pair. Expressed as the amount of fiat currency per one unit of cryptocurrency. For example, if the cryptocurrency is USDT and the fiat currency is USD, a rate of \"0.99\" means 1 USDT = 0.99 USD.
  * @member {String} exchange_rate
  */
 Order.prototype['exchange_rate'] = undefined;
 
 /**
- * The expiration time of the payment order, represented as a UNIX timestamp in seconds.
+ * The expiration time of the pay-in order, represented as a UNIX timestamp in seconds.
  * @member {Number} expired_at
  */
 Order.prototype['expired_at'] = undefined;
@@ -264,7 +264,7 @@ Order.prototype['expired_at'] = undefined;
 Order.prototype['merchant_order_code'] = undefined;
 
 /**
- * A unique reference code assigned by the payment gateway to identify this order in their system.
+ * A unique reference code assigned by the developer to identify this order in their system.
  * @member {String} psp_order_code
  */
 Order.prototype['psp_order_code'] = undefined;
@@ -275,7 +275,7 @@ Order.prototype['psp_order_code'] = undefined;
 Order.prototype['status'] = undefined;
 
 /**
- * The total cryptocurrency amount received for this order. Updates until order expires. Precision matches the token standard (e.g., 6 decimals for USDT).
+ * The total cryptocurrency amount received for this order. Updates until the expiration time. Precision matches the token standard (e.g., 6 decimals for USDT).
  * @member {String} received_token_amount
  */
 Order.prototype['received_token_amount'] = undefined;
