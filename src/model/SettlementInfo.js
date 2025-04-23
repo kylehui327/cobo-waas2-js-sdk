@@ -19,7 +19,7 @@ class SettlementInfo {
     /**
      * Constructs a new <code>SettlementInfo</code>.
      * @alias module:model/SettlementInfo
-     * @param available_amount {String} The amount available for settlement in the specified cryptocurrency token.
+     * @param available_amount {String} The amount available for settlement or refund, in the specified cryptocurrency.
      */
     constructor(available_amount) { 
         
@@ -114,37 +114,37 @@ class SettlementInfo {
 SettlementInfo.RequiredProperties = ["available_amount"];
 
 /**
- * The merchant ID. For payment gateway balance, this field will be empty.
+ * The merchant ID. For developer balance, this field will be empty.
  * @member {String} merchant_id
  */
 SettlementInfo.prototype['merchant_id'] = undefined;
 
 /**
- * The ID of the cryptocurrency token.
+ * The ID of the cryptocurrency.
  * @member {String} token_id
  */
 SettlementInfo.prototype['token_id'] = undefined;
 
 /**
- * The amount available for settlement in the specified cryptocurrency token.
+ * The amount available for settlement or refund, in the specified cryptocurrency.
  * @member {String} available_amount
  */
 SettlementInfo.prototype['available_amount'] = undefined;
 
 /**
- * The available currency balance.
+ * The amount available for settlement or refund, in the specified fiat currency.
  * @member {String} available_currency_balance
  */
 SettlementInfo.prototype['available_currency_balance'] = undefined;
 
 /**
- * The pending amount.
+ * The amount unavailable for settlement or refund, in the specified cryptocurrency.
  * @member {String} pending_amount
  */
 SettlementInfo.prototype['pending_amount'] = undefined;
 
 /**
- * The pending currency balance.
+ * The amount unavailable for settlement or refund, in the specified fiat currency.
  * @member {String} pending_currency_balance
  */
 SettlementInfo.prototype['pending_currency_balance'] = undefined;

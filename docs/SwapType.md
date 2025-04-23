@@ -1,4 +1,4 @@
-# CoboWaas2.SwapActivityType
+# CoboWaas2.SwapType
 
 ## Enum
 

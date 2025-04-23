@@ -242,6 +242,12 @@ TransactionFee.prototype['effective_gas_price'] = undefined;
 TransactionFee.prototype['fee_used'] = undefined;
 
 /**
+ * The estimated transaction fee.
+ * @member {String} estimated_fee_used
+ */
+TransactionFee.prototype['estimated_fee_used'] = undefined;
+
+/**
  * The gas units used in the transaction.
  * @member {String} gas_used
  */

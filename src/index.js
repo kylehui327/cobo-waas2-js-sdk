@@ -85,24 +85,31 @@ import CreateBabylonAirdropRegistration201Response from './model/CreateBabylonAi
 import CreateBabylonAirdropRegistrationRequest from './model/CreateBabylonAirdropRegistrationRequest';
 import CreateBabylonStakingRegistration201Response from './model/CreateBabylonStakingRegistration201Response';
 import CreateBabylonStakingRegistrationRequest from './model/CreateBabylonStakingRegistrationRequest';
+import CreateBankAccountRequest from './model/CreateBankAccountRequest';
 import CreateClaimActivity from './model/CreateClaimActivity';
 import CreateClaimActivityRequest from './model/CreateClaimActivityRequest';
 import CreateCustodialWalletParams from './model/CreateCustodialWalletParams';
 import CreateExchangeWalletParams from './model/CreateExchangeWalletParams';
 import CreateKeyShareHolder from './model/CreateKeyShareHolder';
 import CreateKeyShareHolderGroupRequest from './model/CreateKeyShareHolderGroupRequest';
+import CreateMerchantRequest from './model/CreateMerchantRequest';
 import CreateMpcProjectRequest from './model/CreateMpcProjectRequest';
 import CreateMpcVaultRequest from './model/CreateMpcVaultRequest';
 import CreateMpcWalletParams from './model/CreateMpcWalletParams';
+import CreatePaymentOrderRequest from './model/CreatePaymentOrderRequest';
 import CreatePrimeBrokerAddress201Response from './model/CreatePrimeBrokerAddress201Response';
 import CreatePrimeBrokerAddressRequest from './model/CreatePrimeBrokerAddressRequest';
+import CreateRefundRequest from './model/CreateRefundRequest';
 import CreateSafeWalletParams from './model/CreateSafeWalletParams';
 import CreateSettlement from './model/CreateSettlement';
+import CreateSettlementRequestRequest from './model/CreateSettlementRequestRequest';
 import CreateSmartContractWalletParams from './model/CreateSmartContractWalletParams';
 import CreateStakeActivity from './model/CreateStakeActivity';
 import CreateStakeActivity201Response from './model/CreateStakeActivity201Response';
 import CreateStakeActivityExtra from './model/CreateStakeActivityExtra';
 import CreateStakeActivityRequest from './model/CreateStakeActivityRequest';
+import CreateTokenListingRequest201Response from './model/CreateTokenListingRequest201Response';
+import CreateTokenListingRequestRequest from './model/CreateTokenListingRequestRequest';
 import CreateTransferTransaction201Response from './model/CreateTransferTransaction201Response';
 import CreateTssRequestRequest from './model/CreateTssRequestRequest';
 import CreateUnstakeActivity from './model/CreateUnstakeActivity';
@@ -165,10 +172,15 @@ import FeeAmount from './model/FeeAmount';
 import FeeGasLimit from './model/FeeGasLimit';
 import FeeRate from './model/FeeRate';
 import FeeReserved from './model/FeeReserved';
+import FeeStationDestination from './model/FeeStationDestination';
 import FeeStationTransactionType from './model/FeeStationTransactionType';
+import FeeStationTransfer from './model/FeeStationTransfer';
 import FeeType from './model/FeeType';
 import FixedFeeRate from './model/FixedFeeRate';
 import GetApiKeyInfo200Response from './model/GetApiKeyInfo200Response';
+import GetExchangeRate200Response from './model/GetExchangeRate200Response';
+import GetRefunds200Response from './model/GetRefunds200Response';
+import GetSettlementInfoByIds200Response from './model/GetSettlementInfoByIds200Response';
 import GetStakingEstimationFee201Response from './model/GetStakingEstimationFee201Response';
 import GetStakingEstimationFeeRequest from './model/GetStakingEstimationFeeRequest';
 import GetToken2XXResponse from './model/GetToken2XXResponse';
@@ -194,8 +206,11 @@ import ListCallbackMessages200Response from './model/ListCallbackMessages200Resp
 import ListExchanges200ResponseInner from './model/ListExchanges200ResponseInner';
 import ListKeyShareHolderGroups200Response from './model/ListKeyShareHolderGroups200Response';
 import ListKeyShareHolders200Response from './model/ListKeyShareHolders200Response';
+import ListMerchants200Response from './model/ListMerchants200Response';
 import ListMpcProjects200Response from './model/ListMpcProjects200Response';
 import ListMpcVaults200Response from './model/ListMpcVaults200Response';
+import ListPaymentOrders200Response from './model/ListPaymentOrders200Response';
+import ListSettlementRequests200Response from './model/ListSettlementRequests200Response';
 import ListStakingActivities200Response from './model/ListStakingActivities200Response';
 import ListStakingPools200Response from './model/ListStakingPools200Response';
 import ListStakings200Response from './model/ListStakings200Response';
@@ -204,6 +219,9 @@ import ListSupportedChains200Response from './model/ListSupportedChains200Respon
 import ListSupportedCountries200ResponseInner from './model/ListSupportedCountries200ResponseInner';
 import ListSupportedTokens200Response from './model/ListSupportedTokens200Response';
 import ListTokenBalancesForAddress200Response from './model/ListTokenBalancesForAddress200Response';
+import ListTokenBalancesForFeeStation200Response from './model/ListTokenBalancesForFeeStation200Response';
+import ListTokenBalancesForFeeStation200ResponseDataInner from './model/ListTokenBalancesForFeeStation200ResponseDataInner';
+import ListTokenListingRequests200Response from './model/ListTokenListingRequests200Response';
 import ListTransactionApprovalDetails200Response from './model/ListTransactionApprovalDetails200Response';
 import ListTransactions200Response from './model/ListTransactions200Response';
 import ListTssRequests200Response from './model/ListTssRequests200Response';
@@ -239,6 +257,9 @@ import Order from './model/Order';
 import OrderStatus from './model/OrderStatus';
 import OrgInfo from './model/OrgInfo';
 import Pagination from './model/Pagination';
+import PaymentOrderEventData from './model/PaymentOrderEventData';
+import PaymentRefundEventData from './model/PaymentRefundEventData';
+import PaymentSettlementEvent from './model/PaymentSettlementEvent';
 import PaymentTransaction from './model/PaymentTransaction';
 import PoolDetails from './model/PoolDetails';
 import PoolDetailsAllOfValidatorsInfo from './model/PoolDetailsAllOfValidatorsInfo';
@@ -295,10 +316,12 @@ import StakingsExtra from './model/StakingsExtra';
 import SubWalletAssetBalance from './model/SubWalletAssetBalance';
 import SubmitDepositTravelRuleInfo201Response from './model/SubmitDepositTravelRuleInfo201Response';
 import SwapActivity from './model/SwapActivity';
+import SwapActivityDetail from './model/SwapActivityDetail';
 import SwapActivityStatus from './model/SwapActivityStatus';
-import SwapActivityType from './model/SwapActivityType';
+import SwapActivityTimeline from './model/SwapActivityTimeline';
 import SwapQuote from './model/SwapQuote';
 import SwapToken from './model/SwapToken';
+import SwapType from './model/SwapType';
 import TSSGroups from './model/TSSGroups';
 import TSSRequest from './model/TSSRequest';
 import TSSRequestStatus from './model/TSSRequestStatus';
@@ -417,9 +440,11 @@ import UpdateCustodialWalletParams from './model/UpdateCustodialWalletParams';
 import UpdateExchangeWalletParams from './model/UpdateExchangeWalletParams';
 import UpdateGroupAction from './model/UpdateGroupAction';
 import UpdateKeyShareHolderGroupByIdRequest from './model/UpdateKeyShareHolderGroupByIdRequest';
+import UpdateMerchantByIdRequest from './model/UpdateMerchantByIdRequest';
 import UpdateMpcProjectByIdRequest from './model/UpdateMpcProjectByIdRequest';
 import UpdateMpcVaultByIdRequest from './model/UpdateMpcVaultByIdRequest';
 import UpdateMpcWalletParams from './model/UpdateMpcWalletParams';
+import UpdatePaymentOrderRequest from './model/UpdatePaymentOrderRequest';
 import UpdateSmartContractWalletParams from './model/UpdateSmartContractWalletParams';
 import UpdateWalletParams from './model/UpdateWalletParams';
 import UpdateWebhookEndpointByIdRequest from './model/UpdateWebhookEndpointByIdRequest';
@@ -443,6 +468,7 @@ import DevelopersApi from './api/DevelopersApi';
 import DevelopersWebhooksApi from './api/DevelopersWebhooksApi';
 import FeeStationApi from './api/FeeStationApi';
 import OAuthApi from './api/OAuthApi';
+import PaymentApi from './api/PaymentApi';
 import PrimeBrokerApi from './api/PrimeBrokerApi';
 import StakingsApi from './api/StakingsApi';
 import TransactionsApi from './api/TransactionsApi';
@@ -483,7 +509,7 @@ import WalletsSmartContractWalletsApi from './api/WalletsSmartContractWalletsApi
 * </pre>
 * </p>
 * @module index
-* @version 1.13.0
+* @version 1.14.0
 */
 export {
     Env,
@@ -928,6 +954,12 @@ export {
     CreateBabylonStakingRegistrationRequest,
 
     /**
+     * The CreateBankAccountRequest model constructor.
+     * @property {module:model/CreateBankAccountRequest}
+     */
+    CreateBankAccountRequest,
+
+    /**
      * The CreateClaimActivity model constructor.
      * @property {module:model/CreateClaimActivity}
      */
@@ -964,6 +996,12 @@ export {
     CreateKeyShareHolderGroupRequest,
 
     /**
+     * The CreateMerchantRequest model constructor.
+     * @property {module:model/CreateMerchantRequest}
+     */
+    CreateMerchantRequest,
+
+    /**
      * The CreateMpcProjectRequest model constructor.
      * @property {module:model/CreateMpcProjectRequest}
      */
@@ -982,6 +1020,12 @@ export {
     CreateMpcWalletParams,
 
     /**
+     * The CreatePaymentOrderRequest model constructor.
+     * @property {module:model/CreatePaymentOrderRequest}
+     */
+    CreatePaymentOrderRequest,
+
+    /**
      * The CreatePrimeBrokerAddress201Response model constructor.
      * @property {module:model/CreatePrimeBrokerAddress201Response}
      */
@@ -994,6 +1038,12 @@ export {
     CreatePrimeBrokerAddressRequest,
 
     /**
+     * The CreateRefundRequest model constructor.
+     * @property {module:model/CreateRefundRequest}
+     */
+    CreateRefundRequest,
+
+    /**
      * The CreateSafeWalletParams model constructor.
      * @property {module:model/CreateSafeWalletParams}
      */
@@ -1004,6 +1054,12 @@ export {
      * @property {module:model/CreateSettlement}
      */
     CreateSettlement,
+
+    /**
+     * The CreateSettlementRequestRequest model constructor.
+     * @property {module:model/CreateSettlementRequestRequest}
+     */
+    CreateSettlementRequestRequest,
 
     /**
      * The CreateSmartContractWalletParams model constructor.
@@ -1034,6 +1090,18 @@ export {
      * @property {module:model/CreateStakeActivityRequest}
      */
     CreateStakeActivityRequest,
+
+    /**
+     * The CreateTokenListingRequest201Response model constructor.
+     * @property {module:model/CreateTokenListingRequest201Response}
+     */
+    CreateTokenListingRequest201Response,
+
+    /**
+     * The CreateTokenListingRequestRequest model constructor.
+     * @property {module:model/CreateTokenListingRequestRequest}
+     */
+    CreateTokenListingRequestRequest,
 
     /**
      * The CreateTransferTransaction201Response model constructor.
@@ -1408,10 +1476,22 @@ export {
     FeeReserved,
 
     /**
+     * The FeeStationDestination model constructor.
+     * @property {module:model/FeeStationDestination}
+     */
+    FeeStationDestination,
+
+    /**
      * The FeeStationTransactionType model constructor.
      * @property {module:model/FeeStationTransactionType}
      */
     FeeStationTransactionType,
+
+    /**
+     * The FeeStationTransfer model constructor.
+     * @property {module:model/FeeStationTransfer}
+     */
+    FeeStationTransfer,
 
     /**
      * The FeeType model constructor.
@@ -1430,6 +1510,24 @@ export {
      * @property {module:model/GetApiKeyInfo200Response}
      */
     GetApiKeyInfo200Response,
+
+    /**
+     * The GetExchangeRate200Response model constructor.
+     * @property {module:model/GetExchangeRate200Response}
+     */
+    GetExchangeRate200Response,
+
+    /**
+     * The GetRefunds200Response model constructor.
+     * @property {module:model/GetRefunds200Response}
+     */
+    GetRefunds200Response,
+
+    /**
+     * The GetSettlementInfoByIds200Response model constructor.
+     * @property {module:model/GetSettlementInfoByIds200Response}
+     */
+    GetSettlementInfoByIds200Response,
 
     /**
      * The GetStakingEstimationFee201Response model constructor.
@@ -1582,6 +1680,12 @@ export {
     ListKeyShareHolders200Response,
 
     /**
+     * The ListMerchants200Response model constructor.
+     * @property {module:model/ListMerchants200Response}
+     */
+    ListMerchants200Response,
+
+    /**
      * The ListMpcProjects200Response model constructor.
      * @property {module:model/ListMpcProjects200Response}
      */
@@ -1592,6 +1696,18 @@ export {
      * @property {module:model/ListMpcVaults200Response}
      */
     ListMpcVaults200Response,
+
+    /**
+     * The ListPaymentOrders200Response model constructor.
+     * @property {module:model/ListPaymentOrders200Response}
+     */
+    ListPaymentOrders200Response,
+
+    /**
+     * The ListSettlementRequests200Response model constructor.
+     * @property {module:model/ListSettlementRequests200Response}
+     */
+    ListSettlementRequests200Response,
 
     /**
      * The ListStakingActivities200Response model constructor.
@@ -1640,6 +1756,24 @@ export {
      * @property {module:model/ListTokenBalancesForAddress200Response}
      */
     ListTokenBalancesForAddress200Response,
+
+    /**
+     * The ListTokenBalancesForFeeStation200Response model constructor.
+     * @property {module:model/ListTokenBalancesForFeeStation200Response}
+     */
+    ListTokenBalancesForFeeStation200Response,
+
+    /**
+     * The ListTokenBalancesForFeeStation200ResponseDataInner model constructor.
+     * @property {module:model/ListTokenBalancesForFeeStation200ResponseDataInner}
+     */
+    ListTokenBalancesForFeeStation200ResponseDataInner,
+
+    /**
+     * The ListTokenListingRequests200Response model constructor.
+     * @property {module:model/ListTokenListingRequests200Response}
+     */
+    ListTokenListingRequests200Response,
 
     /**
      * The ListTransactionApprovalDetails200Response model constructor.
@@ -1850,6 +1984,24 @@ export {
      * @property {module:model/Pagination}
      */
     Pagination,
+
+    /**
+     * The PaymentOrderEventData model constructor.
+     * @property {module:model/PaymentOrderEventData}
+     */
+    PaymentOrderEventData,
+
+    /**
+     * The PaymentRefundEventData model constructor.
+     * @property {module:model/PaymentRefundEventData}
+     */
+    PaymentRefundEventData,
+
+    /**
+     * The PaymentSettlementEvent model constructor.
+     * @property {module:model/PaymentSettlementEvent}
+     */
+    PaymentSettlementEvent,
 
     /**
      * The PaymentTransaction model constructor.
@@ -2188,16 +2340,22 @@ export {
     SwapActivity,
 
     /**
+     * The SwapActivityDetail model constructor.
+     * @property {module:model/SwapActivityDetail}
+     */
+    SwapActivityDetail,
+
+    /**
      * The SwapActivityStatus model constructor.
      * @property {module:model/SwapActivityStatus}
      */
     SwapActivityStatus,
 
     /**
-     * The SwapActivityType model constructor.
-     * @property {module:model/SwapActivityType}
+     * The SwapActivityTimeline model constructor.
+     * @property {module:model/SwapActivityTimeline}
      */
-    SwapActivityType,
+    SwapActivityTimeline,
 
     /**
      * The SwapQuote model constructor.
@@ -2210,6 +2368,12 @@ export {
      * @property {module:model/SwapToken}
      */
     SwapToken,
+
+    /**
+     * The SwapType model constructor.
+     * @property {module:model/SwapType}
+     */
+    SwapType,
 
     /**
      * The TSSGroups model constructor.
@@ -2920,6 +3084,12 @@ export {
     UpdateKeyShareHolderGroupByIdRequest,
 
     /**
+     * The UpdateMerchantByIdRequest model constructor.
+     * @property {module:model/UpdateMerchantByIdRequest}
+     */
+    UpdateMerchantByIdRequest,
+
+    /**
      * The UpdateMpcProjectByIdRequest model constructor.
      * @property {module:model/UpdateMpcProjectByIdRequest}
      */
@@ -2936,6 +3106,12 @@ export {
      * @property {module:model/UpdateMpcWalletParams}
      */
     UpdateMpcWalletParams,
+
+    /**
+     * The UpdatePaymentOrderRequest model constructor.
+     * @property {module:model/UpdatePaymentOrderRequest}
+     */
+    UpdatePaymentOrderRequest,
 
     /**
      * The UpdateSmartContractWalletParams model constructor.
@@ -3074,6 +3250,12 @@ export {
     * @property {module:api/OAuthApi}
     */
     OAuthApi,
+
+    /**
+    * The PaymentApi service constructor.
+    * @property {module:api/PaymentApi}
+    */
+    PaymentApi,
 
     /**
     * The PrimeBrokerApi service constructor.

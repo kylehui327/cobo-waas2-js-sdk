@@ -4,11 +4,64 @@ All URIs are relative to *https://api.dev.cobo.com/v2*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
+[**estimateFeeStationFee**](FeeStationApi.md#estimateFeeStationFee) | **POST** /fee_station/transactions/estimate_fee | Estimate transaction fee
 [**getFeeStationTransactionById**](FeeStationApi.md#getFeeStationTransactionById) | **GET** /fee_station/transactions/{transaction_id} | Get Fee Station transaction information
 [**listFeeStationAddresses**](FeeStationApi.md#listFeeStationAddresses) | **GET** /fee_station/addresses | List Fee Station addresses
 [**listFeeStationTransactions**](FeeStationApi.md#listFeeStationTransactions) | **GET** /fee_station/transactions | List all Fee Station transactions
 [**listTokenBalancesForFeeStation**](FeeStationApi.md#listTokenBalancesForFeeStation) | **GET** /fee_station/tokens | List Fee Station token balances
 
+
+
+## estimateFeeStationFee
+
+> EstimatedFixedFee estimateFeeStationFee(opts)
+
+Estimate transaction fee
+
+This operation estimates the transaction fee of a token transfer based on the fee model that the chain uses, considering factors such as network congestion and transaction complexity.  You need to specify the transaction information, including destination address, token ID.  The response can contain different properties based on the transaction fee model used by the chain. For the legacy, EIP-1559, and UTXO fee models, Cobo also supports three different transaction speed levels: slow, recommended, and fast. For more information about estimating transaction fees, refer to [Estimate transaction fee](https://www.cobo.com/developers/v2/guides/transactions/estimate-fees). 
+
+### Example
+
+```javascript
+const CoboWaas2 = require('@cobo/cobo-waas2');
+// Initialize the API client
+const apiClient = CoboWaas2.ApiClient.instance
+// Select the development environment. To use the production environment, replace `Env.DEV` with `Env.PROD`
+apiClient.setEnv(CoboWaas2.Env.DEV);
+// Replace `<YOUR_PRIVATE_KEY>` with your private key
+apiClient.setPrivateKey("<YOUR_PRIVATE_KEY>");
+// Call the API
+const apiInstance = new CoboWaas2.FeeStationApi();
+const opts = {
+  'FeeStationTransfer': new CoboWaas2.FeeStationTransfer()
+};
+apiInstance.estimateFeeStationFee(opts).then((data) => {
+  console.log('API called successfully. Returned data: ' + data);
+}, (error) => {
+  console.error(error);
+});
+
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **FeeStationTransfer** | [**FeeStationTransfer**](FeeStationTransfer.md)| The information about a token transfer. | [optional] 
+
+### Return type
+
+[**EstimatedFixedFee**](EstimatedFixedFee.md)
+
+### Authorization
+
+[OAuth2](../README.md#OAuth2), [CoboAuth](../README.md#CoboAuth)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
 
 
 ## getFeeStationTransactionById
@@ -203,7 +256,7 @@ Name | Type | Description  | Notes
 
 ## listTokenBalancesForFeeStation
 
-> ListTokenBalancesForAddress200Response listTokenBalancesForFeeStation(opts)
+> ListTokenBalancesForFeeStation200Response listTokenBalancesForFeeStation(opts)
 
 List Fee Station token balances
 
@@ -247,7 +300,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**ListTokenBalancesForAddress200Response**](ListTokenBalancesForAddress200Response.md)
+[**ListTokenBalancesForFeeStation200Response**](ListTokenBalancesForFeeStation200Response.md)
 
 ### Authorization
 

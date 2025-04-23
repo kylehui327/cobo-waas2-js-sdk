@@ -20,7 +20,7 @@ import TransactionSolContractInstruction from './TransactionSolContractInstructi
 class TransactionSolContractDestination {
     /**
      * Constructs a new <code>TransactionSolContractDestination</code>.
-     * The information about the transaction destination type &#x60;SOL_Contract&#x60;. Refer to [Transaction sources and destinations](https://www.cobo.com/developers/v2/guides/transactions/sources-and-destinations) for a detailed introduction about the supported sources and destinations for each transaction type.
+     * The information about the transaction destination type &#x60;SOL_Contract&#x60;. Refer to [Transaction sources and destinations](https://www.cobo.com/developers/v2/guides/transactions/sources-and-destinations) for a detailed introduction about the supported sources and destinations for each transaction type.  Switch between the tabs to display the properties for different transaction destinations. 
      * @alias module:model/TransactionSolContractDestination
      * @param destination_type {module:model/TransactionDestinationType} 
      */

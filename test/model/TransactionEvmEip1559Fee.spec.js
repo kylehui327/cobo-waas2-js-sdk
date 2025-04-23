@@ -94,6 +94,12 @@
       //expect(instance).to.be();
     });
 
+    it('should have the property estimated_fee_used (base name: "estimated_fee_used")', function() {
+      // uncomment below and update the code to test the property estimated_fee_used
+      //var instance = new CoboWaas2.TransactionEvmEip1559Fee();
+      //expect(instance).to.be();
+    });
+
     it('should have the property gas_used (base name: "gas_used")', function() {
       // uncomment below and update the code to test the property gas_used
       //var instance = new CoboWaas2.TransactionEvmEip1559Fee();

@@ -20,9 +20,9 @@ class PaymentTransaction {
     /**
      * Constructs a new <code>PaymentTransaction</code>.
      * @alias module:model/PaymentTransaction
-     * @param tx_id {String} Unique identifier for the transaction.
-     * @param from_address {String} Source cryptocurrency address for the transaction.
-     * @param to_address {String} Destination cryptocurrency address for the transaction.
+     * @param tx_id {String} The transaction ID.
+     * @param from_address {String} The source address of the transaction.
+     * @param to_address {String} The destination address of the transaction.
      * @param amount {String} The amount of cryptocurrency transferred, as a decimal string.
      * @param status {module:model/TransactionStatus} 
      * @param created_timestamp {Number} The time when the transaction was created, in Unix timestamp format, measured in milliseconds.
@@ -129,25 +129,25 @@ class PaymentTransaction {
 PaymentTransaction.RequiredProperties = ["tx_id", "from_address", "to_address", "amount", "status", "created_timestamp", "updated_timestamp"];
 
 /**
- * Unique identifier for the transaction.
+ * The transaction ID.
  * @member {String} tx_id
  */
 PaymentTransaction.prototype['tx_id'] = undefined;
 
 /**
- * The blockchain transaction hash, may be initially null and populated after submission.
+ * The transaction hash.
  * @member {String} tx_hash
  */
 PaymentTransaction.prototype['tx_hash'] = undefined;
 
 /**
- * Source cryptocurrency address for the transaction.
+ * The source address of the transaction.
  * @member {String} from_address
  */
 PaymentTransaction.prototype['from_address'] = undefined;
 
 /**
- * Destination cryptocurrency address for the transaction.
+ * The destination address of the transaction.
  * @member {String} to_address
  */
 PaymentTransaction.prototype['to_address'] = undefined;

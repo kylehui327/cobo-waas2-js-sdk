@@ -76,6 +76,16 @@ import {ApiClient, Env} from "../../src/index.js";
         //});
       });
     });
+    describe('createTokenListingRequest', function() {
+      it('should call createTokenListingRequest successfully', function() {
+        //uncomment below and update the code to test createTokenListingRequest
+        //instance.createTokenListingRequest().then(function(data) {
+        //    console.log(data);
+        //}, function(error) {
+        //    console.error(error);
+        //});
+      });
+    });
     describe('createWallet', function() {
       it('should call createWallet successfully', function() {
         //uncomment below and update the code to test createWallet
@@ -120,6 +130,16 @@ import {ApiClient, Env} from "../../src/index.js";
       it('should call getTokenById successfully', function() {
         //uncomment below and update the code to test getTokenById
         //instance.getTokenById().then(function(data) {
+        //    console.log(data);
+        //}, function(error) {
+        //    console.error(error);
+        //});
+      });
+    });
+    describe('getTokenListingRequestByRequestId', function() {
+      it('should call getTokenListingRequestByRequestId successfully', function() {
+        //uncomment below and update the code to test getTokenListingRequestByRequestId
+        //instance.getTokenListingRequestByRequestId().then(function(data) {
         //    console.log(data);
         //}, function(error) {
         //    console.error(error);
@@ -210,6 +230,16 @@ import {ApiClient, Env} from "../../src/index.js";
       it('should call listTokenBalancesForWallet successfully', function() {
         //uncomment below and update the code to test listTokenBalancesForWallet
         //instance.listTokenBalancesForWallet().then(function(data) {
+        //    console.log(data);
+        //}, function(error) {
+        //    console.error(error);
+        //});
+      });
+    });
+    describe('listTokenListingRequests', function() {
+      it('should call listTokenListingRequests successfully', function() {
+        //uncomment below and update the code to test listTokenListingRequests
+        //instance.listTokenListingRequests().then(function(data) {
         //    console.log(data);
         //}, function(error) {
         //    console.error(error);

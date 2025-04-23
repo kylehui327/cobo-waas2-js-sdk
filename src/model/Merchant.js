@@ -21,7 +21,7 @@ class Merchant {
      * @alias module:model/Merchant
      * @param merchant_id {String} The merchant ID.
      * @param name {String} The merchant name.
-     * @param wallet_id {String} The ID of the associated wallet.
+     * @param wallet_id {String} The ID of the linked wallet.
      */
     constructor(merchant_id, name, wallet_id) { 
         
@@ -109,7 +109,7 @@ Merchant.prototype['merchant_id'] = undefined;
 Merchant.prototype['name'] = undefined;
 
 /**
- * The ID of the associated wallet.
+ * The ID of the linked wallet.
  * @member {String} wallet_id
  */
 Merchant.prototype['wallet_id'] = undefined;

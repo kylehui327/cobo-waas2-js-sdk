@@ -447,7 +447,7 @@ Transaction.prototype['is_loop'] = undefined;
 Transaction.prototype['cobo_category'] = undefined;
 
 /**
- * The transaction extra information.
+ * A list of JSON-encoded strings containing structured, business-specific extra information for the transaction. Each item corresponds to a specific data type, indicated by the `extra_type` field in the JSON object (for example, \"BabylonBusinessInfo\", \"BtcAddressInfo\"). 
  * @member {Array.<String>} extra
  */
 Transaction.prototype['extra'] = undefined;

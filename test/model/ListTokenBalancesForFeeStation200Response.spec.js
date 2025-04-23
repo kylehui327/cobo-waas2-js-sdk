@@ -26,6 +26,7 @@
   var instance;
 
   beforeEach(function() {
+    instance = new CoboWaas2.ListTokenBalancesForFeeStation200Response();
   });
 
   var getProperty = function(object, getter, property) {
@@ -44,11 +45,23 @@
       object[property] = value;
   }
 
-  describe('SwapActivityType', function() {
-    it('should create an instance of SwapActivityType', function() {
-      // uncomment below and update the code to test SwapActivityType
-      //var instance = new CoboWaas2.SwapActivityType();
-      //expect(instance).to.be.a(CoboWaas2.SwapActivityType);
+  describe('ListTokenBalancesForFeeStation200Response', function() {
+    it('should create an instance of ListTokenBalancesForFeeStation200Response', function() {
+      // uncomment below and update the code to test ListTokenBalancesForFeeStation200Response
+      //var instance = new CoboWaas2.ListTokenBalancesForFeeStation200Response();
+      //expect(instance).to.be.a(CoboWaas2.ListTokenBalancesForFeeStation200Response);
+    });
+
+    it('should have the property data (base name: "data")', function() {
+      // uncomment below and update the code to test the property data
+      //var instance = new CoboWaas2.ListTokenBalancesForFeeStation200Response();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property pagination (base name: "pagination")', function() {
+      // uncomment below and update the code to test the property pagination
+      //var instance = new CoboWaas2.ListTokenBalancesForFeeStation200Response();
+      //expect(instance).to.be();
     });
 
   });

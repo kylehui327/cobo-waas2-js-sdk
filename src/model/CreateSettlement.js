@@ -20,7 +20,7 @@ class CreateSettlement {
     /**
      * Constructs a new <code>CreateSettlement</code>.
      * @alias module:model/CreateSettlement
-     * @param amount {String} The amount to be settled. - If `token_id` is specified, this represents the settlement amount in the specified cryptocurrency token. - If `token_id` is not specified, this represents the settlement amount in the specified currency.
+     * @param amount {String} The settlement amount. - If `token_id` is specified, this represents the settlement amount in the specified cryptocurrency. - If `token_id` is not specified, this represents the settlement amount in the specified fiat currency.
      * @param bank_account_id {String} The ID of the bank account where the settled funds will be deposited.
      */
     constructor(amount, bank_account_id) { 
@@ -119,20 +119,20 @@ CreateSettlement.RequiredProperties = ["amount", "bank_account_id"];
 CreateSettlement.prototype['merchant_id'] = undefined;
 
 /**
- * The ID of the cryptocurrency token you want to settle. Supported values:  - USDC: `ETH_USDC`, `ARBITRUM_USDC`, `SOL_USDC`, `BASE_USDC`, `MATIC_USDC`, `BSC_USDC` - USDT: `TRON_USDT`, `ETH_USDT`, `ARBITRUM_USDT`, `SOL_USDT`, `BASE_USDT`, `MATIC_USDT`, `BSC_USDT` 
+ * The ID of the cryptocurrency you want to settle. Supported values:  - USDC: `ETH_USDC`, `ARBITRUM_USDC`, `SOL_USDC`, `BASE_USDC`, `MATIC_USDC`, `BSC_USDC` - USDT: `TRON_USDT`, `ETH_USDT`, `ARBITRUM_USDT`, `SOL_USDT`, `BASE_USDT`, `MATIC_USDT`, `BSC_USDT` 
  * @member {String} token_id
  */
 CreateSettlement.prototype['token_id'] = undefined;
 
 /**
- * The currency for settling the cryptocurrency. Currently, only `USD` is supported.
+ * The fiat currency for settling the cryptocurrency. Currently, only `USD` is supported.
  * @member {String} currency
  * @default 'USD'
  */
 CreateSettlement.prototype['currency'] = 'USD';
 
 /**
- * The amount to be settled. - If `token_id` is specified, this represents the settlement amount in the specified cryptocurrency token. - If `token_id` is not specified, this represents the settlement amount in the specified currency.
+ * The settlement amount. - If `token_id` is specified, this represents the settlement amount in the specified cryptocurrency. - If `token_id` is not specified, this represents the settlement amount in the specified fiat currency.
  * @member {String} amount
  */
 CreateSettlement.prototype['amount'] = undefined;
