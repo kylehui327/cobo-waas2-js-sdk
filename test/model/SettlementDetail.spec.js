@@ -70,8 +70,20 @@
       //expect(instance).to.be();
     });
 
+    it('should have the property merchant_id (base name: "merchant_id")', function() {
+      // uncomment below and update the code to test the property merchant_id
+      //var instance = new CoboWaas2.SettlementDetail();
+      //expect(instance).to.be();
+    });
+
     it('should have the property amount (base name: "amount")', function() {
       // uncomment below and update the code to test the property amount
+      //var instance = new CoboWaas2.SettlementDetail();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property settled_amount (base name: "settled_amount")', function() {
+      // uncomment below and update the code to test the property settled_amount
       //var instance = new CoboWaas2.SettlementDetail();
       //expect(instance).to.be();
     });
@@ -90,6 +102,18 @@
 
     it('should have the property transactions (base name: "transactions")', function() {
       // uncomment below and update the code to test the property transactions
+      //var instance = new CoboWaas2.SettlementDetail();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property created_timestamp (base name: "created_timestamp")', function() {
+      // uncomment below and update the code to test the property created_timestamp
+      //var instance = new CoboWaas2.SettlementDetail();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property updated_timestamp (base name: "updated_timestamp")', function() {
+      // uncomment below and update the code to test the property updated_timestamp
       //var instance = new CoboWaas2.SettlementDetail();
       //expect(instance).to.be();
     });

@@ -58,14 +58,32 @@
       //expect(instance).to.be();
     });
 
+    it('should have the property pay_token_id (base name: "pay_token_id")', function() {
+      // uncomment below and update the code to test the property pay_token_id
+      //var instance = new CoboWaas2.SwapQuote();
+      //expect(instance).to.be();
+    });
+
     it('should have the property pay_amount (base name: "pay_amount")', function() {
       // uncomment below and update the code to test the property pay_amount
       //var instance = new CoboWaas2.SwapQuote();
       //expect(instance).to.be();
     });
 
+    it('should have the property receive_token_id (base name: "receive_token_id")', function() {
+      // uncomment below and update the code to test the property receive_token_id
+      //var instance = new CoboWaas2.SwapQuote();
+      //expect(instance).to.be();
+    });
+
     it('should have the property receive_amount (base name: "receive_amount")', function() {
       // uncomment below and update the code to test the property receive_amount
+      //var instance = new CoboWaas2.SwapQuote();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property fee_token_id (base name: "fee_token_id")', function() {
+      // uncomment below and update the code to test the property fee_token_id
       //var instance = new CoboWaas2.SwapQuote();
       //expect(instance).to.be();
     });

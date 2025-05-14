@@ -8,13 +8,13 @@ Method | HTTP request | Description
 [**checkAddressValidity**](WalletsApi.md#checkAddressValidity) | **GET** /wallets/check_address_validity | Check address validity
 [**checkAddressesValidity**](WalletsApi.md#checkAddressesValidity) | **GET** /wallets/check_addresses_validity | Check addresses validity
 [**createAddress**](WalletsApi.md#createAddress) | **POST** /wallets/{wallet_id}/addresses | Create addresses in wallet
-[**createTokenListingRequest**](WalletsApi.md#createTokenListingRequest) | **POST** /wallets/tokens/listing_requests | Submit token listing request
+[**createTokenListingRequest**](WalletsApi.md#createTokenListingRequest) | **POST** /wallets/tokens/listing_requests | Create token listing request
 [**createWallet**](WalletsApi.md#createWallet) | **POST** /wallets | Create wallet
 [**deleteWalletById**](WalletsApi.md#deleteWalletById) | **POST** /wallets/{wallet_id}/delete | Delete wallet
 [**getChainById**](WalletsApi.md#getChainById) | **GET** /wallets/chains/{chain_id} | Get chain information
 [**getMaxTransferableValue**](WalletsApi.md#getMaxTransferableValue) | **GET** /wallets/{wallet_id}/max_transferable_value | Get maximum transferable value
 [**getTokenById**](WalletsApi.md#getTokenById) | **GET** /wallets/tokens/{token_id} | Get token information
-[**getTokenListingRequestByRequestId**](WalletsApi.md#getTokenListingRequestByRequestId) | **GET** /wallets/tokens/listing_requests/{request_id} | Get token listing request details
+[**getTokenListingRequestByRequestId**](WalletsApi.md#getTokenListingRequestByRequestId) | **GET** /wallets/tokens/listing_requests/{request_id} | Get token listing request
 [**getWalletById**](WalletsApi.md#getWalletById) | **GET** /wallets/{wallet_id} | Get wallet information
 [**listAddressBalancesByToken**](WalletsApi.md#listAddressBalancesByToken) | **GET** /wallets/{wallet_id}/tokens/{token_id} | List address balances by token
 [**listAddresses**](WalletsApi.md#listAddresses) | **GET** /wallets/{wallet_id}/addresses | List wallet addresses
@@ -24,7 +24,7 @@ Method | HTTP request | Description
 [**listSupportedTokens**](WalletsApi.md#listSupportedTokens) | **GET** /wallets/tokens | List supported tokens
 [**listTokenBalancesForAddress**](WalletsApi.md#listTokenBalancesForAddress) | **GET** /wallets/{wallet_id}/addresses/{address}/tokens | List token balances by address
 [**listTokenBalancesForWallet**](WalletsApi.md#listTokenBalancesForWallet) | **GET** /wallets/{wallet_id}/tokens | List token balances by wallet
-[**listTokenListingRequests**](WalletsApi.md#listTokenListingRequests) | **GET** /wallets/tokens/listing_requests | Get all token listing requests
+[**listTokenListingRequests**](WalletsApi.md#listTokenListingRequests) | **GET** /wallets/tokens/listing_requests | List token listing requests
 [**listUtxos**](WalletsApi.md#listUtxos) | **GET** /wallets/{wallet_id}/utxos | List UTXOs
 [**listWallets**](WalletsApi.md#listWallets) | **GET** /wallets | List all wallets
 [**lockUtxos**](WalletsApi.md#lockUtxos) | **POST** /wallets/{wallet_id}/utxos/lock | Lock UTXOs
@@ -40,7 +40,7 @@ Method | HTTP request | Description
 
 Check address validity across chains
 
-This operation verifies if a given address is valid for a list of chains. 
+This operation verifies if a given address is valid for a list of chains.  &lt;Note&gt;You can specify up to 20 chain IDs in a single request.&lt;/Note&gt; 
 
 ### Example
 
@@ -248,9 +248,9 @@ Name | Type | Description  | Notes
 
 > CreateTokenListingRequest201Response createTokenListingRequest(CreateTokenListingRequestRequest)
 
-Submit token listing request
+Create token listing request
 
-Submit a request to add a non-listed token. The token must exist on the specified blockchain with a valid contract address. 
+This operation creates a token listing request. The token to be listed must already be deployed on the specified blockchain and have a valid contract address.  &lt;note&gt;Currently, tokens listed through this operation are only supported in wallets of type &#x60;Custodial&#x60; or &#x60;MPC&#x60;, and subtype &#x60;Asset&#x60;, &#x60;Web3&#x60;, or &#x60;Org-Controlled&#x60;.&lt;/note&gt; 
 
 ### Example
 
@@ -278,7 +278,7 @@ apiInstance.createTokenListingRequest(CreateTokenListingRequestRequest).then((da
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **CreateTokenListingRequestRequest** | [**CreateTokenListingRequestRequest**](CreateTokenListingRequestRequest.md)| Request body for submitting a token listing request. &lt;note&gt;   wallet_type only supports &#x60;Custodial&#x60; and &#x60;MPC&#x60;.   wallet_subtype only supports &#x60;Asset&#x60;, &#x60;Web3&#x60;, and &#x60;Org-Controlled&#x60;. &lt;/note&gt;  | 
+ **CreateTokenListingRequestRequest** | [**CreateTokenListingRequestRequest**](CreateTokenListingRequestRequest.md)| Request body for submitting a token listing request.  | 
 
 ### Return type
 
@@ -560,9 +560,9 @@ Name | Type | Description  | Notes
 
 > TokenListing getTokenListingRequestByRequestId(request_id)
 
-Get token listing request details
+Get token listing request
 
-Retrieve detailed information about a specific token listing request including its current status and any admin feedback. 
+This operation retrieves detailed information about a specific token listing request, including its current status. 
 
 ### Example
 
@@ -590,7 +590,7 @@ apiInstance.getTokenListingRequestByRequestId(request_id).then((data) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **request_id** | **String**| The unique identifier of the token listing request | 
+ **request_id** | **String**| The unique identifier of the token listing request. | 
 
 ### Return type
 
@@ -1154,9 +1154,9 @@ Name | Type | Description  | Notes
 
 > ListTokenListingRequests200Response listTokenListingRequests(opts)
 
-Get all token listing requests
+List token listing requests
 
-Retrieve a list of all token listing requests. Results can be filtered and paginated. 
+This operation lists all token listing requests in your organization. You can filter the results by request status. 
 
 ### Example
 
@@ -1192,7 +1192,7 @@ Name | Type | Description  | Notes
  **limit** | **Number**| The maximum number of objects to return. For most operations, the value range is [1, 50]. | [optional] [default to 10]
  **before** | **String**| This parameter specifies an object ID as a starting point for pagination, retrieving data before the specified object relative to the current dataset.    Suppose the current data is ordered as Object A, Object B, and Object C.  If you set &#x60;before&#x60; to the ID of Object C (&#x60;RqeEoTkgKG5rpzqYzg2Hd3szmPoj2cE7w5jWwShz3C1vyGSAk&#x60;), the response will include Object B and Object A.    **Notes**:   - If you set both &#x60;after&#x60; and &#x60;before&#x60;, an error will occur. - If you leave both &#x60;before&#x60; and &#x60;after&#x60; empty, the first page of data is returned. - If you set it to &#x60;infinity&#x60;, the last page of data is returned.  | [optional] 
  **after** | **String**| This parameter specifies an object ID as a starting point for pagination, retrieving data after the specified object relative to the current dataset.    Suppose the current data is ordered as Object A, Object B, and Object C. If you set &#x60;after&#x60; to the ID of Object A (&#x60;RqeEoTkgKG5rpzqYzg2Hd3szmPoj2cE7w5jWwShz3C1vyGSAk&#x60;), the response will include Object B and Object C.    **Notes**:   - If you set both &#x60;after&#x60; and &#x60;before&#x60;, an error will occur. - If you leave both &#x60;before&#x60; and &#x60;after&#x60; empty, the first page of data is returned.  | [optional] 
- **status** | [**TokenListingRequestStatus**](.md)| Filter by request status | [optional] 
+ **status** | [**TokenListingRequestStatus**](.md)| The current status of the token listing request. | [optional] 
 
 ### Return type
 

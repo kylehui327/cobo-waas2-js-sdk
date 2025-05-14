@@ -64,6 +64,15 @@ class SettlementInfo {
             if (data.hasOwnProperty('pending_currency_balance')) {
                 obj['pending_currency_balance'] = ApiClient.convertToType(data['pending_currency_balance'], 'String');
             }
+            if (data.hasOwnProperty('settled_amount')) {
+                obj['settled_amount'] = ApiClient.convertToType(data['settled_amount'], 'String');
+            }
+            if (data.hasOwnProperty('created_timestamp')) {
+                obj['created_timestamp'] = ApiClient.convertToType(data['created_timestamp'], 'Number');
+            }
+            if (data.hasOwnProperty('updated_timestamp')) {
+                obj['updated_timestamp'] = ApiClient.convertToType(data['updated_timestamp'], 'Number');
+            }
         }
         return obj;
     }
@@ -103,6 +112,10 @@ class SettlementInfo {
         // ensure the json data is a string
         if (data['pending_currency_balance'] && !(typeof data['pending_currency_balance'] === 'string' || data['pending_currency_balance'] instanceof String)) {
             throw new Error("Expected the field `pending_currency_balance` to be a primitive type in the JSON string but got " + data['pending_currency_balance']);
+        }
+        // ensure the json data is a string
+        if (data['settled_amount'] && !(typeof data['settled_amount'] === 'string' || data['settled_amount'] instanceof String)) {
+            throw new Error("Expected the field `settled_amount` to be a primitive type in the JSON string but got " + data['settled_amount']);
         }
 
         return true;
@@ -148,6 +161,24 @@ SettlementInfo.prototype['pending_amount'] = undefined;
  * @member {String} pending_currency_balance
  */
 SettlementInfo.prototype['pending_currency_balance'] = undefined;
+
+/**
+ * The amount already settled, in the specified cryptocurrency.
+ * @member {String} settled_amount
+ */
+SettlementInfo.prototype['settled_amount'] = undefined;
+
+/**
+ * The created time of the settlement, represented as a UNIX timestamp in seconds.
+ * @member {Number} created_timestamp
+ */
+SettlementInfo.prototype['created_timestamp'] = undefined;
+
+/**
+ * The updated time of the settlement, represented as a UNIX timestamp in seconds.
+ * @member {Number} updated_timestamp
+ */
+SettlementInfo.prototype['updated_timestamp'] = undefined;
 
 
 

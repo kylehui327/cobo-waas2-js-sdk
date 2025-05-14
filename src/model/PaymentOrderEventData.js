@@ -12,6 +12,7 @@
 import ApiClient from '../ApiClient';
 import Order from './Order';
 import OrderStatus from './OrderStatus';
+import PaymentTransaction from './PaymentTransaction';
 import WebhookEventDataType from './WebhookEventDataType';
 
 /**
@@ -125,6 +126,15 @@ class PaymentOrderEventData {
             if (data.hasOwnProperty('received_token_amount')) {
                 obj['received_token_amount'] = ApiClient.convertToType(data['received_token_amount'], 'String');
             }
+            if (data.hasOwnProperty('created_timestamp')) {
+                obj['created_timestamp'] = ApiClient.convertToType(data['created_timestamp'], 'Number');
+            }
+            if (data.hasOwnProperty('updated_timestamp')) {
+                obj['updated_timestamp'] = ApiClient.convertToType(data['updated_timestamp'], 'Number');
+            }
+            if (data.hasOwnProperty('transactions')) {
+                obj['transactions'] = ApiClient.convertToType(data['transactions'], [PaymentTransaction]);
+            }
         }
         return obj;
     }
@@ -196,6 +206,16 @@ class PaymentOrderEventData {
         // ensure the json data is a string
         if (data['received_token_amount'] && !(typeof data['received_token_amount'] === 'string' || data['received_token_amount'] instanceof String)) {
             throw new Error("Expected the field `received_token_amount` to be a primitive type in the JSON string but got " + data['received_token_amount']);
+        }
+        if (data['transactions']) { // data not null
+            // ensure the json data is an array
+            if (!Array.isArray(data['transactions'])) {
+                throw new Error("Expected the field `transactions` to be an array in the JSON data but got " + data['transactions']);
+            }
+            // validate the optional field `transactions` (array)
+            for (const item of data['transactions']) {
+                PaymentTransaction.validateJSON(item);
+            };
         }
 
         return true;
@@ -301,6 +321,24 @@ PaymentOrderEventData.prototype['status'] = undefined;
  */
 PaymentOrderEventData.prototype['received_token_amount'] = undefined;
 
+/**
+ * The created time of the order, represented as a UNIX timestamp in seconds.
+ * @member {Number} created_timestamp
+ */
+PaymentOrderEventData.prototype['created_timestamp'] = undefined;
+
+/**
+ * The updated time of the order, represented as a UNIX timestamp in seconds.
+ * @member {Number} updated_timestamp
+ */
+PaymentOrderEventData.prototype['updated_timestamp'] = undefined;
+
+/**
+ * An array of transactions associated with this pay-in order. Each transaction represents a separate blockchain operation related to the settlement process.
+ * @member {Array.<module:model/PaymentTransaction>} transactions
+ */
+PaymentOrderEventData.prototype['transactions'] = undefined;
+
 
 // Implement WebhookEventDataType interface:
 /**
@@ -383,6 +421,21 @@ Order.prototype['status'] = undefined;
  * @member {String} received_token_amount
  */
 Order.prototype['received_token_amount'] = undefined;
+/**
+ * The created time of the order, represented as a UNIX timestamp in seconds.
+ * @member {Number} created_timestamp
+ */
+Order.prototype['created_timestamp'] = undefined;
+/**
+ * The updated time of the order, represented as a UNIX timestamp in seconds.
+ * @member {Number} updated_timestamp
+ */
+Order.prototype['updated_timestamp'] = undefined;
+/**
+ * An array of transactions associated with this pay-in order. Each transaction represents a separate blockchain operation related to the settlement process.
+ * @member {Array.<module:model/PaymentTransaction>} transactions
+ */
+Order.prototype['transactions'] = undefined;
 
 
 

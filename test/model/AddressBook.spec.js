@@ -88,6 +88,12 @@
       //expect(instance).to.be();
     });
 
+    it('should have the property wallet_subtype (base name: "wallet_subtype")', function() {
+      // uncomment below and update the code to test the property wallet_subtype
+      //var instance = new CoboWaas2.AddressBook();
+      //expect(instance).to.be();
+    });
+
     it('should have the property label (base name: "label")', function() {
       // uncomment below and update the code to test the property label
       //var instance = new CoboWaas2.AddressBook();
@@ -102,6 +108,12 @@
 
     it('should have the property email (base name: "email")', function() {
       // uncomment below and update the code to test the property email
+      //var instance = new CoboWaas2.AddressBook();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property encoding (base name: "encoding")', function() {
+      // uncomment below and update the code to test the property encoding
       //var instance = new CoboWaas2.AddressBook();
       //expect(instance).to.be();
     });

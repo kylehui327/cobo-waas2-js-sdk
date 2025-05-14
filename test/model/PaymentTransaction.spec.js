@@ -64,6 +64,12 @@
       //expect(instance).to.be();
     });
 
+    it('should have the property token_id (base name: "token_id")', function() {
+      // uncomment below and update the code to test the property token_id
+      //var instance = new CoboWaas2.PaymentTransaction();
+      //expect(instance).to.be();
+    });
+
     it('should have the property from_address (base name: "from_address")', function() {
       // uncomment below and update the code to test the property from_address
       //var instance = new CoboWaas2.PaymentTransaction();

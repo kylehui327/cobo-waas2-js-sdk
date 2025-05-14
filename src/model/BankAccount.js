@@ -54,6 +54,12 @@ class BankAccount {
             if (data.hasOwnProperty('info')) {
                 obj['info'] = ApiClient.convertToType(data['info'], {'String': Object});
             }
+            if (data.hasOwnProperty('created_timestamp')) {
+                obj['created_timestamp'] = ApiClient.convertToType(data['created_timestamp'], 'Number');
+            }
+            if (data.hasOwnProperty('updated_timestamp')) {
+                obj['updated_timestamp'] = ApiClient.convertToType(data['updated_timestamp'], 'Number');
+            }
         }
         return obj;
     }
@@ -94,6 +100,18 @@ BankAccount.prototype['bank_account_id'] = undefined;
  * @member {Object.<String, Object>} info
  */
 BankAccount.prototype['info'] = undefined;
+
+/**
+ * The created time of the bank account, represented as a UNIX timestamp in seconds.
+ * @member {Number} created_timestamp
+ */
+BankAccount.prototype['created_timestamp'] = undefined;
+
+/**
+ * The updated time of the bank account, represented as a UNIX timestamp in seconds.
+ * @member {Number} updated_timestamp
+ */
+BankAccount.prototype['updated_timestamp'] = undefined;
 
 
 

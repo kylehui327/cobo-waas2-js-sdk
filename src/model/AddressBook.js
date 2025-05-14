@@ -10,6 +10,8 @@
  */
 
 import ApiClient from '../ApiClient';
+import AddressEncoding from './AddressEncoding';
+import WalletSubtype from './WalletSubtype';
 import WalletType from './WalletType';
 
 /**
@@ -72,6 +74,9 @@ class AddressBook {
             if (data.hasOwnProperty('wallet_type')) {
                 obj['wallet_type'] = WalletType.constructFromObject(data['wallet_type']);
             }
+            if (data.hasOwnProperty('wallet_subtype')) {
+                obj['wallet_subtype'] = WalletSubtype.constructFromObject(data['wallet_subtype']);
+            }
             if (data.hasOwnProperty('label')) {
                 obj['label'] = ApiClient.convertToType(data['label'], 'String');
             }
@@ -80,6 +85,9 @@ class AddressBook {
             }
             if (data.hasOwnProperty('email')) {
                 obj['email'] = ApiClient.convertToType(data['email'], 'String');
+            }
+            if (data.hasOwnProperty('encoding')) {
+                obj['encoding'] = AddressEncoding.constructFromObject(data['encoding']);
             }
         }
         return obj;
@@ -174,6 +182,11 @@ AddressBook.prototype['wallet_name'] = undefined;
 AddressBook.prototype['wallet_type'] = undefined;
 
 /**
+ * @member {module:model/WalletSubtype} wallet_subtype
+ */
+AddressBook.prototype['wallet_subtype'] = undefined;
+
+/**
  * The address label.
  * @member {String} label
  */
@@ -190,6 +203,11 @@ AddressBook.prototype['chain_ids'] = undefined;
  * @member {String} email
  */
 AddressBook.prototype['email'] = undefined;
+
+/**
+ * @member {module:model/AddressEncoding} encoding
+ */
+AddressBook.prototype['encoding'] = undefined;
 
 
 

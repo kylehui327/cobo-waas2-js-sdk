@@ -65,7 +65,7 @@ export default class WalletsApi {
 
     /**
      * Check address validity across chains
-     * This operation verifies if a given address is valid for a list of chains. 
+     * This operation verifies if a given address is valid for a list of chains.  <Note>You can specify up to 20 chain IDs in a single request.</Note> 
      * @param {String} address The wallet address.
      * @param {String} chain_ids A list of chain IDs, separated by comma. The chain ID is the unique identifier of a blockchain. You can retrieve the IDs of all the chains you can use by calling [List enabled chains](https://www.cobo.com/developers/v2/api-references/wallets/list-enabled-chains).
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link Array.<module:model/CheckAddressChainsValidity200ResponseInner>} and HTTP response
@@ -108,7 +108,7 @@ export default class WalletsApi {
 
     /**
      * Check address validity across chains
-     * This operation verifies if a given address is valid for a list of chains. 
+     * This operation verifies if a given address is valid for a list of chains.  <Note>You can specify up to 20 chain IDs in a single request.</Note> 
      * @param {String} address The wallet address.
      * @param {String} chain_ids A list of chain IDs, separated by comma. The chain ID is the unique identifier of a blockchain. You can retrieve the IDs of all the chains you can use by calling [List enabled chains](https://www.cobo.com/developers/v2/api-references/wallets/list-enabled-chains).
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link Array.<module:model/CheckAddressChainsValidity200ResponseInner>}
@@ -294,9 +294,9 @@ export default class WalletsApi {
 
 
     /**
-     * Submit token listing request
-     * Submit a request to add a non-listed token. The token must exist on the specified blockchain with a valid contract address. 
-     * @param {module:model/CreateTokenListingRequestRequest} CreateTokenListingRequestRequest Request body for submitting a token listing request. <note>   wallet_type only supports `Custodial` and `MPC`.   wallet_subtype only supports `Asset`, `Web3`, and `Org-Controlled`. </note> 
+     * Create token listing request
+     * This operation creates a token listing request. The token to be listed must already be deployed on the specified blockchain and have a valid contract address.  <note>Currently, tokens listed through this operation are only supported in wallets of type `Custodial` or `MPC`, and subtype `Asset`, `Web3`, or `Org-Controlled`.</note> 
+     * @param {module:model/CreateTokenListingRequestRequest} CreateTokenListingRequestRequest Request body for submitting a token listing request. 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/CreateTokenListingRequest201Response} and HTTP response
      */
     createTokenListingRequestWithHttpInfo(CreateTokenListingRequestRequest) {
@@ -330,9 +330,9 @@ export default class WalletsApi {
     }
 
     /**
-     * Submit token listing request
-     * Submit a request to add a non-listed token. The token must exist on the specified blockchain with a valid contract address. 
-     * @param {module:model/CreateTokenListingRequestRequest} CreateTokenListingRequestRequest Request body for submitting a token listing request. <note>   wallet_type only supports `Custodial` and `MPC`.   wallet_subtype only supports `Asset`, `Web3`, and `Org-Controlled`. </note> 
+     * Create token listing request
+     * This operation creates a token listing request. The token to be listed must already be deployed on the specified blockchain and have a valid contract address.  <note>Currently, tokens listed through this operation are only supported in wallets of type `Custodial` or `MPC`, and subtype `Asset`, `Web3`, or `Org-Controlled`.</note> 
+     * @param {module:model/CreateTokenListingRequestRequest} CreateTokenListingRequestRequest Request body for submitting a token listing request. 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/CreateTokenListingRequest201Response}
      */
     createTokenListingRequest(CreateTokenListingRequestRequest) {
@@ -624,9 +624,9 @@ export default class WalletsApi {
 
 
     /**
-     * Get token listing request details
-     * Retrieve detailed information about a specific token listing request including its current status and any admin feedback. 
-     * @param {String} request_id The unique identifier of the token listing request
+     * Get token listing request
+     * This operation retrieves detailed information about a specific token listing request, including its current status. 
+     * @param {String} request_id The unique identifier of the token listing request.
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/TokenListing} and HTTP response
      */
     getTokenListingRequestByRequestIdWithHttpInfo(request_id) {
@@ -661,9 +661,9 @@ export default class WalletsApi {
     }
 
     /**
-     * Get token listing request details
-     * Retrieve detailed information about a specific token listing request including its current status and any admin feedback. 
-     * @param {String} request_id The unique identifier of the token listing request
+     * Get token listing request
+     * This operation retrieves detailed information about a specific token listing request, including its current status. 
+     * @param {String} request_id The unique identifier of the token listing request.
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/TokenListing}
      */
     getTokenListingRequestByRequestId(request_id) {
@@ -1267,13 +1267,13 @@ export default class WalletsApi {
 
 
     /**
-     * Get all token listing requests
-     * Retrieve a list of all token listing requests. Results can be filtered and paginated. 
+     * List token listing requests
+     * This operation lists all token listing requests in your organization. You can filter the results by request status. 
      * @param {Object} opts Optional parameters
      * @param {Number} [limit = 10)] The maximum number of objects to return. For most operations, the value range is [1, 50].
      * @param {String} [before] This parameter specifies an object ID as a starting point for pagination, retrieving data before the specified object relative to the current dataset.    Suppose the current data is ordered as Object A, Object B, and Object C.  If you set `before` to the ID of Object C (`RqeEoTkgKG5rpzqYzg2Hd3szmPoj2cE7w5jWwShz3C1vyGSAk`), the response will include Object B and Object A.    **Notes**:   - If you set both `after` and `before`, an error will occur. - If you leave both `before` and `after` empty, the first page of data is returned. - If you set it to `infinity`, the last page of data is returned. 
      * @param {String} [after] This parameter specifies an object ID as a starting point for pagination, retrieving data after the specified object relative to the current dataset.    Suppose the current data is ordered as Object A, Object B, and Object C. If you set `after` to the ID of Object A (`RqeEoTkgKG5rpzqYzg2Hd3szmPoj2cE7w5jWwShz3C1vyGSAk`), the response will include Object B and Object C.    **Notes**:   - If you set both `after` and `before`, an error will occur. - If you leave both `before` and `after` empty, the first page of data is returned. 
-     * @param {module:model/TokenListingRequestStatus} [status] Filter by request status
+     * @param {module:model/TokenListingRequestStatus} [status] The current status of the token listing request.
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/ListTokenListingRequests200Response} and HTTP response
      */
     listTokenListingRequestsWithHttpInfo(opts) {
@@ -1308,13 +1308,13 @@ export default class WalletsApi {
     }
 
     /**
-     * Get all token listing requests
-     * Retrieve a list of all token listing requests. Results can be filtered and paginated. 
+     * List token listing requests
+     * This operation lists all token listing requests in your organization. You can filter the results by request status. 
      * @param {Object} opts Optional parameters
      * @param {Number} opts.limit The maximum number of objects to return. For most operations, the value range is [1, 50]. (default to 10)
      * @param {String} opts.before This parameter specifies an object ID as a starting point for pagination, retrieving data before the specified object relative to the current dataset.    Suppose the current data is ordered as Object A, Object B, and Object C.  If you set `before` to the ID of Object C (`RqeEoTkgKG5rpzqYzg2Hd3szmPoj2cE7w5jWwShz3C1vyGSAk`), the response will include Object B and Object A.    **Notes**:   - If you set both `after` and `before`, an error will occur. - If you leave both `before` and `after` empty, the first page of data is returned. - If you set it to `infinity`, the last page of data is returned. 
      * @param {String} opts.after This parameter specifies an object ID as a starting point for pagination, retrieving data after the specified object relative to the current dataset.    Suppose the current data is ordered as Object A, Object B, and Object C. If you set `after` to the ID of Object A (`RqeEoTkgKG5rpzqYzg2Hd3szmPoj2cE7w5jWwShz3C1vyGSAk`), the response will include Object B and Object C.    **Notes**:   - If you set both `after` and `before`, an error will occur. - If you leave both `before` and `after` empty, the first page of data is returned. 
-     * @param {module:model/TokenListingRequestStatus} opts.status Filter by request status
+     * @param {module:model/TokenListingRequestStatus} opts.status The current status of the token listing request.
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/ListTokenListingRequests200Response}
      */
     listTokenListingRequests(opts) {

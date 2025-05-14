@@ -187,13 +187,13 @@ SwapActivity.prototype['request_id'] = undefined;
 SwapActivity.prototype['wallet_id'] = undefined;
 
 /**
- * The token symbol to swap from.
+ * The token ID to pay.
  * @member {String} pay_token_id
  */
 SwapActivity.prototype['pay_token_id'] = undefined;
 
 /**
- * The token symbol to swap to.
+ * The token ID to receive.
  * @member {String} receive_token_id
  */
 SwapActivity.prototype['receive_token_id'] = undefined;
@@ -211,7 +211,7 @@ SwapActivity.prototype['pay_amount'] = undefined;
 SwapActivity.prototype['receive_amount'] = undefined;
 
 /**
- * The fee token symbol.
+ * The fee token ID.
  * @member {String} fee_token_id
  */
 SwapActivity.prototype['fee_token_id'] = undefined;

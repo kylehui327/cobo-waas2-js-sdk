@@ -19,7 +19,7 @@ import CurveType from './CurveType';
 class TSSGroups {
     /**
      * Constructs a new <code>TSSGroups</code>.
-     * The data for the TSS key share group ID.
+     * The data for the TSS key share group.
      * @alias module:model/TSSGroups
      */
     constructor() { 

@@ -142,13 +142,13 @@ SwapToken.prototype['asset_id'] = undefined;
 SwapToken.prototype['token_address'] = undefined;
 
 /**
- * The minimum amount to swap.
+ * The minimum amount.
  * @member {String} min_amount
  */
 SwapToken.prototype['min_amount'] = undefined;
 
 /**
- * The maximum amount to swap.
+ * The maximum amount.
  * @member {String} max_amount
  */
 SwapToken.prototype['max_amount'] = undefined;

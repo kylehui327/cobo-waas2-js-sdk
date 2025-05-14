@@ -26,6 +26,7 @@ import ListPaymentOrders200Response from '../model/ListPaymentOrders200Response'
 import ListSettlementRequests200Response from '../model/ListSettlementRequests200Response';
 import Merchant from '../model/Merchant';
 import Order from '../model/Order';
+import OrderAddressInfo from '../model/OrderAddressInfo';
 import Refund from '../model/Refund';
 import Settlement from '../model/Settlement';
 import UpdateMerchantByIdRequest from '../model/UpdateMerchantByIdRequest';
@@ -347,6 +348,59 @@ export default class PaymentApi {
      */
     getExchangeRate(token_id, currency) {
       return this.getExchangeRateWithHttpInfo(token_id, currency)
+        .then(function(response_and_data) {
+          return response_and_data.data;
+        });
+    }
+
+
+    /**
+     * Get pay-in order's receiving address info
+     * This operation retrieves the detailed information about a specific pay-in address. 
+     * @param {Object} opts Optional parameters
+     * @param {String} [token_id] The token ID, which identifies the cryptocurrency. Supported values:    - USDC: `ETH_USDC`, `ARBITRUM_USDC`, `SOL_USDC`, `BASE_USDC`, `MATIC_USDC`, `BSC_USDC`   - USDT: `TRON_USDT`, `ETH_USDT`, `ARBITRUM_USDT`, `SOL_USDT`, `BASE_USDT`, `MATIC_USDT`, `BSC_USDT` 
+     * @param {String} [address] The receiving address. 
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/OrderAddressInfo} and HTTP response
+     */
+    getPaymentOrderAddressInfoWithHttpInfo(opts) {
+      opts = opts || {};
+      let postBody = null;
+      if (postBody && postBody.toJSON) {
+          postBody = postBody.toJSON()
+      }
+
+      let pathParams = {
+      };
+      let queryParams = {
+        'token_id': opts['token_id'],
+        'address': opts['address']
+      };
+      let headerParams = {
+      };
+      let formParams = {
+      };
+
+      let authNames = ['OAuth2', 'CoboAuth'];
+      let contentTypes = [];
+      let accepts = ['application/json'];
+      let returnType = OrderAddressInfo;
+      return this.apiClient.callApi(
+        '/payments/orders/address_info', 'GET',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, null
+      );
+    }
+
+    /**
+     * Get pay-in order's receiving address info
+     * This operation retrieves the detailed information about a specific pay-in address. 
+     * @param {Object} opts Optional parameters
+     * @param {String} opts.token_id The token ID, which identifies the cryptocurrency. Supported values:    - USDC: `ETH_USDC`, `ARBITRUM_USDC`, `SOL_USDC`, `BASE_USDC`, `MATIC_USDC`, `BSC_USDC`   - USDT: `TRON_USDT`, `ETH_USDT`, `ARBITRUM_USDT`, `SOL_USDT`, `BASE_USDT`, `MATIC_USDT`, `BSC_USDT` 
+     * @param {String} opts.address The receiving address. 
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/OrderAddressInfo}
+     */
+    getPaymentOrderAddressInfo(opts) {
+      return this.getPaymentOrderAddressInfoWithHttpInfo(opts)
         .then(function(response_and_data) {
           return response_and_data.data;
         });

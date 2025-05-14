@@ -418,6 +418,12 @@
       //expect(instance).to.be();
     });
 
+    it('should have the property transactions (base name: "transactions")', function() {
+      // uncomment below and update the code to test the property transactions
+      //var instance = new CoboWaas2.WebhookEventData();
+      //expect(instance).to.be();
+    });
+
     it('should have the property refund_id (base name: "refund_id")', function() {
       // uncomment below and update the code to test the property refund_id
       //var instance = new CoboWaas2.WebhookEventData();
@@ -436,8 +442,8 @@
       //expect(instance).to.be();
     });
 
-    it('should have the property transactions (base name: "transactions")', function() {
-      // uncomment below and update the code to test the property transactions
+    it('should have the property refund_type (base name: "refund_type")', function() {
+      // uncomment below and update the code to test the property refund_type
       //var instance = new CoboWaas2.WebhookEventData();
       //expect(instance).to.be();
     });

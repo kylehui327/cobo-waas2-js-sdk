@@ -254,6 +254,7 @@ import MpcSigningGroup from './model/MpcSigningGroup';
 import MpcStakeSource from './model/MpcStakeSource';
 import MpcTransferSource from './model/MpcTransferSource';
 import Order from './model/Order';
+import OrderAddressInfo from './model/OrderAddressInfo';
 import OrderStatus from './model/OrderStatus';
 import OrgInfo from './model/OrgInfo';
 import Pagination from './model/Pagination';
@@ -322,11 +323,46 @@ import SwapActivityTimeline from './model/SwapActivityTimeline';
 import SwapQuote from './model/SwapQuote';
 import SwapToken from './model/SwapToken';
 import SwapType from './model/SwapType';
+import TSSBaseRequestEventData from './model/TSSBaseRequestEventData';
+import TSSCallbackActionType from './model/TSSCallbackActionType';
+import TSSCallbackRequest from './model/TSSCallbackRequest';
+import TSSCallbackRequestType from './model/TSSCallbackRequestType';
+import TSSCallbackResponse from './model/TSSCallbackResponse';
+import TSSCurve from './model/TSSCurve';
+import TSSCurveType from './model/TSSCurveType';
+import TSSEvent from './model/TSSEvent';
+import TSSEventData from './model/TSSEventData';
+import TSSEventDataType from './model/TSSEventDataType';
+import TSSEventType from './model/TSSEventType';
+import TSSGroup from './model/TSSGroup';
+import TSSGroupType from './model/TSSGroupType';
 import TSSGroups from './model/TSSGroups';
+import TSSKeyGenEventData from './model/TSSKeyGenEventData';
+import TSSKeyGenExtra from './model/TSSKeyGenExtra';
+import TSSKeyGenRequest from './model/TSSKeyGenRequest';
+import TSSKeyReshareEventData from './model/TSSKeyReshareEventData';
+import TSSKeyReshareExtra from './model/TSSKeyReshareExtra';
+import TSSKeyReshareRequest from './model/TSSKeyReshareRequest';
+import TSSKeyShareSignDetail from './model/TSSKeyShareSignDetail';
+import TSSKeyShareSignEventData from './model/TSSKeyShareSignEventData';
+import TSSKeyShareSignExtra from './model/TSSKeyShareSignExtra';
+import TSSKeyShareSignRequest from './model/TSSKeyShareSignRequest';
+import TSSKeyShareSignSignature from './model/TSSKeyShareSignSignature';
+import TSSKeyShareSignSignatures from './model/TSSKeyShareSignSignatures';
+import TSSKeySignEventData from './model/TSSKeySignEventData';
+import TSSKeySignExtra from './model/TSSKeySignExtra';
+import TSSKeySignRequest from './model/TSSKeySignRequest';
+import TSSParticipant from './model/TSSParticipant';
+import TSSProtocol from './model/TSSProtocol';
 import TSSRequest from './model/TSSRequest';
 import TSSRequestStatus from './model/TSSRequestStatus';
 import TSSRequestType from './model/TSSRequestType';
+import TSSRequestTypeEenum from './model/TSSRequestTypeEenum';
 import TSSRequestWebhookEventData from './model/TSSRequestWebhookEventData';
+import TSSSignature from './model/TSSSignature';
+import TSSSignatureType from './model/TSSSignatureType';
+import TSSSignatures from './model/TSSSignatures';
+import TSSStatus from './model/TSSStatus';
 import TokenAssetModelType from './model/TokenAssetModelType';
 import TokenBalance from './model/TokenBalance';
 import TokenInfo from './model/TokenInfo';
@@ -509,7 +545,7 @@ import WalletsSmartContractWalletsApi from './api/WalletsSmartContractWalletsApi
 * </pre>
 * </p>
 * @module index
-* @version 1.14.0
+* @version 1.15.0
 */
 export {
     Env,
@@ -1968,6 +2004,12 @@ export {
     Order,
 
     /**
+     * The OrderAddressInfo model constructor.
+     * @property {module:model/OrderAddressInfo}
+     */
+    OrderAddressInfo,
+
+    /**
      * The OrderStatus model constructor.
      * @property {module:model/OrderStatus}
      */
@@ -2376,10 +2418,190 @@ export {
     SwapType,
 
     /**
+     * The TSSBaseRequestEventData model constructor.
+     * @property {module:model/TSSBaseRequestEventData}
+     */
+    TSSBaseRequestEventData,
+
+    /**
+     * The TSSCallbackActionType model constructor.
+     * @property {module:model/TSSCallbackActionType}
+     */
+    TSSCallbackActionType,
+
+    /**
+     * The TSSCallbackRequest model constructor.
+     * @property {module:model/TSSCallbackRequest}
+     */
+    TSSCallbackRequest,
+
+    /**
+     * The TSSCallbackRequestType model constructor.
+     * @property {module:model/TSSCallbackRequestType}
+     */
+    TSSCallbackRequestType,
+
+    /**
+     * The TSSCallbackResponse model constructor.
+     * @property {module:model/TSSCallbackResponse}
+     */
+    TSSCallbackResponse,
+
+    /**
+     * The TSSCurve model constructor.
+     * @property {module:model/TSSCurve}
+     */
+    TSSCurve,
+
+    /**
+     * The TSSCurveType model constructor.
+     * @property {module:model/TSSCurveType}
+     */
+    TSSCurveType,
+
+    /**
+     * The TSSEvent model constructor.
+     * @property {module:model/TSSEvent}
+     */
+    TSSEvent,
+
+    /**
+     * The TSSEventData model constructor.
+     * @property {module:model/TSSEventData}
+     */
+    TSSEventData,
+
+    /**
+     * The TSSEventDataType model constructor.
+     * @property {module:model/TSSEventDataType}
+     */
+    TSSEventDataType,
+
+    /**
+     * The TSSEventType model constructor.
+     * @property {module:model/TSSEventType}
+     */
+    TSSEventType,
+
+    /**
+     * The TSSGroup model constructor.
+     * @property {module:model/TSSGroup}
+     */
+    TSSGroup,
+
+    /**
+     * The TSSGroupType model constructor.
+     * @property {module:model/TSSGroupType}
+     */
+    TSSGroupType,
+
+    /**
      * The TSSGroups model constructor.
      * @property {module:model/TSSGroups}
      */
     TSSGroups,
+
+    /**
+     * The TSSKeyGenEventData model constructor.
+     * @property {module:model/TSSKeyGenEventData}
+     */
+    TSSKeyGenEventData,
+
+    /**
+     * The TSSKeyGenExtra model constructor.
+     * @property {module:model/TSSKeyGenExtra}
+     */
+    TSSKeyGenExtra,
+
+    /**
+     * The TSSKeyGenRequest model constructor.
+     * @property {module:model/TSSKeyGenRequest}
+     */
+    TSSKeyGenRequest,
+
+    /**
+     * The TSSKeyReshareEventData model constructor.
+     * @property {module:model/TSSKeyReshareEventData}
+     */
+    TSSKeyReshareEventData,
+
+    /**
+     * The TSSKeyReshareExtra model constructor.
+     * @property {module:model/TSSKeyReshareExtra}
+     */
+    TSSKeyReshareExtra,
+
+    /**
+     * The TSSKeyReshareRequest model constructor.
+     * @property {module:model/TSSKeyReshareRequest}
+     */
+    TSSKeyReshareRequest,
+
+    /**
+     * The TSSKeyShareSignDetail model constructor.
+     * @property {module:model/TSSKeyShareSignDetail}
+     */
+    TSSKeyShareSignDetail,
+
+    /**
+     * The TSSKeyShareSignEventData model constructor.
+     * @property {module:model/TSSKeyShareSignEventData}
+     */
+    TSSKeyShareSignEventData,
+
+    /**
+     * The TSSKeyShareSignExtra model constructor.
+     * @property {module:model/TSSKeyShareSignExtra}
+     */
+    TSSKeyShareSignExtra,
+
+    /**
+     * The TSSKeyShareSignRequest model constructor.
+     * @property {module:model/TSSKeyShareSignRequest}
+     */
+    TSSKeyShareSignRequest,
+
+    /**
+     * The TSSKeyShareSignSignature model constructor.
+     * @property {module:model/TSSKeyShareSignSignature}
+     */
+    TSSKeyShareSignSignature,
+
+    /**
+     * The TSSKeyShareSignSignatures model constructor.
+     * @property {module:model/TSSKeyShareSignSignatures}
+     */
+    TSSKeyShareSignSignatures,
+
+    /**
+     * The TSSKeySignEventData model constructor.
+     * @property {module:model/TSSKeySignEventData}
+     */
+    TSSKeySignEventData,
+
+    /**
+     * The TSSKeySignExtra model constructor.
+     * @property {module:model/TSSKeySignExtra}
+     */
+    TSSKeySignExtra,
+
+    /**
+     * The TSSKeySignRequest model constructor.
+     * @property {module:model/TSSKeySignRequest}
+     */
+    TSSKeySignRequest,
+
+    /**
+     * The TSSParticipant model constructor.
+     * @property {module:model/TSSParticipant}
+     */
+    TSSParticipant,
+
+    /**
+     * The TSSProtocol model constructor.
+     * @property {module:model/TSSProtocol}
+     */
+    TSSProtocol,
 
     /**
      * The TSSRequest model constructor.
@@ -2400,10 +2622,40 @@ export {
     TSSRequestType,
 
     /**
+     * The TSSRequestTypeEenum model constructor.
+     * @property {module:model/TSSRequestTypeEenum}
+     */
+    TSSRequestTypeEenum,
+
+    /**
      * The TSSRequestWebhookEventData model constructor.
      * @property {module:model/TSSRequestWebhookEventData}
      */
     TSSRequestWebhookEventData,
+
+    /**
+     * The TSSSignature model constructor.
+     * @property {module:model/TSSSignature}
+     */
+    TSSSignature,
+
+    /**
+     * The TSSSignatureType model constructor.
+     * @property {module:model/TSSSignatureType}
+     */
+    TSSSignatureType,
+
+    /**
+     * The TSSSignatures model constructor.
+     * @property {module:model/TSSSignatures}
+     */
+    TSSSignatures,
+
+    /**
+     * The TSSStatus model constructor.
+     * @property {module:model/TSSStatus}
+     */
+    TSSStatus,
 
     /**
      * The TokenAssetModelType model constructor.

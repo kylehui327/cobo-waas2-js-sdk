@@ -305,6 +305,41 @@ export default class TransactionSubStatus {
 
     
         /**
+         * value: "PendingCoboCheck"
+         * @const
+         */
+        "PendingCoboCheck" = "PendingCoboCheck";
+
+    
+        /**
+         * value: "RejectedTransactionPolicy"
+         * @const
+         */
+        "RejectedTransactionPolicy" = "RejectedTransactionPolicy";
+
+    
+        /**
+         * value: "RejectedByScreeningApp"
+         * @const
+         */
+        "RejectedByScreeningApp" = "RejectedByScreeningApp";
+
+    
+        /**
+         * value: "PendingScreeningAppCheck"
+         * @const
+         */
+        "PendingScreeningAppCheck" = "PendingScreeningAppCheck";
+
+    
+        /**
+         * value: "PendingCoboTravelRuleCheck"
+         * @const
+         */
+        "PendingCoboTravelRuleCheck" = "PendingCoboTravelRuleCheck";
+
+    
+        /**
          * value: "unknown_default_open_api"
          * @const
          */

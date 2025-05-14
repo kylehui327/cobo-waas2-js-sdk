@@ -23,11 +23,11 @@ import WalletType from './WalletType';
 class TokenListing {
     /**
      * Constructs a new <code>TokenListing</code>.
-     * Detailed information about a token listing request
+     * Detailed information about a token listing request.
      * @alias module:model/TokenListing
-     * @param request_id {String} Unique identifier of the token listing request
-     * @param chain_id {String} chain_id of the blockchain where the token exists
-     * @param contract_address {String} Contract address of the token
+     * @param request_id {String} The unique identifier of the token listing request.
+     * @param chain_id {String} The ID of the blockchain where the token is deployed.
+     * @param contract_address {String} The token's contract address on the specified blockchain.
      * @param wallet_type {module:model/WalletType} 
      * @param wallet_subtype {module:model/WalletSubtype} 
      * @param status {module:model/TokenListingRequestStatus} 
@@ -143,19 +143,19 @@ class TokenListing {
 TokenListing.RequiredProperties = ["request_id", "chain_id", "contract_address", "wallet_type", "wallet_subtype", "status"];
 
 /**
- * Unique identifier of the token listing request
+ * The unique identifier of the token listing request.
  * @member {String} request_id
  */
 TokenListing.prototype['request_id'] = undefined;
 
 /**
- * chain_id of the blockchain where the token exists
+ * The ID of the blockchain where the token is deployed.
  * @member {String} chain_id
  */
 TokenListing.prototype['chain_id'] = undefined;
 
 /**
- * Contract address of the token
+ * The token's contract address on the specified blockchain.
  * @member {String} contract_address
  */
 TokenListing.prototype['contract_address'] = undefined;
@@ -186,19 +186,19 @@ TokenListing.prototype['status'] = undefined;
 TokenListing.prototype['source'] = undefined;
 
 /**
- * Feedback provided by the admin for rejected requests
+ * The feedback provided by Cobo when a token listing request is rejected.
  * @member {String} feedback
  */
 TokenListing.prototype['feedback'] = undefined;
 
 /**
- * Timestamp when the request was created (in milliseconds since Unix epoch)
+ * The time when the request was created in Unix timestamp format, measured in milliseconds.
  * @member {Number} created_timestamp
  */
 TokenListing.prototype['created_timestamp'] = undefined;
 
 /**
- * Timestamp when the request was last updated (in milliseconds since Unix epoch)
+ * The time when the request was last updated in Unix timestamp format, measured in milliseconds.
  * @member {Number} updated_timestamp
  */
 TokenListing.prototype['updated_timestamp'] = undefined;
