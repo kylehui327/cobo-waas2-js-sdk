@@ -5,8 +5,11 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **quote_id** | **String** | The unique id of quote. | 
+**pay_token_id** | **String** | The token ID to pay. | 
 **pay_amount** | **String** | The amount of tokens to pay. | 
+**receive_token_id** | **String** | The token ID to receive. | 
 **receive_amount** | **String** | The amount of tokens to receive. | 
+**fee_token_id** | **String** | The fee token ID. | 
 **fee_amount** | **String** | The amount of tokens to pay for fee. | 
 **min_receive_amount** | **String** | The minimum amount of tokens to receive if the pay amount is specified. | [optional] 
 **max_pay_amount** | **String** | The maximum amount of tokens to pay if the receive amount is specified. | [optional] 

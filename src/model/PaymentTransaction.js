@@ -65,6 +65,9 @@ class PaymentTransaction {
             if (data.hasOwnProperty('tx_hash')) {
                 obj['tx_hash'] = ApiClient.convertToType(data['tx_hash'], 'String');
             }
+            if (data.hasOwnProperty('token_id')) {
+                obj['token_id'] = ApiClient.convertToType(data['token_id'], 'String');
+            }
             if (data.hasOwnProperty('from_address')) {
                 obj['from_address'] = ApiClient.convertToType(data['from_address'], 'String');
             }
@@ -108,6 +111,10 @@ class PaymentTransaction {
             throw new Error("Expected the field `tx_hash` to be a primitive type in the JSON string but got " + data['tx_hash']);
         }
         // ensure the json data is a string
+        if (data['token_id'] && !(typeof data['token_id'] === 'string' || data['token_id'] instanceof String)) {
+            throw new Error("Expected the field `token_id` to be a primitive type in the JSON string but got " + data['token_id']);
+        }
+        // ensure the json data is a string
         if (data['from_address'] && !(typeof data['from_address'] === 'string' || data['from_address'] instanceof String)) {
             throw new Error("Expected the field `from_address` to be a primitive type in the JSON string but got " + data['from_address']);
         }
@@ -139,6 +146,12 @@ PaymentTransaction.prototype['tx_id'] = undefined;
  * @member {String} tx_hash
  */
 PaymentTransaction.prototype['tx_hash'] = undefined;
+
+/**
+ * The ID of the cryptocurrency.
+ * @member {String} token_id
+ */
+PaymentTransaction.prototype['token_id'] = undefined;
 
 /**
  * The source address of the transaction.

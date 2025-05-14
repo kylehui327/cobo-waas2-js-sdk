@@ -13,6 +13,7 @@ import ApiClient from '../ApiClient';
 import PaymentTransaction from './PaymentTransaction';
 import Refund from './Refund';
 import RefundStatus from './RefundStatus';
+import RefundType from './RefundType';
 import WebhookEventDataType from './WebhookEventDataType';
 
 /**
@@ -75,6 +76,9 @@ class PaymentRefundEventData {
             if (data.hasOwnProperty('refund_id')) {
                 obj['refund_id'] = ApiClient.convertToType(data['refund_id'], 'String');
             }
+            if (data.hasOwnProperty('order_id')) {
+                obj['order_id'] = ApiClient.convertToType(data['order_id'], 'String');
+            }
             if (data.hasOwnProperty('merchant_id')) {
                 obj['merchant_id'] = ApiClient.convertToType(data['merchant_id'], 'String');
             }
@@ -92,6 +96,18 @@ class PaymentRefundEventData {
             }
             if (data.hasOwnProperty('status')) {
                 obj['status'] = RefundStatus.constructFromObject(data['status']);
+            }
+            if (data.hasOwnProperty('refund_type')) {
+                obj['refund_type'] = RefundType.constructFromObject(data['refund_type']);
+            }
+            if (data.hasOwnProperty('created_timestamp')) {
+                obj['created_timestamp'] = ApiClient.convertToType(data['created_timestamp'], 'Number');
+            }
+            if (data.hasOwnProperty('updated_timestamp')) {
+                obj['updated_timestamp'] = ApiClient.convertToType(data['updated_timestamp'], 'Number');
+            }
+            if (data.hasOwnProperty('initiator')) {
+                obj['initiator'] = ApiClient.convertToType(data['initiator'], 'String');
             }
             if (data.hasOwnProperty('transactions')) {
                 obj['transactions'] = ApiClient.convertToType(data['transactions'], [PaymentTransaction]);
@@ -125,6 +141,10 @@ class PaymentRefundEventData {
             throw new Error("Expected the field `refund_id` to be a primitive type in the JSON string but got " + data['refund_id']);
         }
         // ensure the json data is a string
+        if (data['order_id'] && !(typeof data['order_id'] === 'string' || data['order_id'] instanceof String)) {
+            throw new Error("Expected the field `order_id` to be a primitive type in the JSON string but got " + data['order_id']);
+        }
+        // ensure the json data is a string
         if (data['merchant_id'] && !(typeof data['merchant_id'] === 'string' || data['merchant_id'] instanceof String)) {
             throw new Error("Expected the field `merchant_id` to be a primitive type in the JSON string but got " + data['merchant_id']);
         }
@@ -143,6 +163,10 @@ class PaymentRefundEventData {
         // ensure the json data is a string
         if (data['to_address'] && !(typeof data['to_address'] === 'string' || data['to_address'] instanceof String)) {
             throw new Error("Expected the field `to_address` to be a primitive type in the JSON string but got " + data['to_address']);
+        }
+        // ensure the json data is a string
+        if (data['initiator'] && !(typeof data['initiator'] === 'string' || data['initiator'] instanceof String)) {
+            throw new Error("Expected the field `initiator` to be a primitive type in the JSON string but got " + data['initiator']);
         }
         if (data['transactions']) { // data not null
             // ensure the json data is an array
@@ -182,6 +206,12 @@ PaymentRefundEventData.prototype['request_id'] = undefined;
 PaymentRefundEventData.prototype['refund_id'] = undefined;
 
 /**
+ * The order ID corresponding to this refund.
+ * @member {String} order_id
+ */
+PaymentRefundEventData.prototype['order_id'] = undefined;
+
+/**
  * The merchant ID.
  * @member {String} merchant_id
  */
@@ -217,6 +247,29 @@ PaymentRefundEventData.prototype['to_address'] = undefined;
 PaymentRefundEventData.prototype['status'] = undefined;
 
 /**
+ * @member {module:model/RefundType} refund_type
+ */
+PaymentRefundEventData.prototype['refund_type'] = undefined;
+
+/**
+ * The created time of the refund order, represented as a UNIX timestamp in seconds.
+ * @member {Number} created_timestamp
+ */
+PaymentRefundEventData.prototype['created_timestamp'] = undefined;
+
+/**
+ * The updated time of the refund order, represented as a UNIX timestamp in seconds.
+ * @member {Number} updated_timestamp
+ */
+PaymentRefundEventData.prototype['updated_timestamp'] = undefined;
+
+/**
+ * The initiator of this refund order, usually the user's API key.
+ * @member {String} initiator
+ */
+PaymentRefundEventData.prototype['initiator'] = undefined;
+
+/**
  * An array of transactions associated with this refund order. Each transaction represents a separate blockchain operation related to the refund process.
  * @member {Array.<module:model/PaymentTransaction>} transactions
  */
@@ -240,6 +293,11 @@ Refund.prototype['request_id'] = undefined;
  * @member {String} refund_id
  */
 Refund.prototype['refund_id'] = undefined;
+/**
+ * The order ID corresponding to this refund.
+ * @member {String} order_id
+ */
+Refund.prototype['order_id'] = undefined;
 /**
  * The merchant ID.
  * @member {String} merchant_id
@@ -269,6 +327,25 @@ Refund.prototype['to_address'] = undefined;
  * @member {module:model/RefundStatus} status
  */
 Refund.prototype['status'] = undefined;
+/**
+ * @member {module:model/RefundType} refund_type
+ */
+Refund.prototype['refund_type'] = undefined;
+/**
+ * The created time of the refund order, represented as a UNIX timestamp in seconds.
+ * @member {Number} created_timestamp
+ */
+Refund.prototype['created_timestamp'] = undefined;
+/**
+ * The updated time of the refund order, represented as a UNIX timestamp in seconds.
+ * @member {Number} updated_timestamp
+ */
+Refund.prototype['updated_timestamp'] = undefined;
+/**
+ * The initiator of this refund order, usually the user's API key.
+ * @member {String} initiator
+ */
+Refund.prototype['initiator'] = undefined;
 /**
  * An array of transactions associated with this refund order. Each transaction represents a separate blockchain operation related to the refund process.
  * @member {Array.<module:model/PaymentTransaction>} transactions

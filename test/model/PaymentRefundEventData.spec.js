@@ -70,6 +70,12 @@
       //expect(instance).to.be();
     });
 
+    it('should have the property order_id (base name: "order_id")', function() {
+      // uncomment below and update the code to test the property order_id
+      //var instance = new CoboWaas2.PaymentRefundEventData();
+      //expect(instance).to.be();
+    });
+
     it('should have the property merchant_id (base name: "merchant_id")', function() {
       // uncomment below and update the code to test the property merchant_id
       //var instance = new CoboWaas2.PaymentRefundEventData();
@@ -102,6 +108,30 @@
 
     it('should have the property status (base name: "status")', function() {
       // uncomment below and update the code to test the property status
+      //var instance = new CoboWaas2.PaymentRefundEventData();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property refund_type (base name: "refund_type")', function() {
+      // uncomment below and update the code to test the property refund_type
+      //var instance = new CoboWaas2.PaymentRefundEventData();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property created_timestamp (base name: "created_timestamp")', function() {
+      // uncomment below and update the code to test the property created_timestamp
+      //var instance = new CoboWaas2.PaymentRefundEventData();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property updated_timestamp (base name: "updated_timestamp")', function() {
+      // uncomment below and update the code to test the property updated_timestamp
+      //var instance = new CoboWaas2.PaymentRefundEventData();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property initiator (base name: "initiator")', function() {
+      // uncomment below and update the code to test the property initiator
       //var instance = new CoboWaas2.PaymentRefundEventData();
       //expect(instance).to.be();
     });

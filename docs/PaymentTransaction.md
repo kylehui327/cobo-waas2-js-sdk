@@ -6,6 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **tx_id** | **String** | The transaction ID. | 
 **tx_hash** | **String** | The transaction hash. | [optional] 
+**token_id** | **String** | The ID of the cryptocurrency. | [optional] 
 **from_address** | **String** | The source address of the transaction. | 
 **to_address** | **String** | The destination address of the transaction. | 
 **amount** | **String** | The amount of cryptocurrency transferred, as a decimal string. | 

@@ -19,7 +19,7 @@ class CreateTokenListingRequest201Response {
     /**
      * Constructs a new <code>CreateTokenListingRequest201Response</code>.
      * @alias module:model/CreateTokenListingRequest201Response
-     * @param request_id {String} Unique identifier for the token listing request
+     * @param request_id {String} The unique identifier for the token listing request. You can use it to track the request status with the [Get token listing request](https://www.cobo.com/developers/v2/api-references/wallets/get-token-listing-request) operation.
      */
     constructor(request_id) { 
         
@@ -79,7 +79,7 @@ class CreateTokenListingRequest201Response {
 CreateTokenListingRequest201Response.RequiredProperties = ["request_id"];
 
 /**
- * Unique identifier for the token listing request
+ * The unique identifier for the token listing request. You can use it to track the request status with the [Get token listing request](https://www.cobo.com/developers/v2/api-references/wallets/get-token-listing-request) operation.
  * @member {String} request_id
  */
 CreateTokenListingRequest201Response.prototype['request_id'] = undefined;

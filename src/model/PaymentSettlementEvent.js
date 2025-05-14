@@ -77,6 +77,15 @@ class PaymentSettlementEvent {
             if (data.hasOwnProperty('settlements')) {
                 obj['settlements'] = ApiClient.convertToType(data['settlements'], [SettlementDetail]);
             }
+            if (data.hasOwnProperty('created_timestamp')) {
+                obj['created_timestamp'] = ApiClient.convertToType(data['created_timestamp'], 'Number');
+            }
+            if (data.hasOwnProperty('updated_timestamp')) {
+                obj['updated_timestamp'] = ApiClient.convertToType(data['updated_timestamp'], 'Number');
+            }
+            if (data.hasOwnProperty('initiator')) {
+                obj['initiator'] = ApiClient.convertToType(data['initiator'], 'String');
+            }
         }
         return obj;
     }
@@ -115,6 +124,10 @@ class PaymentSettlementEvent {
                 SettlementDetail.validateJSON(item);
             };
         }
+        // ensure the json data is a string
+        if (data['initiator'] && !(typeof data['initiator'] === 'string' || data['initiator'] instanceof String)) {
+            throw new Error("Expected the field `initiator` to be a primitive type in the JSON string but got " + data['initiator']);
+        }
 
         return true;
     }
@@ -152,6 +165,24 @@ PaymentSettlementEvent.prototype['status'] = undefined;
  */
 PaymentSettlementEvent.prototype['settlements'] = undefined;
 
+/**
+ * The created time of the settlement request, represented as a UNIX timestamp in seconds.
+ * @member {Number} created_timestamp
+ */
+PaymentSettlementEvent.prototype['created_timestamp'] = undefined;
+
+/**
+ * The updated time of the settlement request, represented as a UNIX timestamp in seconds.
+ * @member {Number} updated_timestamp
+ */
+PaymentSettlementEvent.prototype['updated_timestamp'] = undefined;
+
+/**
+ * The initiator of this settlement request, usually the user's API key.
+ * @member {String} initiator
+ */
+PaymentSettlementEvent.prototype['initiator'] = undefined;
+
 
 // Implement WebhookEventDataType interface:
 /**
@@ -178,6 +209,21 @@ Settlement.prototype['status'] = undefined;
  * @member {Array.<module:model/SettlementDetail>} settlements
  */
 Settlement.prototype['settlements'] = undefined;
+/**
+ * The created time of the settlement request, represented as a UNIX timestamp in seconds.
+ * @member {Number} created_timestamp
+ */
+Settlement.prototype['created_timestamp'] = undefined;
+/**
+ * The updated time of the settlement request, represented as a UNIX timestamp in seconds.
+ * @member {Number} updated_timestamp
+ */
+Settlement.prototype['updated_timestamp'] = undefined;
+/**
+ * The initiator of this settlement request, usually the user's API key.
+ * @member {String} initiator
+ */
+Settlement.prototype['initiator'] = undefined;
 
 
 

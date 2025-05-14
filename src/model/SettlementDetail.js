@@ -56,8 +56,14 @@ class SettlementDetail {
             if (data.hasOwnProperty('chain_id')) {
                 obj['chain_id'] = ApiClient.convertToType(data['chain_id'], 'String');
             }
+            if (data.hasOwnProperty('merchant_id')) {
+                obj['merchant_id'] = ApiClient.convertToType(data['merchant_id'], 'String');
+            }
             if (data.hasOwnProperty('amount')) {
                 obj['amount'] = ApiClient.convertToType(data['amount'], 'String');
+            }
+            if (data.hasOwnProperty('settled_amount')) {
+                obj['settled_amount'] = ApiClient.convertToType(data['settled_amount'], 'String');
             }
             if (data.hasOwnProperty('status')) {
                 obj['status'] = SettleStatus.constructFromObject(data['status']);
@@ -67,6 +73,12 @@ class SettlementDetail {
             }
             if (data.hasOwnProperty('transactions')) {
                 obj['transactions'] = ApiClient.convertToType(data['transactions'], [PaymentTransaction]);
+            }
+            if (data.hasOwnProperty('created_timestamp')) {
+                obj['created_timestamp'] = ApiClient.convertToType(data['created_timestamp'], 'Number');
+            }
+            if (data.hasOwnProperty('updated_timestamp')) {
+                obj['updated_timestamp'] = ApiClient.convertToType(data['updated_timestamp'], 'Number');
             }
         }
         return obj;
@@ -91,8 +103,16 @@ class SettlementDetail {
             throw new Error("Expected the field `chain_id` to be a primitive type in the JSON string but got " + data['chain_id']);
         }
         // ensure the json data is a string
+        if (data['merchant_id'] && !(typeof data['merchant_id'] === 'string' || data['merchant_id'] instanceof String)) {
+            throw new Error("Expected the field `merchant_id` to be a primitive type in the JSON string but got " + data['merchant_id']);
+        }
+        // ensure the json data is a string
         if (data['amount'] && !(typeof data['amount'] === 'string' || data['amount'] instanceof String)) {
             throw new Error("Expected the field `amount` to be a primitive type in the JSON string but got " + data['amount']);
+        }
+        // ensure the json data is a string
+        if (data['settled_amount'] && !(typeof data['settled_amount'] === 'string' || data['settled_amount'] instanceof String)) {
+            throw new Error("Expected the field `settled_amount` to be a primitive type in the JSON string but got " + data['settled_amount']);
         }
         // validate the optional field `bank_account`
         if (data['bank_account']) { // data not null
@@ -138,10 +158,22 @@ SettlementDetail.prototype['token_id'] = undefined;
 SettlementDetail.prototype['chain_id'] = undefined;
 
 /**
+ * The Merchant ID associated with this settlement.
+ * @member {String} merchant_id
+ */
+SettlementDetail.prototype['merchant_id'] = undefined;
+
+/**
  * The settlement amount.  - If `token_id` is specified, this represents the settlement amount in the specified cryptocurrency.  - If `token_id` is not specified, this represents the settlement amount in the specified fiat currency. 
  * @member {String} amount
  */
 SettlementDetail.prototype['amount'] = undefined;
+
+/**
+ * The settled amount of this settlement detail.  - If `token_id` is specified, this represents the actual settled amount in the specified cryptocurrency.  - If `token_id` is not specified, this represents the actual settled amount in the specified fiat currency. 
+ * @member {String} settled_amount
+ */
+SettlementDetail.prototype['settled_amount'] = undefined;
 
 /**
  * @member {module:model/SettleStatus} status
@@ -158,6 +190,18 @@ SettlementDetail.prototype['bank_account'] = undefined;
  * @member {Array.<module:model/PaymentTransaction>} transactions
  */
 SettlementDetail.prototype['transactions'] = undefined;
+
+/**
+ * The created time of the settlement, represented as a UNIX timestamp in seconds.
+ * @member {Number} created_timestamp
+ */
+SettlementDetail.prototype['created_timestamp'] = undefined;
+
+/**
+ * The updated time of the settlement, represented as a UNIX timestamp in seconds.
+ * @member {Number} updated_timestamp
+ */
+SettlementDetail.prototype['updated_timestamp'] = undefined;
 
 
 

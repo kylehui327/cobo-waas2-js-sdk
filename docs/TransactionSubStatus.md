@@ -85,6 +85,16 @@
 
 * `SignatureVerificationFailed` (value: `"SignatureVerificationFailed"`)
 
+* `PendingCoboCheck` (value: `"PendingCoboCheck"`)
+
+* `RejectedTransactionPolicy` (value: `"RejectedTransactionPolicy"`)
+
+* `RejectedByScreeningApp` (value: `"RejectedByScreeningApp"`)
+
+* `PendingScreeningAppCheck` (value: `"PendingScreeningAppCheck"`)
+
+* `PendingCoboTravelRuleCheck` (value: `"PendingCoboTravelRuleCheck"`)
+
 * `unknown_default_open_api` (value: `"unknown_default_open_api"`)
 
 

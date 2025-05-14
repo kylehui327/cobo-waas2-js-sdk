@@ -39,10 +39,10 @@ export default class FeeStationApi {
 
 
     /**
-     * Estimate transaction fee
-     * This operation estimates the transaction fee of a token transfer based on the fee model that the chain uses, considering factors such as network congestion and transaction complexity.  You need to specify the transaction information, including destination address, token ID.  The response can contain different properties based on the transaction fee model used by the chain. For the legacy, EIP-1559, and UTXO fee models, Cobo also supports three different transaction speed levels: slow, recommended, and fast. For more information about estimating transaction fees, refer to [Estimate transaction fee](https://www.cobo.com/developers/v2/guides/transactions/estimate-fees). 
+     * Estimate fee for Fee Station transaction
+     * This operation estimates the gas fee required for a top-up transaction sent by [Fee Station](https://manuals.cobo.com/en/portal/fee-station/introduction) to provide gas to the sender of the original transaction.  You need to provide the token ID and transfer amount.  For more information about transaction fee models and how fees are calculated, refer to [Estimate transaction fee](https://www.cobo.com/developers/v2/guides/transactions/estimate-fees). 
      * @param {Object} opts Optional parameters
-     * @param {module:model/FeeStationTransfer} [FeeStationTransfer] The information about a token transfer.
+     * @param {module:model/FeeStationTransfer} [FeeStationTransfer] The information about a Fee Station top-up transaction.
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/EstimatedFixedFee} and HTTP response
      */
     estimateFeeStationFeeWithHttpInfo(opts) {
@@ -73,10 +73,10 @@ export default class FeeStationApi {
     }
 
     /**
-     * Estimate transaction fee
-     * This operation estimates the transaction fee of a token transfer based on the fee model that the chain uses, considering factors such as network congestion and transaction complexity.  You need to specify the transaction information, including destination address, token ID.  The response can contain different properties based on the transaction fee model used by the chain. For the legacy, EIP-1559, and UTXO fee models, Cobo also supports three different transaction speed levels: slow, recommended, and fast. For more information about estimating transaction fees, refer to [Estimate transaction fee](https://www.cobo.com/developers/v2/guides/transactions/estimate-fees). 
+     * Estimate fee for Fee Station transaction
+     * This operation estimates the gas fee required for a top-up transaction sent by [Fee Station](https://manuals.cobo.com/en/portal/fee-station/introduction) to provide gas to the sender of the original transaction.  You need to provide the token ID and transfer amount.  For more information about transaction fee models and how fees are calculated, refer to [Estimate transaction fee](https://www.cobo.com/developers/v2/guides/transactions/estimate-fees). 
      * @param {Object} opts Optional parameters
-     * @param {module:model/FeeStationTransfer} opts.FeeStationTransfer The information about a token transfer.
+     * @param {module:model/FeeStationTransfer} opts.FeeStationTransfer The information about a Fee Station top-up transaction.
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/EstimatedFixedFee}
      */
     estimateFeeStationFee(opts) {
@@ -89,7 +89,7 @@ export default class FeeStationApi {
 
     /**
      * Get Fee Station transaction information
-     * This operation retrieves detailed information about a specified Fee Station transaction, such as the transaction status, source address, destination address, and timestamp. 
+     * This operation retrieves detailed information about a specified Fee Station transaction record, such as the transaction status, source address, destination address, and timestamp. 
      * @param {String} transaction_id The transaction ID.
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/TransactionDetail} and HTTP response
      */
@@ -126,7 +126,7 @@ export default class FeeStationApi {
 
     /**
      * Get Fee Station transaction information
-     * This operation retrieves detailed information about a specified Fee Station transaction, such as the transaction status, source address, destination address, and timestamp. 
+     * This operation retrieves detailed information about a specified Fee Station transaction record, such as the transaction status, source address, destination address, and timestamp. 
      * @param {String} transaction_id The transaction ID.
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/TransactionDetail}
      */
@@ -140,7 +140,7 @@ export default class FeeStationApi {
 
     /**
      * List Fee Station addresses
-     * This operation retrieves a list of addresses within your Fee Station. 
+     * This operation retrieves a list of deposit addresses of your Fee Station, including the chain ID, address, and additional information. You can filter the result by chain ID and address. 
      * @param {Object} opts Optional parameters
      * @param {String} [chain_ids] A list of chain IDs, separated by comma. The chain ID is the unique identifier of a blockchain. You can retrieve the IDs of all the chains you can use by calling [List enabled chains](https://www.cobo.com/developers/v2/api-references/wallets/list-enabled-chains).
      * @param {String} [addresses] A list of wallet addresses, separated by comma. For addresses requiring a memo, append the memo after the address using the '|' separator (e.g., \"address|memo\").
@@ -183,7 +183,7 @@ export default class FeeStationApi {
 
     /**
      * List Fee Station addresses
-     * This operation retrieves a list of addresses within your Fee Station. 
+     * This operation retrieves a list of deposit addresses of your Fee Station, including the chain ID, address, and additional information. You can filter the result by chain ID and address. 
      * @param {Object} opts Optional parameters
      * @param {String} opts.chain_ids A list of chain IDs, separated by comma. The chain ID is the unique identifier of a blockchain. You can retrieve the IDs of all the chains you can use by calling [List enabled chains](https://www.cobo.com/developers/v2/api-references/wallets/list-enabled-chains).
      * @param {String} opts.addresses A list of wallet addresses, separated by comma. For addresses requiring a memo, append the memo after the address using the '|' separator (e.g., \"address|memo\").
@@ -213,8 +213,8 @@ export default class FeeStationApi {
      * @param {String} [chain_ids] A list of chain IDs, separated by comma. The chain ID is the unique identifier of a blockchain. You can retrieve the IDs of all the chains you can use by calling [List enabled chains](https://www.cobo.com/developers/v2/api-references/wallets/list-enabled-chains).
      * @param {String} [token_ids] A list of token IDs, separated by comma. The token ID is the unique identifier of a token. You can retrieve the IDs of all the tokens you can use by calling [List enabled tokens](https://www.cobo.com/developers/v2/api-references/wallets/list-enabled-tokens).
      * @param {String} [asset_ids] (This concept applies to Exchange Wallets only) A list of asset IDs, separated by comma. An asset ID is the unique identifier of the asset held within your linked exchange account.
-     * @param {Number} [min_created_timestamp] The time when the transaction was created, in Unix timestamp format, measured in milliseconds. You can use this parameter to filter transactions created on or after the specified time.
-     * @param {Number} [max_created_timestamp] The time when the transaction was created, in Unix timestamp format, measured in milliseconds. You can use this parameter to filter transactions created on or before the specified time.
+     * @param {Number} [min_created_timestamp] The time when the transaction was created, in Unix timestamp format, measured in milliseconds. You can use this parameter to filter transactions created on or after the specified time.  If not provided, the default value is 90 days before the current time. This default value is subject to change. 
+     * @param {Number} [max_created_timestamp] The time when the transaction was created, in Unix timestamp format, measured in milliseconds. You can use this parameter to filter transactions created on or before the specified time.  If not provided, the default value is the current time. This default value is subject to change. 
      * @param {Number} [limit = 10)] The maximum number of objects to return. For most operations, the value range is [1, 50].
      * @param {String} [before] This parameter specifies an object ID as a starting point for pagination, retrieving data before the specified object relative to the current dataset.    Suppose the current data is ordered as Object A, Object B, and Object C.  If you set `before` to the ID of Object C (`RqeEoTkgKG5rpzqYzg2Hd3szmPoj2cE7w5jWwShz3C1vyGSAk`), the response will include Object B and Object A.    **Notes**:   - If you set both `after` and `before`, an error will occur. - If you leave both `before` and `after` empty, the first page of data is returned. - If you set it to `infinity`, the last page of data is returned. 
      * @param {String} [after] This parameter specifies an object ID as a starting point for pagination, retrieving data after the specified object relative to the current dataset.    Suppose the current data is ordered as Object A, Object B, and Object C. If you set `after` to the ID of Object A (`RqeEoTkgKG5rpzqYzg2Hd3szmPoj2cE7w5jWwShz3C1vyGSAk`), the response will include Object B and Object C.    **Notes**:   - If you set both `after` and `before`, an error will occur. - If you leave both `before` and `after` empty, the first page of data is returned. 
@@ -276,8 +276,8 @@ export default class FeeStationApi {
      * @param {String} opts.chain_ids A list of chain IDs, separated by comma. The chain ID is the unique identifier of a blockchain. You can retrieve the IDs of all the chains you can use by calling [List enabled chains](https://www.cobo.com/developers/v2/api-references/wallets/list-enabled-chains).
      * @param {String} opts.token_ids A list of token IDs, separated by comma. The token ID is the unique identifier of a token. You can retrieve the IDs of all the tokens you can use by calling [List enabled tokens](https://www.cobo.com/developers/v2/api-references/wallets/list-enabled-tokens).
      * @param {String} opts.asset_ids (This concept applies to Exchange Wallets only) A list of asset IDs, separated by comma. An asset ID is the unique identifier of the asset held within your linked exchange account.
-     * @param {Number} opts.min_created_timestamp The time when the transaction was created, in Unix timestamp format, measured in milliseconds. You can use this parameter to filter transactions created on or after the specified time.
-     * @param {Number} opts.max_created_timestamp The time when the transaction was created, in Unix timestamp format, measured in milliseconds. You can use this parameter to filter transactions created on or before the specified time.
+     * @param {Number} opts.min_created_timestamp The time when the transaction was created, in Unix timestamp format, measured in milliseconds. You can use this parameter to filter transactions created on or after the specified time.  If not provided, the default value is 90 days before the current time. This default value is subject to change. 
+     * @param {Number} opts.max_created_timestamp The time when the transaction was created, in Unix timestamp format, measured in milliseconds. You can use this parameter to filter transactions created on or before the specified time.  If not provided, the default value is the current time. This default value is subject to change. 
      * @param {Number} opts.limit The maximum number of objects to return. For most operations, the value range is [1, 50]. (default to 10)
      * @param {String} opts.before This parameter specifies an object ID as a starting point for pagination, retrieving data before the specified object relative to the current dataset.    Suppose the current data is ordered as Object A, Object B, and Object C.  If you set `before` to the ID of Object C (`RqeEoTkgKG5rpzqYzg2Hd3szmPoj2cE7w5jWwShz3C1vyGSAk`), the response will include Object B and Object A.    **Notes**:   - If you set both `after` and `before`, an error will occur. - If you leave both `before` and `after` empty, the first page of data is returned. - If you set it to `infinity`, the last page of data is returned. 
      * @param {String} opts.after This parameter specifies an object ID as a starting point for pagination, retrieving data after the specified object relative to the current dataset.    Suppose the current data is ordered as Object A, Object B, and Object C. If you set `after` to the ID of Object A (`RqeEoTkgKG5rpzqYzg2Hd3szmPoj2cE7w5jWwShz3C1vyGSAk`), the response will include Object B and Object C.    **Notes**:   - If you set both `after` and `before`, an error will occur. - If you leave both `before` and `after` empty, the first page of data is returned. 

@@ -20,14 +20,17 @@ class SwapQuote {
      * Constructs a new <code>SwapQuote</code>.
      * @alias module:model/SwapQuote
      * @param quote_id {String} The unique id of quote.
+     * @param pay_token_id {String} The token ID to pay.
      * @param pay_amount {String} The amount of tokens to pay.
+     * @param receive_token_id {String} The token ID to receive.
      * @param receive_amount {String} The amount of tokens to receive.
+     * @param fee_token_id {String} The fee token ID.
      * @param fee_amount {String} The amount of tokens to pay for fee.
      * @param quote_expired_timestamp {Number} The time when the quote will expire, in Unix timestamp format, measured in milliseconds.
      */
-    constructor(quote_id, pay_amount, receive_amount, fee_amount, quote_expired_timestamp) { 
+    constructor(quote_id, pay_token_id, pay_amount, receive_token_id, receive_amount, fee_token_id, fee_amount, quote_expired_timestamp) { 
         
-        SwapQuote.initialize(this, quote_id, pay_amount, receive_amount, fee_amount, quote_expired_timestamp);
+        SwapQuote.initialize(this, quote_id, pay_token_id, pay_amount, receive_token_id, receive_amount, fee_token_id, fee_amount, quote_expired_timestamp);
     }
 
     /**
@@ -35,10 +38,13 @@ class SwapQuote {
      * This method is used by the constructors of any subclasses, in order to implement multiple inheritance (mix-ins).
      * Only for internal use.
      */
-    static initialize(obj, quote_id, pay_amount, receive_amount, fee_amount, quote_expired_timestamp) { 
+    static initialize(obj, quote_id, pay_token_id, pay_amount, receive_token_id, receive_amount, fee_token_id, fee_amount, quote_expired_timestamp) { 
         obj['quote_id'] = quote_id;
+        obj['pay_token_id'] = pay_token_id;
         obj['pay_amount'] = pay_amount;
+        obj['receive_token_id'] = receive_token_id;
         obj['receive_amount'] = receive_amount;
+        obj['fee_token_id'] = fee_token_id;
         obj['fee_amount'] = fee_amount;
         obj['quote_expired_timestamp'] = quote_expired_timestamp;
     }
@@ -57,11 +63,20 @@ class SwapQuote {
             if (data.hasOwnProperty('quote_id')) {
                 obj['quote_id'] = ApiClient.convertToType(data['quote_id'], 'String');
             }
+            if (data.hasOwnProperty('pay_token_id')) {
+                obj['pay_token_id'] = ApiClient.convertToType(data['pay_token_id'], 'String');
+            }
             if (data.hasOwnProperty('pay_amount')) {
                 obj['pay_amount'] = ApiClient.convertToType(data['pay_amount'], 'String');
             }
+            if (data.hasOwnProperty('receive_token_id')) {
+                obj['receive_token_id'] = ApiClient.convertToType(data['receive_token_id'], 'String');
+            }
             if (data.hasOwnProperty('receive_amount')) {
                 obj['receive_amount'] = ApiClient.convertToType(data['receive_amount'], 'String');
+            }
+            if (data.hasOwnProperty('fee_token_id')) {
+                obj['fee_token_id'] = ApiClient.convertToType(data['fee_token_id'], 'String');
             }
             if (data.hasOwnProperty('fee_amount')) {
                 obj['fee_amount'] = ApiClient.convertToType(data['fee_amount'], 'String');
@@ -96,12 +111,24 @@ class SwapQuote {
             throw new Error("Expected the field `quote_id` to be a primitive type in the JSON string but got " + data['quote_id']);
         }
         // ensure the json data is a string
+        if (data['pay_token_id'] && !(typeof data['pay_token_id'] === 'string' || data['pay_token_id'] instanceof String)) {
+            throw new Error("Expected the field `pay_token_id` to be a primitive type in the JSON string but got " + data['pay_token_id']);
+        }
+        // ensure the json data is a string
         if (data['pay_amount'] && !(typeof data['pay_amount'] === 'string' || data['pay_amount'] instanceof String)) {
             throw new Error("Expected the field `pay_amount` to be a primitive type in the JSON string but got " + data['pay_amount']);
         }
         // ensure the json data is a string
+        if (data['receive_token_id'] && !(typeof data['receive_token_id'] === 'string' || data['receive_token_id'] instanceof String)) {
+            throw new Error("Expected the field `receive_token_id` to be a primitive type in the JSON string but got " + data['receive_token_id']);
+        }
+        // ensure the json data is a string
         if (data['receive_amount'] && !(typeof data['receive_amount'] === 'string' || data['receive_amount'] instanceof String)) {
             throw new Error("Expected the field `receive_amount` to be a primitive type in the JSON string but got " + data['receive_amount']);
+        }
+        // ensure the json data is a string
+        if (data['fee_token_id'] && !(typeof data['fee_token_id'] === 'string' || data['fee_token_id'] instanceof String)) {
+            throw new Error("Expected the field `fee_token_id` to be a primitive type in the JSON string but got " + data['fee_token_id']);
         }
         // ensure the json data is a string
         if (data['fee_amount'] && !(typeof data['fee_amount'] === 'string' || data['fee_amount'] instanceof String)) {
@@ -122,7 +149,7 @@ class SwapQuote {
 
 }
 
-SwapQuote.RequiredProperties = ["quote_id", "pay_amount", "receive_amount", "fee_amount", "quote_expired_timestamp"];
+SwapQuote.RequiredProperties = ["quote_id", "pay_token_id", "pay_amount", "receive_token_id", "receive_amount", "fee_token_id", "fee_amount", "quote_expired_timestamp"];
 
 /**
  * The unique id of quote.
@@ -131,16 +158,34 @@ SwapQuote.RequiredProperties = ["quote_id", "pay_amount", "receive_amount", "fee
 SwapQuote.prototype['quote_id'] = undefined;
 
 /**
+ * The token ID to pay.
+ * @member {String} pay_token_id
+ */
+SwapQuote.prototype['pay_token_id'] = undefined;
+
+/**
  * The amount of tokens to pay.
  * @member {String} pay_amount
  */
 SwapQuote.prototype['pay_amount'] = undefined;
 
 /**
+ * The token ID to receive.
+ * @member {String} receive_token_id
+ */
+SwapQuote.prototype['receive_token_id'] = undefined;
+
+/**
  * The amount of tokens to receive.
  * @member {String} receive_amount
  */
 SwapQuote.prototype['receive_amount'] = undefined;
+
+/**
+ * The fee token ID.
+ * @member {String} fee_token_id
+ */
+SwapQuote.prototype['fee_token_id'] = undefined;
 
 /**
  * The amount of tokens to pay for fee.

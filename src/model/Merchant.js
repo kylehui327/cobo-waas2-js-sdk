@@ -59,6 +59,12 @@ class Merchant {
             if (data.hasOwnProperty('wallet_id')) {
                 obj['wallet_id'] = ApiClient.convertToType(data['wallet_id'], 'String');
             }
+            if (data.hasOwnProperty('created_timestamp')) {
+                obj['created_timestamp'] = ApiClient.convertToType(data['created_timestamp'], 'Number');
+            }
+            if (data.hasOwnProperty('updated_timestamp')) {
+                obj['updated_timestamp'] = ApiClient.convertToType(data['updated_timestamp'], 'Number');
+            }
         }
         return obj;
     }
@@ -113,6 +119,18 @@ Merchant.prototype['name'] = undefined;
  * @member {String} wallet_id
  */
 Merchant.prototype['wallet_id'] = undefined;
+
+/**
+ * The created time of the merchant, represented as a UNIX timestamp in seconds.
+ * @member {Number} created_timestamp
+ */
+Merchant.prototype['created_timestamp'] = undefined;
+
+/**
+ * The updated time of the merchant, represented as a UNIX timestamp in seconds.
+ * @member {Number} updated_timestamp
+ */
+Merchant.prototype['updated_timestamp'] = undefined;
 
 
 
