@@ -194,6 +194,12 @@ EstimateFeeParams.prototype['destination'] = undefined;
 EstimateFeeParams.prototype['fee_type'] = undefined;
 
 /**
+ * The ID of the transaction that this transaction replaced.
+ * @member {String} replaced_transaction_id
+ */
+EstimateFeeParams.prototype['replaced_transaction_id'] = undefined;
+
+/**
  * The chain ID of the chain on which the smart contract is deployed. You can retrieve the IDs of all the chains you can use by calling [List enabled chains](https://www.cobo.com/developers/v2/api-references/wallets/list-enabled-chains).
  * @member {String} chain_id
  */

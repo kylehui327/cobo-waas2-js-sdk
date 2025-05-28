@@ -20,12 +20,10 @@ class CreateSettlement {
     /**
      * Constructs a new <code>CreateSettlement</code>.
      * @alias module:model/CreateSettlement
-     * @param amount {String} The settlement amount. - If `token_id` is specified, this represents the settlement amount in the specified cryptocurrency. - If `token_id` is not specified, this represents the settlement amount in the specified fiat currency.
-     * @param bank_account_id {String} The ID of the bank account where the settled funds will be deposited.
      */
-    constructor(amount, bank_account_id) { 
+    constructor() { 
         
-        CreateSettlement.initialize(this, amount, bank_account_id);
+        CreateSettlement.initialize(this);
     }
 
     /**
@@ -33,9 +31,7 @@ class CreateSettlement {
      * This method is used by the constructors of any subclasses, in order to implement multiple inheritance (mix-ins).
      * Only for internal use.
      */
-    static initialize(obj, amount, bank_account_id) { 
-        obj['amount'] = amount;
-        obj['bank_account_id'] = bank_account_id;
+    static initialize(obj) { 
     }
 
     /**
@@ -77,12 +73,6 @@ class CreateSettlement {
      * @return {boolean} to indicate whether the JSON data is valid with respect to <code>CreateSettlement</code>.
      */
     static validateJSON(data) {
-        // check to make sure all required properties are present in the JSON string
-        for (const property of CreateSettlement.RequiredProperties) {
-            if (!data.hasOwnProperty(property)) {
-                throw new Error("The required field `" + property + "` is not found in the JSON data: " + JSON.stringify(data));
-            }
-        }
         // ensure the json data is a string
         if (data['merchant_id'] && !(typeof data['merchant_id'] === 'string' || data['merchant_id'] instanceof String)) {
             throw new Error("Expected the field `merchant_id` to be a primitive type in the JSON string but got " + data['merchant_id']);
@@ -110,7 +100,7 @@ class CreateSettlement {
 
 }
 
-CreateSettlement.RequiredProperties = ["amount", "bank_account_id"];
+
 
 /**
  * The merchant ID.

@@ -154,6 +154,12 @@
       //expect(instance).to.be();
     });
 
+    it('should have the property approvers (base name: "approvers")', function() {
+      // uncomment below and update the code to test the property approvers
+      //var instance = new CoboWaas2.SwapActivityDetail();
+      //expect(instance).to.be();
+    });
+
   });
 
 }));

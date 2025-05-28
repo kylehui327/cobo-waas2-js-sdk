@@ -14,6 +14,7 @@ import BabylonStakeExtra from './BabylonStakeExtra';
 import CoreStakeExtra from './CoreStakeExtra';
 import EthStakeExtra from './EthStakeExtra';
 import StakingPoolType from './StakingPoolType';
+import StakingSource from './StakingSource';
 
 /**
  * The CreateStakeActivityExtra model module.
@@ -210,6 +211,11 @@ CreateStakeActivityExtra.prototype['stake_block_time'] = undefined;
  * @member {Boolean} auto_broadcast
  */
 CreateStakeActivityExtra.prototype['auto_broadcast'] = undefined;
+
+/**
+ * @member {module:model/StakingSource} babylon_address
+ */
+CreateStakeActivityExtra.prototype['babylon_address'] = undefined;
 
 /**
  * The name of the provider.

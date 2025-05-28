@@ -80,6 +80,9 @@ class SettlementDetail {
             if (data.hasOwnProperty('updated_timestamp')) {
                 obj['updated_timestamp'] = ApiClient.convertToType(data['updated_timestamp'], 'Number');
             }
+            if (data.hasOwnProperty('crypto_address_id')) {
+                obj['crypto_address_id'] = ApiClient.convertToType(data['crypto_address_id'], 'String');
+            }
         }
         return obj;
     }
@@ -129,6 +132,10 @@ class SettlementDetail {
             for (const item of data['transactions']) {
                 PaymentTransaction.validateJSON(item);
             };
+        }
+        // ensure the json data is a string
+        if (data['crypto_address_id'] && !(typeof data['crypto_address_id'] === 'string' || data['crypto_address_id'] instanceof String)) {
+            throw new Error("Expected the field `crypto_address_id` to be a primitive type in the JSON string but got " + data['crypto_address_id']);
         }
 
         return true;
@@ -202,6 +209,12 @@ SettlementDetail.prototype['created_timestamp'] = undefined;
  * @member {Number} updated_timestamp
  */
 SettlementDetail.prototype['updated_timestamp'] = undefined;
+
+/**
+ * Unique identifier for the pre-approved crypto address, used to reference the address securely in requests.
+ * @member {String} crypto_address_id
+ */
+SettlementDetail.prototype['crypto_address_id'] = undefined;
 
 
 

@@ -33,7 +33,15 @@ import AmountDetailsInner from './model/AmountDetailsInner';
 import AmountStatus from './model/AmountStatus';
 import ApiLogDetails from './model/ApiLogDetails';
 import ApiLogSummary from './model/ApiLogSummary';
+import AppWorkflow from './model/AppWorkflow';
+import AppWorkflowField from './model/AppWorkflowField';
+import AppWorkflowPolicy from './model/AppWorkflowPolicy';
+import ApprovalEntry from './model/ApprovalEntry';
+import ApprovalRequest from './model/ApprovalRequest';
+import ApprovalRequestDetail from './model/ApprovalRequestDetail';
 import ApprovalStatementStatus from './model/ApprovalStatementStatus';
+import ApprovalStatus from './model/ApprovalStatus';
+import ApprovalUser from './model/ApprovalUser';
 import AssetBalance from './model/AssetBalance';
 import AssetInfo from './model/AssetInfo';
 import AutoFuelType from './model/AutoFuelType';
@@ -57,6 +65,9 @@ import BaseContractCallSource from './model/BaseContractCallSource';
 import BaseEstimateStakingFee from './model/BaseEstimateStakingFee';
 import BaseStakeExtra from './model/BaseStakeExtra';
 import BaseStakeSource from './model/BaseStakeSource';
+import BatchCheckUtxo201Response from './model/BatchCheckUtxo201Response';
+import BatchCheckUtxoRequest from './model/BatchCheckUtxoRequest';
+import BatchUTXOParam from './model/BatchUTXOParam';
 import BroadcastSignedTransactions201ResponseInner from './model/BroadcastSignedTransactions201ResponseInner';
 import BroadcastSignedTransactionsRequest from './model/BroadcastSignedTransactionsRequest';
 import CallbackMessage from './model/CallbackMessage';
@@ -81,6 +92,7 @@ import CosmosAdr36MessageSignDestination from './model/CosmosAdr36MessageSignDes
 import CosmosContractCallDestination from './model/CosmosContractCallDestination';
 import CosmosContractCallMessage from './model/CosmosContractCallMessage';
 import CreateAddressRequest from './model/CreateAddressRequest';
+import CreateApprovalRequest201Response from './model/CreateApprovalRequest201Response';
 import CreateBabylonAirdropRegistration201Response from './model/CreateBabylonAirdropRegistration201Response';
 import CreateBabylonAirdropRegistrationRequest from './model/CreateBabylonAirdropRegistrationRequest';
 import CreateBabylonStakingRegistration201Response from './model/CreateBabylonStakingRegistration201Response';
@@ -196,6 +208,7 @@ import KeyShareHolderType from './model/KeyShareHolderType';
 import ListAddressBalancesByToken200Response from './model/ListAddressBalancesByToken200Response';
 import ListAddressBooks200Response from './model/ListAddressBooks200Response';
 import ListAddresses200Response from './model/ListAddresses200Response';
+import ListApprovalRequests200Response from './model/ListApprovalRequests200Response';
 import ListAssetBalancesForExchangeWallet200Response from './model/ListAssetBalancesForExchangeWallet200Response';
 import ListBabylonAirdropRegistrations200Response from './model/ListBabylonAirdropRegistrations200Response';
 import ListBabylonEligibleAirdrops200Response from './model/ListBabylonEligibleAirdrops200Response';
@@ -254,7 +267,6 @@ import MpcSigningGroup from './model/MpcSigningGroup';
 import MpcStakeSource from './model/MpcStakeSource';
 import MpcTransferSource from './model/MpcTransferSource';
 import Order from './model/Order';
-import OrderAddressInfo from './model/OrderAddressInfo';
 import OrderStatus from './model/OrderStatus';
 import OrgInfo from './model/OrgInfo';
 import Pagination from './model/Pagination';
@@ -262,6 +274,12 @@ import PaymentOrderEventData from './model/PaymentOrderEventData';
 import PaymentRefundEventData from './model/PaymentRefundEventData';
 import PaymentSettlementEvent from './model/PaymentSettlementEvent';
 import PaymentTransaction from './model/PaymentTransaction';
+import PolicyAction from './model/PolicyAction';
+import PolicyActionContent from './model/PolicyActionContent';
+import PolicyActionType from './model/PolicyActionType';
+import PolicyCondition from './model/PolicyCondition';
+import PolicyFieldOperator from './model/PolicyFieldOperator';
+import PolicyFieldValueType from './model/PolicyFieldValueType';
 import PoolDetails from './model/PoolDetails';
 import PoolDetailsAllOfValidatorsInfo from './model/PoolDetailsAllOfValidatorsInfo';
 import PoolSummary from './model/PoolSummary';
@@ -277,8 +295,11 @@ import Refund from './model/Refund';
 import RefundStatus from './model/RefundStatus';
 import RefundType from './model/RefundType';
 import ReplaceType from './model/ReplaceType';
+import RequestApproval from './model/RequestApproval';
 import RetryCallbackMessage201Response from './model/RetryCallbackMessage201Response';
 import RetryWebhookEventById201Response from './model/RetryWebhookEventById201Response';
+import RevokeApprovalRequest201Response from './model/RevokeApprovalRequest201Response';
+import RevokeApprovalRequestRequest from './model/RevokeApprovalRequestRequest';
 import RoleScopes from './model/RoleScopes';
 import RootPubkey from './model/RootPubkey';
 import SafeContractCallSource from './model/SafeContractCallSource';
@@ -317,9 +338,11 @@ import StakingsExtra from './model/StakingsExtra';
 import SubWalletAssetBalance from './model/SubWalletAssetBalance';
 import SubmitDepositTravelRuleInfo201Response from './model/SubmitDepositTravelRuleInfo201Response';
 import SwapActivity from './model/SwapActivity';
+import SwapActivityApprovers from './model/SwapActivityApprovers';
 import SwapActivityDetail from './model/SwapActivityDetail';
 import SwapActivityStatus from './model/SwapActivityStatus';
 import SwapActivityTimeline from './model/SwapActivityTimeline';
+import SwapApproversStatus from './model/SwapApproversStatus';
 import SwapQuote from './model/SwapQuote';
 import SwapToken from './model/SwapToken';
 import SwapType from './model/SwapType';
@@ -500,6 +523,7 @@ import WebhookEventLog from './model/WebhookEventLog';
 import WebhookEventStatus from './model/WebhookEventStatus';
 import WebhookEventType from './model/WebhookEventType';
 import AddressBooksApi from './api/AddressBooksApi';
+import AppWorkflowsApi from './api/AppWorkflowsApi';
 import DevelopersApi from './api/DevelopersApi';
 import DevelopersWebhooksApi from './api/DevelopersWebhooksApi';
 import FeeStationApi from './api/FeeStationApi';
@@ -678,10 +702,58 @@ export {
     ApiLogSummary,
 
     /**
+     * The AppWorkflow model constructor.
+     * @property {module:model/AppWorkflow}
+     */
+    AppWorkflow,
+
+    /**
+     * The AppWorkflowField model constructor.
+     * @property {module:model/AppWorkflowField}
+     */
+    AppWorkflowField,
+
+    /**
+     * The AppWorkflowPolicy model constructor.
+     * @property {module:model/AppWorkflowPolicy}
+     */
+    AppWorkflowPolicy,
+
+    /**
+     * The ApprovalEntry model constructor.
+     * @property {module:model/ApprovalEntry}
+     */
+    ApprovalEntry,
+
+    /**
+     * The ApprovalRequest model constructor.
+     * @property {module:model/ApprovalRequest}
+     */
+    ApprovalRequest,
+
+    /**
+     * The ApprovalRequestDetail model constructor.
+     * @property {module:model/ApprovalRequestDetail}
+     */
+    ApprovalRequestDetail,
+
+    /**
      * The ApprovalStatementStatus model constructor.
      * @property {module:model/ApprovalStatementStatus}
      */
     ApprovalStatementStatus,
+
+    /**
+     * The ApprovalStatus model constructor.
+     * @property {module:model/ApprovalStatus}
+     */
+    ApprovalStatus,
+
+    /**
+     * The ApprovalUser model constructor.
+     * @property {module:model/ApprovalUser}
+     */
+    ApprovalUser,
 
     /**
      * The AssetBalance model constructor.
@@ -820,6 +892,24 @@ export {
      * @property {module:model/BaseStakeSource}
      */
     BaseStakeSource,
+
+    /**
+     * The BatchCheckUtxo201Response model constructor.
+     * @property {module:model/BatchCheckUtxo201Response}
+     */
+    BatchCheckUtxo201Response,
+
+    /**
+     * The BatchCheckUtxoRequest model constructor.
+     * @property {module:model/BatchCheckUtxoRequest}
+     */
+    BatchCheckUtxoRequest,
+
+    /**
+     * The BatchUTXOParam model constructor.
+     * @property {module:model/BatchUTXOParam}
+     */
+    BatchUTXOParam,
 
     /**
      * The BroadcastSignedTransactions201ResponseInner model constructor.
@@ -964,6 +1054,12 @@ export {
      * @property {module:model/CreateAddressRequest}
      */
     CreateAddressRequest,
+
+    /**
+     * The CreateApprovalRequest201Response model constructor.
+     * @property {module:model/CreateApprovalRequest201Response}
+     */
+    CreateApprovalRequest201Response,
 
     /**
      * The CreateBabylonAirdropRegistration201Response model constructor.
@@ -1656,6 +1752,12 @@ export {
     ListAddresses200Response,
 
     /**
+     * The ListApprovalRequests200Response model constructor.
+     * @property {module:model/ListApprovalRequests200Response}
+     */
+    ListApprovalRequests200Response,
+
+    /**
      * The ListAssetBalancesForExchangeWallet200Response model constructor.
      * @property {module:model/ListAssetBalancesForExchangeWallet200Response}
      */
@@ -2004,12 +2106,6 @@ export {
     Order,
 
     /**
-     * The OrderAddressInfo model constructor.
-     * @property {module:model/OrderAddressInfo}
-     */
-    OrderAddressInfo,
-
-    /**
      * The OrderStatus model constructor.
      * @property {module:model/OrderStatus}
      */
@@ -2050,6 +2146,42 @@ export {
      * @property {module:model/PaymentTransaction}
      */
     PaymentTransaction,
+
+    /**
+     * The PolicyAction model constructor.
+     * @property {module:model/PolicyAction}
+     */
+    PolicyAction,
+
+    /**
+     * The PolicyActionContent model constructor.
+     * @property {module:model/PolicyActionContent}
+     */
+    PolicyActionContent,
+
+    /**
+     * The PolicyActionType model constructor.
+     * @property {module:model/PolicyActionType}
+     */
+    PolicyActionType,
+
+    /**
+     * The PolicyCondition model constructor.
+     * @property {module:model/PolicyCondition}
+     */
+    PolicyCondition,
+
+    /**
+     * The PolicyFieldOperator model constructor.
+     * @property {module:model/PolicyFieldOperator}
+     */
+    PolicyFieldOperator,
+
+    /**
+     * The PolicyFieldValueType model constructor.
+     * @property {module:model/PolicyFieldValueType}
+     */
+    PolicyFieldValueType,
 
     /**
      * The PoolDetails model constructor.
@@ -2142,6 +2274,12 @@ export {
     ReplaceType,
 
     /**
+     * The RequestApproval model constructor.
+     * @property {module:model/RequestApproval}
+     */
+    RequestApproval,
+
+    /**
      * The RetryCallbackMessage201Response model constructor.
      * @property {module:model/RetryCallbackMessage201Response}
      */
@@ -2152,6 +2290,18 @@ export {
      * @property {module:model/RetryWebhookEventById201Response}
      */
     RetryWebhookEventById201Response,
+
+    /**
+     * The RevokeApprovalRequest201Response model constructor.
+     * @property {module:model/RevokeApprovalRequest201Response}
+     */
+    RevokeApprovalRequest201Response,
+
+    /**
+     * The RevokeApprovalRequestRequest model constructor.
+     * @property {module:model/RevokeApprovalRequestRequest}
+     */
+    RevokeApprovalRequestRequest,
 
     /**
      * The RoleScopes model constructor.
@@ -2382,6 +2532,12 @@ export {
     SwapActivity,
 
     /**
+     * The SwapActivityApprovers model constructor.
+     * @property {module:model/SwapActivityApprovers}
+     */
+    SwapActivityApprovers,
+
+    /**
      * The SwapActivityDetail model constructor.
      * @property {module:model/SwapActivityDetail}
      */
@@ -2398,6 +2554,12 @@ export {
      * @property {module:model/SwapActivityTimeline}
      */
     SwapActivityTimeline,
+
+    /**
+     * The SwapApproversStatus model constructor.
+     * @property {module:model/SwapApproversStatus}
+     */
+    SwapApproversStatus,
 
     /**
      * The SwapQuote model constructor.
@@ -3478,6 +3640,12 @@ export {
     * @property {module:api/AddressBooksApi}
     */
     AddressBooksApi,
+
+    /**
+    * The AppWorkflowsApi service constructor.
+    * @property {module:api/AppWorkflowsApi}
+    */
+    AppWorkflowsApi,
 
     /**
     * The DevelopersApi service constructor.

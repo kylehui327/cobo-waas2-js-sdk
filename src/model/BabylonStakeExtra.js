@@ -12,6 +12,7 @@
 import ApiClient from '../ApiClient';
 import BaseStakeExtra from './BaseStakeExtra';
 import StakingPoolType from './StakingPoolType';
+import StakingSource from './StakingSource';
 
 /**
  * The BabylonStakeExtra model module.
@@ -66,6 +67,9 @@ class BabylonStakeExtra {
             if (data.hasOwnProperty('auto_broadcast')) {
                 obj['auto_broadcast'] = ApiClient.convertToType(data['auto_broadcast'], 'Boolean');
             }
+            if (data.hasOwnProperty('babylon_address')) {
+                obj['babylon_address'] = StakingSource.constructFromObject(data['babylon_address']);
+            }
         }
         return obj;
     }
@@ -85,6 +89,12 @@ class BabylonStakeExtra {
         // ensure the json data is a string
         if (data['finality_provider_public_key'] && !(typeof data['finality_provider_public_key'] === 'string' || data['finality_provider_public_key'] instanceof String)) {
             throw new Error("Expected the field `finality_provider_public_key` to be a primitive type in the JSON string but got " + data['finality_provider_public_key']);
+        }
+        // validate the optional field `babylon_address`
+        if (data['babylon_address']) { // data not null
+          if (!!StakingSource.validateJSON) {
+            StakingSource.validateJSON(data['babylon_address']);
+          }
         }
 
         return true;
@@ -117,6 +127,11 @@ BabylonStakeExtra.prototype['stake_block_time'] = undefined;
  * @member {Boolean} auto_broadcast
  */
 BabylonStakeExtra.prototype['auto_broadcast'] = undefined;
+
+/**
+ * @member {module:model/StakingSource} babylon_address
+ */
+BabylonStakeExtra.prototype['babylon_address'] = undefined;
 
 
 // Implement BaseStakeExtra interface:

@@ -88,6 +88,12 @@
       //expect(instance).to.be();
     });
 
+    it('should have the property replaced_transaction_id (base name: "replaced_transaction_id")', function() {
+      // uncomment below and update the code to test the property replaced_transaction_id
+      //var instance = new CoboWaas2.EstimateContractCallFeeParams();
+      //expect(instance).to.be();
+    });
+
   });
 
 }));

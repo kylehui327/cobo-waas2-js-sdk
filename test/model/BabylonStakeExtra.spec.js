@@ -76,6 +76,12 @@
       //expect(instance).to.be();
     });
 
+    it('should have the property babylon_address (base name: "babylon_address")', function() {
+      // uncomment below and update the code to test the property babylon_address
+      //var instance = new CoboWaas2.BabylonStakeExtra();
+      //expect(instance).to.be();
+    });
+
   });
 
 }));

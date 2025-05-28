@@ -12,5 +12,6 @@ Name | Type | Description | Notes
 **is_coinbase** | **Boolean** | Whether the UTXO comes from a coinbase transaction. | [optional] 
 **is_locked** | **Boolean** | Whether the UTXO is locked. | [optional] 
 **confirmed_number** | **Number** | The number of confirmations for the UTXO. | [optional] 
+**is_frozen** | **Boolean** | Whether the UTXO is frozen. | [optional] 
 
 
