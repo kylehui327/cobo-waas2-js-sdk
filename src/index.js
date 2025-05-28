@@ -545,7 +545,7 @@ import WalletsSmartContractWalletsApi from './api/WalletsSmartContractWalletsApi
 * </pre>
 * </p>
 * @module index
-* @version 1.15.0
+* @version 1.16.0
 */
 export {
     Env,
