@@ -118,6 +118,12 @@
       //expect(instance).to.be();
     });
 
+    it('should have the property crypto_address_id (base name: "crypto_address_id")', function() {
+      // uncomment below and update the code to test the property crypto_address_id
+      //var instance = new CoboWaas2.SettlementDetail();
+      //expect(instance).to.be();
+    });
+
   });
 
 }));

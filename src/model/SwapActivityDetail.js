@@ -11,6 +11,7 @@
 
 import ApiClient from '../ApiClient';
 import SwapActivity from './SwapActivity';
+import SwapActivityApprovers from './SwapActivityApprovers';
 import SwapActivityStatus from './SwapActivityStatus';
 import SwapActivityTimeline from './SwapActivityTimeline';
 import SwapType from './SwapType';
@@ -102,6 +103,9 @@ class SwapActivityDetail {
             if (data.hasOwnProperty('timeline')) {
                 obj['timeline'] = ApiClient.convertToType(data['timeline'], [SwapActivityTimeline]);
             }
+            if (data.hasOwnProperty('approvers')) {
+                obj['approvers'] = ApiClient.convertToType(data['approvers'], [SwapActivityApprovers]);
+            }
         }
         return obj;
     }
@@ -164,6 +168,16 @@ class SwapActivityDetail {
             // validate the optional field `timeline` (array)
             for (const item of data['timeline']) {
                 SwapActivityTimeline.validateJSON(item);
+            };
+        }
+        if (data['approvers']) { // data not null
+            // ensure the json data is an array
+            if (!Array.isArray(data['approvers'])) {
+                throw new Error("Expected the field `approvers` to be an array in the JSON data but got " + data['approvers']);
+            }
+            // validate the optional field `approvers` (array)
+            for (const item of data['approvers']) {
+                SwapActivityApprovers.validateJSON(item);
             };
         }
 
@@ -272,6 +286,11 @@ SwapActivityDetail.prototype['updated_timestamp'] = undefined;
  * @member {Array.<module:model/SwapActivityTimeline>} timeline
  */
 SwapActivityDetail.prototype['timeline'] = undefined;
+
+/**
+ * @member {Array.<module:model/SwapActivityApprovers>} approvers
+ */
+SwapActivityDetail.prototype['approvers'] = undefined;
 
 
 // Implement SwapActivity interface:

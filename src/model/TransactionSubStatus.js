@@ -333,6 +333,20 @@ export default class TransactionSubStatus {
 
     
         /**
+         * value: "PendingCoboKYTCheck"
+         * @const
+         */
+        "PendingCoboKYTCheck" = "PendingCoboKYTCheck";
+
+    
+        /**
+         * value: "RejectedByCoboKYT"
+         * @const
+         */
+        "RejectedByCoboKYT" = "RejectedByCoboKYT";
+
+    
+        /**
          * value: "PendingCoboTravelRuleCheck"
          * @const
          */

@@ -69,6 +69,9 @@ class UTXO {
             if (data.hasOwnProperty('confirmed_number')) {
                 obj['confirmed_number'] = ApiClient.convertToType(data['confirmed_number'], 'Number');
             }
+            if (data.hasOwnProperty('is_frozen')) {
+                obj['is_frozen'] = ApiClient.convertToType(data['is_frozen'], 'Boolean');
+            }
         }
         return obj;
     }
@@ -151,6 +154,12 @@ UTXO.prototype['is_locked'] = undefined;
  * @member {Number} confirmed_number
  */
 UTXO.prototype['confirmed_number'] = undefined;
+
+/**
+ * Whether the UTXO is frozen.
+ * @member {Boolean} is_frozen
+ */
+UTXO.prototype['is_frozen'] = undefined;
 
 
 

@@ -93,6 +93,10 @@
 
 * `PendingScreeningAppCheck` (value: `"PendingScreeningAppCheck"`)
 
+* `PendingCoboKYTCheck` (value: `"PendingCoboKYTCheck"`)
+
+* `RejectedByCoboKYT` (value: `"RejectedByCoboKYT"`)
+
 * `PendingCoboTravelRuleCheck` (value: `"PendingCoboTravelRuleCheck"`)
 
 * `unknown_default_open_api` (value: `"unknown_default_open_api"`)

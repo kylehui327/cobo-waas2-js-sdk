@@ -36,6 +36,16 @@ import {ApiClient, Env} from "../../src/index.js";
   });
 
   describe('WalletsApi', function() {
+    describe('batchCheckUtxo', function() {
+      it('should call batchCheckUtxo successfully', function() {
+        //uncomment below and update the code to test batchCheckUtxo
+        //instance.batchCheckUtxo().then(function(data) {
+        //    console.log(data);
+        //}, function(error) {
+        //    console.error(error);
+        //});
+      });
+    });
     describe('checkAddressChainsValidity', function() {
       it('should call checkAddressChainsValidity successfully', function() {
         //uncomment below and update the code to test checkAddressChainsValidity

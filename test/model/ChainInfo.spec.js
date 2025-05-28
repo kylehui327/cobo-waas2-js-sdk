@@ -94,6 +94,12 @@
       //expect(instance).to.be();
     });
 
+    it('should have the property coinbase_maturity (base name: "coinbase_maturity")', function() {
+      // uncomment below and update the code to test the property coinbase_maturity
+      //var instance = new CoboWaas2.ChainInfo();
+      //expect(instance).to.be();
+    });
+
   });
 
 }));

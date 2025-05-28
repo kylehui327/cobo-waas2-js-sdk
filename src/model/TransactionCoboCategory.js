@@ -18,13 +18,6 @@ import ApiClient from '../ApiClient';
 export default class TransactionCoboCategory {
     
         /**
-         * value: "AutoSweep"
-         * @const
-         */
-        "AutoSweep" = "AutoSweep";
-
-    
-        /**
          * value: "AutoFueling"
          * @const
          */
@@ -39,10 +32,10 @@ export default class TransactionCoboCategory {
 
     
         /**
-         * value: "SafeTxMessage"
+         * value: "AutoSweep"
          * @const
          */
-        "SafeTxMessage" = "SafeTxMessage";
+        "AutoSweep" = "AutoSweep";
 
     
         /**
@@ -71,6 +64,146 @@ export default class TransactionCoboCategory {
          * @const
          */
         "CommissionFeeRefund" = "CommissionFeeRefund";
+
+    
+        /**
+         * value: "SafeTxMessage"
+         * @const
+         */
+        "SafeTxMessage" = "SafeTxMessage";
+
+    
+        /**
+         * value: "StakingBabylonBtcDelegation"
+         * @const
+         */
+        "StakingBabylonBtcDelegation" = "StakingBabylonBtcDelegation";
+
+    
+        /**
+         * value: "StakingBabylonBtcSignBabylon"
+         * @const
+         */
+        "StakingBabylonBtcSignBabylon" = "StakingBabylonBtcSignBabylon";
+
+    
+        /**
+         * value: "StakingBabylonClaim"
+         * @const
+         */
+        "StakingBabylonClaim" = "StakingBabylonClaim";
+
+    
+        /**
+         * value: "StakingBabylonSlashing"
+         * @const
+         */
+        "StakingBabylonSlashing" = "StakingBabylonSlashing";
+
+    
+        /**
+         * value: "StakingBabylonStake"
+         * @const
+         */
+        "StakingBabylonStake" = "StakingBabylonStake";
+
+    
+        /**
+         * value: "StakingBabylonUnstake"
+         * @const
+         */
+        "StakingBabylonUnstake" = "StakingBabylonUnstake";
+
+    
+        /**
+         * value: "StakingBabylonWithdraw"
+         * @const
+         */
+        "StakingBabylonWithdraw" = "StakingBabylonWithdraw";
+
+    
+        /**
+         * value: "StakingBithiveClaim"
+         * @const
+         */
+        "StakingBithiveClaim" = "StakingBithiveClaim";
+
+    
+        /**
+         * value: "StakingBithiveStake"
+         * @const
+         */
+        "StakingBithiveStake" = "StakingBithiveStake";
+
+    
+        /**
+         * value: "StakingBithiveUnstake"
+         * @const
+         */
+        "StakingBithiveUnstake" = "StakingBithiveUnstake";
+
+    
+        /**
+         * value: "StakingBithiveWithdraw"
+         * @const
+         */
+        "StakingBithiveWithdraw" = "StakingBithiveWithdraw";
+
+    
+        /**
+         * value: "StakingCoreStake"
+         * @const
+         */
+        "StakingCoreStake" = "StakingCoreStake";
+
+    
+        /**
+         * value: "StakingCoreWithdraw"
+         * @const
+         */
+        "StakingCoreWithdraw" = "StakingCoreWithdraw";
+
+    
+        /**
+         * value: "StakingEthClaim"
+         * @const
+         */
+        "StakingEthClaim" = "StakingEthClaim";
+
+    
+        /**
+         * value: "StakingEthStake"
+         * @const
+         */
+        "StakingEthStake" = "StakingEthStake";
+
+    
+        /**
+         * value: "StakingEthUnstake"
+         * @const
+         */
+        "StakingEthUnstake" = "StakingEthUnstake";
+
+    
+        /**
+         * value: "StakingSkyfarmClaim"
+         * @const
+         */
+        "StakingSkyfarmClaim" = "StakingSkyfarmClaim";
+
+    
+        /**
+         * value: "StakingSkyfarmStake"
+         * @const
+         */
+        "StakingSkyfarmStake" = "StakingSkyfarmStake";
+
+    
+        /**
+         * value: "StakingSkyfarmUnstake"
+         * @const
+         */
+        "StakingSkyfarmUnstake" = "StakingSkyfarmUnstake";
 
     
         /**

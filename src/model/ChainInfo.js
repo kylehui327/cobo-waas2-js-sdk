@@ -68,6 +68,9 @@ class ChainInfo {
             if (data.hasOwnProperty('confirming_threshold')) {
                 obj['confirming_threshold'] = ApiClient.convertToType(data['confirming_threshold'], 'Number');
             }
+            if (data.hasOwnProperty('coinbase_maturity')) {
+                obj['coinbase_maturity'] = ApiClient.convertToType(data['coinbase_maturity'], 'Number');
+            }
         }
         return obj;
     }
@@ -154,6 +157,12 @@ ChainInfo.prototype['require_memo'] = undefined;
  * @member {Number} confirming_threshold
  */
 ChainInfo.prototype['confirming_threshold'] = undefined;
+
+/**
+ * The number of confirmations required for a coinbase transaction to be mature, such as 100 for BTC.
+ * @member {Number} coinbase_maturity
+ */
+ChainInfo.prototype['coinbase_maturity'] = undefined;
 
 
 

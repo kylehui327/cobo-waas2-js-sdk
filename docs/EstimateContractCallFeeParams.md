@@ -10,5 +10,6 @@ Name | Type | Description | Notes
 **source** | [**ContractCallSource**](ContractCallSource.md) |  | 
 **destination** | [**ContractCallDestination**](ContractCallDestination.md) |  | 
 **fee_type** | [**FeeType**](FeeType.md) |  | [optional] 
+**replaced_transaction_id** | **String** | The ID of the transaction that this transaction replaced. | [optional] 
 
 

@@ -21,5 +21,6 @@ Name | Type | Description | Notes
 **created_timestamp** | **Number** | The time when the swap activity was created, in Unix timestamp format, measured in milliseconds. | [optional] 
 **updated_timestamp** | **Number** | The time when the swap activity was last updated, in Unix timestamp format, measured in milliseconds. | [optional] 
 **timeline** | [**[SwapActivityTimeline]**](SwapActivityTimeline.md) |  | [optional] 
+**approvers** | [**[SwapActivityApprovers]**](SwapActivityApprovers.md) |  | [optional] 
 
 

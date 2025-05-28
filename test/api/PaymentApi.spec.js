@@ -96,16 +96,6 @@ import {ApiClient, Env} from "../../src/index.js";
         //});
       });
     });
-    describe('getPaymentOrderAddressInfo', function() {
-      it('should call getPaymentOrderAddressInfo successfully', function() {
-        //uncomment below and update the code to test getPaymentOrderAddressInfo
-        //instance.getPaymentOrderAddressInfo().then(function(data) {
-        //    console.log(data);
-        //}, function(error) {
-        //    console.error(error);
-        //});
-      });
-    });
     describe('getPaymentOrderDetailById', function() {
       it('should call getPaymentOrderDetailById successfully', function() {
         //uncomment below and update the code to test getPaymentOrderDetailById

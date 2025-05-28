@@ -100,6 +100,12 @@
       //expect(instance).to.be();
     });
 
+    it('should have the property is_frozen (base name: "is_frozen")', function() {
+      // uncomment below and update the code to test the property is_frozen
+      //var instance = new CoboWaas2.UTXO();
+      //expect(instance).to.be();
+    });
+
   });
 
 }));

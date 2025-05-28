@@ -75,6 +75,9 @@ class EstimateContractCallFeeParams {
             if (data.hasOwnProperty('fee_type')) {
                 obj['fee_type'] = FeeType.constructFromObject(data['fee_type']);
             }
+            if (data.hasOwnProperty('replaced_transaction_id')) {
+                obj['replaced_transaction_id'] = ApiClient.convertToType(data['replaced_transaction_id'], 'String');
+            }
         }
         return obj;
     }
@@ -110,6 +113,10 @@ class EstimateContractCallFeeParams {
           if (!!ContractCallDestination.validateJSON) {
             ContractCallDestination.validateJSON(data['destination']);
           }
+        }
+        // ensure the json data is a string
+        if (data['replaced_transaction_id'] && !(typeof data['replaced_transaction_id'] === 'string' || data['replaced_transaction_id'] instanceof String)) {
+            throw new Error("Expected the field `replaced_transaction_id` to be a primitive type in the JSON string but got " + data['replaced_transaction_id']);
         }
 
         return true;
@@ -151,6 +158,12 @@ EstimateContractCallFeeParams.prototype['destination'] = undefined;
  * @member {module:model/FeeType} fee_type
  */
 EstimateContractCallFeeParams.prototype['fee_type'] = undefined;
+
+/**
+ * The ID of the transaction that this transaction replaced.
+ * @member {String} replaced_transaction_id
+ */
+EstimateContractCallFeeParams.prototype['replaced_transaction_id'] = undefined;
 
 
 

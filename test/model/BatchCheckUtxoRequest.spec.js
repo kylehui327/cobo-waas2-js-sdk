@@ -26,7 +26,7 @@
   var instance;
 
   beforeEach(function() {
-    instance = new CoboWaas2.OrderAddressInfo();
+    instance = new CoboWaas2.BatchCheckUtxoRequest();
   });
 
   var getProperty = function(object, getter, property) {
@@ -45,34 +45,22 @@
       object[property] = value;
   }
 
-  describe('OrderAddressInfo', function() {
-    it('should create an instance of OrderAddressInfo', function() {
-      // uncomment below and update the code to test OrderAddressInfo
-      //var instance = new CoboWaas2.OrderAddressInfo();
-      //expect(instance).to.be.a(CoboWaas2.OrderAddressInfo);
+  describe('BatchCheckUtxoRequest', function() {
+    it('should create an instance of BatchCheckUtxoRequest', function() {
+      // uncomment below and update the code to test BatchCheckUtxoRequest
+      //var instance = new CoboWaas2.BatchCheckUtxoRequest();
+      //expect(instance).to.be.a(CoboWaas2.BatchCheckUtxoRequest);
     });
 
-    it('should have the property wallet_id (base name: "wallet_id")', function() {
-      // uncomment below and update the code to test the property wallet_id
-      //var instance = new CoboWaas2.OrderAddressInfo();
+    it('should have the property token_id (base name: "token_id")', function() {
+      // uncomment below and update the code to test the property token_id
+      //var instance = new CoboWaas2.BatchCheckUtxoRequest();
       //expect(instance).to.be();
     });
 
-    it('should have the property amount (base name: "amount")', function() {
-      // uncomment below and update the code to test the property amount
-      //var instance = new CoboWaas2.OrderAddressInfo();
-      //expect(instance).to.be();
-    });
-
-    it('should have the property created_timestamp (base name: "created_timestamp")', function() {
-      // uncomment below and update the code to test the property created_timestamp
-      //var instance = new CoboWaas2.OrderAddressInfo();
-      //expect(instance).to.be();
-    });
-
-    it('should have the property updated_timestamp (base name: "updated_timestamp")', function() {
-      // uncomment below and update the code to test the property updated_timestamp
-      //var instance = new CoboWaas2.OrderAddressInfo();
+    it('should have the property utxos (base name: "utxos")', function() {
+      // uncomment below and update the code to test the property utxos
+      //var instance = new CoboWaas2.BatchCheckUtxoRequest();
       //expect(instance).to.be();
     });
 
