@@ -19,7 +19,7 @@ import FeeStationDestination from './FeeStationDestination';
 class FeeStationTransfer {
     /**
      * Constructs a new <code>FeeStationTransfer</code>.
-     * The information about a Fee Station top-up transaction.
+     * The information about a token transfer.
      * @alias module:model/FeeStationTransfer
      * @param token_id {String} The token ID of the transferred token. You can retrieve the IDs of all the tokens you can use by calling [List enabled tokens](https://www.cobo.com/developers/v2/api-references/wallets/list-enabled-tokens).
      */

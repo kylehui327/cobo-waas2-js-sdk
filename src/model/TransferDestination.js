@@ -13,6 +13,7 @@ import ApiClient from '../ApiClient';
 import AddressTransferDestination from './AddressTransferDestination';
 import AddressTransferDestinationAccountOutput from './AddressTransferDestinationAccountOutput';
 import AddressTransferDestinationUtxoOutputsInner from './AddressTransferDestinationUtxoOutputsInner';
+import CustodialTransferDestination from './CustodialTransferDestination';
 import ExchangeTransferDestination from './ExchangeTransferDestination';
 import TransferDestinationType from './TransferDestinationType';
 
@@ -24,7 +25,7 @@ class TransferDestination {
     /**
      * Constructs a new <code>TransferDestination</code>.
      * @alias module:model/TransferDestination
-     * @param {(module:model/AddressTransferDestination|module:model/ExchangeTransferDestination)} instance The actual instance to initialize TransferDestination.
+     * @param {(module:model/AddressTransferDestination|module:model/CustodialTransferDestination|module:model/ExchangeTransferDestination)} instance The actual instance to initialize TransferDestination.
      */
     constructor(instance = null) {
         if (instance === null) {
@@ -39,6 +40,10 @@ class TransferDestination {
             switch(discriminatorValue) {
                 case "Address":
                     this.actualInstance = AddressTransferDestination.constructFromObject(instance);
+                    match++;
+                    break;
+                case "CustodialWallet":
+                    this.actualInstance = CustodialTransferDestination.constructFromObject(instance);
                     match++;
                     break;
                 case "ExchangeWallet":
@@ -78,6 +83,31 @@ class TransferDestination {
         }
 
         try {
+            if (instance instanceof CustodialTransferDestination) {
+                this.actualInstance = instance;
+            } else if(!!CustodialTransferDestination.validateJSON && CustodialTransferDestination.validateJSON(instance)){
+                // plain JS object
+                // create CustodialTransferDestination from JS object
+                this.actualInstance = CustodialTransferDestination.constructFromObject(instance);
+            } else {
+                if(CustodialTransferDestination.constructFromObject(instance)) {
+                    if (!!CustodialTransferDestination.constructFromObject(instance).toJSON) {
+                        if (CustodialTransferDestination.constructFromObject(instance).toJSON()) {
+                            this.actualInstance = CustodialTransferDestination.constructFromObject(instance);
+                        }
+                    } else {
+                        this.actualInstance = CustodialTransferDestination.constructFromObject(instance);
+                    }
+                }
+
+            }
+            match++;
+        } catch(err) {
+            // json data failed to deserialize into CustodialTransferDestination
+            errorMessages.push("Failed to construct CustodialTransferDestination: " + err)
+        }
+
+        try {
             if (instance instanceof ExchangeTransferDestination) {
                 this.actualInstance = instance;
             } else if(!!ExchangeTransferDestination.validateJSON && ExchangeTransferDestination.validateJSON(instance)){
@@ -103,11 +133,11 @@ class TransferDestination {
         }
 
         // if (match > 1) {
-        //    throw new Error("Multiple matches found constructing `TransferDestination` with oneOf schemas AddressTransferDestination, ExchangeTransferDestination. Input: " + JSON.stringify(instance));
+        //    throw new Error("Multiple matches found constructing `TransferDestination` with oneOf schemas AddressTransferDestination, CustodialTransferDestination, ExchangeTransferDestination. Input: " + JSON.stringify(instance));
         // } else
         if (match === 0) {
         //    this.actualInstance = null; // clear the actual instance in case there are multiple matches
-        //    throw new Error("No match found constructing `TransferDestination` with oneOf schemas AddressTransferDestination, ExchangeTransferDestination. Details: " +
+        //    throw new Error("No match found constructing `TransferDestination` with oneOf schemas AddressTransferDestination, CustodialTransferDestination, ExchangeTransferDestination. Details: " +
         //                    errorMessages.join(", "));
         return;
         } else { // only 1 match
@@ -127,16 +157,16 @@ class TransferDestination {
     }
 
     /**
-     * Gets the actual instance, which can be <code>AddressTransferDestination</code>, <code>ExchangeTransferDestination</code>.
-     * @return {(module:model/AddressTransferDestination|module:model/ExchangeTransferDestination)} The actual instance.
+     * Gets the actual instance, which can be <code>AddressTransferDestination</code>, <code>CustodialTransferDestination</code>, <code>ExchangeTransferDestination</code>.
+     * @return {(module:model/AddressTransferDestination|module:model/CustodialTransferDestination|module:model/ExchangeTransferDestination)} The actual instance.
      */
     getActualInstance() {
         return this.actualInstance;
     }
 
     /**
-     * Sets the actual instance, which can be <code>AddressTransferDestination</code>, <code>ExchangeTransferDestination</code>.
-     * @param {(module:model/AddressTransferDestination|module:model/ExchangeTransferDestination)} obj The actual instance.
+     * Sets the actual instance, which can be <code>AddressTransferDestination</code>, <code>CustodialTransferDestination</code>, <code>ExchangeTransferDestination</code>.
+     * @param {(module:model/AddressTransferDestination|module:model/CustodialTransferDestination|module:model/ExchangeTransferDestination)} obj The actual instance.
      */
     setActualInstance(obj) {
        this.actualInstance = TransferDestination.constructFromObject(obj).getActualInstance();
@@ -206,19 +236,19 @@ TransferDestination.prototype['force_external'] = undefined;
 TransferDestination.prototype['wallet_id'] = undefined;
 
 /**
- * The trading account type.
- * @member {String} trading_account_type
- */
-TransferDestination.prototype['trading_account_type'] = undefined;
-
-/**
  * The transfer amount. For example, if you trade 1.5 BTC, then the value is `1.5`. 
  * @member {String} amount
  */
 TransferDestination.prototype['amount'] = undefined;
 
+/**
+ * The trading account type.
+ * @member {String} trading_account_type
+ */
+TransferDestination.prototype['trading_account_type'] = undefined;
 
-TransferDestination.OneOf = ["AddressTransferDestination", "ExchangeTransferDestination"];
+
+TransferDestination.OneOf = ["AddressTransferDestination", "CustodialTransferDestination", "ExchangeTransferDestination"];
 
 export default TransferDestination;
 

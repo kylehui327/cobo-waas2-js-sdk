@@ -206,7 +206,7 @@ TransactionExtra.prototype['babylon_address_info'] = undefined;
 TransactionExtra.prototype['btc_address_info'] = undefined;
 
 /**
- * The original staking amount.
+ * The origin staking amount.
  * @member {String} stake_amount
  */
 TransactionExtra.prototype['stake_amount'] = undefined;
@@ -224,7 +224,7 @@ TransactionExtra.prototype['finality_provider_public_key'] = undefined;
 TransactionExtra.prototype['stake_block_time'] = undefined;
 
 /**
- * The version of Babylon global parameters.
+ * The version of babylon global parameters.
  * @member {Number} param_version
  */
 TransactionExtra.prototype['param_version'] = undefined;
@@ -258,7 +258,7 @@ TransactionExtra.prototype['change_address'] = undefined;
 TransactionExtra.prototype['validator_address'] = undefined;
 
 /**
- * The EVM address used to receive staking rewards.
+ * The EVM address to receive staking rewards.
  * @member {String} reward_address
  */
 TransactionExtra.prototype['reward_address'] = undefined;

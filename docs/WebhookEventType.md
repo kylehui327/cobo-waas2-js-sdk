@@ -41,18 +41,6 @@
 
 * `wallet.chain.enabled` (value: `"wallet.chain.enabled"`)
 
-* `payment.transaction.created` (value: `"payment.transaction.created"`)
-
-* `payment.transaction.late` (value: `"payment.transaction.late"`)
-
-* `payment.transaction.held` (value: `"payment.transaction.held"`)
-
-* `payment.status.updated` (value: `"payment.status.updated"`)
-
-* `payment.refund.status.updated` (value: `"payment.refund.status.updated"`)
-
-* `payment.settlement.status.updated` (value: `"payment.settlement.status.updated"`)
-
 * `unknown_default_open_api` (value: `"unknown_default_open_api"`)
 
 

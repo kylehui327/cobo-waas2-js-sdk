@@ -19,7 +19,7 @@ import MessageSignDestinationType from './MessageSignDestinationType';
 class BTCBIP322MessageSignDestination {
     /**
      * Constructs a new <code>BTCBIP322MessageSignDestination</code>.
-     * The information about the destination &#x60;BTC_BIP_322_Signature&#x60;. Refer to [Transaction sources and destinations](https://www.cobo.com/developers/v2/guides/transactions/sources-and-destinations) for a detailed introduction about the supported sources and destinations for each transaction type.
+     * The information about the destination &#x60;BTC_BIP_322&#x60;. Refer to [Transaction sources and destinations](https://www.cobo.com/developers/v2/guides/transactions/sources-and-destinations) for a detailed introduction about the supported sources and destinations for each transaction type.
      * @alias module:model/BTCBIP322MessageSignDestination
      * @param destination_type {module:model/MessageSignDestinationType} 
      * @param message_bip322 {String} Message to be signed, in hexadecimal format.

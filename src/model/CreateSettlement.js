@@ -10,6 +10,7 @@
  */
 
 import ApiClient from '../ApiClient';
+import PayoutChannel from './PayoutChannel';
 import SettlementType from './SettlementType';
 
 /**
@@ -63,6 +64,15 @@ class CreateSettlement {
             if (data.hasOwnProperty('settlement_type')) {
                 obj['settlement_type'] = SettlementType.constructFromObject(data['settlement_type']);
             }
+            if (data.hasOwnProperty('crypto_address_id')) {
+                obj['crypto_address_id'] = ApiClient.convertToType(data['crypto_address_id'], 'String');
+            }
+            if (data.hasOwnProperty('payout_channel')) {
+                obj['payout_channel'] = PayoutChannel.constructFromObject(data['payout_channel']);
+            }
+            if (data.hasOwnProperty('order_ids')) {
+                obj['order_ids'] = ApiClient.convertToType(data['order_ids'], ['String']);
+            }
         }
         return obj;
     }
@@ -92,6 +102,14 @@ class CreateSettlement {
         // ensure the json data is a string
         if (data['bank_account_id'] && !(typeof data['bank_account_id'] === 'string' || data['bank_account_id'] instanceof String)) {
             throw new Error("Expected the field `bank_account_id` to be a primitive type in the JSON string but got " + data['bank_account_id']);
+        }
+        // ensure the json data is a string
+        if (data['crypto_address_id'] && !(typeof data['crypto_address_id'] === 'string' || data['crypto_address_id'] instanceof String)) {
+            throw new Error("Expected the field `crypto_address_id` to be a primitive type in the JSON string but got " + data['crypto_address_id']);
+        }
+        // ensure the json data is an array
+        if (!Array.isArray(data['order_ids'])) {
+            throw new Error("Expected the field `order_ids` to be an array in the JSON data but got " + data['order_ids']);
         }
 
         return true;
@@ -137,6 +155,23 @@ CreateSettlement.prototype['bank_account_id'] = undefined;
  * @member {module:model/SettlementType} settlement_type
  */
 CreateSettlement.prototype['settlement_type'] = undefined;
+
+/**
+ * The ID of the pre-approved crypto address used for Crypto settlements.  - This field is only applicable when `payout_channel` is set to `Crypto`. - If `payout_channel` is `OffRamp`, this field will be ignored. - The value must refer to a valid address that has been pre-configured and approved for the given token. 
+ * @member {String} crypto_address_id
+ */
+CreateSettlement.prototype['crypto_address_id'] = undefined;
+
+/**
+ * @member {module:model/PayoutChannel} payout_channel
+ */
+CreateSettlement.prototype['payout_channel'] = undefined;
+
+/**
+ * A list of unique order IDs to be included in this settlement.  - This field is only applicable when `settlement_type` is set to `Merchant`. - If provided, the settlement will only apply to the specified orders. - The settlement `amount` must exactly match the total eligible amount from these orders. - This ensures consistency between the declared amount and the actual order-level data being settled. 
+ * @member {Array.<String>} order_ids
+ */
+CreateSettlement.prototype['order_ids'] = undefined;
 
 
 

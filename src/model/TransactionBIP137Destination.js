@@ -19,7 +19,7 @@ import TransactionDestinationType from './TransactionDestinationType';
 class TransactionBIP137Destination {
     /**
      * Constructs a new <code>TransactionBIP137Destination</code>.
-     * The information about the destination &#x60;BTC_BIP_137_Signature&#x60;. Refer to [Transaction sources and destinations](https://www.cobo.com/developers/v2/guides/transactions/sources-and-destinations) for a detailed introduction about the supported sources and destinations for each transaction type.  Switch between the tabs to display the properties for different transaction destinations. 
+     * The information about the destination &#x60;BTC_BIP_137&#x60;. Refer to [Transaction sources and destinations](https://www.cobo.com/developers/v2/guides/transactions/sources-and-destinations) for a detailed introduction about the supported sources and destinations for each transaction type.  Switch between the tabs to display the properties for different transaction destinations. 
      * @alias module:model/TransactionBIP137Destination
      * @param destination_type {module:model/TransactionDestinationType} 
      * @param message_bip137 {String} Message to be signed, in hexadecimal format.

@@ -12,6 +12,7 @@
 import ApiClient from '../ApiClient';
 import BankAccount from './BankAccount';
 import PaymentTransaction from './PaymentTransaction';
+import PayoutChannel from './PayoutChannel';
 import SettleStatus from './SettleStatus';
 
 /**
@@ -82,6 +83,9 @@ class SettlementDetail {
             }
             if (data.hasOwnProperty('crypto_address_id')) {
                 obj['crypto_address_id'] = ApiClient.convertToType(data['crypto_address_id'], 'String');
+            }
+            if (data.hasOwnProperty('payout_channel')) {
+                obj['payout_channel'] = PayoutChannel.constructFromObject(data['payout_channel']);
             }
         }
         return obj;
@@ -215,6 +219,11 @@ SettlementDetail.prototype['updated_timestamp'] = undefined;
  * @member {String} crypto_address_id
  */
 SettlementDetail.prototype['crypto_address_id'] = undefined;
+
+/**
+ * @member {module:model/PayoutChannel} payout_channel
+ */
+SettlementDetail.prototype['payout_channel'] = undefined;
 
 
 

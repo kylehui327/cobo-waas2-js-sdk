@@ -19,7 +19,7 @@ import TransactionExtraType from './TransactionExtraType';
 class TransactionCoreStakeInfo {
     /**
      * Constructs a new <code>TransactionCoreStakeInfo</code>.
-     * The extra information related to core staking operations.
+     * The core stake information.
      * @alias module:model/TransactionCoreStakeInfo
      * @param extra_type {module:model/TransactionExtraType} 
      */
@@ -113,7 +113,7 @@ TransactionCoreStakeInfo.RequiredProperties = ["extra_type"];
 TransactionCoreStakeInfo.prototype['extra_type'] = undefined;
 
 /**
- * The original staking amount.
+ * The origin staking amount.
  * @member {String} stake_amount
  */
 TransactionCoreStakeInfo.prototype['stake_amount'] = undefined;
@@ -137,7 +137,7 @@ TransactionCoreStakeInfo.prototype['change_address'] = undefined;
 TransactionCoreStakeInfo.prototype['validator_address'] = undefined;
 
 /**
- * The EVM address used to receive staking rewards.
+ * The EVM address to receive staking rewards.
  * @member {String} reward_address
  */
 TransactionCoreStakeInfo.prototype['reward_address'] = undefined;

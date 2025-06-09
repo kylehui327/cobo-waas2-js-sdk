@@ -20,7 +20,7 @@ import TransactionDestinationType from './TransactionDestinationType';
 class TransactionTransferToWalletDestination {
     /**
      * Constructs a new <code>TransactionTransferToWalletDestination</code>.
-     * Information about the transaction destination type &#x60;ExchangeWallet&#x60;. Refer to [Transaction sources and destinations](https://www.cobo.com/developers/v2/guides/transactions/sources-and-destinations) for a detailed introduction about the supported sources and destinations for each transaction type.  Switch between the tabs to display the properties for different transaction destinations. 
+     * Information about the transaction destination type &#x60;CustodialWallet&#x60; or &#x60;ExchangeWallet&#x60;. Refer to [Transaction sources and destinations](https://www.cobo.com/developers/v2/guides/transactions/sources-and-destinations) for a detailed introduction about the supported sources and destinations for each transaction type.  Switch between the tabs to display the properties for different transaction destinations. 
      * @alias module:model/TransactionTransferToWalletDestination
      * @param destination_type {module:model/TransactionDestinationType} 
      * @param wallet_id {String} The wallet ID.
@@ -117,7 +117,7 @@ TransactionTransferToWalletDestination.prototype['destination_type'] = undefined
 TransactionTransferToWalletDestination.prototype['wallet_id'] = undefined;
 
 /**
- * The trading account type.
+ * The trading account type. Only available for `ExchangeWallet`.
  * @member {String} trading_account_type
  */
 TransactionTransferToWalletDestination.prototype['trading_account_type'] = undefined;

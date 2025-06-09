@@ -78,6 +78,9 @@ class CreatePaymentOrderRequest {
             if (data.hasOwnProperty('expired_at')) {
                 obj['expired_at'] = ApiClient.convertToType(data['expired_at'], 'Number');
             }
+            if (data.hasOwnProperty('use_dedicated_address')) {
+                obj['use_dedicated_address'] = ApiClient.convertToType(data['use_dedicated_address'], 'Boolean');
+            }
         }
         return obj;
     }
@@ -179,6 +182,12 @@ CreatePaymentOrderRequest.prototype['psp_order_code'] = undefined;
  * @member {Number} expired_at
  */
 CreatePaymentOrderRequest.prototype['expired_at'] = undefined;
+
+/**
+ * Indicates whether to allocate a dedicated address for this order.  If false, a shared address from the address pool will be used. 
+ * @member {Boolean} use_dedicated_address
+ */
+CreatePaymentOrderRequest.prototype['use_dedicated_address'] = undefined;
 
 
 

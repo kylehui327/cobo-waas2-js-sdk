@@ -46,6 +46,16 @@ import {ApiClient, Env} from "../../src/index.js";
         //});
       });
     });
+    describe('createCryptoAddress', function() {
+      it('should call createCryptoAddress successfully', function() {
+        //uncomment below and update the code to test createCryptoAddress
+        //instance.createCryptoAddress().then(function(data) {
+        //    console.log(data);
+        //}, function(error) {
+        //    console.error(error);
+        //});
+      });
+    });
     describe('createMerchant', function() {
       it('should call createMerchant successfully', function() {
         //uncomment below and update the code to test createMerchant
@@ -156,6 +166,16 @@ import {ApiClient, Env} from "../../src/index.js";
         //});
       });
     });
+    describe('listCryptoAddresses', function() {
+      it('should call listCryptoAddresses successfully', function() {
+        //uncomment below and update the code to test listCryptoAddresses
+        //instance.listCryptoAddresses().then(function(data) {
+        //    console.log(data);
+        //}, function(error) {
+        //    console.error(error);
+        //});
+      });
+    });
     describe('listMerchants', function() {
       it('should call listMerchants successfully', function() {
         //uncomment below and update the code to test listMerchants
@@ -170,6 +190,16 @@ import {ApiClient, Env} from "../../src/index.js";
       it('should call listPaymentOrders successfully', function() {
         //uncomment below and update the code to test listPaymentOrders
         //instance.listPaymentOrders().then(function(data) {
+        //    console.log(data);
+        //}, function(error) {
+        //    console.error(error);
+        //});
+      });
+    });
+    describe('listPaymentSupportedTokens', function() {
+      it('should call listPaymentSupportedTokens successfully', function() {
+        //uncomment below and update the code to test listPaymentSupportedTokens
+        //instance.listPaymentSupportedTokens().then(function(data) {
         //    console.log(data);
         //}, function(error) {
         //    console.error(error);

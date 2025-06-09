@@ -76,6 +76,15 @@ class CreateRefundRequest {
             if (data.hasOwnProperty('order_id')) {
                 obj['order_id'] = ApiClient.convertToType(data['order_id'], 'String');
             }
+            if (data.hasOwnProperty('charge_merchant_fee')) {
+                obj['charge_merchant_fee'] = ApiClient.convertToType(data['charge_merchant_fee'], 'Boolean');
+            }
+            if (data.hasOwnProperty('merchant_fee_amount')) {
+                obj['merchant_fee_amount'] = ApiClient.convertToType(data['merchant_fee_amount'], 'String');
+            }
+            if (data.hasOwnProperty('merchant_fee_token_id')) {
+                obj['merchant_fee_token_id'] = ApiClient.convertToType(data['merchant_fee_token_id'], 'String');
+            }
         }
         return obj;
     }
@@ -115,6 +124,14 @@ class CreateRefundRequest {
         // ensure the json data is a string
         if (data['order_id'] && !(typeof data['order_id'] === 'string' || data['order_id'] instanceof String)) {
             throw new Error("Expected the field `order_id` to be a primitive type in the JSON string but got " + data['order_id']);
+        }
+        // ensure the json data is a string
+        if (data['merchant_fee_amount'] && !(typeof data['merchant_fee_amount'] === 'string' || data['merchant_fee_amount'] instanceof String)) {
+            throw new Error("Expected the field `merchant_fee_amount` to be a primitive type in the JSON string but got " + data['merchant_fee_amount']);
+        }
+        // ensure the json data is a string
+        if (data['merchant_fee_token_id'] && !(typeof data['merchant_fee_token_id'] === 'string' || data['merchant_fee_token_id'] instanceof String)) {
+            throw new Error("Expected the field `merchant_fee_token_id` to be a primitive type in the JSON string but got " + data['merchant_fee_token_id']);
         }
 
         return true;
@@ -165,6 +182,24 @@ CreateRefundRequest.prototype['refund_type'] = undefined;
  * @member {String} order_id
  */
 CreateRefundRequest.prototype['order_id'] = undefined;
+
+/**
+ * Indicates whether the merchant should bear the transaction fee for the refund.  If true, the fee will be deducted from merchant's account balance. 
+ * @member {Boolean} charge_merchant_fee
+ */
+CreateRefundRequest.prototype['charge_merchant_fee'] = undefined;
+
+/**
+ * The amount of the transaction fee that the merchant will bear for the refund.  This is only applicable if `charge_merchant_fee` is set to true. 
+ * @member {String} merchant_fee_amount
+ */
+CreateRefundRequest.prototype['merchant_fee_amount'] = undefined;
+
+/**
+ * The ID of the cryptocurrency used for the transaction fee.  This is only applicable if `charge_merchant_fee` is set to true. 
+ * @member {String} merchant_fee_token_id
+ */
+CreateRefundRequest.prototype['merchant_fee_token_id'] = undefined;
 
 
 

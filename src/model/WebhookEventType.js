@@ -151,48 +151,6 @@ export default class WebhookEventType {
 
     
         /**
-         * value: "payment.transaction.created"
-         * @const
-         */
-        "payment.transaction.created" = "payment.transaction.created";
-
-    
-        /**
-         * value: "payment.transaction.late"
-         * @const
-         */
-        "payment.transaction.late" = "payment.transaction.late";
-
-    
-        /**
-         * value: "payment.transaction.held"
-         * @const
-         */
-        "payment.transaction.held" = "payment.transaction.held";
-
-    
-        /**
-         * value: "payment.status.updated"
-         * @const
-         */
-        "payment.status.updated" = "payment.status.updated";
-
-    
-        /**
-         * value: "payment.refund.status.updated"
-         * @const
-         */
-        "payment.refund.status.updated" = "payment.refund.status.updated";
-
-    
-        /**
-         * value: "payment.settlement.status.updated"
-         * @const
-         */
-        "payment.settlement.status.updated" = "payment.settlement.status.updated";
-
-    
-        /**
          * value: "unknown_default_open_api"
          * @const
          */

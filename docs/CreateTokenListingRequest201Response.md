@@ -4,6 +4,6 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**request_id** | **String** | The unique identifier for the token listing request. You can use it to track the request status with the [Get token listing request](https://www.cobo.com/developers/v2/api-references/wallets/get-token-listing-request) operation. | 
+**request_id** | **String** | Unique identifier for the token listing request | 
 
 

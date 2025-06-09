@@ -28,10 +28,10 @@ class TokenListingEventData {
      * @alias module:model/TokenListingEventData
      * @implements module:model/WebhookEventDataType
      * @implements module:model/TokenListing
-     * @param data_type {module:model/TokenListingEventData.DataTypeEnum}  The data type of the event. - `Transaction`: The transaction event data. - `TSSRequest`: The TSS request event data. - `Addresses`: The addresses event data. - `WalletInfo`: The wallet information event data. - `MPCVault`: The MPC vault event data. - `Chains`: The enabled chain event data. - `Tokens`: The enabled token event data. - `TokenListing`: The token listing event data.        - `PaymentOrder`: The payment order event data. - `PaymentRefund`: The payment refund event data. - `PaymentSettlement`: The payment settlement event data.
-     * @param request_id {String} The unique identifier of the token listing request.
-     * @param chain_id {String} The ID of the blockchain where the token is deployed.
-     * @param contract_address {String} The token's contract address on the specified blockchain.
+     * @param data_type {module:model/TokenListingEventData.DataTypeEnum}  The data type of the event. - `Transaction`: The transaction event data. - `TSSRequest`: The TSS request event data. - `Addresses`: The addresses event data. - `WalletInfo`: The wallet information event data. - `MPCVault`: The MPC vault event data. - `Chains`: The enabled chain event data. - `Tokens`: The enabled token event data. - `TokenListing`: The token listing event data.
+     * @param request_id {String} Unique identifier of the token listing request
+     * @param chain_id {String} chain_id of the blockchain where the token exists
+     * @param contract_address {String} Contract address of the token
      * @param wallet_type {module:model/WalletType} 
      * @param wallet_subtype {module:model/WalletSubtype} 
      * @param status {module:model/TokenListingRequestStatus} 
@@ -157,25 +157,25 @@ class TokenListingEventData {
 TokenListingEventData.RequiredProperties = ["data_type", "request_id", "chain_id", "contract_address", "wallet_type", "wallet_subtype", "status"];
 
 /**
- *  The data type of the event. - `Transaction`: The transaction event data. - `TSSRequest`: The TSS request event data. - `Addresses`: The addresses event data. - `WalletInfo`: The wallet information event data. - `MPCVault`: The MPC vault event data. - `Chains`: The enabled chain event data. - `Tokens`: The enabled token event data. - `TokenListing`: The token listing event data.        - `PaymentOrder`: The payment order event data. - `PaymentRefund`: The payment refund event data. - `PaymentSettlement`: The payment settlement event data.
+ *  The data type of the event. - `Transaction`: The transaction event data. - `TSSRequest`: The TSS request event data. - `Addresses`: The addresses event data. - `WalletInfo`: The wallet information event data. - `MPCVault`: The MPC vault event data. - `Chains`: The enabled chain event data. - `Tokens`: The enabled token event data. - `TokenListing`: The token listing event data.
  * @member {module:model/TokenListingEventData.DataTypeEnum} data_type
  */
 TokenListingEventData.prototype['data_type'] = undefined;
 
 /**
- * The unique identifier of the token listing request.
+ * Unique identifier of the token listing request
  * @member {String} request_id
  */
 TokenListingEventData.prototype['request_id'] = undefined;
 
 /**
- * The ID of the blockchain where the token is deployed.
+ * chain_id of the blockchain where the token exists
  * @member {String} chain_id
  */
 TokenListingEventData.prototype['chain_id'] = undefined;
 
 /**
- * The token's contract address on the specified blockchain.
+ * Contract address of the token
  * @member {String} contract_address
  */
 TokenListingEventData.prototype['contract_address'] = undefined;
@@ -206,19 +206,19 @@ TokenListingEventData.prototype['status'] = undefined;
 TokenListingEventData.prototype['source'] = undefined;
 
 /**
- * The feedback provided by Cobo when a token listing request is rejected.
+ * Feedback provided by the admin for rejected requests
  * @member {String} feedback
  */
 TokenListingEventData.prototype['feedback'] = undefined;
 
 /**
- * The time when the request was created in Unix timestamp format, measured in milliseconds.
+ * Timestamp when the request was created (in milliseconds since Unix epoch)
  * @member {Number} created_timestamp
  */
 TokenListingEventData.prototype['created_timestamp'] = undefined;
 
 /**
- * The time when the request was last updated in Unix timestamp format, measured in milliseconds.
+ * Timestamp when the request was last updated (in milliseconds since Unix epoch)
  * @member {Number} updated_timestamp
  */
 TokenListingEventData.prototype['updated_timestamp'] = undefined;
@@ -226,23 +226,23 @@ TokenListingEventData.prototype['updated_timestamp'] = undefined;
 
 // Implement WebhookEventDataType interface:
 /**
- *  The data type of the event. - `Transaction`: The transaction event data. - `TSSRequest`: The TSS request event data. - `Addresses`: The addresses event data. - `WalletInfo`: The wallet information event data. - `MPCVault`: The MPC vault event data. - `Chains`: The enabled chain event data. - `Tokens`: The enabled token event data. - `TokenListing`: The token listing event data.        - `PaymentOrder`: The payment order event data. - `PaymentRefund`: The payment refund event data. - `PaymentSettlement`: The payment settlement event data.
+ *  The data type of the event. - `Transaction`: The transaction event data. - `TSSRequest`: The TSS request event data. - `Addresses`: The addresses event data. - `WalletInfo`: The wallet information event data. - `MPCVault`: The MPC vault event data. - `Chains`: The enabled chain event data. - `Tokens`: The enabled token event data. - `TokenListing`: The token listing event data.
  * @member {module:model/WebhookEventDataType.DataTypeEnum} data_type
  */
 WebhookEventDataType.prototype['data_type'] = undefined;
 // Implement TokenListing interface:
 /**
- * The unique identifier of the token listing request.
+ * Unique identifier of the token listing request
  * @member {String} request_id
  */
 TokenListing.prototype['request_id'] = undefined;
 /**
- * The ID of the blockchain where the token is deployed.
+ * chain_id of the blockchain where the token exists
  * @member {String} chain_id
  */
 TokenListing.prototype['chain_id'] = undefined;
 /**
- * The token's contract address on the specified blockchain.
+ * Contract address of the token
  * @member {String} contract_address
  */
 TokenListing.prototype['contract_address'] = undefined;
@@ -267,17 +267,17 @@ TokenListing.prototype['status'] = undefined;
  */
 TokenListing.prototype['source'] = undefined;
 /**
- * The feedback provided by Cobo when a token listing request is rejected.
+ * Feedback provided by the admin for rejected requests
  * @member {String} feedback
  */
 TokenListing.prototype['feedback'] = undefined;
 /**
- * The time when the request was created in Unix timestamp format, measured in milliseconds.
+ * Timestamp when the request was created (in milliseconds since Unix epoch)
  * @member {Number} created_timestamp
  */
 TokenListing.prototype['created_timestamp'] = undefined;
 /**
- * The time when the request was last updated in Unix timestamp format, measured in milliseconds.
+ * Timestamp when the request was last updated (in milliseconds since Unix epoch)
  * @member {Number} updated_timestamp
  */
 TokenListing.prototype['updated_timestamp'] = undefined;
@@ -338,24 +338,6 @@ TokenListingEventData['DataTypeEnum'] = {
      * @const
      */
     "TokenListing": "TokenListing",
-
-    /**
-     * value: "PaymentOrder"
-     * @const
-     */
-    "PaymentOrder": "PaymentOrder",
-
-    /**
-     * value: "PaymentRefund"
-     * @const
-     */
-    "PaymentRefund": "PaymentRefund",
-
-    /**
-     * value: "PaymentSettlement"
-     * @const
-     */
-    "PaymentSettlement": "PaymentSettlement",
 
     /**
      * value: "unknown_default_open_api"
