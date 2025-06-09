@@ -100,14 +100,14 @@
       //expect(instance).to.be();
     });
 
-    it('should have the property trading_account_type (base name: "trading_account_type")', function() {
-      // uncomment below and update the code to test the property trading_account_type
+    it('should have the property amount (base name: "amount")', function() {
+      // uncomment below and update the code to test the property amount
       //var instance = new CoboWaas2.TransferDestination();
       //expect(instance).to.be();
     });
 
-    it('should have the property amount (base name: "amount")', function() {
-      // uncomment below and update the code to test the property amount
+    it('should have the property trading_account_type (base name: "trading_account_type")', function() {
+      // uncomment below and update the code to test the property trading_account_type
       //var instance = new CoboWaas2.TransferDestination();
       //expect(instance).to.be();
     });

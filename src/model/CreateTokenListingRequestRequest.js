@@ -23,8 +23,8 @@ class CreateTokenListingRequestRequest {
      * @alias module:model/CreateTokenListingRequestRequest
      * @param wallet_type {module:model/WalletType} 
      * @param wallet_subtype {module:model/WalletSubtype} 
-     * @param chain_id {String} The ID of the blockchain where the token is deployed.
-     * @param contract_address {String} The token's contract address on the specified blockchain.
+     * @param chain_id {String} ID of the blockchain where the token exists
+     * @param contract_address {String} Contract address of the token
      */
     constructor(wallet_type, wallet_subtype, chain_id, contract_address) { 
         
@@ -110,13 +110,13 @@ CreateTokenListingRequestRequest.prototype['wallet_type'] = undefined;
 CreateTokenListingRequestRequest.prototype['wallet_subtype'] = undefined;
 
 /**
- * The ID of the blockchain where the token is deployed.
+ * ID of the blockchain where the token exists
  * @member {String} chain_id
  */
 CreateTokenListingRequestRequest.prototype['chain_id'] = undefined;
 
 /**
- * The token's contract address on the specified blockchain.
+ * Contract address of the token
  * @member {String} contract_address
  */
 CreateTokenListingRequestRequest.prototype['contract_address'] = undefined;

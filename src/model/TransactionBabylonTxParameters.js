@@ -20,7 +20,7 @@ import TransactionExtraType from './TransactionExtraType';
 class TransactionBabylonTxParameters {
     /**
      * Constructs a new <code>TransactionBabylonTxParameters</code>.
-     * The extra information for Babylon transaction parameters.
+     * The Babylon transaction parameters.
      * @alias module:model/TransactionBabylonTxParameters
      * @param extra_type {module:model/TransactionExtraType} 
      */
@@ -109,7 +109,7 @@ TransactionBabylonTxParameters.RequiredProperties = ["extra_type"];
 TransactionBabylonTxParameters.prototype['extra_type'] = undefined;
 
 /**
- * The original staking amount.
+ * The origin staking amount.
  * @member {String} stake_amount
  */
 TransactionBabylonTxParameters.prototype['stake_amount'] = undefined;
@@ -127,7 +127,7 @@ TransactionBabylonTxParameters.prototype['finality_provider_public_key'] = undef
 TransactionBabylonTxParameters.prototype['stake_block_time'] = undefined;
 
 /**
- * The version of Babylon global parameters.
+ * The version of babylon global parameters.
  * @member {Number} param_version
  */
 TransactionBabylonTxParameters.prototype['param_version'] = undefined;

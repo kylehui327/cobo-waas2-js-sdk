@@ -100,6 +100,7 @@ import CreateBabylonStakingRegistrationRequest from './model/CreateBabylonStakin
 import CreateBankAccountRequest from './model/CreateBankAccountRequest';
 import CreateClaimActivity from './model/CreateClaimActivity';
 import CreateClaimActivityRequest from './model/CreateClaimActivityRequest';
+import CreateCryptoAddressRequest from './model/CreateCryptoAddressRequest';
 import CreateCustodialWalletParams from './model/CreateCustodialWalletParams';
 import CreateExchangeWalletParams from './model/CreateExchangeWalletParams';
 import CreateKeyShareHolder from './model/CreateKeyShareHolder';
@@ -120,6 +121,7 @@ import CreateStakeActivity from './model/CreateStakeActivity';
 import CreateStakeActivity201Response from './model/CreateStakeActivity201Response';
 import CreateStakeActivityExtra from './model/CreateStakeActivityExtra';
 import CreateStakeActivityRequest from './model/CreateStakeActivityRequest';
+import CreateSwapActivityRequest from './model/CreateSwapActivityRequest';
 import CreateTokenListingRequest201Response from './model/CreateTokenListingRequest201Response';
 import CreateTokenListingRequestRequest from './model/CreateTokenListingRequestRequest';
 import CreateTransferTransaction201Response from './model/CreateTransferTransaction201Response';
@@ -132,7 +134,9 @@ import CreateWebhookEndpointRequest from './model/CreateWebhookEndpointRequest';
 import CreateWithdrawActivity from './model/CreateWithdrawActivity';
 import CreateWithdrawActivityRequest from './model/CreateWithdrawActivityRequest';
 import CreatedWalletInfo from './model/CreatedWalletInfo';
+import CryptoAddress from './model/CryptoAddress';
 import CurveType from './model/CurveType';
+import CustodialTransferDestination from './model/CustodialTransferDestination';
 import CustodialTransferSource from './model/CustodialTransferSource';
 import CustodialWalletInfo from './model/CustodialWalletInfo';
 import CustodialWeb3ContractCallSource from './model/CustodialWeb3ContractCallSource';
@@ -198,6 +202,10 @@ import GetStakingEstimationFeeRequest from './model/GetStakingEstimationFeeReque
 import GetToken2XXResponse from './model/GetToken2XXResponse';
 import GetToken4XXResponse from './model/GetToken4XXResponse';
 import GetTransactionLimitation200Response from './model/GetTransactionLimitation200Response';
+import GraphQLError from './model/GraphQLError';
+import GraphQLErrorLocationsInner from './model/GraphQLErrorLocationsInner';
+import GraphQLRequest from './model/GraphQLRequest';
+import GraphQLResponse from './model/GraphQLResponse';
 import GuardPubkeyStatus from './model/GuardPubkeyStatus';
 import KeyShareHolder from './model/KeyShareHolder';
 import KeyShareHolderGroup from './model/KeyShareHolderGroup';
@@ -231,6 +239,8 @@ import ListSupportedAssetsForExchange200Response from './model/ListSupportedAsse
 import ListSupportedChains200Response from './model/ListSupportedChains200Response';
 import ListSupportedCountries200ResponseInner from './model/ListSupportedCountries200ResponseInner';
 import ListSupportedTokens200Response from './model/ListSupportedTokens200Response';
+import ListSwapActivities200Response from './model/ListSwapActivities200Response';
+import ListSwapEnabledTokens200Response from './model/ListSwapEnabledTokens200Response';
 import ListTokenBalancesForAddress200Response from './model/ListTokenBalancesForAddress200Response';
 import ListTokenBalancesForFeeStation200Response from './model/ListTokenBalancesForFeeStation200Response';
 import ListTokenBalancesForFeeStation200ResponseDataInner from './model/ListTokenBalancesForFeeStation200ResponseDataInner';
@@ -270,10 +280,8 @@ import Order from './model/Order';
 import OrderStatus from './model/OrderStatus';
 import OrgInfo from './model/OrgInfo';
 import Pagination from './model/Pagination';
-import PaymentOrderEventData from './model/PaymentOrderEventData';
-import PaymentRefundEventData from './model/PaymentRefundEventData';
-import PaymentSettlementEvent from './model/PaymentSettlementEvent';
 import PaymentTransaction from './model/PaymentTransaction';
+import PayoutChannel from './model/PayoutChannel';
 import PolicyAction from './model/PolicyAction';
 import PolicyActionContent from './model/PolicyActionContent';
 import PolicyActionType from './model/PolicyActionType';
@@ -337,13 +345,16 @@ import Stakings from './model/Stakings';
 import StakingsExtra from './model/StakingsExtra';
 import SubWalletAssetBalance from './model/SubWalletAssetBalance';
 import SubmitDepositTravelRuleInfo201Response from './model/SubmitDepositTravelRuleInfo201Response';
+import SupportedToken from './model/SupportedToken';
 import SwapActivity from './model/SwapActivity';
 import SwapActivityApprovers from './model/SwapActivityApprovers';
 import SwapActivityDetail from './model/SwapActivityDetail';
+import SwapActivitySigners from './model/SwapActivitySigners';
 import SwapActivityStatus from './model/SwapActivityStatus';
 import SwapActivityTimeline from './model/SwapActivityTimeline';
 import SwapApproversStatus from './model/SwapApproversStatus';
 import SwapQuote from './model/SwapQuote';
+import SwapSingingStatus from './model/SwapSingingStatus';
 import SwapToken from './model/SwapToken';
 import SwapType from './model/SwapType';
 import TSSBaseRequestEventData from './model/TSSBaseRequestEventData';
@@ -527,10 +538,12 @@ import AppWorkflowsApi from './api/AppWorkflowsApi';
 import DevelopersApi from './api/DevelopersApi';
 import DevelopersWebhooksApi from './api/DevelopersWebhooksApi';
 import FeeStationApi from './api/FeeStationApi';
+import GraphQLApi from './api/GraphQLApi';
 import OAuthApi from './api/OAuthApi';
 import PaymentApi from './api/PaymentApi';
 import PrimeBrokerApi from './api/PrimeBrokerApi';
 import StakingsApi from './api/StakingsApi';
+import SwapsApi from './api/SwapsApi';
 import TransactionsApi from './api/TransactionsApi';
 import TravelRuleApi from './api/TravelRuleApi';
 import WalletsApi from './api/WalletsApi';
@@ -1104,6 +1117,12 @@ export {
     CreateClaimActivityRequest,
 
     /**
+     * The CreateCryptoAddressRequest model constructor.
+     * @property {module:model/CreateCryptoAddressRequest}
+     */
+    CreateCryptoAddressRequest,
+
+    /**
      * The CreateCustodialWalletParams model constructor.
      * @property {module:model/CreateCustodialWalletParams}
      */
@@ -1224,6 +1243,12 @@ export {
     CreateStakeActivityRequest,
 
     /**
+     * The CreateSwapActivityRequest model constructor.
+     * @property {module:model/CreateSwapActivityRequest}
+     */
+    CreateSwapActivityRequest,
+
+    /**
      * The CreateTokenListingRequest201Response model constructor.
      * @property {module:model/CreateTokenListingRequest201Response}
      */
@@ -1296,10 +1321,22 @@ export {
     CreatedWalletInfo,
 
     /**
+     * The CryptoAddress model constructor.
+     * @property {module:model/CryptoAddress}
+     */
+    CryptoAddress,
+
+    /**
      * The CurveType model constructor.
      * @property {module:model/CurveType}
      */
     CurveType,
+
+    /**
+     * The CustodialTransferDestination model constructor.
+     * @property {module:model/CustodialTransferDestination}
+     */
+    CustodialTransferDestination,
 
     /**
      * The CustodialTransferSource model constructor.
@@ -1692,6 +1729,30 @@ export {
     GetTransactionLimitation200Response,
 
     /**
+     * The GraphQLError model constructor.
+     * @property {module:model/GraphQLError}
+     */
+    GraphQLError,
+
+    /**
+     * The GraphQLErrorLocationsInner model constructor.
+     * @property {module:model/GraphQLErrorLocationsInner}
+     */
+    GraphQLErrorLocationsInner,
+
+    /**
+     * The GraphQLRequest model constructor.
+     * @property {module:model/GraphQLRequest}
+     */
+    GraphQLRequest,
+
+    /**
+     * The GraphQLResponse model constructor.
+     * @property {module:model/GraphQLResponse}
+     */
+    GraphQLResponse,
+
+    /**
      * The GuardPubkeyStatus model constructor.
      * @property {module:model/GuardPubkeyStatus}
      */
@@ -1888,6 +1949,18 @@ export {
      * @property {module:model/ListSupportedTokens200Response}
      */
     ListSupportedTokens200Response,
+
+    /**
+     * The ListSwapActivities200Response model constructor.
+     * @property {module:model/ListSwapActivities200Response}
+     */
+    ListSwapActivities200Response,
+
+    /**
+     * The ListSwapEnabledTokens200Response model constructor.
+     * @property {module:model/ListSwapEnabledTokens200Response}
+     */
+    ListSwapEnabledTokens200Response,
 
     /**
      * The ListTokenBalancesForAddress200Response model constructor.
@@ -2124,28 +2197,16 @@ export {
     Pagination,
 
     /**
-     * The PaymentOrderEventData model constructor.
-     * @property {module:model/PaymentOrderEventData}
-     */
-    PaymentOrderEventData,
-
-    /**
-     * The PaymentRefundEventData model constructor.
-     * @property {module:model/PaymentRefundEventData}
-     */
-    PaymentRefundEventData,
-
-    /**
-     * The PaymentSettlementEvent model constructor.
-     * @property {module:model/PaymentSettlementEvent}
-     */
-    PaymentSettlementEvent,
-
-    /**
      * The PaymentTransaction model constructor.
      * @property {module:model/PaymentTransaction}
      */
     PaymentTransaction,
+
+    /**
+     * The PayoutChannel model constructor.
+     * @property {module:model/PayoutChannel}
+     */
+    PayoutChannel,
 
     /**
      * The PolicyAction model constructor.
@@ -2526,6 +2587,12 @@ export {
     SubmitDepositTravelRuleInfo201Response,
 
     /**
+     * The SupportedToken model constructor.
+     * @property {module:model/SupportedToken}
+     */
+    SupportedToken,
+
+    /**
      * The SwapActivity model constructor.
      * @property {module:model/SwapActivity}
      */
@@ -2542,6 +2609,12 @@ export {
      * @property {module:model/SwapActivityDetail}
      */
     SwapActivityDetail,
+
+    /**
+     * The SwapActivitySigners model constructor.
+     * @property {module:model/SwapActivitySigners}
+     */
+    SwapActivitySigners,
 
     /**
      * The SwapActivityStatus model constructor.
@@ -2566,6 +2639,12 @@ export {
      * @property {module:model/SwapQuote}
      */
     SwapQuote,
+
+    /**
+     * The SwapSingingStatus model constructor.
+     * @property {module:model/SwapSingingStatus}
+     */
+    SwapSingingStatus,
 
     /**
      * The SwapToken model constructor.
@@ -3666,6 +3745,12 @@ export {
     FeeStationApi,
 
     /**
+    * The GraphQLApi service constructor.
+    * @property {module:api/GraphQLApi}
+    */
+    GraphQLApi,
+
+    /**
     * The OAuthApi service constructor.
     * @property {module:api/OAuthApi}
     */
@@ -3688,6 +3773,12 @@ export {
     * @property {module:api/StakingsApi}
     */
     StakingsApi,
+
+    /**
+    * The SwapsApi service constructor.
+    * @property {module:api/SwapsApi}
+    */
+    SwapsApi,
 
     /**
     * The TransactionsApi service constructor.

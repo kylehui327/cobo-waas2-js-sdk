@@ -22,5 +22,6 @@ Name | Type | Description | Notes
 **updated_timestamp** | **Number** | The time when the swap activity was last updated, in Unix timestamp format, measured in milliseconds. | [optional] 
 **timeline** | [**[SwapActivityTimeline]**](SwapActivityTimeline.md) |  | [optional] 
 **approvers** | [**[SwapActivityApprovers]**](SwapActivityApprovers.md) |  | [optional] 
+**signers** | [**[SwapActivitySigners]**](SwapActivitySigners.md) |  | [optional] 
 
 

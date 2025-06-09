@@ -19,7 +19,7 @@ import TransactionDestinationType from './TransactionDestinationType';
 class TransactionCosmosAdr36Destination {
     /**
      * Constructs a new <code>TransactionCosmosAdr36Destination</code>.
-     * The information about the destination &#x60;COSMOS_ADR_36_Signature&#x60;. Refer to [Transaction sources and destinations](https://www.cobo.com/developers/v2/guides/transactions/sources-and-destinations) for a detailed introduction about the supported sources and destinations for each transaction type.  Switch between the tabs to display the properties for different transaction destinations. 
+     * The information about the destination &#x60;Cosmos_ADR36&#x60;. Refer to [Transaction sources and destinations](https://www.cobo.com/developers/v2/guides/transactions/sources-and-destinations) for a detailed introduction about the supported sources and destinations for each transaction type.  Switch between the tabs to display the properties for different transaction destinations. 
      * @alias module:model/TransactionCosmosAdr36Destination
      * @param destination_type {module:model/TransactionDestinationType} 
      * @param message_cosmos_adr36 {String} Message to be signed, in hexadecimal format.

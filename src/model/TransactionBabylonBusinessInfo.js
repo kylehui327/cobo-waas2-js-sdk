@@ -20,7 +20,7 @@ import TransactionExtraType from './TransactionExtraType';
 class TransactionBabylonBusinessInfo {
     /**
      * Constructs a new <code>TransactionBabylonBusinessInfo</code>.
-     * The extra information related to Babylon business logic.
+     * The Babylon business information.
      * @alias module:model/TransactionBabylonBusinessInfo
      * @param extra_type {module:model/TransactionExtraType} 
      */

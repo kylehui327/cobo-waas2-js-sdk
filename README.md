@@ -68,11 +68,11 @@ All URIs are relative to *https://api.dev.cobo.com/v2*
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
 *CoboWaas2.AddressBooksApi* | [**listAddressBooks**](docs/AddressBooksApi.md#listAddressBooks) | **GET** /address_books | List address book entries
-*CoboWaas2.AppWorkflowsApi* | [**createApprovalRequest**](docs/AppWorkflowsApi.md#createApprovalRequest) | **POST** /app/workflows/approval_requests | Request workflow approval
-*CoboWaas2.AppWorkflowsApi* | [**getApprovalRequestById**](docs/AppWorkflowsApi.md#getApprovalRequestById) | **GET** /app/workflows/approval_requests/{approval_id} | Get approval request details
+*CoboWaas2.AppWorkflowsApi* | [**createApprovalRequest**](docs/AppWorkflowsApi.md#createApprovalRequest) | **POST** /app/workflows/approval_requests | Request app workflow approval
+*CoboWaas2.AppWorkflowsApi* | [**getApprovalRequestById**](docs/AppWorkflowsApi.md#getApprovalRequestById) | **GET** /app/workflows/approval_requests/{approval_id} | Get app workflow approval request by approval id
 *CoboWaas2.AppWorkflowsApi* | [**listAppWorkflows**](docs/AppWorkflowsApi.md#listAppWorkflows) | **GET** /app/workflows | list app workflows
-*CoboWaas2.AppWorkflowsApi* | [**listApprovalRequests**](docs/AppWorkflowsApi.md#listApprovalRequests) | **GET** /app/workflows/approval_requests | List approval requests
-*CoboWaas2.AppWorkflowsApi* | [**revokeApprovalRequest**](docs/AppWorkflowsApi.md#revokeApprovalRequest) | **POST** /app/workflows/approval_requests/{approval_id}/revoke | Revoke approval request
+*CoboWaas2.AppWorkflowsApi* | [**listApprovalRequests**](docs/AppWorkflowsApi.md#listApprovalRequests) | **GET** /app/workflows/approval_requests | List app workflow approval requests by operation_id
+*CoboWaas2.AppWorkflowsApi* | [**revokeApprovalRequest**](docs/AppWorkflowsApi.md#revokeApprovalRequest) | **POST** /app/workflows/approval_requests/{approval_id}/revoke | Revoke an app workflow approval request by request initiator.
 *CoboWaas2.DevelopersApi* | [**getApiKeyInfo**](docs/DevelopersApi.md#getApiKeyInfo) | **GET** /developers/api_key_info | Get API key information
 *CoboWaas2.DevelopersApi* | [**listCallbackMessages**](docs/DevelopersApi.md#listCallbackMessages) | **GET** /developers/callback_messages | List all callback messages
 *CoboWaas2.DevelopersApi* | [**retryCallbackMessage**](docs/DevelopersApi.md#retryCallbackMessage) | **POST** /developers/callback_messages/{message_id}/retry | Retry callback message
@@ -86,14 +86,16 @@ Class | Method | HTTP request | Description
 *CoboWaas2.DevelopersWebhooksApi* | [**retryWebhookEventById**](docs/DevelopersWebhooksApi.md#retryWebhookEventById) | **POST** /webhooks/endpoints/{endpoint_id}/events/{event_id}/retry | Retry event
 *CoboWaas2.DevelopersWebhooksApi* | [**triggerTestWebhookEvent**](docs/DevelopersWebhooksApi.md#triggerTestWebhookEvent) | **POST** /webhooks/events/trigger | Trigger test event
 *CoboWaas2.DevelopersWebhooksApi* | [**updateWebhookEndpointById**](docs/DevelopersWebhooksApi.md#updateWebhookEndpointById) | **PUT** /webhooks/endpoints/{endpoint_id} | Update webhook endpoint
-*CoboWaas2.FeeStationApi* | [**estimateFeeStationFee**](docs/FeeStationApi.md#estimateFeeStationFee) | **POST** /fee_station/transactions/estimate_fee | Estimate fee for Fee Station transaction
+*CoboWaas2.FeeStationApi* | [**estimateFeeStationFee**](docs/FeeStationApi.md#estimateFeeStationFee) | **POST** /fee_station/transactions/estimate_fee | Estimate transaction fee
 *CoboWaas2.FeeStationApi* | [**getFeeStationTransactionById**](docs/FeeStationApi.md#getFeeStationTransactionById) | **GET** /fee_station/transactions/{transaction_id} | Get Fee Station transaction information
 *CoboWaas2.FeeStationApi* | [**listFeeStationAddresses**](docs/FeeStationApi.md#listFeeStationAddresses) | **GET** /fee_station/addresses | List Fee Station addresses
 *CoboWaas2.FeeStationApi* | [**listFeeStationTransactions**](docs/FeeStationApi.md#listFeeStationTransactions) | **GET** /fee_station/transactions | List all Fee Station transactions
 *CoboWaas2.FeeStationApi* | [**listTokenBalancesForFeeStation**](docs/FeeStationApi.md#listTokenBalancesForFeeStation) | **GET** /fee_station/tokens | List Fee Station token balances
+*CoboWaas2.GraphQLApi* | [**executeGraphql**](docs/GraphQLApi.md#executeGraphql) | **POST** /graphql | Execute a GraphQL query or mutation
 *CoboWaas2.OAuthApi* | [**getToken**](docs/OAuthApi.md#getToken) | **GET** /oauth/token | Get Org Access Token
 *CoboWaas2.OAuthApi* | [**refreshToken**](docs/OAuthApi.md#refreshToken) | **POST** /oauth/token | Refresh Org Access Token
 *CoboWaas2.PaymentApi* | [**createBankAccount**](docs/PaymentApi.md#createBankAccount) | **POST** /payments/bank_accounts | Create bank account
+*CoboWaas2.PaymentApi* | [**createCryptoAddress**](docs/PaymentApi.md#createCryptoAddress) | **POST** /payments/crypto_addresses | Create crypto address
 *CoboWaas2.PaymentApi* | [**createMerchant**](docs/PaymentApi.md#createMerchant) | **POST** /payments/merchants | Create merchant
 *CoboWaas2.PaymentApi* | [**createPaymentOrder**](docs/PaymentApi.md#createPaymentOrder) | **POST** /payments/orders | Create pay-in order
 *CoboWaas2.PaymentApi* | [**createRefund**](docs/PaymentApi.md#createRefund) | **POST** /payments/refunds | Create refund order
@@ -105,8 +107,10 @@ Class | Method | HTTP request | Description
 *CoboWaas2.PaymentApi* | [**getSettlementById**](docs/PaymentApi.md#getSettlementById) | **GET** /payments/settlement_requests/{settlement_request_id} | Get settlement request information
 *CoboWaas2.PaymentApi* | [**getSettlementInfoByIds**](docs/PaymentApi.md#getSettlementInfoByIds) | **GET** /payments/settlement_info | Get withdrawable balances
 *CoboWaas2.PaymentApi* | [**listBankAccounts**](docs/PaymentApi.md#listBankAccounts) | **GET** /payments/bank_accounts | List all bank accounts
+*CoboWaas2.PaymentApi* | [**listCryptoAddresses**](docs/PaymentApi.md#listCryptoAddresses) | **GET** /payments/crypto_addresses | List crypto addresses
 *CoboWaas2.PaymentApi* | [**listMerchants**](docs/PaymentApi.md#listMerchants) | **GET** /payments/merchants | List all merchants
 *CoboWaas2.PaymentApi* | [**listPaymentOrders**](docs/PaymentApi.md#listPaymentOrders) | **GET** /payments/orders | List all pay-in orders
+*CoboWaas2.PaymentApi* | [**listPaymentSupportedTokens**](docs/PaymentApi.md#listPaymentSupportedTokens) | **GET** /payments/supported_tokens | List all supported tokens
 *CoboWaas2.PaymentApi* | [**listSettlementRequests**](docs/PaymentApi.md#listSettlementRequests) | **GET** /payments/settlement_requests | List all settlement requests
 *CoboWaas2.PaymentApi* | [**updateBankAccountById**](docs/PaymentApi.md#updateBankAccountById) | **PUT** /payments/bank_accounts/{bank_account_id} | Update bank account
 *CoboWaas2.PaymentApi* | [**updateMerchantById**](docs/PaymentApi.md#updateMerchantById) | **PUT** /payments/merchants/{merchant_id} | Update merchant
@@ -137,6 +141,11 @@ Class | Method | HTTP request | Description
 *CoboWaas2.StakingsApi* | [**listStakingActivities**](docs/StakingsApi.md#listStakingActivities) | **GET** /stakings/activities | List staking activities
 *CoboWaas2.StakingsApi* | [**listStakingPools**](docs/StakingsApi.md#listStakingPools) | **GET** /stakings/pools | List staking pools
 *CoboWaas2.StakingsApi* | [**listStakings**](docs/StakingsApi.md#listStakings) | **GET** /stakings | List staking positions
+*CoboWaas2.SwapsApi* | [**createSwapActivity**](docs/SwapsApi.md#createSwapActivity) | **POST** /swaps/swap | Create Swap Activity
+*CoboWaas2.SwapsApi* | [**getSwapActivity**](docs/SwapsApi.md#getSwapActivity) | **GET** /swaps/activities/{activity_id} | Get Swap Activity Details
+*CoboWaas2.SwapsApi* | [**getSwapQuote**](docs/SwapsApi.md#getSwapQuote) | **GET** /swaps/quote | Get Current Swap Rate
+*CoboWaas2.SwapsApi* | [**listSwapActivities**](docs/SwapsApi.md#listSwapActivities) | **GET** /swaps/activities | List Swap Activities
+*CoboWaas2.SwapsApi* | [**listSwapEnabledTokens**](docs/SwapsApi.md#listSwapEnabledTokens) | **GET** /swaps/enabled_tokens | List Enabled Tokens
 *CoboWaas2.TransactionsApi* | [**broadcastSignedTransactions**](docs/TransactionsApi.md#broadcastSignedTransactions) | **POST** /transactions/broadcast | Broadcast signed transactions
 *CoboWaas2.TransactionsApi* | [**cancelTransactionById**](docs/TransactionsApi.md#cancelTransactionById) | **POST** /transactions/{transaction_id}/cancel | Cancel transaction
 *CoboWaas2.TransactionsApi* | [**checkLoopTransfers**](docs/TransactionsApi.md#checkLoopTransfers) | **GET** /transactions/check_loop_transfers | Check Cobo Loop transfers
@@ -161,13 +170,13 @@ Class | Method | HTTP request | Description
 *CoboWaas2.WalletsApi* | [**checkAddressValidity**](docs/WalletsApi.md#checkAddressValidity) | **GET** /wallets/check_address_validity | Check address validity
 *CoboWaas2.WalletsApi* | [**checkAddressesValidity**](docs/WalletsApi.md#checkAddressesValidity) | **GET** /wallets/check_addresses_validity | Check addresses validity
 *CoboWaas2.WalletsApi* | [**createAddress**](docs/WalletsApi.md#createAddress) | **POST** /wallets/{wallet_id}/addresses | Create addresses in wallet
-*CoboWaas2.WalletsApi* | [**createTokenListingRequest**](docs/WalletsApi.md#createTokenListingRequest) | **POST** /wallets/tokens/listing_requests | Create token listing request
+*CoboWaas2.WalletsApi* | [**createTokenListingRequest**](docs/WalletsApi.md#createTokenListingRequest) | **POST** /wallets/tokens/listing_requests | Submit token listing request
 *CoboWaas2.WalletsApi* | [**createWallet**](docs/WalletsApi.md#createWallet) | **POST** /wallets | Create wallet
 *CoboWaas2.WalletsApi* | [**deleteWalletById**](docs/WalletsApi.md#deleteWalletById) | **POST** /wallets/{wallet_id}/delete | Delete wallet
 *CoboWaas2.WalletsApi* | [**getChainById**](docs/WalletsApi.md#getChainById) | **GET** /wallets/chains/{chain_id} | Get chain information
 *CoboWaas2.WalletsApi* | [**getMaxTransferableValue**](docs/WalletsApi.md#getMaxTransferableValue) | **GET** /wallets/{wallet_id}/max_transferable_value | Get maximum transferable value
 *CoboWaas2.WalletsApi* | [**getTokenById**](docs/WalletsApi.md#getTokenById) | **GET** /wallets/tokens/{token_id} | Get token information
-*CoboWaas2.WalletsApi* | [**getTokenListingRequestByRequestId**](docs/WalletsApi.md#getTokenListingRequestByRequestId) | **GET** /wallets/tokens/listing_requests/{request_id} | Get token listing request
+*CoboWaas2.WalletsApi* | [**getTokenListingRequestByRequestId**](docs/WalletsApi.md#getTokenListingRequestByRequestId) | **GET** /wallets/tokens/listing_requests/{request_id} | Get token listing request details
 *CoboWaas2.WalletsApi* | [**getWalletById**](docs/WalletsApi.md#getWalletById) | **GET** /wallets/{wallet_id} | Get wallet information
 *CoboWaas2.WalletsApi* | [**listAddressBalancesByToken**](docs/WalletsApi.md#listAddressBalancesByToken) | **GET** /wallets/{wallet_id}/tokens/{token_id} | List address balances by token
 *CoboWaas2.WalletsApi* | [**listAddresses**](docs/WalletsApi.md#listAddresses) | **GET** /wallets/{wallet_id}/addresses | List wallet addresses
@@ -177,7 +186,7 @@ Class | Method | HTTP request | Description
 *CoboWaas2.WalletsApi* | [**listSupportedTokens**](docs/WalletsApi.md#listSupportedTokens) | **GET** /wallets/tokens | List supported tokens
 *CoboWaas2.WalletsApi* | [**listTokenBalancesForAddress**](docs/WalletsApi.md#listTokenBalancesForAddress) | **GET** /wallets/{wallet_id}/addresses/{address}/tokens | List token balances by address
 *CoboWaas2.WalletsApi* | [**listTokenBalancesForWallet**](docs/WalletsApi.md#listTokenBalancesForWallet) | **GET** /wallets/{wallet_id}/tokens | List token balances by wallet
-*CoboWaas2.WalletsApi* | [**listTokenListingRequests**](docs/WalletsApi.md#listTokenListingRequests) | **GET** /wallets/tokens/listing_requests | List token listing requests
+*CoboWaas2.WalletsApi* | [**listTokenListingRequests**](docs/WalletsApi.md#listTokenListingRequests) | **GET** /wallets/tokens/listing_requests | Get all token listing requests
 *CoboWaas2.WalletsApi* | [**listUtxos**](docs/WalletsApi.md#listUtxos) | **GET** /wallets/{wallet_id}/utxos | List UTXOs
 *CoboWaas2.WalletsApi* | [**listWallets**](docs/WalletsApi.md#listWallets) | **GET** /wallets | List all wallets
 *CoboWaas2.WalletsApi* | [**lockUtxos**](docs/WalletsApi.md#lockUtxos) | **POST** /wallets/{wallet_id}/utxos/lock | Lock UTXOs
@@ -300,6 +309,7 @@ Class | Method | HTTP request | Description
  - [CoboWaas2.CreateBankAccountRequest](docs/CreateBankAccountRequest.md)
  - [CoboWaas2.CreateClaimActivity](docs/CreateClaimActivity.md)
  - [CoboWaas2.CreateClaimActivityRequest](docs/CreateClaimActivityRequest.md)
+ - [CoboWaas2.CreateCryptoAddressRequest](docs/CreateCryptoAddressRequest.md)
  - [CoboWaas2.CreateCustodialWalletParams](docs/CreateCustodialWalletParams.md)
  - [CoboWaas2.CreateExchangeWalletParams](docs/CreateExchangeWalletParams.md)
  - [CoboWaas2.CreateKeyShareHolder](docs/CreateKeyShareHolder.md)
@@ -320,6 +330,7 @@ Class | Method | HTTP request | Description
  - [CoboWaas2.CreateStakeActivity201Response](docs/CreateStakeActivity201Response.md)
  - [CoboWaas2.CreateStakeActivityExtra](docs/CreateStakeActivityExtra.md)
  - [CoboWaas2.CreateStakeActivityRequest](docs/CreateStakeActivityRequest.md)
+ - [CoboWaas2.CreateSwapActivityRequest](docs/CreateSwapActivityRequest.md)
  - [CoboWaas2.CreateTokenListingRequest201Response](docs/CreateTokenListingRequest201Response.md)
  - [CoboWaas2.CreateTokenListingRequestRequest](docs/CreateTokenListingRequestRequest.md)
  - [CoboWaas2.CreateTransferTransaction201Response](docs/CreateTransferTransaction201Response.md)
@@ -332,7 +343,9 @@ Class | Method | HTTP request | Description
  - [CoboWaas2.CreateWithdrawActivity](docs/CreateWithdrawActivity.md)
  - [CoboWaas2.CreateWithdrawActivityRequest](docs/CreateWithdrawActivityRequest.md)
  - [CoboWaas2.CreatedWalletInfo](docs/CreatedWalletInfo.md)
+ - [CoboWaas2.CryptoAddress](docs/CryptoAddress.md)
  - [CoboWaas2.CurveType](docs/CurveType.md)
+ - [CoboWaas2.CustodialTransferDestination](docs/CustodialTransferDestination.md)
  - [CoboWaas2.CustodialTransferSource](docs/CustodialTransferSource.md)
  - [CoboWaas2.CustodialWalletInfo](docs/CustodialWalletInfo.md)
  - [CoboWaas2.CustodialWeb3ContractCallSource](docs/CustodialWeb3ContractCallSource.md)
@@ -398,6 +411,10 @@ Class | Method | HTTP request | Description
  - [CoboWaas2.GetToken2XXResponse](docs/GetToken2XXResponse.md)
  - [CoboWaas2.GetToken4XXResponse](docs/GetToken4XXResponse.md)
  - [CoboWaas2.GetTransactionLimitation200Response](docs/GetTransactionLimitation200Response.md)
+ - [CoboWaas2.GraphQLError](docs/GraphQLError.md)
+ - [CoboWaas2.GraphQLErrorLocationsInner](docs/GraphQLErrorLocationsInner.md)
+ - [CoboWaas2.GraphQLRequest](docs/GraphQLRequest.md)
+ - [CoboWaas2.GraphQLResponse](docs/GraphQLResponse.md)
  - [CoboWaas2.GuardPubkeyStatus](docs/GuardPubkeyStatus.md)
  - [CoboWaas2.KeyShareHolder](docs/KeyShareHolder.md)
  - [CoboWaas2.KeyShareHolderGroup](docs/KeyShareHolderGroup.md)
@@ -431,6 +448,8 @@ Class | Method | HTTP request | Description
  - [CoboWaas2.ListSupportedChains200Response](docs/ListSupportedChains200Response.md)
  - [CoboWaas2.ListSupportedCountries200ResponseInner](docs/ListSupportedCountries200ResponseInner.md)
  - [CoboWaas2.ListSupportedTokens200Response](docs/ListSupportedTokens200Response.md)
+ - [CoboWaas2.ListSwapActivities200Response](docs/ListSwapActivities200Response.md)
+ - [CoboWaas2.ListSwapEnabledTokens200Response](docs/ListSwapEnabledTokens200Response.md)
  - [CoboWaas2.ListTokenBalancesForAddress200Response](docs/ListTokenBalancesForAddress200Response.md)
  - [CoboWaas2.ListTokenBalancesForFeeStation200Response](docs/ListTokenBalancesForFeeStation200Response.md)
  - [CoboWaas2.ListTokenBalancesForFeeStation200ResponseDataInner](docs/ListTokenBalancesForFeeStation200ResponseDataInner.md)
@@ -470,10 +489,8 @@ Class | Method | HTTP request | Description
  - [CoboWaas2.OrderStatus](docs/OrderStatus.md)
  - [CoboWaas2.OrgInfo](docs/OrgInfo.md)
  - [CoboWaas2.Pagination](docs/Pagination.md)
- - [CoboWaas2.PaymentOrderEventData](docs/PaymentOrderEventData.md)
- - [CoboWaas2.PaymentRefundEventData](docs/PaymentRefundEventData.md)
- - [CoboWaas2.PaymentSettlementEvent](docs/PaymentSettlementEvent.md)
  - [CoboWaas2.PaymentTransaction](docs/PaymentTransaction.md)
+ - [CoboWaas2.PayoutChannel](docs/PayoutChannel.md)
  - [CoboWaas2.PolicyAction](docs/PolicyAction.md)
  - [CoboWaas2.PolicyActionContent](docs/PolicyActionContent.md)
  - [CoboWaas2.PolicyActionType](docs/PolicyActionType.md)
@@ -537,13 +554,16 @@ Class | Method | HTTP request | Description
  - [CoboWaas2.StakingsExtra](docs/StakingsExtra.md)
  - [CoboWaas2.SubWalletAssetBalance](docs/SubWalletAssetBalance.md)
  - [CoboWaas2.SubmitDepositTravelRuleInfo201Response](docs/SubmitDepositTravelRuleInfo201Response.md)
+ - [CoboWaas2.SupportedToken](docs/SupportedToken.md)
  - [CoboWaas2.SwapActivity](docs/SwapActivity.md)
  - [CoboWaas2.SwapActivityApprovers](docs/SwapActivityApprovers.md)
  - [CoboWaas2.SwapActivityDetail](docs/SwapActivityDetail.md)
+ - [CoboWaas2.SwapActivitySigners](docs/SwapActivitySigners.md)
  - [CoboWaas2.SwapActivityStatus](docs/SwapActivityStatus.md)
  - [CoboWaas2.SwapActivityTimeline](docs/SwapActivityTimeline.md)
  - [CoboWaas2.SwapApproversStatus](docs/SwapApproversStatus.md)
  - [CoboWaas2.SwapQuote](docs/SwapQuote.md)
+ - [CoboWaas2.SwapSingingStatus](docs/SwapSingingStatus.md)
  - [CoboWaas2.SwapToken](docs/SwapToken.md)
  - [CoboWaas2.SwapType](docs/SwapType.md)
  - [CoboWaas2.TSSBaseRequestEventData](docs/TSSBaseRequestEventData.md)
