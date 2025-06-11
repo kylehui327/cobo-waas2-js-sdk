@@ -94,8 +94,8 @@
       //expect(instance).to.be();
     });
 
-    it('should have the property expired_at (base name: "expired_at")', function() {
-      // uncomment below and update the code to test the property expired_at
+    it('should have the property expired_in (base name: "expired_in")', function() {
+      // uncomment below and update the code to test the property expired_in
       //var instance = new CoboWaas2.CreatePaymentOrderRequest();
       //expect(instance).to.be();
     });

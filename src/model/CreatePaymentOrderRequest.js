@@ -75,8 +75,8 @@ class CreatePaymentOrderRequest {
             if (data.hasOwnProperty('psp_order_code')) {
                 obj['psp_order_code'] = ApiClient.convertToType(data['psp_order_code'], 'String');
             }
-            if (data.hasOwnProperty('expired_at')) {
-                obj['expired_at'] = ApiClient.convertToType(data['expired_at'], 'Number');
+            if (data.hasOwnProperty('expired_in')) {
+                obj['expired_in'] = ApiClient.convertToType(data['expired_in'], 'Number');
             }
             if (data.hasOwnProperty('use_dedicated_address')) {
                 obj['use_dedicated_address'] = ApiClient.convertToType(data['use_dedicated_address'], 'Boolean');
@@ -178,10 +178,10 @@ CreatePaymentOrderRequest.prototype['merchant_order_code'] = undefined;
 CreatePaymentOrderRequest.prototype['psp_order_code'] = undefined;
 
 /**
- * The expiration time of the pay-in order, represented as a UNIX timestamp in seconds. After this time: - The order status becomes final and cannot be changed - The `received_token_amount` field will no longer be updated - Funds received after expiration will be categorized as late payments and can only be settled from the developer balance. - A late payment will trigger a `transactionLate` webhook event. 
- * @member {Number} expired_at
+ * The pay-in order will expire after approximately a certain number of seconds: - The order status becomes final and cannot be changed - The `received_token_amount` field will no longer be updated - Funds received after expiration will be categorized as late payments and can only be settled from the developer balance. - A late payment will trigger a `transactionLate` webhook event. 
+ * @member {Number} expired_in
  */
-CreatePaymentOrderRequest.prototype['expired_at'] = undefined;
+CreatePaymentOrderRequest.prototype['expired_in'] = undefined;
 
 /**
  * Indicates whether to allocate a dedicated address for this order.  If false, a shared address from the address pool will be used. 
