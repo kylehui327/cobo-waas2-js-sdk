@@ -92,7 +92,9 @@ Class | Method | HTTP request | Description
 *CoboWaas2.FeeStationApi* | [**listFeeStationTransactions**](docs/FeeStationApi.md#listFeeStationTransactions) | **GET** /fee_station/transactions | List all Fee Station transactions
 *CoboWaas2.FeeStationApi* | [**listTokenBalancesForFeeStation**](docs/FeeStationApi.md#listTokenBalancesForFeeStation) | **GET** /fee_station/tokens | List Fee Station token balances
 *CoboWaas2.GraphQLApi* | [**executeGraphql**](docs/GraphQLApi.md#executeGraphql) | **POST** /graphql | Execute a GraphQL query or mutation
+*CoboWaas2.OAuthApi* | [**exchangePermissionToken**](docs/OAuthApi.md#exchangePermissionToken) | **POST** /oauth/permission_token/exchange | Exchange Permission Access Token by API Key
 *CoboWaas2.OAuthApi* | [**getToken**](docs/OAuthApi.md#getToken) | **GET** /oauth/token | Get Org Access Token
+*CoboWaas2.OAuthApi* | [**refreshPermissionToken**](docs/OAuthApi.md#refreshPermissionToken) | **POST** /oauth/permission_token/refresh | Refresh Permission Access Token by Permission Refresh Token
 *CoboWaas2.OAuthApi* | [**refreshToken**](docs/OAuthApi.md#refreshToken) | **POST** /oauth/token | Refresh Org Access Token
 *CoboWaas2.PaymentApi* | [**createBankAccount**](docs/PaymentApi.md#createBankAccount) | **POST** /payments/bank_accounts | Create bank account
 *CoboWaas2.PaymentApi* | [**createCryptoAddress**](docs/PaymentApi.md#createCryptoAddress) | **POST** /payments/crypto_addresses | Create crypto address
@@ -389,6 +391,8 @@ Class | Method | HTTP request | Description
  - [CoboWaas2.EvmLegacyFeeBasePrice](docs/EvmLegacyFeeBasePrice.md)
  - [CoboWaas2.EvmLegacyFeeRate](docs/EvmLegacyFeeRate.md)
  - [CoboWaas2.ExchangeId](docs/ExchangeId.md)
+ - [CoboWaas2.ExchangePermissionToken201Response](docs/ExchangePermissionToken201Response.md)
+ - [CoboWaas2.ExchangePermissionTokenRequest](docs/ExchangePermissionTokenRequest.md)
  - [CoboWaas2.ExchangeTransferDestination](docs/ExchangeTransferDestination.md)
  - [CoboWaas2.ExchangeTransferSource](docs/ExchangeTransferSource.md)
  - [CoboWaas2.ExchangeWalletInfo](docs/ExchangeWalletInfo.md)
@@ -506,6 +510,7 @@ Class | Method | HTTP request | Description
  - [CoboWaas2.RawMessageSignDestination](docs/RawMessageSignDestination.md)
  - [CoboWaas2.RefreshAddressBalancesByToken200Response](docs/RefreshAddressBalancesByToken200Response.md)
  - [CoboWaas2.RefreshAddressBalancesByTokenRequest](docs/RefreshAddressBalancesByTokenRequest.md)
+ - [CoboWaas2.RefreshPermissionTokenRequest](docs/RefreshPermissionTokenRequest.md)
  - [CoboWaas2.RefreshToken2XXResponse](docs/RefreshToken2XXResponse.md)
  - [CoboWaas2.RefreshTokenRequest](docs/RefreshTokenRequest.md)
  - [CoboWaas2.Refund](docs/Refund.md)

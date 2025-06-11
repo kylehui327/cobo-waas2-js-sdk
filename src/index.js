@@ -180,6 +180,8 @@ import EvmEip1559FeeRate from './model/EvmEip1559FeeRate';
 import EvmLegacyFeeBasePrice from './model/EvmLegacyFeeBasePrice';
 import EvmLegacyFeeRate from './model/EvmLegacyFeeRate';
 import ExchangeId from './model/ExchangeId';
+import ExchangePermissionToken201Response from './model/ExchangePermissionToken201Response';
+import ExchangePermissionTokenRequest from './model/ExchangePermissionTokenRequest';
 import ExchangeTransferDestination from './model/ExchangeTransferDestination';
 import ExchangeTransferSource from './model/ExchangeTransferSource';
 import ExchangeWalletInfo from './model/ExchangeWalletInfo';
@@ -297,6 +299,7 @@ import QueryGuardPubkey200ResponseAddressesInner from './model/QueryGuardPubkey2
 import RawMessageSignDestination from './model/RawMessageSignDestination';
 import RefreshAddressBalancesByToken200Response from './model/RefreshAddressBalancesByToken200Response';
 import RefreshAddressBalancesByTokenRequest from './model/RefreshAddressBalancesByTokenRequest';
+import RefreshPermissionTokenRequest from './model/RefreshPermissionTokenRequest';
 import RefreshToken2XXResponse from './model/RefreshToken2XXResponse';
 import RefreshTokenRequest from './model/RefreshTokenRequest';
 import Refund from './model/Refund';
@@ -1597,6 +1600,18 @@ export {
     ExchangeId,
 
     /**
+     * The ExchangePermissionToken201Response model constructor.
+     * @property {module:model/ExchangePermissionToken201Response}
+     */
+    ExchangePermissionToken201Response,
+
+    /**
+     * The ExchangePermissionTokenRequest model constructor.
+     * @property {module:model/ExchangePermissionTokenRequest}
+     */
+    ExchangePermissionTokenRequest,
+
+    /**
      * The ExchangeTransferDestination model constructor.
      * @property {module:model/ExchangeTransferDestination}
      */
@@ -2297,6 +2312,12 @@ export {
      * @property {module:model/RefreshAddressBalancesByTokenRequest}
      */
     RefreshAddressBalancesByTokenRequest,
+
+    /**
+     * The RefreshPermissionTokenRequest model constructor.
+     * @property {module:model/RefreshPermissionTokenRequest}
+     */
+    RefreshPermissionTokenRequest,
 
     /**
      * The RefreshToken2XXResponse model constructor.
