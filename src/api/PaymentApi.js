@@ -12,11 +12,11 @@
 
 import ApiClient from "../ApiClient";
 import BankAccount from '../model/BankAccount';
-import CreateBankAccountRequest from '../model/CreateBankAccountRequest';
 import CreateMerchantRequest from '../model/CreateMerchantRequest';
 import CreatePaymentOrderRequest from '../model/CreatePaymentOrderRequest';
 import CreateRefundRequest from '../model/CreateRefundRequest';
 import CreateSettlementRequestRequest from '../model/CreateSettlementRequestRequest';
+import CryptoAddress from '../model/CryptoAddress';
 import ErrorResponse from '../model/ErrorResponse';
 import GetExchangeRate200Response from '../model/GetExchangeRate200Response';
 import GetRefunds200Response from '../model/GetRefunds200Response';
@@ -28,6 +28,7 @@ import Merchant from '../model/Merchant';
 import Order from '../model/Order';
 import Refund from '../model/Refund';
 import Settlement from '../model/Settlement';
+import SupportedToken from '../model/SupportedToken';
 import UpdateMerchantByIdRequest from '../model/UpdateMerchantByIdRequest';
 import UpdatePaymentOrderRequest from '../model/UpdatePaymentOrderRequest';
 
@@ -48,55 +49,6 @@ export default class PaymentApi {
         this.apiClient = apiClient || ApiClient.instance;
     }
 
-
-
-    /**
-     * Create bank account
-     * This operation registers a bank account for payment settlement.  Upon successful registration, the bank account details can be retrieved using the assigned bank account ID. 
-     * @param {Object} opts Optional parameters
-     * @param {module:model/CreateBankAccountRequest} [CreateBankAccountRequest] The request body to register a bank account.
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/BankAccount} and HTTP response
-     */
-    createBankAccountWithHttpInfo(opts) {
-      opts = opts || {};
-      let postBody = opts['CreateBankAccountRequest'];
-      if (postBody && postBody.toJSON) {
-          postBody = postBody.toJSON()
-      }
-
-      let pathParams = {
-      };
-      let queryParams = {
-      };
-      let headerParams = {
-      };
-      let formParams = {
-      };
-
-      let authNames = ['OAuth2', 'CoboAuth'];
-      let contentTypes = ['application/json'];
-      let accepts = ['application/json'];
-      let returnType = BankAccount;
-      return this.apiClient.callApi(
-        '/payments/bank_accounts', 'POST',
-        pathParams, queryParams, headerParams, formParams, postBody,
-        authNames, contentTypes, accepts, returnType, null
-      );
-    }
-
-    /**
-     * Create bank account
-     * This operation registers a bank account for payment settlement.  Upon successful registration, the bank account details can be retrieved using the assigned bank account ID. 
-     * @param {Object} opts Optional parameters
-     * @param {module:model/CreateBankAccountRequest} opts.CreateBankAccountRequest The request body to register a bank account.
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/BankAccount}
-     */
-    createBankAccount(opts) {
-      return this.createBankAccountWithHttpInfo(opts)
-        .then(function(response_and_data) {
-          return response_and_data.data;
-        });
-    }
 
 
     /**
@@ -623,7 +575,7 @@ export default class PaymentApi {
 
     /**
      * List all bank accounts
-     * This operation retrieves the information of all bank accounts registered. 
+     * This operation retrieves the information of all bank accounts you have registered for payment settlement. Contact our support team at [help@cobo.com](mailto:help@cobo.com) to register a new bank account. 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link Array.<module:model/BankAccount>} and HTTP response
      */
     listBankAccountsWithHttpInfo() {
@@ -654,11 +606,61 @@ export default class PaymentApi {
 
     /**
      * List all bank accounts
-     * This operation retrieves the information of all bank accounts registered. 
+     * This operation retrieves the information of all bank accounts you have registered for payment settlement. Contact our support team at [help@cobo.com](mailto:help@cobo.com) to register a new bank account. 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link Array.<module:model/BankAccount>}
      */
     listBankAccounts() {
       return this.listBankAccountsWithHttpInfo()
+        .then(function(response_and_data) {
+          return response_and_data.data;
+        });
+    }
+
+
+    /**
+     * List crypto addresses
+     * Retrieve a list of cryptocurrency addresses previously created for a given `token_id`. 
+     * @param {Object} opts Optional parameters
+     * @param {String} [token_id] The token ID, which identifies the cryptocurrency. Supported values:    - USDC: `ETH_USDC`, `ARBITRUM_USDC`, `SOL_USDC`, `BASE_USDC`, `MATIC_USDC`, `BSC_USDC`   - USDT: `TRON_USDT`, `ETH_USDT`, `ARBITRUM_USDT`, `SOL_USDT`, `BASE_USDT`, `MATIC_USDT`, `BSC_USDT` 
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link Array.<module:model/CryptoAddress>} and HTTP response
+     */
+    listCryptoAddressesWithHttpInfo(opts) {
+      opts = opts || {};
+      let postBody = null;
+      if (postBody && postBody.toJSON) {
+          postBody = postBody.toJSON()
+      }
+
+      let pathParams = {
+      };
+      let queryParams = {
+        'token_id': opts['token_id']
+      };
+      let headerParams = {
+      };
+      let formParams = {
+      };
+
+      let authNames = ['OAuth2', 'CoboAuth'];
+      let contentTypes = [];
+      let accepts = ['application/json'];
+      let returnType = [CryptoAddress];
+      return this.apiClient.callApi(
+        '/payments/crypto_addresses', 'GET',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, null
+      );
+    }
+
+    /**
+     * List crypto addresses
+     * Retrieve a list of cryptocurrency addresses previously created for a given `token_id`. 
+     * @param {Object} opts Optional parameters
+     * @param {String} opts.token_id The token ID, which identifies the cryptocurrency. Supported values:    - USDC: `ETH_USDC`, `ARBITRUM_USDC`, `SOL_USDC`, `BASE_USDC`, `MATIC_USDC`, `BSC_USDC`   - USDT: `TRON_USDT`, `ETH_USDT`, `ARBITRUM_USDT`, `SOL_USDT`, `BASE_USDT`, `MATIC_USDT`, `BSC_USDT` 
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link Array.<module:model/CryptoAddress>}
+     */
+    listCryptoAddresses(opts) {
+      return this.listCryptoAddressesWithHttpInfo(opts)
         .then(function(response_and_data) {
           return response_and_data.data;
         });
@@ -735,6 +737,7 @@ export default class PaymentApi {
      * @param {String} [before] A cursor indicating the position before the current page. This value is generated by Cobo and returned in the response. If you are paginating forward from the beginning, you do not need to provide it on the first request. When paginating backward (to the previous page), you should pass the before value returned from the last response. 
      * @param {String} [after] A cursor indicating the position after the current page. This value is generated by Cobo and returned in the response. You do not need to provide it on the first request. When paginating forward (to the next page), you should pass the after value returned from the last response. 
      * @param {String} [merchant_id] The merchant ID.
+     * @param {String} [psp_order_id] The PSP order ID.
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/ListPaymentOrders200Response} and HTTP response
      */
     listPaymentOrdersWithHttpInfo(opts) {
@@ -750,7 +753,8 @@ export default class PaymentApi {
         'limit': opts['limit'],
         'before': opts['before'],
         'after': opts['after'],
-        'merchant_id': opts['merchant_id']
+        'merchant_id': opts['merchant_id'],
+        'psp_order_id': opts['psp_order_id']
       };
       let headerParams = {
       };
@@ -776,10 +780,55 @@ export default class PaymentApi {
      * @param {String} opts.before A cursor indicating the position before the current page. This value is generated by Cobo and returned in the response. If you are paginating forward from the beginning, you do not need to provide it on the first request. When paginating backward (to the previous page), you should pass the before value returned from the last response. 
      * @param {String} opts.after A cursor indicating the position after the current page. This value is generated by Cobo and returned in the response. You do not need to provide it on the first request. When paginating forward (to the next page), you should pass the after value returned from the last response. 
      * @param {String} opts.merchant_id The merchant ID.
+     * @param {String} opts.psp_order_id The PSP order ID.
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/ListPaymentOrders200Response}
      */
     listPaymentOrders(opts) {
       return this.listPaymentOrdersWithHttpInfo(opts)
+        .then(function(response_and_data) {
+          return response_and_data.data;
+        });
+    }
+
+
+    /**
+     * List all supported tokens
+     * This operation retrieves the information of all supported tokens. 
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link Array.<module:model/SupportedToken>} and HTTP response
+     */
+    listPaymentSupportedTokensWithHttpInfo() {
+      let postBody = null;
+      if (postBody && postBody.toJSON) {
+          postBody = postBody.toJSON()
+      }
+
+      let pathParams = {
+      };
+      let queryParams = {
+      };
+      let headerParams = {
+      };
+      let formParams = {
+      };
+
+      let authNames = ['OAuth2', 'CoboAuth'];
+      let contentTypes = [];
+      let accepts = ['application/json'];
+      let returnType = [SupportedToken];
+      return this.apiClient.callApi(
+        '/payments/supported_tokens', 'GET',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, null
+      );
+    }
+
+    /**
+     * List all supported tokens
+     * This operation retrieves the information of all supported tokens. 
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link Array.<module:model/SupportedToken>}
+     */
+    listPaymentSupportedTokens() {
+      return this.listPaymentSupportedTokensWithHttpInfo()
         .then(function(response_and_data) {
           return response_and_data.data;
         });
@@ -839,62 +888,6 @@ export default class PaymentApi {
      */
     listSettlementRequests(opts) {
       return this.listSettlementRequestsWithHttpInfo(opts)
-        .then(function(response_and_data) {
-          return response_and_data.data;
-        });
-    }
-
-
-    /**
-     * Update bank account
-     * This operation updates the information of an existing bank account. 
-     * @param {String} bank_account_id The bank account ID.
-     * @param {Object} opts Optional parameters
-     * @param {module:model/CreateBankAccountRequest} [CreateBankAccountRequest] The request body for updating an existing bank account.
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/BankAccount} and HTTP response
-     */
-    updateBankAccountByIdWithHttpInfo(bank_account_id, opts) {
-      opts = opts || {};
-      let postBody = opts['CreateBankAccountRequest'];
-      if (postBody && postBody.toJSON) {
-          postBody = postBody.toJSON()
-      }
-      // verify the required parameter 'bank_account_id' is set
-      if (bank_account_id === undefined || bank_account_id === null) {
-        throw new Error("Missing the required parameter 'bank_account_id' when calling updateBankAccountById");
-      }
-
-      let pathParams = {
-        'bank_account_id': bank_account_id
-      };
-      let queryParams = {
-      };
-      let headerParams = {
-      };
-      let formParams = {
-      };
-
-      let authNames = ['OAuth2', 'CoboAuth'];
-      let contentTypes = ['application/json'];
-      let accepts = ['application/json'];
-      let returnType = BankAccount;
-      return this.apiClient.callApi(
-        '/payments/bank_accounts/{bank_account_id}', 'PUT',
-        pathParams, queryParams, headerParams, formParams, postBody,
-        authNames, contentTypes, accepts, returnType, null
-      );
-    }
-
-    /**
-     * Update bank account
-     * This operation updates the information of an existing bank account. 
-     * @param {String} bank_account_id The bank account ID.
-     * @param {Object} opts Optional parameters
-     * @param {module:model/CreateBankAccountRequest} opts.CreateBankAccountRequest The request body for updating an existing bank account.
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/BankAccount}
-     */
-    updateBankAccountById(bank_account_id, opts) {
-      return this.updateBankAccountByIdWithHttpInfo(bank_account_id, opts)
         .then(function(response_and_data) {
           return response_and_data.data;
         });

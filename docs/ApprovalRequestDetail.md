@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**approval_id** | **String** |  | [optional] 
+**approval_id** | **String** | The system-generated unique ID of the approval request. | [optional] 
 **initiator** | [**ApprovalUser**](ApprovalUser.md) |  | 
 **approved_list** | [**[ApprovalEntry]**](ApprovalEntry.md) |  | [optional] 
 **status** | [**ApprovalStatus**](ApprovalStatus.md) |  | 

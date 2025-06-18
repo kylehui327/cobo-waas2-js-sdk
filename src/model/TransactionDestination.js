@@ -81,6 +81,10 @@ class TransactionDestination {
                     this.actualInstance = TransactionCosmosContractDestination.constructFromObject(instance);
                     match++;
                     break;
+                case "CustodialWallet":
+                    this.actualInstance = TransactionTransferToWalletDestination.constructFromObject(instance);
+                    match++;
+                    break;
                 case "DepositToAddress":
                     this.actualInstance = TransactionDepositToAddressDestination.constructFromObject(instance);
                     match++;

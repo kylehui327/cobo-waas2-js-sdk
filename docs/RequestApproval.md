@@ -4,10 +4,10 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**operation_id** | **String** | The operation id of workflow approval request. | 
-**request_id** | **String** | The request id of workflow approval request. | 
-**initiator_email** | **String** | The initiator email of workflow approval request. | 
+**operation_id** | **String** | The unique ID of the approval workflow. | 
+**request_id** | **String** | An identifier provided by you to track this request. | 
+**initiator_email** | **String** | The email of the user who requested the approval. | 
 **fields** | [**[AppWorkflowField]**](AppWorkflowField.md) |  | 
-**guard_template** | **String** | The guard template content of workflow approval request, need to connect cobo. | 
+**guard_template** | **String** | The template of a Cobo Guard message. Please connect [help@cobo.com](mailto:help@cobo.com) to get the template content. | 
 
 

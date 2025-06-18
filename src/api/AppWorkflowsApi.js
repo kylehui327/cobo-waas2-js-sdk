@@ -41,9 +41,9 @@ export default class AppWorkflowsApi {
 
     /**
      * Request workflow approval
-     * This operation is request approval from app workflow with idempotency checks. 
+     * This operation triggers a specified workflow and generates a new approval request.  <Note>To use the approval workflow operations, you must use the Cobo OAuth authentication method ([Org Access Token](https://www.cobo.com/developers/v2/apps/org-access-tokens)).</Note> 
      * @param {Object} opts Optional parameters
-     * @param {module:model/RequestApproval} [RequestApproval] The request body to app workflow approval.
+     * @param {module:model/RequestApproval} [RequestApproval] The request body to request workflow approval.
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/CreateApprovalRequest201Response} and HTTP response
      */
     createApprovalRequestWithHttpInfo(opts) {
@@ -75,9 +75,9 @@ export default class AppWorkflowsApi {
 
     /**
      * Request workflow approval
-     * This operation is request approval from app workflow with idempotency checks. 
+     * This operation triggers a specified workflow and generates a new approval request.  <Note>To use the approval workflow operations, you must use the Cobo OAuth authentication method ([Org Access Token](https://www.cobo.com/developers/v2/apps/org-access-tokens)).</Note> 
      * @param {Object} opts Optional parameters
-     * @param {module:model/RequestApproval} opts.RequestApproval The request body to app workflow approval.
+     * @param {module:model/RequestApproval} opts.RequestApproval The request body to request workflow approval.
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/CreateApprovalRequest201Response}
      */
     createApprovalRequest(opts) {
@@ -90,8 +90,8 @@ export default class AppWorkflowsApi {
 
     /**
      * Get approval request details
-     * This operation is retrieves approval request from app workflow. 
-     * @param {String} approval_id The approval ID that is used to track a workflow approval request.
+     * This operation retrieves the details of a specific approval request.  <Note>To use the approval workflow operations, you must use the Cobo OAuth authentication method ([Org Access Token](https://www.cobo.com/developers/v2/apps/org-access-tokens)).</Note> 
+     * @param {String} approval_id The system-generated unique ID of the approval request.
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/ApprovalRequestDetail} and HTTP response
      */
     getApprovalRequestByIdWithHttpInfo(approval_id) {
@@ -127,8 +127,8 @@ export default class AppWorkflowsApi {
 
     /**
      * Get approval request details
-     * This operation is retrieves approval request from app workflow. 
-     * @param {String} approval_id The approval ID that is used to track a workflow approval request.
+     * This operation retrieves the details of a specific approval request.  <Note>To use the approval workflow operations, you must use the Cobo OAuth authentication method ([Org Access Token](https://www.cobo.com/developers/v2/apps/org-access-tokens)).</Note> 
+     * @param {String} approval_id The system-generated unique ID of the approval request.
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/ApprovalRequestDetail}
      */
     getApprovalRequestById(approval_id) {
@@ -140,8 +140,8 @@ export default class AppWorkflowsApi {
 
 
     /**
-     * list app workflows
-     * This operation is list app workflows of app. 
+     * List app workflows
+     * This operation retrieves all approval workflows of an Cobo Portal App. <Note>You need to [configure approval workflow](https://www.cobo.com/developers/v2/apps/configure-workflow) in the app Manifest file first.</Note> <Note>To use the approval workflow operations, you must use the Cobo OAuth authentication method ([Org Access Token](https://www.cobo.com/developers/v2/apps/org-access-tokens)).</Note> 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link Array.<module:model/AppWorkflow>} and HTTP response
      */
     listAppWorkflowsWithHttpInfo() {
@@ -171,8 +171,8 @@ export default class AppWorkflowsApi {
     }
 
     /**
-     * list app workflows
-     * This operation is list app workflows of app. 
+     * List app workflows
+     * This operation retrieves all approval workflows of an Cobo Portal App. <Note>You need to [configure approval workflow](https://www.cobo.com/developers/v2/apps/configure-workflow) in the app Manifest file first.</Note> <Note>To use the approval workflow operations, you must use the Cobo OAuth authentication method ([Org Access Token](https://www.cobo.com/developers/v2/apps/org-access-tokens)).</Note> 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link Array.<module:model/AppWorkflow>}
      */
     listAppWorkflows() {
@@ -185,8 +185,8 @@ export default class AppWorkflowsApi {
 
     /**
      * List approval requests
-     * This operation is retrieves list approval requests from app workflow. 
-     * @param {String} operation_id The operation ID that is used to track a workflow. The operation ID is provided by you and must be unique within your app.
+     * This operation retrieves a list of approval requests.  <Note>To use the approval workflow operations, you must use the Cobo OAuth authentication method ([Org Access Token](https://www.cobo.com/developers/v2/apps/org-access-tokens)).</Note> 
+     * @param {String} operation_id The unique ID of the approval workflow.
      * @param {Object} opts Optional parameters
      * @param {Number} [limit = 10)] The maximum number of objects to return. For most operations, the value range is [1, 50].
      * @param {String} [before] A cursor indicating the position before the current page. This value is generated by Cobo and returned in the response. If you are paginating forward from the beginning, you do not need to provide it on the first request. When paginating backward (to the previous page), you should pass the before value returned from the last response. 
@@ -230,8 +230,8 @@ export default class AppWorkflowsApi {
 
     /**
      * List approval requests
-     * This operation is retrieves list approval requests from app workflow. 
-     * @param {String} operation_id The operation ID that is used to track a workflow. The operation ID is provided by you and must be unique within your app.
+     * This operation retrieves a list of approval requests.  <Note>To use the approval workflow operations, you must use the Cobo OAuth authentication method ([Org Access Token](https://www.cobo.com/developers/v2/apps/org-access-tokens)).</Note> 
+     * @param {String} operation_id The unique ID of the approval workflow.
      * @param {Object} opts Optional parameters
      * @param {Number} opts.limit The maximum number of objects to return. For most operations, the value range is [1, 50]. (default to 10)
      * @param {String} opts.before A cursor indicating the position before the current page. This value is generated by Cobo and returned in the response. If you are paginating forward from the beginning, you do not need to provide it on the first request. When paginating backward (to the previous page), you should pass the before value returned from the last response. 
@@ -248,10 +248,10 @@ export default class AppWorkflowsApi {
 
     /**
      * Revoke approval request
-     * This operation is revoke approval request from app workflow. 
-     * @param {String} approval_id The approval ID that is used to track a workflow approval request.
+     * This operation revokes a pending approval request.  <Note>To use the approval workflow operations, you must use the Cobo OAuth authentication method ([Org Access Token](https://www.cobo.com/developers/v2/apps/org-access-tokens)).</Note> 
+     * @param {String} approval_id The system-generated unique ID of the approval request.
      * @param {Object} opts Optional parameters
-     * @param {module:model/RevokeApprovalRequestRequest} [RevokeApprovalRequestRequest] The revoke request body to app workflow approval.
+     * @param {module:model/RevokeApprovalRequestRequest} [RevokeApprovalRequestRequest] The request body to revoke an approval request.
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/RevokeApprovalRequest201Response} and HTTP response
      */
     revokeApprovalRequestWithHttpInfo(approval_id, opts) {
@@ -288,10 +288,10 @@ export default class AppWorkflowsApi {
 
     /**
      * Revoke approval request
-     * This operation is revoke approval request from app workflow. 
-     * @param {String} approval_id The approval ID that is used to track a workflow approval request.
+     * This operation revokes a pending approval request.  <Note>To use the approval workflow operations, you must use the Cobo OAuth authentication method ([Org Access Token](https://www.cobo.com/developers/v2/apps/org-access-tokens)).</Note> 
+     * @param {String} approval_id The system-generated unique ID of the approval request.
      * @param {Object} opts Optional parameters
-     * @param {module:model/RevokeApprovalRequestRequest} opts.RevokeApprovalRequestRequest The revoke request body to app workflow approval.
+     * @param {module:model/RevokeApprovalRequestRequest} opts.RevokeApprovalRequestRequest The request body to revoke an approval request.
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/RevokeApprovalRequest201Response}
      */
     revokeApprovalRequest(approval_id, opts) {

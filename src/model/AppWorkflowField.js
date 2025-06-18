@@ -19,11 +19,11 @@ import PolicyFieldValueType from './PolicyFieldValueType';
 class AppWorkflowField {
     /**
      * Constructs a new <code>AppWorkflowField</code>.
-     * The information of an app workflow field.
+     * The information of a workflow field.
      * @alias module:model/AppWorkflowField
-     * @param field {String} The app workflow field name.
+     * @param field {String} The workflow field name.
      * @param value_type {module:model/PolicyFieldValueType} 
-     * @param value {String} The app workflow field value.
+     * @param value {String} The workflow field value.
      */
     constructor(field, value_type, value) { 
         
@@ -95,7 +95,7 @@ class AppWorkflowField {
 AppWorkflowField.RequiredProperties = ["field", "value_type", "value"];
 
 /**
- * The app workflow field name.
+ * The workflow field name.
  * @member {String} field
  */
 AppWorkflowField.prototype['field'] = undefined;
@@ -106,7 +106,7 @@ AppWorkflowField.prototype['field'] = undefined;
 AppWorkflowField.prototype['value_type'] = undefined;
 
 /**
- * The app workflow field value.
+ * The workflow field value.
  * @member {String} value
  */
 AppWorkflowField.prototype['value'] = undefined;

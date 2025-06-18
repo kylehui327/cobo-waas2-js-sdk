@@ -25,6 +25,13 @@ export default class TransferDestinationType {
 
     
         /**
+         * value: "CustodialWallet"
+         * @const
+         */
+        "CustodialWallet" = "CustodialWallet";
+
+    
+        /**
          * value: "ExchangeWallet"
          * @const
          */

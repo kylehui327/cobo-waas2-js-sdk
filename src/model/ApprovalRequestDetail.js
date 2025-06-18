@@ -21,7 +21,7 @@ import ApprovalUser from './ApprovalUser';
 class ApprovalRequestDetail {
     /**
      * Constructs a new <code>ApprovalRequestDetail</code>.
-     * The information of an app workflow approval detail.
+     * The information of an approval request detail.
      * @alias module:model/ApprovalRequestDetail
      * @param initiator {module:model/ApprovalUser} 
      * @param status {module:model/ApprovalStatus} 
@@ -113,6 +113,7 @@ class ApprovalRequestDetail {
 ApprovalRequestDetail.RequiredProperties = ["initiator", "status"];
 
 /**
+ * The system-generated unique ID of the approval request.
  * @member {String} approval_id
  */
 ApprovalRequestDetail.prototype['approval_id'] = undefined;

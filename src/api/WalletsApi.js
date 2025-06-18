@@ -67,10 +67,10 @@ export default class WalletsApi {
 
     /**
      * Batch check UTXOs
-     * The operation check a list of unspent transaction outputs (UTXOs) for a specified wallet and token.  <Note>This operation is applicable to MPC and Custodial Web3 Wallets. This interface can only withdraw a maximum of 100 utxos</Note> 
+     * This operation verifies the existence and details of specified unspent transaction outputs (UTXOs) for a given wallet and token. A maximum of 100 UTXOs can be verified per request. <Note>This operation is applicable to MPC Wallets and Custodial Wallets (Web3 Wallets) only.</Note> 
      * @param {String} wallet_id The wallet ID.
      * @param {Object} opts Optional parameters
-     * @param {module:model/BatchCheckUtxoRequest} [BatchCheckUtxoRequest] The request body of the batch check UTXOs operation.
+     * @param {module:model/BatchCheckUtxoRequest} [BatchCheckUtxoRequest] The request body of the Batch check UTXOs operation.
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/BatchCheckUtxo201Response} and HTTP response
      */
     batchCheckUtxoWithHttpInfo(wallet_id, opts) {
@@ -107,10 +107,10 @@ export default class WalletsApi {
 
     /**
      * Batch check UTXOs
-     * The operation check a list of unspent transaction outputs (UTXOs) for a specified wallet and token.  <Note>This operation is applicable to MPC and Custodial Web3 Wallets. This interface can only withdraw a maximum of 100 utxos</Note> 
+     * This operation verifies the existence and details of specified unspent transaction outputs (UTXOs) for a given wallet and token. A maximum of 100 UTXOs can be verified per request. <Note>This operation is applicable to MPC Wallets and Custodial Wallets (Web3 Wallets) only.</Note> 
      * @param {String} wallet_id The wallet ID.
      * @param {Object} opts Optional parameters
-     * @param {module:model/BatchCheckUtxoRequest} opts.BatchCheckUtxoRequest The request body of the batch check UTXOs operation.
+     * @param {module:model/BatchCheckUtxoRequest} opts.BatchCheckUtxoRequest The request body of the Batch check UTXOs operation.
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/BatchCheckUtxo201Response}
      */
     batchCheckUtxo(wallet_id, opts) {
@@ -1385,7 +1385,7 @@ export default class WalletsApi {
 
     /**
      * List UTXOs
-     * The operation retrieves a list of unspent transaction outputs (UTXOs) for a specified wallet and token.  <Note>This operation is applicable to MPC and Custodial Web3 Wallets.</Note> 
+     * The operation retrieves a list of unspent transaction outputs (UTXOs) for a specified wallet and token.  <Note>This operation is applicable to MPC Wallets and Custodial Wallets (Web3 Wallets) only.</Note> 
      * @param {String} wallet_id The wallet ID.
      * @param {String} token_id The token ID, which is the unique identifier of a token. You can retrieve the IDs of all the tokens you can use by calling [List enabled tokens](https://www.cobo.com/developers/v2/api-references/wallets/list-enabled-tokens).
      * @param {Object} opts Optional parameters
@@ -1440,7 +1440,7 @@ export default class WalletsApi {
 
     /**
      * List UTXOs
-     * The operation retrieves a list of unspent transaction outputs (UTXOs) for a specified wallet and token.  <Note>This operation is applicable to MPC and Custodial Web3 Wallets.</Note> 
+     * The operation retrieves a list of unspent transaction outputs (UTXOs) for a specified wallet and token.  <Note>This operation is applicable to MPC Wallets and Custodial Wallets (Web3 Wallets) only.</Note> 
      * @param {String} wallet_id The wallet ID.
      * @param {String} token_id The token ID, which is the unique identifier of a token. You can retrieve the IDs of all the tokens you can use by calling [List enabled tokens](https://www.cobo.com/developers/v2/api-references/wallets/list-enabled-tokens).
      * @param {Object} opts Optional parameters

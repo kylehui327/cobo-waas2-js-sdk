@@ -4,10 +4,10 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**type** | **String** | The quorum action content type. Possible values include:    - &#x60;FULL_APPROVAL&#x60;: The content type is approved by all persons.   - &#x60;PART_APPROVAL&#x60;: The content type is approved by some persons.  | 
-**roles** | **[String]** |  | [optional] 
-**user_ids** | **[String]** |  | [optional] 
-**threshold** | **Number** | The number of persons need approved, such as 2. | [optional] 
+**type** | **String** | The quorum type. Possible values include:    - &#x60;FULL_APPROVAL&#x60;: Requires approval from all participants.   - &#x60;PART_APPROVAL&#x60;: Requires approval from a specified number of participants.  | 
+**roles** | **[String]** | The roles included in the quorum. Possible values include &#x60;admin&#x60;, &#x60;spender&#x60;, &#x60;operator&#x60;, and &#x60;approver&#x60;. | [optional] 
+**user_ids** | **[String]** | The ID of the users included in the quorum. | [optional] 
+**threshold** | **Number** | The number of approvers required to meet the quorum. | [optional] 
 
 
 

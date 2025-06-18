@@ -36,10 +36,30 @@ import {ApiClient, Env} from "../../src/index.js";
   });
 
   describe('OAuthApi', function() {
+    describe('exchangePermissionToken', function() {
+      it('should call exchangePermissionToken successfully', function() {
+        //uncomment below and update the code to test exchangePermissionToken
+        //instance.exchangePermissionToken().then(function(data) {
+        //    console.log(data);
+        //}, function(error) {
+        //    console.error(error);
+        //});
+      });
+    });
     describe('getToken', function() {
       it('should call getToken successfully', function() {
         //uncomment below and update the code to test getToken
         //instance.getToken().then(function(data) {
+        //    console.log(data);
+        //}, function(error) {
+        //    console.error(error);
+        //});
+      });
+    });
+    describe('refreshPermissionToken', function() {
+      it('should call refreshPermissionToken successfully', function() {
+        //uncomment below and update the code to test refreshPermissionToken
+        //instance.refreshPermissionToken().then(function(data) {
         //    console.log(data);
         //}, function(error) {
         //    console.error(error);

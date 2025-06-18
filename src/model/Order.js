@@ -22,8 +22,8 @@ class Order {
      * Constructs a new <code>Order</code>.
      * @alias module:model/Order
      * @param order_id {String} The order ID.
-     * @param token_id {String} The ID of the cryptocurrency used for payment.
-     * @param chain_id {String} The ID of the blockchain network where the payment transaction should be made.
+     * @param token_id {String}  The ID of the cryptocurrency used for payment. Supported tokens:  - USDC: `ETH_USDC`, `ARBITRUM_USDC`, `SOL_USDC`, `BASE_USDC`, `MATIC_USDC`, `BSC_USDC` - USDT: `TRON_USDT`, `ETH_USDT`, `ARBITRUM_USDT`, `SOL_USDT`, `BASE_USDT`, `MATIC_USDT`, `BSC_USDT` 
+     * @param chain_id {String}  The ID of the blockchain network where the payment transaction should be made. Supported chains:  - USDC: `ETH`, `ARBITRUM`, `SOL`, `BASE`, `MATIC`, `BSC` - USDT: `TRON`, `ETH`, `ARBITRUM`, `SOL`, `BASE`, `MATIC`, `BSC` 
      * @param payable_amount {String} The cryptocurrency amount to be paid for this order.
      * @param receive_address {String} The recipient wallet address to be used for the payment transaction.
      * @param currency {String} The fiat currency of the order.
@@ -224,13 +224,13 @@ Order.prototype['order_id'] = undefined;
 Order.prototype['merchant_id'] = undefined;
 
 /**
- * The ID of the cryptocurrency used for payment.
+ *  The ID of the cryptocurrency used for payment. Supported tokens:  - USDC: `ETH_USDC`, `ARBITRUM_USDC`, `SOL_USDC`, `BASE_USDC`, `MATIC_USDC`, `BSC_USDC` - USDT: `TRON_USDT`, `ETH_USDT`, `ARBITRUM_USDT`, `SOL_USDT`, `BASE_USDT`, `MATIC_USDT`, `BSC_USDT` 
  * @member {String} token_id
  */
 Order.prototype['token_id'] = undefined;
 
 /**
- * The ID of the blockchain network where the payment transaction should be made.
+ *  The ID of the blockchain network where the payment transaction should be made. Supported chains:  - USDC: `ETH`, `ARBITRUM`, `SOL`, `BASE`, `MATIC`, `BSC` - USDT: `TRON`, `ETH`, `ARBITRUM`, `SOL`, `BASE`, `MATIC`, `BSC` 
  * @member {String} chain_id
  */
 Order.prototype['chain_id'] = undefined;

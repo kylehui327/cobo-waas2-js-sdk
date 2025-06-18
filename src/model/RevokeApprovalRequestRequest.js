@@ -19,7 +19,7 @@ class RevokeApprovalRequestRequest {
     /**
      * Constructs a new <code>RevokeApprovalRequestRequest</code>.
      * @alias module:model/RevokeApprovalRequestRequest
-     * @param initiator_email {String} The initiator email of workflow approval request.
+     * @param initiator_email {String} The email of the user who requested the approval.
      */
     constructor(initiator_email) { 
         
@@ -79,7 +79,7 @@ class RevokeApprovalRequestRequest {
 RevokeApprovalRequestRequest.RequiredProperties = ["initiator_email"];
 
 /**
- * The initiator email of workflow approval request.
+ * The email of the user who requested the approval.
  * @member {String} initiator_email
  */
 RevokeApprovalRequestRequest.prototype['initiator_email'] = undefined;
