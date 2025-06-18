@@ -4,7 +4,6 @@ All URIs are relative to *https://api.dev.cobo.com/v2*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**createBankAccount**](PaymentApi.md#createBankAccount) | **POST** /payments/bank_accounts | Create bank account
 [**createMerchant**](PaymentApi.md#createMerchant) | **POST** /payments/merchants | Create merchant
 [**createPaymentOrder**](PaymentApi.md#createPaymentOrder) | **POST** /payments/orders | Create pay-in order
 [**createRefund**](PaymentApi.md#createRefund) | **POST** /payments/refunds | Create refund order
@@ -16,65 +15,14 @@ Method | HTTP request | Description
 [**getSettlementById**](PaymentApi.md#getSettlementById) | **GET** /payments/settlement_requests/{settlement_request_id} | Get settlement request information
 [**getSettlementInfoByIds**](PaymentApi.md#getSettlementInfoByIds) | **GET** /payments/settlement_info | Get withdrawable balances
 [**listBankAccounts**](PaymentApi.md#listBankAccounts) | **GET** /payments/bank_accounts | List all bank accounts
+[**listCryptoAddresses**](PaymentApi.md#listCryptoAddresses) | **GET** /payments/crypto_addresses | List crypto addresses
 [**listMerchants**](PaymentApi.md#listMerchants) | **GET** /payments/merchants | List all merchants
 [**listPaymentOrders**](PaymentApi.md#listPaymentOrders) | **GET** /payments/orders | List all pay-in orders
+[**listPaymentSupportedTokens**](PaymentApi.md#listPaymentSupportedTokens) | **GET** /payments/supported_tokens | List all supported tokens
 [**listSettlementRequests**](PaymentApi.md#listSettlementRequests) | **GET** /payments/settlement_requests | List all settlement requests
-[**updateBankAccountById**](PaymentApi.md#updateBankAccountById) | **PUT** /payments/bank_accounts/{bank_account_id} | Update bank account
 [**updateMerchantById**](PaymentApi.md#updateMerchantById) | **PUT** /payments/merchants/{merchant_id} | Update merchant
 [**updatePaymentOrder**](PaymentApi.md#updatePaymentOrder) | **PUT** /payments/orders/{order_id} | Update pay-in order
 
-
-
-## createBankAccount
-
-> BankAccount createBankAccount(opts)
-
-Create bank account
-
-This operation registers a bank account for payment settlement.  Upon successful registration, the bank account details can be retrieved using the assigned bank account ID. 
-
-### Example
-
-```javascript
-const CoboWaas2 = require('@cobo/cobo-waas2');
-// Initialize the API client
-const apiClient = CoboWaas2.ApiClient.instance
-// Select the development environment. To use the production environment, replace `Env.DEV` with `Env.PROD`
-apiClient.setEnv(CoboWaas2.Env.DEV);
-// Replace `<YOUR_PRIVATE_KEY>` with your private key
-apiClient.setPrivateKey("<YOUR_PRIVATE_KEY>");
-// Call the API
-const apiInstance = new CoboWaas2.PaymentApi();
-const opts = {
-  'CreateBankAccountRequest': new CoboWaas2.CreateBankAccountRequest()
-};
-apiInstance.createBankAccount(opts).then((data) => {
-  console.log('API called successfully. Returned data: ' + data);
-}, (error) => {
-  console.error(error);
-});
-
-```
-
-### Parameters
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **CreateBankAccountRequest** | [**CreateBankAccountRequest**](CreateBankAccountRequest.md)| The request body to register a bank account. | [optional] 
-
-### Return type
-
-[**BankAccount**](BankAccount.md)
-
-### Authorization
-
-[OAuth2](../README.md#OAuth2), [CoboAuth](../README.md#CoboAuth)
-
-### HTTP request headers
-
-- **Content-Type**: application/json
-- **Accept**: application/json
 
 
 ## createMerchant
@@ -607,7 +555,7 @@ Name | Type | Description  | Notes
 
 List all bank accounts
 
-This operation retrieves the information of all bank accounts registered. 
+This operation retrieves the information of all bank accounts you have registered for payment settlement. Contact our support team at [help@cobo.com](mailto:help@cobo.com) to register a new bank account. 
 
 ### Example
 
@@ -636,6 +584,58 @@ This endpoint does not need any parameter.
 ### Return type
 
 [**[BankAccount]**](BankAccount.md)
+
+### Authorization
+
+[OAuth2](../README.md#OAuth2), [CoboAuth](../README.md#CoboAuth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+## listCryptoAddresses
+
+> [CryptoAddress] listCryptoAddresses(opts)
+
+List crypto addresses
+
+Retrieve a list of cryptocurrency addresses previously created for a given &#x60;token_id&#x60;. 
+
+### Example
+
+```javascript
+const CoboWaas2 = require('@cobo/cobo-waas2');
+// Initialize the API client
+const apiClient = CoboWaas2.ApiClient.instance
+// Select the development environment. To use the production environment, replace `Env.DEV` with `Env.PROD`
+apiClient.setEnv(CoboWaas2.Env.DEV);
+// Replace `<YOUR_PRIVATE_KEY>` with your private key
+apiClient.setPrivateKey("<YOUR_PRIVATE_KEY>");
+// Call the API
+const apiInstance = new CoboWaas2.PaymentApi();
+const opts = {
+  'token_id': "ETH_USDT"
+};
+apiInstance.listCryptoAddresses(opts).then((data) => {
+  console.log('API called successfully. Returned data: ' + data);
+}, (error) => {
+  console.error(error);
+});
+
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **token_id** | **String**| The token ID, which identifies the cryptocurrency. Supported values:    - USDC: &#x60;ETH_USDC&#x60;, &#x60;ARBITRUM_USDC&#x60;, &#x60;SOL_USDC&#x60;, &#x60;BASE_USDC&#x60;, &#x60;MATIC_USDC&#x60;, &#x60;BSC_USDC&#x60;   - USDT: &#x60;TRON_USDT&#x60;, &#x60;ETH_USDT&#x60;, &#x60;ARBITRUM_USDT&#x60;, &#x60;SOL_USDT&#x60;, &#x60;BASE_USDT&#x60;, &#x60;MATIC_USDT&#x60;, &#x60;BSC_USDT&#x60;  | [optional] 
+
+### Return type
+
+[**[CryptoAddress]**](CryptoAddress.md)
 
 ### Authorization
 
@@ -731,7 +731,8 @@ const opts = {
   'limit': 10,
   'before': "RqeEoTkgKG5rpzqYzg2Hd3szmPoj2cE7w5jWwShz3C1vyGmk1",
   'after': "RqeEoTkgKG5rpzqYzg2Hd3szmPoj2cE7w5jWwShz3C1vyGSAk",
-  'merchant_id': "M1001"
+  'merchant_id': "M1001",
+  'psp_order_id': "P20240201001"
 };
 apiInstance.listPaymentOrders(opts).then((data) => {
   console.log('API called successfully. Returned data: ' + data);
@@ -750,10 +751,57 @@ Name | Type | Description  | Notes
  **before** | **String**| A cursor indicating the position before the current page. This value is generated by Cobo and returned in the response. If you are paginating forward from the beginning, you do not need to provide it on the first request. When paginating backward (to the previous page), you should pass the before value returned from the last response.  | [optional] 
  **after** | **String**| A cursor indicating the position after the current page. This value is generated by Cobo and returned in the response. You do not need to provide it on the first request. When paginating forward (to the next page), you should pass the after value returned from the last response.  | [optional] 
  **merchant_id** | **String**| The merchant ID. | [optional] 
+ **psp_order_id** | **String**| The PSP order ID. | [optional] 
 
 ### Return type
 
 [**ListPaymentOrders200Response**](ListPaymentOrders200Response.md)
+
+### Authorization
+
+[OAuth2](../README.md#OAuth2), [CoboAuth](../README.md#CoboAuth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+## listPaymentSupportedTokens
+
+> [SupportedToken] listPaymentSupportedTokens()
+
+List all supported tokens
+
+This operation retrieves the information of all supported tokens. 
+
+### Example
+
+```javascript
+const CoboWaas2 = require('@cobo/cobo-waas2');
+// Initialize the API client
+const apiClient = CoboWaas2.ApiClient.instance
+// Select the development environment. To use the production environment, replace `Env.DEV` with `Env.PROD`
+apiClient.setEnv(CoboWaas2.Env.DEV);
+// Replace `<YOUR_PRIVATE_KEY>` with your private key
+apiClient.setPrivateKey("<YOUR_PRIVATE_KEY>");
+// Call the API
+const apiInstance = new CoboWaas2.PaymentApi();
+apiInstance.listPaymentSupportedTokens().then((data) => {
+  console.log('API called successfully. Returned data: ' + data);
+}, (error) => {
+  console.error(error);
+});
+
+```
+
+### Parameters
+
+This endpoint does not need any parameter.
+
+### Return type
+
+[**[SupportedToken]**](SupportedToken.md)
 
 ### Authorization
 
@@ -820,60 +868,6 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/json
-
-
-## updateBankAccountById
-
-> BankAccount updateBankAccountById(bank_account_id, opts)
-
-Update bank account
-
-This operation updates the information of an existing bank account. 
-
-### Example
-
-```javascript
-const CoboWaas2 = require('@cobo/cobo-waas2');
-// Initialize the API client
-const apiClient = CoboWaas2.ApiClient.instance
-// Select the development environment. To use the production environment, replace `Env.DEV` with `Env.PROD`
-apiClient.setEnv(CoboWaas2.Env.DEV);
-// Replace `<YOUR_PRIVATE_KEY>` with your private key
-apiClient.setPrivateKey("<YOUR_PRIVATE_KEY>");
-// Call the API
-const apiInstance = new CoboWaas2.PaymentApi();
-const bank_account_id = "f47ac10b-58cc-4372-a567-0e02b2c3d479";
-const opts = {
-  'CreateBankAccountRequest': new CoboWaas2.CreateBankAccountRequest()
-};
-apiInstance.updateBankAccountById(bank_account_id, opts).then((data) => {
-  console.log('API called successfully. Returned data: ' + data);
-}, (error) => {
-  console.error(error);
-});
-
-```
-
-### Parameters
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **bank_account_id** | **String**| The bank account ID. | 
- **CreateBankAccountRequest** | [**CreateBankAccountRequest**](CreateBankAccountRequest.md)| The request body for updating an existing bank account. | [optional] 
-
-### Return type
-
-[**BankAccount**](BankAccount.md)
-
-### Authorization
-
-[OAuth2](../README.md#OAuth2), [CoboAuth](../README.md#CoboAuth)
-
-### HTTP request headers
-
-- **Content-Type**: application/json
 - **Accept**: application/json
 
 

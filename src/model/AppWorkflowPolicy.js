@@ -20,7 +20,7 @@ import PolicyCondition from './PolicyCondition';
 class AppWorkflowPolicy {
     /**
      * Constructs a new <code>AppWorkflowPolicy</code>.
-     * The information of an app workflow policy entry.
+     * The current approval workflow policy, consisting of one or more conditions and an associated action. When the conditions are met, the action is triggered.
      * @alias module:model/AppWorkflowPolicy
      * @param action {module:model/PolicyAction} 
      */

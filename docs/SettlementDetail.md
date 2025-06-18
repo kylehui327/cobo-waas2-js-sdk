@@ -16,5 +16,6 @@ Name | Type | Description | Notes
 **created_timestamp** | **Number** | The created time of the settlement, represented as a UNIX timestamp in seconds. | [optional] 
 **updated_timestamp** | **Number** | The updated time of the settlement, represented as a UNIX timestamp in seconds. | [optional] 
 **crypto_address_id** | **String** | Unique identifier for the pre-approved crypto address, used to reference the address securely in requests. | [optional] 
+**payout_channel** | [**PayoutChannel**](PayoutChannel.md) |  | [optional] 
 
 

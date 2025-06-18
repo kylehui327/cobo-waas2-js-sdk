@@ -19,7 +19,7 @@ class CreateApprovalRequest201Response {
     /**
      * Constructs a new <code>CreateApprovalRequest201Response</code>.
      * @alias module:model/CreateApprovalRequest201Response
-     * @param approval_id {String} 
+     * @param approval_id {String} The system-generated unique ID of the approval request. You can use this ID to query the approval request status or revoke the request.
      */
     constructor(approval_id) { 
         
@@ -79,6 +79,7 @@ class CreateApprovalRequest201Response {
 CreateApprovalRequest201Response.RequiredProperties = ["approval_id"];
 
 /**
+ * The system-generated unique ID of the approval request. You can use this ID to query the approval request status or revoke the request.
  * @member {String} approval_id
  */
 CreateApprovalRequest201Response.prototype['approval_id'] = undefined;

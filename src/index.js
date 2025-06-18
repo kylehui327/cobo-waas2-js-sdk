@@ -97,7 +97,6 @@ import CreateBabylonAirdropRegistration201Response from './model/CreateBabylonAi
 import CreateBabylonAirdropRegistrationRequest from './model/CreateBabylonAirdropRegistrationRequest';
 import CreateBabylonStakingRegistration201Response from './model/CreateBabylonStakingRegistration201Response';
 import CreateBabylonStakingRegistrationRequest from './model/CreateBabylonStakingRegistrationRequest';
-import CreateBankAccountRequest from './model/CreateBankAccountRequest';
 import CreateClaimActivity from './model/CreateClaimActivity';
 import CreateClaimActivityRequest from './model/CreateClaimActivityRequest';
 import CreateCustodialWalletParams from './model/CreateCustodialWalletParams';
@@ -132,7 +131,9 @@ import CreateWebhookEndpointRequest from './model/CreateWebhookEndpointRequest';
 import CreateWithdrawActivity from './model/CreateWithdrawActivity';
 import CreateWithdrawActivityRequest from './model/CreateWithdrawActivityRequest';
 import CreatedWalletInfo from './model/CreatedWalletInfo';
+import CryptoAddress from './model/CryptoAddress';
 import CurveType from './model/CurveType';
+import CustodialTransferDestination from './model/CustodialTransferDestination';
 import CustodialTransferSource from './model/CustodialTransferSource';
 import CustodialWalletInfo from './model/CustodialWalletInfo';
 import CustodialWeb3ContractCallSource from './model/CustodialWeb3ContractCallSource';
@@ -176,6 +177,8 @@ import EvmEip1559FeeRate from './model/EvmEip1559FeeRate';
 import EvmLegacyFeeBasePrice from './model/EvmLegacyFeeBasePrice';
 import EvmLegacyFeeRate from './model/EvmLegacyFeeRate';
 import ExchangeId from './model/ExchangeId';
+import ExchangePermissionToken201Response from './model/ExchangePermissionToken201Response';
+import ExchangePermissionTokenRequest from './model/ExchangePermissionTokenRequest';
 import ExchangeTransferDestination from './model/ExchangeTransferDestination';
 import ExchangeTransferSource from './model/ExchangeTransferSource';
 import ExchangeWalletInfo from './model/ExchangeWalletInfo';
@@ -274,6 +277,7 @@ import PaymentOrderEventData from './model/PaymentOrderEventData';
 import PaymentRefundEventData from './model/PaymentRefundEventData';
 import PaymentSettlementEvent from './model/PaymentSettlementEvent';
 import PaymentTransaction from './model/PaymentTransaction';
+import PayoutChannel from './model/PayoutChannel';
 import PolicyAction from './model/PolicyAction';
 import PolicyActionContent from './model/PolicyActionContent';
 import PolicyActionType from './model/PolicyActionType';
@@ -289,6 +293,7 @@ import QueryGuardPubkey200ResponseAddressesInner from './model/QueryGuardPubkey2
 import RawMessageSignDestination from './model/RawMessageSignDestination';
 import RefreshAddressBalancesByToken200Response from './model/RefreshAddressBalancesByToken200Response';
 import RefreshAddressBalancesByTokenRequest from './model/RefreshAddressBalancesByTokenRequest';
+import RefreshPermissionTokenRequest from './model/RefreshPermissionTokenRequest';
 import RefreshToken2XXResponse from './model/RefreshToken2XXResponse';
 import RefreshTokenRequest from './model/RefreshTokenRequest';
 import Refund from './model/Refund';
@@ -337,6 +342,7 @@ import Stakings from './model/Stakings';
 import StakingsExtra from './model/StakingsExtra';
 import SubWalletAssetBalance from './model/SubWalletAssetBalance';
 import SubmitDepositTravelRuleInfo201Response from './model/SubmitDepositTravelRuleInfo201Response';
+import SupportedToken from './model/SupportedToken';
 import SwapActivity from './model/SwapActivity';
 import SwapActivityApprovers from './model/SwapActivityApprovers';
 import SwapActivityDetail from './model/SwapActivityDetail';
@@ -569,7 +575,7 @@ import WalletsSmartContractWalletsApi from './api/WalletsSmartContractWalletsApi
 * </pre>
 * </p>
 * @module index
-* @version 1.16.0
+* @version 1.17.0
 */
 export {
     Env,
@@ -1086,12 +1092,6 @@ export {
     CreateBabylonStakingRegistrationRequest,
 
     /**
-     * The CreateBankAccountRequest model constructor.
-     * @property {module:model/CreateBankAccountRequest}
-     */
-    CreateBankAccountRequest,
-
-    /**
      * The CreateClaimActivity model constructor.
      * @property {module:model/CreateClaimActivity}
      */
@@ -1296,10 +1296,22 @@ export {
     CreatedWalletInfo,
 
     /**
+     * The CryptoAddress model constructor.
+     * @property {module:model/CryptoAddress}
+     */
+    CryptoAddress,
+
+    /**
      * The CurveType model constructor.
      * @property {module:model/CurveType}
      */
     CurveType,
+
+    /**
+     * The CustodialTransferDestination model constructor.
+     * @property {module:model/CustodialTransferDestination}
+     */
+    CustodialTransferDestination,
 
     /**
      * The CustodialTransferSource model constructor.
@@ -1558,6 +1570,18 @@ export {
      * @property {module:model/ExchangeId}
      */
     ExchangeId,
+
+    /**
+     * The ExchangePermissionToken201Response model constructor.
+     * @property {module:model/ExchangePermissionToken201Response}
+     */
+    ExchangePermissionToken201Response,
+
+    /**
+     * The ExchangePermissionTokenRequest model constructor.
+     * @property {module:model/ExchangePermissionTokenRequest}
+     */
+    ExchangePermissionTokenRequest,
 
     /**
      * The ExchangeTransferDestination model constructor.
@@ -2148,6 +2172,12 @@ export {
     PaymentTransaction,
 
     /**
+     * The PayoutChannel model constructor.
+     * @property {module:model/PayoutChannel}
+     */
+    PayoutChannel,
+
+    /**
      * The PolicyAction model constructor.
      * @property {module:model/PolicyAction}
      */
@@ -2236,6 +2266,12 @@ export {
      * @property {module:model/RefreshAddressBalancesByTokenRequest}
      */
     RefreshAddressBalancesByTokenRequest,
+
+    /**
+     * The RefreshPermissionTokenRequest model constructor.
+     * @property {module:model/RefreshPermissionTokenRequest}
+     */
+    RefreshPermissionTokenRequest,
 
     /**
      * The RefreshToken2XXResponse model constructor.
@@ -2524,6 +2560,12 @@ export {
      * @property {module:model/SubmitDepositTravelRuleInfo201Response}
      */
     SubmitDepositTravelRuleInfo201Response,
+
+    /**
+     * The SupportedToken model constructor.
+     * @property {module:model/SupportedToken}
+     */
+    SupportedToken,
 
     /**
      * The SwapActivity model constructor.

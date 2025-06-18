@@ -26,7 +26,6 @@
   var instance;
 
   beforeEach(function() {
-    instance = new CoboWaas2.CreateBankAccountRequest();
   });
 
   var getProperty = function(object, getter, property) {
@@ -45,17 +44,11 @@
       object[property] = value;
   }
 
-  describe('CreateBankAccountRequest', function() {
-    it('should create an instance of CreateBankAccountRequest', function() {
-      // uncomment below and update the code to test CreateBankAccountRequest
-      //var instance = new CoboWaas2.CreateBankAccountRequest();
-      //expect(instance).to.be.a(CoboWaas2.CreateBankAccountRequest);
-    });
-
-    it('should have the property info (base name: "info")', function() {
-      // uncomment below and update the code to test the property info
-      //var instance = new CoboWaas2.CreateBankAccountRequest();
-      //expect(instance).to.be();
+  describe('PayoutChannel', function() {
+    it('should create an instance of PayoutChannel', function() {
+      // uncomment below and update the code to test PayoutChannel
+      //var instance = new CoboWaas2.PayoutChannel();
+      //expect(instance).to.be.a(CoboWaas2.PayoutChannel);
     });
 
   });

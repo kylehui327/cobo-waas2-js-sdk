@@ -20,7 +20,7 @@ import ApprovalUser from './ApprovalUser';
 class ApprovalEntry {
     /**
      * Constructs a new <code>ApprovalEntry</code>.
-     * The information of an app workflow approval entry.
+     * The information of an approval request.
      * @alias module:model/ApprovalEntry
      * @param status {module:model/ApprovalStatus} 
      * @param created_timestamp {Number} The time when the approval was created, in Unix timestamp format, measured in milliseconds.

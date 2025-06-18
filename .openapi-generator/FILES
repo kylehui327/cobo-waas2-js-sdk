@@ -90,7 +90,6 @@ docs/CreateBabylonAirdropRegistration201Response.md
 docs/CreateBabylonAirdropRegistrationRequest.md
 docs/CreateBabylonStakingRegistration201Response.md
 docs/CreateBabylonStakingRegistrationRequest.md
-docs/CreateBankAccountRequest.md
 docs/CreateClaimActivity.md
 docs/CreateClaimActivityRequest.md
 docs/CreateCustodialWalletParams.md
@@ -125,7 +124,9 @@ docs/CreateWebhookEndpointRequest.md
 docs/CreateWithdrawActivity.md
 docs/CreateWithdrawActivityRequest.md
 docs/CreatedWalletInfo.md
+docs/CryptoAddress.md
 docs/CurveType.md
+docs/CustodialTransferDestination.md
 docs/CustodialTransferSource.md
 docs/CustodialWalletInfo.md
 docs/CustodialWeb3ContractCallSource.md
@@ -171,6 +172,8 @@ docs/EvmEip1559FeeRate.md
 docs/EvmLegacyFeeBasePrice.md
 docs/EvmLegacyFeeRate.md
 docs/ExchangeId.md
+docs/ExchangePermissionToken201Response.md
+docs/ExchangePermissionTokenRequest.md
 docs/ExchangeTransferDestination.md
 docs/ExchangeTransferSource.md
 docs/ExchangeWalletInfo.md
@@ -272,6 +275,7 @@ docs/PaymentOrderEventData.md
 docs/PaymentRefundEventData.md
 docs/PaymentSettlementEvent.md
 docs/PaymentTransaction.md
+docs/PayoutChannel.md
 docs/PolicyAction.md
 docs/PolicyActionContent.md
 docs/PolicyActionType.md
@@ -288,6 +292,7 @@ docs/QueryGuardPubkey200ResponseAddressesInner.md
 docs/RawMessageSignDestination.md
 docs/RefreshAddressBalancesByToken200Response.md
 docs/RefreshAddressBalancesByTokenRequest.md
+docs/RefreshPermissionTokenRequest.md
 docs/RefreshToken2XXResponse.md
 docs/RefreshTokenRequest.md
 docs/Refund.md
@@ -337,6 +342,7 @@ docs/StakingsApi.md
 docs/StakingsExtra.md
 docs/SubWalletAssetBalance.md
 docs/SubmitDepositTravelRuleInfo201Response.md
+docs/SupportedToken.md
 docs/SwapActivity.md
 docs/SwapActivityApprovers.md
 docs/SwapActivityDetail.md
@@ -638,7 +644,6 @@ src/model/CreateBabylonAirdropRegistration201Response.js
 src/model/CreateBabylonAirdropRegistrationRequest.js
 src/model/CreateBabylonStakingRegistration201Response.js
 src/model/CreateBabylonStakingRegistrationRequest.js
-src/model/CreateBankAccountRequest.js
 src/model/CreateClaimActivity.js
 src/model/CreateClaimActivityRequest.js
 src/model/CreateCustodialWalletParams.js
@@ -673,7 +678,9 @@ src/model/CreateWebhookEndpointRequest.js
 src/model/CreateWithdrawActivity.js
 src/model/CreateWithdrawActivityRequest.js
 src/model/CreatedWalletInfo.js
+src/model/CryptoAddress.js
 src/model/CurveType.js
+src/model/CustodialTransferDestination.js
 src/model/CustodialTransferSource.js
 src/model/CustodialWalletInfo.js
 src/model/CustodialWeb3ContractCallSource.js
@@ -717,6 +724,8 @@ src/model/EvmEip1559FeeRate.js
 src/model/EvmLegacyFeeBasePrice.js
 src/model/EvmLegacyFeeRate.js
 src/model/ExchangeId.js
+src/model/ExchangePermissionToken201Response.js
+src/model/ExchangePermissionTokenRequest.js
 src/model/ExchangeTransferDestination.js
 src/model/ExchangeTransferSource.js
 src/model/ExchangeWalletInfo.js
@@ -815,6 +824,7 @@ src/model/PaymentOrderEventData.js
 src/model/PaymentRefundEventData.js
 src/model/PaymentSettlementEvent.js
 src/model/PaymentTransaction.js
+src/model/PayoutChannel.js
 src/model/PolicyAction.js
 src/model/PolicyActionContent.js
 src/model/PolicyActionType.js
@@ -830,6 +840,7 @@ src/model/QueryGuardPubkey200ResponseAddressesInner.js
 src/model/RawMessageSignDestination.js
 src/model/RefreshAddressBalancesByToken200Response.js
 src/model/RefreshAddressBalancesByTokenRequest.js
+src/model/RefreshPermissionTokenRequest.js
 src/model/RefreshToken2XXResponse.js
 src/model/RefreshTokenRequest.js
 src/model/Refund.js
@@ -878,6 +889,7 @@ src/model/Stakings.js
 src/model/StakingsExtra.js
 src/model/SubWalletAssetBalance.js
 src/model/SubmitDepositTravelRuleInfo201Response.js
+src/model/SupportedToken.js
 src/model/SwapActivity.js
 src/model/SwapActivityApprovers.js
 src/model/SwapActivityDetail.js
@@ -1162,7 +1174,6 @@ test/model/CreateBabylonAirdropRegistration201Response.spec.js
 test/model/CreateBabylonAirdropRegistrationRequest.spec.js
 test/model/CreateBabylonStakingRegistration201Response.spec.js
 test/model/CreateBabylonStakingRegistrationRequest.spec.js
-test/model/CreateBankAccountRequest.spec.js
 test/model/CreateClaimActivity.spec.js
 test/model/CreateClaimActivityRequest.spec.js
 test/model/CreateCustodialWalletParams.spec.js
@@ -1197,7 +1208,9 @@ test/model/CreateWebhookEndpointRequest.spec.js
 test/model/CreateWithdrawActivity.spec.js
 test/model/CreateWithdrawActivityRequest.spec.js
 test/model/CreatedWalletInfo.spec.js
+test/model/CryptoAddress.spec.js
 test/model/CurveType.spec.js
+test/model/CustodialTransferDestination.spec.js
 test/model/CustodialTransferSource.spec.js
 test/model/CustodialWalletInfo.spec.js
 test/model/CustodialWeb3ContractCallSource.spec.js
@@ -1241,6 +1254,8 @@ test/model/EvmEip1559FeeRate.spec.js
 test/model/EvmLegacyFeeBasePrice.spec.js
 test/model/EvmLegacyFeeRate.spec.js
 test/model/ExchangeId.spec.js
+test/model/ExchangePermissionToken201Response.spec.js
+test/model/ExchangePermissionTokenRequest.spec.js
 test/model/ExchangeTransferDestination.spec.js
 test/model/ExchangeTransferSource.spec.js
 test/model/ExchangeWalletInfo.spec.js
@@ -1339,6 +1354,7 @@ test/model/PaymentOrderEventData.spec.js
 test/model/PaymentRefundEventData.spec.js
 test/model/PaymentSettlementEvent.spec.js
 test/model/PaymentTransaction.spec.js
+test/model/PayoutChannel.spec.js
 test/model/PolicyAction.spec.js
 test/model/PolicyActionContent.spec.js
 test/model/PolicyActionType.spec.js
@@ -1354,6 +1370,7 @@ test/model/QueryGuardPubkey200ResponseAddressesInner.spec.js
 test/model/RawMessageSignDestination.spec.js
 test/model/RefreshAddressBalancesByToken200Response.spec.js
 test/model/RefreshAddressBalancesByTokenRequest.spec.js
+test/model/RefreshPermissionTokenRequest.spec.js
 test/model/RefreshToken2XXResponse.spec.js
 test/model/RefreshTokenRequest.spec.js
 test/model/Refund.spec.js
@@ -1402,6 +1419,7 @@ test/model/Stakings.spec.js
 test/model/StakingsExtra.spec.js
 test/model/SubWalletAssetBalance.spec.js
 test/model/SubmitDepositTravelRuleInfo201Response.spec.js
+test/model/SupportedToken.spec.js
 test/model/SwapActivity.spec.js
 test/model/SwapActivityApprovers.spec.js
 test/model/SwapActivityDetail.spec.js

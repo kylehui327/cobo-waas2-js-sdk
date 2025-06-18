@@ -36,16 +36,6 @@ import {ApiClient, Env} from "../../src/index.js";
   });
 
   describe('PaymentApi', function() {
-    describe('createBankAccount', function() {
-      it('should call createBankAccount successfully', function() {
-        //uncomment below and update the code to test createBankAccount
-        //instance.createBankAccount().then(function(data) {
-        //    console.log(data);
-        //}, function(error) {
-        //    console.error(error);
-        //});
-      });
-    });
     describe('createMerchant', function() {
       it('should call createMerchant successfully', function() {
         //uncomment below and update the code to test createMerchant
@@ -156,6 +146,16 @@ import {ApiClient, Env} from "../../src/index.js";
         //});
       });
     });
+    describe('listCryptoAddresses', function() {
+      it('should call listCryptoAddresses successfully', function() {
+        //uncomment below and update the code to test listCryptoAddresses
+        //instance.listCryptoAddresses().then(function(data) {
+        //    console.log(data);
+        //}, function(error) {
+        //    console.error(error);
+        //});
+      });
+    });
     describe('listMerchants', function() {
       it('should call listMerchants successfully', function() {
         //uncomment below and update the code to test listMerchants
@@ -176,20 +176,20 @@ import {ApiClient, Env} from "../../src/index.js";
         //});
       });
     });
-    describe('listSettlementRequests', function() {
-      it('should call listSettlementRequests successfully', function() {
-        //uncomment below and update the code to test listSettlementRequests
-        //instance.listSettlementRequests().then(function(data) {
+    describe('listPaymentSupportedTokens', function() {
+      it('should call listPaymentSupportedTokens successfully', function() {
+        //uncomment below and update the code to test listPaymentSupportedTokens
+        //instance.listPaymentSupportedTokens().then(function(data) {
         //    console.log(data);
         //}, function(error) {
         //    console.error(error);
         //});
       });
     });
-    describe('updateBankAccountById', function() {
-      it('should call updateBankAccountById successfully', function() {
-        //uncomment below and update the code to test updateBankAccountById
-        //instance.updateBankAccountById().then(function(data) {
+    describe('listSettlementRequests', function() {
+      it('should call listSettlementRequests successfully', function() {
+        //uncomment below and update the code to test listSettlementRequests
+        //instance.listSettlementRequests().then(function(data) {
         //    console.log(data);
         //}, function(error) {
         //    console.error(error);

@@ -20,11 +20,11 @@ import PolicyFieldValueType from './PolicyFieldValueType';
 class PolicyCondition {
     /**
      * Constructs a new <code>PolicyCondition</code>.
-     * The information of an app workflow policy condition.
+     * A condition that defines under what circumstances the policy’s action should be triggered.
      * @alias module:model/PolicyCondition
-     * @param field {String} The app workflow field name.
+     * @param field {String} The field name.
      * @param value_type {module:model/PolicyFieldValueType} 
-     * @param value {String} The app workflow field value.
+     * @param value {String} The field value.
      * @param operator {module:model/PolicyFieldOperator} 
      */
     constructor(field, value_type, value, operator) { 
@@ -101,7 +101,7 @@ class PolicyCondition {
 PolicyCondition.RequiredProperties = ["field", "value_type", "value", "operator"];
 
 /**
- * The app workflow field name.
+ * The field name.
  * @member {String} field
  */
 PolicyCondition.prototype['field'] = undefined;
@@ -112,7 +112,7 @@ PolicyCondition.prototype['field'] = undefined;
 PolicyCondition.prototype['value_type'] = undefined;
 
 /**
- * The app workflow field value.
+ * The field value.
  * @member {String} value
  */
 PolicyCondition.prototype['value'] = undefined;

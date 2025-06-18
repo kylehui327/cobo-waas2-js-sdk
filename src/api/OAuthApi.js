@@ -12,8 +12,11 @@
 
 import ApiClient from "../ApiClient";
 import ErrorResponse from '../model/ErrorResponse';
+import ExchangePermissionToken201Response from '../model/ExchangePermissionToken201Response';
+import ExchangePermissionTokenRequest from '../model/ExchangePermissionTokenRequest';
 import GetToken2XXResponse from '../model/GetToken2XXResponse';
 import GetToken4XXResponse from '../model/GetToken4XXResponse';
+import RefreshPermissionTokenRequest from '../model/RefreshPermissionTokenRequest';
 import RefreshToken2XXResponse from '../model/RefreshToken2XXResponse';
 import RefreshTokenRequest from '../model/RefreshTokenRequest';
 
@@ -34,6 +37,56 @@ export default class OAuthApi {
         this.apiClient = apiClient || ApiClient.instance;
     }
 
+
+
+    /**
+     * Exchange Permission Access Token by API Key
+     * <Note>This operation is only applicable to Cobo Portal Checkout SDK developers. To call this operation, you need to use the Cobo OAuth authentication method that requires an api key.</Note> This operation allows Portal Checkout SDK to obtain a new Permission Access Token with a specified client ID, grant type and a Permission Refresh Token.   For security purposes, Permission Access Tokens expire after a certain period. Once they expire, the app needs to call this operation to get a new Permission Access Token and a new Permission Refresh Token. 
+     * @param {module:model/ExchangePermissionTokenRequest} ExchangePermissionTokenRequest The request body for exchanging an Permission Access Token.
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/ExchangePermissionToken201Response} and HTTP response
+     */
+    exchangePermissionTokenWithHttpInfo(ExchangePermissionTokenRequest) {
+      let postBody = ExchangePermissionTokenRequest;
+      if (postBody && postBody.toJSON) {
+          postBody = postBody.toJSON()
+      }
+      // verify the required parameter 'ExchangePermissionTokenRequest' is set
+      if (ExchangePermissionTokenRequest === undefined || ExchangePermissionTokenRequest === null) {
+        throw new Error("Missing the required parameter 'ExchangePermissionTokenRequest' when calling exchangePermissionToken");
+      }
+
+      let pathParams = {
+      };
+      let queryParams = {
+      };
+      let headerParams = {
+      };
+      let formParams = {
+      };
+
+      let authNames = ['CoboAuth'];
+      let contentTypes = ['application/json'];
+      let accepts = ['application/json'];
+      let returnType = ExchangePermissionToken201Response;
+      return this.apiClient.callApi(
+        '/oauth/permission_token/exchange', 'POST',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, null
+      );
+    }
+
+    /**
+     * Exchange Permission Access Token by API Key
+     * <Note>This operation is only applicable to Cobo Portal Checkout SDK developers. To call this operation, you need to use the Cobo OAuth authentication method that requires an api key.</Note> This operation allows Portal Checkout SDK to obtain a new Permission Access Token with a specified client ID, grant type and a Permission Refresh Token.   For security purposes, Permission Access Tokens expire after a certain period. Once they expire, the app needs to call this operation to get a new Permission Access Token and a new Permission Refresh Token. 
+     * @param {module:model/ExchangePermissionTokenRequest} ExchangePermissionTokenRequest The request body for exchanging an Permission Access Token.
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/ExchangePermissionToken201Response}
+     */
+    exchangePermissionToken(ExchangePermissionTokenRequest) {
+      return this.exchangePermissionTokenWithHttpInfo(ExchangePermissionTokenRequest)
+        .then(function(response_and_data) {
+          return response_and_data.data;
+        });
+    }
 
 
     /**
@@ -95,6 +148,56 @@ export default class OAuthApi {
      */
     getToken(client_id, org_id, grant_type) {
       return this.getTokenWithHttpInfo(client_id, org_id, grant_type)
+        .then(function(response_and_data) {
+          return response_and_data.data;
+        });
+    }
+
+
+    /**
+     * Refresh Permission Access Token by Permission Refresh Token
+     * <Note>This operation is only applicable to Cobo Portal Checkout SDK developers. To call this operation, you need to use the Cobo OAuth authentication method that requires an api key.</Note> This operation allows Portal Checkout SDK to refresh a new Permission Access Token with a specified client ID, grant type and a Permission Refresh Token.   For security purposes, Permission Access Tokens expire after a certain period. Once they expire, the app needs to call this operation to get a new Permission Access Token and a new Permission Refresh Token. 
+     * @param {module:model/RefreshPermissionTokenRequest} RefreshPermissionTokenRequest The request body for refreshing an Permission Access Token.
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/ExchangePermissionToken201Response} and HTTP response
+     */
+    refreshPermissionTokenWithHttpInfo(RefreshPermissionTokenRequest) {
+      let postBody = RefreshPermissionTokenRequest;
+      if (postBody && postBody.toJSON) {
+          postBody = postBody.toJSON()
+      }
+      // verify the required parameter 'RefreshPermissionTokenRequest' is set
+      if (RefreshPermissionTokenRequest === undefined || RefreshPermissionTokenRequest === null) {
+        throw new Error("Missing the required parameter 'RefreshPermissionTokenRequest' when calling refreshPermissionToken");
+      }
+
+      let pathParams = {
+      };
+      let queryParams = {
+      };
+      let headerParams = {
+      };
+      let formParams = {
+      };
+
+      let authNames = ['CoboAuth'];
+      let contentTypes = ['application/json'];
+      let accepts = ['application/json'];
+      let returnType = ExchangePermissionToken201Response;
+      return this.apiClient.callApi(
+        '/oauth/permission_token/refresh', 'POST',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, null
+      );
+    }
+
+    /**
+     * Refresh Permission Access Token by Permission Refresh Token
+     * <Note>This operation is only applicable to Cobo Portal Checkout SDK developers. To call this operation, you need to use the Cobo OAuth authentication method that requires an api key.</Note> This operation allows Portal Checkout SDK to refresh a new Permission Access Token with a specified client ID, grant type and a Permission Refresh Token.   For security purposes, Permission Access Tokens expire after a certain period. Once they expire, the app needs to call this operation to get a new Permission Access Token and a new Permission Refresh Token. 
+     * @param {module:model/RefreshPermissionTokenRequest} RefreshPermissionTokenRequest The request body for refreshing an Permission Access Token.
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/ExchangePermissionToken201Response}
+     */
+    refreshPermissionToken(RefreshPermissionTokenRequest) {
+      return this.refreshPermissionTokenWithHttpInfo(RefreshPermissionTokenRequest)
         .then(function(response_and_data) {
           return response_and_data.data;
         });
