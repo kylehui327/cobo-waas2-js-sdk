@@ -12,9 +12,11 @@
 import ApiClient from '../ApiClient';
 import EstimatedEvmEip1559Fee from './EstimatedEvmEip1559Fee';
 import EstimatedEvmLegacyFee from './EstimatedEvmLegacyFee';
+import EstimatedFILFee from './EstimatedFILFee';
+import EstimatedFILFeeSlow from './EstimatedFILFeeSlow';
 import EstimatedFixedFee from './EstimatedFixedFee';
+import EstimatedSOLFee from './EstimatedSOLFee';
 import EstimatedUtxoFee from './EstimatedUtxoFee';
-import EstimatedUtxoFeeSlow from './EstimatedUtxoFeeSlow';
 import FeeType from './FeeType';
 
 /**
@@ -25,7 +27,7 @@ class EstimatedFee {
     /**
      * Constructs a new <code>EstimatedFee</code>.
      * @alias module:model/EstimatedFee
-     * @param {(module:model/EstimatedEvmEip1559Fee|module:model/EstimatedEvmLegacyFee|module:model/EstimatedFixedFee|module:model/EstimatedUtxoFee)} instance The actual instance to initialize EstimatedFee.
+     * @param {(module:model/EstimatedEvmEip1559Fee|module:model/EstimatedEvmLegacyFee|module:model/EstimatedFILFee|module:model/EstimatedFixedFee|module:model/EstimatedSOLFee|module:model/EstimatedUtxoFee)} instance The actual instance to initialize EstimatedFee.
      */
     constructor(instance = null) {
         if (instance === null) {
@@ -46,8 +48,16 @@ class EstimatedFee {
                     this.actualInstance = EstimatedEvmLegacyFee.constructFromObject(instance);
                     match++;
                     break;
+                case "FIL":
+                    this.actualInstance = EstimatedFILFee.constructFromObject(instance);
+                    match++;
+                    break;
                 case "Fixed":
                     this.actualInstance = EstimatedFixedFee.constructFromObject(instance);
+                    match++;
+                    break;
+                case "SOL":
+                    this.actualInstance = EstimatedSOLFee.constructFromObject(instance);
                     match++;
                     break;
                 case "UTXO":
@@ -161,12 +171,62 @@ class EstimatedFee {
             errorMessages.push("Failed to construct EstimatedUtxoFee: " + err)
         }
 
+        try {
+            if (instance instanceof EstimatedSOLFee) {
+                this.actualInstance = instance;
+            } else if(!!EstimatedSOLFee.validateJSON && EstimatedSOLFee.validateJSON(instance)){
+                // plain JS object
+                // create EstimatedSOLFee from JS object
+                this.actualInstance = EstimatedSOLFee.constructFromObject(instance);
+            } else {
+                if(EstimatedSOLFee.constructFromObject(instance)) {
+                    if (!!EstimatedSOLFee.constructFromObject(instance).toJSON) {
+                        if (EstimatedSOLFee.constructFromObject(instance).toJSON()) {
+                            this.actualInstance = EstimatedSOLFee.constructFromObject(instance);
+                        }
+                    } else {
+                        this.actualInstance = EstimatedSOLFee.constructFromObject(instance);
+                    }
+                }
+
+            }
+            match++;
+        } catch(err) {
+            // json data failed to deserialize into EstimatedSOLFee
+            errorMessages.push("Failed to construct EstimatedSOLFee: " + err)
+        }
+
+        try {
+            if (instance instanceof EstimatedFILFee) {
+                this.actualInstance = instance;
+            } else if(!!EstimatedFILFee.validateJSON && EstimatedFILFee.validateJSON(instance)){
+                // plain JS object
+                // create EstimatedFILFee from JS object
+                this.actualInstance = EstimatedFILFee.constructFromObject(instance);
+            } else {
+                if(EstimatedFILFee.constructFromObject(instance)) {
+                    if (!!EstimatedFILFee.constructFromObject(instance).toJSON) {
+                        if (EstimatedFILFee.constructFromObject(instance).toJSON()) {
+                            this.actualInstance = EstimatedFILFee.constructFromObject(instance);
+                        }
+                    } else {
+                        this.actualInstance = EstimatedFILFee.constructFromObject(instance);
+                    }
+                }
+
+            }
+            match++;
+        } catch(err) {
+            // json data failed to deserialize into EstimatedFILFee
+            errorMessages.push("Failed to construct EstimatedFILFee: " + err)
+        }
+
         // if (match > 1) {
-        //    throw new Error("Multiple matches found constructing `EstimatedFee` with oneOf schemas EstimatedEvmEip1559Fee, EstimatedEvmLegacyFee, EstimatedFixedFee, EstimatedUtxoFee. Input: " + JSON.stringify(instance));
+        //    throw new Error("Multiple matches found constructing `EstimatedFee` with oneOf schemas EstimatedEvmEip1559Fee, EstimatedEvmLegacyFee, EstimatedFILFee, EstimatedFixedFee, EstimatedSOLFee, EstimatedUtxoFee. Input: " + JSON.stringify(instance));
         // } else
         if (match === 0) {
         //    this.actualInstance = null; // clear the actual instance in case there are multiple matches
-        //    throw new Error("No match found constructing `EstimatedFee` with oneOf schemas EstimatedEvmEip1559Fee, EstimatedEvmLegacyFee, EstimatedFixedFee, EstimatedUtxoFee. Details: " +
+        //    throw new Error("No match found constructing `EstimatedFee` with oneOf schemas EstimatedEvmEip1559Fee, EstimatedEvmLegacyFee, EstimatedFILFee, EstimatedFixedFee, EstimatedSOLFee, EstimatedUtxoFee. Details: " +
         //                    errorMessages.join(", "));
         return;
         } else { // only 1 match
@@ -186,16 +246,16 @@ class EstimatedFee {
     }
 
     /**
-     * Gets the actual instance, which can be <code>EstimatedEvmEip1559Fee</code>, <code>EstimatedEvmLegacyFee</code>, <code>EstimatedFixedFee</code>, <code>EstimatedUtxoFee</code>.
-     * @return {(module:model/EstimatedEvmEip1559Fee|module:model/EstimatedEvmLegacyFee|module:model/EstimatedFixedFee|module:model/EstimatedUtxoFee)} The actual instance.
+     * Gets the actual instance, which can be <code>EstimatedEvmEip1559Fee</code>, <code>EstimatedEvmLegacyFee</code>, <code>EstimatedFILFee</code>, <code>EstimatedFixedFee</code>, <code>EstimatedSOLFee</code>, <code>EstimatedUtxoFee</code>.
+     * @return {(module:model/EstimatedEvmEip1559Fee|module:model/EstimatedEvmLegacyFee|module:model/EstimatedFILFee|module:model/EstimatedFixedFee|module:model/EstimatedSOLFee|module:model/EstimatedUtxoFee)} The actual instance.
      */
     getActualInstance() {
         return this.actualInstance;
     }
 
     /**
-     * Sets the actual instance, which can be <code>EstimatedEvmEip1559Fee</code>, <code>EstimatedEvmLegacyFee</code>, <code>EstimatedFixedFee</code>, <code>EstimatedUtxoFee</code>.
-     * @param {(module:model/EstimatedEvmEip1559Fee|module:model/EstimatedEvmLegacyFee|module:model/EstimatedFixedFee|module:model/EstimatedUtxoFee)} obj The actual instance.
+     * Sets the actual instance, which can be <code>EstimatedEvmEip1559Fee</code>, <code>EstimatedEvmLegacyFee</code>, <code>EstimatedFILFee</code>, <code>EstimatedFixedFee</code>, <code>EstimatedSOLFee</code>, <code>EstimatedUtxoFee</code>.
+     * @param {(module:model/EstimatedEvmEip1559Fee|module:model/EstimatedEvmLegacyFee|module:model/EstimatedFILFee|module:model/EstimatedFixedFee|module:model/EstimatedSOLFee|module:model/EstimatedUtxoFee)} obj The actual instance.
      */
     setActualInstance(obj) {
        this.actualInstance = EstimatedFee.constructFromObject(obj).getActualInstance();
@@ -243,22 +303,22 @@ EstimatedFee.prototype['is_loop'] = undefined;
 EstimatedFee.prototype['fee_amount'] = undefined;
 
 /**
- * @member {module:model/EstimatedUtxoFeeSlow} slow
+ * @member {module:model/EstimatedFILFeeSlow} slow
  */
 EstimatedFee.prototype['slow'] = undefined;
 
 /**
- * @member {module:model/EstimatedUtxoFeeSlow} recommended
+ * @member {module:model/EstimatedFILFeeSlow} recommended
  */
 EstimatedFee.prototype['recommended'] = undefined;
 
 /**
- * @member {module:model/EstimatedUtxoFeeSlow} fast
+ * @member {module:model/EstimatedFILFeeSlow} fast
  */
 EstimatedFee.prototype['fast'] = undefined;
 
 
-EstimatedFee.OneOf = ["EstimatedEvmEip1559Fee", "EstimatedEvmLegacyFee", "EstimatedFixedFee", "EstimatedUtxoFee"];
+EstimatedFee.OneOf = ["EstimatedEvmEip1559Fee", "EstimatedEvmLegacyFee", "EstimatedFILFee", "EstimatedFixedFee", "EstimatedSOLFee", "EstimatedUtxoFee"];
 
 export default EstimatedFee;
 

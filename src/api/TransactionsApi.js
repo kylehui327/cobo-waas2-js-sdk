@@ -19,7 +19,9 @@ import CreateTransferTransaction201Response from '../model/CreateTransferTransac
 import ErrorResponse from '../model/ErrorResponse';
 import EstimateFeeParams from '../model/EstimateFeeParams';
 import EstimatedFee from '../model/EstimatedFee';
+import ListApprovalDetails200Response from '../model/ListApprovalDetails200Response';
 import ListTransactionApprovalDetails200Response from '../model/ListTransactionApprovalDetails200Response';
+import ListTransactionTemplates200Response from '../model/ListTransactionTemplates200Response';
 import ListTransactions200Response from '../model/ListTransactions200Response';
 import MessageSignParams from '../model/MessageSignParams';
 import TransactionApprovalDetail from '../model/TransactionApprovalDetail';
@@ -570,6 +572,62 @@ export default class TransactionsApi {
 
     /**
      * List transaction approval details
+     * This operation retrieves detailed approval information for a specified transaction. 
+     * @param {Object} opts Optional parameters
+     * @param {String} [transaction_ids] A list of transaction IDs, separated by comma.
+     * @param {String} [cobo_ids] A list of Cobo IDs, separated by comma. A Cobo ID can be used to track a transaction.
+     * @param {String} [request_id] A list of request IDs, separated by comma.
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/ListApprovalDetails200Response} and HTTP response
+     */
+    listApprovalDetailsWithHttpInfo(opts) {
+      opts = opts || {};
+      let postBody = null;
+      if (postBody && postBody.toJSON) {
+          postBody = postBody.toJSON()
+      }
+
+      let pathParams = {
+      };
+      let queryParams = {
+        'transaction_ids': opts['transaction_ids'],
+        'cobo_ids': opts['cobo_ids'],
+        'request_id': opts['request_id']
+      };
+      let headerParams = {
+      };
+      let formParams = {
+      };
+
+      let authNames = ['OAuth2', 'CoboAuth'];
+      let contentTypes = [];
+      let accepts = ['application/json'];
+      let returnType = ListApprovalDetails200Response;
+      return this.apiClient.callApi(
+        '/transactions/approval/details', 'GET',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, null
+      );
+    }
+
+    /**
+     * List transaction approval details
+     * This operation retrieves detailed approval information for a specified transaction. 
+     * @param {Object} opts Optional parameters
+     * @param {String} opts.transaction_ids A list of transaction IDs, separated by comma.
+     * @param {String} opts.cobo_ids A list of Cobo IDs, separated by comma. A Cobo ID can be used to track a transaction.
+     * @param {String} opts.request_id A list of request IDs, separated by comma.
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/ListApprovalDetails200Response}
+     */
+    listApprovalDetails(opts) {
+      return this.listApprovalDetailsWithHttpInfo(opts)
+        .then(function(response_and_data) {
+          return response_and_data.data;
+        });
+    }
+
+
+    /**
+     * List transaction approval details
      * This operation retrieves detailed approval information for all transactions. 
      * @param {Object} opts Optional parameters
      * @param {String} [transaction_ids] A list of transaction IDs, separated by comma.
@@ -622,6 +680,63 @@ export default class TransactionsApi {
 
 
     /**
+     * list transaction templates
+     * This operation retrieves transaction templates based on the specified transaction type and template version. The response includes a list of templates that can be used for creating transactions approval message. 
+     * @param {module:model/String} transaction_type The transaction type. Possible values include:    - `DEPOSIT`: A deposit transaction.   - `WITHDRAW`: A withdrawal transaction. 
+     * @param {Object} opts Optional parameters
+     * @param {String} [template_version] The version of the template used for the transaction approval.
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/ListTransactionTemplates200Response} and HTTP response
+     */
+    listTransactionTemplatesWithHttpInfo(transaction_type, opts) {
+      opts = opts || {};
+      let postBody = null;
+      if (postBody && postBody.toJSON) {
+          postBody = postBody.toJSON()
+      }
+      // verify the required parameter 'transaction_type' is set
+      if (transaction_type === undefined || transaction_type === null) {
+        throw new Error("Missing the required parameter 'transaction_type' when calling listTransactionTemplates");
+      }
+
+      let pathParams = {
+      };
+      let queryParams = {
+        'transaction_type': transaction_type,
+        'template_version': opts['template_version']
+      };
+      let headerParams = {
+      };
+      let formParams = {
+      };
+
+      let authNames = ['OAuth2', 'CoboAuth'];
+      let contentTypes = [];
+      let accepts = ['application/json'];
+      let returnType = ListTransactionTemplates200Response;
+      return this.apiClient.callApi(
+        '/transactions/templates', 'GET',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, null
+      );
+    }
+
+    /**
+     * list transaction templates
+     * This operation retrieves transaction templates based on the specified transaction type and template version. The response includes a list of templates that can be used for creating transactions approval message. 
+     * @param {module:model/String} transaction_type The transaction type. Possible values include:    - `DEPOSIT`: A deposit transaction.   - `WITHDRAW`: A withdrawal transaction. 
+     * @param {Object} opts Optional parameters
+     * @param {String} opts.template_version The version of the template used for the transaction approval.
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/ListTransactionTemplates200Response}
+     */
+    listTransactionTemplates(transaction_type, opts) {
+      return this.listTransactionTemplatesWithHttpInfo(transaction_type, opts)
+        .then(function(response_and_data) {
+          return response_and_data.data;
+        });
+    }
+
+
+    /**
      * List all transactions
      * This operation retrieves all the transactions under your organization.  You can filter the results by request ID, Cobo ID, transaction ID, transaction hash, type, status, and timestamps. You can also paginate and sort your query results. 
      * @param {Object} opts Optional parameters
@@ -644,7 +759,7 @@ export default class TransactionsApi {
      * @param {Number} [limit = 10)] The maximum number of objects to return. For most operations, the value range is [1, 50].
      * @param {String} [before] This parameter specifies an object ID as a starting point for pagination, retrieving data before the specified object relative to the current dataset.    Suppose the current data is ordered as Object A, Object B, and Object C.  If you set `before` to the ID of Object C (`RqeEoTkgKG5rpzqYzg2Hd3szmPoj2cE7w5jWwShz3C1vyGSAk`), the response will include Object B and Object A.    **Notes**:   - If you set both `after` and `before`, an error will occur. - If you leave both `before` and `after` empty, the first page of data is returned. - If you set it to `infinity`, the last page of data is returned. 
      * @param {String} [after] This parameter specifies an object ID as a starting point for pagination, retrieving data after the specified object relative to the current dataset.    Suppose the current data is ordered as Object A, Object B, and Object C. If you set `after` to the ID of Object A (`RqeEoTkgKG5rpzqYzg2Hd3szmPoj2cE7w5jWwShz3C1vyGSAk`), the response will include Object B and Object C.    **Notes**:   - If you set both `after` and `before`, an error will occur. - If you leave both `before` and `after` empty, the first page of data is returned. 
-     * @param {module:model/String} [direction = '')] The sort direction. Possible values include:   - `ASC`: Sort the results in ascending order.   - `DESC`: Sort the results in descending order. 
+     * @param {module:model/String} [direction = 'ASC')] The sort direction. Possible values include:   - `ASC`: Sort the results in ascending order.   - `DESC`: Sort the results in descending order. 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/ListTransactions200Response} and HTTP response
      */
     listTransactionsWithHttpInfo(opts) {
@@ -717,7 +832,7 @@ export default class TransactionsApi {
      * @param {Number} opts.limit The maximum number of objects to return. For most operations, the value range is [1, 50]. (default to 10)
      * @param {String} opts.before This parameter specifies an object ID as a starting point for pagination, retrieving data before the specified object relative to the current dataset.    Suppose the current data is ordered as Object A, Object B, and Object C.  If you set `before` to the ID of Object C (`RqeEoTkgKG5rpzqYzg2Hd3szmPoj2cE7w5jWwShz3C1vyGSAk`), the response will include Object B and Object A.    **Notes**:   - If you set both `after` and `before`, an error will occur. - If you leave both `before` and `after` empty, the first page of data is returned. - If you set it to `infinity`, the last page of data is returned. 
      * @param {String} opts.after This parameter specifies an object ID as a starting point for pagination, retrieving data after the specified object relative to the current dataset.    Suppose the current data is ordered as Object A, Object B, and Object C. If you set `after` to the ID of Object A (`RqeEoTkgKG5rpzqYzg2Hd3szmPoj2cE7w5jWwShz3C1vyGSAk`), the response will include Object B and Object C.    **Notes**:   - If you set both `after` and `before`, an error will occur. - If you leave both `before` and `after` empty, the first page of data is returned. 
-     * @param {module:model/String} opts.direction The sort direction. Possible values include:   - `ASC`: Sort the results in ascending order.   - `DESC`: Sort the results in descending order.  (default to '')
+     * @param {module:model/String} opts.direction The sort direction. Possible values include:   - `ASC`: Sort the results in ascending order.   - `DESC`: Sort the results in descending order.  (default to 'ASC')
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/ListTransactions200Response}
      */
     listTransactions(opts) {

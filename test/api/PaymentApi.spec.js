@@ -156,6 +156,16 @@ import {ApiClient, Env} from "../../src/index.js";
         //});
       });
     });
+    describe('getTopUpAddress', function() {
+      it('should call getTopUpAddress successfully', function() {
+        //uncomment below and update the code to test getTopUpAddress
+        //instance.getTopUpAddress().then(function(data) {
+        //    console.log(data);
+        //}, function(error) {
+        //    console.error(error);
+        //});
+      });
+    });
     describe('listBankAccounts', function() {
       it('should call listBankAccounts successfully', function() {
         //uncomment below and update the code to test listBankAccounts
@@ -216,6 +226,26 @@ import {ApiClient, Env} from "../../src/index.js";
         //});
       });
     });
+    describe('listTopUpPayerAccounts', function() {
+      it('should call listTopUpPayerAccounts successfully', function() {
+        //uncomment below and update the code to test listTopUpPayerAccounts
+        //instance.listTopUpPayerAccounts().then(function(data) {
+        //    console.log(data);
+        //}, function(error) {
+        //    console.error(error);
+        //});
+      });
+    });
+    describe('listTopUpPayers', function() {
+      it('should call listTopUpPayers successfully', function() {
+        //uncomment below and update the code to test listTopUpPayers
+        //instance.listTopUpPayers().then(function(data) {
+        //    console.log(data);
+        //}, function(error) {
+        //    console.error(error);
+        //});
+      });
+    });
     describe('updateBankAccountById', function() {
       it('should call updateBankAccountById successfully', function() {
         //uncomment below and update the code to test updateBankAccountById
@@ -240,6 +270,16 @@ import {ApiClient, Env} from "../../src/index.js";
       it('should call updatePaymentOrder successfully', function() {
         //uncomment below and update the code to test updatePaymentOrder
         //instance.updatePaymentOrder().then(function(data) {
+        //    console.log(data);
+        //}, function(error) {
+        //    console.error(error);
+        //});
+      });
+    });
+    describe('updateRefundById', function() {
+      it('should call updateRefundById successfully', function() {
+        //uncomment below and update the code to test updateRefundById
+        //instance.updateRefundById().then(function(data) {
         //    console.log(data);
         //}, function(error) {
         //    console.error(error);

@@ -94,6 +94,12 @@
       //expect(instance).to.be();
     });
 
+    it('should have the property acquiring_type (base name: "acquiring_type")', function() {
+      // uncomment below and update the code to test the property acquiring_type
+      //var instance = new CoboWaas2.SettlementInfo();
+      //expect(instance).to.be();
+    });
+
     it('should have the property created_timestamp (base name: "created_timestamp")', function() {
       // uncomment below and update the code to test the property created_timestamp
       //var instance = new CoboWaas2.SettlementInfo();

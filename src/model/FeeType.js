@@ -46,6 +46,20 @@ export default class FeeType {
 
     
         /**
+         * value: "SOL"
+         * @const
+         */
+        "SOL" = "SOL";
+
+    
+        /**
+         * value: "FIL"
+         * @const
+         */
+        "FIL" = "FIL";
+
+    
+        /**
          * value: "unknown_default_open_api"
          * @const
          */

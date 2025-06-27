@@ -10,7 +10,10 @@
  */
 
 import ApiClient from '../ApiClient';
+import AcquiringType from './AcquiringType';
 import CreateSettlement from './CreateSettlement';
+import PayoutChannel from './PayoutChannel';
+import SettlementType from './SettlementType';
 
 /**
  * The CreateSettlementRequestRequest model module.
@@ -51,6 +54,15 @@ class CreateSettlementRequestRequest {
 
             if (data.hasOwnProperty('request_id')) {
                 obj['request_id'] = ApiClient.convertToType(data['request_id'], 'String');
+            }
+            if (data.hasOwnProperty('acquiring_type')) {
+                obj['acquiring_type'] = AcquiringType.constructFromObject(data['acquiring_type']);
+            }
+            if (data.hasOwnProperty('payout_channel')) {
+                obj['payout_channel'] = PayoutChannel.constructFromObject(data['payout_channel']);
+            }
+            if (data.hasOwnProperty('settlement_type')) {
+                obj['settlement_type'] = SettlementType.constructFromObject(data['settlement_type']);
             }
             if (data.hasOwnProperty('settlements')) {
                 obj['settlements'] = ApiClient.convertToType(data['settlements'], [CreateSettlement]);
@@ -99,6 +111,21 @@ CreateSettlementRequestRequest.RequiredProperties = ["request_id", "settlements"
  * @member {String} request_id
  */
 CreateSettlementRequestRequest.prototype['request_id'] = undefined;
+
+/**
+ * @member {module:model/AcquiringType} acquiring_type
+ */
+CreateSettlementRequestRequest.prototype['acquiring_type'] = undefined;
+
+/**
+ * @member {module:model/PayoutChannel} payout_channel
+ */
+CreateSettlementRequestRequest.prototype['payout_channel'] = undefined;
+
+/**
+ * @member {module:model/SettlementType} settlement_type
+ */
+CreateSettlementRequestRequest.prototype['settlement_type'] = undefined;
 
 /**
  * @member {Array.<module:model/CreateSettlement>} settlements

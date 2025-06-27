@@ -136,6 +136,24 @@
       //expect(instance).to.be();
     });
 
+    it('should have the property charge_merchant_fee (base name: "charge_merchant_fee")', function() {
+      // uncomment below and update the code to test the property charge_merchant_fee
+      //var instance = new CoboWaas2.Refund();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property merchant_fee_amount (base name: "merchant_fee_amount")', function() {
+      // uncomment below and update the code to test the property merchant_fee_amount
+      //var instance = new CoboWaas2.Refund();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property merchant_fee_token_id (base name: "merchant_fee_token_id")', function() {
+      // uncomment below and update the code to test the property merchant_fee_token_id
+      //var instance = new CoboWaas2.Refund();
+      //expect(instance).to.be();
+    });
+
   });
 
 }));

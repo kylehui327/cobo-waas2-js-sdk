@@ -20,7 +20,7 @@ class WebhookEventDataType {
      * Constructs a new <code>WebhookEventDataType</code>.
      * The data type of the event.
      * @alias module:model/WebhookEventDataType
-     * @param data_type {module:model/WebhookEventDataType.DataTypeEnum}  The data type of the event. - `Transaction`: The transaction event data. - `TSSRequest`: The TSS request event data. - `Addresses`: The addresses event data. - `WalletInfo`: The wallet information event data. - `MPCVault`: The MPC vault event data. - `Chains`: The enabled chain event data. - `Tokens`: The enabled token event data. - `TokenListing`: The token listing event data.
+     * @param data_type {module:model/WebhookEventDataType.DataTypeEnum}  The data type of the event. - `Transaction`: The transaction event data. - `TSSRequest`: The TSS request event data. - `Addresses`: The addresses event data. - `WalletInfo`: The wallet information event data. - `MPCVault`: The MPC vault event data. - `Chains`: The enabled chain event data. - `Tokens`: The enabled token event data. - `TokenListing`: The token listing event data. - `BalanceUpdateInfo`: The balance update event data.
      */
     constructor(data_type) { 
         
@@ -80,7 +80,7 @@ class WebhookEventDataType {
 WebhookEventDataType.RequiredProperties = ["data_type"];
 
 /**
- *  The data type of the event. - `Transaction`: The transaction event data. - `TSSRequest`: The TSS request event data. - `Addresses`: The addresses event data. - `WalletInfo`: The wallet information event data. - `MPCVault`: The MPC vault event data. - `Chains`: The enabled chain event data. - `Tokens`: The enabled token event data. - `TokenListing`: The token listing event data.
+ *  The data type of the event. - `Transaction`: The transaction event data. - `TSSRequest`: The TSS request event data. - `Addresses`: The addresses event data. - `WalletInfo`: The wallet information event data. - `MPCVault`: The MPC vault event data. - `Chains`: The enabled chain event data. - `Tokens`: The enabled token event data. - `TokenListing`: The token listing event data. - `BalanceUpdateInfo`: The balance update event data.
  * @member {module:model/WebhookEventDataType.DataTypeEnum} data_type
  */
 WebhookEventDataType.prototype['data_type'] = undefined;
@@ -143,6 +143,12 @@ WebhookEventDataType['DataTypeEnum'] = {
      * @const
      */
     "TokenListing": "TokenListing",
+
+    /**
+     * value: "BalanceUpdateInfo"
+     * @const
+     */
+    "BalanceUpdateInfo": "BalanceUpdateInfo",
 
     /**
      * value: "unknown_default_open_api"

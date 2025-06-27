@@ -11,6 +11,10 @@
 
 * `UTXO` (value: `"UTXO"`)
 
+* `SOL` (value: `"SOL"`)
+
+* `FIL` (value: `"FIL"`)
+
 * `unknown_default_open_api` (value: `"unknown_default_open_api"`)
 
 
