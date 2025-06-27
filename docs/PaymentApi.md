@@ -16,15 +16,19 @@ Method | HTTP request | Description
 [**getRefunds**](PaymentApi.md#getRefunds) | **GET** /payments/refunds | List all refund orders
 [**getSettlementById**](PaymentApi.md#getSettlementById) | **GET** /payments/settlement_requests/{settlement_request_id} | Get settlement request information
 [**getSettlementInfoByIds**](PaymentApi.md#getSettlementInfoByIds) | **GET** /payments/settlement_info | Get withdrawable balances
+[**getTopUpAddress**](PaymentApi.md#getTopUpAddress) | **GET** /payments/topup/address | Get top-up address
 [**listBankAccounts**](PaymentApi.md#listBankAccounts) | **GET** /payments/bank_accounts | List all bank accounts
 [**listCryptoAddresses**](PaymentApi.md#listCryptoAddresses) | **GET** /payments/crypto_addresses | List crypto addresses
 [**listMerchants**](PaymentApi.md#listMerchants) | **GET** /payments/merchants | List all merchants
 [**listPaymentOrders**](PaymentApi.md#listPaymentOrders) | **GET** /payments/orders | List all pay-in orders
 [**listPaymentSupportedTokens**](PaymentApi.md#listPaymentSupportedTokens) | **GET** /payments/supported_tokens | List all supported tokens
 [**listSettlementRequests**](PaymentApi.md#listSettlementRequests) | **GET** /payments/settlement_requests | List all settlement requests
+[**listTopUpPayerAccounts**](PaymentApi.md#listTopUpPayerAccounts) | **GET** /payments/topup/payer_accounts | List top-up payer accounts
+[**listTopUpPayers**](PaymentApi.md#listTopUpPayers) | **GET** /payments/topup/payers | List top-up payers
 [**updateBankAccountById**](PaymentApi.md#updateBankAccountById) | **PUT** /payments/bank_accounts/{bank_account_id} | Update bank account
 [**updateMerchantById**](PaymentApi.md#updateMerchantById) | **PUT** /payments/merchants/{merchant_id} | Update merchant
 [**updatePaymentOrder**](PaymentApi.md#updatePaymentOrder) | **PUT** /payments/orders/{order_id} | Update pay-in order
+[**updateRefundById**](PaymentApi.md#updateRefundById) | **PUT** /payments/refunds/{refund_id} | Update refund order information
 
 
 
@@ -624,7 +628,8 @@ apiClient.setPrivateKey("<YOUR_PRIVATE_KEY>");
 const apiInstance = new CoboWaas2.PaymentApi();
 const opts = {
   'merchant_ids': "M1001,M1002,M1003",
-  'currency': "USD"
+  'currency': "USD",
+  'acquiring_type': new CoboWaas2.AcquiringType()
 };
 apiInstance.getSettlementInfoByIds(opts).then((data) => {
   console.log('API called successfully. Returned data: ' + data);
@@ -641,10 +646,65 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **merchant_ids** | **String**| A list of merchant IDs to query. | [optional] 
  **currency** | **String**| The currency for the operation. Currently, only &#x60;USD&#x60; is supported. | [optional] [default to &#39;USD&#39;]
+ **acquiring_type** | [**AcquiringType**](.md)| AcquiringType defines the acquisition logic used in the payment flow: - &#x60;Order&#x60;: Each order is created with a specific amount and associated payment request. Funds are settled on a per-order basis. - &#x60;TopUp&#x60;: Recharge-style flow where funds are topped up to a payer balance or account. Useful for flexible or usage-based payment models.  | [optional] 
 
 ### Return type
 
 [**GetSettlementInfoByIds200Response**](GetSettlementInfoByIds200Response.md)
+
+### Authorization
+
+[OAuth2](../README.md#OAuth2), [CoboAuth](../README.md#CoboAuth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+## getTopUpAddress
+
+> GetTopUpAddress200Response getTopUpAddress(merchant_id, token_id, custom_payer_id)
+
+Get top-up address
+
+Get a top-up address for certain payer under merchant. 
+
+### Example
+
+```javascript
+const CoboWaas2 = require('@cobo/cobo-waas2');
+// Initialize the API client
+const apiClient = CoboWaas2.ApiClient.instance
+// Select the development environment. To use the production environment, replace `Env.DEV` with `Env.PROD`
+apiClient.setEnv(CoboWaas2.Env.DEV);
+// Replace `<YOUR_PRIVATE_KEY>` with your private key
+apiClient.setPrivateKey("<YOUR_PRIVATE_KEY>");
+// Call the API
+const apiInstance = new CoboWaas2.PaymentApi();
+const merchant_id = "M1001";
+const token_id = "ETH_USDT";
+const custom_payer_id = "payer_0001";
+apiInstance.getTopUpAddress(merchant_id, token_id, custom_payer_id).then((data) => {
+  console.log('API called successfully. Returned data: ' + data);
+}, (error) => {
+  console.error(error);
+});
+
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **merchant_id** | **String**| The merchant ID. | 
+ **token_id** | **String**| The token ID, which identifies the cryptocurrency. Supported values:    - USDC: &#x60;ETH_USDC&#x60;, &#x60;ARBITRUM_USDC&#x60;, &#x60;SOL_USDC&#x60;, &#x60;BASE_USDC&#x60;, &#x60;MATIC_USDC&#x60;, &#x60;BSC_USDC&#x60;   - USDT: &#x60;TRON_USDT&#x60;, &#x60;ETH_USDT&#x60;, &#x60;ARBITRUM_USDT&#x60;, &#x60;SOL_USDT&#x60;, &#x60;BASE_USDT&#x60;, &#x60;MATIC_USDT&#x60;, &#x60;BSC_USDT&#x60;  | 
+ **custom_payer_id** | **String**| Unique customer identifier on the merchant side, used to allocate a dedicated top-up address  | 
+
+### Return type
+
+[**GetTopUpAddress200Response**](GetTopUpAddress200Response.md)
 
 ### Authorization
 
@@ -978,6 +1038,126 @@ Name | Type | Description  | Notes
 - **Accept**: application/json
 
 
+## listTopUpPayerAccounts
+
+> ListTopUpPayerAccounts200Response listTopUpPayerAccounts(opts)
+
+List top-up payer accounts
+
+This operation retrieves the accounts of all payers. You can filter the result by merchant ID and payer_id. 
+
+### Example
+
+```javascript
+const CoboWaas2 = require('@cobo/cobo-waas2');
+// Initialize the API client
+const apiClient = CoboWaas2.ApiClient.instance
+// Select the development environment. To use the production environment, replace `Env.DEV` with `Env.PROD`
+apiClient.setEnv(CoboWaas2.Env.DEV);
+// Replace `<YOUR_PRIVATE_KEY>` with your private key
+apiClient.setPrivateKey("<YOUR_PRIVATE_KEY>");
+// Call the API
+const apiInstance = new CoboWaas2.PaymentApi();
+const opts = {
+  'limit': 10,
+  'before': "RqeEoTkgKG5rpzqYzg2Hd3szmPoj2cE7w5jWwShz3C1vyGmk1",
+  'after': "RqeEoTkgKG5rpzqYzg2Hd3szmPoj2cE7w5jWwShz3C1vyGSAk",
+  'merchant_id': "M1001",
+  'payer_id': "P20250619T0310056d7aa"
+};
+apiInstance.listTopUpPayerAccounts(opts).then((data) => {
+  console.log('API called successfully. Returned data: ' + data);
+}, (error) => {
+  console.error(error);
+});
+
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **limit** | **Number**| The maximum number of objects to return. For most operations, the value range is [1, 50]. | [optional] [default to 10]
+ **before** | **String**| This parameter specifies an object ID as a starting point for pagination, retrieving data before the specified object relative to the current dataset.    Suppose the current data is ordered as Object A, Object B, and Object C.  If you set &#x60;before&#x60; to the ID of Object C (&#x60;RqeEoTkgKG5rpzqYzg2Hd3szmPoj2cE7w5jWwShz3C1vyGSAk&#x60;), the response will include Object B and Object A.    **Notes**:   - If you set both &#x60;after&#x60; and &#x60;before&#x60;, an error will occur. - If you leave both &#x60;before&#x60; and &#x60;after&#x60; empty, the first page of data is returned. - If you set it to &#x60;infinity&#x60;, the last page of data is returned.  | [optional] 
+ **after** | **String**| This parameter specifies an object ID as a starting point for pagination, retrieving data after the specified object relative to the current dataset.    Suppose the current data is ordered as Object A, Object B, and Object C. If you set &#x60;after&#x60; to the ID of Object A (&#x60;RqeEoTkgKG5rpzqYzg2Hd3szmPoj2cE7w5jWwShz3C1vyGSAk&#x60;), the response will include Object B and Object C.    **Notes**:   - If you set both &#x60;after&#x60; and &#x60;before&#x60;, an error will occur. - If you leave both &#x60;before&#x60; and &#x60;after&#x60; empty, the first page of data is returned.  | [optional] 
+ **merchant_id** | **String**| The merchant ID. | [optional] 
+ **payer_id** | **String**| Unique payer identifier on the Cobo side, auto-generated by the system. | [optional] 
+
+### Return type
+
+[**ListTopUpPayerAccounts200Response**](ListTopUpPayerAccounts200Response.md)
+
+### Authorization
+
+[OAuth2](../README.md#OAuth2), [CoboAuth](../README.md#CoboAuth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+## listTopUpPayers
+
+> ListTopUpPayers200Response listTopUpPayers(merchant_id, opts)
+
+List top-up payers
+
+This operation retrieves the information of all payers. You can filter the result by merchant ID and payer_id. 
+
+### Example
+
+```javascript
+const CoboWaas2 = require('@cobo/cobo-waas2');
+// Initialize the API client
+const apiClient = CoboWaas2.ApiClient.instance
+// Select the development environment. To use the production environment, replace `Env.DEV` with `Env.PROD`
+apiClient.setEnv(CoboWaas2.Env.DEV);
+// Replace `<YOUR_PRIVATE_KEY>` with your private key
+apiClient.setPrivateKey("<YOUR_PRIVATE_KEY>");
+// Call the API
+const apiInstance = new CoboWaas2.PaymentApi();
+const merchant_id = "M1001";
+const opts = {
+  'limit': 10,
+  'before': "RqeEoTkgKG5rpzqYzg2Hd3szmPoj2cE7w5jWwShz3C1vyGmk1",
+  'after': "RqeEoTkgKG5rpzqYzg2Hd3szmPoj2cE7w5jWwShz3C1vyGSAk",
+  'payer_id': "P20250619T0310056d7aa"
+};
+apiInstance.listTopUpPayers(merchant_id, opts).then((data) => {
+  console.log('API called successfully. Returned data: ' + data);
+}, (error) => {
+  console.error(error);
+});
+
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **merchant_id** | **String**| The merchant ID. | 
+ **limit** | **Number**| The maximum number of objects to return. For most operations, the value range is [1, 50]. | [optional] [default to 10]
+ **before** | **String**| This parameter specifies an object ID as a starting point for pagination, retrieving data before the specified object relative to the current dataset.    Suppose the current data is ordered as Object A, Object B, and Object C.  If you set &#x60;before&#x60; to the ID of Object C (&#x60;RqeEoTkgKG5rpzqYzg2Hd3szmPoj2cE7w5jWwShz3C1vyGSAk&#x60;), the response will include Object B and Object A.    **Notes**:   - If you set both &#x60;after&#x60; and &#x60;before&#x60;, an error will occur. - If you leave both &#x60;before&#x60; and &#x60;after&#x60; empty, the first page of data is returned. - If you set it to &#x60;infinity&#x60;, the last page of data is returned.  | [optional] 
+ **after** | **String**| This parameter specifies an object ID as a starting point for pagination, retrieving data after the specified object relative to the current dataset.    Suppose the current data is ordered as Object A, Object B, and Object C. If you set &#x60;after&#x60; to the ID of Object A (&#x60;RqeEoTkgKG5rpzqYzg2Hd3szmPoj2cE7w5jWwShz3C1vyGSAk&#x60;), the response will include Object B and Object C.    **Notes**:   - If you set both &#x60;after&#x60; and &#x60;before&#x60;, an error will occur. - If you leave both &#x60;before&#x60; and &#x60;after&#x60; empty, the first page of data is returned.  | [optional] 
+ **payer_id** | **String**| Unique payer identifier on the Cobo side, auto-generated by the system. | [optional] 
+
+### Return type
+
+[**ListTopUpPayers200Response**](ListTopUpPayers200Response.md)
+
+### Authorization
+
+[OAuth2](../README.md#OAuth2), [CoboAuth](../README.md#CoboAuth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
 ## updateBankAccountById
 
 > BankAccount updateBankAccountById(bank_account_id, opts)
@@ -1129,6 +1309,60 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**Order**](Order.md)
+
+### Authorization
+
+[OAuth2](../README.md#OAuth2), [CoboAuth](../README.md#CoboAuth)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
+## updateRefundById
+
+> Refund updateRefundById(refund_id, opts)
+
+Update refund order information
+
+This operation updates a specified refund order. 
+
+### Example
+
+```javascript
+const CoboWaas2 = require('@cobo/cobo-waas2');
+// Initialize the API client
+const apiClient = CoboWaas2.ApiClient.instance
+// Select the development environment. To use the production environment, replace `Env.DEV` with `Env.PROD`
+apiClient.setEnv(CoboWaas2.Env.DEV);
+// Replace `<YOUR_PRIVATE_KEY>` with your private key
+apiClient.setPrivateKey("<YOUR_PRIVATE_KEY>");
+// Call the API
+const apiInstance = new CoboWaas2.PaymentApi();
+const refund_id = "R20250304-M1001-1001";
+const opts = {
+  'UpdateRefundByIdRequest': new CoboWaas2.UpdateRefundByIdRequest()
+};
+apiInstance.updateRefundById(refund_id, opts).then((data) => {
+  console.log('API called successfully. Returned data: ' + data);
+}, (error) => {
+  console.error(error);
+});
+
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **refund_id** | **String**| The refund order ID. | 
+ **UpdateRefundByIdRequest** | [**UpdateRefundByIdRequest**](UpdateRefundByIdRequest.md)| The request body to update a refund order. | [optional] 
+
+### Return type
+
+[**Refund**](Refund.md)
 
 ### Authorization
 

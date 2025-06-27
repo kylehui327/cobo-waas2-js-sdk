@@ -14,7 +14,9 @@ Method | HTTP request | Description
 [**estimateFee**](TransactionsApi.md#estimateFee) | **POST** /transactions/estimate_fee | Estimate transaction fee
 [**getTransactionApprovalDetail**](TransactionsApi.md#getTransactionApprovalDetail) | **GET** /transactions/{transaction_id}/approval_detail | Get transaction approval details
 [**getTransactionById**](TransactionsApi.md#getTransactionById) | **GET** /transactions/{transaction_id} | Get transaction information
+[**listApprovalDetails**](TransactionsApi.md#listApprovalDetails) | **GET** /transactions/approval/details | List transaction approval details
 [**listTransactionApprovalDetails**](TransactionsApi.md#listTransactionApprovalDetails) | **GET** /transactions/approval_details | List transaction approval details
+[**listTransactionTemplates**](TransactionsApi.md#listTransactionTemplates) | **GET** /transactions/templates | list transaction templates
 [**listTransactions**](TransactionsApi.md#listTransactions) | **GET** /transactions | List all transactions
 [**resendTransactionById**](TransactionsApi.md#resendTransactionById) | **POST** /transactions/{transaction_id}/resend | Resend transaction
 [**signAndBroadcastTransactionById**](TransactionsApi.md#signAndBroadcastTransactionById) | **POST** /transactions/{transaction_id}/sign_and_broadcast | Sign and broadcast transaction
@@ -540,6 +542,62 @@ Name | Type | Description  | Notes
 - **Accept**: application/json
 
 
+## listApprovalDetails
+
+> ListApprovalDetails200Response listApprovalDetails(opts)
+
+List transaction approval details
+
+This operation retrieves detailed approval information for a specified transaction. 
+
+### Example
+
+```javascript
+const CoboWaas2 = require('@cobo/cobo-waas2');
+// Initialize the API client
+const apiClient = CoboWaas2.ApiClient.instance
+// Select the development environment. To use the production environment, replace `Env.DEV` with `Env.PROD`
+apiClient.setEnv(CoboWaas2.Env.DEV);
+// Replace `<YOUR_PRIVATE_KEY>` with your private key
+apiClient.setPrivateKey("<YOUR_PRIVATE_KEY>");
+// Call the API
+const apiInstance = new CoboWaas2.TransactionsApi();
+const opts = {
+  'transaction_ids': "f47ac10b-58cc-4372-a567-0e02b2c3d479,557918d2-632a-4fe1-932f-315711f05fe3",
+  'cobo_ids': "20231213122855000000000000000000,20231213122955000000000000000000",
+  'request_id': "web_send_by_user_327_1610444045047,web_send_by_user_327_1610444045048"
+};
+apiInstance.listApprovalDetails(opts).then((data) => {
+  console.log('API called successfully. Returned data: ' + data);
+}, (error) => {
+  console.error(error);
+});
+
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **transaction_ids** | **String**| A list of transaction IDs, separated by comma. | [optional] 
+ **cobo_ids** | **String**| A list of Cobo IDs, separated by comma. A Cobo ID can be used to track a transaction. | [optional] 
+ **request_id** | **String**| A list of request IDs, separated by comma. | [optional] 
+
+### Return type
+
+[**ListApprovalDetails200Response**](ListApprovalDetails200Response.md)
+
+### Authorization
+
+[OAuth2](../README.md#OAuth2), [CoboAuth](../README.md#CoboAuth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
 ## listTransactionApprovalDetails
 
 > ListTransactionApprovalDetails200Response listTransactionApprovalDetails(opts)
@@ -583,6 +641,60 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**ListTransactionApprovalDetails200Response**](ListTransactionApprovalDetails200Response.md)
+
+### Authorization
+
+[OAuth2](../README.md#OAuth2), [CoboAuth](../README.md#CoboAuth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+## listTransactionTemplates
+
+> ListTransactionTemplates200Response listTransactionTemplates(transaction_type, opts)
+
+list transaction templates
+
+This operation retrieves transaction templates based on the specified transaction type and template version. The response includes a list of templates that can be used for creating transactions approval message. 
+
+### Example
+
+```javascript
+const CoboWaas2 = require('@cobo/cobo-waas2');
+// Initialize the API client
+const apiClient = CoboWaas2.ApiClient.instance
+// Select the development environment. To use the production environment, replace `Env.DEV` with `Env.PROD`
+apiClient.setEnv(CoboWaas2.Env.DEV);
+// Replace `<YOUR_PRIVATE_KEY>` with your private key
+apiClient.setPrivateKey("<YOUR_PRIVATE_KEY>");
+// Call the API
+const apiInstance = new CoboWaas2.TransactionsApi();
+const transaction_type = "DEPOSIT";
+const opts = {
+  'template_version': "1.0.0"
+};
+apiInstance.listTransactionTemplates(transaction_type, opts).then((data) => {
+  console.log('API called successfully. Returned data: ' + data);
+}, (error) => {
+  console.error(error);
+});
+
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **transaction_type** | **String**| The transaction type. Possible values include:    - &#x60;DEPOSIT&#x60;: A deposit transaction.   - &#x60;WITHDRAW&#x60;: A withdrawal transaction.  | 
+ **template_version** | **String**| The version of the template used for the transaction approval. | [optional] 
+
+### Return type
+
+[**ListTransactionTemplates200Response**](ListTransactionTemplates200Response.md)
 
 ### Authorization
 
@@ -668,7 +780,7 @@ Name | Type | Description  | Notes
  **limit** | **Number**| The maximum number of objects to return. For most operations, the value range is [1, 50]. | [optional] [default to 10]
  **before** | **String**| This parameter specifies an object ID as a starting point for pagination, retrieving data before the specified object relative to the current dataset.    Suppose the current data is ordered as Object A, Object B, and Object C.  If you set &#x60;before&#x60; to the ID of Object C (&#x60;RqeEoTkgKG5rpzqYzg2Hd3szmPoj2cE7w5jWwShz3C1vyGSAk&#x60;), the response will include Object B and Object A.    **Notes**:   - If you set both &#x60;after&#x60; and &#x60;before&#x60;, an error will occur. - If you leave both &#x60;before&#x60; and &#x60;after&#x60; empty, the first page of data is returned. - If you set it to &#x60;infinity&#x60;, the last page of data is returned.  | [optional] 
  **after** | **String**| This parameter specifies an object ID as a starting point for pagination, retrieving data after the specified object relative to the current dataset.    Suppose the current data is ordered as Object A, Object B, and Object C. If you set &#x60;after&#x60; to the ID of Object A (&#x60;RqeEoTkgKG5rpzqYzg2Hd3szmPoj2cE7w5jWwShz3C1vyGSAk&#x60;), the response will include Object B and Object C.    **Notes**:   - If you set both &#x60;after&#x60; and &#x60;before&#x60;, an error will occur. - If you leave both &#x60;before&#x60; and &#x60;after&#x60; empty, the first page of data is returned.  | [optional] 
- **direction** | **String**| The sort direction. Possible values include:   - &#x60;ASC&#x60;: Sort the results in ascending order.   - &#x60;DESC&#x60;: Sort the results in descending order.  | [optional] [default to &#39;&#39;]
+ **direction** | **String**| The sort direction. Possible values include:   - &#x60;ASC&#x60;: Sort the results in ascending order.   - &#x60;DESC&#x60;: Sort the results in descending order.  | [optional] [default to &#39;ASC&#39;]
 
 ### Return type
 

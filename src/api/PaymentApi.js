@@ -11,6 +11,7 @@
 
 
 import ApiClient from "../ApiClient";
+import AcquiringType from '../model/AcquiringType';
 import BankAccount from '../model/BankAccount';
 import CreateBankAccountRequest from '../model/CreateBankAccountRequest';
 import CreateCryptoAddressRequest from '../model/CreateCryptoAddressRequest';
@@ -23,9 +24,12 @@ import ErrorResponse from '../model/ErrorResponse';
 import GetExchangeRate200Response from '../model/GetExchangeRate200Response';
 import GetRefunds200Response from '../model/GetRefunds200Response';
 import GetSettlementInfoByIds200Response from '../model/GetSettlementInfoByIds200Response';
+import GetTopUpAddress200Response from '../model/GetTopUpAddress200Response';
 import ListMerchants200Response from '../model/ListMerchants200Response';
 import ListPaymentOrders200Response from '../model/ListPaymentOrders200Response';
 import ListSettlementRequests200Response from '../model/ListSettlementRequests200Response';
+import ListTopUpPayerAccounts200Response from '../model/ListTopUpPayerAccounts200Response';
+import ListTopUpPayers200Response from '../model/ListTopUpPayers200Response';
 import Merchant from '../model/Merchant';
 import Order from '../model/Order';
 import Refund from '../model/Refund';
@@ -33,6 +37,7 @@ import Settlement from '../model/Settlement';
 import SupportedToken from '../model/SupportedToken';
 import UpdateMerchantByIdRequest from '../model/UpdateMerchantByIdRequest';
 import UpdatePaymentOrderRequest from '../model/UpdatePaymentOrderRequest';
+import UpdateRefundByIdRequest from '../model/UpdateRefundByIdRequest';
 
 /**
 * Payment service.
@@ -626,6 +631,7 @@ export default class PaymentApi {
      * @param {Object} opts Optional parameters
      * @param {String} [merchant_ids] A list of merchant IDs to query.
      * @param {String} [currency = 'USD')] The currency for the operation. Currently, only `USD` is supported.
+     * @param {module:model/AcquiringType} [acquiring_type] AcquiringType defines the acquisition logic used in the payment flow: - `Order`: Each order is created with a specific amount and associated payment request. Funds are settled on a per-order basis. - `TopUp`: Recharge-style flow where funds are topped up to a payer balance or account. Useful for flexible or usage-based payment models. 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/GetSettlementInfoByIds200Response} and HTTP response
      */
     getSettlementInfoByIdsWithHttpInfo(opts) {
@@ -639,7 +645,8 @@ export default class PaymentApi {
       };
       let queryParams = {
         'merchant_ids': opts['merchant_ids'],
-        'currency': opts['currency']
+        'currency': opts['currency'],
+        'acquiring_type': opts['acquiring_type']
       };
       let headerParams = {
       };
@@ -663,10 +670,76 @@ export default class PaymentApi {
      * @param {Object} opts Optional parameters
      * @param {String} opts.merchant_ids A list of merchant IDs to query.
      * @param {String} opts.currency The currency for the operation. Currently, only `USD` is supported. (default to 'USD')
+     * @param {module:model/AcquiringType} opts.acquiring_type AcquiringType defines the acquisition logic used in the payment flow: - `Order`: Each order is created with a specific amount and associated payment request. Funds are settled on a per-order basis. - `TopUp`: Recharge-style flow where funds are topped up to a payer balance or account. Useful for flexible or usage-based payment models. 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/GetSettlementInfoByIds200Response}
      */
     getSettlementInfoByIds(opts) {
       return this.getSettlementInfoByIdsWithHttpInfo(opts)
+        .then(function(response_and_data) {
+          return response_and_data.data;
+        });
+    }
+
+
+    /**
+     * Get top-up address
+     * Get a top-up address for certain payer under merchant. 
+     * @param {String} merchant_id The merchant ID.
+     * @param {String} token_id The token ID, which identifies the cryptocurrency. Supported values:    - USDC: `ETH_USDC`, `ARBITRUM_USDC`, `SOL_USDC`, `BASE_USDC`, `MATIC_USDC`, `BSC_USDC`   - USDT: `TRON_USDT`, `ETH_USDT`, `ARBITRUM_USDT`, `SOL_USDT`, `BASE_USDT`, `MATIC_USDT`, `BSC_USDT` 
+     * @param {String} custom_payer_id Unique customer identifier on the merchant side, used to allocate a dedicated top-up address 
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/GetTopUpAddress200Response} and HTTP response
+     */
+    getTopUpAddressWithHttpInfo(merchant_id, token_id, custom_payer_id) {
+      let postBody = null;
+      if (postBody && postBody.toJSON) {
+          postBody = postBody.toJSON()
+      }
+      // verify the required parameter 'merchant_id' is set
+      if (merchant_id === undefined || merchant_id === null) {
+        throw new Error("Missing the required parameter 'merchant_id' when calling getTopUpAddress");
+      }
+      // verify the required parameter 'token_id' is set
+      if (token_id === undefined || token_id === null) {
+        throw new Error("Missing the required parameter 'token_id' when calling getTopUpAddress");
+      }
+      // verify the required parameter 'custom_payer_id' is set
+      if (custom_payer_id === undefined || custom_payer_id === null) {
+        throw new Error("Missing the required parameter 'custom_payer_id' when calling getTopUpAddress");
+      }
+
+      let pathParams = {
+      };
+      let queryParams = {
+        'merchant_id': merchant_id,
+        'token_id': token_id,
+        'custom_payer_id': custom_payer_id
+      };
+      let headerParams = {
+      };
+      let formParams = {
+      };
+
+      let authNames = ['OAuth2', 'CoboAuth'];
+      let contentTypes = [];
+      let accepts = ['application/json'];
+      let returnType = GetTopUpAddress200Response;
+      return this.apiClient.callApi(
+        '/payments/topup/address', 'GET',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, null
+      );
+    }
+
+    /**
+     * Get top-up address
+     * Get a top-up address for certain payer under merchant. 
+     * @param {String} merchant_id The merchant ID.
+     * @param {String} token_id The token ID, which identifies the cryptocurrency. Supported values:    - USDC: `ETH_USDC`, `ARBITRUM_USDC`, `SOL_USDC`, `BASE_USDC`, `MATIC_USDC`, `BSC_USDC`   - USDT: `TRON_USDT`, `ETH_USDT`, `ARBITRUM_USDT`, `SOL_USDT`, `BASE_USDT`, `MATIC_USDT`, `BSC_USDT` 
+     * @param {String} custom_payer_id Unique customer identifier on the merchant side, used to allocate a dedicated top-up address 
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/GetTopUpAddress200Response}
+     */
+    getTopUpAddress(merchant_id, token_id, custom_payer_id) {
+      return this.getTopUpAddressWithHttpInfo(merchant_id, token_id, custom_payer_id)
         .then(function(response_and_data) {
           return response_and_data.data;
         });
@@ -995,6 +1068,134 @@ export default class PaymentApi {
 
 
     /**
+     * List top-up payer accounts
+     * This operation retrieves the accounts of all payers. You can filter the result by merchant ID and payer_id. 
+     * @param {Object} opts Optional parameters
+     * @param {Number} [limit = 10)] The maximum number of objects to return. For most operations, the value range is [1, 50].
+     * @param {String} [before] This parameter specifies an object ID as a starting point for pagination, retrieving data before the specified object relative to the current dataset.    Suppose the current data is ordered as Object A, Object B, and Object C.  If you set `before` to the ID of Object C (`RqeEoTkgKG5rpzqYzg2Hd3szmPoj2cE7w5jWwShz3C1vyGSAk`), the response will include Object B and Object A.    **Notes**:   - If you set both `after` and `before`, an error will occur. - If you leave both `before` and `after` empty, the first page of data is returned. - If you set it to `infinity`, the last page of data is returned. 
+     * @param {String} [after] This parameter specifies an object ID as a starting point for pagination, retrieving data after the specified object relative to the current dataset.    Suppose the current data is ordered as Object A, Object B, and Object C. If you set `after` to the ID of Object A (`RqeEoTkgKG5rpzqYzg2Hd3szmPoj2cE7w5jWwShz3C1vyGSAk`), the response will include Object B and Object C.    **Notes**:   - If you set both `after` and `before`, an error will occur. - If you leave both `before` and `after` empty, the first page of data is returned. 
+     * @param {String} [merchant_id] The merchant ID.
+     * @param {String} [payer_id] Unique payer identifier on the Cobo side, auto-generated by the system.
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/ListTopUpPayerAccounts200Response} and HTTP response
+     */
+    listTopUpPayerAccountsWithHttpInfo(opts) {
+      opts = opts || {};
+      let postBody = null;
+      if (postBody && postBody.toJSON) {
+          postBody = postBody.toJSON()
+      }
+
+      let pathParams = {
+      };
+      let queryParams = {
+        'limit': opts['limit'],
+        'before': opts['before'],
+        'after': opts['after'],
+        'merchant_id': opts['merchant_id'],
+        'payer_id': opts['payer_id']
+      };
+      let headerParams = {
+      };
+      let formParams = {
+      };
+
+      let authNames = ['OAuth2', 'CoboAuth'];
+      let contentTypes = [];
+      let accepts = ['application/json'];
+      let returnType = ListTopUpPayerAccounts200Response;
+      return this.apiClient.callApi(
+        '/payments/topup/payer_accounts', 'GET',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, null
+      );
+    }
+
+    /**
+     * List top-up payer accounts
+     * This operation retrieves the accounts of all payers. You can filter the result by merchant ID and payer_id. 
+     * @param {Object} opts Optional parameters
+     * @param {Number} opts.limit The maximum number of objects to return. For most operations, the value range is [1, 50]. (default to 10)
+     * @param {String} opts.before This parameter specifies an object ID as a starting point for pagination, retrieving data before the specified object relative to the current dataset.    Suppose the current data is ordered as Object A, Object B, and Object C.  If you set `before` to the ID of Object C (`RqeEoTkgKG5rpzqYzg2Hd3szmPoj2cE7w5jWwShz3C1vyGSAk`), the response will include Object B and Object A.    **Notes**:   - If you set both `after` and `before`, an error will occur. - If you leave both `before` and `after` empty, the first page of data is returned. - If you set it to `infinity`, the last page of data is returned. 
+     * @param {String} opts.after This parameter specifies an object ID as a starting point for pagination, retrieving data after the specified object relative to the current dataset.    Suppose the current data is ordered as Object A, Object B, and Object C. If you set `after` to the ID of Object A (`RqeEoTkgKG5rpzqYzg2Hd3szmPoj2cE7w5jWwShz3C1vyGSAk`), the response will include Object B and Object C.    **Notes**:   - If you set both `after` and `before`, an error will occur. - If you leave both `before` and `after` empty, the first page of data is returned. 
+     * @param {String} opts.merchant_id The merchant ID.
+     * @param {String} opts.payer_id Unique payer identifier on the Cobo side, auto-generated by the system.
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/ListTopUpPayerAccounts200Response}
+     */
+    listTopUpPayerAccounts(opts) {
+      return this.listTopUpPayerAccountsWithHttpInfo(opts)
+        .then(function(response_and_data) {
+          return response_and_data.data;
+        });
+    }
+
+
+    /**
+     * List top-up payers
+     * This operation retrieves the information of all payers. You can filter the result by merchant ID and payer_id. 
+     * @param {String} merchant_id The merchant ID.
+     * @param {Object} opts Optional parameters
+     * @param {Number} [limit = 10)] The maximum number of objects to return. For most operations, the value range is [1, 50].
+     * @param {String} [before] This parameter specifies an object ID as a starting point for pagination, retrieving data before the specified object relative to the current dataset.    Suppose the current data is ordered as Object A, Object B, and Object C.  If you set `before` to the ID of Object C (`RqeEoTkgKG5rpzqYzg2Hd3szmPoj2cE7w5jWwShz3C1vyGSAk`), the response will include Object B and Object A.    **Notes**:   - If you set both `after` and `before`, an error will occur. - If you leave both `before` and `after` empty, the first page of data is returned. - If you set it to `infinity`, the last page of data is returned. 
+     * @param {String} [after] This parameter specifies an object ID as a starting point for pagination, retrieving data after the specified object relative to the current dataset.    Suppose the current data is ordered as Object A, Object B, and Object C. If you set `after` to the ID of Object A (`RqeEoTkgKG5rpzqYzg2Hd3szmPoj2cE7w5jWwShz3C1vyGSAk`), the response will include Object B and Object C.    **Notes**:   - If you set both `after` and `before`, an error will occur. - If you leave both `before` and `after` empty, the first page of data is returned. 
+     * @param {String} [payer_id] Unique payer identifier on the Cobo side, auto-generated by the system.
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/ListTopUpPayers200Response} and HTTP response
+     */
+    listTopUpPayersWithHttpInfo(merchant_id, opts) {
+      opts = opts || {};
+      let postBody = null;
+      if (postBody && postBody.toJSON) {
+          postBody = postBody.toJSON()
+      }
+      // verify the required parameter 'merchant_id' is set
+      if (merchant_id === undefined || merchant_id === null) {
+        throw new Error("Missing the required parameter 'merchant_id' when calling listTopUpPayers");
+      }
+
+      let pathParams = {
+      };
+      let queryParams = {
+        'limit': opts['limit'],
+        'before': opts['before'],
+        'after': opts['after'],
+        'merchant_id': merchant_id,
+        'payer_id': opts['payer_id']
+      };
+      let headerParams = {
+      };
+      let formParams = {
+      };
+
+      let authNames = ['OAuth2', 'CoboAuth'];
+      let contentTypes = [];
+      let accepts = ['application/json'];
+      let returnType = ListTopUpPayers200Response;
+      return this.apiClient.callApi(
+        '/payments/topup/payers', 'GET',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, null
+      );
+    }
+
+    /**
+     * List top-up payers
+     * This operation retrieves the information of all payers. You can filter the result by merchant ID and payer_id. 
+     * @param {String} merchant_id The merchant ID.
+     * @param {Object} opts Optional parameters
+     * @param {Number} opts.limit The maximum number of objects to return. For most operations, the value range is [1, 50]. (default to 10)
+     * @param {String} opts.before This parameter specifies an object ID as a starting point for pagination, retrieving data before the specified object relative to the current dataset.    Suppose the current data is ordered as Object A, Object B, and Object C.  If you set `before` to the ID of Object C (`RqeEoTkgKG5rpzqYzg2Hd3szmPoj2cE7w5jWwShz3C1vyGSAk`), the response will include Object B and Object A.    **Notes**:   - If you set both `after` and `before`, an error will occur. - If you leave both `before` and `after` empty, the first page of data is returned. - If you set it to `infinity`, the last page of data is returned. 
+     * @param {String} opts.after This parameter specifies an object ID as a starting point for pagination, retrieving data after the specified object relative to the current dataset.    Suppose the current data is ordered as Object A, Object B, and Object C. If you set `after` to the ID of Object A (`RqeEoTkgKG5rpzqYzg2Hd3szmPoj2cE7w5jWwShz3C1vyGSAk`), the response will include Object B and Object C.    **Notes**:   - If you set both `after` and `before`, an error will occur. - If you leave both `before` and `after` empty, the first page of data is returned. 
+     * @param {String} opts.payer_id Unique payer identifier on the Cobo side, auto-generated by the system.
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/ListTopUpPayers200Response}
+     */
+    listTopUpPayers(merchant_id, opts) {
+      return this.listTopUpPayersWithHttpInfo(merchant_id, opts)
+        .then(function(response_and_data) {
+          return response_and_data.data;
+        });
+    }
+
+
+    /**
      * Update bank account
      * This operation updates the information of an existing bank account. 
      * @param {String} bank_account_id The bank account ID.
@@ -1156,6 +1357,62 @@ export default class PaymentApi {
      */
     updatePaymentOrder(order_id, opts) {
       return this.updatePaymentOrderWithHttpInfo(order_id, opts)
+        .then(function(response_and_data) {
+          return response_and_data.data;
+        });
+    }
+
+
+    /**
+     * Update refund order information
+     * This operation updates a specified refund order. 
+     * @param {String} refund_id The refund order ID.
+     * @param {Object} opts Optional parameters
+     * @param {module:model/UpdateRefundByIdRequest} [UpdateRefundByIdRequest] The request body to update a refund order.
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/Refund} and HTTP response
+     */
+    updateRefundByIdWithHttpInfo(refund_id, opts) {
+      opts = opts || {};
+      let postBody = opts['UpdateRefundByIdRequest'];
+      if (postBody && postBody.toJSON) {
+          postBody = postBody.toJSON()
+      }
+      // verify the required parameter 'refund_id' is set
+      if (refund_id === undefined || refund_id === null) {
+        throw new Error("Missing the required parameter 'refund_id' when calling updateRefundById");
+      }
+
+      let pathParams = {
+        'refund_id': refund_id
+      };
+      let queryParams = {
+      };
+      let headerParams = {
+      };
+      let formParams = {
+      };
+
+      let authNames = ['OAuth2', 'CoboAuth'];
+      let contentTypes = ['application/json'];
+      let accepts = ['application/json'];
+      let returnType = Refund;
+      return this.apiClient.callApi(
+        '/payments/refunds/{refund_id}', 'PUT',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, null
+      );
+    }
+
+    /**
+     * Update refund order information
+     * This operation updates a specified refund order. 
+     * @param {String} refund_id The refund order ID.
+     * @param {Object} opts Optional parameters
+     * @param {module:model/UpdateRefundByIdRequest} opts.UpdateRefundByIdRequest The request body to update a refund order.
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/Refund}
+     */
+    updateRefundById(refund_id, opts) {
+      return this.updateRefundByIdWithHttpInfo(refund_id, opts)
         .then(function(response_and_data) {
           return response_and_data.data;
         });

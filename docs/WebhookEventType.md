@@ -41,6 +41,10 @@
 
 * `wallet.chain.enabled` (value: `"wallet.chain.enabled"`)
 
+* `wallet.mpc.balance.updated` (value: `"wallet.mpc.balance.updated"`)
+
+* `wallet.web3.balance.updated` (value: `"wallet.web3.balance.updated"`)
+
 * `unknown_default_open_api` (value: `"unknown_default_open_api"`)
 
 

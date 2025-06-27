@@ -13,6 +13,8 @@ import Env from "./Env";
 import Ed25519Signer from "./crypto/Ed25519Signer";
 import Secp256k1Signer from "./crypto/Secp256k1Signer";
 import ApiClient from './ApiClient';
+import Account from './model/Account';
+import AcquiringType from './model/AcquiringType';
 import Activity from './model/Activity';
 import ActivityAction from './model/ActivityAction';
 import ActivityExtra from './model/ActivityExtra';
@@ -36,12 +38,18 @@ import ApiLogSummary from './model/ApiLogSummary';
 import AppWorkflow from './model/AppWorkflow';
 import AppWorkflowField from './model/AppWorkflowField';
 import AppWorkflowPolicy from './model/AppWorkflowPolicy';
+import ApprovalDetail from './model/ApprovalDetail';
 import ApprovalEntry from './model/ApprovalEntry';
 import ApprovalRequest from './model/ApprovalRequest';
 import ApprovalRequestDetail from './model/ApprovalRequestDetail';
+import ApprovalResult from './model/ApprovalResult';
+import ApprovalShowInfo from './model/ApprovalShowInfo';
 import ApprovalStatementStatus from './model/ApprovalStatementStatus';
 import ApprovalStatus from './model/ApprovalStatus';
+import ApprovalTemplate from './model/ApprovalTemplate';
+import ApprovalTransactionResult from './model/ApprovalTransactionResult';
 import ApprovalUser from './model/ApprovalUser';
+import ApprovalUserDetail from './model/ApprovalUserDetail';
 import AssetBalance from './model/AssetBalance';
 import AssetInfo from './model/AssetInfo';
 import AutoFuelType from './model/AutoFuelType';
@@ -60,6 +68,7 @@ import BabylonStakingExtra from './model/BabylonStakingExtra';
 import BabylonStakingRegistration from './model/BabylonStakingRegistration';
 import BabylonValidator from './model/BabylonValidator';
 import Balance from './model/Balance';
+import BalanceUpdateInfo from './model/BalanceUpdateInfo';
 import BankAccount from './model/BankAccount';
 import BaseContractCallSource from './model/BaseContractCallSource';
 import BaseEstimateStakingFee from './model/BaseEstimateStakingFee';
@@ -162,8 +171,12 @@ import EstimatedEvmEip1559Fee from './model/EstimatedEvmEip1559Fee';
 import EstimatedEvmEip1559FeeSlow from './model/EstimatedEvmEip1559FeeSlow';
 import EstimatedEvmLegacyFee from './model/EstimatedEvmLegacyFee';
 import EstimatedEvmLegacyFeeSlow from './model/EstimatedEvmLegacyFeeSlow';
+import EstimatedFILFee from './model/EstimatedFILFee';
+import EstimatedFILFeeSlow from './model/EstimatedFILFeeSlow';
 import EstimatedFee from './model/EstimatedFee';
 import EstimatedFixedFee from './model/EstimatedFixedFee';
+import EstimatedSOLFee from './model/EstimatedSOLFee';
+import EstimatedSOLFeeSlow from './model/EstimatedSOLFeeSlow';
 import EstimatedUtxoFee from './model/EstimatedUtxoFee';
 import EstimatedUtxoFeeSlow from './model/EstimatedUtxoFeeSlow';
 import EthStakeEstimatedFee from './model/EthStakeEstimatedFee';
@@ -186,6 +199,8 @@ import ExchangeTransferDestination from './model/ExchangeTransferDestination';
 import ExchangeTransferSource from './model/ExchangeTransferSource';
 import ExchangeWalletInfo from './model/ExchangeWalletInfo';
 import ExtendedTokenInfo from './model/ExtendedTokenInfo';
+import FILBase from './model/FILBase';
+import FILPrice from './model/FILPrice';
 import FeeAmount from './model/FeeAmount';
 import FeeGasLimit from './model/FeeGasLimit';
 import FeeRate from './model/FeeRate';
@@ -197,12 +212,15 @@ import FeeType from './model/FeeType';
 import FixedFeeRate from './model/FixedFeeRate';
 import GetApiKeyInfo200Response from './model/GetApiKeyInfo200Response';
 import GetExchangeRate200Response from './model/GetExchangeRate200Response';
+import GetMaxTransferableValueWithFeeModelRequest from './model/GetMaxTransferableValueWithFeeModelRequest';
 import GetRefunds200Response from './model/GetRefunds200Response';
 import GetSettlementInfoByIds200Response from './model/GetSettlementInfoByIds200Response';
 import GetStakingEstimationFee201Response from './model/GetStakingEstimationFee201Response';
 import GetStakingEstimationFeeRequest from './model/GetStakingEstimationFeeRequest';
 import GetToken2XXResponse from './model/GetToken2XXResponse';
 import GetToken4XXResponse from './model/GetToken4XXResponse';
+import GetTokenizationAllowlistActivation200Response from './model/GetTokenizationAllowlistActivation200Response';
+import GetTopUpAddress200Response from './model/GetTopUpAddress200Response';
 import GetTransactionLimitation200Response from './model/GetTransactionLimitation200Response';
 import GraphQLError from './model/GraphQLError';
 import GraphQLErrorLocationsInner from './model/GraphQLErrorLocationsInner';
@@ -218,6 +236,7 @@ import KeyShareHolderType from './model/KeyShareHolderType';
 import ListAddressBalancesByToken200Response from './model/ListAddressBalancesByToken200Response';
 import ListAddressBooks200Response from './model/ListAddressBooks200Response';
 import ListAddresses200Response from './model/ListAddresses200Response';
+import ListApprovalDetails200Response from './model/ListApprovalDetails200Response';
 import ListApprovalRequests200Response from './model/ListApprovalRequests200Response';
 import ListAssetBalancesForExchangeWallet200Response from './model/ListAssetBalancesForExchangeWallet200Response';
 import ListBabylonAirdropRegistrations200Response from './model/ListBabylonAirdropRegistrations200Response';
@@ -247,7 +266,12 @@ import ListTokenBalancesForAddress200Response from './model/ListTokenBalancesFor
 import ListTokenBalancesForFeeStation200Response from './model/ListTokenBalancesForFeeStation200Response';
 import ListTokenBalancesForFeeStation200ResponseDataInner from './model/ListTokenBalancesForFeeStation200ResponseDataInner';
 import ListTokenListingRequests200Response from './model/ListTokenListingRequests200Response';
+import ListTokenizationBlocklistAddresses200Response from './model/ListTokenizationBlocklistAddresses200Response';
+import ListTopUpPayerAccounts200Response from './model/ListTopUpPayerAccounts200Response';
+import ListTopUpPayers200Response from './model/ListTopUpPayers200Response';
+import ListTopUpPayers200ResponseDataInner from './model/ListTopUpPayers200ResponseDataInner';
 import ListTransactionApprovalDetails200Response from './model/ListTransactionApprovalDetails200Response';
+import ListTransactionTemplates200Response from './model/ListTransactionTemplates200Response';
 import ListTransactions200Response from './model/ListTransactions200Response';
 import ListTssRequests200Response from './model/ListTssRequests200Response';
 import ListUtxos200Response from './model/ListUtxos200Response';
@@ -282,6 +306,7 @@ import Order from './model/Order';
 import OrderStatus from './model/OrderStatus';
 import OrgInfo from './model/OrgInfo';
 import Pagination from './model/Pagination';
+import PayerAccount from './model/PayerAccount';
 import PaymentTransaction from './model/PaymentTransaction';
 import PayoutChannel from './model/PayoutChannel';
 import PolicyAction from './model/PolicyAction';
@@ -313,6 +338,8 @@ import RevokeApprovalRequest201Response from './model/RevokeApprovalRequest201Re
 import RevokeApprovalRequestRequest from './model/RevokeApprovalRequestRequest';
 import RoleScopes from './model/RoleScopes';
 import RootPubkey from './model/RootPubkey';
+import SOLBase from './model/SOLBase';
+import SOLComputeUnit from './model/SOLComputeUnit';
 import SafeContractCallSource from './model/SafeContractCallSource';
 import SafeTransferSource from './model/SafeTransferSource';
 import SafeTxDecodedData from './model/SafeTxDecodedData';
@@ -407,6 +434,72 @@ import TokenListing from './model/TokenListing';
 import TokenListingEventData from './model/TokenListingEventData';
 import TokenListingRequestSource from './model/TokenListingRequestSource';
 import TokenListingRequestStatus from './model/TokenListingRequestStatus';
+import TokenizationActivityInfo from './model/TokenizationActivityInfo';
+import TokenizationActivityStatus from './model/TokenizationActivityStatus';
+import TokenizationAddressPermission from './model/TokenizationAddressPermission';
+import TokenizationAllowlistActivationParams from './model/TokenizationAllowlistActivationParams';
+import TokenizationAllowlistActivationRequest from './model/TokenizationAllowlistActivationRequest';
+import TokenizationAllowlistAddressNote from './model/TokenizationAllowlistAddressNote';
+import TokenizationAllowlistAddressesResponse from './model/TokenizationAllowlistAddressesResponse';
+import TokenizationAppInitiator from './model/TokenizationAppInitiator';
+import TokenizationBlocklistAddressNote from './model/TokenizationBlocklistAddressNote';
+import TokenizationBurnEstimateFeeParams from './model/TokenizationBurnEstimateFeeParams';
+import TokenizationBurnTokenParams from './model/TokenizationBurnTokenParams';
+import TokenizationBurnTokenParamsBurnsInner from './model/TokenizationBurnTokenParamsBurnsInner';
+import TokenizationBurnTokenRequest from './model/TokenizationBurnTokenRequest';
+import TokenizationContractCallEstimateFeeParams from './model/TokenizationContractCallEstimateFeeParams';
+import TokenizationContractCallParams from './model/TokenizationContractCallParams';
+import TokenizationContractCallParamsData from './model/TokenizationContractCallParamsData';
+import TokenizationContractCallRequest from './model/TokenizationContractCallRequest';
+import TokenizationContractCallType from './model/TokenizationContractCallType';
+import TokenizationDeployEstimateFeeParams from './model/TokenizationDeployEstimateFeeParams';
+import TokenizationERC20TokenParams from './model/TokenizationERC20TokenParams';
+import TokenizationEstimateFeeRequest from './model/TokenizationEstimateFeeRequest';
+import TokenizationEstimateFeeRequestOperationParams from './model/TokenizationEstimateFeeRequestOperationParams';
+import TokenizationEvmContractCallParams from './model/TokenizationEvmContractCallParams';
+import TokenizationHoldingInfo from './model/TokenizationHoldingInfo';
+import TokenizationIssueEstimateFeeParams from './model/TokenizationIssueEstimateFeeParams';
+import TokenizationIssueTokenParams from './model/TokenizationIssueTokenParams';
+import TokenizationIssueTokenParamsTokenParams from './model/TokenizationIssueTokenParamsTokenParams';
+import TokenizationIssuedTokenRequest from './model/TokenizationIssuedTokenRequest';
+import TokenizationListActivitiesResponse from './model/TokenizationListActivitiesResponse';
+import TokenizationListEnabledChainsResponse from './model/TokenizationListEnabledChainsResponse';
+import TokenizationListHoldingsResponse from './model/TokenizationListHoldingsResponse';
+import TokenizationListTokenInfoResponse from './model/TokenizationListTokenInfoResponse';
+import TokenizationMintEstimateFeeParams from './model/TokenizationMintEstimateFeeParams';
+import TokenizationMintTokenParams from './model/TokenizationMintTokenParams';
+import TokenizationMintTokenParamsMintsInner from './model/TokenizationMintTokenParamsMintsInner';
+import TokenizationMintTokenRequest from './model/TokenizationMintTokenRequest';
+import TokenizationMpcOperationSource from './model/TokenizationMpcOperationSource';
+import TokenizationOperationResponse from './model/TokenizationOperationResponse';
+import TokenizationOperationSourceType from './model/TokenizationOperationSourceType';
+import TokenizationOperationType from './model/TokenizationOperationType';
+import TokenizationPauseEstimateFeeParams from './model/TokenizationPauseEstimateFeeParams';
+import TokenizationPauseTokenParams from './model/TokenizationPauseTokenParams';
+import TokenizationPauseTokenRequest from './model/TokenizationPauseTokenRequest';
+import TokenizationStatus from './model/TokenizationStatus';
+import TokenizationToggleAllowlistEstimateFeeParams from './model/TokenizationToggleAllowlistEstimateFeeParams';
+import TokenizationTokenDetailInfo from './model/TokenizationTokenDetailInfo';
+import TokenizationTokenInfo from './model/TokenizationTokenInfo';
+import TokenizationTokenOperationSource from './model/TokenizationTokenOperationSource';
+import TokenizationTokenPermission from './model/TokenizationTokenPermission';
+import TokenizationTokenPermissionParams from './model/TokenizationTokenPermissionParams';
+import TokenizationTokenPermissionType from './model/TokenizationTokenPermissionType';
+import TokenizationTokenPermissionsResponse from './model/TokenizationTokenPermissionsResponse';
+import TokenizationTokenStandard from './model/TokenizationTokenStandard';
+import TokenizationUnpauseEstimateFeeParams from './model/TokenizationUnpauseEstimateFeeParams';
+import TokenizationUnpauseTokenParams from './model/TokenizationUnpauseTokenParams';
+import TokenizationUnpauseTokenRequest from './model/TokenizationUnpauseTokenRequest';
+import TokenizationUpdateAddressAction from './model/TokenizationUpdateAddressAction';
+import TokenizationUpdateAllowlistAddressesEstimateFeeParams from './model/TokenizationUpdateAllowlistAddressesEstimateFeeParams';
+import TokenizationUpdateAllowlistAddressesParams from './model/TokenizationUpdateAllowlistAddressesParams';
+import TokenizationUpdateAllowlistAddressesParamsAddressesInner from './model/TokenizationUpdateAllowlistAddressesParamsAddressesInner';
+import TokenizationUpdateAllowlistAddressesRequest from './model/TokenizationUpdateAllowlistAddressesRequest';
+import TokenizationUpdateBlocklistAddressesEstimateFeeParams from './model/TokenizationUpdateBlocklistAddressesEstimateFeeParams';
+import TokenizationUpdateBlocklistAddressesParams from './model/TokenizationUpdateBlocklistAddressesParams';
+import TokenizationUpdateBlocklistAddressesParamsAddressesInner from './model/TokenizationUpdateBlocklistAddressesParamsAddressesInner';
+import TokenizationUpdateBlocklistAddressesRequest from './model/TokenizationUpdateBlocklistAddressesRequest';
+import TokenizationWeb3OperationSource from './model/TokenizationWeb3OperationSource';
 import TokensEventData from './model/TokensEventData';
 import Transaction from './model/Transaction';
 import TransactionApprovalDetail from './model/TransactionApprovalDetail';
@@ -442,13 +535,13 @@ import TransactionEvmLegacyFee from './model/TransactionEvmLegacyFee';
 import TransactionExchangeWalletSource from './model/TransactionExchangeWalletSource';
 import TransactionExtra from './model/TransactionExtra';
 import TransactionExtraType from './model/TransactionExtraType';
+import TransactionFILFee from './model/TransactionFILFee';
 import TransactionFee from './model/TransactionFee';
 import TransactionFeeStationWalletSource from './model/TransactionFeeStationWalletSource';
 import TransactionFixedFee from './model/TransactionFixedFee';
 import TransactionFuelingInfo from './model/TransactionFuelingInfo';
 import TransactionInitiatorType from './model/TransactionInitiatorType';
 import TransactionMPCWalletSource from './model/TransactionMPCWalletSource';
-import TransactionMessageSignBTCEIP191Destination from './model/TransactionMessageSignBTCEIP191Destination';
 import TransactionMessageSignEIP191Destination from './model/TransactionMessageSignEIP191Destination';
 import TransactionMessageSignEIP712Destination from './model/TransactionMessageSignEIP712Destination';
 import TransactionProcessType from './model/TransactionProcessType';
@@ -459,13 +552,16 @@ import TransactionRbfSource from './model/TransactionRbfSource';
 import TransactionReplacement from './model/TransactionReplacement';
 import TransactionRequestEvmEip1559Fee from './model/TransactionRequestEvmEip1559Fee';
 import TransactionRequestEvmLegacyFee from './model/TransactionRequestEvmLegacyFee';
+import TransactionRequestFILFee from './model/TransactionRequestFILFee';
 import TransactionRequestFee from './model/TransactionRequestFee';
 import TransactionRequestFixedFee from './model/TransactionRequestFixedFee';
+import TransactionRequestSOLFee from './model/TransactionRequestSOLFee';
 import TransactionRequestUtxoFee from './model/TransactionRequestUtxoFee';
 import TransactionResend from './model/TransactionResend';
 import TransactionResult from './model/TransactionResult';
 import TransactionResultType from './model/TransactionResultType';
 import TransactionRoleApprovalDetail from './model/TransactionRoleApprovalDetail';
+import TransactionSOLFee from './model/TransactionSOLFee';
 import TransactionSelectedUtxo from './model/TransactionSelectedUtxo';
 import TransactionSignatureResult from './model/TransactionSignatureResult';
 import TransactionSigner from './model/TransactionSigner';
@@ -518,6 +614,7 @@ import UpdateMpcProjectByIdRequest from './model/UpdateMpcProjectByIdRequest';
 import UpdateMpcVaultByIdRequest from './model/UpdateMpcVaultByIdRequest';
 import UpdateMpcWalletParams from './model/UpdateMpcWalletParams';
 import UpdatePaymentOrderRequest from './model/UpdatePaymentOrderRequest';
+import UpdateRefundByIdRequest from './model/UpdateRefundByIdRequest';
 import UpdateSmartContractWalletParams from './model/UpdateSmartContractWalletParams';
 import UpdateWalletParams from './model/UpdateWalletParams';
 import UpdateWebhookEndpointByIdRequest from './model/UpdateWebhookEndpointByIdRequest';
@@ -543,10 +640,12 @@ import DevelopersWebhooksApi from './api/DevelopersWebhooksApi';
 import FeeStationApi from './api/FeeStationApi';
 import GraphQLApi from './api/GraphQLApi';
 import OAuthApi from './api/OAuthApi';
+import OrganizationsApi from './api/OrganizationsApi';
 import PaymentApi from './api/PaymentApi';
 import PrimeBrokerApi from './api/PrimeBrokerApi';
 import StakingsApi from './api/StakingsApi';
 import SwapsApi from './api/SwapsApi';
+import TokenizationApi from './api/TokenizationApi';
 import TransactionsApi from './api/TransactionsApi';
 import TravelRuleApi from './api/TravelRuleApi';
 import WalletsApi from './api/WalletsApi';
@@ -585,7 +684,7 @@ import WalletsSmartContractWalletsApi from './api/WalletsSmartContractWalletsApi
 * </pre>
 * </p>
 * @module index
-* @version 1.16.0
+* @version 1.17.0
 */
 export {
     Env,
@@ -596,6 +695,18 @@ export {
      * @property {module:ApiClient}
      */
     ApiClient,
+
+    /**
+     * The Account model constructor.
+     * @property {module:model/Account}
+     */
+    Account,
+
+    /**
+     * The AcquiringType model constructor.
+     * @property {module:model/AcquiringType}
+     */
+    AcquiringType,
 
     /**
      * The Activity model constructor.
@@ -736,6 +847,12 @@ export {
     AppWorkflowPolicy,
 
     /**
+     * The ApprovalDetail model constructor.
+     * @property {module:model/ApprovalDetail}
+     */
+    ApprovalDetail,
+
+    /**
      * The ApprovalEntry model constructor.
      * @property {module:model/ApprovalEntry}
      */
@@ -754,6 +871,18 @@ export {
     ApprovalRequestDetail,
 
     /**
+     * The ApprovalResult model constructor.
+     * @property {module:model/ApprovalResult}
+     */
+    ApprovalResult,
+
+    /**
+     * The ApprovalShowInfo model constructor.
+     * @property {module:model/ApprovalShowInfo}
+     */
+    ApprovalShowInfo,
+
+    /**
      * The ApprovalStatementStatus model constructor.
      * @property {module:model/ApprovalStatementStatus}
      */
@@ -766,10 +895,28 @@ export {
     ApprovalStatus,
 
     /**
+     * The ApprovalTemplate model constructor.
+     * @property {module:model/ApprovalTemplate}
+     */
+    ApprovalTemplate,
+
+    /**
+     * The ApprovalTransactionResult model constructor.
+     * @property {module:model/ApprovalTransactionResult}
+     */
+    ApprovalTransactionResult,
+
+    /**
      * The ApprovalUser model constructor.
      * @property {module:model/ApprovalUser}
      */
     ApprovalUser,
+
+    /**
+     * The ApprovalUserDetail model constructor.
+     * @property {module:model/ApprovalUserDetail}
+     */
+    ApprovalUserDetail,
 
     /**
      * The AssetBalance model constructor.
@@ -878,6 +1025,12 @@ export {
      * @property {module:model/Balance}
      */
     Balance,
+
+    /**
+     * The BalanceUpdateInfo model constructor.
+     * @property {module:model/BalanceUpdateInfo}
+     */
+    BalanceUpdateInfo,
 
     /**
      * The BankAccount model constructor.
@@ -1492,6 +1645,18 @@ export {
     EstimatedEvmLegacyFeeSlow,
 
     /**
+     * The EstimatedFILFee model constructor.
+     * @property {module:model/EstimatedFILFee}
+     */
+    EstimatedFILFee,
+
+    /**
+     * The EstimatedFILFeeSlow model constructor.
+     * @property {module:model/EstimatedFILFeeSlow}
+     */
+    EstimatedFILFeeSlow,
+
+    /**
      * The EstimatedFee model constructor.
      * @property {module:model/EstimatedFee}
      */
@@ -1502,6 +1667,18 @@ export {
      * @property {module:model/EstimatedFixedFee}
      */
     EstimatedFixedFee,
+
+    /**
+     * The EstimatedSOLFee model constructor.
+     * @property {module:model/EstimatedSOLFee}
+     */
+    EstimatedSOLFee,
+
+    /**
+     * The EstimatedSOLFeeSlow model constructor.
+     * @property {module:model/EstimatedSOLFeeSlow}
+     */
+    EstimatedSOLFeeSlow,
 
     /**
      * The EstimatedUtxoFee model constructor.
@@ -1636,6 +1813,18 @@ export {
     ExtendedTokenInfo,
 
     /**
+     * The FILBase model constructor.
+     * @property {module:model/FILBase}
+     */
+    FILBase,
+
+    /**
+     * The FILPrice model constructor.
+     * @property {module:model/FILPrice}
+     */
+    FILPrice,
+
+    /**
      * The FeeAmount model constructor.
      * @property {module:model/FeeAmount}
      */
@@ -1702,6 +1891,12 @@ export {
     GetExchangeRate200Response,
 
     /**
+     * The GetMaxTransferableValueWithFeeModelRequest model constructor.
+     * @property {module:model/GetMaxTransferableValueWithFeeModelRequest}
+     */
+    GetMaxTransferableValueWithFeeModelRequest,
+
+    /**
      * The GetRefunds200Response model constructor.
      * @property {module:model/GetRefunds200Response}
      */
@@ -1736,6 +1931,18 @@ export {
      * @property {module:model/GetToken4XXResponse}
      */
     GetToken4XXResponse,
+
+    /**
+     * The GetTokenizationAllowlistActivation200Response model constructor.
+     * @property {module:model/GetTokenizationAllowlistActivation200Response}
+     */
+    GetTokenizationAllowlistActivation200Response,
+
+    /**
+     * The GetTopUpAddress200Response model constructor.
+     * @property {module:model/GetTopUpAddress200Response}
+     */
+    GetTopUpAddress200Response,
 
     /**
      * The GetTransactionLimitation200Response model constructor.
@@ -1826,6 +2033,12 @@ export {
      * @property {module:model/ListAddresses200Response}
      */
     ListAddresses200Response,
+
+    /**
+     * The ListApprovalDetails200Response model constructor.
+     * @property {module:model/ListApprovalDetails200Response}
+     */
+    ListApprovalDetails200Response,
 
     /**
      * The ListApprovalRequests200Response model constructor.
@@ -2002,10 +2215,40 @@ export {
     ListTokenListingRequests200Response,
 
     /**
+     * The ListTokenizationBlocklistAddresses200Response model constructor.
+     * @property {module:model/ListTokenizationBlocklistAddresses200Response}
+     */
+    ListTokenizationBlocklistAddresses200Response,
+
+    /**
+     * The ListTopUpPayerAccounts200Response model constructor.
+     * @property {module:model/ListTopUpPayerAccounts200Response}
+     */
+    ListTopUpPayerAccounts200Response,
+
+    /**
+     * The ListTopUpPayers200Response model constructor.
+     * @property {module:model/ListTopUpPayers200Response}
+     */
+    ListTopUpPayers200Response,
+
+    /**
+     * The ListTopUpPayers200ResponseDataInner model constructor.
+     * @property {module:model/ListTopUpPayers200ResponseDataInner}
+     */
+    ListTopUpPayers200ResponseDataInner,
+
+    /**
      * The ListTransactionApprovalDetails200Response model constructor.
      * @property {module:model/ListTransactionApprovalDetails200Response}
      */
     ListTransactionApprovalDetails200Response,
+
+    /**
+     * The ListTransactionTemplates200Response model constructor.
+     * @property {module:model/ListTransactionTemplates200Response}
+     */
+    ListTransactionTemplates200Response,
 
     /**
      * The ListTransactions200Response model constructor.
@@ -2212,6 +2455,12 @@ export {
     Pagination,
 
     /**
+     * The PayerAccount model constructor.
+     * @property {module:model/PayerAccount}
+     */
+    PayerAccount,
+
+    /**
      * The PaymentTransaction model constructor.
      * @property {module:model/PaymentTransaction}
      */
@@ -2396,6 +2645,18 @@ export {
      * @property {module:model/RootPubkey}
      */
     RootPubkey,
+
+    /**
+     * The SOLBase model constructor.
+     * @property {module:model/SOLBase}
+     */
+    SOLBase,
+
+    /**
+     * The SOLComputeUnit model constructor.
+     * @property {module:model/SOLComputeUnit}
+     */
+    SOLComputeUnit,
 
     /**
      * The SafeContractCallSource model constructor.
@@ -2962,6 +3223,402 @@ export {
     TokenListingRequestStatus,
 
     /**
+     * The TokenizationActivityInfo model constructor.
+     * @property {module:model/TokenizationActivityInfo}
+     */
+    TokenizationActivityInfo,
+
+    /**
+     * The TokenizationActivityStatus model constructor.
+     * @property {module:model/TokenizationActivityStatus}
+     */
+    TokenizationActivityStatus,
+
+    /**
+     * The TokenizationAddressPermission model constructor.
+     * @property {module:model/TokenizationAddressPermission}
+     */
+    TokenizationAddressPermission,
+
+    /**
+     * The TokenizationAllowlistActivationParams model constructor.
+     * @property {module:model/TokenizationAllowlistActivationParams}
+     */
+    TokenizationAllowlistActivationParams,
+
+    /**
+     * The TokenizationAllowlistActivationRequest model constructor.
+     * @property {module:model/TokenizationAllowlistActivationRequest}
+     */
+    TokenizationAllowlistActivationRequest,
+
+    /**
+     * The TokenizationAllowlistAddressNote model constructor.
+     * @property {module:model/TokenizationAllowlistAddressNote}
+     */
+    TokenizationAllowlistAddressNote,
+
+    /**
+     * The TokenizationAllowlistAddressesResponse model constructor.
+     * @property {module:model/TokenizationAllowlistAddressesResponse}
+     */
+    TokenizationAllowlistAddressesResponse,
+
+    /**
+     * The TokenizationAppInitiator model constructor.
+     * @property {module:model/TokenizationAppInitiator}
+     */
+    TokenizationAppInitiator,
+
+    /**
+     * The TokenizationBlocklistAddressNote model constructor.
+     * @property {module:model/TokenizationBlocklistAddressNote}
+     */
+    TokenizationBlocklistAddressNote,
+
+    /**
+     * The TokenizationBurnEstimateFeeParams model constructor.
+     * @property {module:model/TokenizationBurnEstimateFeeParams}
+     */
+    TokenizationBurnEstimateFeeParams,
+
+    /**
+     * The TokenizationBurnTokenParams model constructor.
+     * @property {module:model/TokenizationBurnTokenParams}
+     */
+    TokenizationBurnTokenParams,
+
+    /**
+     * The TokenizationBurnTokenParamsBurnsInner model constructor.
+     * @property {module:model/TokenizationBurnTokenParamsBurnsInner}
+     */
+    TokenizationBurnTokenParamsBurnsInner,
+
+    /**
+     * The TokenizationBurnTokenRequest model constructor.
+     * @property {module:model/TokenizationBurnTokenRequest}
+     */
+    TokenizationBurnTokenRequest,
+
+    /**
+     * The TokenizationContractCallEstimateFeeParams model constructor.
+     * @property {module:model/TokenizationContractCallEstimateFeeParams}
+     */
+    TokenizationContractCallEstimateFeeParams,
+
+    /**
+     * The TokenizationContractCallParams model constructor.
+     * @property {module:model/TokenizationContractCallParams}
+     */
+    TokenizationContractCallParams,
+
+    /**
+     * The TokenizationContractCallParamsData model constructor.
+     * @property {module:model/TokenizationContractCallParamsData}
+     */
+    TokenizationContractCallParamsData,
+
+    /**
+     * The TokenizationContractCallRequest model constructor.
+     * @property {module:model/TokenizationContractCallRequest}
+     */
+    TokenizationContractCallRequest,
+
+    /**
+     * The TokenizationContractCallType model constructor.
+     * @property {module:model/TokenizationContractCallType}
+     */
+    TokenizationContractCallType,
+
+    /**
+     * The TokenizationDeployEstimateFeeParams model constructor.
+     * @property {module:model/TokenizationDeployEstimateFeeParams}
+     */
+    TokenizationDeployEstimateFeeParams,
+
+    /**
+     * The TokenizationERC20TokenParams model constructor.
+     * @property {module:model/TokenizationERC20TokenParams}
+     */
+    TokenizationERC20TokenParams,
+
+    /**
+     * The TokenizationEstimateFeeRequest model constructor.
+     * @property {module:model/TokenizationEstimateFeeRequest}
+     */
+    TokenizationEstimateFeeRequest,
+
+    /**
+     * The TokenizationEstimateFeeRequestOperationParams model constructor.
+     * @property {module:model/TokenizationEstimateFeeRequestOperationParams}
+     */
+    TokenizationEstimateFeeRequestOperationParams,
+
+    /**
+     * The TokenizationEvmContractCallParams model constructor.
+     * @property {module:model/TokenizationEvmContractCallParams}
+     */
+    TokenizationEvmContractCallParams,
+
+    /**
+     * The TokenizationHoldingInfo model constructor.
+     * @property {module:model/TokenizationHoldingInfo}
+     */
+    TokenizationHoldingInfo,
+
+    /**
+     * The TokenizationIssueEstimateFeeParams model constructor.
+     * @property {module:model/TokenizationIssueEstimateFeeParams}
+     */
+    TokenizationIssueEstimateFeeParams,
+
+    /**
+     * The TokenizationIssueTokenParams model constructor.
+     * @property {module:model/TokenizationIssueTokenParams}
+     */
+    TokenizationIssueTokenParams,
+
+    /**
+     * The TokenizationIssueTokenParamsTokenParams model constructor.
+     * @property {module:model/TokenizationIssueTokenParamsTokenParams}
+     */
+    TokenizationIssueTokenParamsTokenParams,
+
+    /**
+     * The TokenizationIssuedTokenRequest model constructor.
+     * @property {module:model/TokenizationIssuedTokenRequest}
+     */
+    TokenizationIssuedTokenRequest,
+
+    /**
+     * The TokenizationListActivitiesResponse model constructor.
+     * @property {module:model/TokenizationListActivitiesResponse}
+     */
+    TokenizationListActivitiesResponse,
+
+    /**
+     * The TokenizationListEnabledChainsResponse model constructor.
+     * @property {module:model/TokenizationListEnabledChainsResponse}
+     */
+    TokenizationListEnabledChainsResponse,
+
+    /**
+     * The TokenizationListHoldingsResponse model constructor.
+     * @property {module:model/TokenizationListHoldingsResponse}
+     */
+    TokenizationListHoldingsResponse,
+
+    /**
+     * The TokenizationListTokenInfoResponse model constructor.
+     * @property {module:model/TokenizationListTokenInfoResponse}
+     */
+    TokenizationListTokenInfoResponse,
+
+    /**
+     * The TokenizationMintEstimateFeeParams model constructor.
+     * @property {module:model/TokenizationMintEstimateFeeParams}
+     */
+    TokenizationMintEstimateFeeParams,
+
+    /**
+     * The TokenizationMintTokenParams model constructor.
+     * @property {module:model/TokenizationMintTokenParams}
+     */
+    TokenizationMintTokenParams,
+
+    /**
+     * The TokenizationMintTokenParamsMintsInner model constructor.
+     * @property {module:model/TokenizationMintTokenParamsMintsInner}
+     */
+    TokenizationMintTokenParamsMintsInner,
+
+    /**
+     * The TokenizationMintTokenRequest model constructor.
+     * @property {module:model/TokenizationMintTokenRequest}
+     */
+    TokenizationMintTokenRequest,
+
+    /**
+     * The TokenizationMpcOperationSource model constructor.
+     * @property {module:model/TokenizationMpcOperationSource}
+     */
+    TokenizationMpcOperationSource,
+
+    /**
+     * The TokenizationOperationResponse model constructor.
+     * @property {module:model/TokenizationOperationResponse}
+     */
+    TokenizationOperationResponse,
+
+    /**
+     * The TokenizationOperationSourceType model constructor.
+     * @property {module:model/TokenizationOperationSourceType}
+     */
+    TokenizationOperationSourceType,
+
+    /**
+     * The TokenizationOperationType model constructor.
+     * @property {module:model/TokenizationOperationType}
+     */
+    TokenizationOperationType,
+
+    /**
+     * The TokenizationPauseEstimateFeeParams model constructor.
+     * @property {module:model/TokenizationPauseEstimateFeeParams}
+     */
+    TokenizationPauseEstimateFeeParams,
+
+    /**
+     * The TokenizationPauseTokenParams model constructor.
+     * @property {module:model/TokenizationPauseTokenParams}
+     */
+    TokenizationPauseTokenParams,
+
+    /**
+     * The TokenizationPauseTokenRequest model constructor.
+     * @property {module:model/TokenizationPauseTokenRequest}
+     */
+    TokenizationPauseTokenRequest,
+
+    /**
+     * The TokenizationStatus model constructor.
+     * @property {module:model/TokenizationStatus}
+     */
+    TokenizationStatus,
+
+    /**
+     * The TokenizationToggleAllowlistEstimateFeeParams model constructor.
+     * @property {module:model/TokenizationToggleAllowlistEstimateFeeParams}
+     */
+    TokenizationToggleAllowlistEstimateFeeParams,
+
+    /**
+     * The TokenizationTokenDetailInfo model constructor.
+     * @property {module:model/TokenizationTokenDetailInfo}
+     */
+    TokenizationTokenDetailInfo,
+
+    /**
+     * The TokenizationTokenInfo model constructor.
+     * @property {module:model/TokenizationTokenInfo}
+     */
+    TokenizationTokenInfo,
+
+    /**
+     * The TokenizationTokenOperationSource model constructor.
+     * @property {module:model/TokenizationTokenOperationSource}
+     */
+    TokenizationTokenOperationSource,
+
+    /**
+     * The TokenizationTokenPermission model constructor.
+     * @property {module:model/TokenizationTokenPermission}
+     */
+    TokenizationTokenPermission,
+
+    /**
+     * The TokenizationTokenPermissionParams model constructor.
+     * @property {module:model/TokenizationTokenPermissionParams}
+     */
+    TokenizationTokenPermissionParams,
+
+    /**
+     * The TokenizationTokenPermissionType model constructor.
+     * @property {module:model/TokenizationTokenPermissionType}
+     */
+    TokenizationTokenPermissionType,
+
+    /**
+     * The TokenizationTokenPermissionsResponse model constructor.
+     * @property {module:model/TokenizationTokenPermissionsResponse}
+     */
+    TokenizationTokenPermissionsResponse,
+
+    /**
+     * The TokenizationTokenStandard model constructor.
+     * @property {module:model/TokenizationTokenStandard}
+     */
+    TokenizationTokenStandard,
+
+    /**
+     * The TokenizationUnpauseEstimateFeeParams model constructor.
+     * @property {module:model/TokenizationUnpauseEstimateFeeParams}
+     */
+    TokenizationUnpauseEstimateFeeParams,
+
+    /**
+     * The TokenizationUnpauseTokenParams model constructor.
+     * @property {module:model/TokenizationUnpauseTokenParams}
+     */
+    TokenizationUnpauseTokenParams,
+
+    /**
+     * The TokenizationUnpauseTokenRequest model constructor.
+     * @property {module:model/TokenizationUnpauseTokenRequest}
+     */
+    TokenizationUnpauseTokenRequest,
+
+    /**
+     * The TokenizationUpdateAddressAction model constructor.
+     * @property {module:model/TokenizationUpdateAddressAction}
+     */
+    TokenizationUpdateAddressAction,
+
+    /**
+     * The TokenizationUpdateAllowlistAddressesEstimateFeeParams model constructor.
+     * @property {module:model/TokenizationUpdateAllowlistAddressesEstimateFeeParams}
+     */
+    TokenizationUpdateAllowlistAddressesEstimateFeeParams,
+
+    /**
+     * The TokenizationUpdateAllowlistAddressesParams model constructor.
+     * @property {module:model/TokenizationUpdateAllowlistAddressesParams}
+     */
+    TokenizationUpdateAllowlistAddressesParams,
+
+    /**
+     * The TokenizationUpdateAllowlistAddressesParamsAddressesInner model constructor.
+     * @property {module:model/TokenizationUpdateAllowlistAddressesParamsAddressesInner}
+     */
+    TokenizationUpdateAllowlistAddressesParamsAddressesInner,
+
+    /**
+     * The TokenizationUpdateAllowlistAddressesRequest model constructor.
+     * @property {module:model/TokenizationUpdateAllowlistAddressesRequest}
+     */
+    TokenizationUpdateAllowlistAddressesRequest,
+
+    /**
+     * The TokenizationUpdateBlocklistAddressesEstimateFeeParams model constructor.
+     * @property {module:model/TokenizationUpdateBlocklistAddressesEstimateFeeParams}
+     */
+    TokenizationUpdateBlocklistAddressesEstimateFeeParams,
+
+    /**
+     * The TokenizationUpdateBlocklistAddressesParams model constructor.
+     * @property {module:model/TokenizationUpdateBlocklistAddressesParams}
+     */
+    TokenizationUpdateBlocklistAddressesParams,
+
+    /**
+     * The TokenizationUpdateBlocklistAddressesParamsAddressesInner model constructor.
+     * @property {module:model/TokenizationUpdateBlocklistAddressesParamsAddressesInner}
+     */
+    TokenizationUpdateBlocklistAddressesParamsAddressesInner,
+
+    /**
+     * The TokenizationUpdateBlocklistAddressesRequest model constructor.
+     * @property {module:model/TokenizationUpdateBlocklistAddressesRequest}
+     */
+    TokenizationUpdateBlocklistAddressesRequest,
+
+    /**
+     * The TokenizationWeb3OperationSource model constructor.
+     * @property {module:model/TokenizationWeb3OperationSource}
+     */
+    TokenizationWeb3OperationSource,
+
+    /**
      * The TokensEventData model constructor.
      * @property {module:model/TokensEventData}
      */
@@ -3172,6 +3829,12 @@ export {
     TransactionExtraType,
 
     /**
+     * The TransactionFILFee model constructor.
+     * @property {module:model/TransactionFILFee}
+     */
+    TransactionFILFee,
+
+    /**
      * The TransactionFee model constructor.
      * @property {module:model/TransactionFee}
      */
@@ -3206,12 +3869,6 @@ export {
      * @property {module:model/TransactionMPCWalletSource}
      */
     TransactionMPCWalletSource,
-
-    /**
-     * The TransactionMessageSignBTCEIP191Destination model constructor.
-     * @property {module:model/TransactionMessageSignBTCEIP191Destination}
-     */
-    TransactionMessageSignBTCEIP191Destination,
 
     /**
      * The TransactionMessageSignEIP191Destination model constructor.
@@ -3274,6 +3931,12 @@ export {
     TransactionRequestEvmLegacyFee,
 
     /**
+     * The TransactionRequestFILFee model constructor.
+     * @property {module:model/TransactionRequestFILFee}
+     */
+    TransactionRequestFILFee,
+
+    /**
      * The TransactionRequestFee model constructor.
      * @property {module:model/TransactionRequestFee}
      */
@@ -3284,6 +3947,12 @@ export {
      * @property {module:model/TransactionRequestFixedFee}
      */
     TransactionRequestFixedFee,
+
+    /**
+     * The TransactionRequestSOLFee model constructor.
+     * @property {module:model/TransactionRequestSOLFee}
+     */
+    TransactionRequestSOLFee,
 
     /**
      * The TransactionRequestUtxoFee model constructor.
@@ -3314,6 +3983,12 @@ export {
      * @property {module:model/TransactionRoleApprovalDetail}
      */
     TransactionRoleApprovalDetail,
+
+    /**
+     * The TransactionSOLFee model constructor.
+     * @property {module:model/TransactionSOLFee}
+     */
+    TransactionSOLFee,
 
     /**
      * The TransactionSelectedUtxo model constructor.
@@ -3628,6 +4303,12 @@ export {
     UpdatePaymentOrderRequest,
 
     /**
+     * The UpdateRefundByIdRequest model constructor.
+     * @property {module:model/UpdateRefundByIdRequest}
+     */
+    UpdateRefundByIdRequest,
+
+    /**
      * The UpdateSmartContractWalletParams model constructor.
      * @property {module:model/UpdateSmartContractWalletParams}
      */
@@ -3778,6 +4459,12 @@ export {
     OAuthApi,
 
     /**
+    * The OrganizationsApi service constructor.
+    * @property {module:api/OrganizationsApi}
+    */
+    OrganizationsApi,
+
+    /**
     * The PaymentApi service constructor.
     * @property {module:api/PaymentApi}
     */
@@ -3800,6 +4487,12 @@ export {
     * @property {module:api/SwapsApi}
     */
     SwapsApi,
+
+    /**
+    * The TokenizationApi service constructor.
+    * @property {module:api/TokenizationApi}
+    */
+    TokenizationApi,
 
     /**
     * The TransactionsApi service constructor.

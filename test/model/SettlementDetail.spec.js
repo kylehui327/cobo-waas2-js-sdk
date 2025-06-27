@@ -130,6 +130,12 @@
       //expect(instance).to.be();
     });
 
+    it('should have the property acquiring_type (base name: "acquiring_type")', function() {
+      // uncomment below and update the code to test the property acquiring_type
+      //var instance = new CoboWaas2.SettlementDetail();
+      //expect(instance).to.be();
+    });
+
   });
 
 }));

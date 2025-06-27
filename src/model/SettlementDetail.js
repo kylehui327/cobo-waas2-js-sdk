@@ -10,6 +10,7 @@
  */
 
 import ApiClient from '../ApiClient';
+import AcquiringType from './AcquiringType';
 import BankAccount from './BankAccount';
 import PaymentTransaction from './PaymentTransaction';
 import PayoutChannel from './PayoutChannel';
@@ -86,6 +87,9 @@ class SettlementDetail {
             }
             if (data.hasOwnProperty('payout_channel')) {
                 obj['payout_channel'] = PayoutChannel.constructFromObject(data['payout_channel']);
+            }
+            if (data.hasOwnProperty('acquiring_type')) {
+                obj['acquiring_type'] = AcquiringType.constructFromObject(data['acquiring_type']);
             }
         }
         return obj;
@@ -224,6 +228,11 @@ SettlementDetail.prototype['crypto_address_id'] = undefined;
  * @member {module:model/PayoutChannel} payout_channel
  */
 SettlementDetail.prototype['payout_channel'] = undefined;
+
+/**
+ * @member {module:model/AcquiringType} acquiring_type
+ */
+SettlementDetail.prototype['acquiring_type'] = undefined;
 
 
 

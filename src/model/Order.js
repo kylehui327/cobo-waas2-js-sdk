@@ -12,6 +12,7 @@
 import ApiClient from '../ApiClient';
 import OrderStatus from './OrderStatus';
 import PaymentTransaction from './PaymentTransaction';
+import SettleStatus from './SettleStatus';
 
 /**
  * The Order model module.
@@ -123,6 +124,9 @@ class Order {
             }
             if (data.hasOwnProperty('transactions')) {
                 obj['transactions'] = ApiClient.convertToType(data['transactions'], [PaymentTransaction]);
+            }
+            if (data.hasOwnProperty('settlement_status')) {
+                obj['settlement_status'] = SettleStatus.constructFromObject(data['settlement_status']);
             }
         }
         return obj;
@@ -317,6 +321,11 @@ Order.prototype['updated_timestamp'] = undefined;
  * @member {Array.<module:model/PaymentTransaction>} transactions
  */
 Order.prototype['transactions'] = undefined;
+
+/**
+ * @member {module:model/SettleStatus} settlement_status
+ */
+Order.prototype['settlement_status'] = undefined;
 
 
 

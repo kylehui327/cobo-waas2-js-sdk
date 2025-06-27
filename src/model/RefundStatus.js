@@ -53,6 +53,13 @@ export default class RefundStatus {
 
     
         /**
+         * value: "PendingConfirmation"
+         * @const
+         */
+        "PendingConfirmation" = "PendingConfirmation";
+
+    
+        /**
          * value: "unknown_default_open_api"
          * @const
          */

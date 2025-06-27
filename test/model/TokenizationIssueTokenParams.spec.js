@@ -26,7 +26,7 @@
   var instance;
 
   beforeEach(function() {
-    instance = new CoboWaas2.TransactionMessageSignBTCEIP191Destination();
+    instance = new CoboWaas2.TokenizationIssueTokenParams();
   });
 
   var getProperty = function(object, getter, property) {
@@ -45,22 +45,28 @@
       object[property] = value;
   }
 
-  describe('TransactionMessageSignBTCEIP191Destination', function() {
-    it('should create an instance of TransactionMessageSignBTCEIP191Destination', function() {
-      // uncomment below and update the code to test TransactionMessageSignBTCEIP191Destination
-      //var instance = new CoboWaas2.TransactionMessageSignBTCEIP191Destination();
-      //expect(instance).to.be.a(CoboWaas2.TransactionMessageSignBTCEIP191Destination);
+  describe('TokenizationIssueTokenParams', function() {
+    it('should create an instance of TokenizationIssueTokenParams', function() {
+      // uncomment below and update the code to test TokenizationIssueTokenParams
+      //var instance = new CoboWaas2.TokenizationIssueTokenParams();
+      //expect(instance).to.be.a(CoboWaas2.TokenizationIssueTokenParams);
     });
 
-    it('should have the property destination_type (base name: "destination_type")', function() {
-      // uncomment below and update the code to test the property destination_type
-      //var instance = new CoboWaas2.TransactionMessageSignBTCEIP191Destination();
+    it('should have the property chain_id (base name: "chain_id")', function() {
+      // uncomment below and update the code to test the property chain_id
+      //var instance = new CoboWaas2.TokenizationIssueTokenParams();
       //expect(instance).to.be();
     });
 
-    it('should have the property message (base name: "message")', function() {
-      // uncomment below and update the code to test the property message
-      //var instance = new CoboWaas2.TransactionMessageSignBTCEIP191Destination();
+    it('should have the property source (base name: "source")', function() {
+      // uncomment below and update the code to test the property source
+      //var instance = new CoboWaas2.TokenizationIssueTokenParams();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property token_params (base name: "token_params")', function() {
+      // uncomment below and update the code to test the property token_params
+      //var instance = new CoboWaas2.TokenizationIssueTokenParams();
       //expect(instance).to.be();
     });
 

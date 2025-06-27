@@ -58,6 +58,24 @@
       //expect(instance).to.be();
     });
 
+    it('should have the property acquiring_type (base name: "acquiring_type")', function() {
+      // uncomment below and update the code to test the property acquiring_type
+      //var instance = new CoboWaas2.CreateSettlementRequestRequest();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property payout_channel (base name: "payout_channel")', function() {
+      // uncomment below and update the code to test the property payout_channel
+      //var instance = new CoboWaas2.CreateSettlementRequestRequest();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property settlement_type (base name: "settlement_type")', function() {
+      // uncomment below and update the code to test the property settlement_type
+      //var instance = new CoboWaas2.CreateSettlementRequestRequest();
+      //expect(instance).to.be();
+    });
+
     it('should have the property settlements (base name: "settlements")', function() {
       // uncomment below and update the code to test the property settlements
       //var instance = new CoboWaas2.CreateSettlementRequestRequest();

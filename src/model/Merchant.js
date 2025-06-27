@@ -59,6 +59,9 @@ class Merchant {
             if (data.hasOwnProperty('wallet_id')) {
                 obj['wallet_id'] = ApiClient.convertToType(data['wallet_id'], 'String');
             }
+            if (data.hasOwnProperty('developer_fee_rate')) {
+                obj['developer_fee_rate'] = ApiClient.convertToType(data['developer_fee_rate'], 'String');
+            }
             if (data.hasOwnProperty('created_timestamp')) {
                 obj['created_timestamp'] = ApiClient.convertToType(data['created_timestamp'], 'Number');
             }
@@ -93,6 +96,10 @@ class Merchant {
         if (data['wallet_id'] && !(typeof data['wallet_id'] === 'string' || data['wallet_id'] instanceof String)) {
             throw new Error("Expected the field `wallet_id` to be a primitive type in the JSON string but got " + data['wallet_id']);
         }
+        // ensure the json data is a string
+        if (data['developer_fee_rate'] && !(typeof data['developer_fee_rate'] === 'string' || data['developer_fee_rate'] instanceof String)) {
+            throw new Error("Expected the field `developer_fee_rate` to be a primitive type in the JSON string but got " + data['developer_fee_rate']);
+        }
 
         return true;
     }
@@ -119,6 +126,12 @@ Merchant.prototype['name'] = undefined;
  * @member {String} wallet_id
  */
 Merchant.prototype['wallet_id'] = undefined;
+
+/**
+ * Developer fee rate for this token. For example, 0.01 represents a 1% fee. 
+ * @member {String} developer_fee_rate
+ */
+Merchant.prototype['developer_fee_rate'] = undefined;
 
 /**
  * The created time of the merchant, represented as a UNIX timestamp in seconds.

@@ -136,10 +136,30 @@ import {ApiClient, Env} from "../../src/index.js";
         //});
       });
     });
+    describe('listApprovalDetails', function() {
+      it('should call listApprovalDetails successfully', function() {
+        //uncomment below and update the code to test listApprovalDetails
+        //instance.listApprovalDetails().then(function(data) {
+        //    console.log(data);
+        //}, function(error) {
+        //    console.error(error);
+        //});
+      });
+    });
     describe('listTransactionApprovalDetails', function() {
       it('should call listTransactionApprovalDetails successfully', function() {
         //uncomment below and update the code to test listTransactionApprovalDetails
         //instance.listTransactionApprovalDetails().then(function(data) {
+        //    console.log(data);
+        //}, function(error) {
+        //    console.error(error);
+        //});
+      });
+    });
+    describe('listTransactionTemplates', function() {
+      it('should call listTransactionTemplates successfully', function() {
+        //uncomment below and update the code to test listTransactionTemplates
+        //instance.listTransactionTemplates().then(function(data) {
         //    console.log(data);
         //}, function(error) {
         //    console.error(error);

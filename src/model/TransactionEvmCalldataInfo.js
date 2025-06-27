@@ -119,7 +119,7 @@ class TransactionEvmCalldataInfo {
 
 
 /**
- * The ID of the chain on which the smart contract is deployed.
+ * The ID of the chain on which the smart contract is issued.
  * @member {String} chain_id
  */
 TransactionEvmCalldataInfo.prototype['chain_id'] = undefined;

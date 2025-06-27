@@ -11,6 +11,7 @@
 
 import ApiClient from '../ApiClient';
 import AddressTransferDestination from './AddressTransferDestination';
+import EstimatedFee from './EstimatedFee';
 
 /**
  * The CreateSwapActivityRequest model module.
@@ -67,6 +68,9 @@ class CreateSwapActivityRequest {
             if (data.hasOwnProperty('destination')) {
                 obj['destination'] = AddressTransferDestination.constructFromObject(data['destination']);
             }
+            if (data.hasOwnProperty('fee')) {
+                obj['fee'] = EstimatedFee.constructFromObject(data['fee']);
+            }
         }
         return obj;
     }
@@ -107,6 +111,12 @@ class CreateSwapActivityRequest {
         if (data['destination']) { // data not null
           if (!!AddressTransferDestination.validateJSON) {
             AddressTransferDestination.validateJSON(data['destination']);
+          }
+        }
+        // validate the optional field `fee`
+        if (data['fee']) { // data not null
+          if (!!EstimatedFee.validateJSON) {
+            EstimatedFee.validateJSON(data['fee']);
           }
         }
 
@@ -152,6 +162,11 @@ CreateSwapActivityRequest.prototype['request_id'] = undefined;
  * @member {module:model/AddressTransferDestination} destination
  */
 CreateSwapActivityRequest.prototype['destination'] = undefined;
+
+/**
+ * @member {module:model/EstimatedFee} fee
+ */
+CreateSwapActivityRequest.prototype['fee'] = undefined;
 
 
 

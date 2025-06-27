@@ -22,13 +22,12 @@ class CreateRefundRequest {
      * @alias module:model/CreateRefundRequest
      * @param request_id {String} The request ID that is used to track a refund request. The request ID is provided by you and must be unique.
      * @param payable_amount {String} The amount to refund in cryptocurrency.
-     * @param to_address {String} The address where the refunded cryptocurrency will be sent.
      * @param token_id {String} The ID of the cryptocurrency used for refund. Supported values:    - USDC: `ETH_USDC`, `ARBITRUM_USDC`, `SOL_USDC`, `BASE_USDC`, `MATIC_USDC`, `BSC_USDC`   - USDT: `TRON_USDT`, `ETH_USDT`, `ARBITRUM_USDT`, `SOL_USDT`, `BASE_USDT`, `MATIC_USDT`, `BSC_USDT` 
      * @param refund_type {module:model/RefundType} 
      */
-    constructor(request_id, payable_amount, to_address, token_id, refund_type) { 
+    constructor(request_id, payable_amount, token_id, refund_type) { 
         
-        CreateRefundRequest.initialize(this, request_id, payable_amount, to_address, token_id, refund_type);
+        CreateRefundRequest.initialize(this, request_id, payable_amount, token_id, refund_type);
     }
 
     /**
@@ -36,10 +35,9 @@ class CreateRefundRequest {
      * This method is used by the constructors of any subclasses, in order to implement multiple inheritance (mix-ins).
      * Only for internal use.
      */
-    static initialize(obj, request_id, payable_amount, to_address, token_id, refund_type) { 
+    static initialize(obj, request_id, payable_amount, token_id, refund_type) { 
         obj['request_id'] = request_id;
         obj['payable_amount'] = payable_amount;
-        obj['to_address'] = to_address;
         obj['token_id'] = token_id;
         obj['refund_type'] = refund_type;
     }
@@ -140,7 +138,7 @@ class CreateRefundRequest {
 
 }
 
-CreateRefundRequest.RequiredProperties = ["request_id", "payable_amount", "to_address", "token_id", "refund_type"];
+CreateRefundRequest.RequiredProperties = ["request_id", "payable_amount", "token_id", "refund_type"];
 
 /**
  * The request ID that is used to track a refund request. The request ID is provided by you and must be unique.

@@ -26,6 +26,7 @@ import CreatedWalletInfo from '../model/CreatedWalletInfo';
 import DeleteWalletById201Response from '../model/DeleteWalletById201Response';
 import ErrorResponse from '../model/ErrorResponse';
 import ExtendedTokenInfo from '../model/ExtendedTokenInfo';
+import GetMaxTransferableValueWithFeeModelRequest from '../model/GetMaxTransferableValueWithFeeModelRequest';
 import ListAddressBalancesByToken200Response from '../model/ListAddressBalancesByToken200Response';
 import ListAddresses200Response from '../model/ListAddresses200Response';
 import ListSupportedChains200Response from '../model/ListSupportedChains200Response';
@@ -631,6 +632,62 @@ export default class WalletsApi {
 
 
     /**
+     * Get maximum transferable value with fee model
+     * This operation retrieves the maximum amount that you can transfer from a wallet or a specified wallet address, along with the corresponding transaction fee.  You must specify `to_address` in your query because it affects the transaction fee.  <Note>This operation is applicable to Custodial Wallets and MPC Wallets only.</Note> 
+     * @param {String} wallet_id The wallet ID.
+     * @param {Object} opts Optional parameters
+     * @param {module:model/GetMaxTransferableValueWithFeeModelRequest} [GetMaxTransferableValueWithFeeModelRequest] The request body to get max transferable value within a specified wallet.
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/MaxTransferableValue} and HTTP response
+     */
+    getMaxTransferableValueWithFeeModelWithHttpInfo(wallet_id, opts) {
+      opts = opts || {};
+      let postBody = opts['GetMaxTransferableValueWithFeeModelRequest'];
+      if (postBody && postBody.toJSON) {
+          postBody = postBody.toJSON()
+      }
+      // verify the required parameter 'wallet_id' is set
+      if (wallet_id === undefined || wallet_id === null) {
+        throw new Error("Missing the required parameter 'wallet_id' when calling getMaxTransferableValueWithFeeModel");
+      }
+
+      let pathParams = {
+        'wallet_id': wallet_id
+      };
+      let queryParams = {
+      };
+      let headerParams = {
+      };
+      let formParams = {
+      };
+
+      let authNames = ['OAuth2', 'CoboAuth'];
+      let contentTypes = ['application/json'];
+      let accepts = ['application/json'];
+      let returnType = MaxTransferableValue;
+      return this.apiClient.callApi(
+        '/wallets/{wallet_id}/max_transferable_value_with_fee_model', 'POST',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, null
+      );
+    }
+
+    /**
+     * Get maximum transferable value with fee model
+     * This operation retrieves the maximum amount that you can transfer from a wallet or a specified wallet address, along with the corresponding transaction fee.  You must specify `to_address` in your query because it affects the transaction fee.  <Note>This operation is applicable to Custodial Wallets and MPC Wallets only.</Note> 
+     * @param {String} wallet_id The wallet ID.
+     * @param {Object} opts Optional parameters
+     * @param {module:model/GetMaxTransferableValueWithFeeModelRequest} opts.GetMaxTransferableValueWithFeeModelRequest The request body to get max transferable value within a specified wallet.
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/MaxTransferableValue}
+     */
+    getMaxTransferableValueWithFeeModel(wallet_id, opts) {
+      return this.getMaxTransferableValueWithFeeModelWithHttpInfo(wallet_id, opts)
+        .then(function(response_and_data) {
+          return response_and_data.data;
+        });
+    }
+
+
+    /**
      * Get token information
      * This operation retrieves the detailed information about a specified token. 
      * @param {String} token_id The token ID, which is the unique identifier of a token.
@@ -994,6 +1051,7 @@ export default class WalletsApi {
      * @param {module:model/WalletType} [wallet_type] The wallet type.  - `Custodial`: [Custodial Wallets](https://manuals.cobo.com/en/portal/custodial-wallets/introduction)  - `MPC`: [MPC Wallets](https://manuals.cobo.com/en/portal/mpc-wallets/introduction)  - `SmartContract`: [Smart Contract Wallets](https://manuals.cobo.com/en/portal/smart-contract-wallets/introduction)  - `Exchange`: [Exchange Wallets](https://manuals.cobo.com/en/portal/exchange-wallets/introduction) 
      * @param {module:model/WalletSubtype} [wallet_subtype] The wallet subtype.  - `Asset`: Custodial Wallets (Asset Wallets)  - `Web3`: Custodial Wallets (Web3 Wallets)  - `Main`: Exchange Wallets (Main Account)  - `Sub`: Exchange Wallets (Sub Account)  - `Org-Controlled`: MPC Wallets (Organization-Controlled Wallets)  - `User-Controlled`: MPC Wallets (User-Controlled Wallets)  - `Safe{Wallet}`: Smart Contract Wallets (Safe{Wallet}) 
      * @param {String} [chain_ids] A list of chain IDs, separated by comma. The chain ID is the unique identifier of a blockchain. You can retrieve the IDs of all the chains you can use by calling [List enabled chains](https://www.cobo.com/developers/v2/api-references/wallets/list-enabled-chains).
+     * @param {String} [token_ids] A list of token IDs, separated by comma. The token ID is the unique identifier of a token. You can retrieve the IDs of all the tokens you can use by calling [List enabled tokens](https://www.cobo.com/developers/v2/api-references/wallets/list-enabled-tokens).
      * @param {Number} [limit = 10)] The maximum number of objects to return. For most operations, the value range is [1, 50].
      * @param {String} [before] This parameter specifies an object ID as a starting point for pagination, retrieving data before the specified object relative to the current dataset.    Suppose the current data is ordered as Object A, Object B, and Object C.  If you set `before` to the ID of Object C (`RqeEoTkgKG5rpzqYzg2Hd3szmPoj2cE7w5jWwShz3C1vyGSAk`), the response will include Object B and Object A.    **Notes**:   - If you set both `after` and `before`, an error will occur. - If you leave both `before` and `after` empty, the first page of data is returned. - If you set it to `infinity`, the last page of data is returned. 
      * @param {String} [after] This parameter specifies an object ID as a starting point for pagination, retrieving data after the specified object relative to the current dataset.    Suppose the current data is ordered as Object A, Object B, and Object C. If you set `after` to the ID of Object A (`RqeEoTkgKG5rpzqYzg2Hd3szmPoj2cE7w5jWwShz3C1vyGSAk`), the response will include Object B and Object C.    **Notes**:   - If you set both `after` and `before`, an error will occur. - If you leave both `before` and `after` empty, the first page of data is returned. 
@@ -1012,6 +1070,7 @@ export default class WalletsApi {
         'wallet_type': opts['wallet_type'],
         'wallet_subtype': opts['wallet_subtype'],
         'chain_ids': opts['chain_ids'],
+        'token_ids': opts['token_ids'],
         'limit': opts['limit'],
         'before': opts['before'],
         'after': opts['after']
@@ -1039,6 +1098,7 @@ export default class WalletsApi {
      * @param {module:model/WalletType} opts.wallet_type The wallet type.  - `Custodial`: [Custodial Wallets](https://manuals.cobo.com/en/portal/custodial-wallets/introduction)  - `MPC`: [MPC Wallets](https://manuals.cobo.com/en/portal/mpc-wallets/introduction)  - `SmartContract`: [Smart Contract Wallets](https://manuals.cobo.com/en/portal/smart-contract-wallets/introduction)  - `Exchange`: [Exchange Wallets](https://manuals.cobo.com/en/portal/exchange-wallets/introduction) 
      * @param {module:model/WalletSubtype} opts.wallet_subtype The wallet subtype.  - `Asset`: Custodial Wallets (Asset Wallets)  - `Web3`: Custodial Wallets (Web3 Wallets)  - `Main`: Exchange Wallets (Main Account)  - `Sub`: Exchange Wallets (Sub Account)  - `Org-Controlled`: MPC Wallets (Organization-Controlled Wallets)  - `User-Controlled`: MPC Wallets (User-Controlled Wallets)  - `Safe{Wallet}`: Smart Contract Wallets (Safe{Wallet}) 
      * @param {String} opts.chain_ids A list of chain IDs, separated by comma. The chain ID is the unique identifier of a blockchain. You can retrieve the IDs of all the chains you can use by calling [List enabled chains](https://www.cobo.com/developers/v2/api-references/wallets/list-enabled-chains).
+     * @param {String} opts.token_ids A list of token IDs, separated by comma. The token ID is the unique identifier of a token. You can retrieve the IDs of all the tokens you can use by calling [List enabled tokens](https://www.cobo.com/developers/v2/api-references/wallets/list-enabled-tokens).
      * @param {Number} opts.limit The maximum number of objects to return. For most operations, the value range is [1, 50]. (default to 10)
      * @param {String} opts.before This parameter specifies an object ID as a starting point for pagination, retrieving data before the specified object relative to the current dataset.    Suppose the current data is ordered as Object A, Object B, and Object C.  If you set `before` to the ID of Object C (`RqeEoTkgKG5rpzqYzg2Hd3szmPoj2cE7w5jWwShz3C1vyGSAk`), the response will include Object B and Object A.    **Notes**:   - If you set both `after` and `before`, an error will occur. - If you leave both `before` and `after` empty, the first page of data is returned. - If you set it to `infinity`, the last page of data is returned. 
      * @param {String} opts.after This parameter specifies an object ID as a starting point for pagination, retrieving data after the specified object relative to the current dataset.    Suppose the current data is ordered as Object A, Object B, and Object C. If you set `after` to the ID of Object A (`RqeEoTkgKG5rpzqYzg2Hd3szmPoj2cE7w5jWwShz3C1vyGSAk`), the response will include Object B and Object C.    **Notes**:   - If you set both `after` and `before`, an error will occur. - If you leave both `before` and `after` empty, the first page of data is returned. 

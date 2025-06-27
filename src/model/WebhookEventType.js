@@ -151,6 +151,20 @@ export default class WebhookEventType {
 
     
         /**
+         * value: "wallet.mpc.balance.updated"
+         * @const
+         */
+        "wallet.mpc.balance.updated" = "wallet.mpc.balance.updated";
+
+    
+        /**
+         * value: "wallet.web3.balance.updated"
+         * @const
+         */
+        "wallet.web3.balance.updated" = "wallet.web3.balance.updated";
+
+    
+        /**
          * value: "unknown_default_open_api"
          * @const
          */
