@@ -13,6 +13,8 @@ import Env from "./Env";
 import Ed25519Signer from "./crypto/Ed25519Signer";
 import Secp256k1Signer from "./crypto/Secp256k1Signer";
 import ApiClient from './ApiClient';
+import Account from './model/Account';
+import AcquiringType from './model/AcquiringType';
 import Activity from './model/Activity';
 import ActivityAction from './model/ActivityAction';
 import ActivityExtra from './model/ActivityExtra';
@@ -60,6 +62,8 @@ import BabylonStakingExtra from './model/BabylonStakingExtra';
 import BabylonStakingRegistration from './model/BabylonStakingRegistration';
 import BabylonValidator from './model/BabylonValidator';
 import Balance from './model/Balance';
+import BalanceUpdateInfo from './model/BalanceUpdateInfo';
+import BalanceUpdateInfoEventData from './model/BalanceUpdateInfoEventData';
 import BankAccount from './model/BankAccount';
 import BaseContractCallSource from './model/BaseContractCallSource';
 import BaseEstimateStakingFee from './model/BaseEstimateStakingFee';
@@ -159,8 +163,12 @@ import EstimatedEvmEip1559Fee from './model/EstimatedEvmEip1559Fee';
 import EstimatedEvmEip1559FeeSlow from './model/EstimatedEvmEip1559FeeSlow';
 import EstimatedEvmLegacyFee from './model/EstimatedEvmLegacyFee';
 import EstimatedEvmLegacyFeeSlow from './model/EstimatedEvmLegacyFeeSlow';
+import EstimatedFILFee from './model/EstimatedFILFee';
+import EstimatedFILFeeSlow from './model/EstimatedFILFeeSlow';
 import EstimatedFee from './model/EstimatedFee';
 import EstimatedFixedFee from './model/EstimatedFixedFee';
+import EstimatedSOLFee from './model/EstimatedSOLFee';
+import EstimatedSOLFeeSlow from './model/EstimatedSOLFeeSlow';
 import EstimatedUtxoFee from './model/EstimatedUtxoFee';
 import EstimatedUtxoFeeSlow from './model/EstimatedUtxoFeeSlow';
 import EthStakeEstimatedFee from './model/EthStakeEstimatedFee';
@@ -183,6 +191,8 @@ import ExchangeTransferDestination from './model/ExchangeTransferDestination';
 import ExchangeTransferSource from './model/ExchangeTransferSource';
 import ExchangeWalletInfo from './model/ExchangeWalletInfo';
 import ExtendedTokenInfo from './model/ExtendedTokenInfo';
+import FILBase from './model/FILBase';
+import FILPrice from './model/FILPrice';
 import FeeAmount from './model/FeeAmount';
 import FeeGasLimit from './model/FeeGasLimit';
 import FeeRate from './model/FeeRate';
@@ -201,6 +211,10 @@ import GetStakingEstimationFeeRequest from './model/GetStakingEstimationFeeReque
 import GetToken2XXResponse from './model/GetToken2XXResponse';
 import GetToken4XXResponse from './model/GetToken4XXResponse';
 import GetTransactionLimitation200Response from './model/GetTransactionLimitation200Response';
+import GraphQLError from './model/GraphQLError';
+import GraphQLErrorLocationsInner from './model/GraphQLErrorLocationsInner';
+import GraphQLRequest from './model/GraphQLRequest';
+import GraphQLResponse from './model/GraphQLResponse';
 import GuardPubkeyStatus from './model/GuardPubkeyStatus';
 import KeyShareHolder from './model/KeyShareHolder';
 import KeyShareHolderGroup from './model/KeyShareHolderGroup';
@@ -238,6 +252,8 @@ import ListTokenBalancesForAddress200Response from './model/ListTokenBalancesFor
 import ListTokenBalancesForFeeStation200Response from './model/ListTokenBalancesForFeeStation200Response';
 import ListTokenBalancesForFeeStation200ResponseDataInner from './model/ListTokenBalancesForFeeStation200ResponseDataInner';
 import ListTokenListingRequests200Response from './model/ListTokenListingRequests200Response';
+import ListTopUpPayers200Response from './model/ListTopUpPayers200Response';
+import ListTopUpPayers200ResponseDataInner from './model/ListTopUpPayers200ResponseDataInner';
 import ListTransactionApprovalDetails200Response from './model/ListTransactionApprovalDetails200Response';
 import ListTransactions200Response from './model/ListTransactions200Response';
 import ListTssRequests200Response from './model/ListTssRequests200Response';
@@ -273,6 +289,7 @@ import Order from './model/Order';
 import OrderStatus from './model/OrderStatus';
 import OrgInfo from './model/OrgInfo';
 import Pagination from './model/Pagination';
+import PayerAccount from './model/PayerAccount';
 import PaymentOrderEventData from './model/PaymentOrderEventData';
 import PaymentRefundEventData from './model/PaymentRefundEventData';
 import PaymentSettlementEvent from './model/PaymentSettlementEvent';
@@ -307,6 +324,8 @@ import RevokeApprovalRequest201Response from './model/RevokeApprovalRequest201Re
 import RevokeApprovalRequestRequest from './model/RevokeApprovalRequestRequest';
 import RoleScopes from './model/RoleScopes';
 import RootPubkey from './model/RootPubkey';
+import SOLBase from './model/SOLBase';
+import SOLComputeUnit from './model/SOLComputeUnit';
 import SafeContractCallSource from './model/SafeContractCallSource';
 import SafeTransferSource from './model/SafeTransferSource';
 import SafeTxDecodedData from './model/SafeTxDecodedData';
@@ -346,10 +365,12 @@ import SupportedToken from './model/SupportedToken';
 import SwapActivity from './model/SwapActivity';
 import SwapActivityApprovers from './model/SwapActivityApprovers';
 import SwapActivityDetail from './model/SwapActivityDetail';
+import SwapActivitySigners from './model/SwapActivitySigners';
 import SwapActivityStatus from './model/SwapActivityStatus';
 import SwapActivityTimeline from './model/SwapActivityTimeline';
 import SwapApproversStatus from './model/SwapApproversStatus';
 import SwapQuote from './model/SwapQuote';
+import SwapSingingStatus from './model/SwapSingingStatus';
 import SwapToken from './model/SwapToken';
 import SwapType from './model/SwapType';
 import TSSBaseRequestEventData from './model/TSSBaseRequestEventData';
@@ -400,6 +421,7 @@ import TokenListingEventData from './model/TokenListingEventData';
 import TokenListingRequestSource from './model/TokenListingRequestSource';
 import TokenListingRequestStatus from './model/TokenListingRequestStatus';
 import TokensEventData from './model/TokensEventData';
+import TopUpAddress from './model/TopUpAddress';
 import Transaction from './model/Transaction';
 import TransactionApprovalDetail from './model/TransactionApprovalDetail';
 import TransactionApprovalResult from './model/TransactionApprovalResult';
@@ -434,13 +456,13 @@ import TransactionEvmLegacyFee from './model/TransactionEvmLegacyFee';
 import TransactionExchangeWalletSource from './model/TransactionExchangeWalletSource';
 import TransactionExtra from './model/TransactionExtra';
 import TransactionExtraType from './model/TransactionExtraType';
+import TransactionFILFee from './model/TransactionFILFee';
 import TransactionFee from './model/TransactionFee';
 import TransactionFeeStationWalletSource from './model/TransactionFeeStationWalletSource';
 import TransactionFixedFee from './model/TransactionFixedFee';
 import TransactionFuelingInfo from './model/TransactionFuelingInfo';
 import TransactionInitiatorType from './model/TransactionInitiatorType';
 import TransactionMPCWalletSource from './model/TransactionMPCWalletSource';
-import TransactionMessageSignBTCEIP191Destination from './model/TransactionMessageSignBTCEIP191Destination';
 import TransactionMessageSignEIP191Destination from './model/TransactionMessageSignEIP191Destination';
 import TransactionMessageSignEIP712Destination from './model/TransactionMessageSignEIP712Destination';
 import TransactionProcessType from './model/TransactionProcessType';
@@ -451,13 +473,16 @@ import TransactionRbfSource from './model/TransactionRbfSource';
 import TransactionReplacement from './model/TransactionReplacement';
 import TransactionRequestEvmEip1559Fee from './model/TransactionRequestEvmEip1559Fee';
 import TransactionRequestEvmLegacyFee from './model/TransactionRequestEvmLegacyFee';
+import TransactionRequestFILFee from './model/TransactionRequestFILFee';
 import TransactionRequestFee from './model/TransactionRequestFee';
 import TransactionRequestFixedFee from './model/TransactionRequestFixedFee';
+import TransactionRequestSOLFee from './model/TransactionRequestSOLFee';
 import TransactionRequestUtxoFee from './model/TransactionRequestUtxoFee';
 import TransactionResend from './model/TransactionResend';
 import TransactionResult from './model/TransactionResult';
 import TransactionResultType from './model/TransactionResultType';
 import TransactionRoleApprovalDetail from './model/TransactionRoleApprovalDetail';
+import TransactionSOLFee from './model/TransactionSOLFee';
 import TransactionSelectedUtxo from './model/TransactionSelectedUtxo';
 import TransactionSignatureResult from './model/TransactionSignatureResult';
 import TransactionSigner from './model/TransactionSigner';
@@ -510,7 +535,9 @@ import UpdateMpcProjectByIdRequest from './model/UpdateMpcProjectByIdRequest';
 import UpdateMpcVaultByIdRequest from './model/UpdateMpcVaultByIdRequest';
 import UpdateMpcWalletParams from './model/UpdateMpcWalletParams';
 import UpdatePaymentOrderRequest from './model/UpdatePaymentOrderRequest';
+import UpdateRefundByIdRequest from './model/UpdateRefundByIdRequest';
 import UpdateSmartContractWalletParams from './model/UpdateSmartContractWalletParams';
+import UpdateTopUpAddress from './model/UpdateTopUpAddress';
 import UpdateWalletParams from './model/UpdateWalletParams';
 import UpdateWebhookEndpointByIdRequest from './model/UpdateWebhookEndpointByIdRequest';
 import UtxoFeeBasePrice from './model/UtxoFeeBasePrice';
@@ -534,6 +561,7 @@ import DevelopersApi from './api/DevelopersApi';
 import DevelopersWebhooksApi from './api/DevelopersWebhooksApi';
 import FeeStationApi from './api/FeeStationApi';
 import OAuthApi from './api/OAuthApi';
+import OrganizationsApi from './api/OrganizationsApi';
 import PaymentApi from './api/PaymentApi';
 import PrimeBrokerApi from './api/PrimeBrokerApi';
 import StakingsApi from './api/StakingsApi';
@@ -575,7 +603,7 @@ import WalletsSmartContractWalletsApi from './api/WalletsSmartContractWalletsApi
 * </pre>
 * </p>
 * @module index
-* @version 1.17.0
+* @version 1.18.0
 */
 export {
     Env,
@@ -586,6 +614,18 @@ export {
      * @property {module:ApiClient}
      */
     ApiClient,
+
+    /**
+     * The Account model constructor.
+     * @property {module:model/Account}
+     */
+    Account,
+
+    /**
+     * The AcquiringType model constructor.
+     * @property {module:model/AcquiringType}
+     */
+    AcquiringType,
 
     /**
      * The Activity model constructor.
@@ -868,6 +908,18 @@ export {
      * @property {module:model/Balance}
      */
     Balance,
+
+    /**
+     * The BalanceUpdateInfo model constructor.
+     * @property {module:model/BalanceUpdateInfo}
+     */
+    BalanceUpdateInfo,
+
+    /**
+     * The BalanceUpdateInfoEventData model constructor.
+     * @property {module:model/BalanceUpdateInfoEventData}
+     */
+    BalanceUpdateInfoEventData,
 
     /**
      * The BankAccount model constructor.
@@ -1464,6 +1516,18 @@ export {
     EstimatedEvmLegacyFeeSlow,
 
     /**
+     * The EstimatedFILFee model constructor.
+     * @property {module:model/EstimatedFILFee}
+     */
+    EstimatedFILFee,
+
+    /**
+     * The EstimatedFILFeeSlow model constructor.
+     * @property {module:model/EstimatedFILFeeSlow}
+     */
+    EstimatedFILFeeSlow,
+
+    /**
      * The EstimatedFee model constructor.
      * @property {module:model/EstimatedFee}
      */
@@ -1474,6 +1538,18 @@ export {
      * @property {module:model/EstimatedFixedFee}
      */
     EstimatedFixedFee,
+
+    /**
+     * The EstimatedSOLFee model constructor.
+     * @property {module:model/EstimatedSOLFee}
+     */
+    EstimatedSOLFee,
+
+    /**
+     * The EstimatedSOLFeeSlow model constructor.
+     * @property {module:model/EstimatedSOLFeeSlow}
+     */
+    EstimatedSOLFeeSlow,
 
     /**
      * The EstimatedUtxoFee model constructor.
@@ -1608,6 +1684,18 @@ export {
     ExtendedTokenInfo,
 
     /**
+     * The FILBase model constructor.
+     * @property {module:model/FILBase}
+     */
+    FILBase,
+
+    /**
+     * The FILPrice model constructor.
+     * @property {module:model/FILPrice}
+     */
+    FILPrice,
+
+    /**
      * The FeeAmount model constructor.
      * @property {module:model/FeeAmount}
      */
@@ -1714,6 +1802,30 @@ export {
      * @property {module:model/GetTransactionLimitation200Response}
      */
     GetTransactionLimitation200Response,
+
+    /**
+     * The GraphQLError model constructor.
+     * @property {module:model/GraphQLError}
+     */
+    GraphQLError,
+
+    /**
+     * The GraphQLErrorLocationsInner model constructor.
+     * @property {module:model/GraphQLErrorLocationsInner}
+     */
+    GraphQLErrorLocationsInner,
+
+    /**
+     * The GraphQLRequest model constructor.
+     * @property {module:model/GraphQLRequest}
+     */
+    GraphQLRequest,
+
+    /**
+     * The GraphQLResponse model constructor.
+     * @property {module:model/GraphQLResponse}
+     */
+    GraphQLResponse,
 
     /**
      * The GuardPubkeyStatus model constructor.
@@ -1938,6 +2050,18 @@ export {
     ListTokenListingRequests200Response,
 
     /**
+     * The ListTopUpPayers200Response model constructor.
+     * @property {module:model/ListTopUpPayers200Response}
+     */
+    ListTopUpPayers200Response,
+
+    /**
+     * The ListTopUpPayers200ResponseDataInner model constructor.
+     * @property {module:model/ListTopUpPayers200ResponseDataInner}
+     */
+    ListTopUpPayers200ResponseDataInner,
+
+    /**
      * The ListTransactionApprovalDetails200Response model constructor.
      * @property {module:model/ListTransactionApprovalDetails200Response}
      */
@@ -2148,6 +2272,12 @@ export {
     Pagination,
 
     /**
+     * The PayerAccount model constructor.
+     * @property {module:model/PayerAccount}
+     */
+    PayerAccount,
+
+    /**
      * The PaymentOrderEventData model constructor.
      * @property {module:model/PaymentOrderEventData}
      */
@@ -2350,6 +2480,18 @@ export {
      * @property {module:model/RootPubkey}
      */
     RootPubkey,
+
+    /**
+     * The SOLBase model constructor.
+     * @property {module:model/SOLBase}
+     */
+    SOLBase,
+
+    /**
+     * The SOLComputeUnit model constructor.
+     * @property {module:model/SOLComputeUnit}
+     */
+    SOLComputeUnit,
 
     /**
      * The SafeContractCallSource model constructor.
@@ -2586,6 +2728,12 @@ export {
     SwapActivityDetail,
 
     /**
+     * The SwapActivitySigners model constructor.
+     * @property {module:model/SwapActivitySigners}
+     */
+    SwapActivitySigners,
+
+    /**
      * The SwapActivityStatus model constructor.
      * @property {module:model/SwapActivityStatus}
      */
@@ -2608,6 +2756,12 @@ export {
      * @property {module:model/SwapQuote}
      */
     SwapQuote,
+
+    /**
+     * The SwapSingingStatus model constructor.
+     * @property {module:model/SwapSingingStatus}
+     */
+    SwapSingingStatus,
 
     /**
      * The SwapToken model constructor.
@@ -2910,6 +3064,12 @@ export {
     TokensEventData,
 
     /**
+     * The TopUpAddress model constructor.
+     * @property {module:model/TopUpAddress}
+     */
+    TopUpAddress,
+
+    /**
      * The Transaction model constructor.
      * @property {module:model/Transaction}
      */
@@ -3114,6 +3274,12 @@ export {
     TransactionExtraType,
 
     /**
+     * The TransactionFILFee model constructor.
+     * @property {module:model/TransactionFILFee}
+     */
+    TransactionFILFee,
+
+    /**
      * The TransactionFee model constructor.
      * @property {module:model/TransactionFee}
      */
@@ -3148,12 +3314,6 @@ export {
      * @property {module:model/TransactionMPCWalletSource}
      */
     TransactionMPCWalletSource,
-
-    /**
-     * The TransactionMessageSignBTCEIP191Destination model constructor.
-     * @property {module:model/TransactionMessageSignBTCEIP191Destination}
-     */
-    TransactionMessageSignBTCEIP191Destination,
 
     /**
      * The TransactionMessageSignEIP191Destination model constructor.
@@ -3216,6 +3376,12 @@ export {
     TransactionRequestEvmLegacyFee,
 
     /**
+     * The TransactionRequestFILFee model constructor.
+     * @property {module:model/TransactionRequestFILFee}
+     */
+    TransactionRequestFILFee,
+
+    /**
      * The TransactionRequestFee model constructor.
      * @property {module:model/TransactionRequestFee}
      */
@@ -3226,6 +3392,12 @@ export {
      * @property {module:model/TransactionRequestFixedFee}
      */
     TransactionRequestFixedFee,
+
+    /**
+     * The TransactionRequestSOLFee model constructor.
+     * @property {module:model/TransactionRequestSOLFee}
+     */
+    TransactionRequestSOLFee,
 
     /**
      * The TransactionRequestUtxoFee model constructor.
@@ -3256,6 +3428,12 @@ export {
      * @property {module:model/TransactionRoleApprovalDetail}
      */
     TransactionRoleApprovalDetail,
+
+    /**
+     * The TransactionSOLFee model constructor.
+     * @property {module:model/TransactionSOLFee}
+     */
+    TransactionSOLFee,
 
     /**
      * The TransactionSelectedUtxo model constructor.
@@ -3570,10 +3748,22 @@ export {
     UpdatePaymentOrderRequest,
 
     /**
+     * The UpdateRefundByIdRequest model constructor.
+     * @property {module:model/UpdateRefundByIdRequest}
+     */
+    UpdateRefundByIdRequest,
+
+    /**
      * The UpdateSmartContractWalletParams model constructor.
      * @property {module:model/UpdateSmartContractWalletParams}
      */
     UpdateSmartContractWalletParams,
+
+    /**
+     * The UpdateTopUpAddress model constructor.
+     * @property {module:model/UpdateTopUpAddress}
+     */
+    UpdateTopUpAddress,
 
     /**
      * The UpdateWalletParams model constructor.
@@ -3712,6 +3902,12 @@ export {
     * @property {module:api/OAuthApi}
     */
     OAuthApi,
+
+    /**
+    * The OrganizationsApi service constructor.
+    * @property {module:api/OrganizationsApi}
+    */
+    OrganizationsApi,
 
     /**
     * The PaymentApi service constructor.

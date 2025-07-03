@@ -19,7 +19,7 @@ class ExchangePermissionTokenRequest {
     /**
      * Constructs a new <code>ExchangePermissionTokenRequest</code>.
      * @alias module:model/ExchangePermissionTokenRequest
-     * @param permission_type {String} The OAuth permission type. Set the value as `payment_orders_payin`.
+     * @param permission_type {String} Set the value to `payment_orders_payin`.
      */
     constructor(permission_type) { 
         
@@ -79,7 +79,7 @@ class ExchangePermissionTokenRequest {
 ExchangePermissionTokenRequest.RequiredProperties = ["permission_type"];
 
 /**
- * The OAuth permission type. Set the value as `payment_orders_payin`.
+ * Set the value to `payment_orders_payin`.
  * @member {String} permission_type
  */
 ExchangePermissionTokenRequest.prototype['permission_type'] = undefined;

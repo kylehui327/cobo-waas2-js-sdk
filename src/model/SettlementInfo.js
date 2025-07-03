@@ -10,6 +10,7 @@
  */
 
 import ApiClient from '../ApiClient';
+import AcquiringType from './AcquiringType';
 
 /**
  * The SettlementInfo model module.
@@ -66,6 +67,9 @@ class SettlementInfo {
             }
             if (data.hasOwnProperty('settled_amount')) {
                 obj['settled_amount'] = ApiClient.convertToType(data['settled_amount'], 'String');
+            }
+            if (data.hasOwnProperty('acquiring_type')) {
+                obj['acquiring_type'] = AcquiringType.constructFromObject(data['acquiring_type']);
             }
             if (data.hasOwnProperty('created_timestamp')) {
                 obj['created_timestamp'] = ApiClient.convertToType(data['created_timestamp'], 'Number');
@@ -169,13 +173,18 @@ SettlementInfo.prototype['pending_currency_balance'] = undefined;
 SettlementInfo.prototype['settled_amount'] = undefined;
 
 /**
- * The created time of the settlement, represented as a UNIX timestamp in seconds.
+ * @member {module:model/AcquiringType} acquiring_type
+ */
+SettlementInfo.prototype['acquiring_type'] = undefined;
+
+/**
+ * The creation time of the settlement, represented as a UNIX timestamp in seconds.
  * @member {Number} created_timestamp
  */
 SettlementInfo.prototype['created_timestamp'] = undefined;
 
 /**
- * The updated time of the settlement, represented as a UNIX timestamp in seconds.
+ * The last update time of the settlement, represented as a UNIX timestamp in seconds.
  * @member {Number} updated_timestamp
  */
 SettlementInfo.prototype['updated_timestamp'] = undefined;

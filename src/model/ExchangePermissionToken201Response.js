@@ -88,25 +88,25 @@ class ExchangePermissionToken201Response {
 
 
 /**
- * The new Permission Access Token.
+ * The Access Token.
  * @member {String} access_token
  */
 ExchangePermissionToken201Response.prototype['access_token'] = undefined;
 
 /**
- * The type of the tokens, which is Bearer.
+ * The token type. This is always `Bearer`.
  * @member {String} token_type
  */
 ExchangePermissionToken201Response.prototype['token_type'] = undefined;
 
 /**
- * The time in seconds in which the new Permission Access Token expires.
+ * The time in seconds until the Access Token expires. This is always `3600`, indicating the token expires 1 hour after issuance.
  * @member {Number} expires_in
  */
 ExchangePermissionToken201Response.prototype['expires_in'] = undefined;
 
 /**
- * The Refresh Token, used to obtain another Org Access Token when the new Permission Access Token expires. The expiration time for Refresh Tokens is currently set to 7 days and is subject to change.
+ * The Refresh Token. Use it to obtain a new Access Token when the current one expires. The Refresh Token is valid for 7 days.
  * @member {String} refresh_token
  */
 ExchangePermissionToken201Response.prototype['refresh_token'] = undefined;

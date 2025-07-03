@@ -160,6 +160,12 @@
       //expect(instance).to.be();
     });
 
+    it('should have the property signers (base name: "signers")', function() {
+      // uncomment below and update the code to test the property signers
+      //var instance = new CoboWaas2.SwapActivityDetail();
+      //expect(instance).to.be();
+    });
+
   });
 
 }));

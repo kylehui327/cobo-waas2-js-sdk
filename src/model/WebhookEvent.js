@@ -24,7 +24,7 @@ class WebhookEvent {
      * The webhook event payload.
      * @alias module:model/WebhookEvent
      * @param url {String} The webhook endpoint URL.
-     * @param created_timestamp {Number} The time when the event occurred, in Unix timestamp format, measured in milliseconds.
+     * @param created_timestamp {Number} The time when the event type was triggered, in Unix timestamp format (milliseconds). - The value remains unchanged across retries. - The default webhook timeout is 2 seconds. 
      * @param type {module:model/WebhookEventType} 
      * @param data {module:model/WebhookEventData} 
      */
@@ -132,7 +132,7 @@ WebhookEvent.prototype['event_id'] = undefined;
 WebhookEvent.prototype['url'] = undefined;
 
 /**
- * The time when the event occurred, in Unix timestamp format, measured in milliseconds.
+ * The time when the event type was triggered, in Unix timestamp format (milliseconds). - The value remains unchanged across retries. - The default webhook timeout is 2 seconds. 
  * @member {Number} created_timestamp
  */
 WebhookEvent.prototype['created_timestamp'] = undefined;

@@ -145,19 +145,19 @@ Settlement.prototype['status'] = undefined;
 Settlement.prototype['settlements'] = undefined;
 
 /**
- * The created time of the settlement request, represented as a UNIX timestamp in seconds.
+ * The creation time of the settlement request, represented as a UNIX timestamp in seconds.
  * @member {Number} created_timestamp
  */
 Settlement.prototype['created_timestamp'] = undefined;
 
 /**
- * The updated time of the settlement request, represented as a UNIX timestamp in seconds.
+ * The last update time of the settlement request, represented as a UNIX timestamp in seconds.
  * @member {Number} updated_timestamp
  */
 Settlement.prototype['updated_timestamp'] = undefined;
 
 /**
- * The initiator of this settlement request, usually the user's API key.
+ *  The initiator of this settlement request. Can return either an API key or the Payment Management App's ID.  - Format `api_key_<API_KEY>`: Indicates the settlement request was initiated via the Payment API using the API key. - Format `app_<APP_ID>`: Indicates the settlement request was initiated through the Payment Management App using the App ID. 
  * @member {String} initiator
  */
 Settlement.prototype['initiator'] = undefined;

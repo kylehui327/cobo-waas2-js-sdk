@@ -10,8 +10,6 @@
  */
 
 import ApiClient from '../ApiClient';
-import PayoutChannel from './PayoutChannel';
-import SettlementType from './SettlementType';
 
 /**
  * The CreateSettlement model module.
@@ -61,14 +59,8 @@ class CreateSettlement {
             if (data.hasOwnProperty('bank_account_id')) {
                 obj['bank_account_id'] = ApiClient.convertToType(data['bank_account_id'], 'String');
             }
-            if (data.hasOwnProperty('settlement_type')) {
-                obj['settlement_type'] = SettlementType.constructFromObject(data['settlement_type']);
-            }
             if (data.hasOwnProperty('crypto_address_id')) {
                 obj['crypto_address_id'] = ApiClient.convertToType(data['crypto_address_id'], 'String');
-            }
-            if (data.hasOwnProperty('payout_channel')) {
-                obj['payout_channel'] = PayoutChannel.constructFromObject(data['payout_channel']);
             }
             if (data.hasOwnProperty('order_ids')) {
                 obj['order_ids'] = ApiClient.convertToType(data['order_ids'], ['String']);
@@ -121,54 +113,43 @@ class CreateSettlement {
 
 
 /**
- * The merchant ID.
+ * The merchant ID. Specify this field when `settlement_type` is set to `Merchant`.
  * @member {String} merchant_id
  */
 CreateSettlement.prototype['merchant_id'] = undefined;
 
 /**
- * The ID of the cryptocurrency you want to settle. Supported values:  - USDC: `ETH_USDC`, `ARBITRUM_USDC`, `SOL_USDC`, `BASE_USDC`, `MATIC_USDC`, `BSC_USDC` - USDT: `TRON_USDT`, `ETH_USDT`, `ARBITRUM_USDT`, `SOL_USDT`, `BASE_USDT`, `MATIC_USDT`, `BSC_USDT` 
+ * The ID of the cryptocurrency you want to settle. Specify this field when `payout_channel` is set to `Crypto`. Supported values:  - USDC: `ETH_USDC`, `ARBITRUM_USDC`, `SOL_USDC`, `BASE_USDC`, `MATIC_USDC`, `BSC_USDC` - USDT: `TRON_USDT`, `ETH_USDT`, `ARBITRUM_USDT`, `SOL_USDT`, `BASE_USDT`, `MATIC_USDT`, `BSC_USDT` 
  * @member {String} token_id
  */
 CreateSettlement.prototype['token_id'] = undefined;
 
 /**
- * The fiat currency for settling the cryptocurrency. Currently, only `USD` is supported.
+ * The fiat currency for settling the cryptocurrency. Currently, only `USD` is supported. Specify this field when `payout_channel` is set to `OffRamp`.
  * @member {String} currency
- * @default 'USD'
  */
-CreateSettlement.prototype['currency'] = 'USD';
+CreateSettlement.prototype['currency'] = undefined;
 
 /**
- * The settlement amount. - If `token_id` is specified, this represents the settlement amount in the specified cryptocurrency. - If `token_id` is not specified, this represents the settlement amount in the specified fiat currency.
+ * The settlement amount. - If `payout_channel` is set to `Crypto`, this represents the settlement amount in the specified cryptocurrency. - If `payout_channel` is set to `OffRamp`, this represents the settlement amount in the specified fiat currency. 
  * @member {String} amount
  */
 CreateSettlement.prototype['amount'] = undefined;
 
 /**
- * The ID of the bank account where the settled funds will be deposited.
+ * The ID of the bank account where the settled funds will be deposited. This field is only applicable when `payout_channel` is set to `OffRamp`. Call [List all bank accounts](/v2/api-references/payment/list-all-bank-accounts) to retrieve the IDs of registered bank accounts. 
  * @member {String} bank_account_id
  */
 CreateSettlement.prototype['bank_account_id'] = undefined;
 
 /**
- * @member {module:model/SettlementType} settlement_type
- */
-CreateSettlement.prototype['settlement_type'] = undefined;
-
-/**
- * The ID of the pre-approved crypto address used for Crypto settlements.  - This field is only applicable when `payout_channel` is set to `Crypto`. - If `payout_channel` is `OffRamp`, this field will be ignored. - The value must refer to a valid address that has been pre-configured and approved for the given token. 
+ * The ID of the crypto address used for crypto withdrawal. Specify this field when `payout_channel` is set to `Crypto`.  Call [List all crypto addresses](/v2/api-references/payments/list-all-crypto-addresses) to retrieve registered crypto addresses. 
  * @member {String} crypto_address_id
  */
 CreateSettlement.prototype['crypto_address_id'] = undefined;
 
 /**
- * @member {module:model/PayoutChannel} payout_channel
- */
-CreateSettlement.prototype['payout_channel'] = undefined;
-
-/**
- * A list of unique order IDs to be included in this settlement.  - This field is only applicable when `settlement_type` is set to `Merchant`. - If provided, the settlement will only apply to the specified orders. - The settlement `amount` must exactly match the total eligible amount from these orders. - This ensures consistency between the declared amount and the actual order-level data being settled. 
+ * A list of order IDs to be included in this settlement. If provided, the settlement request will settle the merchant funds received from the specified orders, and the `amount` field will be ignored.   This field is only applicable when `settlement_type` is set to `Merchant`.  
  * @member {Array.<String>} order_ids
  */
 CreateSettlement.prototype['order_ids'] = undefined;

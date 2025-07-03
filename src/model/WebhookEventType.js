@@ -151,6 +151,20 @@ export default class WebhookEventType {
 
     
         /**
+         * value: "wallet.mpc.balance.updated"
+         * @const
+         */
+        "wallet.mpc.balance.updated" = "wallet.mpc.balance.updated";
+
+    
+        /**
+         * value: "wallet.web3.balance.updated"
+         * @const
+         */
+        "wallet.web3.balance.updated" = "wallet.web3.balance.updated";
+
+    
+        /**
          * value: "payment.transaction.created"
          * @const
          */
@@ -162,6 +176,13 @@ export default class WebhookEventType {
          * @const
          */
         "payment.transaction.late" = "payment.transaction.late";
+
+    
+        /**
+         * value: "payment.transaction.completed"
+         * @const
+         */
+        "payment.transaction.completed" = "payment.transaction.completed";
 
     
         /**

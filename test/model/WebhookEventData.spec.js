@@ -346,6 +346,24 @@
       //expect(instance).to.be();
     });
 
+    it('should have the property address (base name: "address")', function() {
+      // uncomment below and update the code to test the property address
+      //var instance = new CoboWaas2.WebhookEventData();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property wallet_uuid (base name: "wallet_uuid")', function() {
+      // uncomment below and update the code to test the property wallet_uuid
+      //var instance = new CoboWaas2.WebhookEventData();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property balance (base name: "balance")', function() {
+      // uncomment below and update the code to test the property balance
+      //var instance = new CoboWaas2.WebhookEventData();
+      //expect(instance).to.be();
+    });
+
     it('should have the property order_id (base name: "order_id")', function() {
       // uncomment below and update the code to test the property order_id
       //var instance = new CoboWaas2.WebhookEventData();
@@ -424,6 +442,12 @@
       //expect(instance).to.be();
     });
 
+    it('should have the property settlement_status (base name: "settlement_status")', function() {
+      // uncomment below and update the code to test the property settlement_status
+      //var instance = new CoboWaas2.WebhookEventData();
+      //expect(instance).to.be();
+    });
+
     it('should have the property refund_id (base name: "refund_id")', function() {
       // uncomment below and update the code to test the property refund_id
       //var instance = new CoboWaas2.WebhookEventData();
@@ -444,6 +468,24 @@
 
     it('should have the property refund_type (base name: "refund_type")', function() {
       // uncomment below and update the code to test the property refund_type
+      //var instance = new CoboWaas2.WebhookEventData();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property charge_merchant_fee (base name: "charge_merchant_fee")', function() {
+      // uncomment below and update the code to test the property charge_merchant_fee
+      //var instance = new CoboWaas2.WebhookEventData();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property merchant_fee_amount (base name: "merchant_fee_amount")', function() {
+      // uncomment below and update the code to test the property merchant_fee_amount
+      //var instance = new CoboWaas2.WebhookEventData();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property merchant_fee_token_id (base name: "merchant_fee_token_id")', function() {
+      // uncomment below and update the code to test the property merchant_fee_token_id
       //var instance = new CoboWaas2.WebhookEventData();
       //expect(instance).to.be();
     });

@@ -117,7 +117,7 @@ TransactionTransferToWalletDestination.prototype['destination_type'] = undefined
 TransactionTransferToWalletDestination.prototype['wallet_id'] = undefined;
 
 /**
- * The trading account type. Only available for `ExchangeWallet`.
+ * The trading account type. This field is only applicable when `destination_type` is `ExchangeWallet`.
  * @member {String} trading_account_type
  */
 TransactionTransferToWalletDestination.prototype['trading_account_type'] = undefined;

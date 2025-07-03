@@ -12,6 +12,7 @@
 import ApiClient from '../ApiClient';
 import SwapActivity from './SwapActivity';
 import SwapActivityApprovers from './SwapActivityApprovers';
+import SwapActivitySigners from './SwapActivitySigners';
 import SwapActivityStatus from './SwapActivityStatus';
 import SwapActivityTimeline from './SwapActivityTimeline';
 import SwapType from './SwapType';
@@ -106,6 +107,9 @@ class SwapActivityDetail {
             if (data.hasOwnProperty('approvers')) {
                 obj['approvers'] = ApiClient.convertToType(data['approvers'], [SwapActivityApprovers]);
             }
+            if (data.hasOwnProperty('signers')) {
+                obj['signers'] = ApiClient.convertToType(data['signers'], [SwapActivitySigners]);
+            }
         }
         return obj;
     }
@@ -178,6 +182,16 @@ class SwapActivityDetail {
             // validate the optional field `approvers` (array)
             for (const item of data['approvers']) {
                 SwapActivityApprovers.validateJSON(item);
+            };
+        }
+        if (data['signers']) { // data not null
+            // ensure the json data is an array
+            if (!Array.isArray(data['signers'])) {
+                throw new Error("Expected the field `signers` to be an array in the JSON data but got " + data['signers']);
+            }
+            // validate the optional field `signers` (array)
+            for (const item of data['signers']) {
+                SwapActivitySigners.validateJSON(item);
             };
         }
 
@@ -291,6 +305,11 @@ SwapActivityDetail.prototype['timeline'] = undefined;
  * @member {Array.<module:model/SwapActivityApprovers>} approvers
  */
 SwapActivityDetail.prototype['approvers'] = undefined;
+
+/**
+ * @member {Array.<module:model/SwapActivitySigners>} signers
+ */
+SwapActivityDetail.prototype['signers'] = undefined;
 
 
 // Implement SwapActivity interface:

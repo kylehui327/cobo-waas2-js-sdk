@@ -19,7 +19,7 @@ class RefreshPermissionTokenRequest {
     /**
      * Constructs a new <code>RefreshPermissionTokenRequest</code>.
      * @alias module:model/RefreshPermissionTokenRequest
-     * @param refresh_token {String} The Refresh Token of the current Org Access Token.
+     * @param refresh_token {String} The Refresh Token of the current Access Token.
      */
     constructor(refresh_token) { 
         
@@ -79,7 +79,7 @@ class RefreshPermissionTokenRequest {
 RefreshPermissionTokenRequest.RequiredProperties = ["refresh_token"];
 
 /**
- * The Refresh Token of the current Org Access Token.
+ * The Refresh Token of the current Access Token.
  * @member {String} refresh_token
  */
 RefreshPermissionTokenRequest.prototype['refresh_token'] = undefined;

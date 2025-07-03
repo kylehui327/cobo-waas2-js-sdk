@@ -82,20 +82,8 @@
       //expect(instance).to.be();
     });
 
-    it('should have the property settlement_type (base name: "settlement_type")', function() {
-      // uncomment below and update the code to test the property settlement_type
-      //var instance = new CoboWaas2.CreateSettlement();
-      //expect(instance).to.be();
-    });
-
     it('should have the property crypto_address_id (base name: "crypto_address_id")', function() {
       // uncomment below and update the code to test the property crypto_address_id
-      //var instance = new CoboWaas2.CreateSettlement();
-      //expect(instance).to.be();
-    });
-
-    it('should have the property payout_channel (base name: "payout_channel")', function() {
-      // uncomment below and update the code to test the property payout_channel
       //var instance = new CoboWaas2.CreateSettlement();
       //expect(instance).to.be();
     });

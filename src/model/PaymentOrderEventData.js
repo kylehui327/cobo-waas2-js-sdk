@@ -13,6 +13,7 @@ import ApiClient from '../ApiClient';
 import Order from './Order';
 import OrderStatus from './OrderStatus';
 import PaymentTransaction from './PaymentTransaction';
+import SettleStatus from './SettleStatus';
 import WebhookEventDataType from './WebhookEventDataType';
 
 /**
@@ -25,7 +26,7 @@ class PaymentOrderEventData {
      * @alias module:model/PaymentOrderEventData
      * @implements module:model/WebhookEventDataType
      * @implements module:model/Order
-     * @param data_type {module:model/PaymentOrderEventData.DataTypeEnum}  The data type of the event. - `Transaction`: The transaction event data. - `TSSRequest`: The TSS request event data. - `Addresses`: The addresses event data. - `WalletInfo`: The wallet information event data. - `MPCVault`: The MPC vault event data. - `Chains`: The enabled chain event data. - `Tokens`: The enabled token event data. - `TokenListing`: The token listing event data.        - `PaymentOrder`: The payment order event data. - `PaymentRefund`: The payment refund event data. - `PaymentSettlement`: The payment settlement event data.
+     * @param data_type {module:model/PaymentOrderEventData.DataTypeEnum}  The data type of the event. - `Transaction`: The transaction event data. - `TSSRequest`: The TSS request event data. - `Addresses`: The addresses event data. - `WalletInfo`: The wallet information event data. - `MPCVault`: The MPC vault event data. - `Chains`: The enabled chain event data. - `Tokens`: The enabled token event data. - `TokenListing`: The token listing event data.        - `PaymentOrder`: The payment order event data. - `BalanceUpdateInfo`: The balance update event data. - `PaymentRefund`: The payment refund event data. - `PaymentSettlement`: The payment settlement event data.
      * @param order_id {String} The order ID.
      * @param token_id {String}  The ID of the cryptocurrency used for payment. Supported tokens:  - USDC: `ETH_USDC`, `ARBITRUM_USDC`, `SOL_USDC`, `BASE_USDC`, `MATIC_USDC`, `BSC_USDC` - USDT: `TRON_USDT`, `ETH_USDT`, `ARBITRUM_USDT`, `SOL_USDT`, `BASE_USDT`, `MATIC_USDT`, `BSC_USDT` 
      * @param chain_id {String}  The ID of the blockchain network where the payment transaction should be made. Supported chains:  - USDC: `ETH`, `ARBITRUM`, `SOL`, `BASE`, `MATIC`, `BSC` - USDT: `TRON`, `ETH`, `ARBITRUM`, `SOL`, `BASE`, `MATIC`, `BSC` 
@@ -135,6 +136,9 @@ class PaymentOrderEventData {
             if (data.hasOwnProperty('transactions')) {
                 obj['transactions'] = ApiClient.convertToType(data['transactions'], [PaymentTransaction]);
             }
+            if (data.hasOwnProperty('settlement_status')) {
+                obj['settlement_status'] = SettleStatus.constructFromObject(data['settlement_status']);
+            }
         }
         return obj;
     }
@@ -227,7 +231,7 @@ class PaymentOrderEventData {
 PaymentOrderEventData.RequiredProperties = ["data_type", "order_id", "token_id", "chain_id", "payable_amount", "receive_address", "currency", "order_amount", "fee_amount", "exchange_rate", "psp_order_code", "status", "received_token_amount"];
 
 /**
- *  The data type of the event. - `Transaction`: The transaction event data. - `TSSRequest`: The TSS request event data. - `Addresses`: The addresses event data. - `WalletInfo`: The wallet information event data. - `MPCVault`: The MPC vault event data. - `Chains`: The enabled chain event data. - `Tokens`: The enabled token event data. - `TokenListing`: The token listing event data.        - `PaymentOrder`: The payment order event data. - `PaymentRefund`: The payment refund event data. - `PaymentSettlement`: The payment settlement event data.
+ *  The data type of the event. - `Transaction`: The transaction event data. - `TSSRequest`: The TSS request event data. - `Addresses`: The addresses event data. - `WalletInfo`: The wallet information event data. - `MPCVault`: The MPC vault event data. - `Chains`: The enabled chain event data. - `Tokens`: The enabled token event data. - `TokenListing`: The token listing event data.        - `PaymentOrder`: The payment order event data. - `BalanceUpdateInfo`: The balance update event data. - `PaymentRefund`: The payment refund event data. - `PaymentSettlement`: The payment settlement event data.
  * @member {module:model/PaymentOrderEventData.DataTypeEnum} data_type
  */
 PaymentOrderEventData.prototype['data_type'] = undefined;
@@ -322,27 +326,32 @@ PaymentOrderEventData.prototype['status'] = undefined;
 PaymentOrderEventData.prototype['received_token_amount'] = undefined;
 
 /**
- * The created time of the order, represented as a UNIX timestamp in seconds.
+ * The creation time of the order, represented as a UNIX timestamp in seconds.
  * @member {Number} created_timestamp
  */
 PaymentOrderEventData.prototype['created_timestamp'] = undefined;
 
 /**
- * The updated time of the order, represented as a UNIX timestamp in seconds.
+ * The last update time of the order, represented as a UNIX timestamp in seconds.
  * @member {Number} updated_timestamp
  */
 PaymentOrderEventData.prototype['updated_timestamp'] = undefined;
 
 /**
- * An array of transactions associated with this pay-in order. Each transaction represents a separate blockchain operation related to the settlement process.
+ * An array of transactions associated with this pay-in order. Each transaction represents a separate blockchain operation related to the pay-in process.
  * @member {Array.<module:model/PaymentTransaction>} transactions
  */
 PaymentOrderEventData.prototype['transactions'] = undefined;
 
+/**
+ * @member {module:model/SettleStatus} settlement_status
+ */
+PaymentOrderEventData.prototype['settlement_status'] = undefined;
+
 
 // Implement WebhookEventDataType interface:
 /**
- *  The data type of the event. - `Transaction`: The transaction event data. - `TSSRequest`: The TSS request event data. - `Addresses`: The addresses event data. - `WalletInfo`: The wallet information event data. - `MPCVault`: The MPC vault event data. - `Chains`: The enabled chain event data. - `Tokens`: The enabled token event data. - `TokenListing`: The token listing event data.        - `PaymentOrder`: The payment order event data. - `PaymentRefund`: The payment refund event data. - `PaymentSettlement`: The payment settlement event data.
+ *  The data type of the event. - `Transaction`: The transaction event data. - `TSSRequest`: The TSS request event data. - `Addresses`: The addresses event data. - `WalletInfo`: The wallet information event data. - `MPCVault`: The MPC vault event data. - `Chains`: The enabled chain event data. - `Tokens`: The enabled token event data. - `TokenListing`: The token listing event data.        - `PaymentOrder`: The payment order event data. - `BalanceUpdateInfo`: The balance update event data. - `PaymentRefund`: The payment refund event data. - `PaymentSettlement`: The payment settlement event data.
  * @member {module:model/WebhookEventDataType.DataTypeEnum} data_type
  */
 WebhookEventDataType.prototype['data_type'] = undefined;
@@ -422,20 +431,24 @@ Order.prototype['status'] = undefined;
  */
 Order.prototype['received_token_amount'] = undefined;
 /**
- * The created time of the order, represented as a UNIX timestamp in seconds.
+ * The creation time of the order, represented as a UNIX timestamp in seconds.
  * @member {Number} created_timestamp
  */
 Order.prototype['created_timestamp'] = undefined;
 /**
- * The updated time of the order, represented as a UNIX timestamp in seconds.
+ * The last update time of the order, represented as a UNIX timestamp in seconds.
  * @member {Number} updated_timestamp
  */
 Order.prototype['updated_timestamp'] = undefined;
 /**
- * An array of transactions associated with this pay-in order. Each transaction represents a separate blockchain operation related to the settlement process.
+ * An array of transactions associated with this pay-in order. Each transaction represents a separate blockchain operation related to the pay-in process.
  * @member {Array.<module:model/PaymentTransaction>} transactions
  */
 Order.prototype['transactions'] = undefined;
+/**
+ * @member {module:model/SettleStatus} settlement_status
+ */
+Order.prototype['settlement_status'] = undefined;
 
 
 
@@ -493,6 +506,12 @@ PaymentOrderEventData['DataTypeEnum'] = {
      * @const
      */
     "TokenListing": "TokenListing",
+
+    /**
+     * value: "BalanceUpdateInfo"
+     * @const
+     */
+    "BalanceUpdateInfo": "BalanceUpdateInfo",
 
     /**
      * value: "PaymentOrder"

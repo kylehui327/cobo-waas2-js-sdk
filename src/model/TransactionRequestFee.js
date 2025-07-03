@@ -13,7 +13,9 @@ import ApiClient from '../ApiClient';
 import FeeType from './FeeType';
 import TransactionRequestEvmEip1559Fee from './TransactionRequestEvmEip1559Fee';
 import TransactionRequestEvmLegacyFee from './TransactionRequestEvmLegacyFee';
+import TransactionRequestFILFee from './TransactionRequestFILFee';
 import TransactionRequestFixedFee from './TransactionRequestFixedFee';
+import TransactionRequestSOLFee from './TransactionRequestSOLFee';
 import TransactionRequestUtxoFee from './TransactionRequestUtxoFee';
 
 /**
@@ -24,7 +26,7 @@ class TransactionRequestFee {
     /**
      * Constructs a new <code>TransactionRequestFee</code>.
      * @alias module:model/TransactionRequestFee
-     * @param {(module:model/TransactionRequestEvmEip1559Fee|module:model/TransactionRequestEvmLegacyFee|module:model/TransactionRequestFixedFee|module:model/TransactionRequestUtxoFee)} instance The actual instance to initialize TransactionRequestFee.
+     * @param {(module:model/TransactionRequestEvmEip1559Fee|module:model/TransactionRequestEvmLegacyFee|module:model/TransactionRequestFILFee|module:model/TransactionRequestFixedFee|module:model/TransactionRequestSOLFee|module:model/TransactionRequestUtxoFee)} instance The actual instance to initialize TransactionRequestFee.
      */
     constructor(instance = null) {
         if (instance === null) {
@@ -45,8 +47,16 @@ class TransactionRequestFee {
                     this.actualInstance = TransactionRequestEvmLegacyFee.constructFromObject(instance);
                     match++;
                     break;
+                case "FIL":
+                    this.actualInstance = TransactionRequestFILFee.constructFromObject(instance);
+                    match++;
+                    break;
                 case "Fixed":
                     this.actualInstance = TransactionRequestFixedFee.constructFromObject(instance);
+                    match++;
+                    break;
+                case "SOL":
+                    this.actualInstance = TransactionRequestSOLFee.constructFromObject(instance);
                     match++;
                     break;
                 case "UTXO":
@@ -160,12 +170,62 @@ class TransactionRequestFee {
             errorMessages.push("Failed to construct TransactionRequestUtxoFee: " + err)
         }
 
+        try {
+            if (instance instanceof TransactionRequestSOLFee) {
+                this.actualInstance = instance;
+            } else if(!!TransactionRequestSOLFee.validateJSON && TransactionRequestSOLFee.validateJSON(instance)){
+                // plain JS object
+                // create TransactionRequestSOLFee from JS object
+                this.actualInstance = TransactionRequestSOLFee.constructFromObject(instance);
+            } else {
+                if(TransactionRequestSOLFee.constructFromObject(instance)) {
+                    if (!!TransactionRequestSOLFee.constructFromObject(instance).toJSON) {
+                        if (TransactionRequestSOLFee.constructFromObject(instance).toJSON()) {
+                            this.actualInstance = TransactionRequestSOLFee.constructFromObject(instance);
+                        }
+                    } else {
+                        this.actualInstance = TransactionRequestSOLFee.constructFromObject(instance);
+                    }
+                }
+
+            }
+            match++;
+        } catch(err) {
+            // json data failed to deserialize into TransactionRequestSOLFee
+            errorMessages.push("Failed to construct TransactionRequestSOLFee: " + err)
+        }
+
+        try {
+            if (instance instanceof TransactionRequestFILFee) {
+                this.actualInstance = instance;
+            } else if(!!TransactionRequestFILFee.validateJSON && TransactionRequestFILFee.validateJSON(instance)){
+                // plain JS object
+                // create TransactionRequestFILFee from JS object
+                this.actualInstance = TransactionRequestFILFee.constructFromObject(instance);
+            } else {
+                if(TransactionRequestFILFee.constructFromObject(instance)) {
+                    if (!!TransactionRequestFILFee.constructFromObject(instance).toJSON) {
+                        if (TransactionRequestFILFee.constructFromObject(instance).toJSON()) {
+                            this.actualInstance = TransactionRequestFILFee.constructFromObject(instance);
+                        }
+                    } else {
+                        this.actualInstance = TransactionRequestFILFee.constructFromObject(instance);
+                    }
+                }
+
+            }
+            match++;
+        } catch(err) {
+            // json data failed to deserialize into TransactionRequestFILFee
+            errorMessages.push("Failed to construct TransactionRequestFILFee: " + err)
+        }
+
         // if (match > 1) {
-        //    throw new Error("Multiple matches found constructing `TransactionRequestFee` with oneOf schemas TransactionRequestEvmEip1559Fee, TransactionRequestEvmLegacyFee, TransactionRequestFixedFee, TransactionRequestUtxoFee. Input: " + JSON.stringify(instance));
+        //    throw new Error("Multiple matches found constructing `TransactionRequestFee` with oneOf schemas TransactionRequestEvmEip1559Fee, TransactionRequestEvmLegacyFee, TransactionRequestFILFee, TransactionRequestFixedFee, TransactionRequestSOLFee, TransactionRequestUtxoFee. Input: " + JSON.stringify(instance));
         // } else
         if (match === 0) {
         //    this.actualInstance = null; // clear the actual instance in case there are multiple matches
-        //    throw new Error("No match found constructing `TransactionRequestFee` with oneOf schemas TransactionRequestEvmEip1559Fee, TransactionRequestEvmLegacyFee, TransactionRequestFixedFee, TransactionRequestUtxoFee. Details: " +
+        //    throw new Error("No match found constructing `TransactionRequestFee` with oneOf schemas TransactionRequestEvmEip1559Fee, TransactionRequestEvmLegacyFee, TransactionRequestFILFee, TransactionRequestFixedFee, TransactionRequestSOLFee, TransactionRequestUtxoFee. Details: " +
         //                    errorMessages.join(", "));
         return;
         } else { // only 1 match
@@ -185,16 +245,16 @@ class TransactionRequestFee {
     }
 
     /**
-     * Gets the actual instance, which can be <code>TransactionRequestEvmEip1559Fee</code>, <code>TransactionRequestEvmLegacyFee</code>, <code>TransactionRequestFixedFee</code>, <code>TransactionRequestUtxoFee</code>.
-     * @return {(module:model/TransactionRequestEvmEip1559Fee|module:model/TransactionRequestEvmLegacyFee|module:model/TransactionRequestFixedFee|module:model/TransactionRequestUtxoFee)} The actual instance.
+     * Gets the actual instance, which can be <code>TransactionRequestEvmEip1559Fee</code>, <code>TransactionRequestEvmLegacyFee</code>, <code>TransactionRequestFILFee</code>, <code>TransactionRequestFixedFee</code>, <code>TransactionRequestSOLFee</code>, <code>TransactionRequestUtxoFee</code>.
+     * @return {(module:model/TransactionRequestEvmEip1559Fee|module:model/TransactionRequestEvmLegacyFee|module:model/TransactionRequestFILFee|module:model/TransactionRequestFixedFee|module:model/TransactionRequestSOLFee|module:model/TransactionRequestUtxoFee)} The actual instance.
      */
     getActualInstance() {
         return this.actualInstance;
     }
 
     /**
-     * Sets the actual instance, which can be <code>TransactionRequestEvmEip1559Fee</code>, <code>TransactionRequestEvmLegacyFee</code>, <code>TransactionRequestFixedFee</code>, <code>TransactionRequestUtxoFee</code>.
-     * @param {(module:model/TransactionRequestEvmEip1559Fee|module:model/TransactionRequestEvmLegacyFee|module:model/TransactionRequestFixedFee|module:model/TransactionRequestUtxoFee)} obj The actual instance.
+     * Sets the actual instance, which can be <code>TransactionRequestEvmEip1559Fee</code>, <code>TransactionRequestEvmLegacyFee</code>, <code>TransactionRequestFILFee</code>, <code>TransactionRequestFixedFee</code>, <code>TransactionRequestSOLFee</code>, <code>TransactionRequestUtxoFee</code>.
+     * @param {(module:model/TransactionRequestEvmEip1559Fee|module:model/TransactionRequestEvmLegacyFee|module:model/TransactionRequestFILFee|module:model/TransactionRequestFixedFee|module:model/TransactionRequestSOLFee|module:model/TransactionRequestUtxoFee)} obj The actual instance.
      */
     setActualInstance(obj) {
        this.actualInstance = TransactionRequestFee.constructFromObject(obj).getActualInstance();
@@ -236,7 +296,7 @@ TransactionRequestFee.prototype['token_id'] = undefined;
 TransactionRequestFee.prototype['max_fee_amount'] = undefined;
 
 /**
- * The gas limit. It represents the maximum number of gas units that you are willing to pay for the execution of a transaction or Ethereum Virtual Machine (EVM) operation. The gas unit cost of each operation varies.
+ * This defines the maximum amount of computational effort that a transaction is allowed to consume. It's a way to cap the resources that a transaction can use, ensuring it doesn't consume excessive network resources.
  * @member {String} gas_limit
  */
 TransactionRequestFee.prototype['gas_limit'] = undefined;
@@ -265,8 +325,32 @@ TransactionRequestFee.prototype['gas_price'] = undefined;
  */
 TransactionRequestFee.prototype['fee_rate'] = undefined;
 
+/**
+ * The cost per compute unit. Transactions consume computational resources measured in compute units, and this price helps determine the cost of executing transactions, especially complex ones involving smart contracts.
+ * @member {String} compute_unit_price
+ */
+TransactionRequestFee.prototype['compute_unit_price'] = undefined;
 
-TransactionRequestFee.OneOf = ["TransactionRequestEvmEip1559Fee", "TransactionRequestEvmLegacyFee", "TransactionRequestFixedFee", "TransactionRequestUtxoFee"];
+/**
+ * The maximum number of compute units allowed for a transaction. This limits the resources any single transaction can consume, preventing excessive resource usage that could impact network performance negatively.
+ * @member {String} compute_unit_limit
+ */
+TransactionRequestFee.prototype['compute_unit_limit'] = undefined;
+
+/**
+ * An optional additional fee that users can include to prioritize their transactions over others. It acts like a tip to incentivize miners to select and include your transaction over transactions with only the base fee.
+ * @member {String} gas_premium
+ */
+TransactionRequestFee.prototype['gas_premium'] = undefined;
+
+/**
+ * The gas_fee_cap is a user-defined limit on how much they are willing to pay per unit of gas.
+ * @member {String} gas_fee_cap
+ */
+TransactionRequestFee.prototype['gas_fee_cap'] = undefined;
+
+
+TransactionRequestFee.OneOf = ["TransactionRequestEvmEip1559Fee", "TransactionRequestEvmLegacyFee", "TransactionRequestFILFee", "TransactionRequestFixedFee", "TransactionRequestSOLFee", "TransactionRequestUtxoFee"];
 
 export default TransactionRequestFee;
 
