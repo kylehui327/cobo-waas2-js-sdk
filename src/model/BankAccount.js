@@ -102,13 +102,13 @@ BankAccount.prototype['bank_account_id'] = undefined;
 BankAccount.prototype['info'] = undefined;
 
 /**
- * The created time of the bank account, represented as a UNIX timestamp in seconds.
+ * The creation time of the bank account, represented as a UNIX timestamp in seconds.
  * @member {Number} created_timestamp
  */
 BankAccount.prototype['created_timestamp'] = undefined;
 
 /**
- * The updated time of the bank account, represented as a UNIX timestamp in seconds.
+ * The last update time of the bank account, represented as a UNIX timestamp in seconds.
  * @member {Number} updated_timestamp
  */
 BankAccount.prototype['updated_timestamp'] = undefined;

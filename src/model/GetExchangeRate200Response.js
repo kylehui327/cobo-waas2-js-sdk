@@ -19,7 +19,7 @@ class GetExchangeRate200Response {
     /**
      * Constructs a new <code>GetExchangeRate200Response</code>.
      * @alias module:model/GetExchangeRate200Response
-     * @param token_id {String} The token ID, which identifies the cryptocurrency.
+     * @param token_id {String} The token ID, which is a unique identifier that specifies both the blockchain network and cryptocurrency token in the format `{CHAIN}_{TOKEN}`.
      * @param currency {String} The fiat currency.
      * @param rate {String} The current exchange rate between the specified currency pair. Expressed as the amount of fiat currency per one unit of cryptocurrency. For example, if the cryptocurrency is USDT and the fiat currency is USD, a rate of \"0.99\" means 1 USDT = 0.99 USD.
      */
@@ -97,7 +97,7 @@ class GetExchangeRate200Response {
 GetExchangeRate200Response.RequiredProperties = ["token_id", "currency", "rate"];
 
 /**
- * The token ID, which identifies the cryptocurrency.
+ * The token ID, which is a unique identifier that specifies both the blockchain network and cryptocurrency token in the format `{CHAIN}_{TOKEN}`.
  * @member {String} token_id
  */
 GetExchangeRate200Response.prototype['token_id'] = undefined;

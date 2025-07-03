@@ -22,7 +22,7 @@ class WebhookEventLog {
      * The webhook event log.
      * @alias module:model/WebhookEventLog
      * @param id {String} The event log ID.
-     * @param created_timestamp {Number} The time when the log was created, in Unix timestamp format, measured in milliseconds.
+     * @param created_timestamp {Number} The time when the event type was triggered, in Unix timestamp format (milliseconds). - The value remains unchanged across retries. - The default webhook timeout is 2 seconds. 
      * @param request_headers {Object} The request headers of the webhook event.
      * @param request_body {module:model/WebhookEvent} 
      * @param success {Boolean} Whether the webhook event has been successfully delivered.
@@ -133,7 +133,7 @@ WebhookEventLog.RequiredProperties = ["id", "created_timestamp", "request_header
 WebhookEventLog.prototype['id'] = undefined;
 
 /**
- * The time when the log was created, in Unix timestamp format, measured in milliseconds.
+ * The time when the event type was triggered, in Unix timestamp format (milliseconds). - The value remains unchanged across retries. - The default webhook timeout is 2 seconds. 
  * @member {Number} created_timestamp
  */
 WebhookEventLog.prototype['created_timestamp'] = undefined;

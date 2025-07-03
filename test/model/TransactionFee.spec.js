@@ -124,6 +124,48 @@
       //expect(instance).to.be();
     });
 
+    it('should have the property base_fee (base name: "base_fee")', function() {
+      // uncomment below and update the code to test the property base_fee
+      //var instance = new CoboWaas2.TransactionFee();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property rent_amount (base name: "rent_amount")', function() {
+      // uncomment below and update the code to test the property rent_amount
+      //var instance = new CoboWaas2.TransactionFee();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property compute_unit_price (base name: "compute_unit_price")', function() {
+      // uncomment below and update the code to test the property compute_unit_price
+      //var instance = new CoboWaas2.TransactionFee();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property compute_unit_limit (base name: "compute_unit_limit")', function() {
+      // uncomment below and update the code to test the property compute_unit_limit
+      //var instance = new CoboWaas2.TransactionFee();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property gas_base (base name: "gas_base")', function() {
+      // uncomment below and update the code to test the property gas_base
+      //var instance = new CoboWaas2.TransactionFee();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property gas_premium (base name: "gas_premium")', function() {
+      // uncomment below and update the code to test the property gas_premium
+      //var instance = new CoboWaas2.TransactionFee();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property gas_fee_cap (base name: "gas_fee_cap")', function() {
+      // uncomment below and update the code to test the property gas_fee_cap
+      //var instance = new CoboWaas2.TransactionFee();
+      //expect(instance).to.be();
+    });
+
   });
 
 }));

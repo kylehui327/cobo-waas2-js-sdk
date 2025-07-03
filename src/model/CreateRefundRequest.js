@@ -21,14 +21,13 @@ class CreateRefundRequest {
      * Constructs a new <code>CreateRefundRequest</code>.
      * @alias module:model/CreateRefundRequest
      * @param request_id {String} The request ID that is used to track a refund request. The request ID is provided by you and must be unique.
-     * @param payable_amount {String} The amount to refund in cryptocurrency.
-     * @param to_address {String} The address where the refunded cryptocurrency will be sent.
+     * @param payable_amount {String} The amount to refund in cryptocurrency. The amount must be a positive integer with up to two decimal places.
      * @param token_id {String} The ID of the cryptocurrency used for refund. Supported values:    - USDC: `ETH_USDC`, `ARBITRUM_USDC`, `SOL_USDC`, `BASE_USDC`, `MATIC_USDC`, `BSC_USDC`   - USDT: `TRON_USDT`, `ETH_USDT`, `ARBITRUM_USDT`, `SOL_USDT`, `BASE_USDT`, `MATIC_USDT`, `BSC_USDT` 
      * @param refund_type {module:model/RefundType} 
      */
-    constructor(request_id, payable_amount, to_address, token_id, refund_type) { 
+    constructor(request_id, payable_amount, token_id, refund_type) { 
         
-        CreateRefundRequest.initialize(this, request_id, payable_amount, to_address, token_id, refund_type);
+        CreateRefundRequest.initialize(this, request_id, payable_amount, token_id, refund_type);
     }
 
     /**
@@ -36,10 +35,9 @@ class CreateRefundRequest {
      * This method is used by the constructors of any subclasses, in order to implement multiple inheritance (mix-ins).
      * Only for internal use.
      */
-    static initialize(obj, request_id, payable_amount, to_address, token_id, refund_type) { 
+    static initialize(obj, request_id, payable_amount, token_id, refund_type) { 
         obj['request_id'] = request_id;
         obj['payable_amount'] = payable_amount;
-        obj['to_address'] = to_address;
         obj['token_id'] = token_id;
         obj['refund_type'] = refund_type;
     }
@@ -140,7 +138,7 @@ class CreateRefundRequest {
 
 }
 
-CreateRefundRequest.RequiredProperties = ["request_id", "payable_amount", "to_address", "token_id", "refund_type"];
+CreateRefundRequest.RequiredProperties = ["request_id", "payable_amount", "token_id", "refund_type"];
 
 /**
  * The request ID that is used to track a refund request. The request ID is provided by you and must be unique.
@@ -155,7 +153,7 @@ CreateRefundRequest.prototype['request_id'] = undefined;
 CreateRefundRequest.prototype['merchant_id'] = undefined;
 
 /**
- * The amount to refund in cryptocurrency.
+ * The amount to refund in cryptocurrency. The amount must be a positive integer with up to two decimal places.
  * @member {String} payable_amount
  */
 CreateRefundRequest.prototype['payable_amount'] = undefined;
@@ -184,19 +182,19 @@ CreateRefundRequest.prototype['refund_type'] = undefined;
 CreateRefundRequest.prototype['order_id'] = undefined;
 
 /**
- * Indicates whether the merchant should bear the transaction fee for the refund.  If true, the fee will be deducted from merchant's account balance. 
+ * Whether to charge developer fee to the merchant.     - `true`: The fee amount (specified in `merchant_fee_amount`) will be deducted from the merchant's balance and added to the developer's balance    - `false`: The merchant is not charged any developer fee  When enabled, ensure both `merchant_fee_amount` and `merchant_fee_token_id` are properly specified. 
  * @member {Boolean} charge_merchant_fee
  */
 CreateRefundRequest.prototype['charge_merchant_fee'] = undefined;
 
 /**
- * The amount of the transaction fee that the merchant will bear for the refund.  This is only applicable if `charge_merchant_fee` is set to true. 
+ * The developer fee amount to charge the merchant, denominated in the cryptocurrency specified by `merchant_fee_token_id`. Required when `charge_merchant_fee` is `true`. Must be:   - A positive integer with up to two decimal places.   - Less than the refund amount 
  * @member {String} merchant_fee_amount
  */
 CreateRefundRequest.prototype['merchant_fee_amount'] = undefined;
 
 /**
- * The ID of the cryptocurrency used for the transaction fee.  This is only applicable if `charge_merchant_fee` is set to true. 
+ * The ID of the cryptocurrency used for the developer fee. It must be the same as `token_id`. Supported values:   - USDC: `ETH_USDC`, `ARBITRUM_USDC`, `SOL_USDC`, `BASE_USDC`, `MATIC_USDC`, `BSC_USDC`   - USDT: `TRON_USDT`, `ETH_USDT`, `ARBITRUM_USDT`, `SOL_USDT`, `BASE_USDT`, `MATIC_USDT`, `BSC_USDT` 
  * @member {String} merchant_fee_token_id
  */
 CreateRefundRequest.prototype['merchant_fee_token_id'] = undefined;

@@ -10,6 +10,7 @@
  */
 
 import ApiClient from '../ApiClient';
+import AcquiringType from './AcquiringType';
 import BankAccount from './BankAccount';
 import PaymentTransaction from './PaymentTransaction';
 import PayoutChannel from './PayoutChannel';
@@ -86,6 +87,9 @@ class SettlementDetail {
             }
             if (data.hasOwnProperty('payout_channel')) {
                 obj['payout_channel'] = PayoutChannel.constructFromObject(data['payout_channel']);
+            }
+            if (data.hasOwnProperty('acquiring_type')) {
+                obj['acquiring_type'] = AcquiringType.constructFromObject(data['acquiring_type']);
             }
         }
         return obj;
@@ -169,19 +173,19 @@ SettlementDetail.prototype['token_id'] = undefined;
 SettlementDetail.prototype['chain_id'] = undefined;
 
 /**
- * The Merchant ID associated with this settlement.
+ * The ID of the merchant associated with this settlement.
  * @member {String} merchant_id
  */
 SettlementDetail.prototype['merchant_id'] = undefined;
 
 /**
- * The settlement amount.  - If `token_id` is specified, this represents the settlement amount in the specified cryptocurrency.  - If `token_id` is not specified, this represents the settlement amount in the specified fiat currency. 
+ * The settlement amount. - If `payout_channel` is set to `Crypto`, this represents the settlement amount in the specified cryptocurrency. - If `payout_channel` is set to `OffRamp`, this represents the settlement amount in the specified fiat currency. 
  * @member {String} amount
  */
 SettlementDetail.prototype['amount'] = undefined;
 
 /**
- * The settled amount of this settlement detail.  - If `token_id` is specified, this represents the actual settled amount in the specified cryptocurrency.  - If `token_id` is not specified, this represents the actual settled amount in the specified fiat currency. 
+ * The settled amount of this settlement detail.  - If `payout_channel` is set to `Crypto`, this represents the actual settled amount in the specified cryptocurrency.  - If `payout_channel` is set to `OffRamp`, this represents the actual settled amount in the specified fiat currency. 
  * @member {String} settled_amount
  */
 SettlementDetail.prototype['settled_amount'] = undefined;
@@ -203,19 +207,19 @@ SettlementDetail.prototype['bank_account'] = undefined;
 SettlementDetail.prototype['transactions'] = undefined;
 
 /**
- * The created time of the settlement, represented as a UNIX timestamp in seconds.
+ * The creation time of the settlement, represented as a UNIX timestamp in seconds.
  * @member {Number} created_timestamp
  */
 SettlementDetail.prototype['created_timestamp'] = undefined;
 
 /**
- * The updated time of the settlement, represented as a UNIX timestamp in seconds.
+ * The last update time of the settlement, represented as a UNIX timestamp in seconds.
  * @member {Number} updated_timestamp
  */
 SettlementDetail.prototype['updated_timestamp'] = undefined;
 
 /**
- * Unique identifier for the pre-approved crypto address, used to reference the address securely in requests.
+ * The ID of the crypto address used for crypto withdrawal.
  * @member {String} crypto_address_id
  */
 SettlementDetail.prototype['crypto_address_id'] = undefined;
@@ -224,6 +228,11 @@ SettlementDetail.prototype['crypto_address_id'] = undefined;
  * @member {module:model/PayoutChannel} payout_channel
  */
 SettlementDetail.prototype['payout_channel'] = undefined;
+
+/**
+ * @member {module:model/AcquiringType} acquiring_type
+ */
+SettlementDetail.prototype['acquiring_type'] = undefined;
 
 
 

@@ -166,6 +166,12 @@
       //expect(instance).to.be();
     });
 
+    it('should have the property settlement_status (base name: "settlement_status")', function() {
+      // uncomment below and update the code to test the property settlement_status
+      //var instance = new CoboWaas2.PaymentOrderEventData();
+      //expect(instance).to.be();
+    });
+
   });
 
 }));

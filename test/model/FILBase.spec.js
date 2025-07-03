@@ -26,7 +26,7 @@
   var instance;
 
   beforeEach(function() {
-    instance = new CoboWaas2.TransactionMessageSignBTCEIP191Destination();
+    instance = new CoboWaas2.FILBase();
   });
 
   var getProperty = function(object, getter, property) {
@@ -45,22 +45,16 @@
       object[property] = value;
   }
 
-  describe('TransactionMessageSignBTCEIP191Destination', function() {
-    it('should create an instance of TransactionMessageSignBTCEIP191Destination', function() {
-      // uncomment below and update the code to test TransactionMessageSignBTCEIP191Destination
-      //var instance = new CoboWaas2.TransactionMessageSignBTCEIP191Destination();
-      //expect(instance).to.be.a(CoboWaas2.TransactionMessageSignBTCEIP191Destination);
+  describe('FILBase', function() {
+    it('should create an instance of FILBase', function() {
+      // uncomment below and update the code to test FILBase
+      //var instance = new CoboWaas2.FILBase();
+      //expect(instance).to.be.a(CoboWaas2.FILBase);
     });
 
-    it('should have the property destination_type (base name: "destination_type")', function() {
-      // uncomment below and update the code to test the property destination_type
-      //var instance = new CoboWaas2.TransactionMessageSignBTCEIP191Destination();
-      //expect(instance).to.be();
-    });
-
-    it('should have the property message (base name: "message")', function() {
-      // uncomment below and update the code to test the property message
-      //var instance = new CoboWaas2.TransactionMessageSignBTCEIP191Destination();
+    it('should have the property gas_base (base name: "gas_base")', function() {
+      // uncomment below and update the code to test the property gas_base
+      //var instance = new CoboWaas2.FILBase();
       //expect(instance).to.be();
     });
 

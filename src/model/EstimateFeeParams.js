@@ -200,7 +200,7 @@ EstimateFeeParams.prototype['fee_type'] = undefined;
 EstimateFeeParams.prototype['replaced_transaction_id'] = undefined;
 
 /**
- * The chain ID of the chain on which the smart contract is deployed. You can retrieve the IDs of all the chains you can use by calling [List enabled chains](https://www.cobo.com/developers/v2/api-references/wallets/list-enabled-chains).
+ * The chain ID of the chain on which the smart contract is issued. You can retrieve the IDs of all the chains you can use by calling [List enabled chains](https://www.cobo.com/developers/v2/api-references/wallets/list-enabled-chains).
  * @member {String} chain_id
  */
 EstimateFeeParams.prototype['chain_id'] = undefined;

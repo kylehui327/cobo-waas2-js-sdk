@@ -24,8 +24,8 @@ class SwapQuote {
      * @param pay_amount {String} The amount of tokens to pay.
      * @param receive_token_id {String} The token ID to receive.
      * @param receive_amount {String} The amount of tokens to receive.
-     * @param fee_token_id {String} The fee token ID.
-     * @param fee_amount {String} The amount of tokens to pay for fee.
+     * @param fee_token_id {String} The token ID for the service fee.
+     * @param fee_amount {String} The amount of tokens for the service fee.
      * @param quote_expired_timestamp {Number} The time when the quote will expire, in Unix timestamp format, measured in milliseconds.
      */
     constructor(quote_id, pay_token_id, pay_amount, receive_token_id, receive_amount, fee_token_id, fee_amount, quote_expired_timestamp) { 
@@ -81,6 +81,9 @@ class SwapQuote {
             if (data.hasOwnProperty('fee_amount')) {
                 obj['fee_amount'] = ApiClient.convertToType(data['fee_amount'], 'String');
             }
+            if (data.hasOwnProperty('estimated_network_fee_amount')) {
+                obj['estimated_network_fee_amount'] = ApiClient.convertToType(data['estimated_network_fee_amount'], 'String');
+            }
             if (data.hasOwnProperty('min_receive_amount')) {
                 obj['min_receive_amount'] = ApiClient.convertToType(data['min_receive_amount'], 'String');
             }
@@ -135,6 +138,10 @@ class SwapQuote {
             throw new Error("Expected the field `fee_amount` to be a primitive type in the JSON string but got " + data['fee_amount']);
         }
         // ensure the json data is a string
+        if (data['estimated_network_fee_amount'] && !(typeof data['estimated_network_fee_amount'] === 'string' || data['estimated_network_fee_amount'] instanceof String)) {
+            throw new Error("Expected the field `estimated_network_fee_amount` to be a primitive type in the JSON string but got " + data['estimated_network_fee_amount']);
+        }
+        // ensure the json data is a string
         if (data['min_receive_amount'] && !(typeof data['min_receive_amount'] === 'string' || data['min_receive_amount'] instanceof String)) {
             throw new Error("Expected the field `min_receive_amount` to be a primitive type in the JSON string but got " + data['min_receive_amount']);
         }
@@ -182,16 +189,22 @@ SwapQuote.prototype['receive_token_id'] = undefined;
 SwapQuote.prototype['receive_amount'] = undefined;
 
 /**
- * The fee token ID.
+ * The token ID for the service fee.
  * @member {String} fee_token_id
  */
 SwapQuote.prototype['fee_token_id'] = undefined;
 
 /**
- * The amount of tokens to pay for fee.
+ * The amount of tokens for the service fee.
  * @member {String} fee_amount
  */
 SwapQuote.prototype['fee_amount'] = undefined;
+
+/**
+ * The estimated amount of tokens for the network fee.
+ * @member {String} estimated_network_fee_amount
+ */
+SwapQuote.prototype['estimated_network_fee_amount'] = undefined;
 
 /**
  * The minimum amount of tokens to receive if the pay amount is specified.

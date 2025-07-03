@@ -36,6 +36,16 @@ import {ApiClient, Env} from "../../src/index.js";
   });
 
   describe('PaymentApi', function() {
+    describe('cancelRefundById', function() {
+      it('should call cancelRefundById successfully', function() {
+        //uncomment below and update the code to test cancelRefundById
+        //instance.cancelRefundById().then(function(data) {
+        //    console.log(data);
+        //}, function(error) {
+        //    console.error(error);
+        //});
+      });
+    });
     describe('createMerchant', function() {
       it('should call createMerchant successfully', function() {
         //uncomment below and update the code to test createMerchant
@@ -136,6 +146,16 @@ import {ApiClient, Env} from "../../src/index.js";
         //});
       });
     });
+    describe('getTopUpAddress', function() {
+      it('should call getTopUpAddress successfully', function() {
+        //uncomment below and update the code to test getTopUpAddress
+        //instance.getTopUpAddress().then(function(data) {
+        //    console.log(data);
+        //}, function(error) {
+        //    console.error(error);
+        //});
+      });
+    });
     describe('listBankAccounts', function() {
       it('should call listBankAccounts successfully', function() {
         //uncomment below and update the code to test listBankAccounts
@@ -196,6 +216,16 @@ import {ApiClient, Env} from "../../src/index.js";
         //});
       });
     });
+    describe('listTopUpPayers', function() {
+      it('should call listTopUpPayers successfully', function() {
+        //uncomment below and update the code to test listTopUpPayers
+        //instance.listTopUpPayers().then(function(data) {
+        //    console.log(data);
+        //}, function(error) {
+        //    console.error(error);
+        //});
+      });
+    });
     describe('updateMerchantById', function() {
       it('should call updateMerchantById successfully', function() {
         //uncomment below and update the code to test updateMerchantById
@@ -210,6 +240,16 @@ import {ApiClient, Env} from "../../src/index.js";
       it('should call updatePaymentOrder successfully', function() {
         //uncomment below and update the code to test updatePaymentOrder
         //instance.updatePaymentOrder().then(function(data) {
+        //    console.log(data);
+        //}, function(error) {
+        //    console.error(error);
+        //});
+      });
+    });
+    describe('updateRefundById', function() {
+      it('should call updateRefundById successfully', function() {
+        //uncomment below and update the code to test updateRefundById
+        //instance.updateRefundById().then(function(data) {
         //    console.log(data);
         //}, function(error) {
         //    console.error(error);

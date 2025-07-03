@@ -40,9 +40,9 @@ export default class OAuthApi {
 
 
     /**
-     * Exchange Permission Access Token by API Key
-     * <Note>This operation is only applicable to Cobo Portal Checkout SDK developers. To call this operation, you need to use the Cobo OAuth authentication method that requires an api key.</Note> This operation allows Portal Checkout SDK to obtain a new Permission Access Token with a specified client ID, grant type and a Permission Refresh Token.   For security purposes, Permission Access Tokens expire after a certain period. Once they expire, the app needs to call this operation to get a new Permission Access Token and a new Permission Refresh Token. 
-     * @param {module:model/ExchangePermissionTokenRequest} ExchangePermissionTokenRequest The request body for exchanging an Permission Access Token.
+     * Get Access Token
+     * This operation acquires an Access Token and a Refresh Token for the Checkout SDK.  For security purposes, an Access Token expires after a certain period. Once it expires, you need to call the [Refresh Access Token](/v2/api-references/oauth/refresh-access-token) operation to get a new Access Token and a new Refresh Token. 
+     * @param {module:model/ExchangePermissionTokenRequest} ExchangePermissionTokenRequest The request body to acquire an Access Token.
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/ExchangePermissionToken201Response} and HTTP response
      */
     exchangePermissionTokenWithHttpInfo(ExchangePermissionTokenRequest) {
@@ -76,9 +76,9 @@ export default class OAuthApi {
     }
 
     /**
-     * Exchange Permission Access Token by API Key
-     * <Note>This operation is only applicable to Cobo Portal Checkout SDK developers. To call this operation, you need to use the Cobo OAuth authentication method that requires an api key.</Note> This operation allows Portal Checkout SDK to obtain a new Permission Access Token with a specified client ID, grant type and a Permission Refresh Token.   For security purposes, Permission Access Tokens expire after a certain period. Once they expire, the app needs to call this operation to get a new Permission Access Token and a new Permission Refresh Token. 
-     * @param {module:model/ExchangePermissionTokenRequest} ExchangePermissionTokenRequest The request body for exchanging an Permission Access Token.
+     * Get Access Token
+     * This operation acquires an Access Token and a Refresh Token for the Checkout SDK.  For security purposes, an Access Token expires after a certain period. Once it expires, you need to call the [Refresh Access Token](/v2/api-references/oauth/refresh-access-token) operation to get a new Access Token and a new Refresh Token. 
+     * @param {module:model/ExchangePermissionTokenRequest} ExchangePermissionTokenRequest The request body to acquire an Access Token.
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/ExchangePermissionToken201Response}
      */
     exchangePermissionToken(ExchangePermissionTokenRequest) {
@@ -155,9 +155,9 @@ export default class OAuthApi {
 
 
     /**
-     * Refresh Permission Access Token by Permission Refresh Token
-     * <Note>This operation is only applicable to Cobo Portal Checkout SDK developers. To call this operation, you need to use the Cobo OAuth authentication method that requires an api key.</Note> This operation allows Portal Checkout SDK to refresh a new Permission Access Token with a specified client ID, grant type and a Permission Refresh Token.   For security purposes, Permission Access Tokens expire after a certain period. Once they expire, the app needs to call this operation to get a new Permission Access Token and a new Permission Refresh Token. 
-     * @param {module:model/RefreshPermissionTokenRequest} RefreshPermissionTokenRequest The request body for refreshing an Permission Access Token.
+     * Refresh Access Token
+     * This operation refreshes the Access Token and Refresh Token for the Checkout SDK.  For security purposes, an Access Token expires after a certain period. Once it expires, you need to call this operation to get a new Access Token and Refresh Token. 
+     * @param {module:model/RefreshPermissionTokenRequest} RefreshPermissionTokenRequest The request body to refresh the Access Token and the Refresh Token.
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/ExchangePermissionToken201Response} and HTTP response
      */
     refreshPermissionTokenWithHttpInfo(RefreshPermissionTokenRequest) {
@@ -191,9 +191,9 @@ export default class OAuthApi {
     }
 
     /**
-     * Refresh Permission Access Token by Permission Refresh Token
-     * <Note>This operation is only applicable to Cobo Portal Checkout SDK developers. To call this operation, you need to use the Cobo OAuth authentication method that requires an api key.</Note> This operation allows Portal Checkout SDK to refresh a new Permission Access Token with a specified client ID, grant type and a Permission Refresh Token.   For security purposes, Permission Access Tokens expire after a certain period. Once they expire, the app needs to call this operation to get a new Permission Access Token and a new Permission Refresh Token. 
-     * @param {module:model/RefreshPermissionTokenRequest} RefreshPermissionTokenRequest The request body for refreshing an Permission Access Token.
+     * Refresh Access Token
+     * This operation refreshes the Access Token and Refresh Token for the Checkout SDK.  For security purposes, an Access Token expires after a certain period. Once it expires, you need to call this operation to get a new Access Token and Refresh Token. 
+     * @param {module:model/RefreshPermissionTokenRequest} RefreshPermissionTokenRequest The request body to refresh the Access Token and the Refresh Token.
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/ExchangePermissionToken201Response}
      */
     refreshPermissionToken(RefreshPermissionTokenRequest) {

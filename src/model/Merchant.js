@@ -59,6 +59,9 @@ class Merchant {
             if (data.hasOwnProperty('wallet_id')) {
                 obj['wallet_id'] = ApiClient.convertToType(data['wallet_id'], 'String');
             }
+            if (data.hasOwnProperty('developer_fee_rate')) {
+                obj['developer_fee_rate'] = ApiClient.convertToType(data['developer_fee_rate'], 'String');
+            }
             if (data.hasOwnProperty('created_timestamp')) {
                 obj['created_timestamp'] = ApiClient.convertToType(data['created_timestamp'], 'Number');
             }
@@ -93,6 +96,10 @@ class Merchant {
         if (data['wallet_id'] && !(typeof data['wallet_id'] === 'string' || data['wallet_id'] instanceof String)) {
             throw new Error("Expected the field `wallet_id` to be a primitive type in the JSON string but got " + data['wallet_id']);
         }
+        // ensure the json data is a string
+        if (data['developer_fee_rate'] && !(typeof data['developer_fee_rate'] === 'string' || data['developer_fee_rate'] instanceof String)) {
+            throw new Error("Expected the field `developer_fee_rate` to be a primitive type in the JSON string but got " + data['developer_fee_rate']);
+        }
 
         return true;
     }
@@ -121,13 +128,19 @@ Merchant.prototype['name'] = undefined;
 Merchant.prototype['wallet_id'] = undefined;
 
 /**
- * The created time of the merchant, represented as a UNIX timestamp in seconds.
+ * The developer fee rate applied to this merchant. Expressed as a string in decimal format where \"0.1\" represents 10%. This fee is deducted from the payment amount and only applies to top-up transactions.
+ * @member {String} developer_fee_rate
+ */
+Merchant.prototype['developer_fee_rate'] = undefined;
+
+/**
+ * The creation time of the merchant, represented as a UNIX timestamp in seconds.
  * @member {Number} created_timestamp
  */
 Merchant.prototype['created_timestamp'] = undefined;
 
 /**
- * The updated time of the merchant, represented as a UNIX timestamp in seconds.
+ * The last update time of the merchant, represented as a UNIX timestamp in seconds.
  * @member {Number} updated_timestamp
  */
 Merchant.prototype['updated_timestamp'] = undefined;

@@ -12,6 +12,7 @@
 import ApiClient from '../ApiClient';
 import OrderStatus from './OrderStatus';
 import PaymentTransaction from './PaymentTransaction';
+import SettleStatus from './SettleStatus';
 
 /**
  * The Order model module.
@@ -123,6 +124,9 @@ class Order {
             }
             if (data.hasOwnProperty('transactions')) {
                 obj['transactions'] = ApiClient.convertToType(data['transactions'], [PaymentTransaction]);
+            }
+            if (data.hasOwnProperty('settlement_status')) {
+                obj['settlement_status'] = SettleStatus.constructFromObject(data['settlement_status']);
             }
         }
         return obj;
@@ -301,22 +305,27 @@ Order.prototype['status'] = undefined;
 Order.prototype['received_token_amount'] = undefined;
 
 /**
- * The created time of the order, represented as a UNIX timestamp in seconds.
+ * The creation time of the order, represented as a UNIX timestamp in seconds.
  * @member {Number} created_timestamp
  */
 Order.prototype['created_timestamp'] = undefined;
 
 /**
- * The updated time of the order, represented as a UNIX timestamp in seconds.
+ * The last update time of the order, represented as a UNIX timestamp in seconds.
  * @member {Number} updated_timestamp
  */
 Order.prototype['updated_timestamp'] = undefined;
 
 /**
- * An array of transactions associated with this pay-in order. Each transaction represents a separate blockchain operation related to the settlement process.
+ * An array of transactions associated with this pay-in order. Each transaction represents a separate blockchain operation related to the pay-in process.
  * @member {Array.<module:model/PaymentTransaction>} transactions
  */
 Order.prototype['transactions'] = undefined;
+
+/**
+ * @member {module:model/SettleStatus} settlement_status
+ */
+Order.prototype['settlement_status'] = undefined;
 
 
 

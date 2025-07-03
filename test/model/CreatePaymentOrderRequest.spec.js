@@ -100,6 +100,12 @@
       //expect(instance).to.be();
     });
 
+    it('should have the property use_dedicated_address (base name: "use_dedicated_address")', function() {
+      // uncomment below and update the code to test the property use_dedicated_address
+      //var instance = new CoboWaas2.CreatePaymentOrderRequest();
+      //expect(instance).to.be();
+    });
+
   });
 
 }));

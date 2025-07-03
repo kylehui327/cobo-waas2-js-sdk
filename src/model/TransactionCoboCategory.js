@@ -207,6 +207,34 @@ export default class TransactionCoboCategory {
 
     
         /**
+         * value: "ScreenAppRefund"
+         * @const
+         */
+        "ScreenAppRefund" = "ScreenAppRefund";
+
+    
+        /**
+         * value: "ScreenAppIsolate"
+         * @const
+         */
+        "ScreenAppIsolate" = "ScreenAppIsolate";
+
+    
+        /**
+         * value: "ComplianceRefund"
+         * @const
+         */
+        "ComplianceRefund" = "ComplianceRefund";
+
+    
+        /**
+         * value: "ComplianceIsolate"
+         * @const
+         */
+        "ComplianceIsolate" = "ComplianceIsolate";
+
+    
+        /**
          * value: "unknown_default_open_api"
          * @const
          */
