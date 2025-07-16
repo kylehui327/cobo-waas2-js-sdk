@@ -23,7 +23,7 @@ class EvmEip1559FeeRate {
      * The transaction fee rate based on the EIP-1559 fee model.
      * @alias module:model/EvmEip1559FeeRate
      * @param fee_type {module:model/FeeType} 
-     * @param token_id {String} The token ID of the transaction fee.
+     * @param token_id {String} The token used to pay the transaction fee.
      * @param recommended {module:model/EvmEip1559FeeBasePrice} 
      */
     constructor(fee_type, token_id, recommended) { 
@@ -121,7 +121,7 @@ EvmEip1559FeeRate.RequiredProperties = ["fee_type", "token_id", "recommended"];
 EvmEip1559FeeRate.prototype['fee_type'] = undefined;
 
 /**
- * The token ID of the transaction fee.
+ * The token used to pay the transaction fee.
  * @member {String} token_id
  */
 EvmEip1559FeeRate.prototype['token_id'] = undefined;

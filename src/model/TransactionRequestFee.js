@@ -284,7 +284,7 @@ class TransactionRequestFee {
 TransactionRequestFee.prototype['fee_type'] = undefined;
 
 /**
- * The token ID of the transaction fee.
+ * The token used to pay the transaction fee.
  * @member {String} token_id
  */
 TransactionRequestFee.prototype['token_id'] = undefined;
@@ -296,7 +296,7 @@ TransactionRequestFee.prototype['token_id'] = undefined;
 TransactionRequestFee.prototype['max_fee_amount'] = undefined;
 
 /**
- * This defines the maximum amount of computational effort that a transaction is allowed to consume. It's a way to cap the resources that a transaction can use, ensuring it doesn't consume excessive network resources.
+ * The maximum amount of gas your transaction is allowed to consume.
  * @member {String} gas_limit
  */
 TransactionRequestFee.prototype['gas_limit'] = undefined;
@@ -326,25 +326,25 @@ TransactionRequestFee.prototype['gas_price'] = undefined;
 TransactionRequestFee.prototype['fee_rate'] = undefined;
 
 /**
- * The cost per compute unit. Transactions consume computational resources measured in compute units, and this price helps determine the cost of executing transactions, especially complex ones involving smart contracts.
+ * The price paid per compute unit. This value determines the priority fee for the transaction, allowing you to increase inclusion probability in congested conditions.
  * @member {String} compute_unit_price
  */
 TransactionRequestFee.prototype['compute_unit_price'] = undefined;
 
 /**
- * The maximum number of compute units allowed for a transaction. This limits the resources any single transaction can consume, preventing excessive resource usage that could impact network performance negatively.
+ * The maximum number of compute units your transaction is allowed to consume. It sets an upper bound on computational resource usage to prevent overload.
  * @member {String} compute_unit_limit
  */
 TransactionRequestFee.prototype['compute_unit_limit'] = undefined;
 
 /**
- * An optional additional fee that users can include to prioritize their transactions over others. It acts like a tip to incentivize miners to select and include your transaction over transactions with only the base fee.
+ * An optional tip you can include to prioritize your transaction. The gas premium incentivizes miners to include your transaction sooner than those offering only the base fee.
  * @member {String} gas_premium
  */
 TransactionRequestFee.prototype['gas_premium'] = undefined;
 
 /**
- * The gas_fee_cap is a user-defined limit on how much they are willing to pay per unit of gas.
+ * The maximum gas price you are willing to pay per unit of gas.
  * @member {String} gas_fee_cap
  */
 TransactionRequestFee.prototype['gas_fee_cap'] = undefined;

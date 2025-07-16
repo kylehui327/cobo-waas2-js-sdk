@@ -25,7 +25,7 @@ class TopUpAddress {
      * @param custom_payer_id {String} A unique identifier assigned by the developer to track and identify individual payers in their system.
      * @param merchant_id {String} The merchant ID.
      * @param token_id {String} The token ID, which is a unique identifier that specifies both the blockchain network and cryptocurrency token in the format `{CHAIN}_{TOKEN}`.
-     * @param min_amount {String} The minimum top-up amount allowed for this address. Top-ups below this threshold will not be credited to merchant funds, but to developer funds instead.
+     * @param min_amount {String} The minimum top-up amount allowed for this address. Top-ups below this threshold will not be credited to merchant or developer funds.
      */
     constructor(address, payer_id, custom_payer_id, merchant_id, token_id, min_amount) { 
         
@@ -187,7 +187,7 @@ TopUpAddress.prototype['chain'] = undefined;
 TopUpAddress.prototype['developer_fee_rate'] = undefined;
 
 /**
- * The minimum top-up amount allowed for this address. Top-ups below this threshold will not be credited to merchant funds, but to developer funds instead.
+ * The minimum top-up amount allowed for this address. Top-ups below this threshold will not be credited to merchant or developer funds.
  * @member {String} min_amount
  */
 TopUpAddress.prototype['min_amount'] = undefined;

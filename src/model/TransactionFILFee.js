@@ -21,7 +21,7 @@ import FeeType from './FeeType';
 class TransactionFILFee {
     /**
      * Constructs a new <code>TransactionFILFee</code>.
-     * The transaction fee actually charged by the chain that uses the FIL fee model.  In the Fil fee model, the calculation method for the fee is: fee &#x3D; gas_fee_cap * gas_limit, refer to [Fee models](https://www.cobo.com/developers/v2/guides/transactions/estimate-fees#fee-models).  Switch between the tabs to display the properties for different transaction fee models. 
+     * The transaction fee actually charged by the chain that uses the Filecoin fee model.  In this model, the fee is calculated as: fee &#x3D; base fee * gas used + gas premium * gas limit. For more details, refer to [Fee models](https://www.cobo.com/developers/v2/guides/transactions/estimate-fees#fee-models).  Switch between the tabs to display the properties for different transaction fee models. 
      * @alias module:model/TransactionFILFee
      * @implements module:model/FILBase
      * @implements module:model/FILPrice
@@ -132,25 +132,25 @@ class TransactionFILFee {
 TransactionFILFee.RequiredProperties = ["fee_type"];
 
 /**
- * This is the minimum fee required to include a transaction in a block. It is determined by the network's congestion level, which adjusts to maintain a target block utilization rate. The base fee is burned, reducing the total supply of Filecoin over time.
+ * The minimum fee required for a transaction to be included in a block. The base fee is dynamically adjusted based on network congestion to maintain target block utilization. It is burned rather than paid to miners, reducing the total Filecoin supply over time.
  * @member {String} gas_base
  */
 TransactionFILFee.prototype['gas_base'] = undefined;
 
 /**
- * An optional additional fee that users can include to prioritize their transactions over others. It acts like a tip to incentivize miners to select and include your transaction over transactions with only the base fee.
+ * An optional tip you can include to prioritize your transaction. The gas premium incentivizes miners to include your transaction sooner than those offering only the base fee.
  * @member {String} gas_premium
  */
 TransactionFILFee.prototype['gas_premium'] = undefined;
 
 /**
- * The gas_fee_cap is a user-defined limit on how much they are willing to pay per unit of gas.
+ * The maximum gas price you are willing to pay per unit of gas.
  * @member {String} gas_fee_cap
  */
 TransactionFILFee.prototype['gas_fee_cap'] = undefined;
 
 /**
- * This defines the maximum amount of computational effort that a transaction is allowed to consume. It's a way to cap the resources that a transaction can use, ensuring it doesn't consume excessive network resources.
+ * The maximum amount of gas your transaction is allowed to consume.
  * @member {String} gas_limit
  */
 TransactionFILFee.prototype['gas_limit'] = undefined;
@@ -161,13 +161,13 @@ TransactionFILFee.prototype['gas_limit'] = undefined;
 TransactionFILFee.prototype['fee_type'] = undefined;
 
 /**
- * The token ID of the transaction fee.
+ * The token used to pay the transaction fee.
  * @member {String} token_id
  */
 TransactionFILFee.prototype['token_id'] = undefined;
 
 /**
- * The transaction fee.
+ * The actually charged transaction fee.
  * @member {String} fee_used
  */
 TransactionFILFee.prototype['fee_used'] = undefined;
@@ -181,23 +181,23 @@ TransactionFILFee.prototype['estimated_fee_used'] = undefined;
 
 // Implement FILBase interface:
 /**
- * This is the minimum fee required to include a transaction in a block. It is determined by the network's congestion level, which adjusts to maintain a target block utilization rate. The base fee is burned, reducing the total supply of Filecoin over time.
+ * The minimum fee required for a transaction to be included in a block. The base fee is dynamically adjusted based on network congestion to maintain target block utilization. It is burned rather than paid to miners, reducing the total Filecoin supply over time.
  * @member {String} gas_base
  */
 FILBase.prototype['gas_base'] = undefined;
 // Implement FILPrice interface:
 /**
- * An optional additional fee that users can include to prioritize their transactions over others. It acts like a tip to incentivize miners to select and include your transaction over transactions with only the base fee.
+ * An optional tip you can include to prioritize your transaction. The gas premium incentivizes miners to include your transaction sooner than those offering only the base fee.
  * @member {String} gas_premium
  */
 FILPrice.prototype['gas_premium'] = undefined;
 /**
- * The gas_fee_cap is a user-defined limit on how much they are willing to pay per unit of gas.
+ * The maximum gas price you are willing to pay per unit of gas.
  * @member {String} gas_fee_cap
  */
 FILPrice.prototype['gas_fee_cap'] = undefined;
 /**
- * This defines the maximum amount of computational effort that a transaction is allowed to consume. It's a way to cap the resources that a transaction can use, ensuring it doesn't consume excessive network resources.
+ * The maximum amount of gas your transaction is allowed to consume.
  * @member {String} gas_limit
  */
 FILPrice.prototype['gas_limit'] = undefined;

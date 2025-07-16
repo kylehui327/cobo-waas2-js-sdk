@@ -285,7 +285,7 @@ class EstimatedFee {
 EstimatedFee.prototype['fee_type'] = undefined;
 
 /**
- * The token ID of the transaction fee.
+ * The token used to pay the transaction fee.
  * @member {String} token_id
  */
 EstimatedFee.prototype['token_id'] = undefined;

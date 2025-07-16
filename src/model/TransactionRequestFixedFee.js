@@ -24,7 +24,7 @@ class TransactionRequestFixedFee {
      * @alias module:model/TransactionRequestFixedFee
      * @implements module:model/MaxFeeAmount
      * @param fee_type {module:model/FeeType} 
-     * @param token_id {String} The token ID of the transaction fee.
+     * @param token_id {String} The token used to pay the transaction fee.
      */
     constructor(fee_type, token_id) { 
         MaxFeeAmount.initialize(this);
@@ -107,7 +107,7 @@ TransactionRequestFixedFee.prototype['max_fee_amount'] = undefined;
 TransactionRequestFixedFee.prototype['fee_type'] = undefined;
 
 /**
- * The token ID of the transaction fee.
+ * The token used to pay the transaction fee.
  * @member {String} token_id
  */
 TransactionRequestFixedFee.prototype['token_id'] = undefined;

@@ -148,6 +148,18 @@
       //expect(instance).to.be();
     });
 
+    it('should have the property network_fee (base name: "network_fee")', function() {
+      // uncomment below and update the code to test the property network_fee
+      //var instance = new CoboWaas2.SwapActivity();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property destination_address (base name: "destination_address")', function() {
+      // uncomment below and update the code to test the property destination_address
+      //var instance = new CoboWaas2.SwapActivity();
+      //expect(instance).to.be();
+    });
+
   });
 
 }));

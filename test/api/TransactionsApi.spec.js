@@ -116,30 +116,10 @@ import {ApiClient, Env} from "../../src/index.js";
         //});
       });
     });
-    describe('getTransactionApprovalDetail', function() {
-      it('should call getTransactionApprovalDetail successfully', function() {
-        //uncomment below and update the code to test getTransactionApprovalDetail
-        //instance.getTransactionApprovalDetail().then(function(data) {
-        //    console.log(data);
-        //}, function(error) {
-        //    console.error(error);
-        //});
-      });
-    });
     describe('getTransactionById', function() {
       it('should call getTransactionById successfully', function() {
         //uncomment below and update the code to test getTransactionById
         //instance.getTransactionById().then(function(data) {
-        //    console.log(data);
-        //}, function(error) {
-        //    console.error(error);
-        //});
-      });
-    });
-    describe('listTransactionApprovalDetails', function() {
-      it('should call listTransactionApprovalDetails successfully', function() {
-        //uncomment below and update the code to test listTransactionApprovalDetails
-        //instance.listTransactionApprovalDetails().then(function(data) {
         //    console.log(data);
         //}, function(error) {
         //    console.error(error);

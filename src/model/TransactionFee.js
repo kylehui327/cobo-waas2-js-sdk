@@ -284,7 +284,7 @@ class TransactionFee {
 TransactionFee.prototype['fee_type'] = undefined;
 
 /**
- * The token ID of the transaction fee.
+ * The token used to pay the transaction fee.
  * @member {String} token_id
  */
 TransactionFee.prototype['token_id'] = undefined;
@@ -296,7 +296,7 @@ TransactionFee.prototype['token_id'] = undefined;
 TransactionFee.prototype['effective_gas_price'] = undefined;
 
 /**
- * The transaction fee.
+ * The actually charged transaction fee.
  * @member {String} fee_used
  */
 TransactionFee.prototype['fee_used'] = undefined;
@@ -326,7 +326,7 @@ TransactionFee.prototype['max_fee_per_gas'] = undefined;
 TransactionFee.prototype['max_priority_fee_per_gas'] = undefined;
 
 /**
- * This defines the maximum amount of computational effort that a transaction is allowed to consume. It's a way to cap the resources that a transaction can use, ensuring it doesn't consume excessive network resources.
+ * The maximum amount of gas your transaction is allowed to consume.
  * @member {String} gas_limit
  */
 TransactionFee.prototype['gas_limit'] = undefined;
@@ -350,43 +350,43 @@ TransactionFee.prototype['max_fee_amount'] = undefined;
 TransactionFee.prototype['fee_rate'] = undefined;
 
 /**
- * The fundamental fee required for each transaction. It is charged to prevent spam transactions and network congestion, ensuring that only meaningful transactions consume network resources.
+ * A fixed fee charged per signature. The default is 5,000 lamports per signature.
  * @member {String} base_fee
  */
 TransactionFee.prototype['base_fee'] = undefined;
 
 /**
- * The fee charged as rent for maintaining the state of accounts on the blockchain. This rent ensures accounts are stored on-chain over the long term and that there's sufficient balance to sustain the account state.
+ * The rent fee charged by the network to store non–rent-exempt accounts on-chain. It is deducted periodically until the account maintains the minimum balance required for rent exemption.
  * @member {String} rent_amount
  */
 TransactionFee.prototype['rent_amount'] = undefined;
 
 /**
- * The cost per compute unit. Transactions consume computational resources measured in compute units, and this price helps determine the cost of executing transactions, especially complex ones involving smart contracts.
+ * The price paid per compute unit. This value determines the priority fee for the transaction, allowing you to increase inclusion probability in congested conditions.
  * @member {String} compute_unit_price
  */
 TransactionFee.prototype['compute_unit_price'] = undefined;
 
 /**
- * The maximum number of compute units allowed for a transaction. This limits the resources any single transaction can consume, preventing excessive resource usage that could impact network performance negatively.
+ * The maximum number of compute units your transaction is allowed to consume. It sets an upper bound on computational resource usage to prevent overload.
  * @member {String} compute_unit_limit
  */
 TransactionFee.prototype['compute_unit_limit'] = undefined;
 
 /**
- * This is the minimum fee required to include a transaction in a block. It is determined by the network's congestion level, which adjusts to maintain a target block utilization rate. The base fee is burned, reducing the total supply of Filecoin over time.
+ * The minimum fee required for a transaction to be included in a block. The base fee is dynamically adjusted based on network congestion to maintain target block utilization. It is burned rather than paid to miners, reducing the total Filecoin supply over time.
  * @member {String} gas_base
  */
 TransactionFee.prototype['gas_base'] = undefined;
 
 /**
- * An optional additional fee that users can include to prioritize their transactions over others. It acts like a tip to incentivize miners to select and include your transaction over transactions with only the base fee.
+ * An optional tip you can include to prioritize your transaction. The gas premium incentivizes miners to include your transaction sooner than those offering only the base fee.
  * @member {String} gas_premium
  */
 TransactionFee.prototype['gas_premium'] = undefined;
 
 /**
- * The gas_fee_cap is a user-defined limit on how much they are willing to pay per unit of gas.
+ * The maximum gas price you are willing to pay per unit of gas.
  * @member {String} gas_fee_cap
  */
 TransactionFee.prototype['gas_fee_cap'] = undefined;

@@ -25,7 +25,7 @@ class EstimatedFixedFee {
      * @implements module:model/FeeAmount
      * @param fee_amount {String} The transaction fee that you need to pay for the transaction.
      * @param fee_type {module:model/FeeType} 
-     * @param token_id {String} The token ID of the transaction fee.
+     * @param token_id {String} The token used to pay the transaction fee.
      */
     constructor(fee_amount, fee_type, token_id) { 
         FeeAmount.initialize(this);
@@ -112,7 +112,7 @@ EstimatedFixedFee.prototype['fee_amount'] = undefined;
 EstimatedFixedFee.prototype['fee_type'] = undefined;
 
 /**
- * The token ID of the transaction fee.
+ * The token used to pay the transaction fee.
  * @member {String} token_id
  */
 EstimatedFixedFee.prototype['token_id'] = undefined;

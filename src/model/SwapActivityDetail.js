@@ -17,6 +17,7 @@ import SwapActivityStatus from './SwapActivityStatus';
 import SwapActivityTimeline from './SwapActivityTimeline';
 import SwapType from './SwapType';
 import TransactionInitiatorType from './TransactionInitiatorType';
+import TransactionRequestFee from './TransactionRequestFee';
 
 /**
  * The SwapActivityDetail model module.
@@ -101,6 +102,12 @@ class SwapActivityDetail {
             if (data.hasOwnProperty('updated_timestamp')) {
                 obj['updated_timestamp'] = ApiClient.convertToType(data['updated_timestamp'], 'Number');
             }
+            if (data.hasOwnProperty('network_fee')) {
+                obj['network_fee'] = TransactionRequestFee.constructFromObject(data['network_fee']);
+            }
+            if (data.hasOwnProperty('destination_address')) {
+                obj['destination_address'] = ApiClient.convertToType(data['destination_address'], 'String');
+            }
             if (data.hasOwnProperty('timeline')) {
                 obj['timeline'] = ApiClient.convertToType(data['timeline'], [SwapActivityTimeline]);
             }
@@ -163,6 +170,16 @@ class SwapActivityDetail {
         // ensure the json data is a string
         if (data['description'] && !(typeof data['description'] === 'string' || data['description'] instanceof String)) {
             throw new Error("Expected the field `description` to be a primitive type in the JSON string but got " + data['description']);
+        }
+        // validate the optional field `network_fee`
+        if (data['network_fee']) { // data not null
+          if (!!TransactionRequestFee.validateJSON) {
+            TransactionRequestFee.validateJSON(data['network_fee']);
+          }
+        }
+        // ensure the json data is a string
+        if (data['destination_address'] && !(typeof data['destination_address'] === 'string' || data['destination_address'] instanceof String)) {
+            throw new Error("Expected the field `destination_address` to be a primitive type in the JSON string but got " + data['destination_address']);
         }
         if (data['timeline']) { // data not null
             // ensure the json data is an array
@@ -297,6 +314,17 @@ SwapActivityDetail.prototype['created_timestamp'] = undefined;
 SwapActivityDetail.prototype['updated_timestamp'] = undefined;
 
 /**
+ * @member {module:model/TransactionRequestFee} network_fee
+ */
+SwapActivityDetail.prototype['network_fee'] = undefined;
+
+/**
+ * the destination address of web3/mpc wallets.
+ * @member {String} destination_address
+ */
+SwapActivityDetail.prototype['destination_address'] = undefined;
+
+/**
  * @member {Array.<module:model/SwapActivityTimeline>} timeline
  */
 SwapActivityDetail.prototype['timeline'] = undefined;
@@ -390,6 +418,15 @@ SwapActivity.prototype['created_timestamp'] = undefined;
  * @member {Number} updated_timestamp
  */
 SwapActivity.prototype['updated_timestamp'] = undefined;
+/**
+ * @member {module:model/TransactionRequestFee} network_fee
+ */
+SwapActivity.prototype['network_fee'] = undefined;
+/**
+ * the destination address of web3/mpc wallets.
+ * @member {String} destination_address
+ */
+SwapActivity.prototype['destination_address'] = undefined;
 
 
 

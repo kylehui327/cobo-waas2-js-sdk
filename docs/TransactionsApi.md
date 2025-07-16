@@ -12,9 +12,7 @@ Method | HTTP request | Description
 [**createTransferTransaction**](TransactionsApi.md#createTransferTransaction) | **POST** /transactions/transfer | Transfer token
 [**dropTransactionById**](TransactionsApi.md#dropTransactionById) | **POST** /transactions/{transaction_id}/drop | Drop transaction
 [**estimateFee**](TransactionsApi.md#estimateFee) | **POST** /transactions/estimate_fee | Estimate transaction fee
-[**getTransactionApprovalDetail**](TransactionsApi.md#getTransactionApprovalDetail) | **GET** /transactions/{transaction_id}/approval_detail | Get transaction approval details
 [**getTransactionById**](TransactionsApi.md#getTransactionById) | **GET** /transactions/{transaction_id} | Get transaction information
-[**listTransactionApprovalDetails**](TransactionsApi.md#listTransactionApprovalDetails) | **GET** /transactions/approval_details | List transaction approval details
 [**listTransactions**](TransactionsApi.md#listTransactions) | **GET** /transactions | List all transactions
 [**resendTransactionById**](TransactionsApi.md#resendTransactionById) | **POST** /transactions/{transaction_id}/resend | Resend transaction
 [**signAndBroadcastTransactionById**](TransactionsApi.md#signAndBroadcastTransactionById) | **POST** /transactions/{transaction_id}/sign_and_broadcast | Sign and broadcast transaction
@@ -440,56 +438,6 @@ Name | Type | Description  | Notes
 - **Accept**: application/json
 
 
-## getTransactionApprovalDetail
-
-> TransactionApprovalDetail getTransactionApprovalDetail(transaction_id)
-
-Get transaction approval details
-
-This operation retrieves detailed approval information about a specified transaction. 
-
-### Example
-
-```javascript
-const CoboWaas2 = require('@cobo/cobo-waas2');
-// Initialize the API client
-const apiClient = CoboWaas2.ApiClient.instance
-// Select the development environment. To use the production environment, replace `Env.DEV` with `Env.PROD`
-apiClient.setEnv(CoboWaas2.Env.DEV);
-// Replace `<YOUR_PRIVATE_KEY>` with your private key
-apiClient.setPrivateKey("<YOUR_PRIVATE_KEY>");
-// Call the API
-const apiInstance = new CoboWaas2.TransactionsApi();
-const transaction_id = "f47ac10b-58cc-4372-a567-0e02b2c3d479";
-apiInstance.getTransactionApprovalDetail(transaction_id).then((data) => {
-  console.log('API called successfully. Returned data: ' + data);
-}, (error) => {
-  console.error(error);
-});
-
-```
-
-### Parameters
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **transaction_id** | **String**| The transaction ID. | 
-
-### Return type
-
-[**TransactionApprovalDetail**](TransactionApprovalDetail.md)
-
-### Authorization
-
-[OAuth2](../README.md#OAuth2), [CoboAuth](../README.md#CoboAuth)
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: application/json
-
-
 ## getTransactionById
 
 > TransactionDetail getTransactionById(transaction_id)
@@ -529,60 +477,6 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**TransactionDetail**](TransactionDetail.md)
-
-### Authorization
-
-[OAuth2](../README.md#OAuth2), [CoboAuth](../README.md#CoboAuth)
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: application/json
-
-
-## listTransactionApprovalDetails
-
-> ListTransactionApprovalDetails200Response listTransactionApprovalDetails(opts)
-
-List transaction approval details
-
-This operation retrieves detailed approval information for all transactions. 
-
-### Example
-
-```javascript
-const CoboWaas2 = require('@cobo/cobo-waas2');
-// Initialize the API client
-const apiClient = CoboWaas2.ApiClient.instance
-// Select the development environment. To use the production environment, replace `Env.DEV` with `Env.PROD`
-apiClient.setEnv(CoboWaas2.Env.DEV);
-// Replace `<YOUR_PRIVATE_KEY>` with your private key
-apiClient.setPrivateKey("<YOUR_PRIVATE_KEY>");
-// Call the API
-const apiInstance = new CoboWaas2.TransactionsApi();
-const opts = {
-  'transaction_ids': "f47ac10b-58cc-4372-a567-0e02b2c3d479,557918d2-632a-4fe1-932f-315711f05fe3",
-  'cobo_ids': "20231213122855000000000000000000,20231213122955000000000000000000"
-};
-apiInstance.listTransactionApprovalDetails(opts).then((data) => {
-  console.log('API called successfully. Returned data: ' + data);
-}, (error) => {
-  console.error(error);
-});
-
-```
-
-### Parameters
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **transaction_ids** | **String**| A list of transaction IDs, separated by comma. | [optional] 
- **cobo_ids** | **String**| A list of Cobo IDs, separated by comma. A Cobo ID can be used to track a transaction. | [optional] 
-
-### Return type
-
-[**ListTransactionApprovalDetails200Response**](ListTransactionApprovalDetails200Response.md)
 
 ### Authorization
 

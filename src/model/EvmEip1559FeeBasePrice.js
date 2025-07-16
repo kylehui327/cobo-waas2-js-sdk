@@ -18,7 +18,6 @@ import ApiClient from '../ApiClient';
 class EvmEip1559FeeBasePrice {
     /**
      * Constructs a new <code>EvmEip1559FeeBasePrice</code>.
-     * The transaction gas price based on the EIP-1559 fee model.
      * @alias module:model/EvmEip1559FeeBasePrice
      */
     constructor() { 

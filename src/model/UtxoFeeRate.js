@@ -23,7 +23,7 @@ class UtxoFeeRate {
      * The transaction fee rate for UTXO-based chains.
      * @alias module:model/UtxoFeeRate
      * @param fee_type {module:model/FeeType} 
-     * @param token_id {String} The token ID of the transaction fee.
+     * @param token_id {String} The token used to pay the transaction fee.
      * @param recommended {module:model/UtxoFeeBasePrice} 
      */
     constructor(fee_type, token_id, recommended) { 
@@ -121,7 +121,7 @@ UtxoFeeRate.RequiredProperties = ["fee_type", "token_id", "recommended"];
 UtxoFeeRate.prototype['fee_type'] = undefined;
 
 /**
- * The token ID of the transaction fee.
+ * The token used to pay the transaction fee.
  * @member {String} token_id
  */
 UtxoFeeRate.prototype['token_id'] = undefined;

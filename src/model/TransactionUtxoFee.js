@@ -126,13 +126,13 @@ TransactionUtxoFee.prototype['fee_rate'] = undefined;
 TransactionUtxoFee.prototype['fee_type'] = undefined;
 
 /**
- * The token ID of the transaction fee.
+ * The token used to pay the transaction fee.
  * @member {String} token_id
  */
 TransactionUtxoFee.prototype['token_id'] = undefined;
 
 /**
- * The transaction fee.
+ * The actually charged transaction fee.
  * @member {String} fee_used
  */
 TransactionUtxoFee.prototype['fee_used'] = undefined;

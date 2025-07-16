@@ -165,6 +165,34 @@ export default class WebhookEventType {
 
     
         /**
+         * value: "wallet.token.disabled"
+         * @const
+         */
+        "wallet.token.disabled" = "wallet.token.disabled";
+
+    
+        /**
+         * value: "wallet.chain.disabled"
+         * @const
+         */
+        "wallet.chain.disabled" = "wallet.chain.disabled";
+
+    
+        /**
+         * value: "token.suspended.deposit"
+         * @const
+         */
+        "token.suspended.deposit" = "token.suspended.deposit";
+
+    
+        /**
+         * value: "token.suspended.withdraw"
+         * @const
+         */
+        "token.suspended.withdraw" = "token.suspended.withdraw";
+
+    
+        /**
          * value: "payment.transaction.created"
          * @const
          */

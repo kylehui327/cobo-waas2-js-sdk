@@ -18,7 +18,6 @@ import ApiClient from '../ApiClient';
 class FILPrice {
     /**
      * Constructs a new <code>FILPrice</code>.
-     * The transaction gas price based on the FIL fee model.
      * @alias module:model/FILPrice
      */
     constructor() { 
@@ -86,19 +85,19 @@ class FILPrice {
 
 
 /**
- * An optional additional fee that users can include to prioritize their transactions over others. It acts like a tip to incentivize miners to select and include your transaction over transactions with only the base fee.
+ * An optional tip you can include to prioritize your transaction. The gas premium incentivizes miners to include your transaction sooner than those offering only the base fee.
  * @member {String} gas_premium
  */
 FILPrice.prototype['gas_premium'] = undefined;
 
 /**
- * The gas_fee_cap is a user-defined limit on how much they are willing to pay per unit of gas.
+ * The maximum gas price you are willing to pay per unit of gas.
  * @member {String} gas_fee_cap
  */
 FILPrice.prototype['gas_fee_cap'] = undefined;
 
 /**
- * This defines the maximum amount of computational effort that a transaction is allowed to consume. It's a way to cap the resources that a transaction can use, ensuring it doesn't consume excessive network resources.
+ * The maximum amount of gas your transaction is allowed to consume.
  * @member {String} gas_limit
  */
 FILPrice.prototype['gas_limit'] = undefined;

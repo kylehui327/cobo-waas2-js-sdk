@@ -23,7 +23,7 @@ class EstimatedEvmLegacyFee {
      * The estimated transaction fee based on the legacy fee model.
      * @alias module:model/EstimatedEvmLegacyFee
      * @param fee_type {module:model/FeeType} 
-     * @param token_id {String} The token ID of the transaction fee.
+     * @param token_id {String} The token used to pay the transaction fee.
      * @param recommended {module:model/EstimatedEvmLegacyFeeSlow} 
      */
     constructor(fee_type, token_id, recommended) { 
@@ -121,7 +121,7 @@ EstimatedEvmLegacyFee.RequiredProperties = ["fee_type", "token_id", "recommended
 EstimatedEvmLegacyFee.prototype['fee_type'] = undefined;
 
 /**
- * The token ID of the transaction fee.
+ * The token used to pay the transaction fee.
  * @member {String} token_id
  */
 EstimatedEvmLegacyFee.prototype['token_id'] = undefined;

@@ -136,6 +136,16 @@ import {ApiClient, Env} from "../../src/index.js";
         //});
       });
     });
+    describe('getMaxTransferableValueWithFeeModel', function() {
+      it('should call getMaxTransferableValueWithFeeModel successfully', function() {
+        //uncomment below and update the code to test getMaxTransferableValueWithFeeModel
+        //instance.getMaxTransferableValueWithFeeModel().then(function(data) {
+        //    console.log(data);
+        //}, function(error) {
+        //    console.error(error);
+        //});
+      });
+    });
     describe('getTokenById', function() {
       it('should call getTokenById successfully', function() {
         //uncomment below and update the code to test getTokenById

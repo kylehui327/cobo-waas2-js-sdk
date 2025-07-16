@@ -41,7 +41,7 @@ export default class OAuthApi {
 
     /**
      * Get Access Token
-     * This operation acquires an Access Token and a Refresh Token for the Checkout SDK.  For security purposes, an Access Token expires after a certain period. Once it expires, you need to call the [Refresh Access Token](/v2/api-references/oauth/refresh-access-token) operation to get a new Access Token and a new Refresh Token. 
+     * This operation acquires an Access Token and a Refresh Token for the Checkout SDK.  For security purposes, an Access Token expires after a certain period. Once it expires, you need to call the [Refresh Access Token](https://www.cobo.com/developers/v2/api-references/oauth/refresh-access-token) operation to get a new Access Token and a new Refresh Token. 
      * @param {module:model/ExchangePermissionTokenRequest} ExchangePermissionTokenRequest The request body to acquire an Access Token.
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/ExchangePermissionToken201Response} and HTTP response
      */
@@ -77,7 +77,7 @@ export default class OAuthApi {
 
     /**
      * Get Access Token
-     * This operation acquires an Access Token and a Refresh Token for the Checkout SDK.  For security purposes, an Access Token expires after a certain period. Once it expires, you need to call the [Refresh Access Token](/v2/api-references/oauth/refresh-access-token) operation to get a new Access Token and a new Refresh Token. 
+     * This operation acquires an Access Token and a Refresh Token for the Checkout SDK.  For security purposes, an Access Token expires after a certain period. Once it expires, you need to call the [Refresh Access Token](https://www.cobo.com/developers/v2/api-references/oauth/refresh-access-token) operation to get a new Access Token and a new Refresh Token. 
      * @param {module:model/ExchangePermissionTokenRequest} ExchangePermissionTokenRequest The request body to acquire an Access Token.
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/ExchangePermissionToken201Response}
      */
