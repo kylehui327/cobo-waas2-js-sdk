@@ -19,8 +19,10 @@ import CreateTransferTransaction201Response from '../model/CreateTransferTransac
 import ErrorResponse from '../model/ErrorResponse';
 import EstimateFeeParams from '../model/EstimateFeeParams';
 import EstimatedFee from '../model/EstimatedFee';
+import ListTransactionApprovalDetails200Response from '../model/ListTransactionApprovalDetails200Response';
 import ListTransactions200Response from '../model/ListTransactions200Response';
 import MessageSignParams from '../model/MessageSignParams';
+import TransactionApprovalDetail from '../model/TransactionApprovalDetail';
 import TransactionDetail from '../model/TransactionDetail';
 import TransactionRbf from '../model/TransactionRbf';
 import TransactionResend from '../model/TransactionResend';
@@ -465,6 +467,57 @@ export default class TransactionsApi {
 
 
     /**
+     * Get transaction approval details
+     * This operation retrieves detailed approval information about a specified transaction. 
+     * @param {String} transaction_id The transaction ID.
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/TransactionApprovalDetail} and HTTP response
+     */
+    getTransactionApprovalDetailWithHttpInfo(transaction_id) {
+      let postBody = null;
+      if (postBody && postBody.toJSON) {
+          postBody = postBody.toJSON()
+      }
+      // verify the required parameter 'transaction_id' is set
+      if (transaction_id === undefined || transaction_id === null) {
+        throw new Error("Missing the required parameter 'transaction_id' when calling getTransactionApprovalDetail");
+      }
+
+      let pathParams = {
+        'transaction_id': transaction_id
+      };
+      let queryParams = {
+      };
+      let headerParams = {
+      };
+      let formParams = {
+      };
+
+      let authNames = ['OAuth2', 'CoboAuth'];
+      let contentTypes = [];
+      let accepts = ['application/json'];
+      let returnType = TransactionApprovalDetail;
+      return this.apiClient.callApi(
+        '/transactions/{transaction_id}/approval_detail', 'GET',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, null
+      );
+    }
+
+    /**
+     * Get transaction approval details
+     * This operation retrieves detailed approval information about a specified transaction. 
+     * @param {String} transaction_id The transaction ID.
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/TransactionApprovalDetail}
+     */
+    getTransactionApprovalDetail(transaction_id) {
+      return this.getTransactionApprovalDetailWithHttpInfo(transaction_id)
+        .then(function(response_and_data) {
+          return response_and_data.data;
+        });
+    }
+
+
+    /**
      * Get transaction information
      * This operation retrieves detailed information about a specified transaction, such as the transaction status, source address, destination address, and timestamp. 
      * @param {String} transaction_id The transaction ID.
@@ -509,6 +562,59 @@ export default class TransactionsApi {
      */
     getTransactionById(transaction_id) {
       return this.getTransactionByIdWithHttpInfo(transaction_id)
+        .then(function(response_and_data) {
+          return response_and_data.data;
+        });
+    }
+
+
+    /**
+     * List transaction approval details
+     * This operation retrieves detailed approval information for all transactions. 
+     * @param {Object} opts Optional parameters
+     * @param {String} [transaction_ids] A list of transaction IDs, separated by comma.
+     * @param {String} [cobo_ids] A list of Cobo IDs, separated by comma. A Cobo ID can be used to track a transaction.
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/ListTransactionApprovalDetails200Response} and HTTP response
+     */
+    listTransactionApprovalDetailsWithHttpInfo(opts) {
+      opts = opts || {};
+      let postBody = null;
+      if (postBody && postBody.toJSON) {
+          postBody = postBody.toJSON()
+      }
+
+      let pathParams = {
+      };
+      let queryParams = {
+        'transaction_ids': opts['transaction_ids'],
+        'cobo_ids': opts['cobo_ids']
+      };
+      let headerParams = {
+      };
+      let formParams = {
+      };
+
+      let authNames = ['OAuth2', 'CoboAuth'];
+      let contentTypes = [];
+      let accepts = ['application/json'];
+      let returnType = ListTransactionApprovalDetails200Response;
+      return this.apiClient.callApi(
+        '/transactions/approval_details', 'GET',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, null
+      );
+    }
+
+    /**
+     * List transaction approval details
+     * This operation retrieves detailed approval information for all transactions. 
+     * @param {Object} opts Optional parameters
+     * @param {String} opts.transaction_ids A list of transaction IDs, separated by comma.
+     * @param {String} opts.cobo_ids A list of Cobo IDs, separated by comma. A Cobo ID can be used to track a transaction.
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/ListTransactionApprovalDetails200Response}
+     */
+    listTransactionApprovalDetails(opts) {
+      return this.listTransactionApprovalDetailsWithHttpInfo(opts)
         .then(function(response_and_data) {
           return response_and_data.data;
         });
