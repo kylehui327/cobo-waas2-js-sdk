@@ -18,7 +18,6 @@ import ApiClient from '../ApiClient';
 class FILBase {
     /**
      * Constructs a new <code>FILBase</code>.
-     * The transaction gas base based on the FIL fee model.
      * @alias module:model/FILBase
      */
     constructor() { 

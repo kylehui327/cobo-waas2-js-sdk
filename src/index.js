@@ -261,6 +261,7 @@ import ListTokenBalancesForFeeStation200ResponseDataInner from './model/ListToke
 import ListTokenListingRequests200Response from './model/ListTokenListingRequests200Response';
 import ListTopUpPayers200Response from './model/ListTopUpPayers200Response';
 import ListTopUpPayers200ResponseDataInner from './model/ListTopUpPayers200ResponseDataInner';
+import ListTransactionApprovalDetails200Response from './model/ListTransactionApprovalDetails200Response';
 import ListTransactions200Response from './model/ListTransactions200Response';
 import ListTssRequests200Response from './model/ListTssRequests200Response';
 import ListUtxos200Response from './model/ListUtxos200Response';
@@ -676,7 +677,7 @@ import WalletsSmartContractWalletsApi from './api/WalletsSmartContractWalletsApi
 * </pre>
 * </p>
 * @module index
-* @version 1.19.0
+* @version 1.19.1
 */
 export {
     Env,
@@ -2175,6 +2176,12 @@ export {
      * @property {module:model/ListTopUpPayers200ResponseDataInner}
      */
     ListTopUpPayers200ResponseDataInner,
+
+    /**
+     * The ListTransactionApprovalDetails200Response model constructor.
+     * @property {module:model/ListTransactionApprovalDetails200Response}
+     */
+    ListTransactionApprovalDetails200Response,
 
     /**
      * The ListTransactions200Response model constructor.

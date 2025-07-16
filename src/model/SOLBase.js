@@ -18,7 +18,6 @@ import ApiClient from '../ApiClient';
 class SOLBase {
     /**
      * Constructs a new <code>SOLBase</code>.
-     * The transaction base fee based on the SOL fee model.
      * @alias module:model/SOLBase
      */
     constructor() { 

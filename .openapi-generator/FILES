@@ -257,6 +257,7 @@ docs/ListTokenBalancesForFeeStation200ResponseDataInner.md
 docs/ListTokenListingRequests200Response.md
 docs/ListTopUpPayers200Response.md
 docs/ListTopUpPayers200ResponseDataInner.md
+docs/ListTransactionApprovalDetails200Response.md
 docs/ListTransactions200Response.md
 docs/ListTssRequests200Response.md
 docs/ListUtxos200Response.md
@@ -910,6 +911,7 @@ src/model/ListTokenBalancesForFeeStation200ResponseDataInner.js
 src/model/ListTokenListingRequests200Response.js
 src/model/ListTopUpPayers200Response.js
 src/model/ListTopUpPayers200ResponseDataInner.js
+src/model/ListTransactionApprovalDetails200Response.js
 src/model/ListTransactions200Response.js
 src/model/ListTssRequests200Response.js
 src/model/ListUtxos200Response.js
@@ -1541,6 +1543,7 @@ test/model/ListTokenBalancesForFeeStation200ResponseDataInner.spec.js
 test/model/ListTokenListingRequests200Response.spec.js
 test/model/ListTopUpPayers200Response.spec.js
 test/model/ListTopUpPayers200ResponseDataInner.spec.js
+test/model/ListTransactionApprovalDetails200Response.spec.js
 test/model/ListTransactions200Response.spec.js
 test/model/ListTssRequests200Response.spec.js
 test/model/ListUtxos200Response.spec.js
