@@ -18,7 +18,6 @@ import ApiClient from '../ApiClient';
 class UtxoFeeBasePrice {
     /**
      * Constructs a new <code>UtxoFeeBasePrice</code>.
-     * The transaction fee rate for UTXO-based chains (such as Bitcoin).
      * @alias module:model/UtxoFeeBasePrice
      */
     constructor() { 

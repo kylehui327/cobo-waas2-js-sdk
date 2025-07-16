@@ -18,7 +18,6 @@ import ApiClient from '../ApiClient';
 class SOLComputeUnit {
     /**
      * Constructs a new <code>SOLComputeUnit</code>.
-     * The transaction gas price configuration based on the Solana fee model.
      * @alias module:model/SOLComputeUnit
      */
     constructor() { 

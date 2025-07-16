@@ -18,7 +18,6 @@ import ApiClient from '../ApiClient';
 class MaxFeeAmount {
     /**
      * Constructs a new <code>MaxFeeAmount</code>.
-     * The maximum transaction fee.
      * @alias module:model/MaxFeeAmount
      */
     constructor() { 

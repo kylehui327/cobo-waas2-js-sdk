@@ -18,7 +18,6 @@ import ApiClient from '../ApiClient';
 class FILPrice {
     /**
      * Constructs a new <code>FILPrice</code>.
-     * The transaction gas price configuration based on the Filecoin fee model.
      * @alias module:model/FILPrice
      */
     constructor() { 
