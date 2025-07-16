@@ -25,7 +25,7 @@ class TransactionRequestEvmLegacyFee {
      * @implements module:model/EvmLegacyFeeBasePrice
      * @param gas_price {String} The gas price, in wei. The gas price represents the amount of ETH that must be paid to validators for processing transactions per gas unit used.
      * @param fee_type {module:model/FeeType} 
-     * @param token_id {String} The token ID of the transaction fee.
+     * @param token_id {String} The token used to pay the transaction fee.
      */
     constructor(gas_price, fee_type, token_id) { 
         EvmLegacyFeeBasePrice.initialize(this);
@@ -116,7 +116,7 @@ TransactionRequestEvmLegacyFee.prototype['gas_price'] = undefined;
 TransactionRequestEvmLegacyFee.prototype['fee_type'] = undefined;
 
 /**
- * The token ID of the transaction fee.
+ * The token used to pay the transaction fee.
  * @member {String} token_id
  */
 TransactionRequestEvmLegacyFee.prototype['token_id'] = undefined;

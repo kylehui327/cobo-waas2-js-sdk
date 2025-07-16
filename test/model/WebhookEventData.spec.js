@@ -364,6 +364,18 @@
       //expect(instance).to.be();
     });
 
+    it('should have the property token_ids (base name: "token_ids")', function() {
+      // uncomment below and update the code to test the property token_ids
+      //var instance = new CoboWaas2.WebhookEventData();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property operation_type (base name: "operation_type")', function() {
+      // uncomment below and update the code to test the property operation_type
+      //var instance = new CoboWaas2.WebhookEventData();
+      //expect(instance).to.be();
+    });
+
     it('should have the property order_id (base name: "order_id")', function() {
       // uncomment below and update the code to test the property order_id
       //var instance = new CoboWaas2.WebhookEventData();

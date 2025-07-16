@@ -26,7 +26,7 @@ class TransactionRequestEvmEip1559Fee {
      * @param max_fee_per_gas {String} The maximum gas fee per gas unit used on the chain, in wei.
      * @param max_priority_fee_per_gas {String} The maximum priority fee per gas unit used, in wei. The maximum priority fee represents the highest amount of miner tips that you are willing to pay for your transaction.
      * @param fee_type {module:model/FeeType} 
-     * @param token_id {String} The token ID of the transaction fee.
+     * @param token_id {String} The token used to pay the transaction fee.
      */
     constructor(max_fee_per_gas, max_priority_fee_per_gas, fee_type, token_id) { 
         EvmEip1559FeeBasePrice.initialize(this);
@@ -131,7 +131,7 @@ TransactionRequestEvmEip1559Fee.prototype['max_priority_fee_per_gas'] = undefine
 TransactionRequestEvmEip1559Fee.prototype['fee_type'] = undefined;
 
 /**
- * The token ID of the transaction fee.
+ * The token used to pay the transaction fee.
  * @member {String} token_id
  */
 TransactionRequestEvmEip1559Fee.prototype['token_id'] = undefined;

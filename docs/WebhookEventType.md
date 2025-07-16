@@ -45,6 +45,14 @@
 
 * `wallet.web3.balance.updated` (value: `"wallet.web3.balance.updated"`)
 
+* `wallet.token.disabled` (value: `"wallet.token.disabled"`)
+
+* `wallet.chain.disabled` (value: `"wallet.chain.disabled"`)
+
+* `token.suspended.deposit` (value: `"token.suspended.deposit"`)
+
+* `token.suspended.withdraw` (value: `"token.suspended.withdraw"`)
+
 * `payment.transaction.created` (value: `"payment.transaction.created"`)
 
 * `payment.transaction.late` (value: `"payment.transaction.late"`)

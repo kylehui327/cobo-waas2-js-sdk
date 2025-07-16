@@ -19,7 +19,7 @@ import TransactionRequestFee from './TransactionRequestFee';
 class MaxTransferableValue {
     /**
      * Constructs a new <code>MaxTransferableValue</code>.
-     * The maximum amount you can transfer from the wallet or the specified wallet address, along with the corresponding transaction fee.
+     * The maximum transferable value from the wallet or the specified address, along with the estimated transaction fee.
      * @alias module:model/MaxTransferableValue
      */
     constructor() { 
@@ -95,7 +95,7 @@ class MaxTransferableValue {
 MaxTransferableValue.prototype['token_id'] = undefined;
 
 /**
- * The maximum amount you can transfer from the wallet or the specified wallet address.
+ * The maximum transferable value from the wallet or the specified address.
  * @member {String} max_transferable_value
  */
 MaxTransferableValue.prototype['max_transferable_value'] = undefined;

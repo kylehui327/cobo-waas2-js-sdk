@@ -23,7 +23,7 @@ class CreatePaymentOrderRequest {
      * @param token_id {String} The ID of the cryptocurrency used for payment. Supported values:    - USDC: `ETH_USDC`, `ARBITRUM_USDC`, `SOL_USDC`, `BASE_USDC`, `MATIC_USDC`, `BSC_USDC`   - USDT: `TRON_USDT`, `ETH_USDT`, `ARBITRUM_USDT`, `SOL_USDT`, `BASE_USDT`, `MATIC_USDT`, `BSC_USDT` 
      * @param order_amount {String} The base amount of the order in fiat currency, excluding the developer fee (specified in `fee_amount`). Values must be greater than `0` and contain two decimal places.
      * @param fee_amount {String} The developer fee for the order in fiat currency. It is added to the base amount (`order_amount`) to determine the final charge. For example, if order_amount is \"100.00\" and fee_amount is \"2.00\", the customer will be charged \"102.00\" in total, with \"100.00\" being settled to the merchant and \"2.00\" settled to the developer. Values must be greater than 0 and contain two decimal places.
-     * @param psp_order_code {String} A unique reference code assigned by the developer to identify this order in their system.
+     * @param psp_order_code {String} A unique reference code assigned by you as a developer to identify this order in your system. This code must be unique across all orders in your system. The code should have a maximum length of 128 characters. 
      */
     constructor(merchant_id, token_id, order_amount, fee_amount, psp_order_code) { 
         
@@ -147,7 +147,7 @@ CreatePaymentOrderRequest.prototype['merchant_id'] = undefined;
 CreatePaymentOrderRequest.prototype['token_id'] = undefined;
 
 /**
- * The fiat currency of the order.
+ * The fiat currency of the order. Currently, only `USD` is supported.
  * @member {String} currency
  * @default 'USD'
  */
@@ -166,22 +166,23 @@ CreatePaymentOrderRequest.prototype['order_amount'] = undefined;
 CreatePaymentOrderRequest.prototype['fee_amount'] = undefined;
 
 /**
- * A unique reference code assigned by the merchant to identify this order in their system.
+ * A unique reference code assigned by the merchant to identify this order in their system. The code should have a maximum length of 128 characters.
  * @member {String} merchant_order_code
  */
 CreatePaymentOrderRequest.prototype['merchant_order_code'] = undefined;
 
 /**
- * A unique reference code assigned by the developer to identify this order in their system.
+ * A unique reference code assigned by you as a developer to identify this order in your system. This code must be unique across all orders in your system. The code should have a maximum length of 128 characters. 
  * @member {String} psp_order_code
  */
 CreatePaymentOrderRequest.prototype['psp_order_code'] = undefined;
 
 /**
- * The number of seconds after which the pay-in order will expire. After expiration: - The order status becomes final and cannot be changed - The `received_token_amount` field will no longer be updated - Funds received after expiration will be categorized as late payments and can only be settled from the developer balance. - A late payment will trigger a `transactionLate` webhook event. 
+ * The number of seconds until the pay-in order expires, counted from when the request is sent. For example, if set to `1800`, the order will expire in 30 minutes. After expiration: - The order status becomes final and cannot be changed - The `received_token_amount` field will no longer be updated - Funds received after expiration will be categorized as late payments and can only be settled from the developer balance. - A late payment will trigger a `transactionLate` webhook event. 
  * @member {Number} expired_in
+ * @default 1800
  */
-CreatePaymentOrderRequest.prototype['expired_in'] = undefined;
+CreatePaymentOrderRequest.prototype['expired_in'] = 1800;
 
 /**
  * Whether to allocate a dedicated address for this order.  - `true`: A dedicated address will be allocated for this order. - `false`: A shared address from the address pool will be used. 

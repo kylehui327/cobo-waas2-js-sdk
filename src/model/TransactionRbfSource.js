@@ -176,7 +176,7 @@ TransactionRbfSource.prototype['source_type'] = undefined;
 TransactionRbfSource.prototype['wallet_id'] = undefined;
 
 /**
- * The wallet address.  If you want to specify the UTXOs to be used, please provide the `included_utxos` property. When `included_utxos` is specified, only these specified UTXOs will be used for the transaction. If you specify both the `address` and `included_utxos` properties, the specified included UTXOs must belong to the address. It is recommended to specify no more than 100 included UTXOs to ensure optimal transaction processing.  You need to provide either the `address` or `included_utxos` property. If neither property is provided, the transfer will fail. 
+ * Indicates the wallet address to be used as the source of funds. - For UTXO-based chains: both `address` and `included_utxos` are optional. If both `address` and `included_utxos` are provided, the UTXOs must belong to the specified address. If neither `address` nor `included_utxos` is provided, the system will select UTXOs from the wallet associated with `wallet_id`.   For RBF transactions, please note the following:     - If the original transaction did not specify `included_utxos`, the RBF transaction may omit `address`, `included_utxos`, or both.     - If the original transaction specified `included_utxos`, the RBF transaction must specify either `address` or `included_utxos`, or both.     - The `address` or `included_utxos` in the RBF transaction may differ from those in the original transaction.  - For account-based chains: You need to provide `address` otherwise the token transfer will fail. However, when estimating fees for a transfer, `address` is not required. 
  * @member {String} address
  */
 TransactionRbfSource.prototype['address'] = undefined;

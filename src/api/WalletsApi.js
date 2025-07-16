@@ -26,6 +26,7 @@ import CreatedWalletInfo from '../model/CreatedWalletInfo';
 import DeleteWalletById201Response from '../model/DeleteWalletById201Response';
 import ErrorResponse from '../model/ErrorResponse';
 import ExtendedTokenInfo from '../model/ExtendedTokenInfo';
+import GetMaxTransferableValueWithFeeModelRequest from '../model/GetMaxTransferableValueWithFeeModelRequest';
 import ListAddressBalancesByToken200Response from '../model/ListAddressBalancesByToken200Response';
 import ListAddresses200Response from '../model/ListAddresses200Response';
 import ListSupportedChains200Response from '../model/ListSupportedChains200Response';
@@ -624,6 +625,62 @@ export default class WalletsApi {
      */
     getMaxTransferableValue(wallet_id, token_id, fee_rate, to_address, opts) {
       return this.getMaxTransferableValueWithHttpInfo(wallet_id, token_id, fee_rate, to_address, opts)
+        .then(function(response_and_data) {
+          return response_and_data.data;
+        });
+    }
+
+
+    /**
+     * Estimate maximum transferable value
+     * This operation estimates the maximum transferable value from a wallet or a specific wallet address, based on the specified fee settings.  The `to_address` property is required because it affects the fee calculation.  <Note>This operation is applicable to Custodial Wallets (Web3 Wallets) and MPC Wallets only.</Note> 
+     * @param {String} wallet_id The wallet ID.
+     * @param {Object} opts Optional parameters
+     * @param {module:model/GetMaxTransferableValueWithFeeModelRequest} [GetMaxTransferableValueWithFeeModelRequest] The request body for retrieving the maximum transferable value from a specified wallet.
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/MaxTransferableValue} and HTTP response
+     */
+    getMaxTransferableValueWithFeeModelWithHttpInfo(wallet_id, opts) {
+      opts = opts || {};
+      let postBody = opts['GetMaxTransferableValueWithFeeModelRequest'];
+      if (postBody && postBody.toJSON) {
+          postBody = postBody.toJSON()
+      }
+      // verify the required parameter 'wallet_id' is set
+      if (wallet_id === undefined || wallet_id === null) {
+        throw new Error("Missing the required parameter 'wallet_id' when calling getMaxTransferableValueWithFeeModel");
+      }
+
+      let pathParams = {
+        'wallet_id': wallet_id
+      };
+      let queryParams = {
+      };
+      let headerParams = {
+      };
+      let formParams = {
+      };
+
+      let authNames = ['OAuth2', 'CoboAuth'];
+      let contentTypes = ['application/json'];
+      let accepts = ['application/json'];
+      let returnType = MaxTransferableValue;
+      return this.apiClient.callApi(
+        '/wallets/{wallet_id}/max_transferable_value_with_fee_model', 'POST',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, null
+      );
+    }
+
+    /**
+     * Estimate maximum transferable value
+     * This operation estimates the maximum transferable value from a wallet or a specific wallet address, based on the specified fee settings.  The `to_address` property is required because it affects the fee calculation.  <Note>This operation is applicable to Custodial Wallets (Web3 Wallets) and MPC Wallets only.</Note> 
+     * @param {String} wallet_id The wallet ID.
+     * @param {Object} opts Optional parameters
+     * @param {module:model/GetMaxTransferableValueWithFeeModelRequest} opts.GetMaxTransferableValueWithFeeModelRequest The request body for retrieving the maximum transferable value from a specified wallet.
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/MaxTransferableValue}
+     */
+    getMaxTransferableValueWithFeeModel(wallet_id, opts) {
+      return this.getMaxTransferableValueWithFeeModelWithHttpInfo(wallet_id, opts)
         .then(function(response_and_data) {
           return response_and_data.data;
         });

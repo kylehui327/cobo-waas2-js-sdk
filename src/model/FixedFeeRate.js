@@ -24,7 +24,7 @@ class FixedFeeRate {
      * @alias module:model/FixedFeeRate
      * @implements module:model/FeeAmount
      * @param fee_type {module:model/FeeType} 
-     * @param token_id {String} The token ID of the transaction fee.
+     * @param token_id {String} The token used to pay the transaction fee.
      */
     constructor(fee_type, token_id) { 
         FeeAmount.initialize(this);
@@ -107,7 +107,7 @@ FixedFeeRate.prototype['fee_amount'] = undefined;
 FixedFeeRate.prototype['fee_type'] = undefined;
 
 /**
- * The token ID of the transaction fee.
+ * The token used to pay the transaction fee.
  * @member {String} token_id
  */
 FixedFeeRate.prototype['token_id'] = undefined;

@@ -15,6 +15,8 @@
 
 * `RejectedCoboCheck` (value: `"RejectedCoboCheck"`)
 
+* `RejectedByCobo` (value: `"RejectedByCobo"`)
+
 * `RejectedWhiteList` (value: `"RejectedWhiteList"`)
 
 * `RejectedDoubleCheck` (value: `"RejectedDoubleCheck"`)

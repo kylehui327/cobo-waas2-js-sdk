@@ -23,7 +23,7 @@ class EstimatedSOLFee {
      * The estimated transaction fee based on the sol fee model.
      * @alias module:model/EstimatedSOLFee
      * @param fee_type {module:model/FeeType} 
-     * @param token_id {String} The token ID of the transaction fee.
+     * @param token_id {String} The token used to pay the transaction fee.
      * @param recommended {module:model/EstimatedSOLFeeSlow} 
      */
     constructor(fee_type, token_id, recommended) { 
@@ -121,7 +121,7 @@ EstimatedSOLFee.RequiredProperties = ["fee_type", "token_id", "recommended"];
 EstimatedSOLFee.prototype['fee_type'] = undefined;
 
 /**
- * The token ID of the transaction fee.
+ * The token used to pay the transaction fee.
  * @member {String} token_id
  */
 EstimatedSOLFee.prototype['token_id'] = undefined;

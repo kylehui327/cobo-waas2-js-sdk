@@ -24,7 +24,7 @@ class TransactionRequestUtxoFee {
      * @alias module:model/TransactionRequestUtxoFee
      * @implements module:model/UtxoFeeBasePrice
      * @param fee_type {module:model/FeeType} 
-     * @param token_id {String} The token ID of the transaction fee.
+     * @param token_id {String} The token used to pay the transaction fee.
      */
     constructor(fee_type, token_id) { 
         UtxoFeeBasePrice.initialize(this);
@@ -114,7 +114,7 @@ TransactionRequestUtxoFee.prototype['fee_rate'] = undefined;
 TransactionRequestUtxoFee.prototype['fee_type'] = undefined;
 
 /**
- * The token ID of the transaction fee.
+ * The token used to pay the transaction fee.
  * @member {String} token_id
  */
 TransactionRequestUtxoFee.prototype['token_id'] = undefined;

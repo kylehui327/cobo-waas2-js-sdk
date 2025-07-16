@@ -20,13 +20,13 @@ import FeeType from './FeeType';
 class TransactionRequestFILFee {
     /**
      * Constructs a new <code>TransactionRequestFILFee</code>.
-     * The preset properties to limit transaction fee.  In the Fil fee model, the calculation method for the fee is: fee &#x3D; gas_fee_cap * gas_limit, refer to [Fee models](https://www.cobo.com/developers/v2/guides/transactions/estimate-fees#fee-models).  Switch between the tabs to display the properties for different transaction fee models. 
+     * The preset properties to limit transaction fee.  In the Filecoin fee model, the transaction fee is calculated using the minimum of your specified gas fee cap and the sum of the base fee and gas premium, then multiplied by the gas limit. This can be expressed as: Transaction fee &#x3D; min(gas fee cap, base fee + gas premium) * gas limit. For more information about the Filecoin fee model, refer to [Fee models](https://www.cobo.com/developers/v2/guides/transactions/estimate-fees#fee-models).  You can specify the gas fee cap, gas premium, and gas limit to control fee behavior and prioritization.  Switch between the tabs to display the properties for different transaction fee models. 
      * @alias module:model/TransactionRequestFILFee
      * @implements module:model/FILPrice
-     * @param gas_premium {String} An optional additional fee that users can include to prioritize their transactions over others. It acts like a tip to incentivize miners to select and include your transaction over transactions with only the base fee.
-     * @param gas_fee_cap {String} The gas_fee_cap is a user-defined limit on how much they are willing to pay per unit of gas.
+     * @param gas_premium {String} An optional tip you can include to prioritize your transaction. The gas premium incentivizes miners to include your transaction sooner than those offering only the base fee.
+     * @param gas_fee_cap {String} The maximum gas price you are willing to pay per unit of gas.
      * @param fee_type {module:model/FeeType} 
-     * @param token_id {String} The token ID of the transaction fee.
+     * @param token_id {String} The token used to pay the transaction fee.
      */
     constructor(gas_premium, gas_fee_cap, fee_type, token_id) { 
         FILPrice.initialize(this);
@@ -114,19 +114,19 @@ class TransactionRequestFILFee {
 TransactionRequestFILFee.RequiredProperties = ["gas_premium", "gas_fee_cap", "fee_type", "token_id"];
 
 /**
- * An optional additional fee that users can include to prioritize their transactions over others. It acts like a tip to incentivize miners to select and include your transaction over transactions with only the base fee.
+ * An optional tip you can include to prioritize your transaction. The gas premium incentivizes miners to include your transaction sooner than those offering only the base fee.
  * @member {String} gas_premium
  */
 TransactionRequestFILFee.prototype['gas_premium'] = undefined;
 
 /**
- * The gas_fee_cap is a user-defined limit on how much they are willing to pay per unit of gas.
+ * The maximum gas price you are willing to pay per unit of gas.
  * @member {String} gas_fee_cap
  */
 TransactionRequestFILFee.prototype['gas_fee_cap'] = undefined;
 
 /**
- * This defines the maximum amount of computational effort that a transaction is allowed to consume. It's a way to cap the resources that a transaction can use, ensuring it doesn't consume excessive network resources.
+ * The maximum amount of gas your transaction is allowed to consume.
  * @member {String} gas_limit
  */
 TransactionRequestFILFee.prototype['gas_limit'] = undefined;
@@ -137,7 +137,7 @@ TransactionRequestFILFee.prototype['gas_limit'] = undefined;
 TransactionRequestFILFee.prototype['fee_type'] = undefined;
 
 /**
- * The token ID of the transaction fee.
+ * The token used to pay the transaction fee.
  * @member {String} token_id
  */
 TransactionRequestFILFee.prototype['token_id'] = undefined;
@@ -145,17 +145,17 @@ TransactionRequestFILFee.prototype['token_id'] = undefined;
 
 // Implement FILPrice interface:
 /**
- * An optional additional fee that users can include to prioritize their transactions over others. It acts like a tip to incentivize miners to select and include your transaction over transactions with only the base fee.
+ * An optional tip you can include to prioritize your transaction. The gas premium incentivizes miners to include your transaction sooner than those offering only the base fee.
  * @member {String} gas_premium
  */
 FILPrice.prototype['gas_premium'] = undefined;
 /**
- * The gas_fee_cap is a user-defined limit on how much they are willing to pay per unit of gas.
+ * The maximum gas price you are willing to pay per unit of gas.
  * @member {String} gas_fee_cap
  */
 FILPrice.prototype['gas_fee_cap'] = undefined;
 /**
- * This defines the maximum amount of computational effort that a transaction is allowed to consume. It's a way to cap the resources that a transaction can use, ensuring it doesn't consume excessive network resources.
+ * The maximum amount of gas your transaction is allowed to consume.
  * @member {String} gas_limit
  */
 FILPrice.prototype['gas_limit'] = undefined;

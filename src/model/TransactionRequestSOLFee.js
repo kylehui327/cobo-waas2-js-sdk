@@ -20,13 +20,13 @@ import SOLComputeUnit from './SOLComputeUnit';
 class TransactionRequestSOLFee {
     /**
      * Constructs a new <code>TransactionRequestSOLFee</code>.
-     * The preset properties to limit transaction fee.  In the SOL fee model, the calculation method for the fee is: fee &#x3D; base_fee + compute_unit_price * compute_unit_limit + rent_amount, refer to [Fee models](https://www.cobo.com/developers/v2/guides/transactions/estimate-fees#fee-models).  You can specify the compute_unit_price, compute_unit_limit.   Switch between the tabs to display the properties for different transaction fee models. 
+     * The preset properties to limit transaction fee.  In the Solana fee model, the transaction fee is calculated by adding the base fee to the product of the compute unit limit and the compute unit price. This can be expressed as: Transaction fee &#x3D; base fee + (CU limit * CU price). For more information about the Solana fee model, refer to [Fee models](https://www.cobo.com/developers/v2/guides/transactions/estimate-fees#fee-models).  You can specify CU price and CU limit to adjust the priority and resource allocation of your transaction.  Switch between the tabs to display the properties for different transaction fee models. 
      * @alias module:model/TransactionRequestSOLFee
      * @implements module:model/SOLComputeUnit
-     * @param compute_unit_price {String} The cost per compute unit. Transactions consume computational resources measured in compute units, and this price helps determine the cost of executing transactions, especially complex ones involving smart contracts.
-     * @param compute_unit_limit {String} The maximum number of compute units allowed for a transaction. This limits the resources any single transaction can consume, preventing excessive resource usage that could impact network performance negatively.
+     * @param compute_unit_price {String} The price paid per compute unit. This value determines the priority fee for the transaction, allowing you to increase inclusion probability in congested conditions.
+     * @param compute_unit_limit {String} The maximum number of compute units your transaction is allowed to consume. It sets an upper bound on computational resource usage to prevent overload.
      * @param fee_type {module:model/FeeType} 
-     * @param token_id {String} The token ID of the transaction fee.
+     * @param token_id {String} The token used to pay the transaction fee.
      */
     constructor(compute_unit_price, compute_unit_limit, fee_type, token_id) { 
         SOLComputeUnit.initialize(this);
@@ -107,13 +107,13 @@ class TransactionRequestSOLFee {
 TransactionRequestSOLFee.RequiredProperties = ["compute_unit_price", "compute_unit_limit", "fee_type", "token_id"];
 
 /**
- * The cost per compute unit. Transactions consume computational resources measured in compute units, and this price helps determine the cost of executing transactions, especially complex ones involving smart contracts.
+ * The price paid per compute unit. This value determines the priority fee for the transaction, allowing you to increase inclusion probability in congested conditions.
  * @member {String} compute_unit_price
  */
 TransactionRequestSOLFee.prototype['compute_unit_price'] = undefined;
 
 /**
- * The maximum number of compute units allowed for a transaction. This limits the resources any single transaction can consume, preventing excessive resource usage that could impact network performance negatively.
+ * The maximum number of compute units your transaction is allowed to consume. It sets an upper bound on computational resource usage to prevent overload.
  * @member {String} compute_unit_limit
  */
 TransactionRequestSOLFee.prototype['compute_unit_limit'] = undefined;
@@ -124,7 +124,7 @@ TransactionRequestSOLFee.prototype['compute_unit_limit'] = undefined;
 TransactionRequestSOLFee.prototype['fee_type'] = undefined;
 
 /**
- * The token ID of the transaction fee.
+ * The token used to pay the transaction fee.
  * @member {String} token_id
  */
 TransactionRequestSOLFee.prototype['token_id'] = undefined;
@@ -132,12 +132,12 @@ TransactionRequestSOLFee.prototype['token_id'] = undefined;
 
 // Implement SOLComputeUnit interface:
 /**
- * The cost per compute unit. Transactions consume computational resources measured in compute units, and this price helps determine the cost of executing transactions, especially complex ones involving smart contracts.
+ * The price paid per compute unit. This value determines the priority fee for the transaction, allowing you to increase inclusion probability in congested conditions.
  * @member {String} compute_unit_price
  */
 SOLComputeUnit.prototype['compute_unit_price'] = undefined;
 /**
- * The maximum number of compute units allowed for a transaction. This limits the resources any single transaction can consume, preventing excessive resource usage that could impact network performance negatively.
+ * The maximum number of compute units your transaction is allowed to consume. It sets an upper bound on computational resource usage to prevent overload.
  * @member {String} compute_unit_limit
  */
 SOLComputeUnit.prototype['compute_unit_limit'] = undefined;

@@ -162,7 +162,7 @@ TransactionEvmEip1559Fee.prototype['gas_limit'] = undefined;
 TransactionEvmEip1559Fee.prototype['fee_type'] = undefined;
 
 /**
- * The token ID of the transaction fee.
+ * The token used to pay the transaction fee.
  * @member {String} token_id
  */
 TransactionEvmEip1559Fee.prototype['token_id'] = undefined;
@@ -174,7 +174,7 @@ TransactionEvmEip1559Fee.prototype['token_id'] = undefined;
 TransactionEvmEip1559Fee.prototype['effective_gas_price'] = undefined;
 
 /**
- * The transaction fee.
+ * The actually charged transaction fee.
  * @member {String} fee_used
  */
 TransactionEvmEip1559Fee.prototype['fee_used'] = undefined;
