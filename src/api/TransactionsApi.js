@@ -11,6 +11,8 @@
 
 
 import ApiClient from "../ApiClient";
+import ApprovalDetail from '../model/ApprovalDetail';
+import ApprovalTemplate from '../model/ApprovalTemplate';
 import BroadcastSignedTransactions201ResponseInner from '../model/BroadcastSignedTransactions201ResponseInner';
 import BroadcastSignedTransactionsRequest from '../model/BroadcastSignedTransactionsRequest';
 import CheckLoopTransfers200ResponseInner from '../model/CheckLoopTransfers200ResponseInner';
@@ -19,9 +21,7 @@ import CreateTransferTransaction201Response from '../model/CreateTransferTransac
 import ErrorResponse from '../model/ErrorResponse';
 import EstimateFeeParams from '../model/EstimateFeeParams';
 import EstimatedFee from '../model/EstimatedFee';
-import ListApprovalDetails200Response from '../model/ListApprovalDetails200Response';
 import ListTransactionApprovalDetails200Response from '../model/ListTransactionApprovalDetails200Response';
-import ListTransactionTemplates200Response from '../model/ListTransactionTemplates200Response';
 import ListTransactions200Response from '../model/ListTransactions200Response';
 import MessageSignParams from '../model/MessageSignParams';
 import TransactionApprovalDetail from '../model/TransactionApprovalDetail';
@@ -576,8 +576,8 @@ export default class TransactionsApi {
      * @param {Object} opts Optional parameters
      * @param {String} [transaction_ids] A list of transaction IDs, separated by comma.
      * @param {String} [cobo_ids] A list of Cobo IDs, separated by comma. A Cobo ID can be used to track a transaction.
-     * @param {String} [request_id] A list of request IDs, separated by comma.
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/ListApprovalDetails200Response} and HTTP response
+     * @param {String} [request_ids] A list of request IDs, separated by comma.
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link Array.<module:model/ApprovalDetail>} and HTTP response
      */
     listApprovalDetailsWithHttpInfo(opts) {
       opts = opts || {};
@@ -591,7 +591,7 @@ export default class TransactionsApi {
       let queryParams = {
         'transaction_ids': opts['transaction_ids'],
         'cobo_ids': opts['cobo_ids'],
-        'request_id': opts['request_id']
+        'request_ids': opts['request_ids']
       };
       let headerParams = {
       };
@@ -601,7 +601,7 @@ export default class TransactionsApi {
       let authNames = ['OAuth2', 'CoboAuth'];
       let contentTypes = [];
       let accepts = ['application/json'];
-      let returnType = ListApprovalDetails200Response;
+      let returnType = [ApprovalDetail];
       return this.apiClient.callApi(
         '/transactions/approval/details', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -615,8 +615,8 @@ export default class TransactionsApi {
      * @param {Object} opts Optional parameters
      * @param {String} opts.transaction_ids A list of transaction IDs, separated by comma.
      * @param {String} opts.cobo_ids A list of Cobo IDs, separated by comma. A Cobo ID can be used to track a transaction.
-     * @param {String} opts.request_id A list of request IDs, separated by comma.
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/ListApprovalDetails200Response}
+     * @param {String} opts.request_ids A list of request IDs, separated by comma.
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link Array.<module:model/ApprovalDetail>}
      */
     listApprovalDetails(opts) {
       return this.listApprovalDetailsWithHttpInfo(opts)
@@ -682,26 +682,26 @@ export default class TransactionsApi {
     /**
      * list transaction templates
      * This operation retrieves transaction templates based on the specified transaction type and template version. The response includes a list of templates that can be used for creating transactions approval message. 
-     * @param {module:model/String} transaction_type The transaction type. Possible values include:    - `DEPOSIT`: A deposit transaction.   - `WITHDRAW`: A withdrawal transaction. 
+     * @param {String} template_key The key of the transaction template to be used for creating a transaction approval message. 
      * @param {Object} opts Optional parameters
      * @param {String} [template_version] The version of the template used for the transaction approval.
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/ListTransactionTemplates200Response} and HTTP response
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link Array.<module:model/ApprovalTemplate>} and HTTP response
      */
-    listTransactionTemplatesWithHttpInfo(transaction_type, opts) {
+    listTransactionTemplatesWithHttpInfo(template_key, opts) {
       opts = opts || {};
       let postBody = null;
       if (postBody && postBody.toJSON) {
           postBody = postBody.toJSON()
       }
-      // verify the required parameter 'transaction_type' is set
-      if (transaction_type === undefined || transaction_type === null) {
-        throw new Error("Missing the required parameter 'transaction_type' when calling listTransactionTemplates");
+      // verify the required parameter 'template_key' is set
+      if (template_key === undefined || template_key === null) {
+        throw new Error("Missing the required parameter 'template_key' when calling listTransactionTemplates");
       }
 
       let pathParams = {
       };
       let queryParams = {
-        'transaction_type': transaction_type,
+        'template_key': template_key,
         'template_version': opts['template_version']
       };
       let headerParams = {
@@ -712,7 +712,7 @@ export default class TransactionsApi {
       let authNames = ['OAuth2', 'CoboAuth'];
       let contentTypes = [];
       let accepts = ['application/json'];
-      let returnType = ListTransactionTemplates200Response;
+      let returnType = [ApprovalTemplate];
       return this.apiClient.callApi(
         '/transactions/templates', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -723,13 +723,13 @@ export default class TransactionsApi {
     /**
      * list transaction templates
      * This operation retrieves transaction templates based on the specified transaction type and template version. The response includes a list of templates that can be used for creating transactions approval message. 
-     * @param {module:model/String} transaction_type The transaction type. Possible values include:    - `DEPOSIT`: A deposit transaction.   - `WITHDRAW`: A withdrawal transaction. 
+     * @param {String} template_key The key of the transaction template to be used for creating a transaction approval message. 
      * @param {Object} opts Optional parameters
      * @param {String} opts.template_version The version of the template used for the transaction approval.
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/ListTransactionTemplates200Response}
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link Array.<module:model/ApprovalTemplate>}
      */
-    listTransactionTemplates(transaction_type, opts) {
-      return this.listTransactionTemplatesWithHttpInfo(transaction_type, opts)
+    listTransactionTemplates(template_key, opts) {
+      return this.listTransactionTemplatesWithHttpInfo(template_key, opts)
         .then(function(response_and_data) {
           return response_and_data.data;
         });

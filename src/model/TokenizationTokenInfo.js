@@ -73,8 +73,8 @@ class TokenizationTokenInfo {
             if (data.hasOwnProperty('decimals')) {
                 obj['decimals'] = ApiClient.convertToType(data['decimals'], 'Number');
             }
-            if (data.hasOwnProperty('allowlist_activated')) {
-                obj['allowlist_activated'] = ApiClient.convertToType(data['allowlist_activated'], 'Boolean');
+            if (data.hasOwnProperty('token_access_activated')) {
+                obj['token_access_activated'] = ApiClient.convertToType(data['token_access_activated'], 'Boolean');
             }
             if (data.hasOwnProperty('status')) {
                 obj['status'] = TokenizationStatus.constructFromObject(data['status']);
@@ -176,9 +176,9 @@ TokenizationTokenInfo.prototype['decimals'] = undefined;
 
 /**
  * Whether the allowlist feature is activated for the token.
- * @member {Boolean} allowlist_activated
+ * @member {Boolean} token_access_activated
  */
-TokenizationTokenInfo.prototype['allowlist_activated'] = undefined;
+TokenizationTokenInfo.prototype['token_access_activated'] = undefined;
 
 /**
  * @member {module:model/TokenizationStatus} status

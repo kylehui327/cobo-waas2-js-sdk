@@ -10,20 +10,20 @@
  */
 
 import ApiClient from '../ApiClient';
-import ApprovalTemplate from './ApprovalTemplate';
+import MerchantBalance from './MerchantBalance';
 
 /**
- * The ListTransactionTemplates200Response model module.
- * @module model/ListTransactionTemplates200Response
+ * The ListMerchantBalances200Response model module.
+ * @module model/ListMerchantBalances200Response
  */
-class ListTransactionTemplates200Response {
+class ListMerchantBalances200Response {
     /**
-     * Constructs a new <code>ListTransactionTemplates200Response</code>.
-     * @alias module:model/ListTransactionTemplates200Response
+     * Constructs a new <code>ListMerchantBalances200Response</code>.
+     * @alias module:model/ListMerchantBalances200Response
      */
     constructor() { 
         
-        ListTransactionTemplates200Response.initialize(this);
+        ListMerchantBalances200Response.initialize(this);
     }
 
     /**
@@ -35,27 +35,27 @@ class ListTransactionTemplates200Response {
     }
 
     /**
-     * Constructs a <code>ListTransactionTemplates200Response</code> from a plain JavaScript object, optionally creating a new instance.
+     * Constructs a <code>ListMerchantBalances200Response</code> from a plain JavaScript object, optionally creating a new instance.
      * Copies all relevant properties from <code>data</code> to <code>obj</code> if supplied or a new instance if not.
      * @param {Object} data The plain JavaScript object bearing properties of interest.
-     * @param {module:model/ListTransactionTemplates200Response} obj Optional instance to populate.
-     * @return {module:model/ListTransactionTemplates200Response} The populated <code>ListTransactionTemplates200Response</code> instance.
+     * @param {module:model/ListMerchantBalances200Response} obj Optional instance to populate.
+     * @return {module:model/ListMerchantBalances200Response} The populated <code>ListMerchantBalances200Response</code> instance.
      */
     static constructFromObject(data, obj) {
         if (data) {
-            obj = obj || new ListTransactionTemplates200Response();
+            obj = obj || new ListMerchantBalances200Response();
 
             if (data.hasOwnProperty('data')) {
-                obj['data'] = ApiClient.convertToType(data['data'], [ApprovalTemplate]);
+                obj['data'] = ApiClient.convertToType(data['data'], [MerchantBalance]);
             }
         }
         return obj;
     }
 
     /**
-     * Validates the JSON data with respect to <code>ListTransactionTemplates200Response</code>.
+     * Validates the JSON data with respect to <code>ListMerchantBalances200Response</code>.
      * @param {Object} data The plain JavaScript object bearing properties of interest.
-     * @return {boolean} to indicate whether the JSON data is valid with respect to <code>ListTransactionTemplates200Response</code>.
+     * @return {boolean} to indicate whether the JSON data is valid with respect to <code>ListMerchantBalances200Response</code>.
      */
     static validateJSON(data) {
         if (data['data']) { // data not null
@@ -65,7 +65,7 @@ class ListTransactionTemplates200Response {
             }
             // validate the optional field `data` (array)
             for (const item of data['data']) {
-                ApprovalTemplate.validateJSON(item);
+                MerchantBalance.validateJSON(item);
             };
         }
 
@@ -78,14 +78,14 @@ class ListTransactionTemplates200Response {
 
 
 /**
- * @member {Array.<module:model/ApprovalTemplate>} data
+ * @member {Array.<module:model/MerchantBalance>} data
  */
-ListTransactionTemplates200Response.prototype['data'] = undefined;
+ListMerchantBalances200Response.prototype['data'] = undefined;
 
 
 
 
 
 
-export default ListTransactionTemplates200Response;
+export default ListMerchantBalances200Response;
 

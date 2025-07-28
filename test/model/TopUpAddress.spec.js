@@ -26,7 +26,7 @@
   var instance;
 
   beforeEach(function() {
-    instance = new CoboWaas2.GetTopUpAddress200Response();
+    instance = new CoboWaas2.TopUpAddress();
   });
 
   var getProperty = function(object, getter, property) {
@@ -45,70 +45,70 @@
       object[property] = value;
   }
 
-  describe('GetTopUpAddress200Response', function() {
-    it('should create an instance of GetTopUpAddress200Response', function() {
-      // uncomment below and update the code to test GetTopUpAddress200Response
-      //var instance = new CoboWaas2.GetTopUpAddress200Response();
-      //expect(instance).to.be.a(CoboWaas2.GetTopUpAddress200Response);
+  describe('TopUpAddress', function() {
+    it('should create an instance of TopUpAddress', function() {
+      // uncomment below and update the code to test TopUpAddress
+      //var instance = new CoboWaas2.TopUpAddress();
+      //expect(instance).to.be.a(CoboWaas2.TopUpAddress);
     });
 
     it('should have the property address (base name: "address")', function() {
       // uncomment below and update the code to test the property address
-      //var instance = new CoboWaas2.GetTopUpAddress200Response();
+      //var instance = new CoboWaas2.TopUpAddress();
       //expect(instance).to.be();
     });
 
     it('should have the property payer_id (base name: "payer_id")', function() {
       // uncomment below and update the code to test the property payer_id
-      //var instance = new CoboWaas2.GetTopUpAddress200Response();
+      //var instance = new CoboWaas2.TopUpAddress();
       //expect(instance).to.be();
     });
 
     it('should have the property custom_payer_id (base name: "custom_payer_id")', function() {
       // uncomment below and update the code to test the property custom_payer_id
-      //var instance = new CoboWaas2.GetTopUpAddress200Response();
+      //var instance = new CoboWaas2.TopUpAddress();
       //expect(instance).to.be();
     });
 
     it('should have the property merchant_id (base name: "merchant_id")', function() {
       // uncomment below and update the code to test the property merchant_id
-      //var instance = new CoboWaas2.GetTopUpAddress200Response();
+      //var instance = new CoboWaas2.TopUpAddress();
       //expect(instance).to.be();
     });
 
     it('should have the property token_id (base name: "token_id")', function() {
       // uncomment below and update the code to test the property token_id
-      //var instance = new CoboWaas2.GetTopUpAddress200Response();
+      //var instance = new CoboWaas2.TopUpAddress();
       //expect(instance).to.be();
     });
 
     it('should have the property chain (base name: "chain")', function() {
       // uncomment below and update the code to test the property chain
-      //var instance = new CoboWaas2.GetTopUpAddress200Response();
+      //var instance = new CoboWaas2.TopUpAddress();
       //expect(instance).to.be();
     });
 
     it('should have the property developer_fee_rate (base name: "developer_fee_rate")', function() {
       // uncomment below and update the code to test the property developer_fee_rate
-      //var instance = new CoboWaas2.GetTopUpAddress200Response();
+      //var instance = new CoboWaas2.TopUpAddress();
       //expect(instance).to.be();
     });
 
     it('should have the property min_amount (base name: "min_amount")', function() {
       // uncomment below and update the code to test the property min_amount
-      //var instance = new CoboWaas2.GetTopUpAddress200Response();
+      //var instance = new CoboWaas2.TopUpAddress();
       //expect(instance).to.be();
     });
 
     it('should have the property created_timestamp (base name: "created_timestamp")', function() {
       // uncomment below and update the code to test the property created_timestamp
-      //var instance = new CoboWaas2.GetTopUpAddress200Response();
+      //var instance = new CoboWaas2.TopUpAddress();
       //expect(instance).to.be();
     });
 
     it('should have the property updated_timestamp (base name: "updated_timestamp")', function() {
       // uncomment below and update the code to test the property updated_timestamp
-      //var instance = new CoboWaas2.GetTopUpAddress200Response();
+      //var instance = new CoboWaas2.TopUpAddress();
       //expect(instance).to.be();
     });
 

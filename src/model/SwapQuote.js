@@ -81,9 +81,6 @@ class SwapQuote {
             if (data.hasOwnProperty('fee_amount')) {
                 obj['fee_amount'] = ApiClient.convertToType(data['fee_amount'], 'String');
             }
-            if (data.hasOwnProperty('estimated_network_fee_amount')) {
-                obj['estimated_network_fee_amount'] = ApiClient.convertToType(data['estimated_network_fee_amount'], 'String');
-            }
             if (data.hasOwnProperty('min_receive_amount')) {
                 obj['min_receive_amount'] = ApiClient.convertToType(data['min_receive_amount'], 'String');
             }
@@ -136,10 +133,6 @@ class SwapQuote {
         // ensure the json data is a string
         if (data['fee_amount'] && !(typeof data['fee_amount'] === 'string' || data['fee_amount'] instanceof String)) {
             throw new Error("Expected the field `fee_amount` to be a primitive type in the JSON string but got " + data['fee_amount']);
-        }
-        // ensure the json data is a string
-        if (data['estimated_network_fee_amount'] && !(typeof data['estimated_network_fee_amount'] === 'string' || data['estimated_network_fee_amount'] instanceof String)) {
-            throw new Error("Expected the field `estimated_network_fee_amount` to be a primitive type in the JSON string but got " + data['estimated_network_fee_amount']);
         }
         // ensure the json data is a string
         if (data['min_receive_amount'] && !(typeof data['min_receive_amount'] === 'string' || data['min_receive_amount'] instanceof String)) {
@@ -199,12 +192,6 @@ SwapQuote.prototype['fee_token_id'] = undefined;
  * @member {String} fee_amount
  */
 SwapQuote.prototype['fee_amount'] = undefined;
-
-/**
- * The estimated amount of tokens for the network fee.
- * @member {String} estimated_network_fee_amount
- */
-SwapQuote.prototype['estimated_network_fee_amount'] = undefined;
 
 /**
  * The minimum amount of tokens to receive if the pay amount is specified.

@@ -32,6 +32,13 @@ export default class AutoFuelType {
 
     
         /**
+         * value: "UsePortalPreference"
+         * @const
+         */
+        "UsePortalPreference" = "UsePortalPreference";
+
+    
+        /**
          * value: "unknown_default_open_api"
          * @const
          */

@@ -10,7 +10,7 @@ Name | Type | Description | Notes
 **token_name** | **String** | The name of the token. | [optional] 
 **token_symbol** | **String** | The unique token symbol. | 
 **decimals** | **Number** | The number of decimals of the token. | 
-**allowlist_activated** | **Boolean** | Whether the allowlist feature is activated for the token. | [optional] 
+**token_access_activated** | **Boolean** | Whether the allowlist feature is activated for the token. | [optional] 
 **status** | [**TokenizationStatus**](TokenizationStatus.md) |  | 
 **total_supply** | **String** | The total supply of the token. | [optional] 
 **holdings** | **String** | The amount of tokens held by the organization. | [optional] 

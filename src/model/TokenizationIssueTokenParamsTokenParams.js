@@ -11,7 +11,8 @@
 
 import ApiClient from '../ApiClient';
 import TokenizationERC20TokenParams from './TokenizationERC20TokenParams';
-import TokenizationTokenPermissionParams from './TokenizationTokenPermissionParams';
+import TokenizationSOLTokenParams from './TokenizationSOLTokenParams';
+import TokenizationSolTokenPermissionParams from './TokenizationSolTokenPermissionParams';
 import TokenizationTokenStandard from './TokenizationTokenStandard';
 
 /**
@@ -22,7 +23,7 @@ class TokenizationIssueTokenParamsTokenParams {
     /**
      * Constructs a new <code>TokenizationIssueTokenParamsTokenParams</code>.
      * @alias module:model/TokenizationIssueTokenParamsTokenParams
-     * @param {(module:model/TokenizationERC20TokenParams)} instance The actual instance to initialize TokenizationIssueTokenParamsTokenParams.
+     * @param {(module:model/TokenizationERC20TokenParams|module:model/TokenizationSOLTokenParams)} instance The actual instance to initialize TokenizationIssueTokenParamsTokenParams.
      */
     constructor(instance = null) {
         if (instance === null) {
@@ -37,6 +38,10 @@ class TokenizationIssueTokenParamsTokenParams {
             switch(discriminatorValue) {
                 case "ERC20":
                     this.actualInstance = TokenizationERC20TokenParams.constructFromObject(instance);
+                    match++;
+                    break;
+                case "SPLToken2022":
+                    this.actualInstance = TokenizationSOLTokenParams.constructFromObject(instance);
                     match++;
                     break;
                 default:
@@ -71,12 +76,37 @@ class TokenizationIssueTokenParamsTokenParams {
             errorMessages.push("Failed to construct TokenizationERC20TokenParams: " + err)
         }
 
+        try {
+            if (instance instanceof TokenizationSOLTokenParams) {
+                this.actualInstance = instance;
+            } else if(!!TokenizationSOLTokenParams.validateJSON && TokenizationSOLTokenParams.validateJSON(instance)){
+                // plain JS object
+                // create TokenizationSOLTokenParams from JS object
+                this.actualInstance = TokenizationSOLTokenParams.constructFromObject(instance);
+            } else {
+                if(TokenizationSOLTokenParams.constructFromObject(instance)) {
+                    if (!!TokenizationSOLTokenParams.constructFromObject(instance).toJSON) {
+                        if (TokenizationSOLTokenParams.constructFromObject(instance).toJSON()) {
+                            this.actualInstance = TokenizationSOLTokenParams.constructFromObject(instance);
+                        }
+                    } else {
+                        this.actualInstance = TokenizationSOLTokenParams.constructFromObject(instance);
+                    }
+                }
+
+            }
+            match++;
+        } catch(err) {
+            // json data failed to deserialize into TokenizationSOLTokenParams
+            errorMessages.push("Failed to construct TokenizationSOLTokenParams: " + err)
+        }
+
         // if (match > 1) {
-        //    throw new Error("Multiple matches found constructing `TokenizationIssueTokenParamsTokenParams` with oneOf schemas TokenizationERC20TokenParams. Input: " + JSON.stringify(instance));
+        //    throw new Error("Multiple matches found constructing `TokenizationIssueTokenParamsTokenParams` with oneOf schemas TokenizationERC20TokenParams, TokenizationSOLTokenParams. Input: " + JSON.stringify(instance));
         // } else
         if (match === 0) {
         //    this.actualInstance = null; // clear the actual instance in case there are multiple matches
-        //    throw new Error("No match found constructing `TokenizationIssueTokenParamsTokenParams` with oneOf schemas TokenizationERC20TokenParams. Details: " +
+        //    throw new Error("No match found constructing `TokenizationIssueTokenParamsTokenParams` with oneOf schemas TokenizationERC20TokenParams, TokenizationSOLTokenParams. Details: " +
         //                    errorMessages.join(", "));
         return;
         } else { // only 1 match
@@ -96,16 +126,16 @@ class TokenizationIssueTokenParamsTokenParams {
     }
 
     /**
-     * Gets the actual instance, which can be <code>TokenizationERC20TokenParams</code>.
-     * @return {(module:model/TokenizationERC20TokenParams)} The actual instance.
+     * Gets the actual instance, which can be <code>TokenizationERC20TokenParams</code>, <code>TokenizationSOLTokenParams</code>.
+     * @return {(module:model/TokenizationERC20TokenParams|module:model/TokenizationSOLTokenParams)} The actual instance.
      */
     getActualInstance() {
         return this.actualInstance;
     }
 
     /**
-     * Sets the actual instance, which can be <code>TokenizationERC20TokenParams</code>.
-     * @param {(module:model/TokenizationERC20TokenParams)} obj The actual instance.
+     * Sets the actual instance, which can be <code>TokenizationERC20TokenParams</code>, <code>TokenizationSOLTokenParams</code>.
+     * @param {(module:model/TokenizationERC20TokenParams|module:model/TokenizationSOLTokenParams)} obj The actual instance.
      */
     setActualInstance(obj) {
        this.actualInstance = TokenizationIssueTokenParamsTokenParams.constructFromObject(obj).getActualInstance();
@@ -154,18 +184,18 @@ TokenizationIssueTokenParamsTokenParams.prototype['decimals'] = undefined;
 
 /**
  * Whether the allowlist feature is activated for the token. When activated, only addresses in the allowlist can perform token operations.
- * @member {Boolean} allowlist_activated
+ * @member {Boolean} token_access_activated
  * @default false
  */
-TokenizationIssueTokenParamsTokenParams.prototype['allowlist_activated'] = false;
+TokenizationIssueTokenParamsTokenParams.prototype['token_access_activated'] = false;
 
 /**
- * @member {module:model/TokenizationTokenPermissionParams} permissions
+ * @member {module:model/TokenizationSolTokenPermissionParams} permissions
  */
 TokenizationIssueTokenParamsTokenParams.prototype['permissions'] = undefined;
 
 
-TokenizationIssueTokenParamsTokenParams.OneOf = ["TokenizationERC20TokenParams"];
+TokenizationIssueTokenParamsTokenParams.OneOf = ["TokenizationERC20TokenParams", "TokenizationSOLTokenParams"];
 
 export default TokenizationIssueTokenParamsTokenParams;
 

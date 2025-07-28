@@ -25,7 +25,7 @@ class MPCVaultEventData {
      * @alias module:model/MPCVaultEventData
      * @implements module:model/WebhookEventDataType
      * @implements module:model/MPCVault
-     * @param data_type {module:model/MPCVaultEventData.DataTypeEnum}  The data type of the event. - `Transaction`: The transaction event data. - `TSSRequest`: The TSS request event data. - `Addresses`: The addresses event data. - `WalletInfo`: The wallet information event data. - `MPCVault`: The MPC vault event data. - `Chains`: The enabled chain event data. - `Tokens`: The enabled token event data. - `TokenListing`: The token listing event data. - `BalanceUpdateInfo`: The balance update event data.
+     * @param data_type {module:model/MPCVaultEventData.DataTypeEnum}  The data type of the event. - `Transaction`: The transaction event data. - `TSSRequest`: The TSS request event data. - `Addresses`: The addresses event data. - `WalletInfo`: The wallet information event data. - `MPCVault`: The MPC vault event data. - `Chains`: The enabled chain event data. - `Tokens`: The enabled token event data. - `TokenListing`: The token listing event data.        - `PaymentOrder`: The payment order event data. - `PaymentRefund`: The payment refund event data. - `PaymentSettlement`: The payment settlement event data. - `PaymentTransaction`: The payment transaction event data. - `PaymentAddressUpdate`: The payment address update event data. - `BalanceUpdateInfo`: The balance update event data. - `SuspendedToken`: The suspended token event data.
      */
     constructor(data_type) { 
         WebhookEventDataType.initialize(this, data_type);MPCVault.initialize(this);
@@ -127,7 +127,7 @@ class MPCVaultEventData {
 MPCVaultEventData.RequiredProperties = ["data_type"];
 
 /**
- *  The data type of the event. - `Transaction`: The transaction event data. - `TSSRequest`: The TSS request event data. - `Addresses`: The addresses event data. - `WalletInfo`: The wallet information event data. - `MPCVault`: The MPC vault event data. - `Chains`: The enabled chain event data. - `Tokens`: The enabled token event data. - `TokenListing`: The token listing event data. - `BalanceUpdateInfo`: The balance update event data.
+ *  The data type of the event. - `Transaction`: The transaction event data. - `TSSRequest`: The TSS request event data. - `Addresses`: The addresses event data. - `WalletInfo`: The wallet information event data. - `MPCVault`: The MPC vault event data. - `Chains`: The enabled chain event data. - `Tokens`: The enabled token event data. - `TokenListing`: The token listing event data.        - `PaymentOrder`: The payment order event data. - `PaymentRefund`: The payment refund event data. - `PaymentSettlement`: The payment settlement event data. - `PaymentTransaction`: The payment transaction event data. - `PaymentAddressUpdate`: The payment address update event data. - `BalanceUpdateInfo`: The balance update event data. - `SuspendedToken`: The suspended token event data.
  * @member {module:model/MPCVaultEventData.DataTypeEnum} data_type
  */
 MPCVaultEventData.prototype['data_type'] = undefined;
@@ -169,7 +169,7 @@ MPCVaultEventData.prototype['created_timestamp'] = undefined;
 
 // Implement WebhookEventDataType interface:
 /**
- *  The data type of the event. - `Transaction`: The transaction event data. - `TSSRequest`: The TSS request event data. - `Addresses`: The addresses event data. - `WalletInfo`: The wallet information event data. - `MPCVault`: The MPC vault event data. - `Chains`: The enabled chain event data. - `Tokens`: The enabled token event data. - `TokenListing`: The token listing event data. - `BalanceUpdateInfo`: The balance update event data.
+ *  The data type of the event. - `Transaction`: The transaction event data. - `TSSRequest`: The TSS request event data. - `Addresses`: The addresses event data. - `WalletInfo`: The wallet information event data. - `MPCVault`: The MPC vault event data. - `Chains`: The enabled chain event data. - `Tokens`: The enabled token event data. - `TokenListing`: The token listing event data.        - `PaymentOrder`: The payment order event data. - `PaymentRefund`: The payment refund event data. - `PaymentSettlement`: The payment settlement event data. - `PaymentTransaction`: The payment transaction event data. - `PaymentAddressUpdate`: The payment address update event data. - `BalanceUpdateInfo`: The balance update event data. - `SuspendedToken`: The suspended token event data.
  * @member {module:model/WebhookEventDataType.DataTypeEnum} data_type
  */
 WebhookEventDataType.prototype['data_type'] = undefined;
@@ -261,10 +261,46 @@ MPCVaultEventData['DataTypeEnum'] = {
     "TokenListing": "TokenListing",
 
     /**
+     * value: "PaymentOrder"
+     * @const
+     */
+    "PaymentOrder": "PaymentOrder",
+
+    /**
+     * value: "PaymentRefund"
+     * @const
+     */
+    "PaymentRefund": "PaymentRefund",
+
+    /**
+     * value: "PaymentSettlement"
+     * @const
+     */
+    "PaymentSettlement": "PaymentSettlement",
+
+    /**
+     * value: "PaymentTransaction"
+     * @const
+     */
+    "PaymentTransaction": "PaymentTransaction",
+
+    /**
+     * value: "PaymentAddressUpdate"
+     * @const
+     */
+    "PaymentAddressUpdate": "PaymentAddressUpdate",
+
+    /**
      * value: "BalanceUpdateInfo"
      * @const
      */
     "BalanceUpdateInfo": "BalanceUpdateInfo",
+
+    /**
+     * value: "SuspendedToken"
+     * @const
+     */
+    "SuspendedToken": "SuspendedToken",
 
     /**
      * value: "unknown_default_open_api"

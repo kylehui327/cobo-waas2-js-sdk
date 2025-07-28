@@ -27,11 +27,10 @@ class EstimateContractCallFeeParams {
      * @param request_type {module:model/EstimateFeeRequestType} 
      * @param chain_id {String} The chain ID of the chain on which the smart contract is issued. You can retrieve the IDs of all the chains you can use by calling [List enabled chains](https://www.cobo.com/developers/v2/api-references/wallets/list-enabled-chains).
      * @param source {module:model/ContractCallSource} 
-     * @param destination {module:model/ContractCallDestination} 
      */
-    constructor(request_type, chain_id, source, destination) { 
+    constructor(request_type, chain_id, source) { 
         
-        EstimateContractCallFeeParams.initialize(this, request_type, chain_id, source, destination);
+        EstimateContractCallFeeParams.initialize(this, request_type, chain_id, source);
     }
 
     /**
@@ -39,11 +38,10 @@ class EstimateContractCallFeeParams {
      * This method is used by the constructors of any subclasses, in order to implement multiple inheritance (mix-ins).
      * Only for internal use.
      */
-    static initialize(obj, request_type, chain_id, source, destination) { 
+    static initialize(obj, request_type, chain_id, source) { 
         obj['request_type'] = request_type;
         obj['chain_id'] = chain_id;
         obj['source'] = source;
-        obj['destination'] = destination;
     }
 
     /**
@@ -125,7 +123,7 @@ class EstimateContractCallFeeParams {
 
 }
 
-EstimateContractCallFeeParams.RequiredProperties = ["request_type", "chain_id", "source", "destination"];
+EstimateContractCallFeeParams.RequiredProperties = ["request_type", "chain_id", "source"];
 
 /**
  * The request ID that is used to track a transaction request. The request ID is provided by you and must be unique within your organization. It is recommended to use the same request ID as the transaction for which you want to estimate the transaction fee.

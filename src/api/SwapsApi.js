@@ -13,10 +13,12 @@
 import ApiClient from "../ApiClient";
 import CreateSwapActivityRequest from '../model/CreateSwapActivityRequest';
 import ErrorResponse from '../model/ErrorResponse';
+import EstimatedFee from '../model/EstimatedFee';
 import ListSwapActivities200Response from '../model/ListSwapActivities200Response';
 import ListSwapEnabledTokens200Response from '../model/ListSwapEnabledTokens200Response';
 import SwapActivityDetail from '../model/SwapActivityDetail';
 import SwapActivityStatus from '../model/SwapActivityStatus';
+import SwapEstimateFee from '../model/SwapEstimateFee';
 import SwapQuote from '../model/SwapQuote';
 import SwapType from '../model/SwapType';
 
@@ -83,6 +85,56 @@ export default class SwapsApi {
      */
     createSwapActivity(CreateSwapActivityRequest) {
       return this.createSwapActivityWithHttpInfo(CreateSwapActivityRequest)
+        .then(function(response_and_data) {
+          return response_and_data.data;
+        });
+    }
+
+
+    /**
+     * Estimate Swap Fee
+     * This operation to estimate the fee of a swap activity. 
+     * @param {module:model/SwapEstimateFee} SwapEstimateFee The request body for estimating the fee of a swap activity.
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/EstimatedFee} and HTTP response
+     */
+    estimateSwapFeeWithHttpInfo(SwapEstimateFee) {
+      let postBody = SwapEstimateFee;
+      if (postBody && postBody.toJSON) {
+          postBody = postBody.toJSON()
+      }
+      // verify the required parameter 'SwapEstimateFee' is set
+      if (SwapEstimateFee === undefined || SwapEstimateFee === null) {
+        throw new Error("Missing the required parameter 'SwapEstimateFee' when calling estimateSwapFee");
+      }
+
+      let pathParams = {
+      };
+      let queryParams = {
+      };
+      let headerParams = {
+      };
+      let formParams = {
+      };
+
+      let authNames = ['OAuth2', 'CoboAuth'];
+      let contentTypes = ['application/json'];
+      let accepts = ['application/json'];
+      let returnType = EstimatedFee;
+      return this.apiClient.callApi(
+        '/swaps/estimate_fee', 'POST',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, null
+      );
+    }
+
+    /**
+     * Estimate Swap Fee
+     * This operation to estimate the fee of a swap activity. 
+     * @param {module:model/SwapEstimateFee} SwapEstimateFee The request body for estimating the fee of a swap activity.
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/EstimatedFee}
+     */
+    estimateSwapFee(SwapEstimateFee) {
+      return this.estimateSwapFeeWithHttpInfo(SwapEstimateFee)
         .then(function(response_and_data) {
           return response_and_data.data;
         });

@@ -67,6 +67,27 @@ export default class TokenizationTokenPermissionType {
 
     
         /**
+         * value: "FreezeAccounts"
+         * @const
+         */
+        "FreezeAccounts" = "FreezeAccounts";
+
+    
+        /**
+         * value: "UpdateMetadata"
+         * @const
+         */
+        "UpdateMetadata" = "UpdateMetadata";
+
+    
+        /**
+         * value: "PermanentDelegate"
+         * @const
+         */
+        "PermanentDelegate" = "PermanentDelegate";
+
+    
+        /**
          * value: "unknown_default_open_api"
          * @const
          */

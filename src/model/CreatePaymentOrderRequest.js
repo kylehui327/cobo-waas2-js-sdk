@@ -149,9 +149,9 @@ CreatePaymentOrderRequest.prototype['token_id'] = undefined;
 /**
  * The fiat currency of the order.
  * @member {String} currency
- * @default 'USD'
+ * @default ''
  */
-CreatePaymentOrderRequest.prototype['currency'] = 'USD';
+CreatePaymentOrderRequest.prototype['currency'] = '';
 
 /**
  * The base amount of the order in fiat currency, excluding the developer fee (specified in `fee_amount`). Values must be greater than `0` and contain two decimal places.

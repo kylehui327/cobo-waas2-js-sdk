@@ -10,8 +10,7 @@
  */
 
 import ApiClient from '../ApiClient';
-import AddressTransferDestination from './AddressTransferDestination';
-import EstimatedFee from './EstimatedFee';
+import TransactionRequestFee from './TransactionRequestFee';
 
 /**
  * The CreateSwapActivityRequest model module.
@@ -65,11 +64,11 @@ class CreateSwapActivityRequest {
             if (data.hasOwnProperty('request_id')) {
                 obj['request_id'] = ApiClient.convertToType(data['request_id'], 'String');
             }
-            if (data.hasOwnProperty('destination')) {
-                obj['destination'] = AddressTransferDestination.constructFromObject(data['destination']);
+            if (data.hasOwnProperty('receiver_address')) {
+                obj['receiver_address'] = ApiClient.convertToType(data['receiver_address'], 'String');
             }
             if (data.hasOwnProperty('fee')) {
-                obj['fee'] = EstimatedFee.constructFromObject(data['fee']);
+                obj['fee'] = TransactionRequestFee.constructFromObject(data['fee']);
             }
         }
         return obj;
@@ -107,16 +106,14 @@ class CreateSwapActivityRequest {
         if (data['request_id'] && !(typeof data['request_id'] === 'string' || data['request_id'] instanceof String)) {
             throw new Error("Expected the field `request_id` to be a primitive type in the JSON string but got " + data['request_id']);
         }
-        // validate the optional field `destination`
-        if (data['destination']) { // data not null
-          if (!!AddressTransferDestination.validateJSON) {
-            AddressTransferDestination.validateJSON(data['destination']);
-          }
+        // ensure the json data is a string
+        if (data['receiver_address'] && !(typeof data['receiver_address'] === 'string' || data['receiver_address'] instanceof String)) {
+            throw new Error("Expected the field `receiver_address` to be a primitive type in the JSON string but got " + data['receiver_address']);
         }
         // validate the optional field `fee`
         if (data['fee']) { // data not null
-          if (!!EstimatedFee.validateJSON) {
-            EstimatedFee.validateJSON(data['fee']);
+          if (!!TransactionRequestFee.validateJSON) {
+            TransactionRequestFee.validateJSON(data['fee']);
           }
         }
 
@@ -135,7 +132,7 @@ CreateSwapActivityRequest.RequiredProperties = ["wallet_id", "quote_id"];
 CreateSwapActivityRequest.prototype['wallet_id'] = undefined;
 
 /**
- * The wallet address.
+ * The wallet address, required when the wallet is not a custodial wallet.
  * @member {String} address
  */
 CreateSwapActivityRequest.prototype['address'] = undefined;
@@ -159,12 +156,13 @@ CreateSwapActivityRequest.prototype['app_initiator'] = undefined;
 CreateSwapActivityRequest.prototype['request_id'] = undefined;
 
 /**
- * @member {module:model/AddressTransferDestination} destination
+ * The address of the receiver.
+ * @member {String} receiver_address
  */
-CreateSwapActivityRequest.prototype['destination'] = undefined;
+CreateSwapActivityRequest.prototype['receiver_address'] = undefined;
 
 /**
- * @member {module:model/EstimatedFee} fee
+ * @member {module:model/TransactionRequestFee} fee
  */
 CreateSwapActivityRequest.prototype['fee'] = undefined;
 
