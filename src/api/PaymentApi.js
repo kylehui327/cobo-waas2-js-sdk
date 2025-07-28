@@ -21,23 +21,30 @@ import CreateRefundRequest from '../model/CreateRefundRequest';
 import CreateSettlementRequestRequest from '../model/CreateSettlementRequestRequest';
 import CryptoAddress from '../model/CryptoAddress';
 import ErrorResponse from '../model/ErrorResponse';
+import ForcedSweep from '../model/ForcedSweep';
+import ForcedSweepRequest from '../model/ForcedSweepRequest';
 import GetExchangeRate200Response from '../model/GetExchangeRate200Response';
 import GetRefunds200Response from '../model/GetRefunds200Response';
 import GetSettlementInfoByIds200Response from '../model/GetSettlementInfoByIds200Response';
-import GetTopUpAddress200Response from '../model/GetTopUpAddress200Response';
+import ListForcedSweepRequests200Response from '../model/ListForcedSweepRequests200Response';
+import ListMerchantBalances200Response from '../model/ListMerchantBalances200Response';
 import ListMerchants200Response from '../model/ListMerchants200Response';
 import ListPaymentOrders200Response from '../model/ListPaymentOrders200Response';
+import ListPaymentWalletBalances200Response from '../model/ListPaymentWalletBalances200Response';
 import ListSettlementRequests200Response from '../model/ListSettlementRequests200Response';
 import ListTopUpPayerAccounts200Response from '../model/ListTopUpPayerAccounts200Response';
 import ListTopUpPayers200Response from '../model/ListTopUpPayers200Response';
 import Merchant from '../model/Merchant';
 import Order from '../model/Order';
+import PspBalance from '../model/PspBalance';
 import Refund from '../model/Refund';
 import Settlement from '../model/Settlement';
 import SupportedToken from '../model/SupportedToken';
+import TopUpAddress from '../model/TopUpAddress';
 import UpdateMerchantByIdRequest from '../model/UpdateMerchantByIdRequest';
 import UpdatePaymentOrderRequest from '../model/UpdatePaymentOrderRequest';
 import UpdateRefundByIdRequest from '../model/UpdateRefundByIdRequest';
+import UpdateTopUpAddress from '../model/UpdateTopUpAddress';
 
 /**
 * Payment service.
@@ -56,6 +63,57 @@ export default class PaymentApi {
         this.apiClient = apiClient || ApiClient.instance;
     }
 
+
+
+    /**
+     * Cancel refund order
+     * This operation cancels a specified refund order. 
+     * @param {String} refund_id The refund order ID.
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/Refund} and HTTP response
+     */
+    cancelRefundByIdWithHttpInfo(refund_id) {
+      let postBody = null;
+      if (postBody && postBody.toJSON) {
+          postBody = postBody.toJSON()
+      }
+      // verify the required parameter 'refund_id' is set
+      if (refund_id === undefined || refund_id === null) {
+        throw new Error("Missing the required parameter 'refund_id' when calling cancelRefundById");
+      }
+
+      let pathParams = {
+        'refund_id': refund_id
+      };
+      let queryParams = {
+      };
+      let headerParams = {
+      };
+      let formParams = {
+      };
+
+      let authNames = ['OAuth2', 'CoboAuth'];
+      let contentTypes = [];
+      let accepts = ['application/json'];
+      let returnType = Refund;
+      return this.apiClient.callApi(
+        '/payments/refunds/{refund_id}/cancel', 'PUT',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, null
+      );
+    }
+
+    /**
+     * Cancel refund order
+     * This operation cancels a specified refund order. 
+     * @param {String} refund_id The refund order ID.
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/Refund}
+     */
+    cancelRefundById(refund_id) {
+      return this.cancelRefundByIdWithHttpInfo(refund_id)
+        .then(function(response_and_data) {
+          return response_and_data.data;
+        });
+    }
 
 
     /**
@@ -150,6 +208,55 @@ export default class PaymentApi {
      */
     createCryptoAddress(opts) {
       return this.createCryptoAddressWithHttpInfo(opts)
+        .then(function(response_and_data) {
+          return response_and_data.data;
+        });
+    }
+
+
+    /**
+     * Create force sweep request
+     * This operation creates a force sweep request to settle or refund available balances.  
+     * @param {Object} opts Optional parameters
+     * @param {module:model/ForcedSweepRequest} [ForcedSweepRequest] The request body to force sweep.
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/ForcedSweep} and HTTP response
+     */
+    createForcedSweepRequestWithHttpInfo(opts) {
+      opts = opts || {};
+      let postBody = opts['ForcedSweepRequest'];
+      if (postBody && postBody.toJSON) {
+          postBody = postBody.toJSON()
+      }
+
+      let pathParams = {
+      };
+      let queryParams = {
+      };
+      let headerParams = {
+      };
+      let formParams = {
+      };
+
+      let authNames = ['OAuth2', 'CoboAuth'];
+      let contentTypes = ['application/json'];
+      let accepts = ['application/json'];
+      let returnType = ForcedSweep;
+      return this.apiClient.callApi(
+        '/payments/force_sweep_requests', 'POST',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, null
+      );
+    }
+
+    /**
+     * Create force sweep request
+     * This operation creates a force sweep request to settle or refund available balances.  
+     * @param {Object} opts Optional parameters
+     * @param {module:model/ForcedSweepRequest} opts.ForcedSweepRequest The request body to force sweep.
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/ForcedSweep}
+     */
+    createForcedSweepRequest(opts) {
+      return this.createForcedSweepRequestWithHttpInfo(opts)
         .then(function(response_and_data) {
           return response_and_data.data;
         });
@@ -462,6 +569,57 @@ export default class PaymentApi {
 
 
     /**
+     * Get psp balance
+     * This operation retrieves the information of psp balance. 
+     * @param {String} token_id The token ID, which identifies the cryptocurrency. Supported values:    - USDC: `ETH_USDC`, `ARBITRUM_USDC`, `SOL_USDC`, `BASE_USDC`, `MATIC_USDC`, `BSC_USDC`   - USDT: `TRON_USDT`, `ETH_USDT`, `ARBITRUM_USDT`, `SOL_USDT`, `BASE_USDT`, `MATIC_USDT`, `BSC_USDT` 
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/PspBalance} and HTTP response
+     */
+    getPspBalanceWithHttpInfo(token_id) {
+      let postBody = null;
+      if (postBody && postBody.toJSON) {
+          postBody = postBody.toJSON()
+      }
+      // verify the required parameter 'token_id' is set
+      if (token_id === undefined || token_id === null) {
+        throw new Error("Missing the required parameter 'token_id' when calling getPspBalance");
+      }
+
+      let pathParams = {
+      };
+      let queryParams = {
+        'token_id': token_id
+      };
+      let headerParams = {
+      };
+      let formParams = {
+      };
+
+      let authNames = ['OAuth2', 'CoboAuth'];
+      let contentTypes = [];
+      let accepts = ['application/json'];
+      let returnType = PspBalance;
+      return this.apiClient.callApi(
+        '/payments/balance/psp', 'GET',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, null
+      );
+    }
+
+    /**
+     * Get psp balance
+     * This operation retrieves the information of psp balance. 
+     * @param {String} token_id The token ID, which identifies the cryptocurrency. Supported values:    - USDC: `ETH_USDC`, `ARBITRUM_USDC`, `SOL_USDC`, `BASE_USDC`, `MATIC_USDC`, `BSC_USDC`   - USDT: `TRON_USDT`, `ETH_USDT`, `ARBITRUM_USDT`, `SOL_USDT`, `BASE_USDT`, `MATIC_USDT`, `BSC_USDT` 
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/PspBalance}
+     */
+    getPspBalance(token_id) {
+      return this.getPspBalanceWithHttpInfo(token_id)
+        .then(function(response_and_data) {
+          return response_and_data.data;
+        });
+    }
+
+
+    /**
      * Get refund order information
      * This operation retrieves the detailed information about a specified refund order. 
      * @param {String} refund_id The refund order ID.
@@ -687,7 +845,7 @@ export default class PaymentApi {
      * @param {String} merchant_id The merchant ID.
      * @param {String} token_id The token ID, which identifies the cryptocurrency. Supported values:    - USDC: `ETH_USDC`, `ARBITRUM_USDC`, `SOL_USDC`, `BASE_USDC`, `MATIC_USDC`, `BSC_USDC`   - USDT: `TRON_USDT`, `ETH_USDT`, `ARBITRUM_USDT`, `SOL_USDT`, `BASE_USDT`, `MATIC_USDT`, `BSC_USDT` 
      * @param {String} custom_payer_id Unique customer identifier on the merchant side, used to allocate a dedicated top-up address 
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/GetTopUpAddress200Response} and HTTP response
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/TopUpAddress} and HTTP response
      */
     getTopUpAddressWithHttpInfo(merchant_id, token_id, custom_payer_id) {
       let postBody = null;
@@ -722,7 +880,7 @@ export default class PaymentApi {
       let authNames = ['OAuth2', 'CoboAuth'];
       let contentTypes = [];
       let accepts = ['application/json'];
-      let returnType = GetTopUpAddress200Response;
+      let returnType = TopUpAddress;
       return this.apiClient.callApi(
         '/payments/topup/address', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -736,7 +894,7 @@ export default class PaymentApi {
      * @param {String} merchant_id The merchant ID.
      * @param {String} token_id The token ID, which identifies the cryptocurrency. Supported values:    - USDC: `ETH_USDC`, `ARBITRUM_USDC`, `SOL_USDC`, `BASE_USDC`, `MATIC_USDC`, `BSC_USDC`   - USDT: `TRON_USDT`, `ETH_USDT`, `ARBITRUM_USDT`, `SOL_USDT`, `BASE_USDT`, `MATIC_USDT`, `BSC_USDT` 
      * @param {String} custom_payer_id Unique customer identifier on the merchant side, used to allocate a dedicated top-up address 
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/GetTopUpAddress200Response}
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/TopUpAddress}
      */
     getTopUpAddress(merchant_id, token_id, custom_payer_id) {
       return this.getTopUpAddressWithHttpInfo(merchant_id, token_id, custom_payer_id)
@@ -834,6 +992,129 @@ export default class PaymentApi {
      */
     listCryptoAddresses(opts) {
       return this.listCryptoAddressesWithHttpInfo(opts)
+        .then(function(response_and_data) {
+          return response_and_data.data;
+        });
+    }
+
+
+    /**
+     * List force sweep requests
+     * This operation retrieves the information of force_sweep requests. 
+     * @param {Object} opts Optional parameters
+     * @param {Number} [limit = 10)] The maximum number of objects to return. For most operations, the value range is [1, 50].
+     * @param {String} [before] This parameter specifies an object ID as a starting point for pagination, retrieving data before the specified object relative to the current dataset.    Suppose the current data is ordered as Object A, Object B, and Object C.  If you set `before` to the ID of Object C (`RqeEoTkgKG5rpzqYzg2Hd3szmPoj2cE7w5jWwShz3C1vyGSAk`), the response will include Object B and Object A.    **Notes**:   - If you set both `after` and `before`, an error will occur. - If you leave both `before` and `after` empty, the first page of data is returned. - If you set it to `infinity`, the last page of data is returned. 
+     * @param {String} [after] This parameter specifies an object ID as a starting point for pagination, retrieving data after the specified object relative to the current dataset.    Suppose the current data is ordered as Object A, Object B, and Object C. If you set `after` to the ID of Object A (`RqeEoTkgKG5rpzqYzg2Hd3szmPoj2cE7w5jWwShz3C1vyGSAk`), the response will include Object B and Object C.    **Notes**:   - If you set both `after` and `before`, an error will occur. - If you leave both `before` and `after` empty, the first page of data is returned. 
+     * @param {String} [request_id] The request ID.
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/ListForcedSweepRequests200Response} and HTTP response
+     */
+    listForcedSweepRequestsWithHttpInfo(opts) {
+      opts = opts || {};
+      let postBody = null;
+      if (postBody && postBody.toJSON) {
+          postBody = postBody.toJSON()
+      }
+
+      let pathParams = {
+      };
+      let queryParams = {
+        'limit': opts['limit'],
+        'before': opts['before'],
+        'after': opts['after'],
+        'request_id': opts['request_id']
+      };
+      let headerParams = {
+      };
+      let formParams = {
+      };
+
+      let authNames = ['OAuth2', 'CoboAuth'];
+      let contentTypes = [];
+      let accepts = ['application/json'];
+      let returnType = ListForcedSweepRequests200Response;
+      return this.apiClient.callApi(
+        '/payments/force_sweep_requests', 'GET',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, null
+      );
+    }
+
+    /**
+     * List force sweep requests
+     * This operation retrieves the information of force_sweep requests. 
+     * @param {Object} opts Optional parameters
+     * @param {Number} opts.limit The maximum number of objects to return. For most operations, the value range is [1, 50]. (default to 10)
+     * @param {String} opts.before This parameter specifies an object ID as a starting point for pagination, retrieving data before the specified object relative to the current dataset.    Suppose the current data is ordered as Object A, Object B, and Object C.  If you set `before` to the ID of Object C (`RqeEoTkgKG5rpzqYzg2Hd3szmPoj2cE7w5jWwShz3C1vyGSAk`), the response will include Object B and Object A.    **Notes**:   - If you set both `after` and `before`, an error will occur. - If you leave both `before` and `after` empty, the first page of data is returned. - If you set it to `infinity`, the last page of data is returned. 
+     * @param {String} opts.after This parameter specifies an object ID as a starting point for pagination, retrieving data after the specified object relative to the current dataset.    Suppose the current data is ordered as Object A, Object B, and Object C. If you set `after` to the ID of Object A (`RqeEoTkgKG5rpzqYzg2Hd3szmPoj2cE7w5jWwShz3C1vyGSAk`), the response will include Object B and Object C.    **Notes**:   - If you set both `after` and `before`, an error will occur. - If you leave both `before` and `after` empty, the first page of data is returned. 
+     * @param {String} opts.request_id The request ID.
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/ListForcedSweepRequests200Response}
+     */
+    listForcedSweepRequests(opts) {
+      return this.listForcedSweepRequestsWithHttpInfo(opts)
+        .then(function(response_and_data) {
+          return response_and_data.data;
+        });
+    }
+
+
+    /**
+     * List merchant balances
+     * This operation retrieves the information of merchant balances. 
+     * @param {String} token_id The token ID, which identifies the cryptocurrency. Supported values:    - USDC: `ETH_USDC`, `ARBITRUM_USDC`, `SOL_USDC`, `BASE_USDC`, `MATIC_USDC`, `BSC_USDC`   - USDT: `TRON_USDT`, `ETH_USDT`, `ARBITRUM_USDT`, `SOL_USDT`, `BASE_USDT`, `MATIC_USDT`, `BSC_USDT` 
+     * @param {module:model/AcquiringType} acquiring_type AcquiringType defines the acquisition logic used in the payment flow: - `Order`: Each order is created with a specific amount and associated payment request. Funds are settled on a per-order basis. - `TopUp`: Recharge-style flow where funds are topped up to a payer balance or account. Useful for flexible or usage-based payment models. 
+     * @param {Object} opts Optional parameters
+     * @param {String} [merchant_ids] A list of merchant IDs to query.
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/ListMerchantBalances200Response} and HTTP response
+     */
+    listMerchantBalancesWithHttpInfo(token_id, acquiring_type, opts) {
+      opts = opts || {};
+      let postBody = null;
+      if (postBody && postBody.toJSON) {
+          postBody = postBody.toJSON()
+      }
+      // verify the required parameter 'token_id' is set
+      if (token_id === undefined || token_id === null) {
+        throw new Error("Missing the required parameter 'token_id' when calling listMerchantBalances");
+      }
+      // verify the required parameter 'acquiring_type' is set
+      if (acquiring_type === undefined || acquiring_type === null) {
+        throw new Error("Missing the required parameter 'acquiring_type' when calling listMerchantBalances");
+      }
+
+      let pathParams = {
+      };
+      let queryParams = {
+        'merchant_ids': opts['merchant_ids'],
+        'token_id': token_id,
+        'acquiring_type': acquiring_type
+      };
+      let headerParams = {
+      };
+      let formParams = {
+      };
+
+      let authNames = ['OAuth2', 'CoboAuth'];
+      let contentTypes = [];
+      let accepts = ['application/json'];
+      let returnType = ListMerchantBalances200Response;
+      return this.apiClient.callApi(
+        '/payments/balance/merchants', 'GET',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, null
+      );
+    }
+
+    /**
+     * List merchant balances
+     * This operation retrieves the information of merchant balances. 
+     * @param {String} token_id The token ID, which identifies the cryptocurrency. Supported values:    - USDC: `ETH_USDC`, `ARBITRUM_USDC`, `SOL_USDC`, `BASE_USDC`, `MATIC_USDC`, `BSC_USDC`   - USDT: `TRON_USDT`, `ETH_USDT`, `ARBITRUM_USDT`, `SOL_USDT`, `BASE_USDT`, `MATIC_USDT`, `BSC_USDT` 
+     * @param {module:model/AcquiringType} acquiring_type AcquiringType defines the acquisition logic used in the payment flow: - `Order`: Each order is created with a specific amount and associated payment request. Funds are settled on a per-order basis. - `TopUp`: Recharge-style flow where funds are topped up to a payer balance or account. Useful for flexible or usage-based payment models. 
+     * @param {Object} opts Optional parameters
+     * @param {String} opts.merchant_ids A list of merchant IDs to query.
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/ListMerchantBalances200Response}
+     */
+    listMerchantBalances(token_id, acquiring_type, opts) {
+      return this.listMerchantBalancesWithHttpInfo(token_id, acquiring_type, opts)
         .then(function(response_and_data) {
           return response_and_data.data;
         });
@@ -1002,6 +1283,63 @@ export default class PaymentApi {
      */
     listPaymentSupportedTokens() {
       return this.listPaymentSupportedTokensWithHttpInfo()
+        .then(function(response_and_data) {
+          return response_and_data.data;
+        });
+    }
+
+
+    /**
+     * List payment wallet balances
+     * This operation retrieves the information of payment wallet balances. 
+     * @param {String} token_id The token ID, which identifies the cryptocurrency. Supported values:    - USDC: `ETH_USDC`, `ARBITRUM_USDC`, `SOL_USDC`, `BASE_USDC`, `MATIC_USDC`, `BSC_USDC`   - USDT: `TRON_USDT`, `ETH_USDT`, `ARBITRUM_USDT`, `SOL_USDT`, `BASE_USDT`, `MATIC_USDT`, `BSC_USDT` 
+     * @param {Object} opts Optional parameters
+     * @param {String} [wallet_ids] A list of wallet IDs to query.
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/ListPaymentWalletBalances200Response} and HTTP response
+     */
+    listPaymentWalletBalancesWithHttpInfo(token_id, opts) {
+      opts = opts || {};
+      let postBody = null;
+      if (postBody && postBody.toJSON) {
+          postBody = postBody.toJSON()
+      }
+      // verify the required parameter 'token_id' is set
+      if (token_id === undefined || token_id === null) {
+        throw new Error("Missing the required parameter 'token_id' when calling listPaymentWalletBalances");
+      }
+
+      let pathParams = {
+      };
+      let queryParams = {
+        'wallet_ids': opts['wallet_ids'],
+        'token_id': token_id
+      };
+      let headerParams = {
+      };
+      let formParams = {
+      };
+
+      let authNames = ['OAuth2', 'CoboAuth'];
+      let contentTypes = [];
+      let accepts = ['application/json'];
+      let returnType = ListPaymentWalletBalances200Response;
+      return this.apiClient.callApi(
+        '/payments/balance/payment_wallets', 'GET',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, null
+      );
+    }
+
+    /**
+     * List payment wallet balances
+     * This operation retrieves the information of payment wallet balances. 
+     * @param {String} token_id The token ID, which identifies the cryptocurrency. Supported values:    - USDC: `ETH_USDC`, `ARBITRUM_USDC`, `SOL_USDC`, `BASE_USDC`, `MATIC_USDC`, `BSC_USDC`   - USDT: `TRON_USDT`, `ETH_USDT`, `ARBITRUM_USDT`, `SOL_USDT`, `BASE_USDT`, `MATIC_USDT`, `BSC_USDT` 
+     * @param {Object} opts Optional parameters
+     * @param {String} opts.wallet_ids A list of wallet IDs to query.
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/ListPaymentWalletBalances200Response}
+     */
+    listPaymentWalletBalances(token_id, opts) {
+      return this.listPaymentWalletBalancesWithHttpInfo(token_id, opts)
         .then(function(response_and_data) {
           return response_and_data.data;
         });
@@ -1413,6 +1751,55 @@ export default class PaymentApi {
      */
     updateRefundById(refund_id, opts) {
       return this.updateRefundByIdWithHttpInfo(refund_id, opts)
+        .then(function(response_and_data) {
+          return response_and_data.data;
+        });
+    }
+
+
+    /**
+     * Update top-up address
+     * Update the top-up address for a payer under a specific merchant and token. 
+     * @param {Object} opts Optional parameters
+     * @param {module:model/UpdateTopUpAddress} [UpdateTopUpAddress] The request body to update top up address.
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/TopUpAddress} and HTTP response
+     */
+    updateTopUpAddressWithHttpInfo(opts) {
+      opts = opts || {};
+      let postBody = opts['UpdateTopUpAddress'];
+      if (postBody && postBody.toJSON) {
+          postBody = postBody.toJSON()
+      }
+
+      let pathParams = {
+      };
+      let queryParams = {
+      };
+      let headerParams = {
+      };
+      let formParams = {
+      };
+
+      let authNames = ['OAuth2', 'CoboAuth'];
+      let contentTypes = ['application/json'];
+      let accepts = ['application/json'];
+      let returnType = TopUpAddress;
+      return this.apiClient.callApi(
+        '/payments/topup/address', 'PUT',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, null
+      );
+    }
+
+    /**
+     * Update top-up address
+     * Update the top-up address for a payer under a specific merchant and token. 
+     * @param {Object} opts Optional parameters
+     * @param {module:model/UpdateTopUpAddress} opts.UpdateTopUpAddress The request body to update top up address.
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/TopUpAddress}
+     */
+    updateTopUpAddress(opts) {
+      return this.updateTopUpAddressWithHttpInfo(opts)
         .then(function(response_and_data) {
           return response_and_data.data;
         });

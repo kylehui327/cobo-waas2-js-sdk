@@ -78,6 +78,9 @@ class TransactionFILFee {
             if (data.hasOwnProperty('estimated_fee_used')) {
                 obj['estimated_fee_used'] = ApiClient.convertToType(data['estimated_fee_used'], 'String');
             }
+            if (data.hasOwnProperty('gas_used')) {
+                obj['gas_used'] = ApiClient.convertToType(data['gas_used'], 'String');
+            }
         }
         return obj;
     }
@@ -121,6 +124,10 @@ class TransactionFILFee {
         // ensure the json data is a string
         if (data['estimated_fee_used'] && !(typeof data['estimated_fee_used'] === 'string' || data['estimated_fee_used'] instanceof String)) {
             throw new Error("Expected the field `estimated_fee_used` to be a primitive type in the JSON string but got " + data['estimated_fee_used']);
+        }
+        // ensure the json data is a string
+        if (data['gas_used'] && !(typeof data['gas_used'] === 'string' || data['gas_used'] instanceof String)) {
+            throw new Error("Expected the field `gas_used` to be a primitive type in the JSON string but got " + data['gas_used']);
         }
 
         return true;
@@ -177,6 +184,12 @@ TransactionFILFee.prototype['fee_used'] = undefined;
  * @member {String} estimated_fee_used
  */
 TransactionFILFee.prototype['estimated_fee_used'] = undefined;
+
+/**
+ * The gas units used in the transaction.
+ * @member {String} gas_used
+ */
+TransactionFILFee.prototype['gas_used'] = undefined;
 
 
 // Implement FILBase interface:

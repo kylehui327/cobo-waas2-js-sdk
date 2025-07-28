@@ -82,8 +82,8 @@
       //expect(instance).to.be();
     });
 
-    it('should have the property destination (base name: "destination")', function() {
-      // uncomment below and update the code to test the property destination
+    it('should have the property receiver_address (base name: "receiver_address")', function() {
+      // uncomment below and update the code to test the property receiver_address
       //var instance = new CoboWaas2.CreateSwapActivityRequest();
       //expect(instance).to.be();
     });

@@ -165,6 +165,90 @@ export default class WebhookEventType {
 
     
         /**
+         * value: "wallet.token.disabled"
+         * @const
+         */
+        "wallet.token.disabled" = "wallet.token.disabled";
+
+    
+        /**
+         * value: "wallet.chain.disabled"
+         * @const
+         */
+        "wallet.chain.disabled" = "wallet.chain.disabled";
+
+    
+        /**
+         * value: "token.suspended.deposit"
+         * @const
+         */
+        "token.suspended.deposit" = "token.suspended.deposit";
+
+    
+        /**
+         * value: "token.suspended.withdraw"
+         * @const
+         */
+        "token.suspended.withdraw" = "token.suspended.withdraw";
+
+    
+        /**
+         * value: "payment.transaction.created"
+         * @const
+         */
+        "payment.transaction.created" = "payment.transaction.created";
+
+    
+        /**
+         * value: "payment.transaction.late"
+         * @const
+         */
+        "payment.transaction.late" = "payment.transaction.late";
+
+    
+        /**
+         * value: "payment.transaction.completed"
+         * @const
+         */
+        "payment.transaction.completed" = "payment.transaction.completed";
+
+    
+        /**
+         * value: "payment.transaction.held"
+         * @const
+         */
+        "payment.transaction.held" = "payment.transaction.held";
+
+    
+        /**
+         * value: "payment.status.updated"
+         * @const
+         */
+        "payment.status.updated" = "payment.status.updated";
+
+    
+        /**
+         * value: "payment.refund.status.updated"
+         * @const
+         */
+        "payment.refund.status.updated" = "payment.refund.status.updated";
+
+    
+        /**
+         * value: "payment.settlement.status.updated"
+         * @const
+         */
+        "payment.settlement.status.updated" = "payment.settlement.status.updated";
+
+    
+        /**
+         * value: "payment.address.updated"
+         * @const
+         */
+        "payment.address.updated" = "payment.address.updated";
+
+    
+        /**
          * value: "unknown_default_open_api"
          * @const
          */

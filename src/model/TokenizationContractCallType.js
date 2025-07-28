@@ -25,6 +25,13 @@ export default class TokenizationContractCallType {
 
     
         /**
+         * value: "SOL_Contract"
+         * @const
+         */
+        "SOL_Contract" = "SOL_Contract";
+
+    
+        /**
          * value: "unknown_default_open_api"
          * @const
          */

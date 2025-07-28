@@ -70,20 +70,20 @@
       //expect(instance).to.be();
     });
 
-    it('should have the property result (base name: "result")', function() {
-      // uncomment below and update the code to test the property result
+    it('should have the property broker_user (base name: "broker_user")', function() {
+      // uncomment below and update the code to test the property broker_user
       //var instance = new CoboWaas2.ApprovalDetail();
       //expect(instance).to.be();
     });
 
-    it('should have the property threshold (base name: "threshold")', function() {
-      // uncomment below and update the code to test the property threshold
+    it('should have the property spender (base name: "spender")', function() {
+      // uncomment below and update the code to test the property spender
       //var instance = new CoboWaas2.ApprovalDetail();
       //expect(instance).to.be();
     });
 
-    it('should have the property user_details (base name: "user_details")', function() {
-      // uncomment below and update the code to test the property user_details
+    it('should have the property approver (base name: "approver")', function() {
+      // uncomment below and update the code to test the property approver
       //var instance = new CoboWaas2.ApprovalDetail();
       //expect(instance).to.be();
     });

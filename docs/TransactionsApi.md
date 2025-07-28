@@ -544,7 +544,7 @@ Name | Type | Description  | Notes
 
 ## listApprovalDetails
 
-> ListApprovalDetails200Response listApprovalDetails(opts)
+> [ApprovalDetail] listApprovalDetails(opts)
 
 List transaction approval details
 
@@ -565,7 +565,7 @@ const apiInstance = new CoboWaas2.TransactionsApi();
 const opts = {
   'transaction_ids': "f47ac10b-58cc-4372-a567-0e02b2c3d479,557918d2-632a-4fe1-932f-315711f05fe3",
   'cobo_ids': "20231213122855000000000000000000,20231213122955000000000000000000",
-  'request_id': "web_send_by_user_327_1610444045047,web_send_by_user_327_1610444045048"
+  'request_ids': "web_send_by_user_327_1610444045047,web_send_by_user_327_1610444045048"
 };
 apiInstance.listApprovalDetails(opts).then((data) => {
   console.log('API called successfully. Returned data: ' + data);
@@ -582,11 +582,11 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **transaction_ids** | **String**| A list of transaction IDs, separated by comma. | [optional] 
  **cobo_ids** | **String**| A list of Cobo IDs, separated by comma. A Cobo ID can be used to track a transaction. | [optional] 
- **request_id** | **String**| A list of request IDs, separated by comma. | [optional] 
+ **request_ids** | **String**| A list of request IDs, separated by comma. | [optional] 
 
 ### Return type
 
-[**ListApprovalDetails200Response**](ListApprovalDetails200Response.md)
+[**[ApprovalDetail]**](ApprovalDetail.md)
 
 ### Authorization
 
@@ -654,7 +654,7 @@ Name | Type | Description  | Notes
 
 ## listTransactionTemplates
 
-> ListTransactionTemplates200Response listTransactionTemplates(transaction_type, opts)
+> [ApprovalTemplate] listTransactionTemplates(template_key, opts)
 
 list transaction templates
 
@@ -672,11 +672,11 @@ apiClient.setEnv(CoboWaas2.Env.DEV);
 apiClient.setPrivateKey("<YOUR_PRIVATE_KEY>");
 // Call the API
 const apiInstance = new CoboWaas2.TransactionsApi();
-const transaction_type = "DEPOSIT";
+const template_key = "withdrawal";
 const opts = {
   'template_version': "1.0.0"
 };
-apiInstance.listTransactionTemplates(transaction_type, opts).then((data) => {
+apiInstance.listTransactionTemplates(template_key, opts).then((data) => {
   console.log('API called successfully. Returned data: ' + data);
 }, (error) => {
   console.error(error);
@@ -689,12 +689,12 @@ apiInstance.listTransactionTemplates(transaction_type, opts).then((data) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **transaction_type** | **String**| The transaction type. Possible values include:    - &#x60;DEPOSIT&#x60;: A deposit transaction.   - &#x60;WITHDRAW&#x60;: A withdrawal transaction.  | 
+ **template_key** | **String**| The key of the transaction template to be used for creating a transaction approval message.  | 
  **template_version** | **String**| The version of the template used for the transaction approval. | [optional] 
 
 ### Return type
 
-[**ListTransactionTemplates200Response**](ListTransactionTemplates200Response.md)
+[**[ApprovalTemplate]**](ApprovalTemplate.md)
 
 ### Authorization
 

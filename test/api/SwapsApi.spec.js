@@ -46,6 +46,16 @@ import {ApiClient, Env} from "../../src/index.js";
         //});
       });
     });
+    describe('estimateSwapFee', function() {
+      it('should call estimateSwapFee successfully', function() {
+        //uncomment below and update the code to test estimateSwapFee
+        //instance.estimateSwapFee().then(function(data) {
+        //    console.log(data);
+        //}, function(error) {
+        //    console.error(error);
+        //});
+      });
+    });
     describe('getSwapActivity', function() {
       it('should call getSwapActivity successfully', function() {
         //uncomment below and update the code to test getSwapActivity

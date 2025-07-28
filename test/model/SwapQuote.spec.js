@@ -94,12 +94,6 @@
       //expect(instance).to.be();
     });
 
-    it('should have the property estimated_network_fee_amount (base name: "estimated_network_fee_amount")', function() {
-      // uncomment below and update the code to test the property estimated_network_fee_amount
-      //var instance = new CoboWaas2.SwapQuote();
-      //expect(instance).to.be();
-    });
-
     it('should have the property min_receive_amount (base name: "min_receive_amount")', function() {
       // uncomment below and update the code to test the property min_receive_amount
       //var instance = new CoboWaas2.SwapQuote();

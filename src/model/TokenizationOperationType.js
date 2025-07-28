@@ -18,13 +18,6 @@ import ApiClient from '../ApiClient';
 export default class TokenizationOperationType {
     
         /**
-         * value: "Deploy"
-         * @const
-         */
-        "Deploy" = "Deploy";
-
-    
-        /**
          * value: "Issue"
          * @const
          */

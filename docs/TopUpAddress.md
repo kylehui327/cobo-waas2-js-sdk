@@ -1,4 +1,4 @@
-# CoboWaas2.GetTopUpAddress200Response
+# CoboWaas2.TopUpAddress
 
 ## Properties
 

@@ -100,6 +100,12 @@
       //expect(instance).to.be();
     });
 
+    it('should have the property gas_used (base name: "gas_used")', function() {
+      // uncomment below and update the code to test the property gas_used
+      //var instance = new CoboWaas2.TransactionFILFee();
+      //expect(instance).to.be();
+    });
+
   });
 
 }));

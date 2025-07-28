@@ -70,6 +70,12 @@
       //expect(instance).to.be();
     });
 
+    it('should have the property instructions (base name: "instructions")', function() {
+      // uncomment below and update the code to test the property instructions
+      //var instance = new CoboWaas2.TokenizationContractCallParamsData();
+      //expect(instance).to.be();
+    });
+
   });
 
 }));

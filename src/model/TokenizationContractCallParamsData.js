@@ -10,8 +10,10 @@
  */
 
 import ApiClient from '../ApiClient';
+import SolContractCallInstruction from './SolContractCallInstruction';
 import TokenizationContractCallType from './TokenizationContractCallType';
 import TokenizationEvmContractCallParams from './TokenizationEvmContractCallParams';
+import TokenizationSolContractCallParams from './TokenizationSolContractCallParams';
 
 /**
  * The TokenizationContractCallParamsData model module.
@@ -21,7 +23,7 @@ class TokenizationContractCallParamsData {
     /**
      * Constructs a new <code>TokenizationContractCallParamsData</code>.
      * @alias module:model/TokenizationContractCallParamsData
-     * @param {(module:model/TokenizationEvmContractCallParams)} instance The actual instance to initialize TokenizationContractCallParamsData.
+     * @param {(module:model/TokenizationEvmContractCallParams|module:model/TokenizationSolContractCallParams)} instance The actual instance to initialize TokenizationContractCallParamsData.
      */
     constructor(instance = null) {
         if (instance === null) {
@@ -36,6 +38,10 @@ class TokenizationContractCallParamsData {
             switch(discriminatorValue) {
                 case "EVM_Contract":
                     this.actualInstance = TokenizationEvmContractCallParams.constructFromObject(instance);
+                    match++;
+                    break;
+                case "SOL_Contract":
+                    this.actualInstance = TokenizationSolContractCallParams.constructFromObject(instance);
                     match++;
                     break;
                 default:
@@ -70,12 +76,37 @@ class TokenizationContractCallParamsData {
             errorMessages.push("Failed to construct TokenizationEvmContractCallParams: " + err)
         }
 
+        try {
+            if (instance instanceof TokenizationSolContractCallParams) {
+                this.actualInstance = instance;
+            } else if(!!TokenizationSolContractCallParams.validateJSON && TokenizationSolContractCallParams.validateJSON(instance)){
+                // plain JS object
+                // create TokenizationSolContractCallParams from JS object
+                this.actualInstance = TokenizationSolContractCallParams.constructFromObject(instance);
+            } else {
+                if(TokenizationSolContractCallParams.constructFromObject(instance)) {
+                    if (!!TokenizationSolContractCallParams.constructFromObject(instance).toJSON) {
+                        if (TokenizationSolContractCallParams.constructFromObject(instance).toJSON()) {
+                            this.actualInstance = TokenizationSolContractCallParams.constructFromObject(instance);
+                        }
+                    } else {
+                        this.actualInstance = TokenizationSolContractCallParams.constructFromObject(instance);
+                    }
+                }
+
+            }
+            match++;
+        } catch(err) {
+            // json data failed to deserialize into TokenizationSolContractCallParams
+            errorMessages.push("Failed to construct TokenizationSolContractCallParams: " + err)
+        }
+
         // if (match > 1) {
-        //    throw new Error("Multiple matches found constructing `TokenizationContractCallParamsData` with oneOf schemas TokenizationEvmContractCallParams. Input: " + JSON.stringify(instance));
+        //    throw new Error("Multiple matches found constructing `TokenizationContractCallParamsData` with oneOf schemas TokenizationEvmContractCallParams, TokenizationSolContractCallParams. Input: " + JSON.stringify(instance));
         // } else
         if (match === 0) {
         //    this.actualInstance = null; // clear the actual instance in case there are multiple matches
-        //    throw new Error("No match found constructing `TokenizationContractCallParamsData` with oneOf schemas TokenizationEvmContractCallParams. Details: " +
+        //    throw new Error("No match found constructing `TokenizationContractCallParamsData` with oneOf schemas TokenizationEvmContractCallParams, TokenizationSolContractCallParams. Details: " +
         //                    errorMessages.join(", "));
         return;
         } else { // only 1 match
@@ -95,16 +126,16 @@ class TokenizationContractCallParamsData {
     }
 
     /**
-     * Gets the actual instance, which can be <code>TokenizationEvmContractCallParams</code>.
-     * @return {(module:model/TokenizationEvmContractCallParams)} The actual instance.
+     * Gets the actual instance, which can be <code>TokenizationEvmContractCallParams</code>, <code>TokenizationSolContractCallParams</code>.
+     * @return {(module:model/TokenizationEvmContractCallParams|module:model/TokenizationSolContractCallParams)} The actual instance.
      */
     getActualInstance() {
         return this.actualInstance;
     }
 
     /**
-     * Sets the actual instance, which can be <code>TokenizationEvmContractCallParams</code>.
-     * @param {(module:model/TokenizationEvmContractCallParams)} obj The actual instance.
+     * Sets the actual instance, which can be <code>TokenizationEvmContractCallParams</code>, <code>TokenizationSolContractCallParams</code>.
+     * @param {(module:model/TokenizationEvmContractCallParams|module:model/TokenizationSolContractCallParams)} obj The actual instance.
      */
     setActualInstance(obj) {
        this.actualInstance = TokenizationContractCallParamsData.constructFromObject(obj).getActualInstance();
@@ -145,8 +176,13 @@ TokenizationContractCallParamsData.prototype['calldata'] = undefined;
  */
 TokenizationContractCallParamsData.prototype['value'] = undefined;
 
+/**
+ * @member {Array.<module:model/SolContractCallInstruction>} instructions
+ */
+TokenizationContractCallParamsData.prototype['instructions'] = undefined;
 
-TokenizationContractCallParamsData.OneOf = ["TokenizationEvmContractCallParams"];
+
+TokenizationContractCallParamsData.OneOf = ["TokenizationEvmContractCallParams", "TokenizationSolContractCallParams"];
 
 export default TokenizationContractCallParamsData;
 

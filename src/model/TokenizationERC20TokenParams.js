@@ -66,8 +66,8 @@ class TokenizationERC20TokenParams {
             if (data.hasOwnProperty('decimals')) {
                 obj['decimals'] = ApiClient.convertToType(data['decimals'], 'Number');
             }
-            if (data.hasOwnProperty('allowlist_activated')) {
-                obj['allowlist_activated'] = ApiClient.convertToType(data['allowlist_activated'], 'Boolean');
+            if (data.hasOwnProperty('token_access_activated')) {
+                obj['token_access_activated'] = ApiClient.convertToType(data['token_access_activated'], 'Boolean');
             }
             if (data.hasOwnProperty('permissions')) {
                 obj['permissions'] = TokenizationTokenPermissionParams.constructFromObject(data['permissions']);
@@ -136,10 +136,10 @@ TokenizationERC20TokenParams.prototype['decimals'] = undefined;
 
 /**
  * Whether the allowlist feature is activated for the token. When activated, only addresses in the allowlist can perform token operations.
- * @member {Boolean} allowlist_activated
+ * @member {Boolean} token_access_activated
  * @default false
  */
-TokenizationERC20TokenParams.prototype['allowlist_activated'] = false;
+TokenizationERC20TokenParams.prototype['token_access_activated'] = false;
 
 /**
  * @member {module:model/TokenizationTokenPermissionParams} permissions

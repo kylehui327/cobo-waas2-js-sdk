@@ -76,6 +76,9 @@ class TokenizationIssuedTokenRequest {
             if (data.hasOwnProperty('fee')) {
                 obj['fee'] = TransactionRequestFee.constructFromObject(data['fee']);
             }
+            if (data.hasOwnProperty('request_id')) {
+                obj['request_id'] = ApiClient.convertToType(data['request_id'], 'String');
+            }
         }
         return obj;
     }
@@ -118,6 +121,10 @@ class TokenizationIssuedTokenRequest {
             TransactionRequestFee.validateJSON(data['fee']);
           }
         }
+        // ensure the json data is a string
+        if (data['request_id'] && !(typeof data['request_id'] === 'string' || data['request_id'] instanceof String)) {
+            throw new Error("Expected the field `request_id` to be a primitive type in the JSON string but got " + data['request_id']);
+        }
 
         return true;
     }
@@ -144,7 +151,7 @@ TokenizationIssuedTokenRequest.prototype['source'] = undefined;
 TokenizationIssuedTokenRequest.prototype['token_params'] = undefined;
 
 /**
- * The address of the app initiator. 
+ * The initiator of the tokenization activity. If you do not specify this property, the WaaS service will automatically designate the API key as the initiator.
  * @member {String} app_initiator
  */
 TokenizationIssuedTokenRequest.prototype['app_initiator'] = undefined;
@@ -153,6 +160,12 @@ TokenizationIssuedTokenRequest.prototype['app_initiator'] = undefined;
  * @member {module:model/TransactionRequestFee} fee
  */
 TokenizationIssuedTokenRequest.prototype['fee'] = undefined;
+
+/**
+ * The request ID that is used to track a transaction request. The request ID is provided by you and must be unique within your organization.
+ * @member {String} request_id
+ */
+TokenizationIssuedTokenRequest.prototype['request_id'] = undefined;
 
 
 // Implement TokenizationIssueTokenParams interface:

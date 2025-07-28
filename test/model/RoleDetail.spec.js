@@ -26,7 +26,7 @@
   var instance;
 
   beforeEach(function() {
-    instance = new CoboWaas2.ListTransactionTemplates200Response();
+    instance = new CoboWaas2.RoleDetail();
   });
 
   var getProperty = function(object, getter, property) {
@@ -45,16 +45,28 @@
       object[property] = value;
   }
 
-  describe('ListTransactionTemplates200Response', function() {
-    it('should create an instance of ListTransactionTemplates200Response', function() {
-      // uncomment below and update the code to test ListTransactionTemplates200Response
-      //var instance = new CoboWaas2.ListTransactionTemplates200Response();
-      //expect(instance).to.be.a(CoboWaas2.ListTransactionTemplates200Response);
+  describe('RoleDetail', function() {
+    it('should create an instance of RoleDetail', function() {
+      // uncomment below and update the code to test RoleDetail
+      //var instance = new CoboWaas2.RoleDetail();
+      //expect(instance).to.be.a(CoboWaas2.RoleDetail);
     });
 
-    it('should have the property data (base name: "data")', function() {
-      // uncomment below and update the code to test the property data
-      //var instance = new CoboWaas2.ListTransactionTemplates200Response();
+    it('should have the property result (base name: "result")', function() {
+      // uncomment below and update the code to test the property result
+      //var instance = new CoboWaas2.RoleDetail();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property threshold (base name: "threshold")', function() {
+      // uncomment below and update the code to test the property threshold
+      //var instance = new CoboWaas2.RoleDetail();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property user_details (base name: "user_details")', function() {
+      // uncomment below and update the code to test the property user_details
+      //var instance = new CoboWaas2.RoleDetail();
       //expect(instance).to.be();
     });
 

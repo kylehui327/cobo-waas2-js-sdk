@@ -45,6 +45,30 @@
 
 * `wallet.web3.balance.updated` (value: `"wallet.web3.balance.updated"`)
 
+* `wallet.token.disabled` (value: `"wallet.token.disabled"`)
+
+* `wallet.chain.disabled` (value: `"wallet.chain.disabled"`)
+
+* `token.suspended.deposit` (value: `"token.suspended.deposit"`)
+
+* `token.suspended.withdraw` (value: `"token.suspended.withdraw"`)
+
+* `payment.transaction.created` (value: `"payment.transaction.created"`)
+
+* `payment.transaction.late` (value: `"payment.transaction.late"`)
+
+* `payment.transaction.completed` (value: `"payment.transaction.completed"`)
+
+* `payment.transaction.held` (value: `"payment.transaction.held"`)
+
+* `payment.status.updated` (value: `"payment.status.updated"`)
+
+* `payment.refund.status.updated` (value: `"payment.refund.status.updated"`)
+
+* `payment.settlement.status.updated` (value: `"payment.settlement.status.updated"`)
+
+* `payment.address.updated` (value: `"payment.address.updated"`)
+
 * `unknown_default_open_api` (value: `"unknown_default_open_api"`)
 
 

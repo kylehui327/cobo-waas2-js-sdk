@@ -88,8 +88,8 @@
       //expect(instance).to.be();
     });
 
-    it('should have the property allowlist_activated (base name: "allowlist_activated")', function() {
-      // uncomment below and update the code to test the property allowlist_activated
+    it('should have the property token_access_activated (base name: "token_access_activated")', function() {
+      // uncomment below and update the code to test the property token_access_activated
       //var instance = new CoboWaas2.TokenizationTokenInfo();
       //expect(instance).to.be();
     });

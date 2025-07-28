@@ -70,6 +70,9 @@ class TokenizationBurnEstimateFeeParams {
             if (data.hasOwnProperty('token_id')) {
                 obj['token_id'] = ApiClient.convertToType(data['token_id'], 'String');
             }
+            if (data.hasOwnProperty('request_id')) {
+                obj['request_id'] = ApiClient.convertToType(data['request_id'], 'String');
+            }
         }
         return obj;
     }
@@ -106,6 +109,10 @@ class TokenizationBurnEstimateFeeParams {
         if (data['token_id'] && !(typeof data['token_id'] === 'string' || data['token_id'] instanceof String)) {
             throw new Error("Expected the field `token_id` to be a primitive type in the JSON string but got " + data['token_id']);
         }
+        // ensure the json data is a string
+        if (data['request_id'] && !(typeof data['request_id'] === 'string' || data['request_id'] instanceof String)) {
+            throw new Error("Expected the field `request_id` to be a primitive type in the JSON string but got " + data['request_id']);
+        }
 
         return true;
     }
@@ -136,6 +143,12 @@ TokenizationBurnEstimateFeeParams.prototype['operation_type'] = undefined;
  * @member {String} token_id
  */
 TokenizationBurnEstimateFeeParams.prototype['token_id'] = undefined;
+
+/**
+ * The request ID that is used to track a transaction request. The request ID is provided by you and must be unique within your organization.
+ * @member {String} request_id
+ */
+TokenizationBurnEstimateFeeParams.prototype['request_id'] = undefined;
 
 
 // Implement TokenizationBurnTokenParams interface:

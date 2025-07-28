@@ -25,6 +25,13 @@ export default class TokenizationTokenStandard {
 
     
         /**
+         * value: "SPLToken2022"
+         * @const
+         */
+        "SPLToken2022" = "SPLToken2022";
+
+    
+        /**
          * value: "unknown_default_open_api"
          * @const
          */

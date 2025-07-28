@@ -26,7 +26,7 @@
   var instance;
 
   beforeEach(function() {
-    instance = new CoboWaas2.TokenizationDeployEstimateFeeParams();
+    instance = new CoboWaas2.UpdateTopUpAddress();
   });
 
   var getProperty = function(object, getter, property) {
@@ -45,34 +45,28 @@
       object[property] = value;
   }
 
-  describe('TokenizationDeployEstimateFeeParams', function() {
-    it('should create an instance of TokenizationDeployEstimateFeeParams', function() {
-      // uncomment below and update the code to test TokenizationDeployEstimateFeeParams
-      //var instance = new CoboWaas2.TokenizationDeployEstimateFeeParams();
-      //expect(instance).to.be.a(CoboWaas2.TokenizationDeployEstimateFeeParams);
+  describe('UpdateTopUpAddress', function() {
+    it('should create an instance of UpdateTopUpAddress', function() {
+      // uncomment below and update the code to test UpdateTopUpAddress
+      //var instance = new CoboWaas2.UpdateTopUpAddress();
+      //expect(instance).to.be.a(CoboWaas2.UpdateTopUpAddress);
     });
 
-    it('should have the property chain_id (base name: "chain_id")', function() {
-      // uncomment below and update the code to test the property chain_id
-      //var instance = new CoboWaas2.TokenizationDeployEstimateFeeParams();
+    it('should have the property merchant_id (base name: "merchant_id")', function() {
+      // uncomment below and update the code to test the property merchant_id
+      //var instance = new CoboWaas2.UpdateTopUpAddress();
       //expect(instance).to.be();
     });
 
-    it('should have the property source (base name: "source")', function() {
-      // uncomment below and update the code to test the property source
-      //var instance = new CoboWaas2.TokenizationDeployEstimateFeeParams();
+    it('should have the property token_id (base name: "token_id")', function() {
+      // uncomment below and update the code to test the property token_id
+      //var instance = new CoboWaas2.UpdateTopUpAddress();
       //expect(instance).to.be();
     });
 
-    it('should have the property token_params (base name: "token_params")', function() {
-      // uncomment below and update the code to test the property token_params
-      //var instance = new CoboWaas2.TokenizationDeployEstimateFeeParams();
-      //expect(instance).to.be();
-    });
-
-    it('should have the property operation_type (base name: "operation_type")', function() {
-      // uncomment below and update the code to test the property operation_type
-      //var instance = new CoboWaas2.TokenizationDeployEstimateFeeParams();
+    it('should have the property custom_payer_id (base name: "custom_payer_id")', function() {
+      // uncomment below and update the code to test the property custom_payer_id
+      //var instance = new CoboWaas2.UpdateTopUpAddress();
       //expect(instance).to.be();
     });
 

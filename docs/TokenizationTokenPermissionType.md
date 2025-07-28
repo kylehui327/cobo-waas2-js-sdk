@@ -17,6 +17,12 @@
 
 * `PauseContract` (value: `"PauseContract"`)
 
+* `FreezeAccounts` (value: `"FreezeAccounts"`)
+
+* `UpdateMetadata` (value: `"UpdateMetadata"`)
+
+* `PermanentDelegate` (value: `"PermanentDelegate"`)
+
 * `unknown_default_open_api` (value: `"unknown_default_open_api"`)
 
 

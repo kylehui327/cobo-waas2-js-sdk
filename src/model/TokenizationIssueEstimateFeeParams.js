@@ -70,6 +70,9 @@ class TokenizationIssueEstimateFeeParams {
             if (data.hasOwnProperty('operation_type')) {
                 obj['operation_type'] = TokenizationOperationType.constructFromObject(data['operation_type']);
             }
+            if (data.hasOwnProperty('request_id')) {
+                obj['request_id'] = ApiClient.convertToType(data['request_id'], 'String');
+            }
         }
         return obj;
     }
@@ -102,6 +105,10 @@ class TokenizationIssueEstimateFeeParams {
             TokenizationIssueTokenParamsTokenParams.validateJSON(data['token_params']);
           }
         }
+        // ensure the json data is a string
+        if (data['request_id'] && !(typeof data['request_id'] === 'string' || data['request_id'] instanceof String)) {
+            throw new Error("Expected the field `request_id` to be a primitive type in the JSON string but got " + data['request_id']);
+        }
 
         return true;
     }
@@ -131,6 +138,12 @@ TokenizationIssueEstimateFeeParams.prototype['token_params'] = undefined;
  * @member {module:model/TokenizationOperationType} operation_type
  */
 TokenizationIssueEstimateFeeParams.prototype['operation_type'] = undefined;
+
+/**
+ * The request ID that is used to track a transaction request. The request ID is provided by you and must be unique within your organization.
+ * @member {String} request_id
+ */
+TokenizationIssueEstimateFeeParams.prototype['request_id'] = undefined;
 
 
 // Implement TokenizationIssueTokenParams interface:

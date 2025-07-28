@@ -36,6 +36,16 @@ import {ApiClient, Env} from "../../src/index.js";
   });
 
   describe('PaymentApi', function() {
+    describe('cancelRefundById', function() {
+      it('should call cancelRefundById successfully', function() {
+        //uncomment below and update the code to test cancelRefundById
+        //instance.cancelRefundById().then(function(data) {
+        //    console.log(data);
+        //}, function(error) {
+        //    console.error(error);
+        //});
+      });
+    });
     describe('createBankAccount', function() {
       it('should call createBankAccount successfully', function() {
         //uncomment below and update the code to test createBankAccount
@@ -50,6 +60,16 @@ import {ApiClient, Env} from "../../src/index.js";
       it('should call createCryptoAddress successfully', function() {
         //uncomment below and update the code to test createCryptoAddress
         //instance.createCryptoAddress().then(function(data) {
+        //    console.log(data);
+        //}, function(error) {
+        //    console.error(error);
+        //});
+      });
+    });
+    describe('createForcedSweepRequest', function() {
+      it('should call createForcedSweepRequest successfully', function() {
+        //uncomment below and update the code to test createForcedSweepRequest
+        //instance.createForcedSweepRequest().then(function(data) {
         //    console.log(data);
         //}, function(error) {
         //    console.error(error);
@@ -110,6 +130,16 @@ import {ApiClient, Env} from "../../src/index.js";
       it('should call getPaymentOrderDetailById successfully', function() {
         //uncomment below and update the code to test getPaymentOrderDetailById
         //instance.getPaymentOrderDetailById().then(function(data) {
+        //    console.log(data);
+        //}, function(error) {
+        //    console.error(error);
+        //});
+      });
+    });
+    describe('getPspBalance', function() {
+      it('should call getPspBalance successfully', function() {
+        //uncomment below and update the code to test getPspBalance
+        //instance.getPspBalance().then(function(data) {
         //    console.log(data);
         //}, function(error) {
         //    console.error(error);
@@ -186,6 +216,26 @@ import {ApiClient, Env} from "../../src/index.js";
         //});
       });
     });
+    describe('listForcedSweepRequests', function() {
+      it('should call listForcedSweepRequests successfully', function() {
+        //uncomment below and update the code to test listForcedSweepRequests
+        //instance.listForcedSweepRequests().then(function(data) {
+        //    console.log(data);
+        //}, function(error) {
+        //    console.error(error);
+        //});
+      });
+    });
+    describe('listMerchantBalances', function() {
+      it('should call listMerchantBalances successfully', function() {
+        //uncomment below and update the code to test listMerchantBalances
+        //instance.listMerchantBalances().then(function(data) {
+        //    console.log(data);
+        //}, function(error) {
+        //    console.error(error);
+        //});
+      });
+    });
     describe('listMerchants', function() {
       it('should call listMerchants successfully', function() {
         //uncomment below and update the code to test listMerchants
@@ -210,6 +260,16 @@ import {ApiClient, Env} from "../../src/index.js";
       it('should call listPaymentSupportedTokens successfully', function() {
         //uncomment below and update the code to test listPaymentSupportedTokens
         //instance.listPaymentSupportedTokens().then(function(data) {
+        //    console.log(data);
+        //}, function(error) {
+        //    console.error(error);
+        //});
+      });
+    });
+    describe('listPaymentWalletBalances', function() {
+      it('should call listPaymentWalletBalances successfully', function() {
+        //uncomment below and update the code to test listPaymentWalletBalances
+        //instance.listPaymentWalletBalances().then(function(data) {
         //    console.log(data);
         //}, function(error) {
         //    console.error(error);
@@ -280,6 +340,16 @@ import {ApiClient, Env} from "../../src/index.js";
       it('should call updateRefundById successfully', function() {
         //uncomment below and update the code to test updateRefundById
         //instance.updateRefundById().then(function(data) {
+        //    console.log(data);
+        //}, function(error) {
+        //    console.error(error);
+        //});
+      });
+    });
+    describe('updateTopUpAddress', function() {
+      it('should call updateTopUpAddress successfully', function() {
+        //uncomment below and update the code to test updateTopUpAddress
+        //instance.updateTopUpAddress().then(function(data) {
         //    console.log(data);
         //}, function(error) {
         //    console.error(error);

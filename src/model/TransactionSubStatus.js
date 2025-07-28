@@ -60,6 +60,13 @@ export default class TransactionSubStatus {
 
     
         /**
+         * value: "RejectedByCobo"
+         * @const
+         */
+        "RejectedByCobo" = "RejectedByCobo";
+
+    
+        /**
          * value: "RejectedWhiteList"
          * @const
          */

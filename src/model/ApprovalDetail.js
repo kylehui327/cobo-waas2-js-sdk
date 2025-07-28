@@ -10,8 +10,7 @@
  */
 
 import ApiClient from '../ApiClient';
-import ApprovalTransactionResult from './ApprovalTransactionResult';
-import ApprovalUserDetail from './ApprovalUserDetail';
+import RoleDetail from './RoleDetail';
 
 /**
  * The ApprovalDetail model module.
@@ -56,14 +55,14 @@ class ApprovalDetail {
             if (data.hasOwnProperty('request_id')) {
                 obj['request_id'] = ApiClient.convertToType(data['request_id'], 'String');
             }
-            if (data.hasOwnProperty('result')) {
-                obj['result'] = ApprovalTransactionResult.constructFromObject(data['result']);
+            if (data.hasOwnProperty('broker_user')) {
+                obj['broker_user'] = RoleDetail.constructFromObject(data['broker_user']);
             }
-            if (data.hasOwnProperty('threshold')) {
-                obj['threshold'] = ApiClient.convertToType(data['threshold'], 'Number');
+            if (data.hasOwnProperty('spender')) {
+                obj['spender'] = RoleDetail.constructFromObject(data['spender']);
             }
-            if (data.hasOwnProperty('user_details')) {
-                obj['user_details'] = ApiClient.convertToType(data['user_details'], [ApprovalUserDetail]);
+            if (data.hasOwnProperty('approver')) {
+                obj['approver'] = RoleDetail.constructFromObject(data['approver']);
             }
         }
         return obj;
@@ -87,15 +86,23 @@ class ApprovalDetail {
         if (data['request_id'] && !(typeof data['request_id'] === 'string' || data['request_id'] instanceof String)) {
             throw new Error("Expected the field `request_id` to be a primitive type in the JSON string but got " + data['request_id']);
         }
-        if (data['user_details']) { // data not null
-            // ensure the json data is an array
-            if (!Array.isArray(data['user_details'])) {
-                throw new Error("Expected the field `user_details` to be an array in the JSON data but got " + data['user_details']);
-            }
-            // validate the optional field `user_details` (array)
-            for (const item of data['user_details']) {
-                ApprovalUserDetail.validateJSON(item);
-            };
+        // validate the optional field `broker_user`
+        if (data['broker_user']) { // data not null
+          if (!!RoleDetail.validateJSON) {
+            RoleDetail.validateJSON(data['broker_user']);
+          }
+        }
+        // validate the optional field `spender`
+        if (data['spender']) { // data not null
+          if (!!RoleDetail.validateJSON) {
+            RoleDetail.validateJSON(data['spender']);
+          }
+        }
+        // validate the optional field `approver`
+        if (data['approver']) { // data not null
+          if (!!RoleDetail.validateJSON) {
+            RoleDetail.validateJSON(data['approver']);
+          }
         }
 
         return true;
@@ -125,20 +132,19 @@ ApprovalDetail.prototype['cobo_id'] = undefined;
 ApprovalDetail.prototype['request_id'] = undefined;
 
 /**
- * @member {module:model/ApprovalTransactionResult} result
+ * @member {module:model/RoleDetail} broker_user
  */
-ApprovalDetail.prototype['result'] = undefined;
+ApprovalDetail.prototype['broker_user'] = undefined;
 
 /**
- * The threshold for the transaction approval.
- * @member {Number} threshold
+ * @member {module:model/RoleDetail} spender
  */
-ApprovalDetail.prototype['threshold'] = undefined;
+ApprovalDetail.prototype['spender'] = undefined;
 
 /**
- * @member {Array.<module:model/ApprovalUserDetail>} user_details
+ * @member {module:model/RoleDetail} approver
  */
-ApprovalDetail.prototype['user_details'] = undefined;
+ApprovalDetail.prototype['approver'] = undefined;
 
 
 

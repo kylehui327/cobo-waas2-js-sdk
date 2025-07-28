@@ -71,6 +71,9 @@ class TokenizationMintTokenRequest {
             if (data.hasOwnProperty('fee')) {
                 obj['fee'] = TransactionRequestFee.constructFromObject(data['fee']);
             }
+            if (data.hasOwnProperty('request_id')) {
+                obj['request_id'] = ApiClient.convertToType(data['request_id'], 'String');
+            }
         }
         return obj;
     }
@@ -113,6 +116,10 @@ class TokenizationMintTokenRequest {
             TransactionRequestFee.validateJSON(data['fee']);
           }
         }
+        // ensure the json data is a string
+        if (data['request_id'] && !(typeof data['request_id'] === 'string' || data['request_id'] instanceof String)) {
+            throw new Error("Expected the field `request_id` to be a primitive type in the JSON string but got " + data['request_id']);
+        }
 
         return true;
     }
@@ -143,6 +150,12 @@ TokenizationMintTokenRequest.prototype['app_initiator'] = undefined;
  * @member {module:model/TransactionRequestFee} fee
  */
 TokenizationMintTokenRequest.prototype['fee'] = undefined;
+
+/**
+ * The request ID that is used to track a transaction request. The request ID is provided by you and must be unique within your organization.
+ * @member {String} request_id
+ */
+TokenizationMintTokenRequest.prototype['request_id'] = undefined;
 
 
 // Implement TokenizationMintTokenParams interface:
