@@ -68,6 +68,12 @@ class SettlementInfo {
             if (data.hasOwnProperty('settled_amount')) {
                 obj['settled_amount'] = ApiClient.convertToType(data['settled_amount'], 'String');
             }
+            if (data.hasOwnProperty('available_balance')) {
+                obj['available_balance'] = ApiClient.convertToType(data['available_balance'], 'String');
+            }
+            if (data.hasOwnProperty('total_balance')) {
+                obj['total_balance'] = ApiClient.convertToType(data['total_balance'], 'String');
+            }
             if (data.hasOwnProperty('acquiring_type')) {
                 obj['acquiring_type'] = AcquiringType.constructFromObject(data['acquiring_type']);
             }
@@ -121,6 +127,14 @@ class SettlementInfo {
         if (data['settled_amount'] && !(typeof data['settled_amount'] === 'string' || data['settled_amount'] instanceof String)) {
             throw new Error("Expected the field `settled_amount` to be a primitive type in the JSON string but got " + data['settled_amount']);
         }
+        // ensure the json data is a string
+        if (data['available_balance'] && !(typeof data['available_balance'] === 'string' || data['available_balance'] instanceof String)) {
+            throw new Error("Expected the field `available_balance` to be a primitive type in the JSON string but got " + data['available_balance']);
+        }
+        // ensure the json data is a string
+        if (data['total_balance'] && !(typeof data['total_balance'] === 'string' || data['total_balance'] instanceof String)) {
+            throw new Error("Expected the field `total_balance` to be a primitive type in the JSON string but got " + data['total_balance']);
+        }
 
         return true;
     }
@@ -171,6 +185,18 @@ SettlementInfo.prototype['pending_currency_balance'] = undefined;
  * @member {String} settled_amount
  */
 SettlementInfo.prototype['settled_amount'] = undefined;
+
+/**
+ * The balance available for settlement or refund, in the specified fiat currency.
+ * @member {String} available_balance
+ */
+SettlementInfo.prototype['available_balance'] = undefined;
+
+/**
+ * The balance total for settlement or refund, in the specified fiat currency.
+ * @member {String} total_balance
+ */
+SettlementInfo.prototype['total_balance'] = undefined;
 
 /**
  * @member {module:model/AcquiringType} acquiring_type

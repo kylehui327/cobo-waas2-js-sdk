@@ -46,6 +46,16 @@ import {ApiClient, Env} from "../../src/index.js";
         //});
       });
     });
+    describe('createForcedSweepRequest', function() {
+      it('should call createForcedSweepRequest successfully', function() {
+        //uncomment below and update the code to test createForcedSweepRequest
+        //instance.createForcedSweepRequest().then(function(data) {
+        //    console.log(data);
+        //}, function(error) {
+        //    console.error(error);
+        //});
+      });
+    });
     describe('createMerchant', function() {
       it('should call createMerchant successfully', function() {
         //uncomment below and update the code to test createMerchant
@@ -176,6 +186,16 @@ import {ApiClient, Env} from "../../src/index.js";
         //});
       });
     });
+    describe('listForcedSweepRequests', function() {
+      it('should call listForcedSweepRequests successfully', function() {
+        //uncomment below and update the code to test listForcedSweepRequests
+        //instance.listForcedSweepRequests().then(function(data) {
+        //    console.log(data);
+        //}, function(error) {
+        //    console.error(error);
+        //});
+      });
+    });
     describe('listMerchants', function() {
       it('should call listMerchants successfully', function() {
         //uncomment below and update the code to test listMerchants
@@ -250,6 +270,16 @@ import {ApiClient, Env} from "../../src/index.js";
       it('should call updateRefundById successfully', function() {
         //uncomment below and update the code to test updateRefundById
         //instance.updateRefundById().then(function(data) {
+        //    console.log(data);
+        //}, function(error) {
+        //    console.error(error);
+        //});
+      });
+    });
+    describe('updateTopUpAddress', function() {
+      it('should call updateTopUpAddress successfully', function() {
+        //uncomment below and update the code to test updateTopUpAddress
+        //instance.updateTopUpAddress().then(function(data) {
         //    console.log(data);
         //}, function(error) {
         //    console.error(error);

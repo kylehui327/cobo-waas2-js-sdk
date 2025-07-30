@@ -21,7 +21,7 @@ class TokenizationEvmContractCallParams {
      * Constructs a new <code>TokenizationEvmContractCallParams</code>.
      * The information about the EVM contract call.
      * @alias module:model/TokenizationEvmContractCallParams
-     * @param calldata {String} The data that is used to invoke a specific function or method within the specified contract at the destination address. 
+     * @param calldata {String} The data used to invoke a specific function or method within the specified contract at the destination address, with a maximum length of 65,000 characters. 
      */
     constructor(calldata) { 
         
@@ -96,7 +96,7 @@ TokenizationEvmContractCallParams.RequiredProperties = ["calldata"];
 TokenizationEvmContractCallParams.prototype['type'] = undefined;
 
 /**
- * The data that is used to invoke a specific function or method within the specified contract at the destination address. 
+ * The data used to invoke a specific function or method within the specified contract at the destination address, with a maximum length of 65,000 characters. 
  * @member {String} calldata
  */
 TokenizationEvmContractCallParams.prototype['calldata'] = undefined;

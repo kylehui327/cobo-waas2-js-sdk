@@ -94,6 +94,18 @@
       //expect(instance).to.be();
     });
 
+    it('should have the property available_balance (base name: "available_balance")', function() {
+      // uncomment below and update the code to test the property available_balance
+      //var instance = new CoboWaas2.SettlementInfo();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property total_balance (base name: "total_balance")', function() {
+      // uncomment below and update the code to test the property total_balance
+      //var instance = new CoboWaas2.SettlementInfo();
+      //expect(instance).to.be();
+    });
+
     it('should have the property acquiring_type (base name: "acquiring_type")', function() {
       // uncomment below and update the code to test the property acquiring_type
       //var instance = new CoboWaas2.SettlementInfo();

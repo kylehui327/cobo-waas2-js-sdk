@@ -20,7 +20,7 @@ class CreatePaymentOrderRequest {
      * Constructs a new <code>CreatePaymentOrderRequest</code>.
      * @alias module:model/CreatePaymentOrderRequest
      * @param merchant_id {String} The merchant ID.
-     * @param token_id {String} The ID of the cryptocurrency used for payment. Supported values:    - USDC: `ETH_USDC`, `ARBITRUM_USDC`, `SOL_USDC`, `BASE_USDC`, `MATIC_USDC`, `BSC_USDC`   - USDT: `TRON_USDT`, `ETH_USDT`, `ARBITRUM_USDT`, `SOL_USDT`, `BASE_USDT`, `MATIC_USDT`, `BSC_USDT` 
+     * @param token_id {String} The ID of the cryptocurrency used for payment. Supported values:    - USDC: `ETH_USDC`, `ARBITRUM_USDCOIN`, `SOL_USDC`, `BASE_USDC`, `MATIC_USDC2`, `BSC_USDC`   - USDT: `TRON_USDT`, `ETH_USDT`, `ARBITRUM_USDT`, `SOL_USDT`, `BASE_USDT`, `MATIC_USDT`, `BSC_USDT` 
      * @param order_amount {String} The base amount of the order in fiat currency, excluding the developer fee (specified in `fee_amount`). Values must be greater than `0` and contain two decimal places.
      * @param fee_amount {String} The developer fee for the order in fiat currency. It is added to the base amount (`order_amount`) to determine the final charge. For example, if order_amount is \"100.00\" and fee_amount is \"2.00\", the customer will be charged \"102.00\" in total, with \"100.00\" being settled to the merchant and \"2.00\" settled to the developer. Values must be greater than 0 and contain two decimal places.
      * @param psp_order_code {String} A unique reference code assigned by you as a developer to identify this order in your system. This code must be unique across all orders in your system. The code should have a maximum length of 128 characters. 
@@ -141,7 +141,7 @@ CreatePaymentOrderRequest.RequiredProperties = ["merchant_id", "token_id", "orde
 CreatePaymentOrderRequest.prototype['merchant_id'] = undefined;
 
 /**
- * The ID of the cryptocurrency used for payment. Supported values:    - USDC: `ETH_USDC`, `ARBITRUM_USDC`, `SOL_USDC`, `BASE_USDC`, `MATIC_USDC`, `BSC_USDC`   - USDT: `TRON_USDT`, `ETH_USDT`, `ARBITRUM_USDT`, `SOL_USDT`, `BASE_USDT`, `MATIC_USDT`, `BSC_USDT` 
+ * The ID of the cryptocurrency used for payment. Supported values:    - USDC: `ETH_USDC`, `ARBITRUM_USDCOIN`, `SOL_USDC`, `BASE_USDC`, `MATIC_USDC2`, `BSC_USDC`   - USDT: `TRON_USDT`, `ETH_USDT`, `ARBITRUM_USDT`, `SOL_USDT`, `BASE_USDT`, `MATIC_USDT`, `BSC_USDT` 
  * @member {String} token_id
  */
 CreatePaymentOrderRequest.prototype['token_id'] = undefined;
@@ -149,9 +149,9 @@ CreatePaymentOrderRequest.prototype['token_id'] = undefined;
 /**
  * The fiat currency of the order. Currently, only `USD` is supported.
  * @member {String} currency
- * @default 'USD'
+ * @default ''
  */
-CreatePaymentOrderRequest.prototype['currency'] = 'USD';
+CreatePaymentOrderRequest.prototype['currency'] = '';
 
 /**
  * The base amount of the order in fiat currency, excluding the developer fee (specified in `fee_amount`). Values must be greater than `0` and contain two decimal places.

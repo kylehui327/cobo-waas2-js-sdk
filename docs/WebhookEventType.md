@@ -67,6 +67,8 @@
 
 * `payment.settlement.status.updated` (value: `"payment.settlement.status.updated"`)
 
+* `payment.address.updated` (value: `"payment.address.updated"`)
+
 * `unknown_default_open_api` (value: `"unknown_default_open_api"`)
 
 

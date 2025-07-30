@@ -208,6 +208,9 @@ import FeeStationTransactionType from './model/FeeStationTransactionType';
 import FeeStationTransfer from './model/FeeStationTransfer';
 import FeeType from './model/FeeType';
 import FixedFeeRate from './model/FixedFeeRate';
+import ForcedSweep from './model/ForcedSweep';
+import ForcedSweepRequest from './model/ForcedSweepRequest';
+import ForcedSweepStatus from './model/ForcedSweepStatus';
 import GetApiKeyInfo200Response from './model/GetApiKeyInfo200Response';
 import GetExchangeRate200Response from './model/GetExchangeRate200Response';
 import GetMaxTransferableValueWithFeeModelRequest from './model/GetMaxTransferableValueWithFeeModelRequest';
@@ -241,6 +244,7 @@ import ListBabylonEligibleStakings200ResponseDataInner from './model/ListBabylon
 import ListBabylonStakingRegistrations200Response from './model/ListBabylonStakingRegistrations200Response';
 import ListCallbackMessages200Response from './model/ListCallbackMessages200Response';
 import ListExchanges200ResponseInner from './model/ListExchanges200ResponseInner';
+import ListForcedSweepRequests200Response from './model/ListForcedSweepRequests200Response';
 import ListKeyShareHolderGroups200Response from './model/ListKeyShareHolderGroups200Response';
 import ListKeyShareHolders200Response from './model/ListKeyShareHolders200Response';
 import ListMerchants200Response from './model/ListMerchants200Response';
@@ -297,10 +301,12 @@ import OrderStatus from './model/OrderStatus';
 import OrgInfo from './model/OrgInfo';
 import Pagination from './model/Pagination';
 import PayerAccount from './model/PayerAccount';
+import PaymentAddressUpdateEventData from './model/PaymentAddressUpdateEventData';
 import PaymentOrderEventData from './model/PaymentOrderEventData';
 import PaymentRefundEventData from './model/PaymentRefundEventData';
 import PaymentSettlementEvent from './model/PaymentSettlementEvent';
 import PaymentTransaction from './model/PaymentTransaction';
+import PaymentTransactionEventData from './model/PaymentTransactionEventData';
 import PayoutChannel from './model/PayoutChannel';
 import PolicyAction from './model/PolicyAction';
 import PolicyActionContent from './model/PolicyActionContent';
@@ -677,7 +683,7 @@ import WalletsSmartContractWalletsApi from './api/WalletsSmartContractWalletsApi
 * </pre>
 * </p>
 * @module index
-* @version 1.19.1
+* @version 1.20.0
 */
 export {
     Env,
@@ -1860,6 +1866,24 @@ export {
     FixedFeeRate,
 
     /**
+     * The ForcedSweep model constructor.
+     * @property {module:model/ForcedSweep}
+     */
+    ForcedSweep,
+
+    /**
+     * The ForcedSweepRequest model constructor.
+     * @property {module:model/ForcedSweepRequest}
+     */
+    ForcedSweepRequest,
+
+    /**
+     * The ForcedSweepStatus model constructor.
+     * @property {module:model/ForcedSweepStatus}
+     */
+    ForcedSweepStatus,
+
+    /**
      * The GetApiKeyInfo200Response model constructor.
      * @property {module:model/GetApiKeyInfo200Response}
      */
@@ -2056,6 +2080,12 @@ export {
      * @property {module:model/ListExchanges200ResponseInner}
      */
     ListExchanges200ResponseInner,
+
+    /**
+     * The ListForcedSweepRequests200Response model constructor.
+     * @property {module:model/ListForcedSweepRequests200Response}
+     */
+    ListForcedSweepRequests200Response,
 
     /**
      * The ListKeyShareHolderGroups200Response model constructor.
@@ -2394,6 +2424,12 @@ export {
     PayerAccount,
 
     /**
+     * The PaymentAddressUpdateEventData model constructor.
+     * @property {module:model/PaymentAddressUpdateEventData}
+     */
+    PaymentAddressUpdateEventData,
+
+    /**
      * The PaymentOrderEventData model constructor.
      * @property {module:model/PaymentOrderEventData}
      */
@@ -2416,6 +2452,12 @@ export {
      * @property {module:model/PaymentTransaction}
      */
     PaymentTransaction,
+
+    /**
+     * The PaymentTransactionEventData model constructor.
+     * @property {module:model/PaymentTransactionEventData}
+     */
+    PaymentTransactionEventData,
 
     /**
      * The PayoutChannel model constructor.
