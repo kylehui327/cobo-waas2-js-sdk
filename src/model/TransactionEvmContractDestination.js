@@ -24,7 +24,7 @@ class TransactionEvmContractDestination {
      * @alias module:model/TransactionEvmContractDestination
      * @param destination_type {module:model/TransactionDestinationType} 
      * @param address {String} The destination address.
-     * @param calldata {String} The data that is used to invoke a specific function or method within the specified contract at the destination address. 
+     * @param calldata {String} The data used to invoke a specific function or method within the specified contract at the destination address, with a maximum length of 65,000 characters. 
      */
     constructor(destination_type, address, calldata) { 
         
@@ -129,7 +129,7 @@ TransactionEvmContractDestination.prototype['address'] = undefined;
 TransactionEvmContractDestination.prototype['value'] = undefined;
 
 /**
- * The data that is used to invoke a specific function or method within the specified contract at the destination address. 
+ * The data used to invoke a specific function or method within the specified contract at the destination address, with a maximum length of 65,000 characters. 
  * @member {String} calldata
  */
 TransactionEvmContractDestination.prototype['calldata'] = undefined;

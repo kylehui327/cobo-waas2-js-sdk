@@ -19,9 +19,12 @@ import CreateRefundRequest from '../model/CreateRefundRequest';
 import CreateSettlementRequestRequest from '../model/CreateSettlementRequestRequest';
 import CryptoAddress from '../model/CryptoAddress';
 import ErrorResponse from '../model/ErrorResponse';
+import ForcedSweep from '../model/ForcedSweep';
+import ForcedSweepRequest from '../model/ForcedSweepRequest';
 import GetExchangeRate200Response from '../model/GetExchangeRate200Response';
 import GetRefunds200Response from '../model/GetRefunds200Response';
 import GetSettlementInfoByIds200Response from '../model/GetSettlementInfoByIds200Response';
+import ListForcedSweepRequests200Response from '../model/ListForcedSweepRequests200Response';
 import ListMerchants200Response from '../model/ListMerchants200Response';
 import ListPaymentOrders200Response from '../model/ListPaymentOrders200Response';
 import ListSettlementRequests200Response from '../model/ListSettlementRequests200Response';
@@ -35,6 +38,7 @@ import TopUpAddress from '../model/TopUpAddress';
 import UpdateMerchantByIdRequest from '../model/UpdateMerchantByIdRequest';
 import UpdatePaymentOrderRequest from '../model/UpdatePaymentOrderRequest';
 import UpdateRefundByIdRequest from '../model/UpdateRefundByIdRequest';
+import UpdateTopUpAddress from '../model/UpdateTopUpAddress';
 
 /**
 * Payment service.
@@ -100,6 +104,55 @@ export default class PaymentApi {
      */
     cancelRefundById(refund_id) {
       return this.cancelRefundByIdWithHttpInfo(refund_id)
+        .then(function(response_and_data) {
+          return response_and_data.data;
+        });
+    }
+
+
+    /**
+     * Create force sweep request
+     * This operation creates a force sweep request to settle or refund available balances.  
+     * @param {Object} opts Optional parameters
+     * @param {module:model/ForcedSweepRequest} [ForcedSweepRequest] The request body to force sweep.
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/ForcedSweep} and HTTP response
+     */
+    createForcedSweepRequestWithHttpInfo(opts) {
+      opts = opts || {};
+      let postBody = opts['ForcedSweepRequest'];
+      if (postBody && postBody.toJSON) {
+          postBody = postBody.toJSON()
+      }
+
+      let pathParams = {
+      };
+      let queryParams = {
+      };
+      let headerParams = {
+      };
+      let formParams = {
+      };
+
+      let authNames = ['OAuth2', 'CoboAuth'];
+      let contentTypes = ['application/json'];
+      let accepts = ['application/json'];
+      let returnType = ForcedSweep;
+      return this.apiClient.callApi(
+        '/payments/force_sweep_requests', 'POST',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, null
+      );
+    }
+
+    /**
+     * Create force sweep request
+     * This operation creates a force sweep request to settle or refund available balances.  
+     * @param {Object} opts Optional parameters
+     * @param {module:model/ForcedSweepRequest} opts.ForcedSweepRequest The request body to force sweep.
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/ForcedSweep}
+     */
+    createForcedSweepRequest(opts) {
+      return this.createForcedSweepRequestWithHttpInfo(opts)
         .then(function(response_and_data) {
           return response_and_data.data;
         });
@@ -305,7 +358,7 @@ export default class PaymentApi {
     /**
      * Get exchange rate
      * This operation retrieves the current exchange rate between a specified currency pair. 
-     * @param {String} token_id The token ID, which is a unique identifier that specifies both the blockchain network and cryptocurrency token in the format `{CHAIN}_{TOKEN}`. Supported values include:   - USDC: `ETH_USDC`, `ARBITRUM_USDC`, `SOL_USDC`, `BASE_USDC`, `MATIC_USDC`, `BSC_USDC`   - USDT: `TRON_USDT`, `ETH_USDT`, `ARBITRUM_USDT`, `SOL_USDT`, `BASE_USDT`, `MATIC_USDT`, `BSC_USDT` 
+     * @param {String} token_id The token ID, which is a unique identifier that specifies both the blockchain network and cryptocurrency token in the format `{CHAIN}_{TOKEN}`. Supported values include:   - USDC: `ETH_USDC`, `ARBITRUM_USDCOIN`, `SOL_USDC`, `BASE_USDC`, `MATIC_USDC2`, `BSC_USDC`   - USDT: `TRON_USDT`, `ETH_USDT`, `ARBITRUM_USDT`, `SOL_USDT`, `BASE_USDT`, `MATIC_USDT`, `BSC_USDT` 
      * @param {String} currency The fiat currency. Currently, only `USD` is supported.
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/GetExchangeRate200Response} and HTTP response
      */
@@ -348,7 +401,7 @@ export default class PaymentApi {
     /**
      * Get exchange rate
      * This operation retrieves the current exchange rate between a specified currency pair. 
-     * @param {String} token_id The token ID, which is a unique identifier that specifies both the blockchain network and cryptocurrency token in the format `{CHAIN}_{TOKEN}`. Supported values include:   - USDC: `ETH_USDC`, `ARBITRUM_USDC`, `SOL_USDC`, `BASE_USDC`, `MATIC_USDC`, `BSC_USDC`   - USDT: `TRON_USDT`, `ETH_USDT`, `ARBITRUM_USDT`, `SOL_USDT`, `BASE_USDT`, `MATIC_USDT`, `BSC_USDT` 
+     * @param {String} token_id The token ID, which is a unique identifier that specifies both the blockchain network and cryptocurrency token in the format `{CHAIN}_{TOKEN}`. Supported values include:   - USDC: `ETH_USDC`, `ARBITRUM_USDCOIN`, `SOL_USDC`, `BASE_USDC`, `MATIC_USDC2`, `BSC_USDC`   - USDT: `TRON_USDT`, `ETH_USDT`, `ARBITRUM_USDT`, `SOL_USDT`, `BASE_USDT`, `MATIC_USDT`, `BSC_USDT` 
      * @param {String} currency The fiat currency. Currently, only `USD` is supported.
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/GetExchangeRate200Response}
      */
@@ -635,7 +688,7 @@ export default class PaymentApi {
      * Get top-up address
      * This operation retrieves the information of the dedicated top-up address assigned to a specific payer under a merchant on a specified chain. 
      * @param {String} merchant_id The merchant ID.
-     * @param {String} token_id The token ID, which is a unique identifier that specifies both the blockchain network and cryptocurrency token in the format `{CHAIN}_{TOKEN}`. Supported values include:   - USDC: `ETH_USDC`, `ARBITRUM_USDC`, `SOL_USDC`, `BASE_USDC`, `MATIC_USDC`, `BSC_USDC`   - USDT: `TRON_USDT`, `ETH_USDT`, `ARBITRUM_USDT`, `SOL_USDT`, `BASE_USDT`, `MATIC_USDT`, `BSC_USDT` 
+     * @param {String} token_id The token ID, which is a unique identifier that specifies both the blockchain network and cryptocurrency token in the format `{CHAIN}_{TOKEN}`. Supported values include:   - USDC: `ETH_USDC`, `ARBITRUM_USDCOIN`, `SOL_USDC`, `BASE_USDC`, `MATIC_USDC2`, `BSC_USDC`   - USDT: `TRON_USDT`, `ETH_USDT`, `ARBITRUM_USDT`, `SOL_USDT`, `BASE_USDT`, `MATIC_USDT`, `BSC_USDT` 
      * @param {String} custom_payer_id A unique identifier assigned by the developer to track and identify individual payers in their system.
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/TopUpAddress} and HTTP response
      */
@@ -684,7 +737,7 @@ export default class PaymentApi {
      * Get top-up address
      * This operation retrieves the information of the dedicated top-up address assigned to a specific payer under a merchant on a specified chain. 
      * @param {String} merchant_id The merchant ID.
-     * @param {String} token_id The token ID, which is a unique identifier that specifies both the blockchain network and cryptocurrency token in the format `{CHAIN}_{TOKEN}`. Supported values include:   - USDC: `ETH_USDC`, `ARBITRUM_USDC`, `SOL_USDC`, `BASE_USDC`, `MATIC_USDC`, `BSC_USDC`   - USDT: `TRON_USDT`, `ETH_USDT`, `ARBITRUM_USDT`, `SOL_USDT`, `BASE_USDT`, `MATIC_USDT`, `BSC_USDT` 
+     * @param {String} token_id The token ID, which is a unique identifier that specifies both the blockchain network and cryptocurrency token in the format `{CHAIN}_{TOKEN}`. Supported values include:   - USDC: `ETH_USDC`, `ARBITRUM_USDCOIN`, `SOL_USDC`, `BASE_USDC`, `MATIC_USDC2`, `BSC_USDC`   - USDT: `TRON_USDT`, `ETH_USDT`, `ARBITRUM_USDT`, `SOL_USDT`, `BASE_USDT`, `MATIC_USDT`, `BSC_USDT` 
      * @param {String} custom_payer_id A unique identifier assigned by the developer to track and identify individual payers in their system.
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/TopUpAddress}
      */
@@ -744,7 +797,7 @@ export default class PaymentApi {
      * List crypto addresses
      * This operation retrieves a list of crypto addresses registered for crypto withdrawal.   Contact our support team at [help@cobo.com](mailto:help@cobo.com) to register a new crypto address. 
      * @param {Object} opts Optional parameters
-     * @param {String} [token_id] The token ID, which is a unique identifier that specifies both the blockchain network and cryptocurrency token in the format `{CHAIN}_{TOKEN}`. Supported values include:   - USDC: `ETH_USDC`, `ARBITRUM_USDC`, `SOL_USDC`, `BASE_USDC`, `MATIC_USDC`, `BSC_USDC`   - USDT: `TRON_USDT`, `ETH_USDT`, `ARBITRUM_USDT`, `SOL_USDT`, `BASE_USDT`, `MATIC_USDT`, `BSC_USDT` 
+     * @param {String} [token_id] The token ID, which is a unique identifier that specifies both the blockchain network and cryptocurrency token in the format `{CHAIN}_{TOKEN}`. Supported values include:   - USDC: `ETH_USDC`, `ARBITRUM_USDCOIN`, `SOL_USDC`, `BASE_USDC`, `MATIC_USDC2`, `BSC_USDC`   - USDT: `TRON_USDT`, `ETH_USDT`, `ARBITRUM_USDT`, `SOL_USDT`, `BASE_USDT`, `MATIC_USDT`, `BSC_USDT` 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link Array.<module:model/CryptoAddress>} and HTTP response
      */
     listCryptoAddressesWithHttpInfo(opts) {
@@ -779,11 +832,70 @@ export default class PaymentApi {
      * List crypto addresses
      * This operation retrieves a list of crypto addresses registered for crypto withdrawal.   Contact our support team at [help@cobo.com](mailto:help@cobo.com) to register a new crypto address. 
      * @param {Object} opts Optional parameters
-     * @param {String} opts.token_id The token ID, which is a unique identifier that specifies both the blockchain network and cryptocurrency token in the format `{CHAIN}_{TOKEN}`. Supported values include:   - USDC: `ETH_USDC`, `ARBITRUM_USDC`, `SOL_USDC`, `BASE_USDC`, `MATIC_USDC`, `BSC_USDC`   - USDT: `TRON_USDT`, `ETH_USDT`, `ARBITRUM_USDT`, `SOL_USDT`, `BASE_USDT`, `MATIC_USDT`, `BSC_USDT` 
+     * @param {String} opts.token_id The token ID, which is a unique identifier that specifies both the blockchain network and cryptocurrency token in the format `{CHAIN}_{TOKEN}`. Supported values include:   - USDC: `ETH_USDC`, `ARBITRUM_USDCOIN`, `SOL_USDC`, `BASE_USDC`, `MATIC_USDC2`, `BSC_USDC`   - USDT: `TRON_USDT`, `ETH_USDT`, `ARBITRUM_USDT`, `SOL_USDT`, `BASE_USDT`, `MATIC_USDT`, `BSC_USDT` 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link Array.<module:model/CryptoAddress>}
      */
     listCryptoAddresses(opts) {
       return this.listCryptoAddressesWithHttpInfo(opts)
+        .then(function(response_and_data) {
+          return response_and_data.data;
+        });
+    }
+
+
+    /**
+     * List force sweep requests
+     * This operation retrieves the information of force_sweep requests. 
+     * @param {Object} opts Optional parameters
+     * @param {Number} [limit = 10)] The maximum number of objects to return. For most operations, the value range is [1, 50].
+     * @param {String} [before] A cursor indicating the position before the current page. This value is generated by Cobo and returned in the response. If you are paginating forward from the beginning, you do not need to provide it on the first request. When paginating backward (to the previous page), you should pass the before value returned from the last response. 
+     * @param {String} [after] A cursor indicating the position after the current page. This value is generated by Cobo and returned in the response. You do not need to provide it on the first request. When paginating forward (to the next page), you should pass the after value returned from the last response. 
+     * @param {String} [request_id] The request ID.
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/ListForcedSweepRequests200Response} and HTTP response
+     */
+    listForcedSweepRequestsWithHttpInfo(opts) {
+      opts = opts || {};
+      let postBody = null;
+      if (postBody && postBody.toJSON) {
+          postBody = postBody.toJSON()
+      }
+
+      let pathParams = {
+      };
+      let queryParams = {
+        'limit': opts['limit'],
+        'before': opts['before'],
+        'after': opts['after'],
+        'request_id': opts['request_id']
+      };
+      let headerParams = {
+      };
+      let formParams = {
+      };
+
+      let authNames = ['OAuth2', 'CoboAuth'];
+      let contentTypes = [];
+      let accepts = ['application/json'];
+      let returnType = ListForcedSweepRequests200Response;
+      return this.apiClient.callApi(
+        '/payments/force_sweep_requests', 'GET',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, null
+      );
+    }
+
+    /**
+     * List force sweep requests
+     * This operation retrieves the information of force_sweep requests. 
+     * @param {Object} opts Optional parameters
+     * @param {Number} opts.limit The maximum number of objects to return. For most operations, the value range is [1, 50]. (default to 10)
+     * @param {String} opts.before A cursor indicating the position before the current page. This value is generated by Cobo and returned in the response. If you are paginating forward from the beginning, you do not need to provide it on the first request. When paginating backward (to the previous page), you should pass the before value returned from the last response. 
+     * @param {String} opts.after A cursor indicating the position after the current page. This value is generated by Cobo and returned in the response. You do not need to provide it on the first request. When paginating forward (to the next page), you should pass the after value returned from the last response. 
+     * @param {String} opts.request_id The request ID.
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/ListForcedSweepRequests200Response}
+     */
+    listForcedSweepRequests(opts) {
+      return this.listForcedSweepRequestsWithHttpInfo(opts)
         .then(function(response_and_data) {
           return response_and_data.data;
         });
@@ -1245,6 +1357,55 @@ export default class PaymentApi {
      */
     updateRefundById(refund_id, opts) {
       return this.updateRefundByIdWithHttpInfo(refund_id, opts)
+        .then(function(response_and_data) {
+          return response_and_data.data;
+        });
+    }
+
+
+    /**
+     * Update top-up address
+     * Update the top-up address for a payer under a specific merchant and token. 
+     * @param {Object} opts Optional parameters
+     * @param {module:model/UpdateTopUpAddress} [UpdateTopUpAddress] The request body to update top up address.
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/TopUpAddress} and HTTP response
+     */
+    updateTopUpAddressWithHttpInfo(opts) {
+      opts = opts || {};
+      let postBody = opts['UpdateTopUpAddress'];
+      if (postBody && postBody.toJSON) {
+          postBody = postBody.toJSON()
+      }
+
+      let pathParams = {
+      };
+      let queryParams = {
+      };
+      let headerParams = {
+      };
+      let formParams = {
+      };
+
+      let authNames = ['OAuth2', 'CoboAuth'];
+      let contentTypes = ['application/json'];
+      let accepts = ['application/json'];
+      let returnType = TopUpAddress;
+      return this.apiClient.callApi(
+        '/payments/topup/address', 'PUT',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, null
+      );
+    }
+
+    /**
+     * Update top-up address
+     * Update the top-up address for a payer under a specific merchant and token. 
+     * @param {Object} opts Optional parameters
+     * @param {module:model/UpdateTopUpAddress} opts.UpdateTopUpAddress The request body to update top up address.
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/TopUpAddress}
+     */
+    updateTopUpAddress(opts) {
+      return this.updateTopUpAddressWithHttpInfo(opts)
         .then(function(response_and_data) {
           return response_and_data.data;
         });

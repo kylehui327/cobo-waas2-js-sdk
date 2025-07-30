@@ -514,6 +514,42 @@
       //expect(instance).to.be();
     });
 
+    it('should have the property acquiring_type (base name: "acquiring_type")', function() {
+      // uncomment below and update the code to test the property acquiring_type
+      //var instance = new CoboWaas2.WebhookEventData();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property payer_id (base name: "payer_id")', function() {
+      // uncomment below and update the code to test the property payer_id
+      //var instance = new CoboWaas2.WebhookEventData();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property custom_payer_id (base name: "custom_payer_id")', function() {
+      // uncomment below and update the code to test the property custom_payer_id
+      //var instance = new CoboWaas2.WebhookEventData();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property chain (base name: "chain")', function() {
+      // uncomment below and update the code to test the property chain
+      //var instance = new CoboWaas2.WebhookEventData();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property previous_address (base name: "previous_address")', function() {
+      // uncomment below and update the code to test the property previous_address
+      //var instance = new CoboWaas2.WebhookEventData();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property updated_address (base name: "updated_address")', function() {
+      // uncomment below and update the code to test the property updated_address
+      //var instance = new CoboWaas2.WebhookEventData();
+      //expect(instance).to.be();
+    });
+
   });
 
 }));

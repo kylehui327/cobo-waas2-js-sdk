@@ -114,7 +114,7 @@ SafeWalletDelegatesContractCall.prototype['address'] = undefined;
 SafeWalletDelegatesContractCall.prototype['value'] = undefined;
 
 /**
- * The data that is used to invoke a specific function or method within the specified contract at the destination address. 
+ * The data used to invoke a specific function or method within the specified contract at the destination address, with a maximum length of 65,000 characters. 
  * @member {String} calldata
  */
 SafeWalletDelegatesContractCall.prototype['calldata'] = undefined;

@@ -26,9 +26,9 @@ class PaymentOrderEventData {
      * @alias module:model/PaymentOrderEventData
      * @implements module:model/WebhookEventDataType
      * @implements module:model/Order
-     * @param data_type {module:model/PaymentOrderEventData.DataTypeEnum}  The data type of the event. - `Transaction`: The transaction event data. - `TSSRequest`: The TSS request event data. - `Addresses`: The addresses event data. - `WalletInfo`: The wallet information event data. - `MPCVault`: The MPC vault event data. - `Chains`: The enabled chain event data. - `Tokens`: The enabled token event data. - `TokenListing`: The token listing event data.        - `PaymentOrder`: The payment order event data. - `PaymentRefund`: The payment refund event data. - `PaymentSettlement`: The payment settlement event data. - `BalanceUpdateInfo`: The balance update event data. - `SuspendedToken`: The token suspension event data.
+     * @param data_type {module:model/PaymentOrderEventData.DataTypeEnum}  The data type of the event. - `Transaction`: The transaction event data. - `TSSRequest`: The TSS request event data. - `Addresses`: The addresses event data. - `WalletInfo`: The wallet information event data. - `MPCVault`: The MPC vault event data. - `Chains`: The enabled chain event data. - `Tokens`: The enabled token event data. - `TokenListing`: The token listing event data.        - `PaymentOrder`: The payment order event data. - `PaymentRefund`: The payment refund event data. - `PaymentSettlement`: The payment settlement event data. - `PaymentTransaction`: The payment transaction event data. - `PaymentAddressUpdate`: The payment address update event data. - `BalanceUpdateInfo`: The balance update event data. - `SuspendedToken`: The token suspension event data.
      * @param order_id {String} The order ID.
-     * @param token_id {String}  The ID of the cryptocurrency used for payment. Supported tokens:  - USDC: `ETH_USDC`, `ARBITRUM_USDC`, `SOL_USDC`, `BASE_USDC`, `MATIC_USDC`, `BSC_USDC` - USDT: `TRON_USDT`, `ETH_USDT`, `ARBITRUM_USDT`, `SOL_USDT`, `BASE_USDT`, `MATIC_USDT`, `BSC_USDT` 
+     * @param token_id {String}  The ID of the cryptocurrency used for payment. Supported tokens:  - USDC: `ETH_USDC`, `ARBITRUM_USDCOIN`, `SOL_USDC`, `BASE_USDC`, `MATIC_USDC2`, `BSC_USDC` - USDT: `TRON_USDT`, `ETH_USDT`, `ARBITRUM_USDT`, `SOL_USDT`, `BASE_USDT`, `MATIC_USDT`, `BSC_USDT` 
      * @param chain_id {String}  The ID of the blockchain network where the payment transaction should be made. Supported chains:  - USDC: `ETH`, `ARBITRUM`, `SOL`, `BASE`, `MATIC`, `BSC` - USDT: `TRON`, `ETH`, `ARBITRUM`, `SOL`, `BASE`, `MATIC`, `BSC` 
      * @param payable_amount {String} The cryptocurrency amount to be paid for this order.
      * @param receive_address {String} The recipient wallet address to be used for the payment transaction.
@@ -231,7 +231,7 @@ class PaymentOrderEventData {
 PaymentOrderEventData.RequiredProperties = ["data_type", "order_id", "token_id", "chain_id", "payable_amount", "receive_address", "currency", "order_amount", "fee_amount", "exchange_rate", "psp_order_code", "status", "received_token_amount"];
 
 /**
- *  The data type of the event. - `Transaction`: The transaction event data. - `TSSRequest`: The TSS request event data. - `Addresses`: The addresses event data. - `WalletInfo`: The wallet information event data. - `MPCVault`: The MPC vault event data. - `Chains`: The enabled chain event data. - `Tokens`: The enabled token event data. - `TokenListing`: The token listing event data.        - `PaymentOrder`: The payment order event data. - `PaymentRefund`: The payment refund event data. - `PaymentSettlement`: The payment settlement event data. - `BalanceUpdateInfo`: The balance update event data. - `SuspendedToken`: The token suspension event data.
+ *  The data type of the event. - `Transaction`: The transaction event data. - `TSSRequest`: The TSS request event data. - `Addresses`: The addresses event data. - `WalletInfo`: The wallet information event data. - `MPCVault`: The MPC vault event data. - `Chains`: The enabled chain event data. - `Tokens`: The enabled token event data. - `TokenListing`: The token listing event data.        - `PaymentOrder`: The payment order event data. - `PaymentRefund`: The payment refund event data. - `PaymentSettlement`: The payment settlement event data. - `PaymentTransaction`: The payment transaction event data. - `PaymentAddressUpdate`: The payment address update event data. - `BalanceUpdateInfo`: The balance update event data. - `SuspendedToken`: The token suspension event data.
  * @member {module:model/PaymentOrderEventData.DataTypeEnum} data_type
  */
 PaymentOrderEventData.prototype['data_type'] = undefined;
@@ -249,7 +249,7 @@ PaymentOrderEventData.prototype['order_id'] = undefined;
 PaymentOrderEventData.prototype['merchant_id'] = undefined;
 
 /**
- *  The ID of the cryptocurrency used for payment. Supported tokens:  - USDC: `ETH_USDC`, `ARBITRUM_USDC`, `SOL_USDC`, `BASE_USDC`, `MATIC_USDC`, `BSC_USDC` - USDT: `TRON_USDT`, `ETH_USDT`, `ARBITRUM_USDT`, `SOL_USDT`, `BASE_USDT`, `MATIC_USDT`, `BSC_USDT` 
+ *  The ID of the cryptocurrency used for payment. Supported tokens:  - USDC: `ETH_USDC`, `ARBITRUM_USDCOIN`, `SOL_USDC`, `BASE_USDC`, `MATIC_USDC2`, `BSC_USDC` - USDT: `TRON_USDT`, `ETH_USDT`, `ARBITRUM_USDT`, `SOL_USDT`, `BASE_USDT`, `MATIC_USDT`, `BSC_USDT` 
  * @member {String} token_id
  */
 PaymentOrderEventData.prototype['token_id'] = undefined;
@@ -351,7 +351,7 @@ PaymentOrderEventData.prototype['settlement_status'] = undefined;
 
 // Implement WebhookEventDataType interface:
 /**
- *  The data type of the event. - `Transaction`: The transaction event data. - `TSSRequest`: The TSS request event data. - `Addresses`: The addresses event data. - `WalletInfo`: The wallet information event data. - `MPCVault`: The MPC vault event data. - `Chains`: The enabled chain event data. - `Tokens`: The enabled token event data. - `TokenListing`: The token listing event data.        - `PaymentOrder`: The payment order event data. - `PaymentRefund`: The payment refund event data. - `PaymentSettlement`: The payment settlement event data. - `BalanceUpdateInfo`: The balance update event data. - `SuspendedToken`: The token suspension event data.
+ *  The data type of the event. - `Transaction`: The transaction event data. - `TSSRequest`: The TSS request event data. - `Addresses`: The addresses event data. - `WalletInfo`: The wallet information event data. - `MPCVault`: The MPC vault event data. - `Chains`: The enabled chain event data. - `Tokens`: The enabled token event data. - `TokenListing`: The token listing event data.        - `PaymentOrder`: The payment order event data. - `PaymentRefund`: The payment refund event data. - `PaymentSettlement`: The payment settlement event data. - `PaymentTransaction`: The payment transaction event data. - `PaymentAddressUpdate`: The payment address update event data. - `BalanceUpdateInfo`: The balance update event data. - `SuspendedToken`: The token suspension event data.
  * @member {module:model/WebhookEventDataType.DataTypeEnum} data_type
  */
 WebhookEventDataType.prototype['data_type'] = undefined;
@@ -367,7 +367,7 @@ Order.prototype['order_id'] = undefined;
  */
 Order.prototype['merchant_id'] = undefined;
 /**
- *  The ID of the cryptocurrency used for payment. Supported tokens:  - USDC: `ETH_USDC`, `ARBITRUM_USDC`, `SOL_USDC`, `BASE_USDC`, `MATIC_USDC`, `BSC_USDC` - USDT: `TRON_USDT`, `ETH_USDT`, `ARBITRUM_USDT`, `SOL_USDT`, `BASE_USDT`, `MATIC_USDT`, `BSC_USDT` 
+ *  The ID of the cryptocurrency used for payment. Supported tokens:  - USDC: `ETH_USDC`, `ARBITRUM_USDCOIN`, `SOL_USDC`, `BASE_USDC`, `MATIC_USDC2`, `BSC_USDC` - USDT: `TRON_USDT`, `ETH_USDT`, `ARBITRUM_USDT`, `SOL_USDT`, `BASE_USDT`, `MATIC_USDT`, `BSC_USDT` 
  * @member {String} token_id
  */
 Order.prototype['token_id'] = undefined;
@@ -524,6 +524,18 @@ PaymentOrderEventData['DataTypeEnum'] = {
      * @const
      */
     "PaymentSettlement": "PaymentSettlement",
+
+    /**
+     * value: "PaymentTransaction"
+     * @const
+     */
+    "PaymentTransaction": "PaymentTransaction",
+
+    /**
+     * value: "PaymentAddressUpdate"
+     * @const
+     */
+    "PaymentAddressUpdate": "PaymentAddressUpdate",
 
     /**
      * value: "BalanceUpdateInfo"

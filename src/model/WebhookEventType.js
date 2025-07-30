@@ -242,6 +242,13 @@ export default class WebhookEventType {
 
     
         /**
+         * value: "payment.address.updated"
+         * @const
+         */
+        "payment.address.updated" = "payment.address.updated";
+
+    
+        /**
          * value: "unknown_default_open_api"
          * @const
          */

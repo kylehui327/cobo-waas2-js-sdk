@@ -119,7 +119,7 @@ class CreateSettlement {
 CreateSettlement.prototype['merchant_id'] = undefined;
 
 /**
- * The ID of the cryptocurrency you want to settle. Specify this field when `payout_channel` is set to `Crypto`. Supported values:  - USDC: `ETH_USDC`, `ARBITRUM_USDC`, `SOL_USDC`, `BASE_USDC`, `MATIC_USDC`, `BSC_USDC` - USDT: `TRON_USDT`, `ETH_USDT`, `ARBITRUM_USDT`, `SOL_USDT`, `BASE_USDT`, `MATIC_USDT`, `BSC_USDT` 
+ * The ID of the cryptocurrency you want to settle. Specify this field when `payout_channel` is set to `Crypto`. Supported values:  - USDC: `ETH_USDC`, `ARBITRUM_USDCOIN`, `SOL_USDC`, `BASE_USDC`, `MATIC_USDC2`, `BSC_USDC` - USDT: `TRON_USDT`, `ETH_USDT`, `ARBITRUM_USDT`, `SOL_USDT`, `BASE_USDT`, `MATIC_USDT`, `BSC_USDT` 
  * @member {String} token_id
  */
 CreateSettlement.prototype['token_id'] = undefined;

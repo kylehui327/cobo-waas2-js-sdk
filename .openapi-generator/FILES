@@ -204,6 +204,9 @@ docs/FeeStationTransactionType.md
 docs/FeeStationTransfer.md
 docs/FeeType.md
 docs/FixedFeeRate.md
+docs/ForcedSweep.md
+docs/ForcedSweepRequest.md
+docs/ForcedSweepStatus.md
 docs/GetApiKeyInfo200Response.md
 docs/GetExchangeRate200Response.md
 docs/GetMaxTransferableValueWithFeeModelRequest.md
@@ -237,6 +240,7 @@ docs/ListBabylonEligibleStakings200ResponseDataInner.md
 docs/ListBabylonStakingRegistrations200Response.md
 docs/ListCallbackMessages200Response.md
 docs/ListExchanges200ResponseInner.md
+docs/ListForcedSweepRequests200Response.md
 docs/ListKeyShareHolderGroups200Response.md
 docs/ListKeyShareHolders200Response.md
 docs/ListMerchants200Response.md
@@ -295,11 +299,13 @@ docs/OrgInfo.md
 docs/OrganizationsApi.md
 docs/Pagination.md
 docs/PayerAccount.md
+docs/PaymentAddressUpdateEventData.md
 docs/PaymentApi.md
 docs/PaymentOrderEventData.md
 docs/PaymentRefundEventData.md
 docs/PaymentSettlementEvent.md
 docs/PaymentTransaction.md
+docs/PaymentTransactionEventData.md
 docs/PayoutChannel.md
 docs/PolicyAction.md
 docs/PolicyActionContent.md
@@ -858,6 +864,9 @@ src/model/FeeStationTransactionType.js
 src/model/FeeStationTransfer.js
 src/model/FeeType.js
 src/model/FixedFeeRate.js
+src/model/ForcedSweep.js
+src/model/ForcedSweepRequest.js
+src/model/ForcedSweepStatus.js
 src/model/GetApiKeyInfo200Response.js
 src/model/GetExchangeRate200Response.js
 src/model/GetMaxTransferableValueWithFeeModelRequest.js
@@ -891,6 +900,7 @@ src/model/ListBabylonEligibleStakings200ResponseDataInner.js
 src/model/ListBabylonStakingRegistrations200Response.js
 src/model/ListCallbackMessages200Response.js
 src/model/ListExchanges200ResponseInner.js
+src/model/ListForcedSweepRequests200Response.js
 src/model/ListKeyShareHolderGroups200Response.js
 src/model/ListKeyShareHolders200Response.js
 src/model/ListMerchants200Response.js
@@ -947,10 +957,12 @@ src/model/OrderStatus.js
 src/model/OrgInfo.js
 src/model/Pagination.js
 src/model/PayerAccount.js
+src/model/PaymentAddressUpdateEventData.js
 src/model/PaymentOrderEventData.js
 src/model/PaymentRefundEventData.js
 src/model/PaymentSettlementEvent.js
 src/model/PaymentTransaction.js
+src/model/PaymentTransactionEventData.js
 src/model/PayoutChannel.js
 src/model/PolicyAction.js
 src/model/PolicyActionContent.js
@@ -1490,6 +1502,9 @@ test/model/FeeStationTransactionType.spec.js
 test/model/FeeStationTransfer.spec.js
 test/model/FeeType.spec.js
 test/model/FixedFeeRate.spec.js
+test/model/ForcedSweep.spec.js
+test/model/ForcedSweepRequest.spec.js
+test/model/ForcedSweepStatus.spec.js
 test/model/GetApiKeyInfo200Response.spec.js
 test/model/GetExchangeRate200Response.spec.js
 test/model/GetMaxTransferableValueWithFeeModelRequest.spec.js
@@ -1523,6 +1538,7 @@ test/model/ListBabylonEligibleStakings200ResponseDataInner.spec.js
 test/model/ListBabylonStakingRegistrations200Response.spec.js
 test/model/ListCallbackMessages200Response.spec.js
 test/model/ListExchanges200ResponseInner.spec.js
+test/model/ListForcedSweepRequests200Response.spec.js
 test/model/ListKeyShareHolderGroups200Response.spec.js
 test/model/ListKeyShareHolders200Response.spec.js
 test/model/ListMerchants200Response.spec.js
@@ -1579,10 +1595,12 @@ test/model/OrderStatus.spec.js
 test/model/OrgInfo.spec.js
 test/model/Pagination.spec.js
 test/model/PayerAccount.spec.js
+test/model/PaymentAddressUpdateEventData.spec.js
 test/model/PaymentOrderEventData.spec.js
 test/model/PaymentRefundEventData.spec.js
 test/model/PaymentSettlementEvent.spec.js
 test/model/PaymentTransaction.spec.js
+test/model/PaymentTransactionEventData.spec.js
 test/model/PayoutChannel.spec.js
 test/model/PolicyAction.spec.js
 test/model/PolicyActionContent.spec.js
