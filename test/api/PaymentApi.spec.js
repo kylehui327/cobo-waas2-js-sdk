@@ -276,6 +276,16 @@ import {ApiClient, Env} from "../../src/index.js";
         //});
       });
     });
+    describe('listSettlementDetails', function() {
+      it('should call listSettlementDetails successfully', function() {
+        //uncomment below and update the code to test listSettlementDetails
+        //instance.listSettlementDetails().then(function(data) {
+        //    console.log(data);
+        //}, function(error) {
+        //    console.error(error);
+        //});
+      });
+    });
     describe('listSettlementRequests', function() {
       it('should call listSettlementRequests successfully', function() {
         //uncomment below and update the code to test listSettlementRequests

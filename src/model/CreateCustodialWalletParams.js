@@ -62,6 +62,9 @@ class CreateCustodialWalletParams {
             if (data.hasOwnProperty('wallet_subtype')) {
                 obj['wallet_subtype'] = WalletSubtype.constructFromObject(data['wallet_subtype']);
             }
+            if (data.hasOwnProperty('enable_auto_sweep')) {
+                obj['enable_auto_sweep'] = ApiClient.convertToType(data['enable_auto_sweep'], 'Boolean');
+            }
         }
         return obj;
     }
@@ -106,6 +109,12 @@ CreateCustodialWalletParams.prototype['wallet_type'] = undefined;
  * @member {module:model/WalletSubtype} wallet_subtype
  */
 CreateCustodialWalletParams.prototype['wallet_subtype'] = undefined;
+
+/**
+ * Enable the auto sweep feature for the wallet. This parameter only applies to MPC and Web3 wallets.
+ * @member {Boolean} enable_auto_sweep
+ */
+CreateCustodialWalletParams.prototype['enable_auto_sweep'] = undefined;
 
 
 

@@ -148,6 +148,12 @@ CreateSmartContractWalletParams.prototype['wallet_type'] = undefined;
 CreateSmartContractWalletParams.prototype['wallet_subtype'] = undefined;
 
 /**
+ * Enable the auto sweep feature for the wallet. This parameter only applies to MPC and Web3 wallets.
+ * @member {Boolean} enable_auto_sweep
+ */
+CreateSmartContractWalletParams.prototype['enable_auto_sweep'] = undefined;
+
+/**
  * The ID of the chain that the wallet operates on.
  * @member {String} chain_id
  */

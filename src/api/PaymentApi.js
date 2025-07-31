@@ -31,6 +31,7 @@ import ListMerchantBalances200Response from '../model/ListMerchantBalances200Res
 import ListMerchants200Response from '../model/ListMerchants200Response';
 import ListPaymentOrders200Response from '../model/ListPaymentOrders200Response';
 import ListPaymentWalletBalances200Response from '../model/ListPaymentWalletBalances200Response';
+import ListSettlementDetails200Response from '../model/ListSettlementDetails200Response';
 import ListSettlementRequests200Response from '../model/ListSettlementRequests200Response';
 import ListTopUpPayerAccounts200Response from '../model/ListTopUpPayerAccounts200Response';
 import ListTopUpPayers200Response from '../model/ListTopUpPayers200Response';
@@ -679,6 +680,7 @@ export default class PaymentApi {
      * @param {String} [after] This parameter specifies an object ID as a starting point for pagination, retrieving data after the specified object relative to the current dataset.    Suppose the current data is ordered as Object A, Object B, and Object C. If you set `after` to the ID of Object A (`RqeEoTkgKG5rpzqYzg2Hd3szmPoj2cE7w5jWwShz3C1vyGSAk`), the response will include Object B and Object C.    **Notes**:   - If you set both `after` and `before`, an error will occur. - If you leave both `before` and `after` empty, the first page of data is returned. 
      * @param {String} [merchant_id] The merchant ID.
      * @param {String} [request_id] The request ID.
+     * @param {String} [statuses] A list of  statuses of order, refund or settle request.
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/GetRefunds200Response} and HTTP response
      */
     getRefundsWithHttpInfo(opts) {
@@ -695,7 +697,8 @@ export default class PaymentApi {
         'before': opts['before'],
         'after': opts['after'],
         'merchant_id': opts['merchant_id'],
-        'request_id': opts['request_id']
+        'request_id': opts['request_id'],
+        'statuses': opts['statuses']
       };
       let headerParams = {
       };
@@ -722,6 +725,7 @@ export default class PaymentApi {
      * @param {String} opts.after This parameter specifies an object ID as a starting point for pagination, retrieving data after the specified object relative to the current dataset.    Suppose the current data is ordered as Object A, Object B, and Object C. If you set `after` to the ID of Object A (`RqeEoTkgKG5rpzqYzg2Hd3szmPoj2cE7w5jWwShz3C1vyGSAk`), the response will include Object B and Object C.    **Notes**:   - If you set both `after` and `before`, an error will occur. - If you leave both `before` and `after` empty, the first page of data is returned. 
      * @param {String} opts.merchant_id The merchant ID.
      * @param {String} opts.request_id The request ID.
+     * @param {String} opts.statuses A list of  statuses of order, refund or settle request.
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/GetRefunds200Response}
      */
     getRefunds(opts) {
@@ -1192,6 +1196,7 @@ export default class PaymentApi {
      * @param {String} [after] This parameter specifies an object ID as a starting point for pagination, retrieving data after the specified object relative to the current dataset.    Suppose the current data is ordered as Object A, Object B, and Object C. If you set `after` to the ID of Object A (`RqeEoTkgKG5rpzqYzg2Hd3szmPoj2cE7w5jWwShz3C1vyGSAk`), the response will include Object B and Object C.    **Notes**:   - If you set both `after` and `before`, an error will occur. - If you leave both `before` and `after` empty, the first page of data is returned. 
      * @param {String} [merchant_id] The merchant ID.
      * @param {String} [psp_order_id] The PSP order ID.
+     * @param {String} [statuses] A list of  statuses of order, refund or settle request.
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/ListPaymentOrders200Response} and HTTP response
      */
     listPaymentOrdersWithHttpInfo(opts) {
@@ -1208,7 +1213,8 @@ export default class PaymentApi {
         'before': opts['before'],
         'after': opts['after'],
         'merchant_id': opts['merchant_id'],
-        'psp_order_id': opts['psp_order_id']
+        'psp_order_id': opts['psp_order_id'],
+        'statuses': opts['statuses']
       };
       let headerParams = {
       };
@@ -1235,6 +1241,7 @@ export default class PaymentApi {
      * @param {String} opts.after This parameter specifies an object ID as a starting point for pagination, retrieving data after the specified object relative to the current dataset.    Suppose the current data is ordered as Object A, Object B, and Object C. If you set `after` to the ID of Object A (`RqeEoTkgKG5rpzqYzg2Hd3szmPoj2cE7w5jWwShz3C1vyGSAk`), the response will include Object B and Object C.    **Notes**:   - If you set both `after` and `before`, an error will occur. - If you leave both `before` and `after` empty, the first page of data is returned. 
      * @param {String} opts.merchant_id The merchant ID.
      * @param {String} opts.psp_order_id The PSP order ID.
+     * @param {String} opts.statuses A list of  statuses of order, refund or settle request.
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/ListPaymentOrders200Response}
      */
     listPaymentOrders(opts) {
@@ -1340,6 +1347,68 @@ export default class PaymentApi {
      */
     listPaymentWalletBalances(token_id, opts) {
       return this.listPaymentWalletBalancesWithHttpInfo(token_id, opts)
+        .then(function(response_and_data) {
+          return response_and_data.data;
+        });
+    }
+
+
+    /**
+     * List all settlement details
+     * This operation retrieves the information of all settlement details. You can filter the result by merchant ID or status. 
+     * @param {Object} opts Optional parameters
+     * @param {Number} [limit = 10)] The maximum number of objects to return. For most operations, the value range is [1, 50].
+     * @param {String} [before] This parameter specifies an object ID as a starting point for pagination, retrieving data before the specified object relative to the current dataset.    Suppose the current data is ordered as Object A, Object B, and Object C.  If you set `before` to the ID of Object C (`RqeEoTkgKG5rpzqYzg2Hd3szmPoj2cE7w5jWwShz3C1vyGSAk`), the response will include Object B and Object A.    **Notes**:   - If you set both `after` and `before`, an error will occur. - If you leave both `before` and `after` empty, the first page of data is returned. - If you set it to `infinity`, the last page of data is returned. 
+     * @param {String} [after] This parameter specifies an object ID as a starting point for pagination, retrieving data after the specified object relative to the current dataset.    Suppose the current data is ordered as Object A, Object B, and Object C. If you set `after` to the ID of Object A (`RqeEoTkgKG5rpzqYzg2Hd3szmPoj2cE7w5jWwShz3C1vyGSAk`), the response will include Object B and Object C.    **Notes**:   - If you set both `after` and `before`, an error will occur. - If you leave both `before` and `after` empty, the first page of data is returned. 
+     * @param {String} [merchant_id] The merchant ID.
+     * @param {String} [statuses] A list of  statuses of order, refund or settle request.
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/ListSettlementDetails200Response} and HTTP response
+     */
+    listSettlementDetailsWithHttpInfo(opts) {
+      opts = opts || {};
+      let postBody = null;
+      if (postBody && postBody.toJSON) {
+          postBody = postBody.toJSON()
+      }
+
+      let pathParams = {
+      };
+      let queryParams = {
+        'limit': opts['limit'],
+        'before': opts['before'],
+        'after': opts['after'],
+        'merchant_id': opts['merchant_id'],
+        'statuses': opts['statuses']
+      };
+      let headerParams = {
+      };
+      let formParams = {
+      };
+
+      let authNames = ['OAuth2', 'CoboAuth'];
+      let contentTypes = [];
+      let accepts = ['application/json'];
+      let returnType = ListSettlementDetails200Response;
+      return this.apiClient.callApi(
+        '/payments/settlement_details', 'GET',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, null
+      );
+    }
+
+    /**
+     * List all settlement details
+     * This operation retrieves the information of all settlement details. You can filter the result by merchant ID or status. 
+     * @param {Object} opts Optional parameters
+     * @param {Number} opts.limit The maximum number of objects to return. For most operations, the value range is [1, 50]. (default to 10)
+     * @param {String} opts.before This parameter specifies an object ID as a starting point for pagination, retrieving data before the specified object relative to the current dataset.    Suppose the current data is ordered as Object A, Object B, and Object C.  If you set `before` to the ID of Object C (`RqeEoTkgKG5rpzqYzg2Hd3szmPoj2cE7w5jWwShz3C1vyGSAk`), the response will include Object B and Object A.    **Notes**:   - If you set both `after` and `before`, an error will occur. - If you leave both `before` and `after` empty, the first page of data is returned. - If you set it to `infinity`, the last page of data is returned. 
+     * @param {String} opts.after This parameter specifies an object ID as a starting point for pagination, retrieving data after the specified object relative to the current dataset.    Suppose the current data is ordered as Object A, Object B, and Object C. If you set `after` to the ID of Object A (`RqeEoTkgKG5rpzqYzg2Hd3szmPoj2cE7w5jWwShz3C1vyGSAk`), the response will include Object B and Object C.    **Notes**:   - If you set both `after` and `before`, an error will occur. - If you leave both `before` and `after` empty, the first page of data is returned. 
+     * @param {String} opts.merchant_id The merchant ID.
+     * @param {String} opts.statuses A list of  statuses of order, refund or settle request.
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/ListSettlementDetails200Response}
+     */
+    listSettlementDetails(opts) {
+      return this.listSettlementDetailsWithHttpInfo(opts)
         .then(function(response_and_data) {
           return response_and_data.data;
         });

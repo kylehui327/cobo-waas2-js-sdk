@@ -229,6 +229,12 @@ UpdateWalletParams.prototype['wallet_type'] = undefined;
  */
 UpdateWalletParams.prototype['name'] = undefined;
 
+/**
+ * Enable the auto sweep feature for the wallet
+ * @member {Boolean} enable_auto_sweep
+ */
+UpdateWalletParams.prototype['enable_auto_sweep'] = undefined;
+
 
 UpdateWalletParams.OneOf = ["UpdateCustodialWalletParams", "UpdateExchangeWalletParams", "UpdateMpcWalletParams", "UpdateSmartContractWalletParams"];
 

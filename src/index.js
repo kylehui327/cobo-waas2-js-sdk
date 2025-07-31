@@ -132,6 +132,7 @@ import CreateStakeActivity201Response from './model/CreateStakeActivity201Respon
 import CreateStakeActivityExtra from './model/CreateStakeActivityExtra';
 import CreateStakeActivityRequest from './model/CreateStakeActivityRequest';
 import CreateSwapActivityRequest from './model/CreateSwapActivityRequest';
+import CreateSweepToAddress from './model/CreateSweepToAddress';
 import CreateTokenListingRequest201Response from './model/CreateTokenListingRequest201Response';
 import CreateTokenListingRequestRequest from './model/CreateTokenListingRequestRequest';
 import CreateTransferTransaction201Response from './model/CreateTransferTransaction201Response';
@@ -257,6 +258,7 @@ import ListMpcProjects200Response from './model/ListMpcProjects200Response';
 import ListMpcVaults200Response from './model/ListMpcVaults200Response';
 import ListPaymentOrders200Response from './model/ListPaymentOrders200Response';
 import ListPaymentWalletBalances200Response from './model/ListPaymentWalletBalances200Response';
+import ListSettlementDetails200Response from './model/ListSettlementDetails200Response';
 import ListSettlementRequests200Response from './model/ListSettlementRequests200Response';
 import ListStakingActivities200Response from './model/ListStakingActivities200Response';
 import ListStakingPools200Response from './model/ListStakingPools200Response';
@@ -279,6 +281,7 @@ import ListTransactionApprovalDetails200Response from './model/ListTransactionAp
 import ListTransactions200Response from './model/ListTransactions200Response';
 import ListTssRequests200Response from './model/ListTssRequests200Response';
 import ListUtxos200Response from './model/ListUtxos200Response';
+import ListWalletSweepToAddresses200Response from './model/ListWalletSweepToAddresses200Response';
 import ListWallets200Response from './model/ListWallets200Response';
 import ListWebhookEndpoints200Response from './model/ListWebhookEndpoints200Response';
 import ListWebhookEventDefinitions200ResponseInner from './model/ListWebhookEventDefinitions200ResponseInner';
@@ -403,6 +406,8 @@ import SwapQuote from './model/SwapQuote';
 import SwapSingingStatus from './model/SwapSingingStatus';
 import SwapToken from './model/SwapToken';
 import SwapType from './model/SwapType';
+import SweepToAddress from './model/SweepToAddress';
+import SweepToAddressStatus from './model/SweepToAddressStatus';
 import TSSBaseRequestEventData from './model/TSSBaseRequestEventData';
 import TSSCallbackActionType from './model/TSSCallbackActionType';
 import TSSCallbackRequest from './model/TSSCallbackRequest';
@@ -655,6 +660,7 @@ import WebhookEventStatus from './model/WebhookEventStatus';
 import WebhookEventType from './model/WebhookEventType';
 import AddressBooksApi from './api/AddressBooksApi';
 import AppWorkflowsApi from './api/AppWorkflowsApi';
+import AutoSweepApi from './api/AutoSweepApi';
 import DevelopersApi from './api/DevelopersApi';
 import DevelopersWebhooksApi from './api/DevelopersWebhooksApi';
 import FeeStationApi from './api/FeeStationApi';
@@ -704,7 +710,7 @@ import WalletsSmartContractWalletsApi from './api/WalletsSmartContractWalletsApi
 * </pre>
 * </p>
 * @module index
-* @version 1.19.1
+* @version 1.20.0
 */
 export {
     Env,
@@ -1429,6 +1435,12 @@ export {
      * @property {module:model/CreateSwapActivityRequest}
      */
     CreateSwapActivityRequest,
+
+    /**
+     * The CreateSweepToAddress model constructor.
+     * @property {module:model/CreateSweepToAddress}
+     */
+    CreateSweepToAddress,
 
     /**
      * The CreateTokenListingRequest201Response model constructor.
@@ -2181,6 +2193,12 @@ export {
     ListPaymentWalletBalances200Response,
 
     /**
+     * The ListSettlementDetails200Response model constructor.
+     * @property {module:model/ListSettlementDetails200Response}
+     */
+    ListSettlementDetails200Response,
+
+    /**
      * The ListSettlementRequests200Response model constructor.
      * @property {module:model/ListSettlementRequests200Response}
      */
@@ -2311,6 +2329,12 @@ export {
      * @property {module:model/ListUtxos200Response}
      */
     ListUtxos200Response,
+
+    /**
+     * The ListWalletSweepToAddresses200Response model constructor.
+     * @property {module:model/ListWalletSweepToAddresses200Response}
+     */
+    ListWalletSweepToAddresses200Response,
 
     /**
      * The ListWallets200Response model constructor.
@@ -3055,6 +3079,18 @@ export {
      * @property {module:model/SwapType}
      */
     SwapType,
+
+    /**
+     * The SweepToAddress model constructor.
+     * @property {module:model/SweepToAddress}
+     */
+    SweepToAddress,
+
+    /**
+     * The SweepToAddressStatus model constructor.
+     * @property {module:model/SweepToAddressStatus}
+     */
+    SweepToAddressStatus,
 
     /**
      * The TSSBaseRequestEventData model constructor.
@@ -4567,6 +4603,12 @@ export {
     * @property {module:api/AppWorkflowsApi}
     */
     AppWorkflowsApi,
+
+    /**
+    * The AutoSweepApi service constructor.
+    * @property {module:api/AutoSweepApi}
+    */
+    AutoSweepApi,
 
     /**
     * The DevelopersApi service constructor.

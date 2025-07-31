@@ -46,6 +46,7 @@ docs/ApprovalUserDetail.md
 docs/AssetBalance.md
 docs/AssetInfo.md
 docs/AutoFuelType.md
+docs/AutoSweepApi.md
 docs/BTCBIP137MessageSignDestination.md
 docs/BTCBIP322MessageSignDestination.md
 docs/BTCEIP191MessageSignDestination.md
@@ -125,6 +126,7 @@ docs/CreateStakeActivity201Response.md
 docs/CreateStakeActivityExtra.md
 docs/CreateStakeActivityRequest.md
 docs/CreateSwapActivityRequest.md
+docs/CreateSweepToAddress.md
 docs/CreateTokenListingRequest201Response.md
 docs/CreateTokenListingRequestRequest.md
 docs/CreateTransferTransaction201Response.md
@@ -254,6 +256,7 @@ docs/ListMpcProjects200Response.md
 docs/ListMpcVaults200Response.md
 docs/ListPaymentOrders200Response.md
 docs/ListPaymentWalletBalances200Response.md
+docs/ListSettlementDetails200Response.md
 docs/ListSettlementRequests200Response.md
 docs/ListStakingActivities200Response.md
 docs/ListStakingPools200Response.md
@@ -276,6 +279,7 @@ docs/ListTransactionApprovalDetails200Response.md
 docs/ListTransactions200Response.md
 docs/ListTssRequests200Response.md
 docs/ListUtxos200Response.md
+docs/ListWalletSweepToAddresses200Response.md
 docs/ListWallets200Response.md
 docs/ListWebhookEndpoints200Response.md
 docs/ListWebhookEventDefinitions200ResponseInner.md
@@ -406,6 +410,8 @@ docs/SwapSingingStatus.md
 docs/SwapToken.md
 docs/SwapType.md
 docs/SwapsApi.md
+docs/SweepToAddress.md
+docs/SweepToAddressStatus.md
 docs/TSSBaseRequestEventData.md
 docs/TSSCallbackActionType.md
 docs/TSSCallbackRequest.md
@@ -672,6 +678,7 @@ src/PreRequestScript.js
 src/ServerDemo.js
 src/api/AddressBooksApi.js
 src/api/AppWorkflowsApi.js
+src/api/AutoSweepApi.js
 src/api/DevelopersApi.js
 src/api/DevelopersWebhooksApi.js
 src/api/FeeStationApi.js
@@ -812,6 +819,7 @@ src/model/CreateStakeActivity201Response.js
 src/model/CreateStakeActivityExtra.js
 src/model/CreateStakeActivityRequest.js
 src/model/CreateSwapActivityRequest.js
+src/model/CreateSweepToAddress.js
 src/model/CreateTokenListingRequest201Response.js
 src/model/CreateTokenListingRequestRequest.js
 src/model/CreateTransferTransaction201Response.js
@@ -937,6 +945,7 @@ src/model/ListMpcProjects200Response.js
 src/model/ListMpcVaults200Response.js
 src/model/ListPaymentOrders200Response.js
 src/model/ListPaymentWalletBalances200Response.js
+src/model/ListSettlementDetails200Response.js
 src/model/ListSettlementRequests200Response.js
 src/model/ListStakingActivities200Response.js
 src/model/ListStakingPools200Response.js
@@ -959,6 +968,7 @@ src/model/ListTransactionApprovalDetails200Response.js
 src/model/ListTransactions200Response.js
 src/model/ListTssRequests200Response.js
 src/model/ListUtxos200Response.js
+src/model/ListWalletSweepToAddresses200Response.js
 src/model/ListWallets200Response.js
 src/model/ListWebhookEndpoints200Response.js
 src/model/ListWebhookEventDefinitions200ResponseInner.js
@@ -1083,6 +1093,8 @@ src/model/SwapQuote.js
 src/model/SwapSingingStatus.js
 src/model/SwapToken.js
 src/model/SwapType.js
+src/model/SweepToAddress.js
+src/model/SweepToAddressStatus.js
 src/model/TSSBaseRequestEventData.js
 src/model/TSSCallbackActionType.js
 src/model/TSSCallbackRequest.js
@@ -1335,6 +1347,7 @@ src/model/WebhookEventStatus.js
 src/model/WebhookEventType.js
 test/api/AddressBooksApi.spec.js
 test/api/AppWorkflowsApi.spec.js
+test/api/AutoSweepApi.spec.js
 test/api/DevelopersApi.spec.js
 test/api/DevelopersWebhooksApi.spec.js
 test/api/FeeStationApi.spec.js
@@ -1471,6 +1484,7 @@ test/model/CreateStakeActivity201Response.spec.js
 test/model/CreateStakeActivityExtra.spec.js
 test/model/CreateStakeActivityRequest.spec.js
 test/model/CreateSwapActivityRequest.spec.js
+test/model/CreateSweepToAddress.spec.js
 test/model/CreateTokenListingRequest201Response.spec.js
 test/model/CreateTokenListingRequestRequest.spec.js
 test/model/CreateTransferTransaction201Response.spec.js
@@ -1596,6 +1610,7 @@ test/model/ListMpcProjects200Response.spec.js
 test/model/ListMpcVaults200Response.spec.js
 test/model/ListPaymentOrders200Response.spec.js
 test/model/ListPaymentWalletBalances200Response.spec.js
+test/model/ListSettlementDetails200Response.spec.js
 test/model/ListSettlementRequests200Response.spec.js
 test/model/ListStakingActivities200Response.spec.js
 test/model/ListStakingPools200Response.spec.js
@@ -1618,6 +1633,7 @@ test/model/ListTransactionApprovalDetails200Response.spec.js
 test/model/ListTransactions200Response.spec.js
 test/model/ListTssRequests200Response.spec.js
 test/model/ListUtxos200Response.spec.js
+test/model/ListWalletSweepToAddresses200Response.spec.js
 test/model/ListWallets200Response.spec.js
 test/model/ListWebhookEndpoints200Response.spec.js
 test/model/ListWebhookEventDefinitions200ResponseInner.spec.js
@@ -1742,6 +1758,8 @@ test/model/SwapQuote.spec.js
 test/model/SwapSingingStatus.spec.js
 test/model/SwapToken.spec.js
 test/model/SwapType.spec.js
+test/model/SweepToAddress.spec.js
+test/model/SweepToAddressStatus.spec.js
 test/model/TSSBaseRequestEventData.spec.js
 test/model/TSSCallbackActionType.spec.js
 test/model/TSSCallbackRequest.spec.js

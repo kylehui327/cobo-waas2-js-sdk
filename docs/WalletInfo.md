@@ -9,6 +9,7 @@ Name | Type | Description | Notes
 **wallet_subtype** | [**WalletSubtype**](WalletSubtype.md) |  | 
 **name** | **String** | The wallet name. | 
 **org_id** | **String** | The ID of the owning organization. | 
+**enable_auto_sweep** | **Boolean** | Enable the auto sweep feature for the wallet | [optional] 
 **project_id** | **String** | The project ID. | [optional] 
 **project_name** | **String** | The project name. | [optional] 
 **vault_id** | **String** | The ID of the owning vault. | 

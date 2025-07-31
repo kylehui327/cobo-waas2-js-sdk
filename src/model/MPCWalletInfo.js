@@ -76,6 +76,9 @@ class MPCWalletInfo {
             if (data.hasOwnProperty('org_id')) {
                 obj['org_id'] = ApiClient.convertToType(data['org_id'], 'String');
             }
+            if (data.hasOwnProperty('enable_auto_sweep')) {
+                obj['enable_auto_sweep'] = ApiClient.convertToType(data['enable_auto_sweep'], 'Boolean');
+            }
             if (data.hasOwnProperty('project_id')) {
                 obj['project_id'] = ApiClient.convertToType(data['project_id'], 'String');
             }
@@ -170,6 +173,12 @@ MPCWalletInfo.prototype['name'] = undefined;
 MPCWalletInfo.prototype['org_id'] = undefined;
 
 /**
+ * Enable the auto sweep feature for the wallet
+ * @member {Boolean} enable_auto_sweep
+ */
+MPCWalletInfo.prototype['enable_auto_sweep'] = undefined;
+
+/**
  * The project ID.
  * @member {String} project_id
  */
@@ -218,6 +227,11 @@ CustodialWalletInfo.prototype['name'] = undefined;
  * @member {String} org_id
  */
 CustodialWalletInfo.prototype['org_id'] = undefined;
+/**
+ * Enable the auto sweep feature for the wallet
+ * @member {Boolean} enable_auto_sweep
+ */
+CustodialWalletInfo.prototype['enable_auto_sweep'] = undefined;
 
 
 

@@ -160,6 +160,12 @@ SmartContractWalletInfo.prototype['name'] = undefined;
 SmartContractWalletInfo.prototype['org_id'] = undefined;
 
 /**
+ * Enable the auto sweep feature for the wallet
+ * @member {Boolean} enable_auto_sweep
+ */
+SmartContractWalletInfo.prototype['enable_auto_sweep'] = undefined;
+
+/**
  * The ID of the chain on which the wallet operates.
  * @member {String} chain_id
  */

@@ -75,6 +75,9 @@ class SafeWallet {
             if (data.hasOwnProperty('org_id')) {
                 obj['org_id'] = ApiClient.convertToType(data['org_id'], 'String');
             }
+            if (data.hasOwnProperty('enable_auto_sweep')) {
+                obj['enable_auto_sweep'] = ApiClient.convertToType(data['enable_auto_sweep'], 'Boolean');
+            }
             if (data.hasOwnProperty('chain_id')) {
                 obj['chain_id'] = ApiClient.convertToType(data['chain_id'], 'String');
             }
@@ -182,6 +185,12 @@ SafeWallet.prototype['name'] = undefined;
  * @member {String} org_id
  */
 SafeWallet.prototype['org_id'] = undefined;
+
+/**
+ * Enable the auto sweep feature for the wallet
+ * @member {Boolean} enable_auto_sweep
+ */
+SafeWallet.prototype['enable_auto_sweep'] = undefined;
 
 /**
  * The ID of the chain on which the wallet operates.
