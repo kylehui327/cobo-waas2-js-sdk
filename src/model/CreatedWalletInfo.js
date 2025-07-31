@@ -219,6 +219,12 @@ CreatedWalletInfo.prototype['name'] = undefined;
 CreatedWalletInfo.prototype['org_id'] = undefined;
 
 /**
+ * Enable the auto sweep feature for the wallet
+ * @member {Boolean} enable_auto_sweep
+ */
+CreatedWalletInfo.prototype['enable_auto_sweep'] = undefined;
+
+/**
  * The project ID.
  * @member {String} project_id
  */

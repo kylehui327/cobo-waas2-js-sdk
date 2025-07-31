@@ -56,6 +56,9 @@ class UpdateCustodialWalletParams {
             if (data.hasOwnProperty('name')) {
                 obj['name'] = ApiClient.convertToType(data['name'], 'String');
             }
+            if (data.hasOwnProperty('enable_auto_sweep')) {
+                obj['enable_auto_sweep'] = ApiClient.convertToType(data['enable_auto_sweep'], 'Boolean');
+            }
         }
         return obj;
     }
@@ -95,6 +98,12 @@ UpdateCustodialWalletParams.prototype['wallet_type'] = undefined;
  * @member {String} name
  */
 UpdateCustodialWalletParams.prototype['name'] = undefined;
+
+/**
+ * Enable the auto sweep feature for the wallet
+ * @member {Boolean} enable_auto_sweep
+ */
+UpdateCustodialWalletParams.prototype['enable_auto_sweep'] = undefined;
 
 
 

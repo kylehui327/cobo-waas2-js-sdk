@@ -207,6 +207,12 @@ CreateWalletParams.prototype['wallet_type'] = undefined;
 CreateWalletParams.prototype['wallet_subtype'] = undefined;
 
 /**
+ * Enable the auto sweep feature for the wallet. This parameter only applies to MPC and Web3 wallets.
+ * @member {Boolean} enable_auto_sweep
+ */
+CreateWalletParams.prototype['enable_auto_sweep'] = undefined;
+
+/**
  * The ID of the owning vault. You can call [List all vaults](https://www.cobo.com/developers/v2/api-references/wallets--mpc-wallets/list-all-vaults) to retrieve all vault IDs under your organization.
  * @member {String} vault_id
  */

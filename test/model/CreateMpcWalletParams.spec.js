@@ -70,6 +70,12 @@
       //expect(instance).to.be();
     });
 
+    it('should have the property enable_auto_sweep (base name: "enable_auto_sweep")', function() {
+      // uncomment below and update the code to test the property enable_auto_sweep
+      //var instance = new CoboWaas2.CreateMpcWalletParams();
+      //expect(instance).to.be();
+    });
+
     it('should have the property vault_id (base name: "vault_id")', function() {
       // uncomment below and update the code to test the property vault_id
       //var instance = new CoboWaas2.CreateMpcWalletParams();

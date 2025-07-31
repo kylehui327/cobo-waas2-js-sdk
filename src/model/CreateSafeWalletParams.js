@@ -67,6 +67,9 @@ class CreateSafeWalletParams {
             if (data.hasOwnProperty('wallet_subtype')) {
                 obj['wallet_subtype'] = WalletSubtype.constructFromObject(data['wallet_subtype']);
             }
+            if (data.hasOwnProperty('enable_auto_sweep')) {
+                obj['enable_auto_sweep'] = ApiClient.convertToType(data['enable_auto_sweep'], 'Boolean');
+            }
             if (data.hasOwnProperty('chain_id')) {
                 obj['chain_id'] = ApiClient.convertToType(data['chain_id'], 'String');
             }
@@ -154,6 +157,12 @@ CreateSafeWalletParams.prototype['wallet_type'] = undefined;
  * @member {module:model/WalletSubtype} wallet_subtype
  */
 CreateSafeWalletParams.prototype['wallet_subtype'] = undefined;
+
+/**
+ * Enable the auto sweep feature for the wallet. This parameter only applies to MPC and Web3 wallets.
+ * @member {Boolean} enable_auto_sweep
+ */
+CreateSafeWalletParams.prototype['enable_auto_sweep'] = undefined;
 
 /**
  * The ID of the chain that the wallet operates on.

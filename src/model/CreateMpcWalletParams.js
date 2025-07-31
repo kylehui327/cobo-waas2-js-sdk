@@ -66,6 +66,9 @@ class CreateMpcWalletParams {
             if (data.hasOwnProperty('wallet_subtype')) {
                 obj['wallet_subtype'] = WalletSubtype.constructFromObject(data['wallet_subtype']);
             }
+            if (data.hasOwnProperty('enable_auto_sweep')) {
+                obj['enable_auto_sweep'] = ApiClient.convertToType(data['enable_auto_sweep'], 'Boolean');
+            }
             if (data.hasOwnProperty('vault_id')) {
                 obj['vault_id'] = ApiClient.convertToType(data['vault_id'], 'String');
             }
@@ -119,6 +122,12 @@ CreateMpcWalletParams.prototype['wallet_type'] = undefined;
 CreateMpcWalletParams.prototype['wallet_subtype'] = undefined;
 
 /**
+ * Enable the auto sweep feature for the wallet. This parameter only applies to MPC and Web3 wallets.
+ * @member {Boolean} enable_auto_sweep
+ */
+CreateMpcWalletParams.prototype['enable_auto_sweep'] = undefined;
+
+/**
  * The ID of the owning vault. You can call [List all vaults](https://www.cobo.com/developers/v2/api-references/wallets--mpc-wallets/list-all-vaults) to retrieve all vault IDs under your organization.
  * @member {String} vault_id
  */
@@ -139,6 +148,11 @@ CreateCustodialWalletParams.prototype['wallet_type'] = undefined;
  * @member {module:model/WalletSubtype} wallet_subtype
  */
 CreateCustodialWalletParams.prototype['wallet_subtype'] = undefined;
+/**
+ * Enable the auto sweep feature for the wallet. This parameter only applies to MPC and Web3 wallets.
+ * @member {Boolean} enable_auto_sweep
+ */
+CreateCustodialWalletParams.prototype['enable_auto_sweep'] = undefined;
 
 
 
