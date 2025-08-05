@@ -4523,3 +4523,9 @@ export {
     */
     WalletsSmartContractWalletsApi
 };
+
+module.exports = {
+  Configuration: require('./configuration'),
+  PaymentApi: require('./payment-api'),
+  // You can add more exports later as needed (e.g., WalletApi, etc.)
+};
