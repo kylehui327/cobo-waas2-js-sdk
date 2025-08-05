@@ -2,7 +2,7 @@ name: Build and Commit SDK
 
 on:
   push:
-    branches: [main]  # or whatever your branch is called
+    branches: [master]  # or whatever your branch is called
 
 jobs:
   build:
